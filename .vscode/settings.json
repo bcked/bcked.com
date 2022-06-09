@@ -1,0 +1,26 @@
+{
+	"editor.formatOnSave": true,
+	"[svelte]": {
+		"editor.defaultFormatter": "svelte.svelte-vscode"
+	},
+	"svelte.enable-ts-plugin": true,
+	"svelte.plugin.svelte.defaultScriptLanguage": "ts",
+	"svelte.plugin.svelte.format.config.printWidth": 120,
+	"svelte.plugin.svelte.format.config.svelteSortOrder": "options-scripts-markup-styles",
+	"svelte.plugin.svelte.format.config.svelteStrictMode": true,
+	"svelte.plugin.svelte.format.enable": true,
+	"svelte.plugin.typescript.enable": true,
+	"files.exclude": {
+		"**/node_modules": true,
+		"**/.svelte-kit": true,
+		"**/build": true
+	},
+	"files.associations": { "*.css": "tailwindcss" },
+	"editor.quickSuggestions": {
+		"strings": true
+	},
+	"yaml.schemas": {
+		"file:///c%3A/Users/spenh/.vscode/extensions/atlassian.atlascode-2.10.12/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml",
+		"https://json.schemastore.org/github-workflow.json": "file:///home/spe/svelte-gh-pages-quickstart/.github/workflows/deploy.yml"
+	}
+}
