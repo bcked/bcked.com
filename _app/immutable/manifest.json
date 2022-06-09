@@ -1,6 +1,6 @@
 {
   ".svelte-kit/runtime/client/start.js": {
-    "file": "start-cff5dd50.js",
+    "file": "start-080e4c1f.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
@@ -12,7 +12,7 @@
       "src/routes/__error.svelte",
       "src/routes/token/__error.svelte",
       "src/routes/index.svelte",
-      "src/routes/token/[...unknown].svelte",
+      "src/routes/token/[...nomatch].svelte",
       "src/routes/token/[address=address].svelte"
     ]
   },
@@ -39,7 +39,7 @@
     ]
   },
   "src/routes/token/__error.svelte": {
-    "file": "pages/token/__error.svelte-50a7de6e.js",
+    "file": "pages/token/__error.svelte-00de5a57.js",
     "src": "src/routes/token/__error.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -57,9 +57,9 @@
       "_index-c9c51329.js"
     ]
   },
-  "src/routes/token/[...unknown].svelte": {
-    "file": "pages/token/_...unknown_.svelte-764531af.js",
-    "src": "src/routes/token/[...unknown].svelte",
+  "src/routes/token/[...nomatch].svelte": {
+    "file": "pages/token/_...nomatch_.svelte-d84d6c80.js",
+    "src": "src/routes/token/[...nomatch].svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
