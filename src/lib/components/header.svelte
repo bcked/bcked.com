@@ -1,4 +1,5 @@
 <script>
+	import { base } from '$app/paths';
 	import {
 		Disclosure,
 		DisclosurePanel,
@@ -15,7 +16,11 @@
 		{ name: 'Dashboard', href: '#', current: true },
 		{ name: 'Team', href: '#', current: false },
 		{ name: 'Projects', href: '#', current: false },
-		{ name: 'Calendar', href: '#', current: false }
+		{
+			name: 'Test Token Page',
+			href: `${base}/token/0xe9e7cea3dedca5984780bafc599bd69add087d56`,
+			current: false
+		}
 	];
 
 	/** @param {any[]} classes */

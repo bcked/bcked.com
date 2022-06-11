@@ -1,91 +1,42 @@
 <p align="center">
-  <a href="https://github.com/Spenhouet/svelte-gh-pages-quickstart/actions/workflows/deploy.yml"><img src="https://github.com/Spenhouet/svelte-gh-pages-quickstart/actions/workflows/deploy.yml/badge.svg" alt="Build Status"></a><a href="https://github.com/Spenhouet/svelte-gh-pages-quickstart/actions/workflows/pages/pages-build-deployment"><img src="https://github.com/Spenhouet/svelte-gh-pages-quickstart/actions/workflows/pages/pages-build-deployment/badge.svg" alt="Deploy Status"></a>
+  <a href="https://github.com/Spenhouet/backed/actions/workflows/deploy.yml"><img src="https://github.com/Spenhouet/backed/actions/workflows/deploy.yml/badge.svg" alt="Build Status"></a><a href="https://github.com/Spenhouet/backed/actions/workflows/pages/pages-build-deployment"><img src="https://github.com/Spenhouet/backed/actions/workflows/pages/pages-build-deployment/badge.svg" alt="Deploy Status"></a>
 </p>
 
-<p align="center">Template for Svelte with GitHub pages.</p>
+<p align="center">Backed visualizes backing of crypto currencies.</p>
 
-<p align="center"><em>Check the result of this basic version out at <a href="https://spenhouet.com/svelte-gh-pages-quickstart/">spenhouet.com/svelte-gh-pages-quickstart</a>.</em></p>
-
-Quickstart project to develop and deploy a static Svelte page to GitHub pages.
+<p align="center"><em>Check it out at <a href="https://spenhouet.com/backed/">spenhouet.com/backed</a>.</em></p>
 
 ## Features
 
-* Static page builds
-* GitHub pages support
-* Playwright for e2e testing
-* Tailwind for styling
-* Headless UI for basic UI components
-* PostCSS support
-* Typed Javascript
+TBD
 
-## How do I get set up?
+## Risk and Liability
 
-### Install nvm
+By no means should the provided data be used to make financial decisions.
+The shown data can be wrong, biased, or simply outdated.
 
-For the package management, we need to install Node. To install a specific version of Node, we will first install the [Node Version Management (nvm)](https://github.com/nvm-sh/nvm).
+## Contribution
 
-Download and install nvm:
+Any contribution is welcome.
 
-```shell
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-```
+To avoid reliance on third party services, this project will require community support to extend and maintain the list of tracked token backings.
 
-Reload the .bashrc:
+For the most part this only requires adding or updating data files.
 
-```shell
-source ~/.bashrc
-```
+If you want to contribute on the functionality of the webpage itself, you can fork the repository and propose changes through pull requests. The webpage is build using Jekyll and development is supported by the official Jekyll Docker container image.
 
-### Install Node
-
-You should now be able to list all available Node versions like this (``--lts`` for versions with long term support):
-
-```shell
-nvm list-remote --lts
-```
-
-You can find some information about the major versions and their long term support on the [release page of Node.js](https://nodejs.org/en/about/releases/).
-
-You can install the latest v16 version with long term support with this command:
-
-```shell
-nvm install v16 --lts
-```
-
-Switch to the project folder and install the dependencies.
-
-```shell
-cd portal
-npm install
-```
-
-## How to locally serve the page?
-
-To see if everything is working you can start it up like that.
-
-```shell
-npm run dev -- --open
-```
-
-If everything worked correct, your browser should open `http://localhost:3000/`.
-
-You can also use the VS code launch configuration `Debug Svelte App` via `F5` to debug the application.
-
-## How do I run tests?
-
-Execute:
-
-```shell
-npm test
-```
-
-## Building
-
-To create a production version of your app:
+For local development, Jekyll can be run in server mode inside the container. It will watch for changes, rebuild the site, and provide access through its included web server. You can then check the results of changes by reloading http://localhost:4000/ in a browser.
 
 ```bash
-npm run build
+docker run --rm --volume="$PWD:/srv/jekyll:Z" -p 4000:4000 jekyll/jekyll:4.2.2 jekyll serve
 ```
 
-You can preview the production build with `npm run preview`.
-Note: Because of absolute path resolution of assets, the static page does not work on local execution.
+If you provide a ``Gemfile`` and would like to update your ``Gemfile.lock`` you can run
+
+```bash
+docker run --rm --volume="$PWD:/srv/jekyll:Z" -it jekyll/jekyll:4.2.2 bundle update
+```
+
+## License
+
+This tool is an open source community project released under the [GNU General Public License, Version 3](LICENSE).

@@ -6,15 +6,13 @@ const dev = process.env.NODE_ENV === 'development';
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	kit: {
-		// paths: { assets: ".", base: "" },
 		paths: {
-			base: dev ? '' : '/svelte-gh-pages-quickstart',
+			base: dev ? '' : '/backed',
 		},
 		adapter: adapter({
 			pages: 'build',
 			assets: 'build',
-			path: { base: "", base: "" },
-			fallback: null,
+			fallback: '404.html',
 			precompress: false
 		}),
 
@@ -29,7 +27,8 @@ const config = {
 		},
 
 		prerender: {
-			default: true
+			default: true,
+			entries: ['*', '/token/0xe9e7cea3dedca5984780bafc599bd69add087d56'],
 		},
 	},
 
