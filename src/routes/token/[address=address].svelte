@@ -11,7 +11,7 @@
 <p>{$page.params.address}</p>
 
 <div class="flex justify-center">
-	<div class="w-5/6 h-96 -z-10">
+	<div class="w-5/6 h-96">
 		<LayerCake {data}>
 			<Svg>
 				<Sankey
