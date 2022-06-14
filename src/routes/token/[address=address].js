@@ -1,5 +1,8 @@
+import fs from 'fs';
+
 /** @type {import('./__types/[address=address]').RequestHandler} */
 export async function get({ params }) {
+    // const markdown = fs.readFileSync(`content/${params.slug}.md`, 'utf-8');
 
     // `params.address` comes from [address].js
     // const item = await db.get(params.address);

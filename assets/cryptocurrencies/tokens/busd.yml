@@ -1,5 +1,5 @@
-symbol: BNB
-name: BNB
+symbol: BUSD
+name: BUSD
 description: ~
 homepage: https://www.binance.com/en/busd
 docs: ~
@@ -29,7 +29,7 @@ supply:
   updated: 2022-04-29
 backing:
   assets:
-    - usd: 17651702084.31
+    usd: 17651702084.31
   quote: "Paxos Trust Company has engaged Withum, a nationally top-ranking auditing firm, to independently verify at specific points in time that the entire supply of Binance USD (BUSD) tokens is consistent with USD in reserve accounts at U.S. banks held and managed by Paxos."
   source: https://paxos.com/attestations/
   updated: 2022-04-29

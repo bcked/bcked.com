@@ -28,7 +28,7 @@ const config = {
 
 		prerender: {
 			default: true,
-			entries: ['*', '/token/0xe9e7cea3dedca5984780bafc599bd69add087d56'],
+			entries: ['*', '/token/0xe9e7cea3dedca5984780bafc599bd69add087d56', '/assets/lily-pad', '/assets/busd', '/assets/paxg'],
 		},
 	},
 
