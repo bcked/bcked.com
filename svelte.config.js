@@ -1,7 +1,12 @@
 import preprocess from 'svelte-preprocess';
 import adapter from '@sveltejs/adapter-static';
+import fs from 'fs';
+import path from 'path'
 
 const dev = process.env.NODE_ENV === 'development';
+
+const assets = fs.readdirSync('./assets').map((file) => `/assets/${path.basename(file, '.yml')}`)
+console.log(assets)
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -28,7 +33,7 @@ const config = {
 
 		prerender: {
 			default: true,
-			entries: ['*', '/token/0xe9e7cea3dedca5984780bafc599bd69add087d56', '/assets/lily-pad', '/assets/busd', '/assets/paxg'],
+			entries: ['*', '/token/0xe9e7cea3dedca5984780bafc599bd69add087d56', ...assets],
 		},
 	},
 
