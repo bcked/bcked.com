@@ -1,20 +1,7 @@
 import fs from 'fs';
 import { parse } from 'yaml';
 
-/** 
- * @param {string} id 
- * @returns Object[]
- * **/
-async function loadAssetData(id) {
-    const filePath = `./assets/${id}.yml`
-    if (!fs.existsSync(filePath)) {
-        return undefined
-    }
-
-    const tokenData = parse(fs.readFileSync(filePath, 'utf-8'));
-
-    return tokenData
-}
+const assets = parse(fs.readFileSync(`./_generated/assets.yml`, 'utf-8'));
 
 /** 
  * @param {Object} backedAsset 
@@ -36,13 +23,13 @@ async function buildAssetData(backedAsset, assetValue, id) {
     if (!backedAsset.backing.assets) {
         return { nodes, links: [] }
     }
-    const assets = Object.entries(backedAsset.backing.assets).filter(([key, value]) => key != id);
+    const backedAssets = Object.entries(backedAsset.backing.assets).filter(([key, value]) => key != id);
 
     /** @type {Object[]} */
     let links = [];
 
-    for (const [key, value] of assets) {
-        const backedSubAsset = await loadAssetData(key);
+    for (const [key, value] of backedAssets) {
+        const backedSubAsset = assets[key]
         const usdBacking = value * backedSubAsset.price.usd
         const backingData = await buildAssetData(backedSubAsset, usdBacking, key);
         nodes = [...nodes, ...backingData.nodes];
@@ -50,14 +37,13 @@ async function buildAssetData(backedAsset, assetValue, id) {
     }
 
     const data = { nodes, links }
-    console.log(data)
     return data
 }
 
 
 /** @type {import('./__types/[id]').RequestHandler} */
 export async function get({ params }) {
-    const backedAsset = await loadAssetData(params.id)
+    const backedAsset = assets[params.id]
     const data = await buildAssetData(backedAsset, backedAsset.price.usd * backedAsset.supply.circulating, params.id)
 
     if (data) {

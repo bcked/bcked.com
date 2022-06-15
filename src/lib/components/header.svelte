@@ -10,7 +10,7 @@
 		{ name: 'Test Assets Page', href: `${base}/assets/lily-pad`, current: false },
 		{
 			name: 'Test Token Page',
-			href: `${base}/token/0xe9e7cea3dedca5984780bafc599bd69add087d56`,
+			href: `${base}/token/0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56`,
 			current: false
 		}
 	];
