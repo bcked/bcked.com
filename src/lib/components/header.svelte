@@ -13,9 +13,9 @@
 	import { BellIcon, MenuIcon, XIcon } from '@rgossiaux/svelte-heroicons/solid';
 
 	const navigation = [
-		{ name: 'Dashboard', href: '#', current: true },
-		{ name: 'Team', href: '#', current: false },
-		{ name: 'Projects', href: '#', current: false },
+		{ name: 'Dashboard', href: `${base}/`, current: true },
+		{ name: 'Team', href: `${base}/`, current: false },
+		{ name: 'Test Assets Page', href: `${base}/assets/lily-pad`, current: false },
 		{
 			name: 'Test Token Page',
 			href: `${base}/token/0xe9e7cea3dedca5984780bafc599bd69add087d56`,

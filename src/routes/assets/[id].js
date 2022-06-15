@@ -6,7 +6,7 @@ import { parse } from 'yaml';
  * @returns Object[]
  * **/
 async function loadAssetData(id) {
-    const filePath = `./assets/cryptocurrencies/tokens/${id}.yml`
+    const filePath = `./assets/${id}.yml`
     if (!fs.existsSync(filePath)) {
         return undefined
     }
