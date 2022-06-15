@@ -1,1 +1,5 @@
-<h1>404 Page</h1>
+<script>
+	import Error from '$lib/components/404.svelte';
+</script>
+
+<Error />
