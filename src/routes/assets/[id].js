@@ -14,26 +14,34 @@ const assets = parse(fs.readFileSync(`./_generated/assets.yml`, 'utf-8'));
  * **/
 async function buildAssetData(backedAsset, assetValue, id) {
     if (!backedAsset) {
-        return { nodes: [{ id }], links: [] }
+        return { nodes: [{ id }], links: [{ source: id, target: "unbacked", value: assetValue }] }
     }
 
     /** @type {Object[]} */
-    let nodes = [{ id, name: backedAsset.name }];
+    let nodes = [{ id, name: backedAsset.name }, { id: "unbacked" }];
 
     if (!backedAsset.backing.assets) {
-        return { nodes, links: [] }
+        return { nodes, links: [{ source: id, target: "unbacked", value: assetValue }] }
     }
-    const backedAssets = Object.entries(backedAsset.backing.assets).filter(([key, value]) => key != id);
+    const backedAssets = Object.entries(backedAsset.backing.assets)
+        .filter(([key, value]) => key != id)
+        .map(([key, value]) => [key, value, value * assets[key].price.usd, assets[key]]);
+
+    const totalBackingUsd = backedAssets.reduce((partialSum, [key, value, backingUsd]) => partialSum + backingUsd, 0);
+    const unbacked = totalBackingUsd > assetValue ? 0 : assetValue - totalBackingUsd
 
     /** @type {Object[]} */
-    let links = [];
+    let links = unbacked > 0 ? [{ source: id, target: "unbacked", value: unbacked }] : [];
 
-    for (const [key, value] of backedAssets) {
-        const backedSubAsset = assets[key]
-        const usdBacking = value * backedSubAsset.price.usd
-        const backingData = await buildAssetData(backedSubAsset, usdBacking, key);
+    for (const [key, value, backingUsd, backedSubAsset] of backedAssets) {
+        const cappedBackingUsd = backingUsd > assetValue ? assetValue : backingUsd
+        const backingData = await buildAssetData(backedSubAsset, cappedBackingUsd, key);
         nodes = [...nodes, ...backingData.nodes];
-        links = [...links, { source: id, target: key, value: usdBacking > assetValue ? assetValue : usdBacking }, ...backingData.links];
+        links = [
+            ...links,
+            { source: id, target: key, value: cappedBackingUsd },
+            ...backingData.links
+        ];
     }
 
     const data = { nodes, links }
@@ -44,7 +52,21 @@ async function buildAssetData(backedAsset, assetValue, id) {
 /** @type {import('./__types/[id]').RequestHandler} */
 export async function get({ params }) {
     const backedAsset = assets[params.id]
-    const data = await buildAssetData(backedAsset, backedAsset.price.usd * backedAsset.supply.circulating, params.id)
+    const { nodes, links } = await buildAssetData(backedAsset, backedAsset.price.usd * backedAsset.supply.circulating, params.id)
+
+    let reduced_links = []
+    for (const link of links) {
+        const existing_link = reduced_links.find((l) => l.source == link.source && l.target == link.target)
+        if (existing_link) {
+            existing_link.value += link.value
+        } else {
+            reduced_links = [...reduced_links, link]
+        }
+    }
+
+    const data = { nodes, links: reduced_links }
+
+    console.log(data)
 
     if (data) {
         return {

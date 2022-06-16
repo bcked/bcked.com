@@ -4,11 +4,17 @@ import { base } from '$app/paths';
 
 /** @type {import('./__types/[address]').RequestHandler} */
 export async function get({ params }) {
-    const tokenAssetMapping = parse(fs.readFileSync(`./_generated/tokens.yml`, 'utf-8'));
+    const data = parse(fs.readFileSync(`./_generated/tokens.yml`, 'utf-8'));
 
-    if (params.address in tokenAssetMapping) {
+    // if (data) {
+    //     return {
+    //         body: { data }
+    //     };
+    // }
+
+    if (params.address in data) {
         return {
-            headers: { location: `${base}/assets/${tokenAssetMapping[params.address]}` },
+            headers: { location: `${base}/assets/${data[params.address]}` },
             status: 302,
         };
     }
