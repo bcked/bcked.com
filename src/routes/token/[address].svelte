@@ -2,8 +2,8 @@
 	// import { base } from '$app/paths';
 
 	// populated with data from the endpoint
-	export /** @type {any} */
-	let data;
+	/** @type {any} */
+	export let data;
 
 	// export async function load({ params }) {
 	// 	return {

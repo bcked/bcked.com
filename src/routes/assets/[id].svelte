@@ -4,8 +4,8 @@
 	import Sankey from '$lib/components/sankey.svelte';
 
 	// populated with data from the endpoint
-	export /** @type {any} */
-	let data;
+	/** @type {any} */
+	export let data;
 </script>
 
 <div class="bg-white overflow-hidden shadow rounded-lg divide-y divide-gray-200 my-10">
