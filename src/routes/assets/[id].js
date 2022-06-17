@@ -54,6 +54,15 @@ export async function get({ params }) {
     const backedAsset = assets[params.id]
     const { nodes, links } = await buildAssetData(backedAsset, backedAsset.price.usd * backedAsset.supply.circulating, params.id)
 
+    let reduced_nodes = []
+    for (const node of nodes) {
+        const existing_node = reduced_nodes.find((n) => n.id == node.id)
+        if (!existing_node) {
+            reduced_nodes = [...reduced_nodes, node]
+        } else {
+        }
+    }
+
     let reduced_links = []
     for (const link of links) {
         const existing_link = reduced_links.find((l) => l.source == link.source && l.target == link.target)
@@ -64,7 +73,7 @@ export async function get({ params }) {
         }
     }
 
-    const data = { nodes, links: reduced_links }
+    const data = { nodes: reduced_nodes, links: reduced_links }
 
     console.log(data)
 
