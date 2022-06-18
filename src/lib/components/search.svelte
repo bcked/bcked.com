@@ -3,14 +3,11 @@
 	import { Listbox, ListboxOptions, ListboxOption } from '@rgossiaux/svelte-headlessui';
 	import { SearchIcon } from '@rgossiaux/svelte-heroicons/solid';
 	import { EmojiSadIcon } from '@rgossiaux/svelte-heroicons/outline';
+
 	// import fs from 'fs';
 	// import { parse } from 'yaml';
 
 	// const assets = parse(fs.readFileSync(`./_generated/assets.yml`, 'utf-8'));
-
-	// populated with data from the endpoint
-	// /** @type {any} */
-	// export let items;
 
 	// let items = Object.entries(assets).map(([id, asset]) => ({
 	// 	id,
@@ -18,13 +15,17 @@
 	// 	category: 'Clients'
 	// }));
 
-	const items = [
-		{ id: 'lily-pad', name: 'Lily Pad', category: 'Clients' }
-		// More items...
-	];
+	// populated with data from the endpoint
+	/** @type {any} */
+	export let data;
+
+	// const data = [
+	// 	{ id: 'lily-pad', name: 'Lily Pad', category: 'Clients' }
+	// 	// More items...
+	// ];
 
 	console.log('svelte');
-	console.log(items);
+	console.log(data);
 
 	function classNames(...classes) {
 		return classes.filter(Boolean).join(' ');
@@ -40,7 +41,7 @@
 		filteredItems =
 			query === ''
 				? []
-				: items.filter((item) => {
+				: data.filter((item) => {
 						return item.name.toLowerCase().includes(query.toLowerCase());
 				  });
 		groups = filteredItems.reduce((lgroups, item) => {
@@ -100,7 +101,6 @@
 			>
 				{#if filteredItems.length > 0}
 					{#each Object.entries(groups) as [category, items]}
-						<!-- TODO asset classes -->
 						{#each items as item}
 							<ListboxOption
 								key={item.id}
@@ -130,3 +130,4 @@
 		{/if}
 	</div>
 </Listbox>
+<!-- TODO asset classes -->
