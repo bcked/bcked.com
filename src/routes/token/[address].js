@@ -4,7 +4,7 @@ import { base } from '$app/paths';
 
 /** @type {import('./__types/[address]').RequestHandler} */
 export async function get({ params }) {
-    const data = parse(fs.readFileSync(`./_generated/tokens.yml`, 'utf-8'));
+    const data = parse(fs.readFileSync(`./_generated/token-asset-mapping.yml`, 'utf-8'));
 
     // if (data) {
     //     return {

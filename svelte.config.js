@@ -1,21 +1,16 @@
 import preprocess from 'svelte-preprocess';
 import adapter from '@sveltejs/adapter-static';
+import { prepareData } from './prepare-data.js';
 import fs from 'fs';
 import path from 'path'
 import { parse, stringify } from 'yaml';
 
+await prepareData();
+
+const assets = parse(fs.readFileSync(`./_generated/assets.yml`, 'utf-8'));
+const tokenAssetMapping = parse(fs.readFileSync(`./_generated/token-asset-mapping.yml`, 'utf-8'));
+
 const dev = process.env.NODE_ENV === 'development';
-
-fs.mkdirSync('./_generated', { recursive: true });
-
-const assetFiles = fs.readdirSync('./assets').filter((p) => p.includes('.yml'))
-const assets = assetFiles.reduce((a, v) => ({ ...a, [path.basename(v, '.yml')]: parse(fs.readFileSync(`./assets/${v}`, 'utf-8')) }), {})
-const assetEntries = Object.keys(assets).map((n) => `/assets/${n}`)
-fs.writeFileSync('./_generated/assets.yml', stringify(assets))
-
-const tokenAssetMapping = Object.entries(assets).reduce((a, [k, v]) => ({ ...a, ...Object.keys(v.contracts).reduce((a, c) => ({ ...a, [c]: k }), {}) }), {})
-const tokenEntries = Object.keys(tokenAssetMapping).map((a) => `/token/${a}`)
-fs.writeFileSync('./_generated/tokens.yml', stringify(tokenAssetMapping))
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -42,7 +37,7 @@ const config = {
 
 		prerender: {
 			default: true,
-			entries: ['*', ...assetEntries, ...tokenEntries],
+			entries: ['*', ...Object.keys(assets).map((n) => `/assets/${n}`), ...Object.keys(tokenAssetMapping).map((a) => `/token/${a}`)],
 		},
 	},
 
