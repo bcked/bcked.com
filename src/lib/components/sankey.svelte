@@ -100,6 +100,7 @@
 	</g>
 	<g class="sankey-nodes">
 		{#each sankeyData.nodes as d, i}
+			{@const asset = d.asset}
 			{@const width = d.y1 - d.y0}
 			<rect x={d.y0} y={d.x0} height={nodeHeight} {width} rx="5" ry="5" fill={colorNodes(d)} />
 			<text
@@ -113,7 +114,13 @@
                 font-size: {fontSize}px;
 				"
 			>
-				{d.id}
+				{#if d.id == 'unbacked'}
+					Unbacked
+				{:else if asset}
+					{asset.name}
+				{:else}
+					Unknown Name
+				{/if}
 			</text>
 			<!-- <foreignobject x={d.y0} y={d.x0} {height} {width}>
 				<xhtml:body xmlns="http://www.w3.org/1999/xhtml">
