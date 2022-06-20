@@ -3,6 +3,7 @@
   Generates an SVG Sankey chart using [d3-sankey](https://github.com/d3/d3-sankey).
  -->
 <script>
+	import { base } from '$app/paths';
 	import { getContext } from 'svelte';
 	import * as Sankey from 'd3-sankey';
 	import * as d3 from 'd3';
@@ -102,26 +103,43 @@
 		{#each sankeyData.nodes as d, i}
 			{@const asset = d.asset}
 			{@const width = d.y1 - d.y0}
-			<rect x={d.y0} y={d.x0} height={nodeHeight} {width} rx="5" ry="5" fill={colorNodes(d)} />
-			<text
-				class="pointer-events-none"
-				x={d.y0 + width / 2}
-				y={d.x0 + nodeHeight / 2}
-				dominant-baseline="central"
-				text-anchor="middle"
-				style="
+			{#if d.id == 'unbacked'}
+				<rect x={d.y0} y={d.x0} height={nodeHeight} {width} rx="5" ry="5" fill={colorNodes(d)} />
+				<text
+					class="pointer-events-none"
+					x={d.y0 + width / 2}
+					y={d.x0 + nodeHeight / 2}
+					dominant-baseline="central"
+					text-anchor="middle"
+					style="
 				fill: {colorText(d)};
                 font-size: {fontSize}px;
 				"
-			>
-				{#if d.id == 'unbacked'}
+				>
 					Unbacked
-				{:else if asset}
-					{asset.name}
-				{:else}
-					Unknown Name
-				{/if}
-			</text>
+				</text>
+			{:else}
+				<a href="{base}/assets/{d.id}">
+					<rect x={d.y0} y={d.x0} height={nodeHeight} {width} rx="5" ry="5" fill={colorNodes(d)} />
+					<text
+						class="pointer-events-none"
+						x={d.y0 + width / 2}
+						y={d.x0 + nodeHeight / 2}
+						dominant-baseline="central"
+						text-anchor="middle"
+						style="
+					fill: {colorText(d)};
+					font-size: {fontSize}px;
+					"
+					>
+						{#if asset}
+							{asset.name}
+						{:else}
+							Unknown Name
+						{/if}
+					</text>
+				</a>
+			{/if}
 			<!-- <foreignobject x={d.y0} y={d.x0} {height} {width}>
 				<xhtml:body xmlns="http://www.w3.org/1999/xhtml">
 					<div class="text-inherit text-white font-sans h-full w-full overflow-auto bg-green-200">
