@@ -37,7 +37,7 @@ const config = {
 
 		prerender: {
 			default: true,
-			entries: ['*', ...Object.keys(assets).map((n) => `/assets/${n}`), ...Object.keys(tokenAssetMapping).map((a) => `/token/${a}`)],
+			entries: ['*', ...Object.keys(assets).map((n) => `/asset/${n}`), ...Object.keys(tokenAssetMapping).map((a) => `/token/${a}`)],
 		},
 	},
 

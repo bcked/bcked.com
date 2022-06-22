@@ -3,11 +3,10 @@
 	import { LayerCake, Svg } from 'layercake';
 	import Sankey from '$lib/components/sankey.svelte';
 
-	// populated with data from the endpoint
 	/** @type {any} */
-	export let data;
-
-	const asset = data.assets[$page.params.id];
+	export let asset;
+	/** @type {any} */
+	export let tree;
 </script>
 
 <header>
@@ -32,7 +31,7 @@
 
 		<div class="flex justify-center">
 			<div class="py-4 w-full h-96">
-				<LayerCake data={data.tree}>
+				<LayerCake data={tree}>
 					<Svg>
 						<Sankey colorNodes={(d) => '#52656b'} colorText={(d) => '#ffffff'} />
 					</Svg>

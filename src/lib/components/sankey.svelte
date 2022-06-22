@@ -119,7 +119,7 @@
 					Unbacked
 				</text>
 			{:else}
-				<a href="{base}/assets/{d.id}">
+				<a href="{base}/asset/{d.id}">
 					<rect x={d.y0} y={d.x0} height={nodeHeight} {width} rx="5" ry="5" fill={colorNodes(d)} />
 					<text
 						class="pointer-events-none"

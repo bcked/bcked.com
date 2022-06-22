@@ -14,7 +14,7 @@ export async function get({ params }) {
 
     if (params.address in data) {
         return {
-            headers: { location: `${base}/assets/${data[params.address]}` },
+            headers: { location: `${base}/asset/${data[params.address]}` },
             status: 302,
         };
     }

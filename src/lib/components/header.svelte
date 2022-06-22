@@ -7,7 +7,7 @@
 	const navigation = [
 		{ name: 'Dashboard', href: `${base}/`, current: true },
 		{ name: 'Team', href: `${base}/`, current: false },
-		{ name: 'Test Assets Page', href: `${base}/assets/lily-pad`, current: false },
+		{ name: 'Test Assets Page', href: `${base}/asset/lily-pad`, current: false },
 		{
 			name: 'Test Token Page',
 			href: `${base}/token/0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56`,
@@ -27,8 +27,12 @@
 			<div class="flex px-2 lg:px-0">
 				<div class="flex-shrink-0 flex items-center">
 					<a href={`${base}/`}>
-						<img class="block lg:hidden h-8 w-auto" src="/backed-logo.svg" alt="backed" />
-						<img class="hidden lg:block h-8 w-auto" src="/backed-logo-text.svg" alt="backed" />
+						<img class="block lg:hidden h-8 w-auto" src="{base}/backed-logo.svg" alt="backed" />
+						<img
+							class="hidden lg:block h-8 w-auto"
+							src="{base}/backed-logo-text.svg"
+							alt="backed"
+						/>
 					</a>
 				</div>
 				<div class="hidden lg:ml-6 lg:flex lg:space-x-8">

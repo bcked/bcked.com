@@ -6,16 +6,16 @@ const backingTree = parse(fs.readFileSync(`./_generated/backing-tree.yml`, 'utf-
 
 /** @type {import('./__types/[id]').RequestHandler} */
 export async function get({ params }) {
-    const data = {
-        assets: assets,
-        tree: backingTree[params.id]
+    const asset = assets[params.id]
+    const tree = backingTree[params.id]
+
+    if (tree) {
+        tree.nodes = tree.nodes.map((n) => ({ ...n, asset: assets[n.id] }));
     }
 
-    data.tree.nodes = data.tree.nodes.map((n) => ({ ...n, asset: assets[n.id] }));
-
-    if (data) {
+    if (asset && tree) {
         return {
-            body: { data }
+            body: { asset, tree }
         };
     }
 
