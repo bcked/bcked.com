@@ -34,7 +34,7 @@
 			<div class="py-4 w-full h-96">
 				<LayerCake data={data.tree}>
 					<Svg>
-						<Sankey colorNodes={(d) => '#00bbff'} colorText={(d) => '#ffffff'} />
+						<Sankey colorNodes={(d) => '#52656b'} colorText={(d) => '#ffffff'} />
 					</Svg>
 				</LayerCake>
 			</div>
