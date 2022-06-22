@@ -27,16 +27,8 @@
 			<div class="flex px-2 lg:px-0">
 				<div class="flex-shrink-0 flex items-center">
 					<a href={`${base}/`}>
-						<img
-							class="block lg:hidden h-8 w-auto"
-							src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-							alt="Workflow"
-						/>
-						<img
-							class="hidden lg:block h-8 w-auto"
-							src="https://tailwindui.com/img/logos/workflow-logo-indigo-600-mark-gray-800-text.svg"
-							alt="Workflow"
-						/>
+						<img class="block lg:hidden h-8 w-auto" src="/backed-logo.svg" alt="backed" />
+						<img class="hidden lg:block h-8 w-auto" src="/backed-logo-text.svg" alt="backed" />
 					</a>
 				</div>
 				<div class="hidden lg:ml-6 lg:flex lg:space-x-8">

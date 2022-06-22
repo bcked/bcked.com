@@ -1,10 +1,10 @@
 <header>
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-		<h1 class="text-3xl font-bold leading-tight text-gray-900">Welcome to Backed</h1>
+		<h1 class="text-3xl font-bold leading-tight text-gray-900">Welcome to backed</h1>
 	</div>
 </header>
 <main>
-	<div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-		<p>Backed visualizes backing of crypto currencies.</p>
+	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+		<p>backed visualizes backing of crypto currencies.</p>
 	</div>
 </main>
