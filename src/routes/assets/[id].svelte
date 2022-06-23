@@ -6,7 +6,7 @@
 	/** @type {any} */
 	export let asset;
 	/** @type {any} */
-	export let tree;
+	export let backing;
 </script>
 
 <header>
@@ -31,7 +31,7 @@
 
 		<div class="flex justify-center">
 			<div class="py-4 w-full h-96">
-				<LayerCake data={tree}>
+				<LayerCake data={backing}>
 					<Svg>
 						<Sankey colorNodes={(d) => '#52656b'} colorText={(d) => '#ffffff'} />
 					</Svg>

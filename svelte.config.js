@@ -2,13 +2,18 @@ import preprocess from 'svelte-preprocess';
 import adapter from '@sveltejs/adapter-static';
 import { prepareData } from './prepare-data.js';
 import fs from 'fs';
-import path from 'path'
-import { parse, stringify } from 'yaml';
+import { parse } from 'yaml';
 
 await prepareData();
 
+// import { get as getAssets } from './src/routes/assets/index.json.js'
+// import getTokens from './src/routes/tokens/index.json.js'
+
+// const assets = await getAssets();
+// const tokens = await getTokens();
+
 const assets = parse(fs.readFileSync(`./_generated/assets.yml`, 'utf-8'));
-const tokenAssetMapping = parse(fs.readFileSync(`./_generated/token-asset-mapping.yml`, 'utf-8'));
+const tokens = parse(fs.readFileSync(`./_generated/token-asset-mapping.yml`, 'utf-8'));
 
 const dev = process.env.NODE_ENV === 'development';
 
@@ -37,7 +42,15 @@ const config = {
 
 		prerender: {
 			default: true,
-			entries: ['*', ...Object.keys(assets).map((n) => `/asset/${n}`), ...Object.keys(tokenAssetMapping).map((a) => `/token/${a}`)],
+			entries: [
+				'*',
+				...Object.keys(assets).map((id) => `/assets.json`),
+				...Object.keys(assets).map((id) => `/assets/${id}`),
+				...Object.keys(assets).map((id) => `/assets/${id}.json`),
+				...Object.keys(tokens).map((id) => `/tokens.json`),
+				...Object.keys(tokens).map((id) => `/tokens/${id}`),
+				...Object.keys(tokens).map((id) => `/tokens/${id}.json`),
+			],
 		},
 	},
 

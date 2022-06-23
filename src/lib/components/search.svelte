@@ -116,7 +116,7 @@
 									)}
 							>
 								<span class="block truncate">
-									<a href="{base}/asset/{item.id}" on:click={clearQuery}>{item.name}</a>
+									<a href="{base}/assets/{item.id}" on:click={clearQuery}>{item.name}</a>
 								</span>
 							</ListboxOption>
 						{/each}
