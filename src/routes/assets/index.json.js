@@ -35,7 +35,6 @@ export async function get() {
         body: Object.keys(assets).reduce((a, id) => ({
             ...a,
             [id]: {
-                id,
                 asset: assets[id],
                 backing: backings[id]
             }

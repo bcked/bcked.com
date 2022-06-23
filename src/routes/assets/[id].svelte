@@ -40,12 +40,3 @@
 		</div>
 	</div>
 </main>
-
-<!-- <div class="bg-white overflow-hidden shadow rounded-lg divide-y divide-gray-200 my-10">
-	<div class="px-4 py-5 sm:px-6">
-		<div>{$page.params.id}</div>
-	</div>
-	<div class="px-4 py-5 sm:p-6">
-		
-	</div>
-</div> -->
