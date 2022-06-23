@@ -4,8 +4,8 @@ import { base } from '$app/paths';
 
 /** @type {import('./__types/index.json').RequestHandler} */
 export async function get() {
-    const assets = parse(fs.readFileSync(`./_generated/assets.yml`, 'utf-8'));
-    const backings = parse(fs.readFileSync(`./_generated/backing-tree.yml`, 'utf-8'));
+    let assets = parse(fs.readFileSync(`./_generated/assets.yml`, 'utf-8'));
+    let backings = parse(fs.readFileSync(`./_generated/backing-tree.yml`, 'utf-8'));
 
     if (!assets || !backings) {
         return {
@@ -13,20 +13,32 @@ export async function get() {
         };
     }
 
+    assets = Object.entries(assets).reduce((a, [id, asset]) => ({
+        ...a,
+        [id]: {
+            id,
+            path: `${base}/assets/${id}`,
+            ...asset
+        }
+    }), {});
+
+    backings = Object.entries(backings).reduce((a, [id, backing]) => ({
+        ...a,
+        [id]: {
+            id,
+            ...backing,
+            nodes: backing.nodes.map((node) => ({ ...node, asset: assets[node.id] })),
+        }
+    }), {});
+
     return {
-        body: Object.keys(assets).map((id) => {
-            const asset = {
+        body: Object.keys(assets).reduce((a, id) => ({
+            ...a,
+            [id]: {
                 id,
-                path: `${base}/assets/${id}`,
-                ...assets[id]
+                asset: assets[id],
+                backing: backings[id]
             }
-            const backing = backings[id]
-
-            if (backing) {
-                backing.nodes = backing.nodes.map((node) => ({ ...node, asset: assets[node.id] }));
-            }
-
-            return { id, asset, backing }
-        }).reduce((a, v) => ({ ...a, [v.id]: v }), {})
+        }), {})
     };
 }
