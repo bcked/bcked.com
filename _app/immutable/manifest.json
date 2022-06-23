@@ -1,6 +1,6 @@
 {
   ".svelte-kit/runtime/client/start.js": {
-    "file": "start-1d14832d.js",
+    "file": "start-84b47abc.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
@@ -11,14 +11,14 @@
     "dynamicImports": [
       "src/routes/__layout.svelte",
       "src/routes/__error.svelte",
-      "src/routes/asset/__error.svelte",
-      "src/routes/token/__error.svelte",
-      "src/routes/asset/[id].svelte",
+      "src/routes/assets/__error.svelte",
+      "src/routes/tokens/__error.svelte",
+      "src/routes/assets/[id].svelte",
       "src/routes/index.svelte"
     ]
   },
   "src/routes/__layout.svelte": {
-    "file": "pages/__layout.svelte-c03c75c3.js",
+    "file": "pages/__layout.svelte-2a44d434.js",
     "src": "src/routes/__layout.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -43,9 +43,9 @@
       "_github-247f1d14.js"
     ]
   },
-  "src/routes/asset/__error.svelte": {
-    "file": "pages/asset/__error.svelte-d7d61742.js",
-    "src": "src/routes/asset/__error.svelte",
+  "src/routes/assets/__error.svelte": {
+    "file": "pages/assets/__error.svelte-021e5948.js",
+    "src": "src/routes/assets/__error.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
@@ -53,9 +53,9 @@
       "_stores-83abf235.js"
     ]
   },
-  "src/routes/token/__error.svelte": {
-    "file": "pages/token/__error.svelte-b0d3ee10.js",
-    "src": "src/routes/token/__error.svelte",
+  "src/routes/tokens/__error.svelte": {
+    "file": "pages/tokens/__error.svelte-bceaf8a5.js",
+    "src": "src/routes/tokens/__error.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
@@ -63,18 +63,17 @@
       "_stores-83abf235.js"
     ]
   },
-  "src/routes/asset/[id].svelte": {
-    "file": "pages/asset/_id_.svelte-720f3edb.js",
-    "src": "src/routes/asset/[id].svelte",
+  "src/routes/assets/[id].svelte": {
+    "file": "pages/assets/_id_.svelte-42118f91.js",
+    "src": "src/routes/assets/[id].svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_index-57ba81be.js",
-      "_index-eccd512e.js",
-      "_paths-396f020f.js"
+      "_index-eccd512e.js"
     ],
     "css": [
-      "assets/pages/asset/_id_.svelte-c10d064e.css"
+      "assets/pages/assets/_id_.svelte-5a85cc34.css"
     ]
   },
   "src/routes/index.svelte": {
