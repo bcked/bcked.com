@@ -6,7 +6,6 @@
 
 	const navigation = [
 		{ name: 'Dashboard', href: `${base}/`, current: true },
-		{ name: 'Team', href: `${base}/`, current: false },
 		{ name: 'Test Assets Page', href: `${base}/assets/lily-pad`, current: false },
 		{
 			name: 'Test Token Page',

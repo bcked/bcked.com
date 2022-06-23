@@ -1,7 +1,7 @@
 <script>
 	import { base } from '$app/paths';
 	import { Listbox, ListboxOptions, ListboxOption } from '@rgossiaux/svelte-headlessui';
-	import { SearchIcon } from '@rgossiaux/svelte-heroicons/solid';
+	import { SearchIcon, XIcon } from '@rgossiaux/svelte-heroicons/solid';
 	import { EmojiSadIcon } from '@rgossiaux/svelte-heroicons/outline';
 
 	// import fs from 'fs';
@@ -79,23 +79,26 @@
 <Listbox>
 	<label htmlFor="search" class="sr-only"> Search </label>
 	<div class="relative group" use:clickOutside on:click_outside={() => (open = false)}>
-		<div
-			class="absolute inset-1 bg-gradient-to-r from-neon-pink to-neon-yellow rounded-md blur opacity-0 group-focus-within:opacity-100 transition duration-500"
+		<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+			<SearchIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
+		</div>
+		<input
+			id="search"
+			name="search"
+			class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 caret-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-neon-pink focus:border-neon-pink sm:text-sm"
+			placeholder="Search"
+			type="search"
+			autoComplete="none"
+			bind:value={query}
+			on:input={updateQueryResults}
+			on:focus={updateOpen}
 		/>
-		<div class="relative">
-			<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-				<SearchIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
-			</div>
-			<input
-				id="search"
-				name="search"
-				class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-0 focus:border-gray-300 sm:text-sm"
-				placeholder="Search"
-				type="search"
-				autoComplete="none"
-				bind:value={query}
-				on:input={updateQueryResults}
-				on:focus={updateOpen}
+		<div class="absolute inset-y-0 right-0 pr-3 flex items-center" on:click={clearQuery}>
+			<XIcon
+				class={query
+					? 'h-5 w-5 text-gray-500 hover:outline-none group-hover:text-neon-pink'
+					: 'hidden'}
+				aria-hidden="true"
 			/>
 		</div>
 
@@ -135,4 +138,13 @@
 		{/if}
 	</div>
 </Listbox>
+
 <!-- TODO asset classes -->
+<style>
+	input[type='search']::-webkit-search-decoration,
+	input[type='search']::-webkit-search-cancel-button,
+	input[type='search']::-webkit-search-results-button,
+	input[type='search']::-webkit-search-results-decoration {
+		-webkit-appearance: none;
+	}
+</style>
