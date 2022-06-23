@@ -23,7 +23,7 @@ export async function get() {
             const backing = backings[id]
 
             if (backing) {
-                backing.nodes = backing.nodes.map((n) => ({ ...n, asset }));
+                backing.nodes = backing.nodes.map((node) => ({ ...node, asset: assets[node.id] }));
             }
 
             return { id, asset, backing }
