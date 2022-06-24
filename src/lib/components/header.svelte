@@ -1,16 +1,16 @@
 <script>
+	import { page } from '$app/stores';
 	import { base } from '$app/paths';
 	import { Disclosure, DisclosurePanel, DisclosureButton } from '@rgossiaux/svelte-headlessui';
 	import { MenuIcon, XIcon } from '@rgossiaux/svelte-heroicons/outline';
 	import Search from '$lib/components/search.svelte';
 
 	const navigation = [
-		{ name: 'Dashboard', href: `${base}/`, current: true },
-		{ name: 'Test Assets Page', href: `${base}/assets/lily-pad`, current: false },
+		{ name: 'Dashboard', path: `${base}/` },
+		{ name: 'Test Assets Page', path: `${base}/assets/lily-pad` },
 		{
 			name: 'Test Token Page',
-			href: `${base}/tokens/0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56`,
-			current: false
+			path: `${base}/tokens/0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56`
 		}
 	];
 
@@ -36,16 +36,17 @@
 				</div>
 				<div class="hidden lg:ml-6 lg:flex lg:space-x-8">
 					{#each navigation as item}
+						{@const current = $page.url.pathname === item.path}
 						<a
 							key={item.name}
-							href={item.href}
+							href={item.path}
 							class={classNames(
-								item.current
+								current
 									? 'border-neon-pink text-gray-900'
 									: 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
 								' inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium'
 							)}
-							aria-current={item.current ? 'page' : undefined}
+							aria-current={current ? 'page' : undefined}
 						>
 							{item.name}
 						</a>
@@ -76,17 +77,18 @@
 	<DisclosurePanel class="lg:hidden">
 		<div class="pt-2 pb-3 space-y-1">
 			{#each navigation as item}
+				{@const current = $page.url.pathname === item.path}
 				<DisclosureButton
 					key={item.name}
 					as="a"
-					href={item.href}
+					href={item.path}
 					class={classNames(
-						item.current
-							? 'bg-indigo-50 border-indigo-500 text-indigo-700'
+						current
+							? 'bg-gray-100 border-neon-pink text-gray-800'
 							: 'border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800',
 						'block pl-3 pr-4 py-2 border-l-4 text-base font-medium'
 					)}
-					aria-current={item.current ? 'page' : undefined}
+					aria-current={current ? 'page' : undefined}
 				>
 					{item.name}
 				</DisclosureButton>

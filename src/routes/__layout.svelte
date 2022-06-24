@@ -7,7 +7,7 @@
 <div class="flex flex-col h-screen justify-between">
 	<Header />
 
-	<div class="flex-grow mx-auto max-w-7xl w-full flex flex-col py-10">
+	<div class="flex-grow mx-auto max-w-7xl w-full flex flex-col">
 		<slot />
 	</div>
 
