@@ -46,6 +46,7 @@ const config = {
 				'*',
 				...Object.keys(assets).map((id) => `/assets.json`),
 				...Object.keys(assets).map((id) => `/assets/${id}`),
+				...Object.keys(assets).map((id) => `/assets/${id}/sankey`),
 				...Object.keys(assets).map((id) => `/assets/${id}.json`),
 				...Object.keys(tokens).map((id) => `/tokens.json`),
 				...Object.keys(tokens).map((id) => `/tokens/${id}`),

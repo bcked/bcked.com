@@ -6,12 +6,8 @@
 	import Search from '$lib/components/search.svelte';
 
 	const navigation = [
-		{ name: 'Dashboard', path: `${base}/` },
-		{ name: 'Test Assets Page', path: `${base}/assets/lily-pad` },
-		{
-			name: 'Test Token Page',
-			path: `${base}/tokens/0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56`
-		}
+		{ name: 'Ranking', path: `${base}/ranking` },
+		{ name: 'Learn', path: `${base}/learn` }
 	];
 
 	/** @param {any[]} classes */

@@ -1,6 +1,6 @@
-import { get as getData } from './index.json';
+import { get as getData } from '../index.json';
 
-/** @type {import('./__types/[id].json').RequestHandler} */
+/** @type {import('./__types/index.json').RequestHandler} */
 export async function get({ params }) {
     /** @type {any} */
     const assets = (await getData()).body;

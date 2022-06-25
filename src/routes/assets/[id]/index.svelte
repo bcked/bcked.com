@@ -1,7 +1,6 @@
 <script>
 	import { page } from '$app/stores';
-	import { LayerCake, Svg } from 'layercake';
-	import Sankey from '$lib/components/sankey.svelte';
+	import Sankey from './sankey@sankey.svelte';
 
 	/** @type {any} */
 	export let asset;
@@ -30,14 +29,8 @@
 				</span>
 			{/if}
 
-			<div class="flex justify-center">
-				<div class="py-4 w-full h-96">
-					<LayerCake data={backing}>
-						<Svg>
-							<Sankey colorNodes={(d) => '#52656b'} colorText={(d) => '#ffffff'} />
-						</Svg>
-					</LayerCake>
-				</div>
+			<div class="flex justify-center py-4">
+				<Sankey {backing} />
 			</div>
 		</div>
 	</main>
