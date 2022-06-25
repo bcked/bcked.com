@@ -8,16 +8,18 @@
 		<meta name="description" content="backed visualizes backing of crypto currencies." />
 
 		<meta http-equiv="content-security-policy" content="">
-	<link rel="stylesheet" href="/backed/_app/immutable/assets/pages/__layout.svelte-7ea85356.css">
-	<link rel="stylesheet" href="/backed/_app/immutable/assets/pages/assets/_id_.svelte-5a85cc34.css">
-	<link rel="modulepreload" href="/backed/_app/immutable/start-9977a4a7.js">
+	<link rel="stylesheet" href="/backed/_app/immutable/assets/pages/__layout.svelte-09c36a2f.css">
+	<link rel="stylesheet" href="/backed/_app/immutable/assets/app-2737f2d3.css">
+	<link rel="stylesheet" href="/backed/_app/immutable/assets/pages/assets/_id_/sankey@sankey.svelte-570e900b.css">
+	<link rel="modulepreload" href="/backed/_app/immutable/start-0eabd150.js">
 	<link rel="modulepreload" href="/backed/_app/immutable/chunks/index-3df23935.js">
 	<link rel="modulepreload" href="/backed/_app/immutable/chunks/index-725e0b39.js">
 	<link rel="modulepreload" href="/backed/_app/immutable/chunks/paths-396f020f.js">
-	<link rel="modulepreload" href="/backed/_app/immutable/pages/__layout.svelte-19582e00.js">
+	<link rel="modulepreload" href="/backed/_app/immutable/pages/__layout.svelte-257a4eb1.js">
 	<link rel="modulepreload" href="/backed/_app/immutable/chunks/stores-70c1ee45.js">
 	<link rel="modulepreload" href="/backed/_app/immutable/chunks/github-1ae5649e.js">
-	<link rel="modulepreload" href="/backed/_app/immutable/pages/assets/_id_.svelte-f63854e1.js">
+	<link rel="modulepreload" href="/backed/_app/immutable/pages/assets/_id_/index.svelte-5b664d99.js">
+	<link rel="modulepreload" href="/backed/_app/immutable/pages/assets/_id_/sankey@sankey.svelte-dde92666.js">
 	</head>
 	<body class="h-full">
 		
@@ -27,11 +29,9 @@
   <nav class="bg-white shadow"><div class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8"><div class="flex justify-between h-16"><div class="flex px-2 lg:px-0"><div class="flex-shrink-0 flex items-center"><a href="/backed/"><img class="block lg:hidden h-8 w-auto" src="/backed/backed-logo.svg" alt="backed">
 						<img class="hidden lg:block h-8 w-auto" src="/backed/backed-logo-text.svg" alt="backed"></a></div>
 				<div class="hidden lg:ml-6 lg:flex lg:space-x-8">
-						<a key="Dashboard" href="/backed/" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700  inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Dashboard
+						<a key="Ranking" href="/backed/ranking" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700  inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Ranking
 						</a>
-						<a key="Test Assets Page" href="/backed/assets/lily-pad" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700  inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Test Assets Page
-						</a>
-						<a key="Test Token Page" href="/backed/tokens/0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700  inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Test Token Page
+						<a key="Learn" href="/backed/learn" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700  inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Learn
 						</a></div></div>
 			<div class="flex-1 flex items-center justify-center px-2 lg:ml-6 lg:justify-end"><div class="max-w-lg w-full lg:max-w-xs">
 
@@ -45,7 +45,7 @@
 </div></div>
 			<div class="flex items-center lg:hidden">
 				
-  <button id="headlessui-disclosure-button-3" type="button" aria-expanded="false" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"><span class="sr-only">Open main menu</span>
+  <button id="headlessui-disclosure-button-7" type="button" aria-expanded="false" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"><span class="sr-only">Open main menu</span>
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" class="block h-6 w-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg></button></div></div></div>
 
 	</nav>
@@ -54,7 +54,7 @@
 			<span class="inline-flex items-center my-auto px-2.5 py-0.5 rounded-md text-sm font-medium bg-gray-200 text-gray-800">BUSD</span></div></header>
 	<main><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-			<div class="flex justify-center"><div class="py-4 w-full h-96">
+			<div class="flex justify-center py-4"><div class="w-full h-96">
 
 
 </div></div></div></main></div></div>
@@ -65,10 +65,10 @@
 		<div class="mt-8 md:mt-0 md:order-1"><p class="text-center text-base text-gray-400">© 2022 backed. All rights reserved.</p></div></div></footer></div>
 
 
-		<script type="module" data-sveltekit-hydrate="1qp7mul">
-		import { start } from "/backed/_app/immutable/start-9977a4a7.js";
+		<script type="module" data-sveltekit-hydrate="1d1zlkw">
+		import { start } from "/backed/_app/immutable/start-0eabd150.js";
 		start({
-			target: document.querySelector('[data-sveltekit-hydrate="1qp7mul"]').parentNode,
+			target: document.querySelector('[data-sveltekit-hydrate="1d1zlkw"]').parentNode,
 			paths: {"base":"/backed","assets":"/backed"},
 			session: {},
 			route: true,
@@ -77,7 +77,7 @@
 			hydrate: {
 				status: 200,
 				error: null,
-				nodes: [0, 4],
+				nodes: [0, 5],
 				params: {id:"busd"},
 				routeId: "assets/[id]"
 			}
