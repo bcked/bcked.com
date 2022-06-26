@@ -2,8 +2,46 @@ import fs from 'fs';
 import path from 'path'
 import { parse, stringify } from 'yaml';
 
+/**
+ * Round half away from zero ('commercial' rounding)
+ * Uses correction to offset floating-point inaccuracies.
+ * Works symmetrically for positive and negative numbers.
+ * @param {Number} num 
+ * @param {Number} decimalPlaces 
+ * @return {Number}
+ */
+function round(num, decimalPlaces = 0) {
+    var p = Math.pow(10, decimalPlaces);
+    var n = (num * p) * (1 + Number.EPSILON);
+    return Math.round(n) / p;
+}
+
+/** 
+ * Measure the uniformity of the provided values.
+ * This makes use of the [Kullback–Leibler divergence](https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence).
+ * Results have a precision of 4 decimals in the range [0, 1].
+ * @param {Number[]} values 
+ * @return {Number}
+ */
+function uniformity(values) {
+    if (!values || [0, 1].includes(values.length)) {
+        return 1
+    }
+
+    const sum = values.reduce((a, b) => a + b, 0);
+    if (sum == 0) {
+        return 1
+    }
+
+    const relativeValues = values.map((v) => (v / sum))
+    const relativePercentage = (1 / values.length);
+    const klDivergence = relativeValues.reduce((kl, v) => kl + (v * Math.log(v / relativePercentage) || 0), 0)
+    return 1 - klDivergence
+}
+
 function extendAssetData(asset) {
-    asset['mcap'] = asset.price.usd * asset.supply.circulating
+    const supply = asset.supply.circulating || asset.supply.total || 0
+    asset['mcap'] = asset.price.usd * supply
     return asset
 }
 
@@ -14,8 +52,8 @@ function extendAssetData(asset) {
  * @param {Object} backedAsset.backing.assets 
  * @param {Number} assetValue 
  * @param {string} id 
- * @returns Object[]
- * **/
+ * @returns {Object[]}
+ */
 async function followBackingTree(id, backedAsset, assetValue, assets) {
     if (!backedAsset) {
         return { nodes: [{ id }], links: [{ source: id, target: "unbacked", value: assetValue }] }
@@ -69,7 +107,9 @@ async function buildBackingTree(id, asset, assets) {
         const existing_link = reduced_links.find((l) => l.source == link.source && l.target == link.target)
         if (existing_link) {
             existing_link.value += link.value
+            existing_link.value = round(existing_link.value, 2)
         } else {
+            link.value = round(link.value, 2)
             reduced_links = [...reduced_links, link]
         }
     }
@@ -84,7 +124,6 @@ export async function prepareData() {
     const assetFiles = fs.readdirSync('./assets').filter((p) => p.includes('.yml'))
 
     const assets = assetFiles.reduce((a, v) => ({ ...a, [path.basename(v, '.yml')]: extendAssetData(parse(fs.readFileSync(`./assets/${v}`, 'utf-8'))) }), {})
-    fs.writeFileSync('./_generated/assets.yml', stringify(assets))
 
     const tokenAssetMapping = Object.entries(assets).reduce((a, [k, v]) => ({ ...a, ...Object.keys(v.contracts).reduce((a, c) => ({ ...a, [c]: k }), {}) }), {})
     fs.writeFileSync('./_generated/token-asset-mapping.yml', stringify(tokenAssetMapping))
@@ -94,4 +133,20 @@ export async function prepareData() {
         backingTree[key] = await buildBackingTree(key, value, assets)
     }
     fs.writeFileSync('./_generated/backing-tree.yml', stringify(backingTree))
+
+    for (const [key, value] of Object.entries(assets)) {
+        if (!value.backing) {
+            continue;
+        }
+
+        const lastLevelBacking = backingTree[key].links
+            .filter((l) => l.target == 'unbacked' && l.source != key)
+            .map((l) => l.value);
+
+        const totalLastLevelBacking = lastLevelBacking.reduce((s, v) => s + v, 0);
+        value.backing['ratio'] = round(totalLastLevelBacking / value.mcap, 4) || 0
+        value.backing['distribution'] = round(uniformity(lastLevelBacking), 4)
+    }
+
+    fs.writeFileSync('./_generated/assets.yml', stringify(assets))
 }
