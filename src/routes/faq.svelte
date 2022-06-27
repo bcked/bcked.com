@@ -1,0 +1,55 @@
+<script>
+	const faqs = [
+		{
+			id: 1,
+			question: "What's the best thing about Switzerland?",
+			answer:
+				"I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat."
+		},
+		{
+			id: 2,
+			question: "What's the best thing about Switzerland?",
+			answer:
+				"I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat."
+		},
+		{
+			id: 3,
+			question: "What's the best thing about Switzerland?",
+			answer:
+				"I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat."
+		},
+		{
+			id: 4,
+			question: "What's the best thing about Switzerland?",
+			answer:
+				"I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat."
+		}
+		// More questions...
+	];
+</script>
+
+<div aria-labelledby="faq-heading" class="max-w-7xl mx-auto py-10 px-4 sm:px-6 lg:px-8">
+	<header>
+		<h1 id="faq-heading" class="text-3xl font-bold leading-tight text-gray-900">
+			Frequently asked questions
+		</h1>
+		<p class="max-w-xl mt-4 text-base text-gray-500">
+			Questions. Frequently asked ones. Plus our answers. That's how FAQs work. If you can't find
+			what you're looking for, you can always{' '}
+			<a
+				href="https://github.com/Spenhouet/backed/discussions"
+				class="font-medium text-indigo-600 hover:text-indigo-500">ask here</a
+			>.
+		</p>
+	</header>
+	<main>
+		<dl class="mt-12 grid grid-cols-1 gap-y-10 sm:mt-16 md:grid-cols-2 md:gap-x-6 lg:grid-cols-3">
+			{#each faqs as faq}
+				<div key={faq.id}>
+					<dt class="text-base font-medium text-gray-900">{faq.question}</dt>
+					<dd class="mt-3 text-sm text-gray-500">{faq.answer}</dd>
+				</div>
+			{/each}
+		</dl>
+	</main>
+</div>
