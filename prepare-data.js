@@ -41,7 +41,7 @@ function uniformity(values) {
 
 function extendAssetData(asset) {
     const supply = asset.supply.circulating || asset.supply.total || 0
-    asset['mcap'] = asset.price.usd * supply
+    asset['mcap'] = round(asset.price.usd * supply, 2)
     return asset
 }
 
@@ -144,6 +144,7 @@ export async function prepareData() {
             .map((l) => l.value);
 
         const totalLastLevelBacking = lastLevelBacking.reduce((s, v) => s + v, 0);
+        value.backing['backing-usd'] = round(totalLastLevelBacking, 2) || 0
         value.backing['ratio'] = round(totalLastLevelBacking / value.mcap, 4) || 0
         value.backing['distribution'] = round(uniformity(lastLevelBacking), 4)
     }

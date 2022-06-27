@@ -1,6 +1,7 @@
 <script>
 	import { page } from '$app/stores';
 	import Sankey from './sankey@sankey.svelte';
+	import Progress from '$lib/components/progress.svelte';
 
 	/** @type {any} */
 	export let asset;
@@ -56,11 +57,11 @@
 	</header>
 	<main>
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4">
-			{#if asset.description}
-				<span>
-					{asset.description}
-				</span>
-			{/if}
+			<Progress
+				textLeft="Backing: ${asset.backing['backing-usd']}"
+				textRight="Market Cap: ${asset.mcap}"
+				ratio={asset.backing.ratio}
+			/>
 
 			<div class="flex justify-center py-4">
 				<Sankey {backing} />
