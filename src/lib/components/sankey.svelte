@@ -29,7 +29,7 @@
 	export let nodePadding = 10;
 
 	/** @type {Function} [linkSort=(a, b) => a.value < b.value ? 1 : -1] - How to sort the links, passed to [`sankey.linkSort`](https://github.com/d3/d3-sankey#sankey_linkSort). */
-	export let linkSort = (a, b) => (a.value < b.value ? 1 : -1);
+	export let linkSort = (a, b) => (a.value > b.value ? 1 : -1);
 
 	/** @type {Function} [nodeId=d => d.id] - The ID field accessor, passed to [`sankey.nodeId`](https://github.com/d3/d3-sankey#sankey_nodeId). */
 	export let nodeId = (d) => d.id;
