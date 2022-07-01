@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { base } from '$app/paths';
 	import Table from '$lib/components/table.svelte';
+	import { formatCompactNumber } from '$lib/utils/string-formatting';
 
 	const columns = [
 		{ id: 'nr', title: '#', class: '' },
@@ -15,22 +16,6 @@
 
 	/** @type {any} */
 	let rows = [];
-
-	/** @param {Number} num */
-	function formatCompactNumber(num, digits = 2) {
-		if (num >= 1000) {
-			return Intl.NumberFormat('en-US', {
-				notation: 'compact',
-				maximumFractionDigits: digits
-			}).format(num);
-		} else if (num >= 1) {
-			return Number(num).toFixed(digits);
-		} else if (num > 0) {
-			return Number(num).toExponential(digits);
-		} else {
-			return Number(num).toFixed(digits);
-		}
-	}
 
 	onMount(async function () {
 		const assets = await (await fetch(`${base}/assets.json`)).json();
