@@ -15,7 +15,7 @@
 	</header>
 	<main>
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-			<p>backed visualizes backing of crypto currencies.</p>
+			<p>Asset backing visualized.</p>
 		</div>
 	</main>
 </div> -->
