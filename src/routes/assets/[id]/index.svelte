@@ -1,13 +1,32 @@
 <script>
 	import Sankey from './sankey@sankey.svelte';
-	import Stats from '$lib/components/stats.svelte';
 	import Progress from '$lib/components/progress.svelte';
-	import { formatPercentage } from '$lib/utils/string-formatting';
+	import { formatCurrency, formatPercentage } from '$lib/utils/string-formatting';
+	import { beforeUpdate } from 'svelte';
 
 	/** @type {any} */
 	export let asset;
 	/** @type {any} */
 	export let backing;
+
+	/** @type {any[]} */
+	let stats = [];
+	beforeUpdate(async function () {
+		stats = [
+			{
+				name: 'Backing Assets',
+				stat: asset.backing['backing-assets']
+			},
+			{
+				name: 'Backing Ratio',
+				stat: asset.backing.ratio > 0 ? formatPercentage(asset.backing.ratio) : 'None'
+			},
+			{
+				name: 'Backing Distribution',
+				stat: asset.backing.ratio > 0 ? formatPercentage(asset.backing.distribution) : 'N/A'
+			}
+		];
+	});
 </script>
 
 <div class="py-10">
@@ -31,26 +50,18 @@
 	</header>
 	<main>
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 space-y-4">
-			<Stats
-				stats={[
-					{
-						name: 'Backing Assets',
-						stat: asset.backing['backing-assets']
-					},
-					{
-						name: 'Backing Ratio',
-						stat: asset.backing.ratio > 0 ? formatPercentage(asset.backing.ratio) : 'None'
-					},
-					{
-						name: 'Backing Distribution',
-						stat: asset.backing.ratio > 0 ? formatPercentage(asset.backing.distribution) : 'N/A'
-					}
-				]}
-			/>
+			<dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-{stats.length <= 4 ? stats.length : 4}">
+				{#each stats as item}
+					<div key={item.name} class="px-4 py-5 bg-white shadow rounded-lg overflow-hidden sm:p-6">
+						<dt class="text-sm font-medium text-gray-500 truncate">{item.name}</dt>
+						<dd class="mt-1 text-3xl font-semibold text-gray-900">{item.stat}</dd>
+					</div>
+				{/each}
+			</dl>
 
 			<Progress
-				textLeft="Backing: ${asset.backing['backing-usd']}"
-				textRight="Market Cap: ${asset.mcap}"
+				textLeft="Backing: {formatCurrency(asset.backing['backing-usd'])}"
+				textRight="Market Cap: {formatCurrency(asset.mcap)}"
 				ratio={asset.backing.ratio}
 			/>
 

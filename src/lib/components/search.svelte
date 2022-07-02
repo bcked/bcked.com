@@ -1,4 +1,5 @@
 <script>
+	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
 	import { base } from '$app/paths';
 	import { Listbox, ListboxOptions, ListboxOption } from '@rgossiaux/svelte-headlessui';
@@ -12,6 +13,7 @@
 		const assets = await (await fetch(`${base}/assets.json`)).json();
 		data = Object.entries(assets).map(([id, { asset }]) => ({
 			name: asset.name,
+			symbol: asset.symbol,
 			category: 'Asset',
 			path: asset.path,
 			indices: [
@@ -29,6 +31,12 @@
 	let filteredItems = [];
 	let groups = {};
 
+	let selected = '';
+
+	function checkSelected() {
+		selected = data.find((item) => $page.url.pathname.includes(item.path));
+	}
+
 	function updateQueryResults() {
 		filteredItems =
 			query === ''
@@ -39,6 +47,7 @@
 		groups = filteredItems.reduce((lgroups, item) => {
 			return { ...lgroups, [item.category]: [...(lgroups[item.category] || []), item] };
 		}, {});
+
 		updateOpen();
 	}
 
@@ -49,6 +58,7 @@
 
 	function updateOpen() {
 		open = query !== '';
+		checkSelected();
 	}
 
 	function clickOutside(node) {
@@ -68,7 +78,7 @@
 	}
 </script>
 
-<Listbox value="">
+<Listbox value={selected}>
 	<div class="relative" use:clickOutside on:click_outside={() => (open = false)}>
 		<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
 			<SearchIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
@@ -106,11 +116,16 @@
 								<ListboxOption
 									key={item.path}
 									value={item}
-									class="cursor-default select-none relative py-2 pl-3 pr-9 text-gray-900 hover:text-white hover:bg-neon-pink"
+									class="cursor-default select-none relative py-2 pl-3 pr-3 text-gray-900 hover:text-white hover:bg-neon-pink"
 								>
-									<span class="block truncate">
-										{item.name}
-									</span>
+									<div class="flex items-center space-x-1">
+										<span class="block truncate font-medium">
+											{item.name}
+										</span>
+										<span class="block truncate text-xs">
+											({item.symbol})
+										</span>
+									</div>
 								</ListboxOption>
 							</a>
 						{/each}
@@ -120,12 +135,16 @@
 				{#if query !== '' && filteredItems.length === 0}
 					<ListboxOption
 						value=""
-						class="text-gray-900 cursor-default select-none relative py-2 pl-8 pr-4"
+						class="text-gray-900 cursor-default select-none relative py-2 pl-3 pr-3"
 					>
-						<span class="absolute inset-y-0 left-0 flex items-center pl-1.5">
+						<div class="flex items-center space-x-1">
 							<EmojiSadIcon class="h-5 w-5" aria-hidden="true" />
-						</span>
-						<span class="block truncate"> No assets found </span>
+							<span class="font-medium">No assets found.</span>
+							<a
+								href="https://github.com/Spenhouet/backed/issues"
+								class="underline hover:text-neon-pink">Report it here...</a
+							>
+						</div>
 					</ListboxOption>
 				{/if}
 			</ListboxOptions>
