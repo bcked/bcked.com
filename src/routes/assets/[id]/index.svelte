@@ -50,7 +50,8 @@
 	</header>
 	<main>
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 space-y-4">
-			<dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-{stats.length <= 4 ? stats.length : 4}">
+			<dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
+				<!-- {stats.length <= 4 ? stats.length : 4} -->
 				{#each stats as item}
 					<div key={item.name} class="px-4 py-5 bg-white shadow rounded-lg overflow-hidden sm:p-6">
 						<dt class="text-sm font-medium text-gray-500 truncate">{item.name}</dt>

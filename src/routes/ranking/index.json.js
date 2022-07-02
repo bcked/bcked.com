@@ -12,9 +12,10 @@ export async function get({ params }) {
         { id: 'rank', title: '#', class: '' },
         { id: 'name', title: 'Name', class: 'font-medium', link: true },
         { id: 'price', title: 'Price', class: 'hidden lg:table-cell' },
+        { id: 'backing-assets', title: 'Backing Assets', class: '' },
         { id: 'backing-ratio', title: 'Backing Ratio', class: '' },
         { id: 'backing-usd', title: 'Backing', class: '' },
-        { id: 'mcap', title: 'Market Cap', class: 'hidden sm:table-cell' },
+        { id: 'mcap', title: 'Market Cap', class: 'hidden lg:table-cell' },
         { id: 'backing-distribution', title: 'Backing Distribution', class: 'hidden sm:table-cell' }
     ];
 
@@ -24,6 +25,7 @@ export async function get({ params }) {
             rank: { text: i + 1, value: i },
             name: { text: asset.name, value: asset.name },
             price: { text: formatCurrency(asset.price.usd), value: asset.price.usd },
+            'backing-assets': { text: asset.backing['backing-assets'], value: asset.backing['backing-assets'] },
             'backing-ratio': {
                 text: formatPercentage(asset.backing['ratio']),
                 value: asset.backing['ratio']

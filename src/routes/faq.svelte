@@ -2,27 +2,21 @@
 	const faqs = [
 		{
 			id: 1,
-			question: "What's the best thing about Switzerland?",
+			question: 'What is backing?',
 			answer:
-				"I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat."
+				'Guarantee, that an asset can be exchanged with a fixed amount of another asset(s). Note that there is no true guarantee and that every asset has its individual risk you need to asses.'
 		},
 		{
 			id: 2,
-			question: "What's the best thing about Switzerland?",
+			question: 'What is the backing ratio?',
 			answer:
-				"I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat."
+				'The backing ratio displays the ratio between the sum of all backing and the market cap of an asset.'
 		},
 		{
 			id: 3,
-			question: "What's the best thing about Switzerland?",
+			question: 'What is the backing distribution?',
 			answer:
-				"I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat."
-		},
-		{
-			id: 4,
-			question: "What's the best thing about Switzerland?",
-			answer:
-				"I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat."
+				'The backing distribution measures how uniform the backing is with respect to all backing assets. This is measured by the Kullback-Leibler divergence between the backing distribution and a uniform backing distribution.'
 		}
 		// More questions...
 	];
@@ -38,7 +32,7 @@
 			what you're looking for, you can always{' '}
 			<a
 				href="https://github.com/Spenhouet/backed/discussions"
-				class="font-medium text-indigo-600 hover:text-indigo-500">ask here</a
+				class="font-medium hover:text-neon-pink">ask here</a
 			>.
 		</p>
 	</header>
