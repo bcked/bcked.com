@@ -1,8 +1,9 @@
 <script>
+	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 	onMount(async function () {
-		goto('/ranking');
+		goto(`${base}/ranking`);
 	});
 </script>
 
