@@ -1,18 +1,31 @@
 /** @param {Number} num */
-export function formatCompactNumber(num, digits = 2) {
-    if (num >= 1000) {
-        return Intl.NumberFormat('en-US', {
-            notation: 'compact',
-            maximumFractionDigits: digits
-        }).format(num);
-    } else if (num >= 1) {
-        return Number(num).toFixed(digits);
-    } else if (num > 0) {
-        return Number(num).toExponential(digits);
-    } else {
-        return Number(num).toFixed(digits);
+export function formatCurrency(num, digits = 2, currency = 'USD', currencyDisplay = 'symbol', useGrouping = true) {
+    const options = {
+        minimumFractionDigits: digits,
+        maximumFractionDigits: digits,
+        style: 'currency',
+        currency,
+        currencyDisplay,
+        useGrouping
     }
+    let notation = 'standard'
+    if (num >= 1000) {
+        notation = 'compact'
+    } else if (num < 1 && num > 0) {
+        notation = 'scientific'
+    }
+    return Intl.NumberFormat('en-US', { notation, ...options }).format(num);
 }
+
+/** @param {Number} num */
+export function formatPercentage(num, digits = 0) {
+    return Intl.NumberFormat('en-US', {
+        style: 'percent',
+        minimumFractionDigits: digits,
+        maximumFractionDigits: digits,
+    }).format(num);
+}
+
 
 /** 
  * @param {any} a 

@@ -3,6 +3,7 @@
 	import Sankey from './sankey@sankey.svelte';
 	import Stats from '$lib/components/stats.svelte';
 	import Progress from '$lib/components/progress.svelte';
+	import { formatPercentage } from '$lib/utils/string-formatting';
 
 	/** @type {any} */
 	export let asset;
@@ -39,12 +40,12 @@
 					},
 					{
 						name: 'Backing Ratio',
-						stat: asset.backing.ratio > 0 ? `${Math.round(asset.backing.ratio * 100)}%` : 'None'
+						stat: asset.backing.ratio > 0 ? formatPercentage(asset.backing.ratio * 100) : 'None'
 					},
 					{
 						name: 'Backing Distribution',
 						stat:
-							asset.backing.ratio > 0 ? `${Math.round(asset.backing.distribution * 100)}%` : 'N/A'
+							asset.backing.ratio > 0 ? formatPercentage(asset.backing.distribution * 100) : 'N/A'
 					}
 				]}
 			/>

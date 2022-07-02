@@ -44,6 +44,8 @@ const config = {
 			default: true,
 			entries: [
 				'*',
+				`/ranking.json`,
+				`/ranking`,
 				...Object.keys(assets).map((id) => `/assets.json`),
 				...Object.keys(assets).map((id) => `/assets/${id}`),
 				...Object.keys(assets).map((id) => `/assets/${id}/sankey`),
