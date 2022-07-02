@@ -1,5 +1,4 @@
 <script>
-	import { page } from '$app/stores';
 	import Sankey from './sankey@sankey.svelte';
 	import Stats from '$lib/components/stats.svelte';
 	import Progress from '$lib/components/progress.svelte';
@@ -35,17 +34,16 @@
 			<Stats
 				stats={[
 					{
-						name: 'Price',
-						stat: `$${asset.price.usd}`
+						name: 'Backing Assets',
+						stat: asset.backing['backing-assets']
 					},
 					{
 						name: 'Backing Ratio',
-						stat: asset.backing.ratio > 0 ? formatPercentage(asset.backing.ratio * 100) : 'None'
+						stat: asset.backing.ratio > 0 ? formatPercentage(asset.backing.ratio) : 'None'
 					},
 					{
 						name: 'Backing Distribution',
-						stat:
-							asset.backing.ratio > 0 ? formatPercentage(asset.backing.distribution * 100) : 'N/A'
+						stat: asset.backing.ratio > 0 ? formatPercentage(asset.backing.distribution) : 'N/A'
 					}
 				]}
 			/>

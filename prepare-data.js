@@ -134,8 +134,8 @@ export async function prepareData() {
     }
     fs.writeFileSync('./_generated/backing-tree.yml', stringify(backingTree))
 
-    for (const [key, value] of Object.entries(assets)) {
-        if (!value.backing) {
+    for (const [key, { backing, mcap }] of Object.entries(assets)) {
+        if (!backing || !mcap) {
             continue;
         }
 
@@ -143,11 +143,30 @@ export async function prepareData() {
             .filter((l) => l.target == 'unbacked' && l.source != key)
             .map((l) => l.value);
 
+        backing['backing-assets'] = lastLevelBacking.length
+
         const totalLastLevelBacking = lastLevelBacking.reduce((s, v) => s + v, 0);
-        value.backing['backing-usd'] = round(totalLastLevelBacking, 2) || 0
-        value.backing['ratio'] = round(totalLastLevelBacking / value.mcap, 4) || 0
-        value.backing['distribution'] = round(uniformity(lastLevelBacking), 4)
+        backing['backing-usd'] = round(totalLastLevelBacking, 2) || 0
+        backing['ratio'] = round(totalLastLevelBacking / mcap, 4) || 0
+        backing['distribution'] = round(uniformity(lastLevelBacking), 4)
     }
 
     fs.writeFileSync('./_generated/assets.yml', stringify(assets))
+
+    let globalBacking = Object.values(assets).reduce((a, { backing }) => {
+        if (!backing || !('backing-usd' in backing)) {
+            return a
+        }
+        return {
+            "backing-usd": a['backing-usd'] + backing['backing-usd'],
+            'ratio-avg': a['ratio-avg'] + backing['ratio'],
+            'distribution-avg': a['distribution-avg'] + backing['distribution'],
+            "backed-assets": a['backed-assets'] + 1
+        }
+    }, { "backing-usd": 0, 'ratio-avg': 0, 'distribution-avg': 0, "backed-assets": 0 })
+    globalBacking['ratio-avg'] = globalBacking['ratio-avg'] / globalBacking['backed-assets']
+    globalBacking['distribution-avg'] /= globalBacking['backed-assets']
+    globalBacking['backing-usd-avg'] = globalBacking['backing-usd'] / globalBacking['backed-assets']
+
+    fs.writeFileSync('./_generated/global.yml', stringify(globalBacking))
 }
