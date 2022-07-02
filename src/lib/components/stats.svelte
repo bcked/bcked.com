@@ -1,6 +1,6 @@
 <script>
 	/** @type {Object[]} */
-	export let stats;
+	export let stats = [];
 </script>
 
 <div>
