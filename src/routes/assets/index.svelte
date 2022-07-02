@@ -1,7 +1,6 @@
 <script>
 	import { ChevronRightIcon } from '@rgossiaux/svelte-heroicons/solid';
 	import { formatCurrency } from '$lib/utils/string-formatting';
-	import { sort } from 'd3';
 
 	/** @type {any} */
 	export let assets;
