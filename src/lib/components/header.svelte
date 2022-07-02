@@ -9,8 +9,8 @@
 		{ name: 'Ranking', path: `${base}/ranking` },
 		{ name: 'Assets', path: `${base}/assets` },
 		{ name: 'FAQ', path: `${base}/faq` },
-		{ name: 'Widgets', path: `${base}/widgets` },
-		{ name: 'API', path: `${base}/api` },
+		// { name: 'Widgets', path: `${base}/widgets` },
+		// { name: 'API', path: `${base}/api` },
 		{ name: 'About', path: `${base}/about` }
 	];
 
@@ -36,7 +36,7 @@
 				</div>
 				<div class="hidden lg:ml-6 lg:flex lg:space-x-8">
 					{#each navigation as item}
-						{@const current = $page.url.pathname === item.path}
+						{@const current = $page.url.pathname.includes(item.path)}
 						<a
 							key={item.name}
 							href={item.path}
