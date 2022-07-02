@@ -13,3 +13,18 @@ export function formatCompactNumber(num, digits = 2) {
         return Number(num).toFixed(digits);
     }
 }
+
+/** 
+ * @param {any} a 
+ * @param {any} b 
+ * @param {boolean} reverse 
+ */
+export function compare(a, b, reverse = true) {
+    let comp;
+    if (a !== '' && b !== '' && !isNaN(a) && !isNaN(b)) {
+        comp = a - b
+    } else {
+        comp = String(b).localeCompare(String(a));
+    }
+    return comp * (reverse ? -1 : 1)
+}

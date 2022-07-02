@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import { base } from '$app/paths';
 	import Table from '$lib/components/table.svelte';
-	import { formatCompactNumber } from '$lib/utils/string-formatting';
+	import { formatCompactNumber, compare } from '$lib/utils/string-formatting';
 
 	const columns = [
 		{ id: 'nr', title: '#', class: '' },
@@ -17,21 +17,31 @@
 	/** @type {any} */
 	let rows = [];
 
+	const sortBy = 'backing-usd';
+
 	onMount(async function () {
 		const assets = await (await fetch(`${base}/assets.json`)).json();
 
 		rows = Object.values(assets)
-			.sort((a, b) => b.asset.backing['backing-usd'] - a.asset.backing['backing-usd'])
+			.sort((a, b) => b.asset.backing[sortBy] - a.asset.backing[sortBy])
 			.map(({ asset }, i) => ({
-				nr: i + 1,
-				name: asset.name,
-				price: `$${formatCompactNumber(asset.price.usd)}`,
-				'backing-ratio': `${asset.backing['ratio'] * 100}%`,
-				'backing-usd': `$${formatCompactNumber(asset.backing['backing-usd'])}`,
-				mcap: `$${formatCompactNumber(asset.mcap)}`,
-				'backing-distribution':
-					asset.backing['ratio'] > 0 ? `${asset.backing['distribution'] * 100}%` : 'N/A',
-				'name-path': asset.path
+				nr: { text: i + 1, value: i },
+				name: { text: asset.name, value: asset.name },
+				price: { text: `$${formatCompactNumber(asset.price.usd)}`, value: asset.price.usd },
+				'backing-ratio': {
+					text: `${asset.backing['ratio'] * 100}%`,
+					value: asset.backing['ratio']
+				},
+				'backing-usd': {
+					text: `$${formatCompactNumber(asset.backing['backing-usd'])}`,
+					value: asset.backing['backing-usd']
+				},
+				mcap: { text: `$${formatCompactNumber(asset.mcap)}`, value: asset.mcap },
+				'backing-distribution': {
+					text: asset.backing['ratio'] > 0 ? `${asset.backing['distribution'] * 100}%` : 'N/A',
+					value: asset.backing['distribution']
+				},
+				'name-path': { text: asset.path, value: asset.path }
 			}));
 	});
 </script>
@@ -46,6 +56,6 @@
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<p>Compare the backing of different assets.</p>
 		</div>
-		<Table {columns} {rows} />
+		<Table {columns} {rows} {sortBy} />
 	</main>
 </div>
