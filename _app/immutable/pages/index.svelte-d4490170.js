@@ -1,1 +1,0 @@
-import{S as o,i as a,s,v as i}from"../chunks/index-3df23935.js";import{c as t}from"../chunks/singletons-d1fb5791.js";t.disable_scroll_handling;const r=t.goto;t.invalidate;t.prefetch;t.prefetch_routes;t.before_navigate;t.after_navigate;function c(e){return i(async function(){r("/ranking")}),[]}class u extends o{constructor(n){super(),a(this,n,c,null,s,{})}}export{u as default};
