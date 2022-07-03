@@ -7,11 +7,11 @@
 
 	const navigation = [
 		{ name: 'Ranking', path: `${base}/ranking` },
-		{ name: 'Assets', path: `${base}/assets` },
-		{ name: 'FAQ', path: `${base}/faq` },
+		{ name: 'Assets', path: `${base}/assets` }
+		// { name: 'FAQ', path: `${base}/faq` },
 		// { name: 'Widgets', path: `${base}/widgets` },
 		// { name: 'API', path: `${base}/api` },
-		{ name: 'About', path: `${base}/about` }
+		// { name: 'About', path: `${base}/about` }
 	];
 
 	/** @param {any[]} classes */
@@ -77,7 +77,7 @@
 	<DisclosurePanel class="lg:hidden">
 		<div class="pt-2 pb-3 space-y-1">
 			{#each navigation as item}
-				{@const current = $page.url.pathname === item.path}
+				{@const current = $page.url.pathname.includes(item.path)}
 				<DisclosureButton
 					key={item.name}
 					as="a"
