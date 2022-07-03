@@ -1,6 +1,7 @@
 <script>
 	import Sankey from './sankey@sankey.svelte';
 	import Progress from '$lib/components/progress.svelte';
+	import LiquidFillGauge from '$lib/components/liquid-fill-gauge.svelte';
 	import { formatCurrency, formatPercentage } from '$lib/utils/string-formatting';
 	import { beforeUpdate } from 'svelte';
 
@@ -15,15 +16,18 @@
 		stats = [
 			{
 				name: 'Backing Assets',
-				stat: asset.backing['backing-assets']
+				stat: asset.backing['backing-assets'],
+				gauge: false
 			},
 			{
 				name: 'Backing Ratio',
-				stat: asset.backing.ratio > 0 ? formatPercentage(asset.backing.ratio) : 'None'
+				stat: asset.backing.ratio,
+				gauge: true
 			},
 			{
 				name: 'Backing Distribution',
-				stat: asset.backing.ratio > 0 ? formatPercentage(asset.backing.distribution) : 'N/A'
+				stat: asset.backing.distribution,
+				gauge: true
 			}
 		];
 	});
@@ -55,7 +59,11 @@
 				{#each stats as item}
 					<div key={item.name} class="px-4 py-5 bg-white shadow rounded-lg overflow-hidden sm:p-6">
 						<dt class="text-sm font-medium text-gray-500 truncate">{item.name}</dt>
-						<dd class="mt-1 text-3xl font-semibold text-gray-900">{item.stat}</dd>
+						{#if item.gauge}
+							<LiquidFillGauge percentage={item.stat * 100} class="h-10 w-10" />
+						{:else}
+							<dd class="mt-1 text-3xl font-semibold text-gray-900">{item.stat}</dd>
+						{/if}
 					</div>
 				{/each}
 			</dl>
