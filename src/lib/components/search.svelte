@@ -1,12 +1,12 @@
 <script>
 	import { page } from '$app/stores';
-	import { onMount, afterUpdate } from 'svelte';
+	import { onMount } from 'svelte';
 	import { base } from '$app/paths';
 	import { Listbox, ListboxOptions, ListboxOption } from '@rgossiaux/svelte-headlessui';
 	import { SearchIcon, XCircleIcon } from '@rgossiaux/svelte-heroicons/solid';
 	import { CashIcon, EmojiSadIcon } from '@rgossiaux/svelte-heroicons/outline';
 
-	/** @type {any} */
+	/** @type {any[]} */
 	let data = [];
 
 	onMount(async function () {
@@ -25,50 +25,38 @@
 		}));
 	});
 
-	afterUpdate(async function () {
-		checkSelected();
-	});
-
 	let query = '';
-	let open = false;
 
-	let filteredItems = [];
-	let groups = {};
+	let open = false;
+	$: open = query !== '';
 
 	let selected = '';
+	$: selected = data.find((item) => $page.url.pathname.includes(item.path));
 
-	function checkSelected() {
-		selected = data.find((item) => $page.url.pathname.includes(item.path));
-	}
+	/** @type {any[]} */
+	let filteredItems = [];
+	$: filteredItems =
+		query === ''
+			? []
+			: data.filter((item) => {
+					return (
+						item.indices.some((index) => index.toLowerCase().includes(query.toLowerCase())) &&
+						item != selected
+					);
+			  });
 
-	function updateQueryResults() {
-		filteredItems =
-			query === ''
-				? []
-				: data.filter((item) => {
-						return (
-							item.indices.some((index) => index.toLowerCase().includes(query.toLowerCase())) &&
-							item != selected
-						);
-				  });
-		groups = filteredItems.reduce((lgroups, item) => {
-			return { ...lgroups, [item.category]: [...(lgroups[item.category] || []), item] };
-		}, {});
-
-		updateOpen();
-	}
+	let groups = {};
+	$: groups = filteredItems.reduce((lgroups, item) => {
+		return { ...lgroups, [item.category]: [...(lgroups[item.category] || []), item] };
+	}, {});
 
 	function clearQuery() {
 		query = '';
-		updateOpen();
 	}
 
-	function updateOpen() {
-		open = query !== '';
-		checkSelected();
-	}
-
+	/** @param {any} node */
 	function clickOutside(node) {
+		/** @param {any} event */
 		const handleClick = (event) => {
 			if (node && !node.contains(event.target) && !event.defaultPrevented) {
 				node.dispatchEvent(new CustomEvent('click_outside', node));
@@ -95,8 +83,6 @@
 			type="search"
 			autoComplete="none"
 			bind:value={query}
-			on:input={updateQueryResults}
-			on:focus={updateOpen}
 		/>
 		<div class="absolute inset-y-0 left-0 pl-3 flex items-center space-x-2 pointer-events-none">
 			{#if selected && !query}
