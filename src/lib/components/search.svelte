@@ -1,10 +1,10 @@
 <script>
 	import { page } from '$app/stores';
-	import { onMount } from 'svelte';
+	import { onMount, afterUpdate } from 'svelte';
 	import { base } from '$app/paths';
 	import { Listbox, ListboxOptions, ListboxOption } from '@rgossiaux/svelte-headlessui';
 	import { SearchIcon, XCircleIcon } from '@rgossiaux/svelte-heroicons/solid';
-	import { EmojiSadIcon } from '@rgossiaux/svelte-heroicons/outline';
+	import { CashIcon, EmojiSadIcon } from '@rgossiaux/svelte-heroicons/outline';
 
 	/** @type {any} */
 	let data = [];
@@ -25,6 +25,10 @@
 		}));
 	});
 
+	afterUpdate(async function () {
+		checkSelected();
+	});
+
 	let query = '';
 	let open = false;
 
@@ -42,7 +46,10 @@
 			query === ''
 				? []
 				: data.filter((item) => {
-						return item.indices.some((index) => index.toLowerCase().includes(query.toLowerCase()));
+						return (
+							item.indices.some((index) => index.toLowerCase().includes(query.toLowerCase())) &&
+							item != selected
+						);
 				  });
 		groups = filteredItems.reduce((lgroups, item) => {
 			return { ...lgroups, [item.category]: [...(lgroups[item.category] || []), item] };
@@ -79,22 +86,41 @@
 </script>
 
 <Listbox value={selected}>
-	<div class="relative" use:clickOutside on:click_outside={() => (open = false)}>
-		<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-			<SearchIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
-		</div>
+	<div class="relative" use:clickOutside on:click_outside={clearQuery}>
 		<label htmlFor="search" class="sr-only"> Search </label>
 		<input
 			id="search"
 			name="search"
-			class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 caret-gray-400 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-neon-pink focus:border-neon-pink sm:text-sm"
-			placeholder="Search asset"
+			class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white caret-gray-400 focus:outline-none focus:ring-1 focus:ring-neon-pink focus:border-neon-pink sm:text-sm"
 			type="search"
 			autoComplete="none"
 			bind:value={query}
 			on:input={updateQueryResults}
 			on:focus={updateOpen}
 		/>
+		<div class="absolute inset-y-0 left-0 pl-3 flex items-center space-x-2 pointer-events-none">
+			{#if selected && !query}
+				<CashIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
+				<div class="flex items-center space-x-1">
+					<span class="block truncate font-medium">
+						{selected.name}
+					</span>
+					<span class="block truncate text-xs">
+						({selected.symbol})
+					</span>
+				</div>
+			{:else}
+				<SearchIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
+				{#if !query}
+					<span class="text-gray-500 focus:text-gray-400 tracking-tighter sm:hidden"
+						>Search asset</span
+					>
+					<span class="hidden text-gray-500 focus:text-gray-400 tracking-tighter sm:block"
+						>What asset are you looking for?</span
+					>
+				{/if}
+			{/if}
+		</div>
 		<div class="absolute inset-y-0 right-0 pr-3 flex items-center" on:click={clearQuery}>
 			<XCircleIcon
 				class={query
@@ -130,20 +156,20 @@
 							</a>
 						{/each}
 					{/each}
-				{/if}
-
-				{#if query !== '' && filteredItems.length === 0}
+				{:else if query !== ''}
 					<ListboxOption
 						value=""
 						class="text-gray-900 cursor-default select-none relative py-2 pl-3 pr-3"
 					>
 						<div class="flex items-center space-x-1">
 							<EmojiSadIcon class="h-5 w-5" aria-hidden="true" />
-							<span class="font-medium">No assets found.</span>
-							<a
-								href="https://github.com/Spenhouet/backed/issues"
-								class="underline hover:text-neon-pink">Report it here...</a
-							>
+							<span class="font-medium"
+								>No assets found.{' '}
+								<a
+									href="https://github.com/Spenhouet/backed/issues"
+									class="underline hover:text-neon-pink">Report it here...</a
+								>
+							</span>
 						</div>
 					</ListboxOption>
 				{/if}
