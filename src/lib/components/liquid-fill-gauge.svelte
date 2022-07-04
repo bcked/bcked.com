@@ -6,7 +6,7 @@
 	let clazz = '';
 	export { clazz as class };
 	/** @type {Number} Percentage of fill. */
-	export let percentage = 0;
+	export let fillPercent;
 	/** @type {Number} The gauge minimum value. */
 	export let minValue = 0;
 	/** @type {Number} The gauge maximum value. */
@@ -48,41 +48,51 @@
 	/** @type {String} The color of the value text when the wave overlaps it. */
 	export let waveTextColor = '#A4DBf8';
 
-	function newValue() {
-		if (Math.random() > 0.5) {
-			return Math.round(Math.random() * 100);
-		} else {
-			return (Math.random() * 100).toFixed(1);
-		}
-	}
-
 	const localId = Math.floor(Math.random() * 100);
 	const gaugeId = `fill-gauge-${localId}`;
 
-	const width = 100;
-	const height = 100;
-	const radius = Math.min(width, height) / 2;
-	const locationX = width / 2;
-	const locationY = height / 2;
-	const fillPercent = Math.max(minValue, Math.min(maxValue, percentage)) / maxValue;
+	let width = 0;
+	let height = 0;
+	let radius = 0;
+	$: radius = Math.min(width, height) / 2;
+	let locationX = 0;
+	$: locationX = width / 2;
+	let locationY = 0;
+	$: locationY = height / 2;
 
-	const waveHeightScale = waveHeightScaling
+	/** @param {Number} a */
+	let waveHeightScale = (a) => 0;
+	$: waveHeightScale = waveHeightScaling
 		? d3.scaleLinear().range([0, waveHeight, 0]).domain([0, 50, 100])
 		: d3.scaleLinear().range([waveHeight, waveHeight]).domain([0, 100]);
 
-	const textPixels = (textSize * radius) / 2;
-	const textFinalValue = percentage.toFixed(2);
-	const textStartValue = valueCountUp ? minValue : textFinalValue;
-	const percentText = displayPercent ? '%' : '';
-	circleThickness = circleThickness * radius;
-	circleFillGap = circleFillGap * radius;
-	const fillCircleMargin = circleThickness + circleFillGap;
-	const fillCircleRadius = radius - fillCircleMargin;
-	waveHeight = fillCircleRadius * waveHeightScale(fillPercent * 100);
+	let textPixels = 0;
+	$: textPixels = (textSize * radius) / 2;
 
-	const waveLength = (fillCircleRadius * 2) / waveCount;
-	const waveClipCount = 1 + waveCount;
-	const waveClipWidth = waveLength * waveClipCount;
+	let textValue = '';
+	$: textValue = (fillPercent * 100).toFixed(2);
+
+	let percentText = '';
+	$: percentText = displayPercent ? '%' : '';
+
+	let circleThicknessLocal = 0;
+	$: circleThicknessLocal = circleThickness * radius;
+	let circleFillGapLocal = 0;
+	$: circleFillGapLocal = circleFillGap * radius;
+
+	let fillCircleMargin = 0;
+	$: fillCircleMargin = circleThicknessLocal + circleFillGapLocal;
+	let fillCircleRadius = 0;
+	$: fillCircleRadius = radius - fillCircleMargin;
+	let waveHeightLocal = 0;
+	$: waveHeightLocal = fillCircleRadius * waveHeightScale(fillPercent * 100);
+
+	let waveLength = 0;
+	$: waveLength = (fillCircleRadius * 2) / waveCount;
+	let waveClipCount = 0;
+	$: waveClipCount = 1 + waveCount;
+	let waveClipWidth = 0;
+	$: waveClipWidth = waveLength * waveClipCount;
 
 	// Data for building the clip wave area.
 	let data = [];
@@ -91,36 +101,56 @@
 	}
 
 	// Scales for drawing the outer circle.
-	const gaugeCircleX = d3
+	/** @param {Number} a */
+	let gaugeCircleX = (a) => 0;
+	$: gaugeCircleX = d3
 		.scaleLinear()
 		.range([0, 2 * Math.PI])
 		.domain([0, 1]);
-	const gaugeCircleY = d3.scaleLinear().range([0, radius]).domain([0, radius]);
+	/** @param {Number} a */
+	let gaugeCircleY = (a) => 0;
+	$: gaugeCircleY = d3.scaleLinear().range([0, radius]).domain([0, radius]);
 
 	// Scales for controlling the size of the clipping path.
-	const waveScaleX = d3.scaleLinear().range([0, waveClipWidth]).domain([0, 1]);
-	const waveScaleY = d3.scaleLinear().range([0, waveHeight]).domain([0, 1]);
+	/** @param {Number} a */
+	let waveScaleX = (a) => 0;
+	$: waveScaleX = d3.scaleLinear().range([0, waveClipWidth]).domain([0, 1]);
+	/** @param {Number} a */
+	let waveScaleY = (a) => 0;
+	$: waveScaleY = d3.scaleLinear().range([0, waveHeightLocal]).domain([0, 1]);
 
 	// Scales for controlling the position of the clipping path.
-	const waveRiseScale = d3
+	/** @param {Number} a */
+	let waveRiseScale = (a) => 0;
+	$: waveRiseScale = d3
 		.scaleLinear()
 		// The clipping area size is the height of the fill circle + the wave height, so we position the clip wave
 		// such that the it will overlap the fill circle at all when at 0%, and will totally cover the fill
 		// circle at 100%.
-		.range([fillCircleMargin + fillCircleRadius * 2 + waveHeight, fillCircleMargin - waveHeight])
+		.range([
+			fillCircleMargin + fillCircleRadius * 2 + waveHeightLocal,
+			fillCircleMargin - waveHeightLocal
+		])
 		.domain([0, 1]);
-	const waveAnimateScale = d3
+
+	/** @param {Number} a */
+	let waveAnimateScale = (a) => 0;
+	$: waveAnimateScale = d3
 		.scaleLinear()
 		.range([0, waveClipWidth - fillCircleRadius * 2]) // Push the clip area one full wave then snap back.
 		.domain([0, 1]);
 
 	// Scale for controlling the position of the text within the gauge.
-	const textRiseScaleY = d3
+	/** @param {Number} a */
+	let textRiseScaleY = (a) => 0;
+	$: textRiseScaleY = d3
 		.scaleLinear()
 		.range([fillCircleMargin + fillCircleRadius * 2, fillCircleMargin + textPixels * 0.7])
 		.domain([0, 1]);
 
-	const clipArea = d3
+	/** @param {any[]} a */
+	let clipArea = (a) => [];
+	$: clipArea = d3
 		.area()
 		.x((d) => waveScaleX(d.x))
 		.y0((d) =>
@@ -128,44 +158,61 @@
 				Math.sin(Math.PI * 2 * waveOffset * -1 + Math.PI * 2 * (1 - waveCount) + d.y * 2 * Math.PI)
 			)
 		)
-		.y1((d) => fillCircleRadius * 2 + waveHeight);
+		.y1((d) => fillCircleRadius * 2 + waveHeightLocal);
+
+	let waveGroupXPosition = 0;
+	$: waveGroupXPosition = fillCircleMargin + fillCircleRadius * 2 - waveClipWidth;
 
 	// Rounding functions so that the correct number of decimal places is always displayed as the value counts up.
 	/** @param {Number} value */
 	function textRounder(value) {
 		return Math.round(value);
 	}
-
-	function arcPath() {
-		let path = d3.path();
-		path.arc(50, 50, gaugeCircleY(radius), gaugeCircleX(0), gaugeCircleX(1));
-		return path.toString();
-	}
 </script>
 
-<svg bind:this={el} width="100px" height="100px">
-	<g>
-		<circle
-			cx={locationX}
-			cy={locationY}
-			r={radius - circleThickness / 2}
-			fill="none"
-			stroke={circleColor}
-			stroke-width={circleThickness}
-		/>
-		<text
-			x={radius}
-			y={textRiseScaleY(textVertPosition)}
-			text-anchor="middle"
-			font-size="${textPixels}% fill={textColor}">{textRounder(textStartValue) + percentText}</text
-		>
-		<defs>
-			<clipPath id="clipWave-{gaugeId}">
-				<path d={clipArea(data)} T={0} />
-			</clipPath>
-		</defs>
-		<g clip-path="url(#clipWave-${gaugeId})">
-			<circle cx={radius} cy={radius} r={fillCircleRadius} fill={waveColor} />
+<!-- https://joelmturner.com/blog/svelte-animated-water-svg-pictorial-fraction -->
+<!-- https://svelte.dev/examples/svg-transitions -->
+<!-- https://codepen.io/sharanda/details/vMZmdw -->
+
+<div class={clazz} bind:offsetWidth={width} bind:offsetHeight={height}>
+	<svg {width} {height}>
+		<g>
+			<circle
+				cx={locationX}
+				cy={locationY}
+				r={radius - circleThicknessLocal / 2}
+				fill="none"
+				stroke={circleColor}
+				stroke-width={circleThicknessLocal}
+			/>
+			<text
+				x={radius}
+				y={textRiseScaleY(textVertPosition)}
+				text-anchor="middle"
+				font-size="${textPixels}% fill={textColor}"
+			>
+				{textRounder(textValue) + percentText}
+			</text>
+			<defs style={`transform: translate(${waveGroupXPosition}, ${waveRiseScale(fillPercent)});`}>
+				<clipPath id="clipWave-{gaugeId}">
+					<path
+						d={clipArea(data)}
+						T={0}
+						style={`transform: translate(${waveAnimateScale(0)}, ${0});`}
+					/>
+				</clipPath>
+			</defs>
+			<g clip-path="url(#clipWave-${gaugeId})">
+				<circle cx={radius} cy={radius} r={fillCircleRadius} fill={waveColor} />
+				<text
+					x={radius}
+					y={textRiseScaleY(textVertPosition)}
+					text-anchor="middle"
+					font-size="${textPixels}% fill={waveTextColor}"
+				>
+					{textRounder(textValue) + percentText}
+				</text>
+			</g>
 		</g>
-	</g>
-</svg>
+	</svg>
+</div>
