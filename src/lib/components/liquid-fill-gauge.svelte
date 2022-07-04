@@ -56,37 +56,14 @@
 		}
 	}
 
-	let el;
+	const localId = Math.floor(Math.random() * 100);
+	const gaugeId = `fill-gauge-${localId}`;
 
-	const gaugeId = 'fill-gauge';
-
-	// let gauge;
-	// $: gauge = loadLiquidFillGauge(el, percentage, {
-	// 	minValue,
-	// 	maxValue,
-	// 	circleThickness,
-	// 	circleFillGap,
-	// 	circleColor,
-	// 	waveHeight,
-	// 	waveCount,
-	// 	waveRiseTime,
-	// 	waveAnimateTime,
-	// 	waveRise,
-	// 	waveHeightScaling,
-	// 	waveAnimate,
-	// 	waveColor,
-	// 	waveOffset,
-	// 	textVertPosition,
-	// 	textSize,
-	// 	valueCountUp,
-	// 	displayPercent,
-	// 	textColor,
-	// 	waveTextColor
-	// });
-
-	const radius = 50;
-	const locationX = 0; // parseInt(gauge.style("width")) / 2 - radius;
-	const locationY = 0; //parseInt(gauge.style("height")) / 2 - radius;
+	const width = 100;
+	const height = 100;
+	const radius = Math.min(width, height) / 2;
+	const locationX = width / 2;
+	const locationY = height / 2;
 	const fillPercent = Math.max(minValue, Math.min(maxValue, percentage)) / maxValue;
 
 	const waveHeightScale = waveHeightScaling
@@ -143,6 +120,16 @@
 		.range([fillCircleMargin + fillCircleRadius * 2, fillCircleMargin + textPixels * 0.7])
 		.domain([0, 1]);
 
+	const clipArea = d3
+		.area()
+		.x((d) => waveScaleX(d.x))
+		.y0((d) =>
+			waveScaleY(
+				Math.sin(Math.PI * 2 * waveOffset * -1 + Math.PI * 2 * (1 - waveCount) + d.y * 2 * Math.PI)
+			)
+		)
+		.y1((d) => fillCircleRadius * 2 + waveHeight);
+
 	// Rounding functions so that the correct number of decimal places is always displayed as the value counts up.
 	/** @param {Number} value */
 	function textRounder(value) {
@@ -156,34 +143,29 @@
 	}
 </script>
 
-<!-- var gaugeCircleArc = d3.arc()
-        .startAngle(gaugeCircleX(0))
-        .endAngle(gaugeCircleX(1))
-        .outerRadius(gaugeCircleY(radius))
-        .innerRadius(gaugeCircleY(radius - circleThickness));
-    gaugeGroup.append("path")
-        .attr("d", gaugeCircleArc)
-        .style("fill", config.circleColor)
-        .attr('transform', 'translate(' + radius + ',' + radius + ')'); -->
-
-<!-- <div class={$$props.class} width="5%" height="5%"> -->
 <svg bind:this={el} width="100px" height="100px">
-	<circle
-		cx="50"
-		cy="50"
-		r={radius - circleThickness}
-		fill="none"
-		stroke={circleColor}
-		stroke-width={circleThickness}
-	/>
-	<!-- <circle
-		cx="50"
-		cy="50"
-		r={radius - circleThickness}
-		fill={circleColor}
-	/> -->
-	<!-- <path d={arcPath()} fill={circleColor} stroke="green" stroke-width={circleThickness} /> -->
+	<g>
+		<circle
+			cx={locationX}
+			cy={locationY}
+			r={radius - circleThickness / 2}
+			fill="none"
+			stroke={circleColor}
+			stroke-width={circleThickness}
+		/>
+		<text
+			x={radius}
+			y={textRiseScaleY(textVertPosition)}
+			text-anchor="middle"
+			font-size="${textPixels}% fill={textColor}">{textRounder(textStartValue) + percentText}</text
+		>
+		<defs>
+			<clipPath id="clipWave-{gaugeId}">
+				<path d={clipArea(data)} T={0} />
+			</clipPath>
+		</defs>
+		<g clip-path="url(#clipWave-${gaugeId})">
+			<circle cx={radius} cy={radius} r={fillCircleRadius} fill={waveColor} />
+		</g>
+	</g>
 </svg>
-<!-- </div> -->
-
-<!-- on:click={() => (gauge ? gauge.update(newValue()) : null)} -->
