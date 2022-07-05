@@ -13,18 +13,17 @@
 	<header>
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<h1 class="text-3xl font-bold leading-tight text-gray-900">Backed Assets</h1>
-		</div>
-	</header>
-	<main>
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<p>
 				Backed records {global['backed-assets']} backed assets with a total backing of {formatCurrency(
 					global['backing-usd']
 				)} and an average backing of {formatCurrency(global['backing-usd-avg'])}.
 			</p>
-
+		</div>
+	</header>
+	<main>
+		<div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 			<dl
-				class="rounded-lg overflow-hidden shadow mt-5 grid grid-cols-1  bg-white divide-y divide-gray-200 lg:divide-x lg:divide-y-0 lg:gap-px lg:grid-cols-3"
+				class="sm:rounded-lg shadow overflow-hidden mt-5 grid grid-cols-1 bg-white divide-y divide-gray-200 lg:divide-x lg:divide-y-0 lg:gap-px lg:grid-cols-3"
 			>
 				<AssetList
 					{assets}
