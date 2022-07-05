@@ -60,7 +60,19 @@
 					<div key={item.name} class="px-4 py-5 bg-white shadow rounded-lg overflow-hidden sm:p-6">
 						<dt class="text-sm font-medium text-gray-500 truncate">{item.name}</dt>
 						{#if item.gauge}
-							<LiquidFillGauge fillPercent={item.stat} class="h-20 w-20" circleThickness={0.1} />
+							<LiquidFillGauge
+								fillPercent={item.stat}
+								class="h-20 w-20"
+								circleColor="#ff3b77"
+								textColor="#ff3b77"
+								waveTextColor="#ff3b77"
+								waveColor="#FFDDDD"
+								circleThickness={0.2}
+								circleFillGap={0.05}
+								textVertPosition={0.2}
+								waveAnimateTime={1500}
+								waveHeight={0.15}
+							/>
 						{:else}
 							<dd class="mt-1 text-3xl font-semibold text-gray-900">{item.stat}</dd>
 						{/if}
