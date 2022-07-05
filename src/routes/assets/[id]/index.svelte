@@ -1,9 +1,9 @@
 <script>
 	import Sankey from './sankey@sankey.svelte';
 	import Progress from '$lib/components/progress.svelte';
-	import LiquidFillGauge from '$lib/components/liquid-fill-gauge.svelte';
+	import LiquidFill from '$lib/components/liquid-fill.svelte';
 	import { formatCurrency, formatPercentage } from '$lib/utils/string-formatting';
-	import { beforeUpdate } from 'svelte';
+	import Template from '@rgossiaux/svelte-heroicons/solid/Template';
 
 	/** @type {any} */
 	export let asset;
@@ -15,23 +15,23 @@
 	$: stats = [
 		{
 			name: 'Price',
-			stat: formatCurrency(asset.price.usd),
-			gauge: false
+			value: asset.price.usd,
+			type: 'currency'
 		},
 		{
 			name: 'Backing Assets',
-			stat: asset.backing['backing-assets'],
-			gauge: false
+			value: asset.backing['backing-assets'],
+			type: 'standard'
 		},
 		{
 			name: 'Backing Ratio',
-			stat: asset.backing.ratio,
-			gauge: true
+			value: asset.backing.ratio,
+			type: 'percent'
 		},
 		{
 			name: 'Backing Distribution',
-			stat: asset.backing.distribution,
-			gauge: true
+			value: asset.backing.distribution,
+			type: 'percent'
 		}
 	];
 </script>
@@ -45,26 +45,32 @@
 			{#each stats as item}
 				<div
 					key={item.name}
-					class="px-4 py-5 bg-white sm:shadow sm:rounded-lg overflow-hidden sm:p-6"
+					class="relative px-4 py-5 bg-white sm:shadow sm:rounded-lg overflow-hidden sm:p-6"
 				>
-					<dt class="text-sm font-medium text-gray-500 truncate">{item.name}</dt>
-					{#if item.gauge}
-						<LiquidFillGauge
-							fillPercent={item.stat}
-							class="h-20 w-20"
-							circleColor="#ff3b77"
-							textColor="#ff3b77"
-							waveTextColor="#ff3b77"
-							waveColor="#FFDDDD"
-							circleThickness={0.2}
-							circleFillGap={0.05}
-							textVertPosition={0.2}
-							waveAnimateTime={1500}
-							waveHeight={0.15}
-						/>
-					{:else}
-						<dd class="mt-1 text-3xl font-semibold text-gray-900">{item.stat}</dd>
+					{#if item.type == 'percent'}
+						<div class="absolute top-0 left-0 h-full w-full">
+							<LiquidFill
+								fillPercent={item.value}
+								class="h-full w-full"
+								waveColor="#FFDDDD"
+								waveAnimateTime={2000}
+								waveHeight={0.1}
+								waveHeightScaling={true}
+							/>
+						</div>
 					{/if}
+					<div class="relative">
+						<dt class="text-sm font-medium text-gray-500 truncate">{item.name}</dt>
+						<dd class="mt-1 text-3xl font-semibold text-gray-900">
+							{#if item.type == 'standard'}
+								{item.value}
+							{:else if item.type == 'currency'}
+								{formatCurrency(item.value)}
+							{:else if item.type == 'percent'}
+								{formatPercentage(item.value)}
+							{/if}
+						</dd>
+					</div>
 				</div>
 			{/each}
 		</dl>
