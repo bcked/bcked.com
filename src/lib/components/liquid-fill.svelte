@@ -44,7 +44,7 @@
 	let waveScaleX = (a) => 0;
 	$: waveScaleX = d3
 		.scaleLinear()
-		.range([0, width * 3]) // Added * 2 here
+		.range([0, width * 4]) // Added * 2 here
 		.domain([0, 1]);
 	/** @param {Number} a */
 	let waveScaleY = (a) => 0;
@@ -82,7 +82,7 @@
 		.area()
 		.x((d) => waveScaleX(d.x))
 		.y0((d) => waveScaleY(Math.sin(Math.PI * 2 * waveOffset * -1 + d.y * 2 * Math.PI)))
-		.y1((d) => 100 + waveHeightLocal + 10); // TODO check if adding 10 here is okay
+		.y1((d) => 100 + waveHeightLocal + 20); // TODO check if adding 10 here is okay
 
 	let waveData = '';
 	$: waveData = clipArea(data);
@@ -120,7 +120,7 @@
 
 	@keyframes ripple {
 		100% {
-			transform: translate3d(-150%, 0, 0);
+			transform: translate3d(-200%, 0, 0);
 		}
 	}
 </style>
