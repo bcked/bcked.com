@@ -39,7 +39,7 @@
 <div class="py-10">
 	<div class="max-w-7xl mx-auto space-y-4 sm:px-6 lg:px-8">
 		<dl
-			class="grid grid-cols-2 divide-x divide-y divide-gray-200 sm:divide-x-0 sm:gap-4 md:grid-cols-4 shadow sm:shadow-none"
+			class="grid grid-cols-2 divide-x divide-gray-200 sm:divide-x-0 sm:gap-4 md:grid-cols-4 shadow sm:shadow-none"
 		>
 			<!-- {stats.length <= 4 ? stats.length : 4} -->
 			{#each stats as item}
