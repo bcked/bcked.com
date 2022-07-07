@@ -12,6 +12,22 @@ const config = {
 				'midnight': '#52656b',
 				'retro': '#b8b89f',
 			},
+			animation: {
+				tilt: 'tilt 10s infinite linear',
+			},
+			keyframes: {
+				tilt: {
+					"0%, 50%, 100%": {
+						transform: "rotate3d(2, 2, 2, 0deg)",
+					},
+					"25%": {
+						transform: "rotate3d(2, 2, 2, 4deg)",
+					},
+					"75%": {
+						transform: "rotate3d(2, 2, 2, -4deg)",
+					},
+				}
+			}
 		}
 	},
 

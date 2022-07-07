@@ -44,7 +44,7 @@
 	let waveScaleX = (a) => 0;
 	$: waveScaleX = d3
 		.scaleLinear()
-		.range([0, width * 4]) // Added * 2 here
+		.range([0, width * 4]) // Added * 4 here
 		.domain([0, 1]);
 	/** @param {Number} a */
 	let waveScaleY = (a) => 0;

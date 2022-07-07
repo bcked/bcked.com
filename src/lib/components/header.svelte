@@ -53,11 +53,13 @@
 					{/each}
 				</div>
 			</div>
-			<div class="flex-1 flex items-center justify-center px-2 lg:ml-6 lg:justify-end">
-				<div class="max-w-lg w-full lg:max-w-xs">
-					<Search />
+			{#if $page.url.pathname != '/'}
+				<div class="flex-1 flex items-center justify-center px-2 lg:ml-6 lg:justify-end">
+					<div class="max-w-lg w-full lg:max-w-xs">
+						<Search />
+					</div>
 				</div>
-			</div>
+			{/if}
 			<div class="flex items-center lg:hidden">
 				<!-- Mobile menu button -->
 				<DisclosureButton
