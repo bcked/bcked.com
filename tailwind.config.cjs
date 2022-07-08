@@ -13,10 +13,22 @@ const config = {
 				'retro': '#b8b89f',
 			},
 			animation: {
-				tilt: 'tilt 10s infinite linear',
+				'tilt-1': 'tilt-1 10s infinite linear',
+				'tilt-4': 'tilt-4 10s infinite linear',
 			},
 			keyframes: {
-				tilt: {
+				'tilt-1': {
+					"0%, 50%, 100%": {
+						transform: "rotate3d(2, 2, 2, 0deg)",
+					},
+					"25%": {
+						transform: "rotate3d(2, 2, 2, 1deg)",
+					},
+					"75%": {
+						transform: "rotate3d(2, 2, 2, -1deg)",
+					},
+				},
+				'tilt-4': {
 					"0%, 50%, 100%": {
 						transform: "rotate3d(2, 2, 2, 0deg)",
 					},
@@ -26,7 +38,8 @@ const config = {
 					"75%": {
 						transform: "rotate3d(2, 2, 2, -4deg)",
 					},
-				}
+				},
+
 			}
 		}
 	},
