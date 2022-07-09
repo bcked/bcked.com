@@ -20,6 +20,13 @@
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<p>Compare the backing of different assets.</p>
 		</div>
-		<Table {columns} {rows} {sortBy} />
+		<div class="px-4 sm:px-6 lg:px-8">
+			<Table
+				{columns}
+				{rows}
+				{sortBy}
+				class="-mx-4 mt-8 overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:-mx-6 md:mx-0 md:rounded-lg"
+			/>
+		</div>
 	</main>
 </div>

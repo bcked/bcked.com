@@ -18,7 +18,7 @@
 				</div>
 				<div class="mt-10 flex space-x-3 sm:pl-6">
 					<a
-						href={`${base}/`}
+						href="{base}/"
 						class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-md bg-midnight text-gray-50  hover:bg-neon-yellow hover:text-gray-900"
 					>
 						Go back home
