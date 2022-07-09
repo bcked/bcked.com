@@ -6,6 +6,9 @@
 	import { SearchIcon, XCircleIcon } from '@rgossiaux/svelte-heroicons/solid';
 	import { CashIcon, EmojiSadIcon } from '@rgossiaux/svelte-heroicons/outline';
 
+	let clazz = '';
+	export { clazz as class };
+
 	/** @type {any[]} */
 	let data = [];
 
@@ -79,7 +82,7 @@
 		<input
 			id="search"
 			name="search"
-			class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white caret-gray-400 focus:outline-none focus:ring-1 focus:ring-neon-pink focus:border-neon-pink sm:text-sm"
+			class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white caret-gray-400 focus:outline-none focus:ring-1 focus:ring-neon-pink focus:border-neon-pink sm:text-sm {clazz}"
 			type="search"
 			autoComplete="none"
 			bind:value={query}

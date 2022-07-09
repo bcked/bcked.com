@@ -15,18 +15,18 @@
 	export let sortBy;
 	/** @type {boolean} */
 	export let sortAsc = true;
-	/** @type {Number} */
-	export let length;
+	/** @type {Number=} */
+	export let length = undefined;
 </script>
 
 <div class={clazz}>
 	<table class="min-w-full divide-y divide-gray-300">
-		<thead class="bg-gray-50">
+		<thead class="bg-midnight">
 			<tr>
 				{#each columns as column}
 					<th
 						scope="col"
-						class="group cursor-pointer py-3.5 pl-4 sm:pl-6 lg:pl-8 pr-1 text-left text-sm font-semibold text-gray-900 {column.class}"
+						class="group cursor-pointer py-3.5 pl-4 sm:pl-6 lg:pl-8 pr-1 text-left text-sm font-semibold text-gray-50 {column.class}"
 						on:click={(e) => {
 							if (sortBy == column.id) {
 								sortAsc = !sortAsc;
@@ -39,7 +39,7 @@
 						<div class="inline-flex">
 							{column.title}
 							{#if sortBy == column.id}
-								<span class="ml-2 flex-none rounded text-gray-400">
+								<span class="ml-2 flex-none rounded text-gray-50">
 									{#if sortAsc}
 										<ChevronDownIcon class="h-5 w-5" aria-hidden="true" />
 									{:else}
@@ -48,7 +48,7 @@
 								</span>
 							{:else}
 								<span
-									class="invisible ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible"
+									class="invisible ml-2 flex-none rounded text-gray-300 group-hover:visible group-focus:visible"
 								>
 									<ChevronDownIcon class="h-5 w-5" aria-hidden="true" />
 								</span>
