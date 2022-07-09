@@ -43,7 +43,7 @@
 		class="relative max-w-7xl mx-auto shadow bg-white xl:rounded-lg py-16 px-4 sm:py-24 sm:px-6 lg:px-8"
 	>
 		<div class="lg:flex lg:justify-between">
-			<div class="max-w-4xl">
+			<div class="max-w-xl xl:max-w-4xl">
 				<h2
 					class="text-4xl font-extrabold text-neon-pink sm:text-5xl sm:tracking-tight lg:text-6xl"
 				>
@@ -54,12 +54,19 @@
 				</p>
 			</div>
 			<div class="mt-10 w-full max-w-xs">
-				<a
-					href="{base}/ranking"
-					class="inline-flex items-center gap-2 px-4 py-2 text-base font-medium rounded-md bg-midnight text-gray-50  hover:bg-neon-yellow hover:text-gray-900"
-					>More
-					<ChevronRightIcon class="h-5 w-5" aria-hidden="true" /></a
-				>
+				<div class="relative">
+					<div
+						class="absolute -inset-0 rounded-md bg-gradient-to-r from-neon-yellow to-neon-pink blur animate-tilt-4"
+					/>
+					<div class="relative">
+						<a
+							href="{base}/ranking"
+							class="inline-flex items-center justify-between w-full px-4 py-2 text-base font-medium rounded-md bg-midnight text-gray-50 hover:bg-neon-pink"
+							>More
+							<ChevronRightIcon class="h-5 w-5" aria-hidden="true" /></a
+						>
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="mt-10 w-full">

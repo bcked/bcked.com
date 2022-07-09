@@ -16,7 +16,7 @@
 	/** @type {boolean} */
 	export let sortAsc = true;
 	/** @type {Number} */
-	export let length = 3;
+	export let length;
 </script>
 
 <div class={clazz}>

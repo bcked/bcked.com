@@ -25,14 +25,28 @@
 		<div class="flex justify-between h-16">
 			<div class="flex px-2 lg:px-0">
 				<div class="flex-shrink-0 flex items-center">
-					<a href={`${base}/`}>
-						<img class="block lg:hidden h-8 w-auto" src="{base}/backed-logo.svg" alt="backed" />
-						<img
-							class="hidden lg:block h-8 w-auto"
-							src="{base}/backed-logo-text.svg"
-							alt="backed"
-						/>
-					</a>
+					<div class="relative group">
+						<!-- <div class="absolute">
+							<img
+								class="block lg:hidden h-8 w-auto group-hover:blur transition duration-1000"
+								src="{base}/backed-logo.svg"
+								alt="backed"
+							/>
+							<img
+								class="hidden lg:block h-8 w-auto group-hover:blur transition duration-1000"
+								src="{base}/backed-logo-text.svg"
+								alt="backed"
+							/>
+						</div> -->
+						<a href={`${base}/`} class="relative">
+							<img class="block lg:hidden h-8 w-auto" src="{base}/backed-logo.svg" alt="backed" />
+							<img
+								class="hidden lg:block h-8 w-auto"
+								src="{base}/backed-logo-text.svg"
+								alt="backed"
+							/>
+						</a>
+					</div>
 				</div>
 				<div class="hidden lg:ml-6 lg:flex lg:space-x-8">
 					{#each navigation as item}
