@@ -23,7 +23,7 @@
 	<main>
 		<div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 			<dl
-				class="sm:rounded-lg shadow overflow-hidden mt-5 grid grid-cols-1 bg-white divide-y divide-gray-200 lg:divide-x lg:divide-y-0 lg:gap-px lg:grid-cols-3"
+				class="sm:rounded-lg shadow overflow-hidden mt-5 grid grid-cols-1 bg-white divide-y divide-gray-200 xl:divide-x xl:divide-y-0 xl:gap-px xl:grid-cols-3"
 			>
 				<AssetList
 					{assets}

@@ -1,4 +1,5 @@
 <script>
+	import { base } from '$app/paths';
 	import { ChevronRightIcon } from '@rgossiaux/svelte-heroicons/solid';
 
 	/** @type {any} */
@@ -37,12 +38,21 @@
 							<div class="text-gray-400 text-sm">
 								{i + 1}
 							</div>
-							<div class="flex items-center px-4 sm:px-6">
-								<div class="font-semibold">
-									{asset.name}
-								</div>
-								<div class="pl-1 text-gray-400 text-sm">
-									{asset.symbol}
+							<div class="flex items-center space-x-1 px-4 sm:px-6">
+								{#if asset.icon}
+									<img
+										class="h-5 w-5 object-contain"
+										src="{base}/{asset.icon}"
+										alt="Icon of {asset.name}"
+									/>
+								{/if}
+								<div class="flex items-center space-x-1">
+									<span class="block font-semibold">
+										{asset.name}
+									</span>
+									<span class="block text-gray-400 text-sm">
+										({asset.symbol})
+									</span>
 								</div>
 							</div>
 						</div>
