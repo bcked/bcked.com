@@ -23,7 +23,7 @@ export async function get({ params }) {
         .sort((a, b) => b.asset.backing[sortBy] - a.asset.backing[sortBy])
         .map(({ asset }, i) => ({
             rank: { text: i + 1, value: i },
-            name: { text: asset.name, value: asset.name },
+            name: { text: asset.name, value: asset.name, icon: asset.icon },
             price: { text: formatCurrency(asset.price.usd), value: asset.price.usd },
             'backing-assets': { text: asset.backing['backing-assets'], value: asset.backing['backing-assets'] },
             'backing-ratio': {

@@ -67,7 +67,7 @@
 					{/each}
 				</div>
 			</div>
-			{#if $page.url.pathname != `${base}/`}
+			{#if $page.url.pathname != `${base}/` && $page.url.pathname != `${base}`}
 				<div class="flex-1 flex items-center justify-center px-2 lg:ml-6 lg:justify-end">
 					<div class="max-w-lg w-full lg:max-w-xs">
 						<Search />

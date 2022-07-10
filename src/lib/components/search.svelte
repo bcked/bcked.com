@@ -19,6 +19,7 @@
 			symbol: asset.symbol,
 			category: 'Asset',
 			path: asset.path,
+			icon: asset.icon,
 			indices: [
 				id,
 				asset.symbol,
@@ -89,7 +90,16 @@
 		/>
 		<div class="absolute inset-y-0 left-0 pl-3 flex items-center space-x-2 pointer-events-none">
 			{#if selected && !query}
-				<CashIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
+				{#if selected.icon}
+					<img
+						class="h-5 w-5 object-contain"
+						src="{base}/{selected.icon}"
+						alt="Icon of {selected.name}"
+					/>
+				{:else}
+					<CashIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
+				{/if}
+
 				<div class="flex items-center space-x-1">
 					<span class="block truncate font-medium">
 						{selected.name}
@@ -133,13 +143,24 @@
 									value={item}
 									class="cursor-default select-none relative py-2 pl-3 pr-3 text-gray-900 hover:text-white hover:bg-neon-pink"
 								>
-									<div class="flex items-center space-x-1">
-										<span class="block truncate font-medium">
-											{item.name}
-										</span>
-										<span class="block truncate text-xs">
-											({item.symbol})
-										</span>
+									<div class="flex items-center space-x-2">
+										{#if item.icon}
+											<img
+												class="h-5 w-5 object-contain"
+												src="{base}/{item.icon}"
+												alt="Icon of {item.name}"
+											/>
+										{:else}
+											<CashIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
+										{/if}
+										<div class="flex items-center space-x-1">
+											<span class="block truncate font-medium">
+												{item.name}
+											</span>
+											<span class="block truncate text-xs">
+												({item.symbol})
+											</span>
+										</div>
 									</div>
 								</ListboxOption>
 							</a>
@@ -150,7 +171,7 @@
 						value=""
 						class="text-gray-900 cursor-default select-none relative py-2 pl-3 pr-3"
 					>
-						<div class="flex items-center space-x-1">
+						<div class="flex items-center space-x-2">
 							<EmojiSadIcon class="h-5 w-5" aria-hidden="true" />
 							<span class="font-medium"
 								>No assets found.{' '}

@@ -1,6 +1,6 @@
 <script>
+	import { base } from '$app/paths';
 	import { compare } from '$lib/utils/string-formatting';
-
 	import { ChevronDownIcon, ChevronUpIcon } from '@rgossiaux/svelte-heroicons/solid';
 
 	let clazz = '';
@@ -68,9 +68,33 @@
 							class="whitespace-nowrap py-4 pl-4 pr-1 text-sm text-gray-900 sm:pl-6 lg:pl-8 {column.class}"
 						>
 							{#if column.link}
-								<a href={row[column.id + '-path'].text}>{row[column.id].text}</a>
+								<a href={row[column.id + '-path'].text}>
+									<div class="flex items-center space-x-1">
+										{#if row[column.id].icon}
+											<img
+												class="h-5 w-5 object-contain"
+												src="{base}/{row[column.id].icon}"
+												alt="Icon of {row[column.id].text}"
+											/>
+										{/if}
+										<span>
+											{row[column.id].text}
+										</span>
+									</div>
+								</a>
 							{:else}
-								{row[column.id].text}
+								<div class="flex items-center space-x-1">
+									{#if row[column.id].icon}
+										<img
+											class="h-5 w-5 object-contain"
+											src="{base}/{row[column.id].icon}"
+											alt="Icon of {row[column.id].text}"
+										/>
+									{/if}
+									<span>
+										{row[column.id].text}
+									</span>
+								</div>
 							{/if}
 						</td>
 					{/each}

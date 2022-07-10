@@ -1,5 +1,4 @@
 import fs from 'fs';
-import path from 'path'
 import { parse, stringify } from 'yaml';
 
 /**
@@ -39,10 +38,22 @@ function uniformity(values) {
     return 1 - klDivergence
 }
 
-function extendAssetData(asset) {
-    const supply = asset.supply.circulating || asset.supply.total || 0
-    asset['mcap'] = round(asset.price.usd * supply, 2)
-    return asset
+function loadAssetData(assetId) {
+    const assetPath = `./assets/${assetId}`
+    let assetDetails = parse(fs.readFileSync(`${assetPath}/details.yml`, 'utf-8'))
+
+    try {
+        const iconPath = `asset-icons/${assetId}.png`
+        fs.copyFileSync(`${assetPath}/icon.png`, `./static/${iconPath}`)
+        assetDetails['icon'] = iconPath
+    } catch (err) {
+        assetDetails['icon'] = undefined;
+    }
+
+    const supply = assetDetails.supply.circulating || assetDetails.supply.total || 0
+    assetDetails['mcap'] = round(assetDetails.price.usd * supply, 2)
+
+    return assetDetails
 }
 
 /** 
@@ -120,10 +131,11 @@ async function buildBackingTree(id, asset, assets) {
 
 export async function prepareData() {
     fs.mkdirSync('./_generated', { recursive: true });
+    fs.mkdirSync('./static/asset-icons', { recursive: true });
 
-    const assetFiles = fs.readdirSync('./assets').filter((p) => p.includes('.yml'))
+    const assetNames = fs.readdirSync('./assets')
 
-    const assets = assetFiles.reduce((a, v) => ({ ...a, [path.basename(v, '.yml')]: extendAssetData(parse(fs.readFileSync(`./assets/${v}`, 'utf-8'))) }), {})
+    const assets = assetNames.reduce((a, v) => ({ ...a, [v]: loadAssetData(v) }), {})
 
     const tokenAssetMapping = Object.entries(assets).reduce((a, [k, v]) => ({ ...a, ...Object.keys(v.contracts).reduce((a, c) => ({ ...a, [c]: k }), {}) }), {})
     fs.writeFileSync('./_generated/token-asset-mapping.yml', stringify(tokenAssetMapping))
