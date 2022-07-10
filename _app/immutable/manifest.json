@@ -1,6 +1,6 @@
 {
   ".svelte-kit/runtime/client/start.js": {
-    "file": "start-3d494573.js",
+    "file": "start-5d7b3017.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
@@ -26,7 +26,7 @@
     ]
   },
   "src/routes/__layout.svelte": {
-    "file": "pages/__layout.svelte-9edf123b.js",
+    "file": "pages/__layout.svelte-a4cda79f.js",
     "src": "src/routes/__layout.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -34,12 +34,12 @@
       "_index-ebccc238.js",
       "_stores-2c2fce53.js",
       "_paths-396f020f.js",
-      "_search-d085f39b.js",
+      "_search-c74c9066.js",
       "_index-e6961496.js",
       "_github-3c98e23b.js"
     ],
     "css": [
-      "assets/app-109a86dc.css"
+      "assets/app-5e33be26.css"
     ]
   },
   "src/routes/__error.svelte": {
@@ -62,7 +62,7 @@
       "_index-ebccc238.js"
     ],
     "css": [
-      "assets/app-109a86dc.css"
+      "assets/app-5e33be26.css"
     ]
   },
   "src/routes/assets/__error.svelte": {
@@ -139,7 +139,7 @@
     ]
   },
   "src/routes/index.svelte": {
-    "file": "pages/index.svelte-38cf4991.js",
+    "file": "pages/index.svelte-cfac1bad.js",
     "src": "src/routes/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -147,21 +147,22 @@
       "_index-ebccc238.js",
       "_paths-396f020f.js",
       "_ChevronRight-b4cfab15.js",
-      "_search-d085f39b.js",
-      "_table-7f1176d4.js",
+      "_search-c74c9066.js",
+      "_table-ec405e1b.js",
       "_stores-2c2fce53.js",
       "_index-e6961496.js",
       "_string-formatting-9d277c78.js"
     ]
   },
   "src/routes/ranking/index.svelte": {
-    "file": "pages/ranking/index.svelte-4c019dde.js",
+    "file": "pages/ranking/index.svelte-df7737ea.js",
     "src": "src/routes/ranking/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_index-ebccc238.js",
-      "_table-7f1176d4.js",
+      "_table-ec405e1b.js",
+      "_paths-396f020f.js",
       "_string-formatting-9d277c78.js"
     ]
   },
@@ -202,8 +203,8 @@
       "_index-ebccc238.js"
     ]
   },
-  "_search-d085f39b.js": {
-    "file": "chunks/search-d085f39b.js",
+  "_search-c74c9066.js": {
+    "file": "chunks/search-c74c9066.js",
     "imports": [
       "_index-ebccc238.js",
       "_stores-2c2fce53.js",
@@ -240,10 +241,11 @@
       "_index-ebccc238.js"
     ]
   },
-  "_table-7f1176d4.js": {
-    "file": "chunks/table-7f1176d4.js",
+  "_table-ec405e1b.js": {
+    "file": "chunks/table-ec405e1b.js",
     "imports": [
       "_index-ebccc238.js",
+      "_paths-396f020f.js",
       "_string-formatting-9d277c78.js"
     ]
   }
