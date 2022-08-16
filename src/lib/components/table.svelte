@@ -2,6 +2,7 @@
 	import { base } from '$app/paths';
 	import { compare } from '$lib/utils/string-formatting';
 	import { ChevronDownIcon, ChevronUpIcon } from '@rgossiaux/svelte-heroicons/solid';
+	import { CashIcon } from '@rgossiaux/svelte-heroicons/outline';
 
 	let clazz = '';
 	export { clazz as class };
@@ -76,6 +77,8 @@
 												src="{base}/{row[column.id].icon}"
 												alt="Icon of {row[column.id].text}"
 											/>
+										{:else}
+											<CashIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
 										{/if}
 										<span>
 											{row[column.id].text}

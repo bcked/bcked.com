@@ -1,6 +1,7 @@
 <script>
 	import { base } from '$app/paths';
 	import { ChevronRightIcon } from '@rgossiaux/svelte-heroicons/solid';
+	import { CashIcon } from '@rgossiaux/svelte-heroicons/outline';
 
 	/** @type {any} */
 	export let assets;
@@ -45,6 +46,8 @@
 										src="{base}/{asset.icon}"
 										alt="Icon of {asset.name}"
 									/>
+								{:else}
+									<CashIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
 								{/if}
 								<div class="flex items-center space-x-1">
 									<span class="block font-semibold">
