@@ -3,7 +3,7 @@
 	import Progress from '$lib/components/progress.svelte';
 	import LiquidFill from '$lib/components/liquid-fill.svelte';
 	import { formatCurrency, formatPercentage } from '$lib/utils/string-formatting';
-	import Template from '@rgossiaux/svelte-heroicons/solid/Template';
+	import { ExclamationIcon, CheckCircleIcon } from '@rgossiaux/svelte-heroicons/outline';
 
 	/** @type {any} */
 	export let asset;
@@ -83,6 +83,51 @@
 			<div class="flex justify-center py-4">
 				<Sankey {backing} />
 			</div>
+		</div>
+
+		<div class="px-4 py-5 bg-white shadow sm:rounded-lg overflow-hidden sm:p-6">
+			<div class="max-w-3xl mx-auto text-center">
+				<h2 class="text-3xl tracking-tight font-bold text-gray-900">Praise and Doubts</h2>
+				<p class="mt-4 text-lg text-gray-500">
+					Any praise and doubts the community has about {asset.name}.
+				</p>
+			</div>
+			<dl
+				class="mt-12 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-3 lg:gap-x-8"
+			>
+				<!-- TODO read in as markdown files -->
+				<div class="relative">
+					<dt>
+						<CheckCircleIcon class="absolute h-6 w-6 text-green-500" aria-hidden="true" />
+						<p class="ml-9 text-lg leading-6 font-medium text-gray-900">
+							Test Dummy Praise Argument
+						</p>
+					</dt>
+					<dd class="mt-2 ml-9 text-base text-gray-500">
+						The backing is solid due to x and constantly increasing due to y.
+					</dd>
+				</div>
+				<div class="relative">
+					<dt>
+						<ExclamationIcon class="absolute h-6 w-6 text-red-500" aria-hidden="true" />
+						<p class="ml-9 text-lg leading-6 font-medium text-gray-900">
+							Test Dummy Doubt Argument
+						</p>
+					</dt>
+					<dd class="mt-2 ml-9 text-base text-gray-500">
+						There are rumors that the backing is fake because of y.
+					</dd>
+				</div>
+				<!-- {features.map((feature) => (
+				  <div key={feature.name} class="relative">
+					<dt>
+					  <CheckIcon class="absolute h-6 w-6 text-green-500" aria-hidden="true" />
+					  <p class="ml-9 text-lg leading-6 font-medium text-gray-900">{feature.name}</p>
+					</dt>
+					<dd class="mt-2 ml-9 text-base text-gray-500">{feature.description}</dd>
+				  </div>
+				))} -->
+			</dl>
 		</div>
 	</div>
 </div>
