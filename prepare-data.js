@@ -1,5 +1,16 @@
 import fs from 'fs';
 import { parse, stringify } from 'yaml';
+import glob from 'glob'
+import { marked } from 'marked'
+
+// Override function to start with heading layer +1
+const walkTokens = (token) => {
+    if (token.type === 'heading') {
+        token.depth += 1;
+    }
+};
+
+marked.use({ walkTokens });
 
 /**
  * Round half away from zero ('commercial' rounding)
@@ -38,6 +49,19 @@ function uniformity(values) {
     return 1 - klDivergence
 }
 
+function loadComments(assetId, pattern) {
+    const commentsPath = `./assets/${assetId}/comments`
+    if (!fs.existsSync(commentsPath)) return []
+    return glob.sync(`${commentsPath}/${pattern}-*`).map((filePath) => marked.parse(fs.readFileSync(filePath, 'utf-8')))
+}
+
+function loadAllComments(assetId) {
+    return {
+        doubts: loadComments(assetId, 'doubt'),
+        praise: loadComments(assetId, 'praise')
+    }
+}
+
 function loadAssetData(assetId) {
     const assetPath = `./assets/${assetId}`
     let assetDetails = parse(fs.readFileSync(`${assetPath}/details.yml`, 'utf-8'))
@@ -52,6 +76,8 @@ function loadAssetData(assetId) {
 
     const supply = assetDetails.supply.circulating || assetDetails.supply.total || 0
     assetDetails['mcap'] = round(assetDetails.price.usd * supply, 2)
+
+    assetDetails['comments'] = loadAllComments(assetId)
 
     return assetDetails
 }

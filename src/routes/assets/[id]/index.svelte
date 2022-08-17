@@ -89,45 +89,57 @@
 			<div class="max-w-3xl mx-auto text-center">
 				<h2 class="text-3xl tracking-tight font-bold text-gray-900">Praise and Doubts</h2>
 				<p class="mt-4 text-lg text-gray-500">
-					Any praise and doubts the community has about {asset.name}.
+					Any praise and doubts the community has about {asset.name}'s backing.
 				</p>
 			</div>
-			<dl
-				class="mt-12 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-3 lg:gap-x-8"
-			>
-				<!-- TODO read in as markdown files -->
-				<div class="relative">
-					<dt>
-						<CheckCircleIcon class="absolute h-6 w-6 text-green-500" aria-hidden="true" />
-						<p class="ml-9 text-lg leading-6 font-medium text-gray-900">
-							Test Dummy Praise Argument
-						</p>
-					</dt>
-					<dd class="mt-2 ml-9 text-base text-gray-500">
-						The backing is solid due to x and constantly increasing due to y.
-					</dd>
+			{#if asset.comments.praise.length > 0 || asset.comments.doubts.length > 0}
+				<div
+					class="mt-12 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-3 lg:gap-x-8"
+				>
+					{#each asset.comments.praise as praise}
+						<div class="relative flex">
+							<div class="flex-shrink-0 mr-4">
+								<CheckCircleIcon class="h-6 w-6 text-green-500" aria-hidden="true" />
+							</div>
+							<div class="comment">
+								{@html praise}
+							</div>
+						</div>
+					{/each}
+					{#each asset.comments.doubts as doubt}
+						<div class="relative flex">
+							<div class="flex-shrink-0 mr-4">
+								<ExclamationIcon class="h-6 w-6 text-red-500" aria-hidden="true" />
+							</div>
+							<div class="comment">
+								{@html doubt}
+							</div>
+						</div>
+					{/each}
 				</div>
-				<div class="relative">
-					<dt>
-						<ExclamationIcon class="absolute h-6 w-6 text-red-500" aria-hidden="true" />
-						<p class="ml-9 text-lg leading-6 font-medium text-gray-900">
-							Test Dummy Doubt Argument
-						</p>
-					</dt>
-					<dd class="mt-2 ml-9 text-base text-gray-500">
-						There are rumors that the backing is fake because of y.
-					</dd>
+			{:else}
+				<div class="max-w-3xl mx-auto text-center mt-12 text-lg font-thin text-gray-500">
+					There are no comments yet. Be the first to leave your praise and doubts <a
+						href="https://github.com/Spenhouet/backed/issues"
+						class="underline hover:text-neon-pink">here</a
+					>!
 				</div>
-				<!-- {features.map((feature) => (
-				  <div key={feature.name} class="relative">
-					<dt>
-					  <CheckIcon class="absolute h-6 w-6 text-green-500" aria-hidden="true" />
-					  <p class="ml-9 text-lg leading-6 font-medium text-gray-900">{feature.name}</p>
-					</dt>
-					<dd class="mt-2 ml-9 text-base text-gray-500">{feature.description}</dd>
-				  </div>
-				))} -->
-			</dl>
+			{/if}
 		</div>
 	</div>
 </div>
+
+<style lang="scss" global>
+	// Style comments markdown elements
+	.comment {
+		h2 {
+			@apply text-lg leading-6 font-medium text-gray-900;
+		}
+		p {
+			@apply mt-2 text-base text-gray-500;
+		}
+		a {
+			@apply underline hover:text-neon-pink;
+		}
+	}
+</style>
