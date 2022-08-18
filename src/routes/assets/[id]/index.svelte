@@ -129,16 +129,16 @@
 	</div>
 </div>
 
-<style lang="scss" global>
-	// Style comments markdown elements
+<style lang="scss">
+	/* Style comments markdown elements */
 	.comment {
-		h2 {
+		:global(h2) {
 			@apply text-lg leading-6 font-medium text-gray-900;
 		}
-		p {
+		:global(p) {
 			@apply mt-2 text-base text-gray-500;
 		}
-		a {
+		:global(a) {
 			@apply underline hover:text-neon-pink;
 		}
 	}
