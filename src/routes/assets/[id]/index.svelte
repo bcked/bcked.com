@@ -9,6 +9,10 @@
 	export let asset;
 	/** @type {any} */
 	export let backing;
+	/** @type {any} */
+	export let doubts;
+	/** @type {any} */
+	export let praise;
 
 	/** @type {any[]} */
 	let stats = [];
@@ -93,30 +97,30 @@
 				</p>
 			</div>
 			{#if asset.comments.praise.length > 0 || asset.comments.doubts.length > 0}
-				<div
+				<dl
 					class="mt-12 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-3 lg:gap-x-8"
 				>
-					{#each asset.comments.praise as praise}
+					{#each praise as praiseComment}
 						<div class="relative flex">
 							<div class="flex-shrink-0 mr-4">
 								<CheckCircleIcon class="h-6 w-6 text-green-500" aria-hidden="true" />
 							</div>
 							<div class="comment">
-								{@html praise}
+								{@html praiseComment}
 							</div>
 						</div>
 					{/each}
-					{#each asset.comments.doubts as doubt}
-						<div class="relative flex">
+					{#each doubts as doubtComment}
+						<dl class="relative flex">
 							<div class="flex-shrink-0 mr-4">
 								<ExclamationIcon class="h-6 w-6 text-red-500" aria-hidden="true" />
 							</div>
-							<div class="comment">
-								{@html doubt}
+							<div class="flex-1">
+								{@html doubtComment}
 							</div>
-						</div>
+						</dl>
 					{/each}
-				</div>
+				</dl>
 			{:else}
 				<div class="max-w-3xl mx-auto text-center mt-12 text-lg font-thin text-gray-500">
 					There are no comments yet. Be the first to leave your praise and doubts <a
@@ -128,18 +132,3 @@
 		</div>
 	</div>
 </div>
-
-<style lang="scss">
-	/* Style comments markdown elements */
-	.comment {
-		:global(h2) {
-			@apply text-lg leading-6 font-medium text-gray-900;
-		}
-		:global(p) {
-			@apply mt-2 text-base text-gray-500;
-		}
-		:global(a) {
-			@apply underline hover:text-neon-pink;
-		}
-	}
-</style>
