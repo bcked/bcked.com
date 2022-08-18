@@ -32,6 +32,6 @@ export async function get({ params }) {
     }
 
     return {
-        body: { asset, backing, doubts, praise }
+        body: { asset, backing, comments: { doubts, praise } }
     };
 }

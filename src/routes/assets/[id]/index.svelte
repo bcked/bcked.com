@@ -10,9 +10,7 @@
 	/** @type {any} */
 	export let backing;
 	/** @type {any} */
-	export let doubts;
-	/** @type {any} */
-	export let praise;
+	export let comments;
 
 	/** @type {any[]} */
 	let stats = [];
@@ -96,27 +94,27 @@
 					Any praise and doubts the community has about {asset.name}'s backing.
 				</p>
 			</div>
-			{#if asset.comments.praise.length > 0 || asset.comments.doubts.length > 0}
+			{#if comments.praise.length > 0 || comments.doubts.length > 0}
 				<dl
 					class="mt-12 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-3 lg:gap-x-8"
 				>
-					{#each praise as praiseComment}
+					{#each comments.praise as praise}
 						<div class="relative flex">
 							<div class="flex-shrink-0 mr-4">
 								<CheckCircleIcon class="h-6 w-6 text-green-500" aria-hidden="true" />
 							</div>
 							<div class="comment">
-								{@html praiseComment}
+								{@html praise}
 							</div>
 						</div>
 					{/each}
-					{#each doubts as doubtComment}
+					{#each comments.doubts as doubt}
 						<dl class="relative flex">
 							<div class="flex-shrink-0 mr-4">
 								<ExclamationIcon class="h-6 w-6 text-red-500" aria-hidden="true" />
 							</div>
 							<div class="flex-1">
-								{@html doubtComment}
+								{@html doubt}
 							</div>
 						</dl>
 					{/each}
