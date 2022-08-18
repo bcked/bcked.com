@@ -44,6 +44,8 @@ const config = {
 			default: true,
 			entries: [
 				'*',
+				'/faq',
+				'/about',
 				'/ranking.json',
 				'/ranking',
 				'/assets.json',
