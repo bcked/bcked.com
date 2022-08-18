@@ -25,7 +25,7 @@ export async function get({ params }) {
     const doubts = loadComments(params.id, 'doubt')
     const praise = loadComments(params.id, 'praise')
 
-    if (!asset || !backing || !doubts || !praise) {
+    if (!asset || !backing) {
         return {
             status: 404
         };
