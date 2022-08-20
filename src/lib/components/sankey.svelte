@@ -3,12 +3,26 @@
   Generates an SVG Sankey chart using [d3-sankey](https://github.com/d3/d3-sankey).
  -->
 <script>
-	import { base } from '$app/paths';
+	// import { base } from '$app/paths';
 	import { getContext } from 'svelte';
 	import * as Sankey from 'd3-sankey';
 	import * as d3 from 'd3';
 
-	const { data, width, height } = getContext('LayerCake');
+	// const { data } = getContext('LayerCake');
+
+	// console.log($data);
+
+	let clazz = '';
+	export { clazz as class };
+
+	/** @type {any} */
+	export let data = { id: '', links: [], nodes: [] };
+
+	console.log('data');
+	console.log(data);
+
+	let width = 0;
+	let height = 0;
 
 	/** @type {Function} [colorLinks=d => 'rgba(0, 0, 0, .2)'] - A function to return a color for the links. */
 	export let colorLinks = (d) => 'rgba(0, 0, 0, .2)';
@@ -42,10 +56,13 @@
 		.nodeWidth(nodeHeight)
 		.nodePadding(nodePadding)
 		.nodeId(nodeId)
-		.size([$height, $width])
+		.size([height, width])
 		.linkSort(linkSort);
 
-	$: sankeyData = sankey($data);
+	$: sankeyData = sankey(data);
+
+	console.log('sankeyData');
+	console.log(sankeyData);
 
 	/**
 	 * This function is a drop in replacement for d3.sankeyLinkVertical().
@@ -84,69 +101,89 @@
 		return path.toString();
 	}
 
-	$: fontSize = $width <= 320 ? 10 : 12;
+	$: fontSize = width <= 320 ? 10 : 12;
 </script>
 
-<g class="sankey-layer">
-	<g class="sankey-links">
-		{#each sankeyData.links as d, i}
-			<g class="sankey-link group">
-				<path
-					class="opacity-40 group-hover:opacity-80"
-					d={sankeyLinkPath(d)}
-					fill={colorNodes(d.target)}
-				/>
+<div class={clazz} bind:offsetWidth={width} bind:offsetHeight={height}>
+	<svg {width} {height}>
+		<g class="sankey-layer">
+			<g class="sankey-links">
+				{#each sankeyData.links as d, i}
+					<g class="sankey-link group">
+						<path
+							class="opacity-40 group-hover:opacity-80"
+							d={sankeyLinkPath(d)}
+							fill={colorNodes(d.target)}
+						/>
+					</g>
+				{/each}
 			</g>
-		{/each}
-	</g>
-	<g class="sankey-nodes">
-		{#each sankeyData.nodes as d, i}
-			{@const asset = d.asset}
-			{@const width = d.y1 - d.y0}
-			{#if d.id == 'unbacked'}
-				<rect x={d.y0} y={d.x0} height={nodeHeight} {width} rx="5" ry="5" fill={colorNodes(d)} />
-				<text
-					class="pointer-events-none"
-					x={d.y0 + width / 2}
-					y={d.x0 + nodeHeight / 2}
-					dominant-baseline="central"
-					text-anchor="middle"
-					style="
+			<g class="sankey-nodes">
+				{#each sankeyData.nodes as d, i}
+					{@const asset = d.asset}
+					{@const nodeWidth = d.y1 - d.y0}
+					{#if d.id == 'unbacked'}
+						<rect
+							x={d.y0}
+							y={d.x0}
+							height={nodeHeight}
+							width={nodeWidth}
+							rx="5"
+							ry="5"
+							fill={colorNodes(d)}
+						/>
+						<text
+							class="pointer-events-none"
+							x={d.y0 + nodeWidth / 2}
+							y={d.x0 + nodeHeight / 2}
+							dominant-baseline="central"
+							text-anchor="middle"
+							style="
 				fill: {colorText(d)};
                 font-size: {fontSize}px;
 				"
-				>
-					Unbacked
-				</text>
-			{:else}
-				<a href={asset.path}>
-					<rect x={d.y0} y={d.x0} height={nodeHeight} {width} rx="5" ry="5" fill={colorNodes(d)} />
-					<text
-						class="pointer-events-none"
-						x={d.y0 + width / 2}
-						y={d.x0 + nodeHeight / 2}
-						dominant-baseline="central"
-						text-anchor="middle"
-						style="
+						>
+							Unbacked
+						</text>
+					{:else}
+						<a href={asset.path}>
+							<rect
+								x={d.y0}
+								y={d.x0}
+								height={nodeHeight}
+								width={nodeWidth}
+								rx="5"
+								ry="5"
+								fill={colorNodes(d)}
+							/>
+							<text
+								class="pointer-events-none"
+								x={d.y0 + nodeWidth / 2}
+								y={d.x0 + nodeHeight / 2}
+								dominant-baseline="central"
+								text-anchor="middle"
+								style="
 					fill: {colorText(d)};
 					font-size: {fontSize}px;
 					"
-					>
-						{#if asset}
-							{asset.name}
-						{:else}
-							Unknown Name
-						{/if}
-					</text>
-				</a>
-			{/if}
-			<!-- <foreignobject x={d.y0} y={d.x0} {height} {width}>
+							>
+								{#if asset}
+									{asset.name}
+								{:else}
+									Unknown Name
+								{/if}
+							</text>
+						</a>
+					{/if}
+					<!-- <foreignobject x={d.y0} y={d.x0} {height} {width}>
 				<xhtml:body xmlns="http://www.w3.org/1999/xhtml">
 					<div class="text-inherit text-white font-sans h-full w-full overflow-auto bg-green-200">
 						{d.id}
 					</div>
 				</xhtml:body>
 			</foreignobject> -->
-		{/each}
-	</g>
-</g>
+				{/each}
+			</g>
+		</g>
+	</svg>
+</div>
