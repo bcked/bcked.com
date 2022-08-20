@@ -76,13 +76,38 @@
 		</dl>
 
 		<div class="px-4 py-5 bg-white shadow sm:rounded-lg overflow-hidden sm:p-6">
-			<Progress
-				textLeft="Backing: {formatCurrency(asset.backing['backing-usd'])}"
-				textRight="Market Cap: {formatCurrency(asset.mcap)}"
-				ratio={asset.backing.ratio}
-			/>
+			<div class="max-w-3xl mx-auto text-center">
+				<h2 class="text-3xl tracking-tight font-bold text-gray-900">Backing History</h2>
+				<p class="mt-4 text-lg text-gray-500">
+					View the backing history of {asset.name}.
+				</p>
+			</div>
+			<dl class="flex mt-6 items-center justify-between">
+				<div>
+					<dt class="text-sm font-medium text-gray-500 truncate">Current Backing</dt>
+					<dd class="mt-1 text-3xl font-semibold text-gray-900">
+						{formatCurrency(asset.backing['backing-usd'])}
+					</dd>
+				</div>
+				<div class="text-right">
+					<dt class="text-sm font-medium text-gray-500 truncate">Current Market Cap</dt>
+					<dd class="mt-1 text-3xl font-semibold text-gray-900">{formatCurrency(asset.mcap)}</dd>
+				</div>
+			</dl>
+			<div class="max-w-3xl mx-auto text-center mt-12 text-lg font-thin text-gray-500">
+				Coming soon: Line chart showing the backing and market cap history.
+			</div>
+		</div>
 
-			<div class="flex justify-center py-4">
+		<div class="px-4 py-5 bg-white shadow sm:rounded-lg overflow-hidden sm:p-6">
+			<div class="max-w-3xl mx-auto text-center">
+				<h2 class="text-3xl tracking-tight font-bold text-gray-900">Backing Chain</h2>
+				<p class="mt-4 text-lg text-gray-500">
+					View the full chain of assets backing {asset.name}.
+				</p>
+			</div>
+
+			<div class="flex mt-6 justify-center py-4">
 				<Sankey {backing} />
 			</div>
 		</div>
@@ -96,7 +121,7 @@
 			</div>
 			{#if comments.praise.length > 0 || comments.doubts.length > 0}
 				<dl
-					class="mt-12 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-3 lg:gap-x-8"
+					class="mt-6 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-3 lg:gap-x-8"
 				>
 					{#each comments.praise as praise}
 						<div class="relative flex">
@@ -109,14 +134,14 @@
 						</div>
 					{/each}
 					{#each comments.doubts as doubt}
-						<dl class="relative flex">
+						<div class="relative flex">
 							<div class="flex-shrink-0 mr-4">
 								<ExclamationIcon class="h-6 w-6 text-red-500" aria-hidden="true" />
 							</div>
 							<div class="flex-1">
 								{@html doubt}
 							</div>
-						</dl>
+						</div>
 					{/each}
 				</dl>
 			{:else}
