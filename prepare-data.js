@@ -56,6 +56,14 @@ function loadAssetData(assetId) {
     assetDetails['supply'] = loadHistoricalData(`${assetPath}/supply`)
     assetDetails['backing'] = loadHistoricalData(`${assetPath}/backing`)
 
+    if (assetDetails.backing.length == 0) {
+        assetDetails.backing.push({
+            timestamp: new Date().toISOString(),
+            assets: [],
+            source: null
+        })
+    }
+
     try {
         const iconPath = `asset-icons/${assetId}.png`
         fs.copyFileSync(`${assetPath}/icon.png`, `./static/${iconPath}`)
@@ -160,7 +168,7 @@ export async function prepareData() {
     fs.writeFileSync('./_generated/backing-tree.yml', stringify(backingTree))
 
     for (const [key, { backing, mcap }] of Object.entries(assets)) {
-        if (backing.length == 0 || !mcap) {
+        if (!backing || !mcap) {
             continue;
         }
         var currentBacking = backing[0]
