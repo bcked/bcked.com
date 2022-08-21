@@ -1,5 +1,6 @@
 <script>
+	import Error from '$lib/components/404.svelte';
 	import { page } from '$app/stores';
 </script>
 
-<div class="py-10">Token {$page.params.address} not yet known.</div>
+<Error message="We could not find the token with address {$page.params.address}." />

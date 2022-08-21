@@ -1,3 +1,12 @@
+<script>
+	import SvelteSeo from 'svelte-seo';
+</script>
+
+<SvelteSeo
+	title="Widget Documentation"
+	description="Backed provides embeddable widgets for your service or webpage."
+/>
+
 <div class="py-10">
 	<header>
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

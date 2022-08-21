@@ -1,5 +1,6 @@
 <script>
 	import { page } from '$app/stores';
+	import Error from '$lib/components/404.svelte';
 </script>
 
-<div>Asset {$page.params.id} unknown.</div>
+<Error message="We could not find the asset {$page.params.id}." />

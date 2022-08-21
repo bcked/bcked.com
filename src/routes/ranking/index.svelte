@@ -1,5 +1,6 @@
 <script>
 	import Table from '$lib/components/table.svelte';
+	import SvelteSeo from 'svelte-seo';
 
 	/** @type {any} */
 	export let columns = [];
@@ -9,6 +10,11 @@
 
 	const sortBy = 'backing-usd';
 </script>
+
+<SvelteSeo
+	title="Ranking of Assets with Backing"
+	description="Compare assets based on their backing amount, ratio, distribution and more..."
+/>
 
 <div class="py-10">
 	<header>

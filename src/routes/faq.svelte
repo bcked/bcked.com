@@ -1,7 +1,15 @@
 <script>
+	import SvelteSeo from 'svelte-seo';
+
 	/** @type {any} */
 	export let faqs;
 </script>
+
+<SvelteSeo
+	title="Frequently Asked Questions"
+	description="Questions. Frequently asked ones. Plus our answers. That's how FAQs work."
+	noindex
+/>
 
 <div aria-labelledby="faq-heading" class="max-w-7xl mx-auto py-10 px-4 sm:px-6 lg:px-8">
 	<header>

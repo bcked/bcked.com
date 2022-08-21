@@ -1,7 +1,18 @@
 <script>
 	import { base } from '$app/paths';
 	import GitHubIcon from '$lib/icons/github.svelte';
+	import SvelteSeo from 'svelte-seo';
+
+	/** @type {any} */
+	export let message;
 </script>
+
+<SvelteSeo
+	title="404: This is Fine"
+	description="{message} That's okay, things are going to be okay."
+	noindex
+	nofollow
+/>
 
 <div class="min-h-full px-4 py-16 sm:px-6 sm:py-24 md:grid md:place-items-center lg:px-8">
 	<div class="max-w-max mx-auto">
@@ -13,7 +24,7 @@
 						This is Fine
 					</h1>
 					<p class="mt-1 text-base text-gray-50">
-						We could not find what you were looking for. That's okay, things are going to be okay.
+						{message} That's okay, things are going to be okay.
 					</p>
 				</div>
 				<div class="mt-10 flex space-x-3 sm:pl-6">

@@ -3,6 +3,7 @@
 	import { ChevronRightIcon } from '@rgossiaux/svelte-heroicons/solid';
 	import Search from '$lib/components/search.svelte';
 	import Table from '$lib/components/table.svelte';
+	import SvelteSeo from 'svelte-seo';
 
 	/** @type {any} */
 	export let columns = [];
@@ -10,6 +11,11 @@
 	/** @type {any} */
 	export let rows = [];
 </script>
+
+<SvelteSeo
+	title="backed: Asset Backing Information Source"
+	description="Backed is an open source community project that provides and visualizes data about asset backing."
+/>
 
 <div class="py-10 space-y-10">
 	<div class="relative">

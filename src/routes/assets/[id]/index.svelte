@@ -3,6 +3,7 @@
 	import LiquidFill from '$lib/components/liquid-fill.svelte';
 	import { formatCurrency, formatPercentage } from '$lib/utils/string-formatting';
 	import { ExclamationIcon, CheckCircleIcon } from '@rgossiaux/svelte-heroicons/outline';
+	import SvelteSeo from 'svelte-seo';
 
 	/** @type {any} */
 	export let asset;
@@ -29,13 +30,24 @@
 			value: asset.backing[0].ratio,
 			type: 'percent'
 		},
-		{
-			name: 'Backing Distribution',
-			value: asset.backing[0].distribution,
-			type: 'percent'
-		}
+		asset.backing[0]['backing-assets'] > 0
+			? {
+					name: 'Backing Distribution',
+					value: asset.backing[0].distribution,
+					type: 'percent'
+			  }
+			: {
+					name: 'Backing Distribution',
+					value: 'N/A',
+					type: 'standard'
+			  }
 	];
 </script>
+
+<SvelteSeo
+	title="{asset.name}'s Backing"
+	description="Detailed information on {asset.name}'s backing."
+/>
 
 <div class="py-10">
 	<div class="max-w-7xl mx-auto space-y-4 sm:px-6 lg:px-8">

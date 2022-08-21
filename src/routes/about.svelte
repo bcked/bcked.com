@@ -1,7 +1,11 @@
 <script>
+	import SvelteSeo from 'svelte-seo';
+
 	/** @type {any} */
 	export let content;
 </script>
+
+<SvelteSeo title="About backed" description="Information about the backed." noindex />
 
 <div class="py-10">
 	<header>

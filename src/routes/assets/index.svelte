@@ -2,12 +2,22 @@
 	import { ChartBarIcon, ClockIcon, HashtagIcon } from '@rgossiaux/svelte-heroicons/outline';
 	import { formatCurrency } from '$lib/utils/string-formatting';
 	import AssetList from '$lib/components/asset-list.svelte';
+	import SvelteSeo from 'svelte-seo';
 
 	/** @type {any} */
 	export let assets;
 	/** @type {any} */
 	export let global;
 </script>
+
+<SvelteSeo
+	title="Assets with Backing"
+	description="Backed records {global[
+		'backed-assets'
+	]} backed assets with a total backing of {formatCurrency(
+		global['backing-usd']
+	)} and an average backing of {formatCurrency(global['backing-usd-avg'])}."
+/>
 
 <div class="py-10">
 	<header>
