@@ -21,7 +21,8 @@ function loadComments(assetId, pattern) {
 
 /** @type {import('./__types/index').RequestHandler} */
 export async function get({ params }) {
-    const { asset, backing } = (await getData({ params })).body;
+    const data = await getData({ params })
+    const { asset, backing } = data.body;
     const doubts = loadComments(params.id, 'doubt')
     const praise = loadComments(params.id, 'praise')
 

@@ -31,7 +31,10 @@
 		</div>
 	</div>
 	<ul class="mt-2 space-y-2">
-		{#each Object.values(assets).sort(compare).slice(0, size) as { asset }, i}
+		{#each Object.values(assets)
+			.filter(({ asset }) => asset.backing.length > 0)
+			.sort(compare)
+			.slice(0, size) as { asset }, i}
 			<li key={asset.id}>
 				<a href={asset.path} class="rounded-md block">
 					<div class="flex items-center min-w-0 flex-1 justify-between">

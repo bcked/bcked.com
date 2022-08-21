@@ -1,24 +1,16 @@
 symbol: PXBSC
-name: PXBSC
+name: Paradox NFT
 description: ~
-homepage: ~
+homepage: https://www.paradoxnftcoin.com/
 docs: ~
-source: ~
-community: []
+source: https://github.com/paradox-nft
+community:
+  - https://reddit.com/r/PARADOXNFT
+  - https://twitter.com/paradoxnft
+  - https://t.me/PARADOXNFTOFFICIAL
+  - https://www.facebook.com/groups/947808439402184/
+  - https://discord.gg/N4DrjPAfs6
 audits: []
-price:
-  usd: 0.00000005993
-  source: ~
-  updated: ~
-contracts: []
-supply:
-  circulating: ~
-  max: 1000000000000.00
-  total: 494075338357.00
-  source: https://www.coingecko.com/en/coins/paradox-nft
-  updated: 2022-06-26
-backing:
-  assets: []
-  quote: ~
-  source: ~
-  date: ~
+contracts:
+  "0xa4cfe5ea184a9a8bb2bb8377a378606a36ddea80": bsc
+backing-info: ~

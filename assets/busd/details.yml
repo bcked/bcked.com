@@ -9,10 +9,6 @@ community:
   - https://www.reddit.com/r/binance/
   - https://t.me/binanceexchange
 audits: []
-price:
-  usd: 1.00
-  source: https://coinmarketcap.com/currencies/binance-usd/
-  updated: 2022-06-11
 contracts:
   "0x4Fabb145d64652a948d72533023f6E7A623C7C53": eth #     Binance USD                       TS 17,907,058,478.58
   "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56": bsc #     Binance-Peg BUSD Token            TS  4,850,999,328.62
@@ -21,15 +17,4 @@ contracts:
   "0xA8D394fE7380b8cE6145d5f85E6aC22d4E91ACDe": poly #    BUSD Token (Wormhole)             TS      1,016,394.70
   "6nuaX3ogrr2CaoAPjtaKHAoBNWok32BMcRozuf32s2QF": sol #   Wrapped BUSD (Allbridge from BSC) TS        543,785.58
   "0x19860CCB0A68fd4213aB9D8266F7bBf05A8dDe98": ava #     Binance USD                       TS        145,217.73
-supply:
-  circulating: 17651702084.31
-  max: ~
-  total: 17651702084.31
-  source: https://paxos.com/attestations/
-  updated: 2022-04-29
-backing:
-  assets:
-    usd: 17651702084.31
-  quote: "Paxos Trust Company has engaged Withum, a nationally top-ranking auditing firm, to independently verify at specific points in time that the entire supply of Binance USD (BUSD) tokens is consistent with USD in reserve accounts at U.S. banks held and managed by Paxos."
-  source: https://paxos.com/attestations/
-  updated: 2022-04-29
+backing-info: "Paxos Trust Company has engaged Withum, a nationally top-ranking auditing firm, to independently verify at specific points in time that the entire supply of Binance USD (BUSD) tokens is consistent with USD in reserve accounts at U.S. banks held and managed by Paxos."

@@ -29,26 +29,27 @@
 					{assets}
 					icon={ChartBarIcon}
 					title="Backing"
-					compare={(a, b) => b.asset.backing['backing-usd'] - a.asset.backing['backing-usd']}
+					compare={(a, b) => b.asset.backing[0]['backing-usd'] - a.asset.backing[0]['backing-usd']}
 					size={3}
-					select={(asset) => formatCurrency(asset.backing['backing-usd'])}
+					select={(asset) => formatCurrency(asset.backing[0]['backing-usd'])}
 				/>
 				<AssetList
 					{assets}
 					icon={HashtagIcon}
 					title="Backing Assets"
-					compare={(a, b) => b.asset.backing['backing-assets'] - a.asset.backing['backing-assets']}
+					compare={(a, b) =>
+						b.asset.backing[0]['backing-assets'] - a.asset.backing[0]['backing-assets']}
 					size={3}
-					select={(asset) => asset.backing['backing-assets']}
+					select={(asset) => asset.backing[0]['backing-assets']}
 				/>
 				<AssetList
 					{assets}
 					icon={ClockIcon}
 					title="Recently Updated"
 					compare={(a, b) =>
-						new Date(a.asset.backing['updated']) - new Date(b.asset.backing['updated'])}
+						new Date(a.asset.backing[0]['updated']) - new Date(b.asset.backing[0]['updated'])}
 					size={3}
-					select={(asset) => formatCurrency(asset.backing['backing-usd'])}
+					select={(asset) => formatCurrency(asset.backing[0]['backing-usd'])}
 				/>
 			</dl>
 		</div>

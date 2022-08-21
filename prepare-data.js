@@ -1,4 +1,5 @@
 import fs from 'fs';
+import path from 'path'
 import { parse, stringify } from 'yaml';
 
 /**
@@ -38,9 +39,22 @@ function uniformity(values) {
     return 1 - klDivergence
 }
 
+function loadHistoricalData(dirPath) {
+    if (!fs.existsSync(dirPath)) return []
+    const timepoints = fs.readdirSync(dirPath)
+    return timepoints
+        .map((filename) => path.parse(filename).name)
+        .sort((a, b) => -a.localeCompare(b))
+        .map((timestamp) => ({ timestamp, ...parse(fs.readFileSync(`${dirPath}/${timestamp}.yml`, 'utf-8')) }))
+}
+
 function loadAssetData(assetId) {
     const assetPath = `./assets/${assetId}`
     let assetDetails = parse(fs.readFileSync(`${assetPath}/details.yml`, 'utf-8'))
+
+    assetDetails['price'] = loadHistoricalData(`${assetPath}/price`)
+    assetDetails['supply'] = loadHistoricalData(`${assetPath}/supply`)
+    assetDetails['backing'] = loadHistoricalData(`${assetPath}/backing`)
 
     try {
         const iconPath = `asset-icons/${assetId}.png`
@@ -50,8 +64,8 @@ function loadAssetData(assetId) {
         assetDetails['icon'] = undefined;
     }
 
-    const supply = assetDetails.supply.circulating || assetDetails.supply.total || 0
-    assetDetails['mcap'] = round(assetDetails.price.usd * supply, 2)
+    const supply = assetDetails.supply[0].circulating || assetDetails.supply[0].total || 0
+    assetDetails['mcap'] = round(assetDetails.price[0].usd * supply, 2)
 
     return assetDetails
 }
@@ -59,8 +73,7 @@ function loadAssetData(assetId) {
 /** 
  * @param {Object} backedAsset 
  * @param {string} backedAsset.name 
- * @param {Object} backedAsset.backing 
- * @param {Object} backedAsset.backing.assets 
+ * @param {Object[]} backedAsset.backing 
  * @param {Number} assetValue 
  * @param {string} id 
  * @returns {Object[]}
@@ -73,12 +86,12 @@ async function followBackingTree(id, backedAsset, assetValue, assets) {
     /** @type {Object[]} */
     let nodes = [{ id, name: backedAsset.name }, { id: "unbacked" }];
 
-    if (!backedAsset.backing.assets) {
+    if (backedAsset.backing.length == 0) {
         return { nodes, links: [{ source: id, target: "unbacked", value: assetValue }] }
     }
-    const backedAssets = Object.entries(backedAsset.backing.assets)
+    const backedAssets = Object.entries(backedAsset.backing[0].assets)
         .filter(([key, value]) => key != id)
-        .map(([key, value]) => [key, value, value * assets[key].price.usd, assets[key]]);
+        .map(([key, value]) => [key, value, value * assets[key].price[0].usd, assets[key]]);
 
     const totalBackingUsd = backedAssets.reduce((partialSum, [key, value, backingUsd]) => partialSum + backingUsd, 0);
     const unbacked = totalBackingUsd > assetValue ? 0 : assetValue - totalBackingUsd
@@ -147,32 +160,34 @@ export async function prepareData() {
     fs.writeFileSync('./_generated/backing-tree.yml', stringify(backingTree))
 
     for (const [key, { backing, mcap }] of Object.entries(assets)) {
-        if (!backing || !mcap) {
+        if (backing.length == 0 || !mcap) {
             continue;
         }
+        var currentBacking = backing[0]
 
         const lastLevelBacking = backingTree[key].links
             .filter((l) => l.target == 'unbacked' && l.source != key)
             .map((l) => l.value);
 
-        backing['backing-assets'] = lastLevelBacking.length
+        currentBacking['backing-assets'] = lastLevelBacking.length
 
         const totalLastLevelBacking = lastLevelBacking.reduce((s, v) => s + v, 0);
-        backing['backing-usd'] = round(totalLastLevelBacking, 2) || 0
-        backing['ratio'] = round(totalLastLevelBacking / mcap, 4) || 0
-        backing['distribution'] = round(uniformity(lastLevelBacking), 4)
+        currentBacking['backing-usd'] = round(totalLastLevelBacking, 2) || 0
+        currentBacking['ratio'] = round(totalLastLevelBacking / mcap, 4) || 0
+        currentBacking['distribution'] = round(uniformity(lastLevelBacking), 4)
     }
 
     fs.writeFileSync('./_generated/assets.yml', stringify(assets))
 
     let globalBacking = Object.values(assets).reduce((a, { backing }) => {
-        if (!backing || !('backing-usd' in backing)) {
+        if (backing.length == 0 || !('backing-usd' in backing[0])) {
             return a
         }
+        currentBacking = backing[0]
         return {
-            "backing-usd": a['backing-usd'] + backing['backing-usd'],
-            'ratio-avg': a['ratio-avg'] + backing['ratio'],
-            'distribution-avg': a['distribution-avg'] + backing['distribution'],
+            "backing-usd": a['backing-usd'] + currentBacking['backing-usd'],
+            'ratio-avg': a['ratio-avg'] + currentBacking['ratio'],
+            'distribution-avg': a['distribution-avg'] + currentBacking['distribution'],
             "backed-assets": a['backed-assets'] + 1
         }
     }, { "backing-usd": 0, 'ratio-avg': 0, 'distribution-avg': 0, "backed-assets": 0 })

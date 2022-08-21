@@ -16,22 +16,22 @@
 	$: stats = [
 		{
 			name: 'Price',
-			value: asset.price.usd,
+			value: asset.price[0].usd,
 			type: 'currency'
 		},
 		{
 			name: 'Backing Assets',
-			value: asset.backing['backing-assets'],
+			value: asset.backing[0]['backing-assets'],
 			type: 'standard'
 		},
 		{
 			name: 'Backing Ratio',
-			value: asset.backing.ratio,
+			value: asset.backing[0].ratio,
 			type: 'percent'
 		},
 		{
 			name: 'Backing Distribution',
-			value: asset.backing.distribution,
+			value: asset.backing[0].distribution,
 			type: 'percent'
 		}
 	];
@@ -86,7 +86,7 @@
 					<div>
 						<dt class="text-sm font-medium text-gray-500 truncate">Current Backing</dt>
 						<dd class="mt-1 text-3xl font-semibold text-gray-900">
-							{formatCurrency(asset.backing['backing-usd'])}
+							{formatCurrency(asset.backing[0]['backing-usd'])}
 						</dd>
 					</div>
 					<div class="text-right">
