@@ -39,12 +39,16 @@
 							/>
 						</div> -->
 						<a href={`${base}/`} class="relative">
-							<img class="block lg:hidden h-8 w-auto" src="{base}/backed-logo.svg" alt="backed" />
-							<img
-								class="hidden lg:block h-8 w-auto"
-								src="{base}/backed-logo-text.svg"
-								alt="backed"
-							/>
+							{#if $page.url.pathname != `${base}/` && $page.url.pathname != `${base}`}
+								<img class="block lg:hidden h-8 w-auto" src="{base}/backed-logo.svg" alt="backed" />
+								<img
+									class="hidden lg:block h-8 w-auto"
+									src="{base}/backed-logo-text.svg"
+									alt="backed"
+								/>
+							{:else}
+								<img class="block h-8 w-auto" src="{base}/backed-logo-text.svg" alt="backed" />
+							{/if}
 						</a>
 					</div>
 				</div>
