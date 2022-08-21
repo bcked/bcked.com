@@ -107,7 +107,7 @@
 					</p>
 				</div>
 
-				<div class="flex mt-6 justify-center py-4">
+				<div class="flex mt-6 justify-center">
 					<Sankey {backing} />
 				</div>
 			</div>
