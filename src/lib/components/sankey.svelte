@@ -10,6 +10,8 @@
 
 	const { data, width, height } = getContext('LayerCake');
 
+	$: sankeyWidth = $width;
+
 	/** @type {Function} [colorLinks=d => 'rgba(0, 0, 0, .2)'] - A function to return a color for the links. */
 	export let colorLinks = (d) => 'rgba(0, 0, 0, .2)';
 
@@ -102,12 +104,37 @@
 	<g class="sankey-nodes">
 		{#each sankeyData.nodes as d, i}
 			{@const asset = d.asset}
-			{@const width = d.y1 - d.y0}
-			{#if d.id == 'unbacked'}
-				<rect x={d.y0} y={d.x0} height={nodeHeight} {width} rx="5" ry="5" fill={colorNodes(d)} />
+			{@const nodeWidth = d.y1 - d.y0}
+			{#if nodeWidth / sankeyWidth < 0.05}
+				<rect
+					x={d.y0}
+					y={d.x0}
+					height={nodeHeight}
+					width={nodeWidth}
+					rx="5"
+					ry="5"
+					fill={colorNodes(d)}
+					><title
+						>{#if asset}
+							{asset.name}
+						{:else}
+							Unknown Name
+						{/if}</title
+					></rect
+				>
+			{:else if d.id == 'other'}
+				<rect
+					x={d.y0}
+					y={d.x0}
+					height={nodeHeight}
+					width={nodeWidth}
+					rx="5"
+					ry="5"
+					fill={colorNodes(d)}
+				/>
 				<text
 					class="pointer-events-none"
-					x={d.y0 + width / 2}
+					x={d.y0 + nodeWidth / 2}
 					y={d.x0 + nodeHeight / 2}
 					dominant-baseline="central"
 					text-anchor="middle"
@@ -116,14 +143,45 @@
                 font-size: {fontSize}px;
 				"
 				>
+					{'<'}10%
+				</text>
+			{:else if d.id == 'unbacked'}
+				<rect
+					x={d.y0}
+					y={d.x0}
+					height={nodeHeight}
+					width={nodeWidth}
+					rx="5"
+					ry="5"
+					fill={colorNodes(d)}
+				/>
+				<text
+					class="pointer-events-none"
+					x={d.y0 + nodeWidth / 2}
+					y={d.x0 + nodeHeight / 2}
+					dominant-baseline="central"
+					text-anchor="middle"
+					style="
+			fill: {colorText(d)};
+			font-size: {fontSize}px;
+			"
+				>
 					Unbacked
 				</text>
 			{:else}
 				<a href={asset.path}>
-					<rect x={d.y0} y={d.x0} height={nodeHeight} {width} rx="5" ry="5" fill={colorNodes(d)} />
+					<rect
+						x={d.y0}
+						y={d.x0}
+						height={nodeHeight}
+						width={nodeWidth}
+						rx="5"
+						ry="5"
+						fill={colorNodes(d)}
+					/>
 					<text
 						class="pointer-events-none"
-						x={d.y0 + width / 2}
+						x={d.y0 + nodeWidth / 2}
 						y={d.x0 + nodeHeight / 2}
 						dominant-baseline="central"
 						text-anchor="middle"
