@@ -61,6 +61,7 @@
 		</thead>
 		<tbody class="divide-y divide-gray-200 bg-white">
 			{#each rows
+				.sort((a, b) => compare(a['mcap'].value, b['mcap'].value, true))
 				.sort((a, b) => compare(a[sortBy].value, b[sortBy].value, sortAsc))
 				.slice(0, length) as row, i}
 				<tr key={i}>
