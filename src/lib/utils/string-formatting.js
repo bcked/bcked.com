@@ -18,6 +18,22 @@ export function formatCurrency(num, digits = 2, currency = 'USD', currencyDispla
 }
 
 /** @param {Number} num */
+export function formatNum(num, digits = 2, useGrouping = true) {
+    const options = {
+        minimumFractionDigits: digits,
+        maximumFractionDigits: digits,
+        useGrouping
+    }
+    let notation = 'standard'
+    if (num >= 1000) {
+        notation = 'compact'
+    } else if (num < 0.1 && num > 0) {
+        notation = 'scientific'
+    }
+    return Intl.NumberFormat('en-US', { notation, ...options }).format(num);
+}
+
+/** @param {Number} num */
 export function formatPercentage(num, digits = 0) {
     return Intl.NumberFormat('en-US', {
         style: 'percent',

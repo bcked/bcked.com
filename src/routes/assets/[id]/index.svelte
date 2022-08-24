@@ -1,7 +1,8 @@
 <script>
 	import Sankey from './sankey@sankey.svelte';
 	import LiquidFill from '$lib/components/liquid-fill.svelte';
-	import { formatCurrency, formatPercentage } from '$lib/utils/string-formatting';
+	import Table from '$lib/components/table.svelte';
+	import { formatCurrency, formatPercentage, formatNum } from '$lib/utils/string-formatting';
 	import { ExclamationIcon, CheckCircleIcon } from '@rgossiaux/svelte-heroicons/outline';
 	import SvelteSeo from 'svelte-seo';
 
@@ -166,5 +167,39 @@
 				</div>
 			{/if}
 		</div>
+		<Table
+			columns={[
+				// { id: 'rank', title: '#', class: '' },
+				{ id: 'share', title: '%', class: '' },
+				{ id: 'name', title: 'Name', class: 'font-medium', link: true },
+				{ id: 'price', title: 'Price', class: 'hidden lg:table-cell' },
+				{ id: 'amount', title: 'Amount', class: 'hidden sm:table-cell' },
+				{ id: 'backing-usd', title: 'Backing', class: '' },
+				{ id: 'backing-ratio', title: 'Backing Ratio', class: '' }
+			]}
+			rows={backing.nodes
+				.filter((node) => node['asset'])
+				.filter(({ id, level }) => level == 1 && id != backing.id && id != 'unbacked')
+				.map((node, i) => ({
+					name: { text: node.asset.name, value: node.asset.name, icon: node.asset.icon },
+					'name-path': { text: node.asset.path, value: node.asset.path },
+					price: { text: formatCurrency(node.asset.price[0].usd), value: node.asset.price[0].usd },
+					amount: {
+						text: formatNum(asset.backing[0].assets[node.id]),
+						value: asset.backing[0].assets[node.id]
+					},
+					share: {
+						text: formatPercentage(node.value / backing.backed),
+						value: node.value / backing.value
+					},
+					'backing-usd': { text: formatCurrency(node.value), value: node.value },
+					'backing-ratio': {
+						text: formatPercentage(node.value / backing.value),
+						value: node.value / backing.value
+					}
+				}))}
+			sortBy="share"
+			class="bg-white shadow sm:mx-0 sm:rounded-lg overflow-hidden"
+		/>
 	</div>
 </div>

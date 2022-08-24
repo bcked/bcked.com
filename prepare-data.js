@@ -86,16 +86,16 @@ function loadAssetData(assetId) {
  * @param {string} id 
  * @returns {Object[]}
  */
-async function followBackingTree(id, backedAsset, assetValue, assets) {
+async function followBackingTree(id, backedAsset, assetValue, assets, level) {
     if (!backedAsset) {
         return { nodes: [{ id }], links: [{ source: id, target: "unbacked", value: assetValue }] }
     }
 
-    /** @type {Object[]} */
-    let nodes = [{ id, name: backedAsset.name }, { id: "unbacked" }];
-
     if (backedAsset.backing.length == 0) {
-        return { nodes, links: [{ source: id, target: "unbacked", value: assetValue }] }
+        return {
+            nodes: [{ id, name: backedAsset.name, value: 0, level }, { id: "unbacked", value: 0 }],
+            links: [{ source: id, target: "unbacked", value: assetValue }]
+        }
     }
     const backedAssets = Object.entries(backedAsset.backing[0].assets)
         .filter(([key, value]) => key != id)
@@ -106,10 +106,12 @@ async function followBackingTree(id, backedAsset, assetValue, assets) {
 
     /** @type {Object[]} */
     let links = unbacked > 0 ? [{ source: id, target: "unbacked", value: unbacked }] : [];
+    /** @type {Object[]} */
+    let nodes = [{ id, name: backedAsset.name, value: assetValue, level }, { id: "unbacked", value: 0 }];
 
     for (const [key, value, backingUsd, backedSubAsset] of backedAssets) {
         const cappedBackingUsd = backingUsd > assetValue ? assetValue : backingUsd
-        const backingData = await followBackingTree(key, backedSubAsset, cappedBackingUsd, assets);
+        const backingData = await followBackingTree(key, backedSubAsset, cappedBackingUsd, assets, level + 1);
         nodes = [...nodes, ...backingData.nodes];
         links = [
             ...links,
@@ -123,16 +125,7 @@ async function followBackingTree(id, backedAsset, assetValue, assets) {
 }
 
 async function buildBackingTree(id, asset, assets) {
-    const { nodes, links } = await followBackingTree(id, asset, asset.mcap, assets)
-
-    let reduced_nodes = []
-    for (const node of nodes) {
-        const existing_node = reduced_nodes.find((n) => n.id == node.id)
-        if (!existing_node) {
-            reduced_nodes = [...reduced_nodes, node]
-        } else {
-        }
-    }
+    const { nodes, links } = await followBackingTree(id, asset, asset.mcap, assets, 0)
 
     let reduced_links = []
     for (const link of links) {
@@ -146,7 +139,24 @@ async function buildBackingTree(id, asset, assets) {
         }
     }
 
-    const data = { nodes: reduced_nodes, links: reduced_links }
+    const unbackedLink = reduced_links.find((l) => l.source == id && l.target == 'unbacked')
+    const unbacked = unbackedLink ? unbackedLink.value : 0
+
+    let reduced_nodes = unbackedLink ? [{ id: 'unbacked', value: unbackedLink.value }] : []
+    for (const node of nodes) {
+        const existing_node = reduced_nodes.find((n) => n.id == node.id)
+        if (existing_node) {
+            existing_node.value += node.value
+            existing_node.value = round(existing_node.value, 2)
+        } else {
+            node.value = round(node.value, 2)
+            reduced_nodes = [...reduced_nodes, node]
+        }
+    }
+
+    const value = reduced_nodes.find((l) => l.id == id).value
+
+    const data = { nodes: reduced_nodes, links: reduced_links, value, unbacked, backed: round(value - unbacked, 2) }
     return data
 }
 

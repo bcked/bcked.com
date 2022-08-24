@@ -1,5 +1,5 @@
 import { get as getData } from '../assets/index.json';
-import { formatCurrency, formatPercentage } from '$lib/utils/string-formatting';
+import { formatCurrency, formatPercentage, compare } from '$lib/utils/string-formatting';
 
 /** @type {import('./__types/index.json').RequestHandler} */
 export async function get({ params }) {
@@ -20,6 +20,7 @@ export async function get({ params }) {
     ];
     const rows = Object.values(assets)
         .filter(({ asset }) => asset.backing.length > 0)
+        .sort((a, b) => compare(a['mcap'], b['mcap'], true))
         .sort((a, b) => b.asset.backing[0][sortBy] - a.asset.backing[0][sortBy])
         .map(({ asset }, i) => ({
             rank: { text: i + 1, value: i },
