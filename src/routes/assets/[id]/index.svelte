@@ -169,7 +169,6 @@
 		</div>
 		<Table
 			columns={[
-				// { id: 'rank', title: '#', class: '' },
 				{ id: 'share', title: '%', class: '' },
 				{ id: 'name', title: 'Name', class: 'font-medium', link: true },
 				{ id: 'price', title: 'Price', class: 'hidden lg:table-cell' },

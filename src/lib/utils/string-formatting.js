@@ -57,3 +57,19 @@ export function compare(a, b, reverse = true) {
     }
     return comp * (reverse ? -1 : 1)
 }
+
+
+export function combine(...criteria) {
+    return (a, b) => {
+        for (let i = criteria.length - 1; i >= 0; i--) {
+            // console.log(criteria[0])
+            const curCriteriaComparatorValue = criteria[i](a, b)
+            // if the comparison objects are not equivalent, return the value obtained
+            // in this current criteria comparison
+            if (curCriteriaComparatorValue !== 0) {
+                return curCriteriaComparatorValue
+            }
+        }
+        return 0
+    }
+}

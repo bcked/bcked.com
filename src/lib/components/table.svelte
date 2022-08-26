@@ -1,6 +1,6 @@
 <script>
 	import { base } from '$app/paths';
-	import { compare } from '$lib/utils/string-formatting';
+	import { compare, combine } from '$lib/utils/string-formatting';
 	import { ChevronDownIcon, ChevronUpIcon } from '@rgossiaux/svelte-heroicons/solid';
 	import { CashIcon } from '@rgossiaux/svelte-heroicons/outline';
 
@@ -12,10 +12,10 @@
 	/** @type {any} */
 	export let rows;
 
-	/** @type {string} */
-	export let sortBy;
-	/** @type {boolean} */
-	export let sortAsc = true;
+	/** @type {object[]} */
+	export let sort;
+
+	const { by: sortBy, asc: sortAsc = true } = sort[sort.length - 1];
 	/** @type {Number=} */
 	export let length = undefined;
 </script>
@@ -61,7 +61,7 @@
 		</thead>
 		<tbody class="divide-y divide-gray-200 bg-white">
 			{#each rows
-				.sort((a, b) => compare(a[sortBy].value, b[sortBy].value, sortAsc))
+				.sort(combine(...sort.map(({ by, asc = true }) => (a, b) => compare(a[by].value, b[by].value, asc))))
 				.slice(0, length) as row, i}
 				<tr key={i}>
 					{#each columns as column}

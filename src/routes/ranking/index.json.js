@@ -1,12 +1,10 @@
 import { get as getData } from '../assets/index.json';
-import { formatCurrency, formatPercentage, compare } from '$lib/utils/string-formatting';
+import { formatCurrency, formatPercentage, compare, combine } from '$lib/utils/string-formatting';
 
 /** @type {import('./__types/index.json').RequestHandler} */
 export async function get({ params }) {
     /** @type {any} */
     const assets = (await getData()).body;
-
-    const sortBy = "backing-usd"
 
     const columns = [
         { id: 'rank', title: '#', class: '' },
@@ -18,10 +16,9 @@ export async function get({ params }) {
         { id: 'mcap', title: 'Market Cap', class: 'hidden lg:table-cell' },
         { id: 'backing-distribution', title: 'Backing Distribution', class: 'hidden sm:table-cell' }
     ];
+
     const rows = Object.values(assets)
-        .filter(({ asset }) => asset.backing.length > 0)
-        .sort((a, b) => compare(a['mcap'], b['mcap'], true))
-        .sort((a, b) => b.asset.backing[0][sortBy] - a.asset.backing[0][sortBy])
+        .filter(({ asset }) => asset.backing[0]['backing-usd'] > 0)
         .map(({ asset }, i) => ({
             rank: { text: i + 1, value: i },
             name: { text: asset.name, value: asset.name, icon: asset.icon },
