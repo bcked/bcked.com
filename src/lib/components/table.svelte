@@ -78,7 +78,7 @@
 												alt="Icon of {row[column.id].text}"
 											/>
 										{:else}
-											<CashIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
+											<CashIcon class="h-5 w-5 text-gray-500" aria-hidden="true" />
 										{/if}
 										<span>
 											{row[column.id].text}

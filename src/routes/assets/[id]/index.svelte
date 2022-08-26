@@ -52,7 +52,7 @@
 
 <div class="py-10">
 	<div class="max-w-7xl mx-auto space-y-4 sm:px-6 lg:px-8">
-		<dl class="grid grid-cols-2 gap-[0.1rem] sm:gap-4 md:grid-cols-4 shadow sm:shadow-none">
+		<div class="grid grid-cols-2 gap-[0.1rem] sm:gap-4 md:grid-cols-4 shadow sm:shadow-none">
 			<!-- {stats.length <= 4 ? stats.length : 4} -->
 			{#each stats as item}
 				<div
@@ -71,7 +71,7 @@
 							/>
 						</div>
 					{/if}
-					<div class="relative">
+					<dl class="relative">
 						<dt class="text-sm font-medium text-gray-500 truncate">{item.name}</dt>
 						<dd class="mt-1 text-3xl font-semibold text-gray-900">
 							{#if item.type == 'standard'}
@@ -82,10 +82,10 @@
 								{formatPercentage(item.value)}
 							{/if}
 						</dd>
-					</div>
+					</dl>
 				</div>
 			{/each}
-		</dl>
+		</div>
 
 		<div class="grid grid-cols-1 gap-4 lg:grid-cols-2 shadow-none">
 			<div class="px-4 py-5 bg-white shadow sm:rounded-lg overflow-hidden sm:p-6">
@@ -95,18 +95,18 @@
 						View the backing history of {asset.name}.
 					</p>
 				</div>
-				<dl class="flex mt-6 items-center justify-between">
-					<div>
+				<div class="flex mt-6 items-center justify-between">
+					<dl>
 						<dt class="text-sm font-medium text-gray-500 truncate">Current Backing</dt>
 						<dd class="mt-1 text-3xl font-semibold text-gray-900">
 							{formatCurrency(asset.backing[0]['backing-usd'])}
 						</dd>
-					</div>
-					<div class="text-right">
+					</dl>
+					<dl class="text-right">
 						<dt class="text-sm font-medium text-gray-500 truncate">Current Market Cap</dt>
 						<dd class="mt-1 text-3xl font-semibold text-gray-900">{formatCurrency(asset.mcap)}</dd>
-					</div>
-				</dl>
+					</dl>
+				</div>
 				<div class="max-w-3xl mx-auto text-center mt-12 text-lg font-thin text-gray-500">
 					Coming soon: Line chart showing the backing and market cap history.
 				</div>
@@ -134,7 +134,7 @@
 				</p>
 			</div>
 			{#if comments.praise.length > 0 || comments.doubts.length > 0}
-				<dl
+				<div
 					class="mt-6 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-3 lg:gap-x-8"
 				>
 					{#each comments.praise as praise}
@@ -142,9 +142,9 @@
 							<div class="flex-shrink-0 mr-4">
 								<CheckCircleIcon class="h-6 w-6 text-green-500" aria-hidden="true" />
 							</div>
-							<div class="comment">
+							<dl class="comment">
 								{@html praise}
-							</div>
+							</dl>
 						</div>
 					{/each}
 					{#each comments.doubts as doubt}
@@ -152,12 +152,12 @@
 							<div class="flex-shrink-0 mr-4">
 								<ExclamationIcon class="h-6 w-6 text-red-500" aria-hidden="true" />
 							</div>
-							<div class="flex-1">
+							<dl class="flex-1">
 								{@html doubt}
-							</div>
+							</dl>
 						</div>
 					{/each}
-				</dl>
+				</div>
 			{:else}
 				<div class="max-w-3xl mx-auto text-center mt-12 text-lg font-thin text-gray-500">
 					There are no comments yet. Be the first to leave your praise and doubts <a

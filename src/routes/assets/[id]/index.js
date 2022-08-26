@@ -22,6 +22,13 @@ function loadComments(assetId, pattern) {
 /** @type {import('./__types/index').RequestHandler} */
 export async function get({ params }) {
     const data = await getData({ params })
+
+    if (!data || !data.body) {
+        return {
+            status: 404
+        };
+    }
+
     const { asset, backing } = data.body;
     const doubts = loadComments(params.id, 'doubt')
     const praise = loadComments(params.id, 'praise')

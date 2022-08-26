@@ -5,7 +5,7 @@
 	import Banner from '$lib/components/banner.svelte';
 </script>
 
-<div class="flex flex-col h-screen justify-between">
+<div class="flex flex-col h-screen justify-between bg-gray-100">
 	<Banner />
 
 	<Header />

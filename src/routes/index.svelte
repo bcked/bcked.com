@@ -61,21 +61,6 @@
 					Compare assets based on their backing amount, ratio and distribution.
 				</p>
 			</div>
-			<div class="mt-10 w-full max-w-xs">
-				<div class="relative group">
-					<div
-						class="absolute -inset-0 rounded-md bg-gradient-to-r from-neon-yellow via-neon-yellow to-neon-pink transition-all duration-1000 bg-size-200 bg-pos-100 group-hover:bg-pos-0 blur animate-tilt-4"
-					/>
-					<div class="relative">
-						<a
-							href="{base}/ranking"
-							class="inline-flex items-center shadow justify-between w-full px-4 py-2 text-base font-medium rounded-md text-gray-900 bg-gradient-to-r from-neon-yellow via-neon-yellow to-neon-pink transition-all duration-1000 bg-size-200 bg-pos-100 group-hover:bg-pos-0"
-							>More
-							<ChevronRightIcon class="h-5 w-5" aria-hidden="true" /></a
-						>
-					</div>
-				</div>
-			</div>
 		</div>
 		<div class="mt-10 w-full">
 			<div class="relative">
@@ -90,6 +75,21 @@
 						length={3}
 						class="mt-8 overflow-hidden shadow xl:mx-0 rounded-md"
 					/>
+				</div>
+			</div>
+		</div>
+		<div class="mt-10 w-full max-w-xs">
+			<div class="relative group">
+				<div
+					class="absolute -inset-0 rounded-md bg-gradient-to-r from-neon-yellow via-neon-yellow to-neon-pink transition-all duration-1000 bg-size-200 bg-pos-100 group-hover:bg-pos-0 blur animate-tilt-4"
+				/>
+				<div class="relative">
+					<a
+						href="{base}/ranking"
+						class="inline-flex items-center shadow justify-between w-full px-4 py-2 text-base font-medium rounded-md text-gray-900 bg-gradient-to-r from-neon-yellow via-neon-yellow to-neon-pink transition-all duration-1000 bg-size-200 bg-pos-100 group-hover:bg-pos-0"
+						>See full ranking
+						<ChevronRightIcon class="h-5 w-5" aria-hidden="true" /></a
+					>
 				</div>
 			</div>
 		</div>

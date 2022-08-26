@@ -40,14 +40,18 @@
 						</div> -->
 						<a href={`${base}/`} class="relative">
 							{#if $page.url.pathname != `${base}/` && $page.url.pathname != `${base}`}
-								<img class="block lg:hidden h-8 w-auto" src="{base}/backed-logo.svg" alt="backed" />
+								<img class="block lg:hidden h-8 w-8" src="{base}/backed-logo.svg" alt="backed" />
 								<img
-									class="hidden lg:block h-8 w-auto"
+									class="hidden lg:block h-8 w-[137.63px]"
 									src="{base}/backed-logo-text.svg"
 									alt="backed"
 								/>
 							{:else}
-								<img class="block h-8 w-auto" src="{base}/backed-logo-text.svg" alt="backed" />
+								<img
+									class="block h-8 w-[137.63px]"
+									src="{base}/backed-logo-text.svg"
+									alt="backed"
+								/>
 							{/if}
 						</a>
 					</div>
@@ -81,7 +85,7 @@
 			<div class="flex items-center lg:hidden">
 				<!-- Mobile menu button -->
 				<DisclosureButton
-					class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+					class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
 				>
 					<span class="sr-only">Open main menu</span>
 					{#if open}

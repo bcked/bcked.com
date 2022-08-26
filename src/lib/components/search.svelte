@@ -79,7 +79,7 @@
 
 <Listbox value={selected}>
 	<div class="relative" use:clickOutside on:click_outside={clearQuery}>
-		<label htmlFor="search" class="sr-only"> Search </label>
+		<label for="search" class="sr-only"> Search </label>
 		<input
 			id="search"
 			name="search"
@@ -97,7 +97,7 @@
 						alt="Icon of {selected.name}"
 					/>
 				{:else}
-					<CashIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
+					<CashIcon class="h-5 w-5 text-gray-500" aria-hidden="true" />
 				{/if}
 
 				<div class="flex items-center space-x-1">
@@ -109,12 +109,12 @@
 					</span>
 				</div>
 			{:else}
-				<SearchIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
+				<SearchIcon class="h-5 w-5 text-gray-500" aria-hidden="true" />
 				{#if !query}
-					<span class="text-gray-500 focus:text-gray-400 tracking-tighter sm:hidden"
+					<span class="text-gray-500 focus:text-gray-500 tracking-tighter sm:hidden"
 						>Search asset</span
 					>
-					<span class="hidden text-gray-500 focus:text-gray-400 tracking-tighter sm:block"
+					<span class="hidden text-gray-500 focus:text-gray-500 tracking-tighter sm:block"
 						>What asset are you looking for?</span
 					>
 				{/if}
@@ -123,7 +123,7 @@
 		<div class="absolute inset-y-0 right-0 pr-3 flex items-center" on:click={clearQuery}>
 			<XCircleIcon
 				class={query
-					? 'h-5 w-5 cursor-pointer text-gray-400 hover:outline-none hover:text-neon-pink'
+					? 'h-5 w-5 cursor-pointer text-gray-500 hover:outline-none hover:text-neon-pink'
 					: 'hidden'}
 				aria-hidden="true"
 			/>
@@ -151,7 +151,7 @@
 												alt="Icon of {item.name}"
 											/>
 										{:else}
-											<CashIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
+											<CashIcon class="h-5 w-5 text-gray-500" aria-hidden="true" />
 										{/if}
 										<div class="flex items-center space-x-1">
 											<span class="block truncate font-medium">
