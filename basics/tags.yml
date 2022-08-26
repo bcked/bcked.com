@@ -1,0 +1,43 @@
+tags:
+  - id: stock
+    name: Stock
+    group: asset-class
+  - id: bond
+    name: Bond
+    group: asset-class
+  - id: commodity
+    name: Commodity
+    group: asset-class
+  - id: cryptocurrency
+    name: Cryptocurrency
+    group: asset-class
+  - id: fiat
+    name: Fiat
+    group: asset-class
+  - id: real-estate
+    name: Real estate
+    group: asset-class
+  - id: infrastructure
+    name: Infrastructure
+    group: asset-class
+  - id: vault
+    name: Vault
+    group: tech
+  - id: vault
+    name: Vault
+    group: tech
+  - id: stable
+    name: Stablecoin
+    group: tech
+groups:
+  - id: asset-class
+    name: Asset Class
+  - id: tech
+    name: Technology
+# https://en.wikipedia.org/wiki/Asset_classes
+# https://en.wikipedia.org/wiki/Real_assets
+# https://en.wikipedia.org/wiki/Financial_asset
+# https://en.wikipedia.org/wiki/Fiat_money
+# https://en.wikipedia.org/wiki/Currency
+# https://en.wikipedia.org/wiki/Commodity_money
+# https://en.wikipedia.org/wiki/Stablecoin
