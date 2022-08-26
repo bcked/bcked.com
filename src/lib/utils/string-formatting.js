@@ -61,6 +61,8 @@ export function compare(a, b, reverse = true) {
 /** @param {any[]} criteria */
 export function combine(...criteria) {
     return (a, b) => {
+        if (!criteria) return 0
+
         for (let i = criteria.length - 1; i >= 0; i--) {
             // console.log(criteria[0])
             const curCriteriaComparatorValue = criteria[i](a, b)

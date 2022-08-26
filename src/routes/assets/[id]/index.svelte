@@ -197,7 +197,7 @@
 						value: node.value / backing.value
 					}
 				}))}
-			sortBy="share"
+			sort={[{ by: 'share' }]}
 			class="bg-white shadow sm:mx-0 sm:rounded-lg overflow-hidden"
 		/>
 	</div>

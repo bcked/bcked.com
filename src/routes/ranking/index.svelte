@@ -7,8 +7,6 @@
 
 	/** @type {any} */
 	export let rows = [];
-
-	const sort = [{ by: 'mcap' }, { by: 'backing-usd' }];
 </script>
 
 <SvelteSeo
@@ -30,7 +28,7 @@
 			<Table
 				{columns}
 				{rows}
-				{sort}
+				sort={[{ by: 'mcap' }, { by: 'backing-usd' }]}
 				class="-mx-4 mt-8 overflow-hidden shadow sm:-mx-6 md:mx-0 md:rounded-lg"
 			/>
 		</div>

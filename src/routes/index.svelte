@@ -86,7 +86,7 @@
 					<Table
 						{columns}
 						{rows}
-						sortBy="backing-usd"
+						sort={[{ by: 'backing-usd' }]}
 						length={3}
 						class="mt-8 overflow-hidden shadow xl:mx-0 rounded-md"
 					/>

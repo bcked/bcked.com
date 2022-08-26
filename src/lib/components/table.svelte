@@ -12,7 +12,7 @@
 	/** @type {any} */
 	export let rows;
 
-	/** @type {{ by: string, asc: boolean | undefined }[]} */
+	/** @type {{ by: string, asc: (boolean|undefined) }[]} */
 	export let sort;
 
 	let { by: sortBy, asc: sortAsc = true } = sort[sort.length - 1];
