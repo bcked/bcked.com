@@ -58,7 +58,7 @@ export function compare(a, b, reverse = true) {
     return comp * (reverse ? -1 : 1)
 }
 
-
+/** @param {any[]} criteria */
 export function combine(...criteria) {
     return (a, b) => {
         for (let i = criteria.length - 1; i >= 0; i--) {

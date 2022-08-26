@@ -12,10 +12,10 @@
 	/** @type {any} */
 	export let rows;
 
-	/** @type {object[]} */
+	/** @type {{ by: string, asc: boolean | undefined }[]} */
 	export let sort;
 
-	const { by: sortBy, asc: sortAsc = true } = sort[sort.length - 1];
+	let { by: sortBy, asc: sortAsc = true } = sort[sort.length - 1];
 	/** @type {Number=} */
 	export let length = undefined;
 </script>
