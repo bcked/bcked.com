@@ -1,5 +1,5 @@
 <script>
-	import Sankey from './sankey@sankey.svelte';
+	import Sankey from '$lib/components/sankey-layer.svelte';
 	import LiquidFill from '$lib/components/liquid-fill.svelte';
 	import Table from '$lib/components/table.svelte';
 	import { formatCurrency, formatPercentage, formatNum } from '$lib/utils/string-formatting';
