@@ -14,7 +14,7 @@ export async function get({ params }) {
         { id: 'backing-ratio', title: 'Backing Ratio', class: '' },
         { id: 'backing-usd', title: 'Backing', class: '' },
         { id: 'mcap', title: 'Market Cap', class: 'hidden lg:table-cell' },
-        { id: 'backing-distribution', title: 'Backing Distribution', class: 'hidden sm:table-cell' }
+        { id: 'backing-uniformity', title: 'Backing Uniformity', class: 'hidden sm:table-cell' }
     ];
 
     const rows = Object.values(assets)
@@ -33,9 +33,9 @@ export async function get({ params }) {
                 value: asset.backing[0]['backing-usd']
             },
             mcap: { text: formatCurrency(asset.mcap), value: asset.mcap },
-            'backing-distribution': {
-                text: asset.backing[0]['ratio'] > 0 ? formatPercentage(asset.backing[0]['distribution']) : 'N/A',
-                value: asset.backing[0]['distribution']
+            'backing-uniformity': {
+                text: asset.backing[0]['ratio'] > 0 ? formatPercentage(asset.backing[0]['uniformity']) : 'N/A',
+                value: asset.backing[0]['uniformity']
             },
             'name-path': { text: asset.path, value: asset.path }
         }));

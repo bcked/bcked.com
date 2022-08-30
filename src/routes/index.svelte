@@ -58,7 +58,7 @@
 					Ranking
 				</h2>
 				<p class="mt-5 text-xl text-gray-900">
-					Compare assets based on their backing amount, ratio and distribution.
+					Compare assets based on their backing amount, ratio and uniformity.
 				</p>
 			</div>
 		</div>

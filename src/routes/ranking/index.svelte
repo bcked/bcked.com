@@ -11,7 +11,7 @@
 
 <SvelteSeo
 	title="Ranking of Assets with Backing"
-	description="Compare assets based on their backing amount, ratio, distribution and more..."
+	description="Compare assets based on their backing amount, ratio, uniformity and more..."
 />
 
 <div class="py-10">

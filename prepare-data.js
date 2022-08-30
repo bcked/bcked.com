@@ -192,7 +192,7 @@ export async function prepareData() {
         const totalLastLevelBacking = lastLevelBacking.reduce((s, v) => s + v, 0);
         currentBacking['backing-usd'] = round(totalLastLevelBacking, 2) || 0
         currentBacking['ratio'] = round(totalLastLevelBacking / mcap, 4) || 0
-        currentBacking['distribution'] = round(uniformity(lastLevelBacking), 4)
+        currentBacking['uniformity'] = round(uniformity(lastLevelBacking), 4)
     }
 
     fs.writeFileSync('./_generated/assets.yml', stringify(assets))
@@ -205,12 +205,12 @@ export async function prepareData() {
         return {
             "backing-usd": a['backing-usd'] + currentBacking['backing-usd'],
             'ratio-avg': a['ratio-avg'] + currentBacking['ratio'],
-            'distribution-avg': a['distribution-avg'] + currentBacking['distribution'],
+            'uniformity-avg': a['uniformity-avg'] + currentBacking['uniformity'],
             "backed-assets": a['backed-assets'] + 1
         }
-    }, { "backing-usd": 0, 'ratio-avg': 0, 'distribution-avg': 0, "backed-assets": 0 })
+    }, { "backing-usd": 0, 'ratio-avg': 0, 'uniformity-avg': 0, "backed-assets": 0 })
     globalBacking['ratio-avg'] = globalBacking['ratio-avg'] / globalBacking['backed-assets']
-    globalBacking['distribution-avg'] /= globalBacking['backed-assets']
+    globalBacking['uniformity-avg'] /= globalBacking['backed-assets']
     globalBacking['backing-usd-avg'] = globalBacking['backing-usd'] / globalBacking['backed-assets']
 
     fs.writeFileSync('./_generated/global.yml', stringify(globalBacking))

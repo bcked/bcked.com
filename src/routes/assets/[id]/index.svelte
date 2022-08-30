@@ -33,12 +33,12 @@
 		},
 		asset.backing[0]['backing-assets'] > 0
 			? {
-					name: 'Backing Distribution',
-					value: asset.backing[0].distribution,
+					name: 'Backing Uniformity',
+					value: asset.backing[0].uniformity,
 					type: 'percent'
 			  }
 			: {
-					name: 'Backing Distribution',
+					name: 'Backing Uniformity',
 					value: 'N/A',
 					type: 'standard'
 			  }
