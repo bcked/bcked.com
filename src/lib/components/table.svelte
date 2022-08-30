@@ -61,7 +61,9 @@
 		</thead>
 		<tbody class="divide-y divide-gray-200 bg-white">
 			{#each rows
-				.sort(combine( ...sort.map(({ by, asc = true }) => (a, b) => compare(a[by].value, b[by].value, asc)), (a, b) => compare(a[sortBy].value, b[sortBy].value, sortAsc) ))
+				.sort(combine(...sort.map(({ by, asc = true }) => (a, b) => compare(a[by].value, b[by].value, asc))))
+				.map((row, i) => ({ ...row, rank: { text: i + 1, value: i } }))
+				.sort((a, b) => compare(a[sortBy].value, b[sortBy].value, sortAsc))
 				.slice(0, length) as row, i}
 				<tr key={i}>
 					{#each columns as column}
