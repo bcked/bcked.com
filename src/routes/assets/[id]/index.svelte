@@ -2,6 +2,7 @@
 	import Sankey from '$lib/components/sankey-layer.svelte';
 	import LiquidFill from '$lib/components/liquid-fill.svelte';
 	import Table from '$lib/components/table.svelte';
+	import LineChart from '$lib/components/line-chart.svelte';
 	import { formatCurrency, formatPercentage, formatNum } from '$lib/utils/string-formatting';
 	import { ExclamationIcon, CheckCircleIcon } from '@rgossiaux/svelte-heroicons/outline';
 	import SvelteSeo from 'svelte-seo';
@@ -108,7 +109,13 @@
 					</dl>
 				</div>
 				<div class="max-w-3xl mx-auto text-center mt-12 text-lg font-thin text-gray-500">
-					Coming soon: Line chart showing the backing and market cap history.
+					<LineChart
+						title=""
+						data={asset.price.map(({ timestamp, usd }) => ({
+							date: timestamp,
+							value: usd
+						}))}
+					/>
 				</div>
 			</div>
 
