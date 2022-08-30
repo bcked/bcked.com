@@ -6,10 +6,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="color-scheme" content="only light" />
 
-		<meta http-equiv="content-security-policy" content=""><title>Ranking of Assets with Backing</title><meta name="robots" content="index,follow" data-svelte="svelte-1q8xl96"><meta name="googlebot" content="index,follow" data-svelte="svelte-1q8xl96"><meta name="description" content="Compare assets based on their backing amount, ratio, distribution and more..." data-svelte="svelte-1q8xl96">
+		<meta http-equiv="content-security-policy" content=""><title>Ranking of Assets with Backing</title><meta name="robots" content="index,follow" data-svelte="svelte-1q8xl96"><meta name="googlebot" content="index,follow" data-svelte="svelte-1q8xl96"><meta name="description" content="Compare assets based on their backing amount, ratio, uniformity and more..." data-svelte="svelte-1q8xl96">
 	<link rel="stylesheet" href="/backed/_app/immutable/assets/pages/__layout.svelte-e19ef920.css">
 	<link rel="stylesheet" href="/backed/_app/immutable/assets/search-6ea48efd.css">
-	<link rel="modulepreload" href="/backed/_app/immutable/start-0b1a8ad9.js">
+	<link rel="modulepreload" href="/backed/_app/immutable/start-b46a652c.js">
 	<link rel="modulepreload" href="/backed/_app/immutable/chunks/index-61095443.js">
 	<link rel="modulepreload" href="/backed/_app/immutable/chunks/index-31477bff.js">
 	<link rel="modulepreload" href="/backed/_app/immutable/chunks/paths-396f020f.js">
@@ -18,7 +18,7 @@
 	<link rel="modulepreload" href="/backed/_app/immutable/chunks/search-6a1b5ca8.js">
 	<link rel="modulepreload" href="/backed/_app/immutable/chunks/Cash-a339f9d1.js">
 	<link rel="modulepreload" href="/backed/_app/immutable/chunks/github-29b7c48e.js">
-	<link rel="modulepreload" href="/backed/_app/immutable/pages/ranking/index.svelte-8efdf219.js">
+	<link rel="modulepreload" href="/backed/_app/immutable/pages/ranking/index.svelte-ca9473a9.js">
 	<link rel="modulepreload" href="/backed/_app/immutable/chunks/table-2987e950.js">
 	<link rel="modulepreload" href="/backed/_app/immutable/chunks/string-formatting-5121cf9c.js">
 	<link rel="modulepreload" href="/backed/_app/immutable/chunks/SvelteSeo-b1bd6fca.js">
@@ -85,7 +85,7 @@
 					</th><th scope="col" class="group cursor-pointer py-3.5 pl-4 sm:pl-6 lg:pl-8 pr-1 text-left text-sm font-semibold text-gray-50 hidden lg:table-cell"><div class="inline-flex">Market Cap
 							<span class="invisible ml-2 flex-none rounded text-gray-300 group-hover:visible group-focus:visible"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="h-5 w-5"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
 								</span></div>
-					</th><th scope="col" class="group cursor-pointer py-3.5 pl-4 sm:pl-6 lg:pl-8 pr-1 text-left text-sm font-semibold text-gray-50 hidden sm:table-cell"><div class="inline-flex">Backing Distribution
+					</th><th scope="col" class="group cursor-pointer py-3.5 pl-4 sm:pl-6 lg:pl-8 pr-1 text-left text-sm font-semibold text-gray-50 hidden sm:table-cell"><div class="inline-flex">Backing Uniformity
 							<span class="invisible ml-2 flex-none rounded text-gray-300 group-hover:visible group-focus:visible"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="h-5 w-5"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
 								</span></div>
 					</th></tr></thead>
@@ -179,10 +179,10 @@
 		<div class="mt-6 md:mt-0 md:order-1"><p class="text-center text-base text-gray-500">© 2022 backed. All rights reserved.</p></div></div></footer></div>
 
 
-		<script type="module" data-sveltekit-hydrate="1du3jpm">
-		import { start } from "/backed/_app/immutable/start-0b1a8ad9.js";
+		<script type="module" data-sveltekit-hydrate="v800cw">
+		import { start } from "/backed/_app/immutable/start-b46a652c.js";
 		start({
-			target: document.querySelector('[data-sveltekit-hydrate="1du3jpm"]').parentNode,
+			target: document.querySelector('[data-sveltekit-hydrate="v800cw"]').parentNode,
 			paths: {"base":"/backed","assets":"/backed"},
 			session: {},
 			route: true,
@@ -196,6 +196,6 @@
 				routeId: "ranking"
 			}
 		});
-	</script><script type="application/json" sveltekit:data-type="props">{"columns":[{"id":"rank","title":"#","class":""},{"id":"name","title":"Name","class":"font-medium","link":true},{"id":"price","title":"Price","class":"hidden lg:table-cell"},{"id":"backing-assets","title":"Backing Assets","class":""},{"id":"backing-ratio","title":"Backing Ratio","class":""},{"id":"backing-usd","title":"Backing","class":""},{"id":"mcap","title":"Market Cap","class":"hidden lg:table-cell"},{"id":"backing-distribution","title":"Backing Distribution","class":"hidden sm:table-cell"}],"rows":[{"rank":{"text":1,"value":0},"name":{"text":"BUSD","value":"BUSD","icon":"asset-icons/busd.png"},"price":{"text":"$1.00","value":1},"backing-assets":{"text":1,"value":1},"backing-ratio":{"text":"100%","value":1},"backing-usd":{"text":"$17.65B","value":17651702084.31},"mcap":{"text":"$17.65B","value":17651702084.31},"backing-distribution":{"text":"100%","value":1},"name-path":{"text":"/backed/assets/busd","value":"/backed/assets/busd"}},{"rank":{"text":3,"value":2},"name":{"text":"PAX Gold","value":"PAX Gold","icon":"asset-icons/paxg.png"},"price":{"text":"$1.88K","value":1878.49},"backing-assets":{"text":1,"value":1},"backing-ratio":{"text":"100%","value":1},"backing-usd":{"text":"$613.22M","value":613215423.36},"mcap":{"text":"$613.22M","value":613215423.36},"backing-distribution":{"text":"100%","value":1},"name-path":{"text":"/backed/assets/paxg","value":"/backed/assets/paxg"}},{"rank":{"text":2,"value":1},"name":{"text":"Lily Pad","value":"Lily Pad","icon":"asset-icons/lily-pad.png"},"price":{"text":"$6.27E-7","value":6.267e-7},"backing-assets":{"text":11,"value":11},"backing-ratio":{"text":"56%","value":0.5621},"backing-usd":{"text":"$29.85K","value":29851.37},"mcap":{"text":"$53.11K","value":53111.22},"backing-distribution":{"text":"12%","value":0.1194},"name-path":{"text":"/backed/assets/lily-pad","value":"/backed/assets/lily-pad"}}]}</script>
+	</script><script type="application/json" sveltekit:data-type="props">{"columns":[{"id":"rank","title":"#","class":""},{"id":"name","title":"Name","class":"font-medium","link":true},{"id":"price","title":"Price","class":"hidden lg:table-cell"},{"id":"backing-assets","title":"Backing Assets","class":""},{"id":"backing-ratio","title":"Backing Ratio","class":""},{"id":"backing-usd","title":"Backing","class":""},{"id":"mcap","title":"Market Cap","class":"hidden lg:table-cell"},{"id":"backing-uniformity","title":"Backing Uniformity","class":"hidden sm:table-cell"}],"rows":[{"rank":{"text":1,"value":0},"name":{"text":"BUSD","value":"BUSD","icon":"asset-icons/busd.png"},"price":{"text":"$1.00","value":1},"backing-assets":{"text":1,"value":1},"backing-ratio":{"text":"100%","value":1},"backing-usd":{"text":"$17.65B","value":17651702084.31},"mcap":{"text":"$17.65B","value":17651702084.31},"backing-uniformity":{"text":"100%","value":1},"name-path":{"text":"/backed/assets/busd","value":"/backed/assets/busd"}},{"rank":{"text":3,"value":2},"name":{"text":"PAX Gold","value":"PAX Gold","icon":"asset-icons/paxg.png"},"price":{"text":"$1.88K","value":1878.49},"backing-assets":{"text":1,"value":1},"backing-ratio":{"text":"100%","value":1},"backing-usd":{"text":"$613.22M","value":613215423.36},"mcap":{"text":"$613.22M","value":613215423.36},"backing-uniformity":{"text":"100%","value":1},"name-path":{"text":"/backed/assets/paxg","value":"/backed/assets/paxg"}},{"rank":{"text":2,"value":1},"name":{"text":"Lily Pad","value":"Lily Pad","icon":"asset-icons/lily-pad.png"},"price":{"text":"$6.27E-7","value":6.267e-7},"backing-assets":{"text":11,"value":11},"backing-ratio":{"text":"56%","value":0.5621},"backing-usd":{"text":"$29.85K","value":29851.37},"mcap":{"text":"$53.11K","value":53111.22},"backing-uniformity":{"text":"12%","value":0.1194},"name-path":{"text":"/backed/assets/lily-pad","value":"/backed/assets/lily-pad"}}]}</script>
 	</body>
 </html>
