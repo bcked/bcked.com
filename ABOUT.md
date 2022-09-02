@@ -1,4 +1,4 @@
-# About backed
+# About bcked
 
 How do you protect your hard earned money during a recession? What if fiat is inflating?
 What if the stock market is crashing? What if the housing bubble could burst at any time?

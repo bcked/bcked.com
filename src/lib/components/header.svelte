@@ -29,29 +29,25 @@
 						<!-- <div class="absolute">
 							<img
 								class="block lg:hidden h-8 w-auto group-hover:blur transition duration-1000"
-								src="{base}/backed-logo.svg"
-								alt="backed"
+								src="{base}/bcked-logo.svg"
+								alt="bcked"
 							/>
 							<img
 								class="hidden lg:block h-8 w-auto group-hover:blur transition duration-1000"
-								src="{base}/backed-logo-text.svg"
-								alt="backed"
+								src="{base}/bcked-logo-text.svg"
+								alt="bcked"
 							/>
 						</div> -->
 						<a href={`${base}/`} class="relative">
 							{#if $page.url.pathname != `${base}/` && $page.url.pathname != `${base}`}
-								<img class="block lg:hidden h-8 w-8" src="{base}/backed-logo.svg" alt="backed" />
+								<img class="block lg:hidden h-8 w-8" src="{base}/bcked-logo.svg" alt="bcked" />
 								<img
 									class="hidden lg:block h-8 w-[137.63px]"
-									src="{base}/backed-logo-text.svg"
-									alt="backed"
+									src="{base}/bcked-logo-text.svg"
+									alt="bcked"
 								/>
 							{:else}
-								<img
-									class="block h-8 w-[137.63px]"
-									src="{base}/backed-logo-text.svg"
-									alt="backed"
-								/>
+								<img class="block h-8 w-[137.63px]" src="{base}/bcked-logo-text.svg" alt="bcked" />
 							{/if}
 						</a>
 					</div>

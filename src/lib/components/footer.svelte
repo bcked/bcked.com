@@ -50,7 +50,7 @@
 			{/each}
 		</div>
 		<div class="mt-6 md:mt-0 md:order-1">
-			<p class="text-center text-base text-gray-500">&copy; 2022 backed. All rights reserved.</p>
+			<p class="text-center text-base text-gray-500">&copy; 2022 bcked. All rights reserved.</p>
 		</div>
 	</div>
 </footer>

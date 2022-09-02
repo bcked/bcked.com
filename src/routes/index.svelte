@@ -13,7 +13,7 @@
 </script>
 
 <SvelteSeo
-	title="backed: Asset Backing Information Source"
+	title="bcked: Asset Backing Information Source"
 	description="Backed is an open source community project that provides and visualizes data about asset backing."
 />
 
