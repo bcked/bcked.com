@@ -14,7 +14,7 @@
 
 <SvelteSeo
 	title="bcked: Asset Backing Information Source"
-	description="Backed is an open source community project that provides and visualizes data about asset backing."
+	description="bcked is an open source community project that provides and visualizes data about asset backing."
 />
 
 <div class="py-10 space-y-10">
