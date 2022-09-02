@@ -11,4 +11,4 @@ assets of different asset classes. While researching this topic, I quickly notic
 of information on backed assets. This is why I created this open-source project which seeks
 to build up a knowledge base and a community around the topic of asset backing.
 
-If you have any questions, want to contribute or any other request, feel free to [write here](https://github.com/Spenhouet/backed/discussions).
+If you have any questions, want to contribute or any other request, feel free to [write here](https://github.com/Spenhouet/bcked/discussions).

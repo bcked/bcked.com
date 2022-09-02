@@ -110,7 +110,7 @@
 	{#if rows.length == 0}
 		<div class="py-4 max-w-3xl mx-auto text-center text-lg font-thin text-gray-500">
 			There are no backing assets documented yet. Be the first to document them <a
-				href="https://github.com/Spenhouet/backed/issues"
+				href="https://github.com/Spenhouet/bcked/issues"
 				class="underline hover:text-neon-pink">here</a
 			>!
 		</div>

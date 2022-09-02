@@ -20,7 +20,7 @@
 			Questions. Frequently asked ones. Plus our answers. That's how FAQs work. If you can't find
 			what you're looking for, you can always{' '}
 			<a
-				href="https://github.com/Spenhouet/backed/discussions"
+				href="https://github.com/Spenhouet/bcked/discussions"
 				class="font-medium hover:text-neon-pink">ask here</a
 			>.
 		</p>

@@ -176,7 +176,7 @@
 							<span class="font-medium"
 								>No assets found.{' '}
 								<a
-									href="https://github.com/Spenhouet/backed/issues"
+									href="https://github.com/Spenhouet/bcked/issues"
 									class="underline hover:text-neon-pink">Report it here...</a
 								>
 							</span>

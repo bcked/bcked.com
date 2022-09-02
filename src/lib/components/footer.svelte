@@ -22,7 +22,7 @@
 		// },
 		{
 			name: 'GitHub',
-			path: 'https://github.com/Spenhouet/backed',
+			path: 'https://github.com/Spenhouet/bcked',
 			icon: GitHubIcon
 		}
 	];

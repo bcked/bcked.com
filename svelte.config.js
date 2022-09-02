@@ -21,7 +21,7 @@ const dev = process.env.NODE_ENV === 'development';
 const config = {
 	kit: {
 		paths: {
-			base: dev ? '' : '/backed',
+			base: dev ? '' : '',
 		},
 		adapter: adapter({
 			pages: 'build',

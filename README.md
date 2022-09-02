@@ -1,10 +1,10 @@
 <p align="center">
-  <a href="https://github.com/Spenhouet/backed/actions/workflows/deploy.yml"><img src="https://github.com/Spenhouet/backed/actions/workflows/deploy.yml/badge.svg" alt="Build Status"></a><a href="https://github.com/Spenhouet/backed/actions/workflows/pages/pages-build-deployment"><img src="https://github.com/Spenhouet/backed/actions/workflows/pages/pages-build-deployment/badge.svg" alt="Deploy Status"></a>
+  <a href="https://github.com/Spenhouet/bcked/actions/workflows/deploy.yml"><img src="https://github.com/Spenhouet/bcked/actions/workflows/deploy.yml/badge.svg" alt="Build Status"></a><a href="https://github.com/Spenhouet/bcked/actions/workflows/pages/pages-build-deployment"><img src="https://github.com/Spenhouet/bcked/actions/workflows/pages/pages-build-deployment/badge.svg" alt="Deploy Status"></a>
 </p>
 
 <p align="center">Asset backing visualized.</p>
 
-<p align="center"><em>Check it out at <a href="https://spenhouet.com/backed/">spenhouet.com/backed</a>.</em></p>
+<p align="center"><em>Check it out at <a href="https://spenhouet.com/bcked/">spenhouet.com/bcked</a>.</em></p>
 
 ## Features
 
