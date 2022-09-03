@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path'
-import { parse, stringify } from 'yaml';
+import yaml from 'yaml';
+import _ from 'lodash'
 import copyIcons from './compile-data/copy-icons.js'
 
 /**
@@ -46,12 +47,12 @@ function loadHistoricalData(dirPath) {
     return timepoints
         .map((filename) => path.parse(filename).name)
         .sort((a, b) => -a.localeCompare(b))
-        .map((timestamp) => ({ timestamp, ...parse(fs.readFileSync(`${dirPath}/${timestamp}.yml`, 'utf-8')) }))
+        .map((timestamp) => ({ timestamp, ...yaml.parse(fs.readFileSync(`${dirPath}/${timestamp}.yml`, 'utf-8')) }))
 }
 
 function loadAssetData(assetId) {
     const assetPath = `./assets/${assetId}`
-    let assetDetails = parse(fs.readFileSync(`${assetPath}/details.yml`, 'utf-8'))
+    let assetDetails = yaml.parse(fs.readFileSync(`${assetPath}/details.yml`, 'utf-8'))
 
     assetDetails['price'] = loadHistoricalData(`${assetPath}/price`)
     assetDetails['supply'] = loadHistoricalData(`${assetPath}/supply`)
@@ -63,12 +64,6 @@ function loadAssetData(assetId) {
             assets: [],
             source: null
         })
-    }
-
-    try {
-        assetDetails['icon'] = `asset-icons/${assetId}.png`
-    } catch (err) {
-        assetDetails['icon'] = undefined;
     }
 
     const supply = assetDetails.supply[0].circulating || assetDetails.supply[0].total || 0
@@ -160,22 +155,22 @@ async function buildBackingTree(id, asset, assets) {
 }
 
 export async function prepareData() {
-    copyIcons();
-
     fs.mkdirSync('./_generated', { recursive: true });
+
+    const icons = _.keyBy(copyIcons(), 'basename');
 
     const assetNames = fs.readdirSync('./assets')
 
-    const assets = assetNames.reduce((a, v) => ({ ...a, [v]: loadAssetData(v) }), {})
+    const assets = assetNames.reduce((a, v) => ({ ...a, [v]: { ...loadAssetData(v), icon: v in icons ? icons[v].href : undefined } }), {})
 
     const tokenAssetMapping = Object.entries(assets).reduce((a, [k, v]) => ({ ...a, ...Object.keys(v.contracts).reduce((a, c) => ({ ...a, [c]: k }), {}) }), {})
-    fs.writeFileSync('./_generated/token-asset-mapping.yml', stringify(tokenAssetMapping))
+    fs.writeFileSync('./_generated/token-asset-mapping.yml', yaml.stringify(tokenAssetMapping))
 
     let backingTree = {}
     for (const [key, value] of Object.entries(assets)) {
         backingTree[key] = await buildBackingTree(key, value, assets)
     }
-    fs.writeFileSync('./_generated/backing-tree.yml', stringify(backingTree))
+    fs.writeFileSync('./_generated/backing-tree.yml', yaml.stringify(backingTree))
 
     for (const [key, { backing, mcap }] of Object.entries(assets)) {
         if (!backing || !mcap) {
@@ -195,7 +190,7 @@ export async function prepareData() {
         currentBacking['uniformity'] = round(uniformity(lastLevelBacking), 4)
     }
 
-    fs.writeFileSync('./_generated/assets.yml', stringify(assets))
+    fs.writeFileSync('./_generated/assets.yml', yaml.stringify(assets))
 
     let globalBacking = Object.values(assets).reduce((a, { backing }) => {
         if (backing.length == 0 || !('backing-usd' in backing[0])) {
@@ -213,5 +208,5 @@ export async function prepareData() {
     globalBacking['uniformity-avg'] /= globalBacking['backed-assets']
     globalBacking['backing-usd-avg'] = globalBacking['backing-usd'] / globalBacking['backed-assets']
 
-    fs.writeFileSync('./_generated/global.yml', stringify(globalBacking))
+    fs.writeFileSync('./_generated/global.yml', yaml.stringify(globalBacking))
 }
