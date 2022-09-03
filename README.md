@@ -17,8 +17,12 @@ The shown data can be wrong, biased, or simply outdated.
 
 ## Contributing
 
-If you would like to contribute, please read [our contribution guideline](CONTRIBUTING).
+If you would like to contribute, please read [our contribution guideline](CONTRIBUTING.md).
 
 ## License
 
 This tool is an open source community project released under the [GNU General Public License, Version 3](LICENSE).
+
+## About
+
+You can read more about the background of this project [here](ABOUT.md).
