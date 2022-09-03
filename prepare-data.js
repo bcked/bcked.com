@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path'
 import { parse, stringify } from 'yaml';
+import copyIcons from './compile-data/copy-icons.js'
 
 /**
  * Round half away from zero ('commercial' rounding)
@@ -65,9 +66,7 @@ function loadAssetData(assetId) {
     }
 
     try {
-        const iconPath = `asset-icons/${assetId}.png`
-        fs.copyFileSync(`${assetPath}/icon.png`, `./static/${iconPath}`)
-        assetDetails['icon'] = iconPath
+        assetDetails['icon'] = `asset-icons/${assetId}.png`
     } catch (err) {
         assetDetails['icon'] = undefined;
     }
@@ -161,8 +160,9 @@ async function buildBackingTree(id, asset, assets) {
 }
 
 export async function prepareData() {
+    copyIcons();
+
     fs.mkdirSync('./_generated', { recursive: true });
-    fs.mkdirSync('./static/asset-icons', { recursive: true });
 
     const assetNames = fs.readdirSync('./assets')
 
