@@ -22,7 +22,7 @@
 
 <div class={clazz}>
 	<table class="min-w-full divide-y divide-gray-300">
-		<thead class="bg-midnight">
+		<thead class="bg-neon-gray-dark">
 			<tr>
 				{#each columns as column}
 					<th

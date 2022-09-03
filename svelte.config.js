@@ -6,12 +6,6 @@ import { parse } from 'yaml';
 
 await prepareData();
 
-// import { get as getAssets } from './src/routes/assets/index.json.js'
-// import getTokens from './src/routes/tokens/index.json.js'
-
-// const assets = await getAssets();
-// const tokens = await getTokens();
-
 const assets = parse(fs.readFileSync(`./_generated/assets.yml`, 'utf-8'));
 const tokens = parse(fs.readFileSync(`./_generated/token-asset-mapping.yml`, 'utf-8'));
 

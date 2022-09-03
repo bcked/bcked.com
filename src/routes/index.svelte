@@ -20,14 +20,14 @@
 <div class="py-10 space-y-10">
 	<div class="relative">
 		<!-- <div
-			class="absolute -inset-0.5 overflow-hidden rounded-md bg-gradient-to-r from-neon-yellow to-neon-pink blur animate-tilt-1"
+			class="absolute -inset-0.5 overflow-hidden rounded-md bg-gradient-to-r from-neon-blue to-neon-pink blur animate-tilt-1"
 		/> -->
 		<div
-			class="relative max-w-7xl mx-auto shadow bg-midnight xl:rounded-lg py-16 px-4 sm:py-24 sm:px-6 lg:px-8 lg:flex lg:justify-between"
+			class="relative max-w-7xl mx-auto shadow bg-neon-gray-dark xl:rounded-lg py-16 px-4 sm:py-24 sm:px-6 lg:px-8 lg:flex lg:justify-between"
 		>
 			<div class="max-w-xl">
 				<h2
-					class="text-4xl font-extrabold text-neon-yellow sm:text-5xl sm:tracking-tight lg:text-6xl"
+					class="text-4xl font-extrabold text-[#3AC6FF] sm:text-5xl sm:tracking-tight lg:text-6xl"
 				>
 					Backed Assets
 				</h2>
@@ -36,7 +36,7 @@
 			<div class="mt-10 w-full max-w-xs">
 				<div class="relative group">
 					<div
-						class="absolute -inset-0 rounded-md bg-gradient-to-r from-neon-yellow via-neon-yellow to-neon-pink transition-all duration-1000 bg-size-200 bg-pos-100 group-hover:bg-pos-0 blur animate-tilt-4"
+						class="absolute -inset-0 rounded-md bg-gradient-to-r from-neon-blue via-neon-blue to-neon-gray-light transition-all duration-1000 bg-size-200 bg-pos-100 group-hover:bg-pos-0 blur animate-tilt-4"
 					/>
 					<div class="relative">
 						<Search
@@ -65,7 +65,7 @@
 		<div class="mt-10 w-full">
 			<div class="relative">
 				<div
-					class="absolute -inset-0 rounded-md bg-gradient-to-r from-neon-yellow to-neon-pink blur animate-tilt-1"
+					class="absolute -inset-0 rounded-md bg-gradient-to-r from-neon-pink to-neon-gray-dark blur animate-tilt-1"
 				/>
 				<div class="relative">
 					<Table
@@ -81,12 +81,12 @@
 		<div class="mt-10 w-full max-w-xs">
 			<div class="relative group">
 				<div
-					class="absolute -inset-0 rounded-md bg-gradient-to-r from-neon-yellow via-neon-yellow to-neon-pink transition-all duration-1000 bg-size-200 bg-pos-100 group-hover:bg-pos-0 blur animate-tilt-4"
+					class="absolute -inset-0 rounded-md bg-gradient-to-r from-neon-pink via-neon-pink to-neon-gray-dark transition-all duration-1000 bg-size-200 bg-pos-100 group-hover:bg-pos-0 blur animate-tilt-4"
 				/>
 				<div class="relative">
 					<a
 						href="{base}/ranking"
-						class="inline-flex items-center shadow justify-between w-full px-4 py-2 text-base font-medium rounded-md text-gray-900 bg-gradient-to-r from-neon-yellow via-neon-yellow to-neon-pink transition-all duration-1000 bg-size-200 bg-pos-100 group-hover:bg-pos-0"
+						class="inline-flex items-center shadow justify-between w-full px-4 py-2 text-base font-medium rounded-md text-gray-50 bg-gradient-to-r from-neon-pink via-neon-pink to-neon-gray-dark transition-all duration-1000 bg-size-200 bg-pos-100 group-hover:bg-pos-0"
 						>See full ranking
 						<ChevronRightIcon class="h-5 w-5" aria-hidden="true" /></a
 					>
