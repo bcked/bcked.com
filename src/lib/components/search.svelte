@@ -79,11 +79,11 @@
 
 <Listbox value={selected}>
 	<div class="relative" use:clickOutside on:click_outside={clearQuery}>
-		<label for="search" class="sr-only"> Search </label>
+		<label for="search" class="sr-only">Search</label>
 		<input
 			id="search"
 			name="search"
-			class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white caret-gray-400 focus:outline-none focus:ring-1 focus:ring-neon-pink focus:border-neon-pink sm:text-sm {clazz}"
+			class="block w-full pl-10 pr-3 py-2 rounded-md leading-5 bg-gray-50 focus:bg-white caret-gray-400 focus:outline-none focus:ring-1 focus:ring-transparent border border-gray-300 focus:border-gray-400 sm:text-sm {clazz}"
 			type="search"
 			autoComplete="none"
 			bind:value={query}
@@ -111,10 +111,8 @@
 			{:else}
 				<SearchIcon class="h-5 w-5 text-gray-500" aria-hidden="true" />
 				{#if !query}
-					<span class="text-gray-500 focus:text-gray-500 tracking-tighter sm:hidden"
-						>Search asset</span
-					>
-					<span class="hidden text-gray-500 focus:text-gray-500 tracking-tighter sm:block"
+					<span class="text-gray-500 tracking-tighter sm:hidden">Search asset</span>
+					<span class="hidden text-gray-500 tracking-tighter sm:block"
 						>What asset are you looking for?</span
 					>
 				{/if}

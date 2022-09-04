@@ -58,7 +58,7 @@
 			{#each stats as item}
 				<div
 					key={item.name}
-					class="relative px-4 py-5 bg-white sm:shadow sm:rounded-lg overflow-hidden sm:p-6"
+					class="relative px-4 py-5 bg-gray-50 sm:shadow sm:rounded-lg overflow-hidden sm:p-6"
 				>
 					{#if item.type == 'percent'}
 						<div class="absolute top-0 left-0 h-full w-full">
@@ -89,7 +89,7 @@
 		</div>
 
 		<div class="grid grid-cols-1 gap-4 lg:grid-cols-2 shadow-none">
-			<div class="px-4 py-5 bg-white shadow sm:rounded-lg overflow-hidden sm:p-6">
+			<div class="px-4 py-5 bg-gray-50 shadow sm:rounded-lg overflow-hidden sm:p-6">
 				<div class="max-w-3xl mx-auto text-center">
 					<h2 class="text-3xl tracking-tight font-bold text-gray-900">Backing History</h2>
 					<p class="mt-4 text-lg text-gray-500">
@@ -119,7 +119,7 @@
 				</div>
 			</div>
 
-			<div class="px-4 py-5 bg-white shadow sm:rounded-lg overflow-hidden sm:p-6">
+			<div class="px-4 py-5 bg-gray-50 shadow sm:rounded-lg overflow-hidden sm:p-6">
 				<div class="max-w-3xl mx-auto text-center">
 					<h2 class="text-3xl tracking-tight font-bold text-gray-900">Backing Chain</h2>
 					<p class="mt-4 text-lg text-gray-500">
@@ -133,7 +133,7 @@
 			</div>
 		</div>
 
-		<div class="px-4 py-5 bg-white shadow sm:rounded-lg overflow-hidden sm:p-6">
+		<div class="px-4 py-5 bg-gray-50 shadow sm:rounded-lg overflow-hidden sm:p-6">
 			<div class="max-w-3xl mx-auto text-center">
 				<h2 class="text-3xl tracking-tight font-bold text-gray-900">Praise and Doubts</h2>
 				<p class="mt-4 text-lg text-gray-500">
@@ -205,7 +205,7 @@
 					}
 				}))}
 			sort={[{ by: 'share' }]}
-			class="bg-white shadow sm:mx-0 sm:rounded-lg overflow-hidden"
+			class="bg-gray-50 shadow sm:mx-0 sm:rounded-lg overflow-hidden"
 		/>
 	</div>
 </div>

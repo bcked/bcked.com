@@ -10,7 +10,7 @@
 
 	<Header />
 
-	<div class="flex-grow mx-auto max-w-7xl w-full flex flex-col">
+	<div class="flex-grow mx-auto w-full flex flex-col">
 		<slot />
 	</div>
 

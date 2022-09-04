@@ -22,12 +22,12 @@
 
 <div class={clazz}>
 	<table class="min-w-full divide-y divide-gray-300">
-		<thead class="bg-neon-gray-dark">
+		<thead class="bg-gray-100">
 			<tr>
 				{#each columns as column}
 					<th
 						scope="col"
-						class="group cursor-pointer py-3.5 pl-4 sm:pl-6 lg:pl-8 pr-1 text-left text-sm font-semibold text-gray-50 {column.class}"
+						class="group cursor-pointer py-3.5 pl-4 sm:pl-6 lg:pl-8 pr-1 text-left text-sm font-semibold text-gray-900 transition-all duration-500 {column.class}"
 						on:click={(e) => {
 							if (sortBy == column.id) {
 								sortAsc = !sortAsc;
@@ -40,7 +40,7 @@
 						<div class="inline-flex">
 							{column.title}
 							{#if sortBy == column.id}
-								<span class="ml-2 flex-none rounded text-gray-50">
+								<span class="ml-2 flex-none rounded text-gray-900">
 									{#if sortAsc}
 										<ChevronDownIcon class="h-5 w-5" aria-hidden="true" />
 									{:else}
@@ -59,7 +59,7 @@
 				{/each}
 			</tr>
 		</thead>
-		<tbody class="divide-y divide-gray-200 bg-white">
+		<tbody class="divide-y divide-gray-200 bg-gray-50">
 			{#each rows
 				.sort(combine(...sort.map(({ by, asc = true }) => (a, b) => compare(a[by].value, b[by].value, asc))))
 				.map((row, i) => ({ ...row, rank: { text: i + 1, value: i } }))
@@ -68,7 +68,7 @@
 				<tr key={i}>
 					{#each columns as column}
 						<td
-							class="whitespace-nowrap py-4 pl-4 pr-1 text-sm text-gray-900 sm:pl-6 lg:pl-8 {column.class}"
+							class="whitespace-nowrap py-4 pl-4 pr-1 text-sm text-gray-900 sm:pl-6 lg:pl-8 transition-all duration-500 {column.class}"
 						>
 							{#if column.link}
 								<a href={row[column.id + '-path'].text}>

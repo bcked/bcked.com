@@ -20,37 +20,23 @@
 	}
 </script>
 
-<Disclosure as="nav" class="bg-white shadow" let:open>
-	<div class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
+<Disclosure as="nav" let:open>
+	<div class="mx-auto px-2 sm:px-4 lg:px-8">
 		<div class="flex justify-between h-16">
 			<div class="flex px-2 lg:px-0">
 				<div class="flex-shrink-0 flex items-center">
-					<div class="relative group">
-						<!-- <div class="absolute">
+					<a href={`${base}/`}>
+						{#if $page.url.pathname != `${base}/` && $page.url.pathname != `${base}`}
+							<img class="block lg:hidden h-8 w-8" src="{base}/bcked-logo.svg" alt="bcked" />
 							<img
-								class="block lg:hidden h-8 w-auto group-hover:blur transition duration-1000"
-								src="{base}/bcked-logo.svg"
-								alt="bcked"
-							/>
-							<img
-								class="hidden lg:block h-8 w-auto group-hover:blur transition duration-1000"
+								class="hidden lg:block h-8 w-[137.63px]"
 								src="{base}/bcked-logo-text.svg"
 								alt="bcked"
 							/>
-						</div> -->
-						<a href={`${base}/`} class="relative">
-							{#if $page.url.pathname != `${base}/` && $page.url.pathname != `${base}`}
-								<img class="block lg:hidden h-8 w-8" src="{base}/bcked-logo.svg" alt="bcked" />
-								<img
-									class="hidden lg:block h-8 w-[137.63px]"
-									src="{base}/bcked-logo-text.svg"
-									alt="bcked"
-								/>
-							{:else}
-								<img class="block h-8 w-[137.63px]" src="{base}/bcked-logo-text.svg" alt="bcked" />
-							{/if}
-						</a>
-					</div>
+						{:else}
+							<img class="block h-8 w-[137.63px]" src="{base}/bcked-logo-text.svg" alt="bcked" />
+						{/if}
+					</a>
 				</div>
 				<div class="hidden lg:ml-6 lg:flex lg:space-x-8">
 					{#each navigation as item}
@@ -61,8 +47,8 @@
 							class={classNames(
 								current
 									? 'border-neon-pink text-gray-900'
-									: 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
-								' inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium'
+									: 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-800',
+								' inline-flex items-center px-1 pt-1 text-base font-medium'
 							)}
 							aria-current={current ? 'page' : undefined}
 						>
@@ -104,8 +90,8 @@
 					href={item.path}
 					class={classNames(
 						current
-							? 'bg-gray-100 border-neon-pink text-gray-800'
-							: 'border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800',
+							? 'bg-gray-100 border-neon-pink text-gray-900'
+							: 'border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800',
 						'block pl-3 pr-4 py-2 border-l-4 text-base font-medium'
 					)}
 					aria-current={current ? 'page' : undefined}
