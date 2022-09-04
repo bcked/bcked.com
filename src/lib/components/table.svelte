@@ -49,7 +49,7 @@
 								</span>
 							{:else}
 								<span
-									class="invisible ml-2 flex-none rounded text-gray-300 group-hover:visible group-focus:visible"
+									class="invisible ml-2 flex-none rounded text-gray-500 group-hover:visible group-focus:visible"
 								>
 									<ChevronDownIcon class="h-5 w-5" aria-hidden="true" />
 								</span>
