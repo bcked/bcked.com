@@ -43,7 +43,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="mt-4 lg:mt-0 mx-auto lg:mx-0 px-4 max-w-[500px] overflow-visible">
+		<div class="mt-10 lg:mt-0 mx-auto lg:mx-0 px-4 max-w-[500px] overflow-visible">
 			<ForceGraph />
 		</div>
 	</div>
