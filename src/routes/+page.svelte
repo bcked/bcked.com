@@ -1,6 +1,4 @@
 <script>
-	throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
-
 	import { base } from '$app/paths';
 	import { ChevronRightIcon } from '@rgossiaux/svelte-heroicons/solid';
 	import Search from '$lib/components/search.svelte';
@@ -8,11 +6,10 @@
 	import ForceGraph from '$lib/components/force-graph.svelte';
 	import SvelteSeo from 'svelte-seo';
 
-	/** @type {any} */
-	export let columns = [];
+	/** @type {import('./$types').PageData} */
+	export let data;
 
-	/** @type {any} */
-	export let rows = [];
+	$: ({ ranking } = data);
 </script>
 
 <SvelteSeo
@@ -72,8 +69,8 @@
 					/>
 					<div class="relative">
 						<Table
-							{columns}
-							{rows}
+							columns={ranking.columns}
+							rows={ranking.rows}
 							sort={[{ by: 'backing-usd' }]}
 							length={3}
 							class="mt-8 overflow-hidden xl:mx-0 rounded-md"

@@ -1,14 +1,12 @@
-throw new Error("@migration task: Update +server.js (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292701)");
+import { jsonResponse } from '$lib/utils/response';
+import { formatCurrency, formatPercentage } from '$lib/utils/string-formatting';
+import { error } from '@sveltejs/kit';
+import { readAssets } from '../assets.json/+server';
 
+export const prerender = true;
 
-// @migration task: Check imports
-import { get as getData } from '../assets/index.json';
-import { formatCurrency, formatPercentage, compare, combine } from '$lib/utils/string-formatting';
-
-/** @type {import('./$types').RequestHandler} */
-export async function get({ params }) {
-    /** @type {any} */
-    const assets = (await getData()).body;
+export function createRanking() {
+    const assets = readAssets()
 
     const columns = [
         { id: 'rank', title: '#', class: '' },
@@ -45,12 +43,15 @@ export async function get({ params }) {
         }));
 
     if (!rows) {
-        return {
-            status: 404
-        };
+        throw error(404, "Ranking could not be created.")
     }
 
-    return {
-        body: { columns, rows }
-    };
+    return { columns, rows }
+}
+
+/** @type {import('./$types').RequestHandler} */
+export async function GET({ params }) {
+    const ranking = createRanking()
+
+    return jsonResponse(ranking)
 }

@@ -1,21 +1,24 @@
-throw new Error("@migration task: Update +server.js (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292701)");
+import { jsonResponse } from '$lib/utils/response';
+import { error } from '@sveltejs/kit';
+import { readAssets } from '../../assets.json/+server';
 
+export const prerender = true;
 
-// @migration task: Check imports
-import { get as getData } from '../index.json';
+/** @param {string} id */
+export function readAsset(id) {
+    const assets = readAssets();
 
-/** @type {import('./$types').RequestHandler} */
-export async function get({ params }) {
-    /** @type {any} */
-    const assets = (await getData()).body;
-
-    if (!(params.id in assets)) {
-        return {
-            status: 404
-        };
+    if (!(id in assets)) {
+        throw error(404, `Token ${id} not found.`)
     }
 
-    return {
-        body: assets[params.id]
-    };
+    return assets[id]
+}
+
+
+/** @type {import('./$types').RequestHandler} */
+export async function GET({ params }) {
+    const token = readAsset(params.id)
+
+    return jsonResponse(token);
 }

@@ -1,20 +1,18 @@
-throw new Error("@migration task: Update +server.js (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292701)");
-
-
-// @migration task: Check imports
 import fs from 'fs';
 import { parse } from 'yaml';
 import { base } from '$app/paths';
+import { error } from '@sveltejs/kit';
+import { jsonResponse } from '$lib/utils/response';
 
-/** @type {import('./$types').RequestHandler} */
-export async function get() {
+export const prerender = true;
+
+/** @returns {object} */
+export function readAssets() {
     let assets = parse(fs.readFileSync(`./_generated/assets.yml`, 'utf-8'));
     let backings = parse(fs.readFileSync(`./_generated/backing-tree.yml`, 'utf-8'));
 
     if (!assets || !backings) {
-        return {
-            status: 404
-        };
+        throw error(404, `Asset mapping not found.`)
     }
 
     assets = Object.entries(assets).reduce((a, [id, asset]) => ({
@@ -35,13 +33,18 @@ export async function get() {
         }
     }), {});
 
-    return {
-        body: Object.keys(assets).reduce((a, id) => ({
-            ...a,
-            [id]: {
-                asset: assets[id],
-                backing: backings[id]
-            }
-        }), {})
-    };
+    return Object.keys(assets).reduce((a, id) => ({
+        ...a,
+        [id]: {
+            asset: assets[id],
+            backing: backings[id]
+        }
+    }), {})
+}
+
+/** @type {import('./$types').RequestHandler} */
+export async function GET({ params }) {
+    const assets = readAssets();
+
+    return jsonResponse(assets);
 }

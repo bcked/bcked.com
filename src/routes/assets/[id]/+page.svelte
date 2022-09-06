@@ -1,6 +1,4 @@
 <script>
-	throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
-
 	import Sankey from '$lib/components/sankey-layer.svelte';
 	import LiquidFill from '$lib/components/liquid-fill.svelte';
 	import Table from '$lib/components/table.svelte';
@@ -9,12 +7,10 @@
 	import { ExclamationIcon, CheckCircleIcon } from '@rgossiaux/svelte-heroicons/outline';
 	import SvelteSeo from 'svelte-seo';
 
-	/** @type {any} */
-	export let asset;
-	/** @type {any} */
-	export let backing;
-	/** @type {any} */
-	export let comments;
+	/** @type {import('./$types').PageData} */
+	export let data;
+
+	$: ({ asset, backing, comments } = data);
 
 	/** @type {any[]} */
 	let stats = [];

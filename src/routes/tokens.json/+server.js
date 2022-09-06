@@ -1,29 +1,32 @@
-throw new Error("@migration task: Update +server.js (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292701)");
-
-
-// @migration task: Check imports
 import fs from 'fs';
 import { parse } from 'yaml';
 import { base } from '$app/paths';
+import { error } from '@sveltejs/kit';
+import { jsonResponse } from '$lib/utils/response';
 
-/** @type {import('./$types').RequestHandler} */
-export async function get() {
+export const prerender = true;
+
+/** @returns {object} */
+export function readTokens() {
     const tokenAssetMapping = parse(fs.readFileSync(`./_generated/token-asset-mapping.yml`, 'utf-8'));
 
     if (!tokenAssetMapping) {
-        return {
-            status: 404
-        };
+        throw error(404, `Token mapping not found.`)
     }
 
-    return {
-        body: Object.entries(tokenAssetMapping).map(([id, assetId]) => ({
-            id,
-            path: `${base}/tokens/${id}`,
-            asset: {
-                id: assetId,
-                path: `${base}/assets/${assetId}`
-            }
-        })).reduce((a, v) => ({ ...a, [v.id]: v }), {})
-    };
+    return Object.entries(tokenAssetMapping).map(([id, assetId]) => ({
+        id,
+        path: `${base}/tokens/${id}`,
+        asset: {
+            id: assetId,
+            path: `${base}/assets/${assetId}`
+        }
+    })).reduce((a, v) => ({ ...a, [v.id]: v }), {});
+}
+
+/** @type {import('./$types').RequestHandler} */
+export async function GET({ params }) {
+    const tokens = readTokens();
+
+    return jsonResponse(tokens);
 }

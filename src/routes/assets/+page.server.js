@@ -1,22 +1,20 @@
-throw new Error("@migration task: Update +page.server.js (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292699)");
-
+import { jsonResponse } from '$lib/utils/response';
+import { error } from '@sveltejs/kit';
 import fs from 'fs';
 import { parse } from 'yaml';
-import { get as getData } from './index.json';
+import { readAssets } from '../assets.json/+server';
 
-/** @type {import('./$types').RequestHandler} */
-export async function get({ params }) {
-    const assets = (await getData({ params })).body;
+/** @type {import('./$types').PageServerLoad} */
+export function load() {
+    const assets = readAssets();
 
     const global = parse(fs.readFileSync(`./_generated/global.yml`, 'utf-8'));
 
-    if (!assets || !global) {
-        return {
-            status: 404
-        };
+    if (!global) {
+        throw error(404, `Global stats not found.`)
     }
 
     return {
-        body: { assets, global }
+        assets, global
     };
 }

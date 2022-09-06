@@ -1,10 +1,8 @@
 <script>
-	throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
-
 	import SvelteSeo from 'svelte-seo';
 
-	/** @type {any} */
-	export let faqs;
+	/** @type {import('./$types').PageData} */
+	export let data;
 </script>
 
 <SvelteSeo
@@ -29,7 +27,7 @@
 	</header>
 	<main>
 		<dl class="mt-12 grid grid-cols-1 gap-y-10 sm:mt-16 md:grid-cols-2 md:gap-x-6 lg:grid-cols-3">
-			{#each faqs as faq, i}
+			{#each data.faqs as faq, i}
 				<div key={i}>
 					{@html faq}
 					<!-- <dt class="text-base font-medium text-gray-900">{faq.question}</dt>

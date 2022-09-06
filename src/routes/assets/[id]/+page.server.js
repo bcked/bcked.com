@@ -1,9 +1,7 @@
-throw new Error("@migration task: Update +page.server.js (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292699)");
-
-import { get as getData } from './index.json';
 import fs from 'fs';
 import glob from 'glob'
 import { marked } from 'marked'
+import { readAsset } from '../[id].json/+server';
 
 var commentRenderer = new marked.Renderer();
 commentRenderer.heading = function (text) {
@@ -21,27 +19,13 @@ function loadComments(assetId, pattern) {
     return glob.sync(`${commentsPath}/${pattern}-*.md`).map((filePath) => marked(fs.readFileSync(filePath, 'utf-8')))
 }
 
-/** @type {import('./$types').RequestHandler} */
-export async function get({ params }) {
-    const data = await getData({ params })
-
-    if (!data || !data.body) {
-        return {
-            status: 404
-        };
-    }
-
-    const { asset, backing } = data.body;
+/** @type {import('./$types').PageServerLoad} */
+export function load({ params }) {
+    const { asset, backing } = readAsset(params.id);
     const doubts = loadComments(params.id, 'doubt')
     const praise = loadComments(params.id, 'praise')
 
-    if (!asset || !backing) {
-        return {
-            status: 404
-        };
-    }
-
     return {
-        body: { asset, backing, comments: { doubts, praise } }
+        asset, backing, comments: { doubts, praise }
     };
 }

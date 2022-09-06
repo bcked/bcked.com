@@ -1,10 +1,8 @@
 <script>
-	throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
-
 	import SvelteSeo from 'svelte-seo';
 
-	/** @type {any} */
-	export let content;
+	/** @type {import('./$types').PageData} */
+	export let data;
 </script>
 
 <SvelteSeo title="About bcked" description="Information about the bcked." noindex />
@@ -19,7 +17,7 @@
 		<div
 			class="mt-6 prose prose-pink prose-lg text-gray-500 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
 		>
-			{@html content}
+			{@html data.content}
 		</div>
 	</main>
 </div>

@@ -1,14 +1,11 @@
 <script>
-	throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
-
 	import Table from '$lib/components/table.svelte';
 	import SvelteSeo from 'svelte-seo';
 
-	/** @type {any} */
-	export let columns = [];
+	/** @type {import('./$types').PageData} */
+	export let data;
 
-	/** @type {any} */
-	export let rows = [];
+	$: ({ columns, rows } = data);
 </script>
 
 <SvelteSeo
