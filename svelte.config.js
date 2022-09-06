@@ -28,6 +28,7 @@ const config = {
 			enabled: true,
 			entries: [
 				'*',
+				'/',
 				'/faq',
 				'/about',
 				'/ranking.json',
