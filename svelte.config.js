@@ -24,18 +24,8 @@ const config = {
 			precompress: false
 		}),
 
-		vite: {
-			css: {
-				preprocessorOptions: {
-					scss: {
-						additionalData: '@use "src/variables.scss" as *;'
-					}
-				}
-			}
-		},
-
 		prerender: {
-			default: true,
+			enabled: true,
 			entries: [
 				'*',
 				'/faq',

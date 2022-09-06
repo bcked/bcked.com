@@ -1,3 +1,5 @@
+throw new Error("@migration task: Update +page.server.js (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292699)");
+
 import fs from 'fs';
 import glob from 'glob'
 import { marked } from 'marked'
@@ -12,7 +14,7 @@ renderer.paragraph = function (text) {
 
 marked.setOptions({ renderer })
 
-/** @type {import('./__types/index').RequestHandler} */
+/** @type {import('./$types').RequestHandler} */
 export async function get({ params }) {
     const faqs = glob.sync('./FAQ/q*.md').map((filePath) => marked(fs.readFileSync(filePath, 'utf-8')))
 

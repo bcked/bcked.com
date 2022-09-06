@@ -1,3 +1,5 @@
+throw new Error("@migration task: Update +page.server.js (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292699)");
+
 import fs from 'fs';
 import { marked } from 'marked'
 
@@ -9,7 +11,7 @@ renderer.heading = function (text, level, raw, slugger) {
 
 marked.setOptions({ renderer })
 
-/** @type {import('./__types/index').RequestHandler} */
+/** @type {import('./$types').RequestHandler} */
 export async function get({ params }) {
     const content = marked(fs.readFileSync(`ABOUT.md`, 'utf-8'));
 

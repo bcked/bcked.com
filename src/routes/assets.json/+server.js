@@ -1,8 +1,12 @@
+throw new Error("@migration task: Update +server.js (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292701)");
+
+
+// @migration task: Check imports
 import fs from 'fs';
 import { parse } from 'yaml';
 import { base } from '$app/paths';
 
-/** @type {import('./__types/index.json').RequestHandler} */
+/** @type {import('./$types').RequestHandler} */
 export async function get() {
     let assets = parse(fs.readFileSync(`./_generated/assets.yml`, 'utf-8'));
     let backings = parse(fs.readFileSync(`./_generated/backing-tree.yml`, 'utf-8'));

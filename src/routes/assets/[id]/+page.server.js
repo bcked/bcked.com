@@ -1,3 +1,5 @@
+throw new Error("@migration task: Update +page.server.js (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292699)");
+
 import { get as getData } from './index.json';
 import fs from 'fs';
 import glob from 'glob'
@@ -19,7 +21,7 @@ function loadComments(assetId, pattern) {
     return glob.sync(`${commentsPath}/${pattern}-*.md`).map((filePath) => marked(fs.readFileSync(filePath, 'utf-8')))
 }
 
-/** @type {import('./__types/index').RequestHandler} */
+/** @type {import('./$types').RequestHandler} */
 export async function get({ params }) {
     const data = await getData({ params })
 
