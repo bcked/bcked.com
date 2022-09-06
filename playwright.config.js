@@ -1,8 +1,8 @@
 /** @type {import('@playwright/test').PlaywrightTestConfig} */
 const config = {
 	webServer: {
-		command: 'npm run dev', //'npm run build && npm run preview',
-		port: 3000
+		command: 'npm run build && npm run preview', //'npm run build && npm run preview',
+		port: 4173
 	}
 };
 
