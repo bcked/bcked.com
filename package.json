@@ -4,9 +4,7 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
-		"package": "vite package",
 		"preview": "vite preview",
-		"prepare": "vite sync",
 		"check": "svelte-check --tsconfig ./jsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./jsconfig.json --watch",
 		"test": "playwright test",
@@ -19,7 +17,7 @@
 		"@rgossiaux/svelte-heroicons": "^0.1.2",
 		"@sveltejs/adapter-static": "^1.0.0-next.34",
 		"@sveltejs/kit": "^1.0.0-next.468",
-		"@sveltejs/vite-plugin-svelte": "^1.0.4",
+		"@sveltejs/vite-plugin-svelte": "^1.0.5",
 		"@tailwindcss/forms": "^0.5.3",
 		"@tailwindcss/typography": "^0.5.7",
 		"autoprefixer": "^10.4.8",
