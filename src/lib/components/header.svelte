@@ -6,8 +6,8 @@
 	import Search from '$lib/components/search.svelte';
 
 	const navigation = [
-		{ name: 'Ranking', path: `${base}/ranking` },
-		{ name: 'Assets', path: `${base}/assets` }
+		{ name: 'Discover', path: `${base}/#discover` },
+		{ name: 'Ranking', path: `${base}/#ranking` }
 		// { name: 'FAQ', path: `${base}/faq` },
 		// { name: 'Widgets', path: `${base}/widgets` },
 		// { name: 'API', path: `${base}/api` },

@@ -1,6 +1,8 @@
-import { createRanking } from './ranking.json/+server';
+import { readAssets } from './(api)/assets.json/+server';
+import { readStats } from './(api)/stats.json/+server';
+import { createRanking } from './(api)/ranking.json/+server';
 
 /** @type {import('./$types').PageServerLoad} */
 export function load() {
-    return { ranking: createRanking() }
+    return { assets: readAssets(), stats: readStats(), ranking: createRanking() }
 }
