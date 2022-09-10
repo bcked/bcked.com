@@ -2,14 +2,14 @@ import { jsonResponse } from '$lib/utils/response';
 import { formatCurrency, formatPercentage } from '$lib/utils/string-formatting';
 import { error } from '@sveltejs/kit';
 import { readAssets } from '../assets.json/+server';
-import { readBackings } from '../backings.json/+server';
+import { readTree } from '../tree.json/+server';
 import _ from 'lodash'
 
 export const prerender = true;
 
 export function createRanking() {
     const assets = readAssets()
-    const backings = readBackings()
+    const backings = readTree()
 
     const columns = [
         { id: 'rank', title: '#', class: '' },

@@ -1,7 +1,7 @@
 import fs from 'fs';
 import glob from 'glob'
 import { marked } from 'marked'
-import { readBacking } from '../../(api)/backings/[id].json/+server';
+import { readBacking } from '../../(api)/backing/[id].json/+server';
 import { readAsset } from '../../(api)/assets/[id].json/+server';
 
 var commentRenderer = new marked.Renderer();

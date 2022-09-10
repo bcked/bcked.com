@@ -7,7 +7,7 @@ import { readAssets } from '../assets.json/+server';
 export const prerender = true;
 
 /** @returns {object} */
-export function readBackings() {
+export function readTree() {
     let backings = parse(fs.readFileSync(`./_generated/backing-tree.yml`, 'utf-8'));
 
     if (!backings) {
@@ -30,7 +30,7 @@ export function readBackings() {
 
 /** @type {import('./$types').RequestHandler} */
 export async function GET({ params }) {
-    const backings = readBackings();
+    const backings = readTree();
 
     return jsonResponse(backings);
 }

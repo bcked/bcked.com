@@ -1,12 +1,12 @@
 import { jsonResponse } from '$lib/utils/response';
 import { error } from '@sveltejs/kit';
-import { readBackings } from '../../backings.json/+server';
+import { readTree } from '../../tree.json/+server';
 
 export const prerender = true;
 
 /** @param {string} id */
 export function readBacking(id) {
-    const backings = readBackings();
+    const backings = readTree();
 
     if (!(id in backings)) {
         throw error(404, `Backing for asset ${id} not found.`)
