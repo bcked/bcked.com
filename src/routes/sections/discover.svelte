@@ -43,7 +43,7 @@
 				<AssetList
 					{assets}
 					icon={ChartBarIcon}
-					title="Backing"
+					title="Backing in USD"
 					compare={(a, b) => b.asset.backing[0]['backing-usd'] - a.asset.backing[0]['backing-usd']}
 					size={3}
 					select={(asset) => formatCurrency(asset.backing[0]['backing-usd'])}
