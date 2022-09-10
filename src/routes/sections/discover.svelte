@@ -13,24 +13,30 @@
 	export let stats;
 
 	export let theme = {
-		main: 'neon-yellow',
-		secondary: 'gray-50',
-		highlight: 'gray-50'
+		main: {
+			text: 'text-neon-yellow',
+			from: 'from-neon-yellow',
+			via: 'via-neon-yellow',
+			to: 'to-gray-50'
+		},
+		secondary: {
+			text: 'text-gray-50'
+		}
 	};
 </script>
 
 <Section id="discover" label="Discover backed assets">
 	<SectionHeader
 		title="Discover"
-		description="Backed records {stats[
+		description="Of the {stats['assets']} assets recorded in bcked, {stats[
 			'backed-assets'
-		]} backed assets with a total backing of {formatCurrency(
+		]} are backed with a total backing of {formatCurrency(
 			stats['backing-usd']
 		)} and an average backing of {formatCurrency(stats['backing-usd-avg'])}."
-		{theme}
+		theme={{ title: theme.main.text, description: theme.secondary.text }}
 	/>
 	<div class="mt-10 w-full mx-auto lg:mx-0">
-		<Glow {theme} class="-inset-x-4 sm:-inset-x-0">
+		<Glow theme={theme.main} class="-inset-x-4 sm:-inset-x-0">
 			<dl
 				class="sm:rounded-lg overflow-hidden grid grid-cols-1 bg-gray-50 divide-y divide-gray-200 xl:divide-x xl:divide-y-0 xl:gap-px xl:grid-cols-3"
 			>

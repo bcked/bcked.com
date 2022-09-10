@@ -6,9 +6,15 @@
 	import ForceGraph from '$lib/components/force-graph.svelte';
 
 	export let theme = {
-		main: 'neon-blue',
-		secondary: 'gray-900',
-		highlight: 'neon-gray-light'
+		main: {
+			text: 'text-neon-blue',
+			from: 'from-neon-blue',
+			via: 'via-neon-blue',
+			to: 'to-neon-gray-light'
+		},
+		secondary: {
+			text: 'text-gray-900'
+		}
 	};
 </script>
 
@@ -17,10 +23,10 @@
 		title="Reduce your exposure to unbacked assets."
 		description="Leverage insights from our community driven open source knowledge base to find assets backed
 		by various asset classes."
-		{theme}
+		theme={{ title: theme.main.text, description: theme.secondary.text }}
 	>
 		<div class="mt-10 max-w-sm mx-auto lg:mx-0">
-			<Glow {theme}>
+			<Glow theme={theme.main}>
 				<Search class="py-2 sm:py-4 sm:text-base" />
 			</Glow>
 		</div>
