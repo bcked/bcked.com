@@ -19,7 +19,7 @@
 />
 
 <main>
-	<IntroSection />
+	<IntroSection {assets} />
 	<div class="bg-neon-gray-light">
 		<DiscoverSection {assets} {stats} />
 	</div>

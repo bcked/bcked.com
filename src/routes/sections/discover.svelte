@@ -44,7 +44,7 @@
 					{assets}
 					icon={ChartBarIcon}
 					title="Backing in USD"
-					compare={(a, b) => b.asset.backing[0]['backing-usd'] - a.asset.backing[0]['backing-usd']}
+					compare={(a, b) => b.backing[0]['backing-usd'] - a.backing[0]['backing-usd']}
 					size={3}
 					select={(asset) => formatCurrency(asset.backing[0]['backing-usd'])}
 				/>
@@ -52,8 +52,7 @@
 					{assets}
 					icon={HashtagIcon}
 					title="Backing Assets"
-					compare={(a, b) =>
-						b.asset.backing[0]['backing-assets'] - a.asset.backing[0]['backing-assets']}
+					compare={(a, b) => b.backing[0]['backing-assets'] - a.backing[0]['backing-assets']}
 					size={3}
 					select={(asset) => asset.backing[0]['backing-assets']}
 				/>
@@ -61,8 +60,7 @@
 					{assets}
 					icon={ClockIcon}
 					title="Recently Updated"
-					compare={(a, b) =>
-						new Date(a.asset.backing[0]['updated']) - new Date(b.asset.backing[0]['updated'])}
+					compare={(a, b) => new Date(a.backing[0]['updated']) - new Date(b.backing[0]['updated'])}
 					size={3}
 					select={(asset) => formatCurrency(asset.backing[0]['backing-usd'])}
 				/>

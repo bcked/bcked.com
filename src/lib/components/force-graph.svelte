@@ -2,6 +2,9 @@
 	import * as d3 from 'd3';
 	import { onMount } from 'svelte';
 
+	/** @type {any} */
+	export let assets;
+
 	/*!
 	 * This component is based on the code provided by Mike Bostock.
 	 * See the following license note:
@@ -155,6 +158,14 @@
 	let height = 0;
 
 	let vis; // binding with div for visualization
+
+	// let graph = {
+	// 	nodes: [],
+	// 	links: []
+	// };
+	// $: graph = Object.values(assets).map()
+
+	// $ (graph = Object.values(assets).map);
 
 	let graph = {
 		nodes: [

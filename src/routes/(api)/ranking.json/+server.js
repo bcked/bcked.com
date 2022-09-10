@@ -2,11 +2,14 @@ import { jsonResponse } from '$lib/utils/response';
 import { formatCurrency, formatPercentage } from '$lib/utils/string-formatting';
 import { error } from '@sveltejs/kit';
 import { readAssets } from '../assets.json/+server';
+import { readBackings } from '../backings.json/+server';
+import _ from 'lodash'
 
 export const prerender = true;
 
 export function createRanking() {
     const assets = readAssets()
+    const backings = readBackings()
 
     const columns = [
         { id: 'rank', title: '#', class: '' },
@@ -19,9 +22,9 @@ export function createRanking() {
         { id: 'backing-uniformity', title: 'Backing Uniformity', class: 'hidden sm:table-cell' }
     ];
 
-    const rows = Object.values(assets)
-        .filter(({ asset }) => asset.backing[0]['backing-usd'] > 0)
-        .map(({ asset }, i) => ({
+    const rows = Object.values(_.merge(assets, backings))
+        .filter((asset) => asset.backed > 0)
+        .map((asset, i) => ({
             rank: { text: i + 1, value: i },
             name: { text: asset.name, value: asset.name, icon: asset.icon },
             price: { text: formatCurrency(asset.price[0].usd), value: asset.price[0].usd },

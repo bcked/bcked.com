@@ -9,7 +9,7 @@ export function readAsset(id) {
     const assets = readAssets();
 
     if (!(id in assets)) {
-        throw error(404, `Token ${id} not found.`)
+        throw error(404, `Asset ${id} not found.`)
     }
 
     return assets[id]
@@ -18,7 +18,7 @@ export function readAsset(id) {
 
 /** @type {import('./$types').RequestHandler} */
 export async function GET({ params }) {
-    const token = readAsset(params.id)
+    const asset = readAsset(params.id)
 
-    return jsonResponse(token);
+    return jsonResponse(asset);
 }

@@ -9,9 +9,8 @@ export const prerender = true;
 /** @returns {object} */
 export function readAssets() {
     let assets = parse(fs.readFileSync(`./_generated/assets.yml`, 'utf-8'));
-    let backings = parse(fs.readFileSync(`./_generated/backing-tree.yml`, 'utf-8'));
 
-    if (!assets || !backings) {
+    if (!assets) {
         throw error(404, `Asset mapping not found.`)
     }
 
@@ -24,22 +23,7 @@ export function readAssets() {
         }
     }), {});
 
-    backings = Object.entries(backings).reduce((a, [id, backing]) => ({
-        ...a,
-        [id]: {
-            id,
-            ...backing,
-            nodes: backing.nodes.map((node) => ({ ...node, asset: assets[node.id] })),
-        }
-    }), {});
-
-    return Object.keys(assets).reduce((a, id) => ({
-        ...a,
-        [id]: {
-            asset: assets[id],
-            backing: backings[id]
-        }
-    }), {})
+    return assets;
 }
 
 /** @type {import('./$types').RequestHandler} */
