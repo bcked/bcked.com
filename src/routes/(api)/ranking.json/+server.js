@@ -2,7 +2,7 @@ import { jsonResponse } from '$lib/utils/response';
 import { formatCurrency, formatPercentage } from '$lib/utils/string-formatting';
 import { error } from '@sveltejs/kit';
 import { readAssets } from '../assets.json/+server';
-import { readTree } from '../tree.json/+server';
+import { readTree } from '../trees.json/+server';
 import _ from 'lodash'
 
 export const prerender = true;

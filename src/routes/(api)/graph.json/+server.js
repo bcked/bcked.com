@@ -3,7 +3,7 @@ import { parse } from 'yaml';
 import { error } from '@sveltejs/kit';
 import { jsonResponse } from '$lib/utils/response';
 import { readAssets } from '../assets.json/+server';
-import { readTree } from '../tree.json/+server';
+import { readTree } from '../trees.json/+server';
 
 export const prerender = true;
 

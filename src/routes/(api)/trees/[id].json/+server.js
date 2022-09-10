@@ -1,6 +1,6 @@
 import { jsonResponse } from '$lib/utils/response';
 import { error } from '@sveltejs/kit';
-import { readTree } from '../../tree.json/+server';
+import { readTree } from '../../trees.json/+server';
 
 export const prerender = true;
 
