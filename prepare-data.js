@@ -197,13 +197,19 @@ export async function prepareData() {
             return a
         }
         currentBacking = backing[0]
+
+        if (currentBacking['backing-usd'] == 0) {
+            return { ...a, "assets": a['assets'] + 1 }
+        }
+
         return {
             "backing-usd": a['backing-usd'] + currentBacking['backing-usd'],
             'ratio-avg': a['ratio-avg'] + currentBacking['ratio'],
             'uniformity-avg': a['uniformity-avg'] + currentBacking['uniformity'],
-            "backed-assets": a['backed-assets'] + 1
+            "backed-assets": a['backed-assets'] + 1,
+            "assets": a['assets'] + 1
         }
-    }, { "backing-usd": 0, 'ratio-avg': 0, 'uniformity-avg': 0, "backed-assets": 0 })
+    }, { "backing-usd": 0, 'ratio-avg': 0, 'uniformity-avg': 0, "backed-assets": 0, "assets": 0 })
     globalBacking['ratio-avg'] = globalBacking['ratio-avg'] / globalBacking['backed-assets']
     globalBacking['uniformity-avg'] /= globalBacking['backed-assets']
     globalBacking['backing-usd-avg'] = globalBacking['backing-usd'] / globalBacking['backed-assets']
