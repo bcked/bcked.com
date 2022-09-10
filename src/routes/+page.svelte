@@ -10,7 +10,7 @@
 	/** @type {import('./$types').PageData} */
 	export let data;
 
-	$: ({ assets, stats, ranking } = data);
+	$: ({ assets, stats, tree } = data);
 </script>
 
 <SvelteSeo
@@ -23,5 +23,5 @@
 	<div class="bg-neon-gray-light">
 		<DiscoverSection {assets} {stats} />
 	</div>
-	<RankingSection {ranking} />
+	<RankingSection {assets} {tree} />
 </main>

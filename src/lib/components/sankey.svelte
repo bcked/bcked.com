@@ -8,6 +8,9 @@
 	import * as Sankey from 'd3-sankey';
 	import * as d3 from 'd3';
 
+	/** @type {any} */
+	export let assets;
+
 	const { data, width, height } = getContext('LayerCake');
 
 	$: sankeyWidth = $width;
@@ -103,9 +106,21 @@
 	</g>
 	<g class="sankey-nodes">
 		{#each sankeyData.nodes as d, i}
-			{@const asset = d.asset}
+			{@const asset = assets[d.id]}
 			{@const nodeWidth = d.y1 - d.y0}
+			{@const iconSize = nodeHeight * 0.8}
 			{#if nodeWidth / sankeyWidth < 0.05}
+				<!-- {#if asset.icon}
+					<image
+						x={d.y0 + nodeWidth / 2}
+						y={d.x0 + nodeHeight / 2}
+						href="{base}/{asset.icon}"
+						height={nodeHeight}
+						width={nodeHeight}
+						dominant-baseline="central"
+						text-anchor="middle"
+					/>
+				{/if} -->
 				<rect
 					x={d.y0}
 					y={d.x0}
@@ -179,23 +194,35 @@
 						ry="5"
 						fill={colorNodes(d)}
 					/>
-					<text
-						class="pointer-events-none"
-						x={d.y0 + nodeWidth / 2}
-						y={d.x0 + nodeHeight / 2}
-						dominant-baseline="central"
-						text-anchor="middle"
-						style="
+					{#if asset.icon}
+						<image
+							x={d.y0 + nodeWidth / 2 - iconSize / 2}
+							y={d.x0 + nodeHeight / 2 - iconSize / 2}
+							href="{base}/{asset.icon}"
+							height={iconSize}
+							width={iconSize}
+							dominant-baseline="central"
+							text-anchor="middle"
+						/>
+					{:else}
+						<text
+							class="pointer-events-none"
+							x={d.y0 + nodeWidth / 2}
+							y={d.x0 + nodeHeight / 2}
+							dominant-baseline="central"
+							text-anchor="middle"
+							style="
 					fill: {colorText(d)};
 					font-size: {fontSize}px;
 					"
-					>
-						{#if asset}
-							{asset.name}
-						{:else}
-							Unknown Name
-						{/if}
-					</text>
+						>
+							{#if asset.name}
+								{asset.name}
+							{:else}
+								Unknown Name
+							{/if}
+						</text>
+					{/if}
 				</a>
 			{/if}
 			<!-- <foreignobject x={d.y0} y={d.x0} {height} {width}>

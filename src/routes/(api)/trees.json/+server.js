@@ -14,17 +14,6 @@ export function readTree() {
         throw error(404, `Asset mapping not found.`)
     }
 
-    const assets = readAssets();
-
-    backings = Object.entries(backings).reduce((a, [id, backing]) => ({
-        ...a,
-        [id]: {
-            id,
-            ...backing,
-            nodes: backing.nodes.map((node) => ({ ...node, asset: assets[node.id] })),
-        }
-    }), {});
-
     return backings
 }
 

@@ -4,12 +4,15 @@
 
 	/** @type {any} */
 	export let backing;
+
+	/** @type {any} */
+	export let assets;
 </script>
 
 <div class="w-full h-96">
 	<LayerCake data={backing}>
 		<Svg>
-			<Sankey colorNodes={(d) => '#52656b'} colorText={(d) => '#ffffff'} />
+			<Sankey {assets} colorNodes={(d) => '#52656b'} colorText={(d) => '#ffffff'} />
 		</Svg>
 	</LayerCake>
 </div>

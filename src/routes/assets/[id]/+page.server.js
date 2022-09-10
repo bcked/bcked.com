@@ -2,7 +2,7 @@ import fs from 'fs';
 import glob from 'glob'
 import { marked } from 'marked'
 import { readBacking } from '../../(api)/trees/[id].json/+server';
-import { readAsset } from '../../(api)/assets/[id].json/+server';
+import { readAssets } from '../../(api)/assets.json/+server';
 
 var commentRenderer = new marked.Renderer();
 commentRenderer.heading = function (text) {
@@ -22,12 +22,13 @@ function loadComments(assetId, pattern) {
 
 /** @type {import('./$types').PageServerLoad} */
 export function load({ params }) {
-    const asset = readAsset(params.id);
+    const assets = readAssets();
+    const asset = assets[params.id]
     const backing = readBacking(params.id);
     const doubts = loadComments(params.id, 'doubt')
     const praise = loadComments(params.id, 'praise')
 
     return {
-        asset, backing, comments: { doubts, praise }
+        assets, asset, backing, comments: { doubts, praise }
     };
 }

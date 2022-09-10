@@ -10,7 +10,7 @@
 	/** @type {import('./$types').PageData} */
 	export let data;
 
-	$: ({ asset, backing, comments } = data);
+	$: ({ assets, asset, backing, comments } = data);
 
 	/** @type {any[]} */
 	let stats = [];
@@ -126,7 +126,7 @@
 				</div>
 
 				<div class="flex mt-6 justify-center">
-					<Sankey {backing} />
+					<Sankey {backing} {assets} />
 				</div>
 			</div>
 		</div>
@@ -182,8 +182,9 @@
 				{ id: 'backing-ratio', title: 'Backing Ratio', class: '' }
 			]}
 			rows={backing.nodes
-				.filter((node) => node['asset'])
+				.filter((node) => node['id'] in assets)
 				.filter(({ id, level }) => level == 1 && id != backing.id && id != 'unbacked')
+				.map((node) => ({ ...node, asset: assets[node.id] }))
 				.map((node, i) => ({
 					name: { text: node.asset.name, value: node.asset.name, icon: node.asset.icon },
 					'name-path': { text: node.asset.path, value: node.asset.path },
