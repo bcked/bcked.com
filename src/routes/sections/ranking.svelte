@@ -1,29 +1,27 @@
 <script>
-	import { base } from '$app/paths';
-	import { ChevronRightIcon } from '@rgossiaux/svelte-heroicons/solid';
+	import Section from '$lib/components/section.svelte';
+	import SectionHeader from '$lib/components/section-header.svelte';
 	import Table from '$lib/components/table.svelte';
 
 	/** @type {any} */
 	export let ranking;
+
+	export const theme = {
+		main: 'neon-pink',
+		secondary: 'gray-900'
+	};
 </script>
 
-<section
+<Section
 	id="ranking"
-	aria-label="Ranking of asset backing"
+	label="Ranking of asset backing"
 	class="relative text-center lg:text-left max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8"
 >
-	<div class="lg:flex lg:justify-between">
-		<div class="max-w-xl xl:max-w-4xl mx-auto lg:mx-0">
-			<h2
-				class="text-5xl sm:text-6xl lg:text-7xl tracking-tight font-extrabold text-neon-pink transition-all duration-500"
-			>
-				Ranking
-			</h2>
-			<p class="mt-5 text-xl sm:text-2xl lg:text-3xl text-gray-900 transition-all duration-500">
-				Compare assets based on their backing amount, ratio and uniformity.
-			</p>
-		</div>
-	</div>
+	<SectionHeader
+		title="Ranking"
+		description="Compare assets based on their backing amount, ratio and uniformity."
+		{theme}
+	/>
 	<div class="mt-10 w-full mx-auto lg:mx-0">
 		<div class="relative">
 			<div
@@ -39,4 +37,4 @@
 			</div>
 		</div>
 	</div>
-</section>
+</Section>
