@@ -19,6 +19,9 @@
 
 	/** @type {any} */
 	export let assets;
+
+	/** @type {any} */
+	export let graph;
 </script>
 
 <Section label="Introduction to bcked" class="lg:flex lg:justify-between items-center">
@@ -36,6 +39,6 @@
 	</SectionHeader>
 
 	<div class="mt-10 lg:mt-0 mx-auto lg:mx-0 px-4 max-w-[500px] overflow-visible">
-		<ForceGraph {assets} />
+		<ForceGraph {assets} {graph} />
 	</div>
 </Section>

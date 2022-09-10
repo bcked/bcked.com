@@ -88,7 +88,7 @@ async function followBackingTree(id, backedAsset, assetValue, assets, level) {
     if (backedAsset.backing.length == 0) {
         return {
             nodes: [{ id, name: backedAsset.name, value: 0, level }, { id: "unbacked", value: 0 }],
-            links: [{ source: id, target: "unbacked", value: assetValue }]
+            links: [{ source: id, target: "unbacked", value: assetValue, level }]
         }
     }
     const backedAssets = Object.entries(backedAsset.backing[0].assets)
@@ -99,9 +99,9 @@ async function followBackingTree(id, backedAsset, assetValue, assets, level) {
     const unbacked = totalBackingUsd > assetValue ? 0 : assetValue - totalBackingUsd
 
     /** @type {Object[]} */
-    let links = unbacked > 0 ? [{ source: id, target: "unbacked", value: unbacked }] : [];
-    /** @type {Object[]} */
     let nodes = [{ id, name: backedAsset.name, value: assetValue, level }, { id: "unbacked", value: 0 }];
+    /** @type {Object[]} */
+    let links = unbacked > 0 ? [{ source: id, target: "unbacked", value: unbacked, level }] : [];
 
     for (const [key, value, backingUsd, backedSubAsset] of backedAssets) {
         const cappedBackingUsd = backingUsd > assetValue ? assetValue : backingUsd
@@ -109,7 +109,7 @@ async function followBackingTree(id, backedAsset, assetValue, assets, level) {
         nodes = [...nodes, ...backingData.nodes];
         links = [
             ...links,
-            { source: id, target: key, value: cappedBackingUsd },
+            { source: id, target: key, value: cappedBackingUsd, level },
             ...backingData.links
         ];
     }

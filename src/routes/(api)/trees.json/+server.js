@@ -2,24 +2,23 @@ import fs from 'fs';
 import { parse } from 'yaml';
 import { error } from '@sveltejs/kit';
 import { jsonResponse } from '$lib/utils/response';
-import { readAssets } from '../assets.json/+server';
 
 export const prerender = true;
 
 /** @returns {object} */
-export function readTree() {
-    let backings = parse(fs.readFileSync(`./_generated/backing-tree.yml`, 'utf-8'));
+export function readTrees() {
+    let trees = parse(fs.readFileSync(`./_generated/backing-tree.yml`, 'utf-8'));
 
-    if (!backings) {
+    if (!trees) {
         throw error(404, `Asset mapping not found.`)
     }
 
-    return backings
+    return trees
 }
 
 /** @type {import('./$types').RequestHandler} */
 export async function GET({ params }) {
-    const backings = readTree();
+    const trees = readTrees();
 
-    return jsonResponse(backings);
+    return jsonResponse(trees);
 }

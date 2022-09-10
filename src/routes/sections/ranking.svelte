@@ -10,7 +10,7 @@
 	export let assets;
 
 	/** @type {any} */
-	export let tree;
+	export let trees;
 
 	export let theme = {
 		main: {
@@ -44,7 +44,7 @@
 					{ id: 'mcap', title: 'Market Cap', class: 'hidden lg:table-cell' },
 					{ id: 'backing-uniformity', title: 'Backing Uniformity', class: 'hidden sm:table-cell' }
 				]}
-				rows={Object.values(merge(assets, tree))
+				rows={Object.values(merge(assets, trees))
 					.filter((asset) => asset.backed > 0)
 					.map((asset, i) => ({
 						rank: { text: i + 1, value: i },
