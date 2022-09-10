@@ -14,7 +14,7 @@ export function createRanking() {
         { id: 'price', title: 'Price', class: 'hidden lg:table-cell' },
         { id: 'backing-assets', title: 'Backing Assets', class: '' },
         { id: 'backing-ratio', title: 'Backing Ratio', class: '' },
-        { id: 'backing-usd', title: 'Backing', class: '' },
+        { id: 'backing-usd', title: 'Backing in USD', class: 'hidden sm:table-cell' },
         { id: 'mcap', title: 'Market Cap', class: 'hidden lg:table-cell' },
         { id: 'backing-uniformity', title: 'Backing Uniformity', class: 'hidden sm:table-cell' }
     ];

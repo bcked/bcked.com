@@ -19,15 +19,9 @@
 
 <div key={title} class="px-4 py-5 overflow-hidden sm:p-6">
 	<dt>
-		<div class="relative">
-			<!-- <div class="absolute -inset-0 flex items-center space-x-2 text-neon-blue blur-sm">
-				<svelte:component this={icon} class="h-5 w-5" aria-hidden="true" />
-				<span class="text-lg font-semibold">{title}</span>
-			</div> -->
-			<div class="relative flex items-center space-x-2 ">
-				<svelte:component this={icon} class="h-5 w-5 text-neon-pink" aria-hidden="true" />
-				<span class="text-lg font-semibold">{title}</span>
-			</div>
+		<div class="flex items-center space-x-2 ">
+			<svelte:component this={icon} class="h-5 w-5 text-neon-pink" aria-hidden="true" />
+			<span class="text-lg font-semibold">{title}</span>
 		</div>
 	</dt>
 	<dd>

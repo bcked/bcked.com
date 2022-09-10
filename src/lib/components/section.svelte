@@ -24,7 +24,7 @@
 <section
 	{id}
 	aria-label={label}
-	class="relative text-center lg:text-left max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8 {clazz}"
+	class="relative text-center lg:text-left max-w-7xl mx-auto py-16 sm:py-24 sm:px-6 lg:px-8 {clazz}"
 	use:inview={inViewOptions}
 	on:enter={(event) => {
 		const { inView, entry, scrollDirection, observer, node } = event.detail;

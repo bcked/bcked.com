@@ -2,6 +2,7 @@
 	import { ChartBarIcon, ClockIcon, HashtagIcon } from '@rgossiaux/svelte-heroicons/outline';
 	import Section from '$lib/components/section.svelte';
 	import SectionHeader from '$lib/components/section-header.svelte';
+	import Glow from '$lib/components/glow.svelte';
 	import { formatCurrency } from '$lib/utils/string-formatting';
 	import AssetList from '$lib/components/asset-list.svelte';
 
@@ -11,13 +12,14 @@
 	/** @type {any} */
 	export let stats;
 
-	export const theme = {
+	export let theme = {
 		main: 'neon-yellow',
-		secondary: 'gray-50'
+		secondary: 'gray-50',
+		highlight: 'gray-50'
 	};
 </script>
 
-<Section id="discover" label="Discover backed assets" class="">
+<Section id="discover" label="Discover backed assets">
 	<SectionHeader
 		title="Discover"
 		description="Backed records {stats[
@@ -28,12 +30,9 @@
 		{theme}
 	/>
 	<div class="mt-10 w-full mx-auto lg:mx-0">
-		<div class="relative">
-			<div
-				class="absolute -inset-0 rounded-md bg-gradient-to-r from-gray-50 to-gray-50 blur animate-tilt-1"
-			/>
+		<Glow {theme} class="-inset-x-4 sm:-inset-x-0">
 			<dl
-				class="relative sm:rounded-lg shadow overflow-hidden mt-5 grid grid-cols-1 bg-gray-50 divide-y divide-gray-200 xl:divide-x xl:divide-y-0 xl:gap-px xl:grid-cols-3"
+				class="sm:rounded-lg overflow-hidden grid grid-cols-1 bg-gray-50 divide-y divide-gray-200 xl:divide-x xl:divide-y-0 xl:gap-px xl:grid-cols-3"
 			>
 				<AssetList
 					{assets}
@@ -62,6 +61,6 @@
 					select={(asset) => formatCurrency(asset.backing[0]['backing-usd'])}
 				/>
 			</dl>
-		</div>
+		</Glow>
 	</div>
 </Section>

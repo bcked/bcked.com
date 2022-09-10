@@ -8,10 +8,6 @@
 	const navigation = [
 		{ name: 'Discover', path: `${base}/#discover` },
 		{ name: 'Ranking', path: `${base}/#ranking` }
-		// { name: 'FAQ', path: `${base}/faq` },
-		// { name: 'Widgets', path: `${base}/widgets` },
-		// { name: 'API', path: `${base}/api` },
-		// { name: 'About', path: `${base}/about` }
 	];
 
 	/** @param {any[]} classes */
