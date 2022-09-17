@@ -14,7 +14,7 @@
 
 	onMount(async function () {
 		const assets = await (await fetch(`${base}/assets.json`)).json();
-		data = Object.entries(assets).map(([id, { asset }]) => ({
+		data = Object.entries(assets).map(([id, asset]) => ({
 			name: asset.name,
 			symbol: asset.symbol,
 			category: 'Asset',
