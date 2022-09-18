@@ -25,12 +25,12 @@
 						{#if $page.url.pathname != `${base}/` && $page.url.pathname != `${base}`}
 							<img class="block lg:hidden h-8 w-8" src="{base}/bcked-logo.svg" alt="bcked" />
 							<img
-								class="hidden lg:block h-8 w-[137.63px]"
+								class="hidden lg:block h-8 w-[120.20px]"
 								src="{base}/bcked-logo-text.svg"
 								alt="bcked"
 							/>
 						{:else}
-							<img class="block h-8 w-[137.63px]" src="{base}/bcked-logo-text.svg" alt="bcked" />
+							<img class="block h-8 w-[120.20px]" src="{base}/bcked-logo-text.svg" alt="bcked" />
 						{/if}
 					</a>
 				</div>
