@@ -1,1 +1,90 @@
-{"id":"lily-pad","path":"/assets/lily-pad","symbol":"PAD","name":"Lily Pad","description":"PAD is the native token of PADSwap. It acts as basis of many farms, is used as staking reward in PAD farms and provides a share for development funds.","homepage":"https://dapps.padswap.exchange/","docs":"https://docs.toad.network/","source":"https://github.com/ToadNetwork","community":["https://twitter.com/ToadNetwork","https://discord.gg/hTQ4z4Zn9p","https://t.me/toadnetwork","https://www.reddit.com/r/TOADNetwork/","https://www.reddit.com/r/PadSwap/","https://www.instagram.com/toad.network/","https://www.youtube.com/channel/UCI_vUc-HrJWtKXj-Re-hTSw","https://giphy.com/channel/ToadNetwork"],"audits":["https://spadetech.io/wp-content/uploads/2021/06/toad_Padswap_audit_report.pdf"],"contracts":{"0xc0888d80ee0abf84563168b3182650c0addeb6d5":"bsc"},"backing-info":null,"tags":["cryptocurrency","vault"],"price":[{"timestamp":"2022-08-23T17:00:00.000Z","usd":6.267e-7,"source":"https://dexscreener.com/bsc/0x2856add546e729425383173d4f65bb3e23e796a4"},{"timestamp":"2022-06-11T00:00:00.000Z","usd":7.536e-7,"source":"https://dexscreener.com/bsc/0x2856add546e729425383173d4f65bb3e23e796a4"}],"supply":[{"timestamp":"2022-06-11T00:00:00.000Z","circulating":84747438916.33,"max":200000000000,"total":84747438916.33,"source":"https://bscscan.com/token/0xc0888d80ee0abf84563168b3182650c0addeb6d5"}],"backing":[{"timestamp":"2022-08-23T17:00:00.000Z","assets":{"toad-network":4784.54,"lily-pad":4090952608.9,"bnb":26.60804172274563,"busd":5351.38,"pxbsc":19779827315.5416,"catoshi":16775.84,"gallant":452628643652.57,"hoge":4950100.16,"ethereum":0.1557067178878598,"bitcoin":0.0103204860765892,"fukarens":6976811594.2,"bullishjackpot":51912832929.78},"source":"https://toadlytics.com/#/vault-explorer","backing-assets":11,"backing-usd":29851.37,"ratio":0.5621,"uniformity":0.1194},{"timestamp":"2022-06-04T00:00:00.000Z","assets":{"toad-network":2763.5,"lily-pad":3991301010.62,"bnb":30.79,"busd":5600,"pxbsc":16924476797.09,"catoshi":16775.84},"source":"https://v2.padswap.exchange/vault/"}],"mcap":53111.22,"icon":"assets/lily-pad/icon.png"}
+{
+  "id": "lily-pad",
+  "path": "/assets/lily-pad",
+  "symbol": "PAD",
+  "name": "Lily Pad",
+  "description": "PAD is the native token of PADSwap. It acts as basis of many farms, is used as staking reward in PAD farms and provides a share for development funds.",
+  "homepage": "https://dapps.padswap.exchange/",
+  "docs": "https://docs.toad.network/",
+  "source": "https://github.com/ToadNetwork",
+  "community": [
+    "https://twitter.com/ToadNetwork",
+    "https://discord.gg/hTQ4z4Zn9p",
+    "https://t.me/toadnetwork",
+    "https://www.reddit.com/r/TOADNetwork/",
+    "https://www.reddit.com/r/PadSwap/",
+    "https://www.instagram.com/toad.network/",
+    "https://www.youtube.com/channel/UCI_vUc-HrJWtKXj-Re-hTSw",
+    "https://giphy.com/channel/ToadNetwork"
+  ],
+  "audits": [
+    "https://spadetech.io/wp-content/uploads/2021/06/toad_Padswap_audit_report.pdf"
+  ],
+  "contracts": {
+    "0xc0888d80ee0abf84563168b3182650c0addeb6d5": "bsc"
+  },
+  "backing-info": null,
+  "tags": [
+    "cryptocurrency",
+    "vault"
+  ],
+  "price": [
+    {
+      "timestamp": "2022-08-23T17:00:00.000Z",
+      "usd": 6.267e-7,
+      "source": "https://dexscreener.com/bsc/0x2856add546e729425383173d4f65bb3e23e796a4"
+    },
+    {
+      "timestamp": "2022-06-11T00:00:00.000Z",
+      "usd": 7.536e-7,
+      "source": "https://dexscreener.com/bsc/0x2856add546e729425383173d4f65bb3e23e796a4"
+    }
+  ],
+  "supply": [
+    {
+      "timestamp": "2022-06-11T00:00:00.000Z",
+      "circulating": 84747438916.33,
+      "max": 200000000000,
+      "total": 84747438916.33,
+      "source": "https://bscscan.com/token/0xc0888d80ee0abf84563168b3182650c0addeb6d5"
+    }
+  ],
+  "backing": [
+    {
+      "timestamp": "2022-08-23T17:00:00.000Z",
+      "assets": {
+        "toad-network": 4784.54,
+        "lily-pad": 4090952608.9,
+        "bnb": 26.60804172274563,
+        "busd": 5351.38,
+        "pxbsc": 19779827315.5416,
+        "catoshi": 16775.84,
+        "gallant": 452628643652.57,
+        "hoge": 4950100.16,
+        "ethereum": 0.1557067178878598,
+        "bitcoin": 0.0103204860765892,
+        "fukarens": 6976811594.2,
+        "bullishjackpot": 51912832929.78
+      },
+      "source": "https://toadlytics.com/#/vault-explorer",
+      "backing-assets": 11,
+      "backing-usd": 29851.37,
+      "ratio": 0.5621,
+      "uniformity": 0.1194
+    },
+    {
+      "timestamp": "2022-06-04T00:00:00.000Z",
+      "assets": {
+        "toad-network": 2763.5,
+        "lily-pad": 3991301010.62,
+        "bnb": 30.79,
+        "busd": 5600,
+        "pxbsc": 16924476797.09,
+        "catoshi": 16775.84
+      },
+      "source": "https://v2.padswap.exchange/vault/"
+    }
+  ],
+  "mcap": 53111.22,
+  "icon": "assets/lily-pad/icon.png"
+}

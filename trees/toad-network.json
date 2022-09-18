@@ -1,1 +1,25 @@
-{"nodes":[{"id":"unbacked","value":516750},{"id":"toad-network","name":"Toad Network","value":516750,"level":0}],"links":[{"source":"toad-network","target":"unbacked","value":516750,"level":0}],"value":516750,"unbacked":516750,"backed":0}
+{
+  "nodes": [
+    {
+      "id": "unbacked",
+      "value": 516750
+    },
+    {
+      "id": "toad-network",
+      "name": "Toad Network",
+      "value": 516750,
+      "level": 0
+    }
+  ],
+  "links": [
+    {
+      "source": "toad-network",
+      "target": "unbacked",
+      "value": 516750,
+      "level": 0
+    }
+  ],
+  "value": 516750,
+  "unbacked": 516750,
+  "backed": 0
+}

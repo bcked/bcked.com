@@ -1,1 +1,43 @@
-{"nodes":[{"id":"unbacked","value":0},{"id":"paxg","name":"PAX Gold","value":613215423.36,"level":0},{"id":"gold","name":"Gold","value":613215423.36,"level":1}],"links":[{"source":"paxg","target":"unbacked","value":0,"level":0},{"source":"paxg","target":"gold","value":613215423.36,"level":0},{"source":"gold","target":"unbacked","value":613215423.36,"level":1}],"value":613215423.36,"unbacked":0,"backed":613215423.36}
+{
+  "nodes": [
+    {
+      "id": "unbacked",
+      "value": 0
+    },
+    {
+      "id": "paxg",
+      "name": "PAX Gold",
+      "value": 613215423.36,
+      "level": 0
+    },
+    {
+      "id": "gold",
+      "name": "Gold",
+      "value": 613215423.36,
+      "level": 1
+    }
+  ],
+  "links": [
+    {
+      "source": "paxg",
+      "target": "unbacked",
+      "value": 0,
+      "level": 0
+    },
+    {
+      "source": "paxg",
+      "target": "gold",
+      "value": 613215423.36,
+      "level": 0
+    },
+    {
+      "source": "gold",
+      "target": "unbacked",
+      "value": 613215423.36,
+      "level": 1
+    }
+  ],
+  "value": 613215423.36,
+  "unbacked": 0,
+  "backed": 613215423.36
+}

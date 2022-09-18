@@ -1,1 +1,25 @@
-{"nodes":[{"id":"unbacked","value":22089194.8},{"id":"hoge","name":"Hoge Finance","value":22089194.8,"level":0}],"links":[{"source":"hoge","target":"unbacked","value":22089194.8,"level":0}],"value":22089194.8,"unbacked":22089194.8,"backed":0}
+{
+  "nodes": [
+    {
+      "id": "unbacked",
+      "value": 22089194.8
+    },
+    {
+      "id": "hoge",
+      "name": "Hoge Finance",
+      "value": 22089194.8,
+      "level": 0
+    }
+  ],
+  "links": [
+    {
+      "source": "hoge",
+      "target": "unbacked",
+      "value": 22089194.8,
+      "level": 0
+    }
+  ],
+  "value": 22089194.8,
+  "unbacked": 22089194.8,
+  "backed": 0
+}
