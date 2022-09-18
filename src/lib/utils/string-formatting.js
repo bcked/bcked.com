@@ -64,7 +64,6 @@ export function combine(...criteria) {
         if (!criteria) return 0
 
         for (let i = criteria.length - 1; i >= 0; i--) {
-            // console.log(criteria[0])
             const curCriteriaComparatorValue = criteria[i](a, b)
             // if the comparison objects are not equivalent, return the value obtained
             // in this current criteria comparison
