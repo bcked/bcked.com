@@ -23,7 +23,6 @@
 		// const n = graph.nodes.find(({ id }) => id == d.id);
 		// const factor = (Math.max(Math.min(n['z-score'], 1), -1) + 1) * 0.5;
 		// return Math.max(maxNodeSize * factor, minNodeSize);
-		console.log(d.id, assets[d.id].backing);
 		return Object.keys(assets[d.id].backing[0].assets).length > 0 ? maxNodeSize : minNodeSize;
 	}; // node radius, in pixels
 	export let nodeStrength = (n) => {

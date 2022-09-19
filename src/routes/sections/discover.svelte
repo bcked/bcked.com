@@ -44,6 +44,7 @@
 					{assets}
 					icon={ChartBarIcon}
 					title="Backing in USD"
+					filter={(asset) => asset.backing[0]['backing-assets'] > 0}
 					compare={(a, b) => b.backing[0]['backing-usd'] - a.backing[0]['backing-usd']}
 					size={3}
 					select={(asset) => formatCurrency(asset.backing[0]['backing-usd'])}
@@ -52,6 +53,7 @@
 					{assets}
 					icon={HashtagIcon}
 					title="Backing Assets"
+					filter={(asset) => asset.backing[0]['backing-assets'] > 0}
 					compare={(a, b) => b.backing[0]['backing-assets'] - a.backing[0]['backing-assets']}
 					size={3}
 					select={(asset) => asset.backing[0]['backing-assets']}
@@ -60,9 +62,17 @@
 					{assets}
 					icon={ClockIcon}
 					title="Recently Updated"
-					compare={(a, b) => new Date(a.backing[0]['updated']) - new Date(b.backing[0]['updated'])}
+					filter={(asset) => asset.backing[0]['backing-assets'] > 0}
+					compare={(a, b) => {
+						const aTime = new Date(b.backing[0]['timestamp']).getTime();
+						const bTime = new Date(a.backing[0]['timestamp']).getTime();
+						return aTime - bTime;
+					}}
 					size={3}
-					select={(asset) => formatCurrency(asset.backing[0]['backing-usd'])}
+					select={(asset) => {
+						console.log(asset);
+						return new Date(asset.backing[0]['timestamp']).toLocaleDateString();
+					}}
 				/>
 			</dl>
 		</Glow>
