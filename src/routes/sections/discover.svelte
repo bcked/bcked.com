@@ -69,10 +69,7 @@
 						return aTime - bTime;
 					}}
 					size={3}
-					select={(asset) => {
-						console.log(asset);
-						return new Date(asset.backing[0]['timestamp']).toLocaleDateString();
-					}}
+					select={(asset) => new Date(asset.backing[0]['timestamp']).toLocaleDateString()}
 				/>
 			</dl>
 		</Glow>

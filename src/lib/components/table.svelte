@@ -27,7 +27,7 @@
 				{#each columns as column}
 					<th
 						scope="col"
-						class="group cursor-pointer py-3.5 pl-4 sm:pl-6 lg:pl-8 pr-1 text-left text-sm font-semibold text-gray-900 transition-all duration-500 {column.class}"
+						class="group-column cursor-pointer py-3.5 pl-4 sm:pl-6 lg:pl-8 pr-1 text-left text-sm font-semibold text-gray-900 transition-all duration-500 {column.class}"
 						on:click={(e) => {
 							if (sortBy == column.id) {
 								sortAsc = !sortAsc;
@@ -49,7 +49,7 @@
 								</span>
 							{:else}
 								<span
-									class="invisible ml-2 flex-none rounded text-gray-500 group-hover:visible group-focus:visible"
+									class="invisible ml-2 flex-none rounded text-gray-500 group-column-hover:visible group-column-focus:visible"
 								>
 									<ChevronDownIcon class="h-5 w-5" aria-hidden="true" />
 								</span>
