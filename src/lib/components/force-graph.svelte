@@ -14,15 +14,17 @@
 	let width = 400;
 	let height = 400;
 
-	export let minNodeSize = 32;
-	export let maxNodeSize = 48;
+	export let minNodeSize = 24;
+	export let maxNodeSize = 32;
 
 	export let nodeId = (d) => d.id; // given d in nodes, returns a unique identifier (string)
 
 	export let nodeRadius = (d) => {
-		const n = graph.nodes.find(({ id }) => id == d.id);
-		const factor = (Math.max(Math.min(n['z-score'], 1), -1) + 1) * 0.5;
-		return Math.max(maxNodeSize * factor, minNodeSize);
+		// const n = graph.nodes.find(({ id }) => id == d.id);
+		// const factor = (Math.max(Math.min(n['z-score'], 1), -1) + 1) * 0.5;
+		// return Math.max(maxNodeSize * factor, minNodeSize);
+		console.log(d.id, assets[d.id].backing);
+		return Object.keys(assets[d.id].backing[0].assets).length > 0 ? maxNodeSize : minNodeSize;
 	}; // node radius, in pixels
 	export let nodeStrength = (n) => {
 		return -nodeRadius(n) * 20;
