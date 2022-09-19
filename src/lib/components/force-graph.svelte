@@ -154,6 +154,7 @@
 		<g>
 			{#each nodes as node}
 				<image
+					class="cursor-grab active:cursor-grabbing"
 					x={node.x}
 					y={node.y}
 					width={nodeRadius(node)}
