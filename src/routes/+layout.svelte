@@ -1,8 +1,43 @@
 <script>
 	import '../app.css';
+	import { base } from '$app/paths';
 	import Header from '$lib/components/header.svelte';
 	import Footer from '$lib/components/footer.svelte';
 	import Banner from '$lib/components/banner.svelte';
+	import GitHubIcon from '$lib/icons/github.svelte';
+	import TelegramIcon from '$lib/icons/telegram.svelte';
+	// import TwitterIcon from '$lib/icons/twitter.svelte';
+
+	const navigation = [
+		{
+			name: 'FAQ',
+			path: `${base}/faq`
+		},
+		{
+			name: 'About',
+			path: `${base}/about`
+		}
+	];
+
+	const socials = [
+		// {
+		// 	name: 'Twitter',
+		// 	href: '#',
+		// 	icon: TwitterIcon
+		// },
+		{
+			name: 'Telegram',
+			path: 'https://t.me/bcked_com',
+			icon: TelegramIcon
+		},
+		{
+			name: 'GitHub',
+			path: 'https://github.com/Spenhouet/bcked',
+			icon: GitHubIcon
+		}
+	];
+
+	const copyRight = '&copy; 2022 bcked. All rights reserved.';
 </script>
 
 <div class="flex flex-col h-screen justify-between">
@@ -14,5 +49,5 @@
 		<slot />
 	</div>
 
-	<Footer />
+	<Footer {copyRight} {navigation} {socials} />
 </div>
