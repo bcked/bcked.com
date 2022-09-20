@@ -5,15 +5,8 @@
 	import { MenuIcon, XIcon } from '@rgossiaux/svelte-heroicons/outline';
 	import Search from '$lib/components/search.svelte';
 
-	const navigation = [
-		{ name: 'Discover', path: `${base}/#discover` },
-		{ name: 'Ranking', path: `${base}/#ranking` }
-	];
-
-	/** @param {any[]} classes */
-	function classNames(...classes) {
-		return classes.filter(Boolean).join(' ');
-	}
+	/** @type {{name: string, path: string}[]} */
+	export let navigation = [];
 </script>
 
 <Disclosure as="nav" let:open>
@@ -38,14 +31,10 @@
 					{#each navigation as item}
 						{@const current = $page.url.pathname.includes(item.path)}
 						<a
-							key={item.name}
 							href={item.path}
-							class={classNames(
-								current
-									? 'border-neon-pink text-gray-900'
-									: 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-800',
-								' inline-flex items-center px-1 pt-1 text-base font-medium'
-							)}
+							class="inline-flex items-center px-1 pt-1 text-base font-medium {current
+								? 'border-neon-pink text-gray-900'
+								: 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-800'}"
 							aria-current={current ? 'page' : undefined}
 						>
 							{item.name}
@@ -81,15 +70,11 @@
 			{#each navigation as item}
 				{@const current = $page.url.pathname.includes(item.path)}
 				<DisclosureButton
-					key={item.name}
 					as="a"
 					href={item.path}
-					class={classNames(
-						current
-							? 'bg-gray-100 border-neon-pink text-gray-900'
-							: 'border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800',
-						'block pl-3 pr-4 py-2 border-l-4 text-base font-medium'
-					)}
+					class="block pl-3 pr-4 py-2 border-l-4 text-base font-medium {current
+						? 'bg-gray-100 border-neon-pink text-gray-900'
+						: 'border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800'}"
 					aria-current={current ? 'page' : undefined}
 				>
 					{item.name}

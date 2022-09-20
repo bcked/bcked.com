@@ -8,7 +8,12 @@
 	import TelegramIcon from '$lib/icons/telegram.svelte';
 	// import TwitterIcon from '$lib/icons/twitter.svelte';
 
-	const navigation = [
+	const mainNavigation = [
+		{ name: 'Discover', path: `${base}/#discover` },
+		{ name: 'Ranking', path: `${base}/#ranking` }
+	];
+
+	const bottomNavigation = [
 		{
 			name: 'FAQ',
 			path: `${base}/faq`
@@ -41,13 +46,22 @@
 </script>
 
 <div class="flex flex-col h-screen justify-between">
-	<Banner />
+	<Banner placement="top" class="bg-neon-blue text-gray-50">
+		<div class="pr-16 sm:text-center sm:px-16">
+			<p class="font-medium">
+				<span class="md:hidden">Page under construction. Data should not be used!</span>
+				<span class="hidden md:inline"
+					>This page is under construction and the shown data should not be used!</span
+				>
+			</p>
+		</div>
+	</Banner>
 
-	<Header />
+	<Header navigation={mainNavigation} />
 
 	<div class="flex-grow mx-auto w-full flex flex-col">
 		<slot />
 	</div>
 
-	<Footer {copyRight} {navigation} {socials} />
+	<Footer {copyRight} navigation={bottomNavigation} {socials} />
 </div>
