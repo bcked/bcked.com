@@ -663,5 +663,42 @@
     "value": 21728000000000.02,
     "unbacked": 21728000000000.02,
     "backed": 0
+  },
+  "usdc": {
+    "nodes": [
+      {
+        "id": "usdc",
+        "name": "USD Coin",
+        "value": 47261819834,
+        "level": 0
+      },
+      {
+        "id": "unbacked",
+        "value": 0
+      },
+      {
+        "id": "usd",
+        "name": "U.S. dollar",
+        "value": 47261819834,
+        "level": 1
+      }
+    ],
+    "links": [
+      {
+        "source": "usdc",
+        "target": "usd",
+        "value": 47261819834,
+        "level": 0
+      },
+      {
+        "source": "usd",
+        "target": "unbacked",
+        "value": 47261819834,
+        "level": 1
+      }
+    ],
+    "value": 47261819834,
+    "unbacked": 0,
+    "backed": 47261819834
   }
 }
