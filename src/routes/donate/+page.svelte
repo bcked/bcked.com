@@ -1,8 +1,10 @@
 <script>
 	import {
+		chain,
 		createClient,
 		configureChains,
 		defaultChains,
+		allChains,
 		connect,
 		disconnect,
 		watchAccount,
@@ -11,9 +13,15 @@
 	import { publicProvider } from '@wagmi/core/providers/public';
 	import { MetaMaskConnector } from '@wagmi/core/connectors/metaMask';
 
-	const { chains, provider, webSocketProvider } = configureChains(defaultChains, [
-		publicProvider()
-	]);
+	const { chains, provider, webSocketProvider } = configureChains(
+		[chain.mainnet],
+		[publicProvider()]
+	);
+
+	console.log(allChains);
+
+	// https://chainlist.org/
+	const supportedChains = [{ id: 1 }];
 
 	const client = createClient({
 		autoConnect: true,
@@ -27,8 +35,6 @@
 		webSocketProvider
 	});
 
-	console.log(client.data);
-
 	/** @type {import("@wagmi/core").GetAccountResult} */
 	let account = {
 		address: undefined,
@@ -41,15 +47,11 @@
 	};
 	$: watchAccount((data) => (account = data));
 
-	$: console.log(account);
-
 	/** @type {import("@wagmi/core").Chain | undefined} */
-	let chain;
+	let selectedChain;
 	/** @type {import("@wagmi/core").Chain[]} */
 	let availableChains = [];
-	$: watchNetwork((data) => ({ chain, chains: availableChains } = data));
-
-	$: console.log(chain, availableChains);
+	$: watchNetwork((data) => ({ chain: selectedChain, chains: availableChains } = data));
 </script>
 
 <div class="py-10">
@@ -80,10 +82,23 @@
 			<!-- 
 				How to handle if no provider is installed / available?
 			-->
+			<!--
+				Fetch balance of wallet of all supported donation assets.
+				Suggest donation sums which are available in the wallet.
+
+				Method: fetchBalance
+				Docs: https://github.com/wagmi-dev/wagmi/blob/main/packages/core/src/actions/accounts/fetchBalance.test.ts
+			-->
+			<!-- 
+				If current chain is not supported, look for other available chain which does hold funds.
+				Switch network to this chain.
+				Method: switchNetwork
+				Docs: https://github.com/wagmi-dev/wagmi/blob/main/packages/core/src/actions/accounts/switchNetwork.test.ts
+			-->
 			{#if account.isConnected}
 				<div>Connected account: {account.address}</div>
-				{#if chain}
-					<div>Connected chain: {chain.name}</div>
+				{#if selectedChain}
+					<div>Connected chain: {selectedChain.name}</div>
 				{/if}
 				<button
 					class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-md bg-neon-gray-dark text-gray-50  hover:bg-neon-yellow hover:text-gray-900"
