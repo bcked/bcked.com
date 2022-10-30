@@ -6,34 +6,24 @@
 	import { formatCurrency, formatPercentage } from '$lib/utils/string-formatting';
 	import { merge } from 'lodash-es';
 
+	/** @type {import('./types').Theme} */
+	export let theme;
+
 	/** @type {any} */
 	export let assets;
 
 	/** @type {any} */
 	export let trees;
-
-	/** @type {import('./types').Theme} */
-	export let theme = {
-		main: {
-			text: 'text-neon-pink',
-			from: 'from-neon-pink',
-			via: 'via-neon-pink',
-			to: 'to-gray-light'
-		},
-		secondary: {
-			text: 'text-gray-900'
-		}
-	};
 </script>
 
 <Section id="ranking" label="Ranking of asset backing">
 	<SectionHeader
 		title="Ranking"
 		description="Compare assets based on their backing amount, ratio and uniformity."
-		theme={{ title: theme.main.text, description: theme.secondary.text }}
+		theme={{ title: theme.text }}
 	/>
 	<div class="mt-10 w-full mx-auto lg:mx-0">
-		<Glow theme={theme.main} class="-inset-x-4 sm:-inset-x-0">
+		<Glow {theme} class="-inset-x-4 sm:-inset-x-0">
 			<Table
 				columns={[
 					{ id: 'rank', title: '#', class: '' },
