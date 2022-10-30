@@ -35,7 +35,7 @@
 	$: open = query !== '';
 
 	let selected = '';
-	$: selected = data.find((item) => $page.url.pathname.includes(item.path));
+	$: selected = data.find((item) => $page.url.pathname == item.path);
 
 	/** @type {any[]} */
 	let filteredItems = [];
