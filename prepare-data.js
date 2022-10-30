@@ -3,6 +3,7 @@ import path from 'path'
 import yaml from 'yaml';
 import _ from 'lodash'
 import copyIcons from './compile-data/copy-icons.js'
+import { closest } from './src/lib/utils/array.js'
 
 /**
  * Round half away from zero ('commercial' rounding)
@@ -80,7 +81,7 @@ function loadAssetData(assetId) {
  * @param {string} id 
  * @returns {Object[]}
  */
-async function followBackingTree(id, backedAsset, assetValue, assets, level) {
+async function followBackingTree(id, backedAsset, assetValue, assets, level, timestamp) {
     if (!backedAsset) {
         return { nodes: [{ id }], links: [{ source: id, target: "unbacked", value: assetValue }] }
     }
@@ -91,9 +92,9 @@ async function followBackingTree(id, backedAsset, assetValue, assets, level) {
             links: [{ source: id, target: "unbacked", value: assetValue, level }]
         }
     }
-    const backedAssets = Object.entries(backedAsset.backing[0].assets)
+    const backedAssets = Object.entries(closest(backedAsset.backing, timestamp).assets)
         .filter(([key, value]) => key != id)
-        .map(([key, value]) => [key, value, value * assets[key].price[0].usd, assets[key]]);
+        .map(([key, value]) => [key, value, value * closest(assets[key].price, timestamp).usd, assets[key]]);
 
     const totalBackingUsd = backedAssets.reduce((partialSum, [key, value, backingUsd]) => partialSum + backingUsd, 0);
     const unbacked = totalBackingUsd > assetValue ? 0 : assetValue - totalBackingUsd
@@ -105,7 +106,7 @@ async function followBackingTree(id, backedAsset, assetValue, assets, level) {
 
     for (const [key, value, backingUsd, backedSubAsset] of backedAssets) {
         const cappedBackingUsd = backingUsd > assetValue ? assetValue : backingUsd
-        const backingData = await followBackingTree(key, backedSubAsset, cappedBackingUsd, assets, level + 1);
+        const backingData = await followBackingTree(key, backedSubAsset, cappedBackingUsd, assets, level + 1, timestamp);
         nodes = [...nodes, ...backingData.nodes];
         links = [
             ...links,
@@ -118,8 +119,8 @@ async function followBackingTree(id, backedAsset, assetValue, assets, level) {
     return data
 }
 
-async function buildBackingTree(id, asset, assets) {
-    const { nodes, links } = await followBackingTree(id, asset, asset.mcap, assets, 0)
+async function buildBackingTree(id, asset, assets, timestamp) {
+    const { nodes, links } = await followBackingTree(id, asset, asset.mcap, assets, 0, timestamp)
 
     let reduced_links = []
     for (const link of links) {
@@ -150,7 +151,7 @@ async function buildBackingTree(id, asset, assets) {
 
     const value = reduced_nodes.find((l) => l.id == id).value
 
-    const data = { nodes: reduced_nodes, links: reduced_links, value, unbacked, backed: round(value - unbacked, 2) }
+    const data = { timestamp, nodes: reduced_nodes, links: reduced_links, value, unbacked, backed: round(value - unbacked, 2) }
     return data
 }
 
@@ -168,17 +169,22 @@ export async function prepareData() {
 
     let backingTree = {}
     for (const [key, value] of Object.entries(assets)) {
-        backingTree[key] = await buildBackingTree(key, value, assets)
+        let backingTrees = []
+        for (const timestamp of _.map(value.backing, 'timestamp')) {
+            backingTrees.push(await buildBackingTree(key, value, assets, timestamp))
+        }
+        backingTree[key] = backingTrees
     }
     fs.writeFileSync('./_generated/backing-tree.yml', yaml.stringify(backingTree))
 
     for (const [key, { backing, mcap }] of Object.entries(assets)) {
+        // TODO do for all timestamps
         if (!backing || !mcap) {
             continue;
         }
         var currentBacking = backing[0]
 
-        const lastLevelBacking = backingTree[key].links
+        const lastLevelBacking = backingTree[key][0].links
             .filter((l) => l.target == 'unbacked' && l.source != key)
             .map((l) => l.value);
 

@@ -12,7 +12,7 @@ export function readBacking(id) {
         throw error(404, `Backing for asset ${id} not found.`)
     }
 
-    return backings[id]
+    return backings[id][0]
 }
 
 

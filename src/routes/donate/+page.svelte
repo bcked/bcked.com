@@ -18,7 +18,7 @@
 		[publicProvider()]
 	);
 
-	console.log(allChains);
+	// console.log(allChains);
 
 	// https://chainlist.org/
 	const supportedChains = [{ id: 1 }];

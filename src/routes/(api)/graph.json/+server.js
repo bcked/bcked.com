@@ -9,7 +9,8 @@ export const prerender = true;
 /** @returns {{ nodes: { id: string, name: string, value: Number, level: Number, "min-max": Number, "z-score": Number }[], links: { source: string, target: string, value: Number, level: Number, "min-max-norm": Number, "z-score": Number }[] }} */
 export function readGraph() {
     let trees = readTrees();
-    trees = _.filter(Object.values(trees), ({ backed }) => (backed > 0))
+    trees = _.map(Object.values(trees), (items) => items[0])
+    trees = _.filter(trees, ({ backed }) => (backed > 0))
 
     let nodes = []
     nodes = _.flatMap(trees, 'nodes')

@@ -35,7 +35,12 @@
 					{ id: 'mcap', title: 'Market Cap', class: 'hidden lg:table-cell' },
 					{ id: 'backing-uniformity', title: 'Backing Uniformity', class: 'hidden sm:table-cell' }
 				]}
-				rows={Object.values(merge(assets, trees))
+				rows={Object.values(
+					merge(
+						assets,
+						Object.entries(trees).reduce((pv, [key, value]) => ({ ...pv, [key]: value[0] }), {})
+					)
+				)
 					.filter((asset) => asset.backed > 0)
 					.map((asset, i) => ({
 						rank: { text: i + 1, value: i },

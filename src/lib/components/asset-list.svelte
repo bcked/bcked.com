@@ -19,7 +19,7 @@
 	export let filter;
 </script>
 
-<div key={title} class="px-4 py-5 overflow-hidden sm:p-6 text-gray-900">
+<div class="px-4 py-5 overflow-hidden sm:p-6 text-gray-900">
 	<dt>
 		<div class="flex items-center space-x-2 ">
 			<svelte:component this={icon} class="h-5 w-5 text-neon-pink" aria-hidden="true" />
@@ -29,7 +29,7 @@
 	<dd>
 		<ul class="mt-2 space-y-2">
 			{#each Object.values(assets).filter(filter).sort(compare).slice(0, size) as asset, i}
-				<li key={asset.id}>
+				<li>
 					<a href={asset.path} class="rounded-md block">
 						<div class="flex items-center min-w-0 flex-1 justify-between">
 							<div class="flex items-center">

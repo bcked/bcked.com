@@ -41,6 +41,7 @@
 		return Math.max(5 * factor, 1.5);
 	}; // given d in links, returns a stroke width in pixels
 	export let linkStrokeLinecap = 'round'; // link stroke linecap
+	/** @type {Number|undefined} */
 	export let linkStrength = undefined;
 	export let invalidation = new Promise(() => ({})); // when this promise resolves, stop the simulation
 
