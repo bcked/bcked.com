@@ -1,4 +1,246 @@
 {
-  "nodes": [],
-  "links": []
+  "nodes": [
+    {
+      "id": "busd",
+      "name": "BUSD",
+      "value": 17651702084.31,
+      "level": 0,
+      "min-max": 0.3734875649248035,
+      "z-score": 0.9776518959599442
+    },
+    {
+      "id": "lily-pad",
+      "name": "Lily Pad",
+      "value": 53111.22,
+      "level": 0,
+      "min-max": 0.0000011210440124883979,
+      "z-score": -0.41240520929482033
+    },
+    {
+      "id": "paxg",
+      "name": "PAX Gold",
+      "value": 613215423.36,
+      "level": 0,
+      "min-max": 0.012974855783017063,
+      "z-score": -0.3641190333140932
+    },
+    {
+      "id": "usdc",
+      "name": "USD Coin",
+      "value": 47261819834,
+      "level": 0,
+      "min-max": 1,
+      "z-score": 3.30943147236864
+    },
+    {
+      "id": "usd",
+      "name": "U.S. dollar",
+      "value": 17651702084.31,
+      "level": 1,
+      "min-max": 0.3734875649248035,
+      "z-score": 0.9776518959599442
+    },
+    {
+      "id": "toad-network",
+      "name": "Toad Network",
+      "value": 12679.03,
+      "level": 1,
+      "min-max": 2.6555029150891226e-7,
+      "z-score": -0.41240839330630147
+    },
+    {
+      "id": "bnb",
+      "name": "BNB",
+      "value": 7907.91,
+      "level": 1,
+      "min-max": 1.6459945995515162e-7,
+      "z-score": -0.41240876902923057
+    },
+    {
+      "id": "pxbsc",
+      "name": "Paradox NFT",
+      "value": 1511.97,
+      "level": 1,
+      "min-max": 2.9269503557500884e-8,
+      "z-score": -0.41240927270579103
+    },
+    {
+      "id": "catoshi",
+      "name": "Catoshi",
+      "value": 907.74,
+      "level": 1,
+      "min-max": 1.6484765183758712e-8,
+      "z-score": -0.41240932028855265
+    },
+    {
+      "id": "gallant",
+      "name": "Gallant",
+      "value": 423.65,
+      "level": 1,
+      "min-max": 6.242036422616683e-9,
+      "z-score": -0.41240935841035903
+    },
+    {
+      "id": "hoge",
+      "name": "Hoge Finance",
+      "value": 271.81,
+      "level": 1,
+      "min-max": 3.029295124321313e-9,
+      "z-score": -0.4124093703676708
+    },
+    {
+      "id": "ethereum",
+      "name": "Ethereum",
+      "value": 254.54,
+      "level": 1,
+      "min-max": 2.6638838873510743e-9,
+      "z-score": -0.4124093717276733
+    },
+    {
+      "id": "bitcoin",
+      "name": "Bitcoin",
+      "value": 222.14,
+      "level": 1,
+      "min-max": 1.9783410918770884e-9,
+      "z-score": -0.4124093742791545
+    },
+    {
+      "id": "fukarens",
+      "name": "FuckYouKarens",
+      "value": 192.56,
+      "level": 1,
+      "min-max": 1.3524659100832464e-9,
+      "z-score": -0.41240937660856225
+    },
+    {
+      "id": "bullishjackpot",
+      "name": "Bullish Jackpot",
+      "value": 128.64,
+      "level": 1,
+      "min-max": 0,
+      "z-score": -0.4124093816422251
+    },
+    {
+      "id": "gold",
+      "name": "Gold",
+      "value": 613215423.36,
+      "level": 1,
+      "min-max": 0.012974855783017063,
+      "z-score": -0.3641190333140932
+    }
+  ],
+  "links": [
+    {
+      "source": "busd",
+      "target": "usd",
+      "value": 17651702084.31,
+      "level": 0,
+      "min-max": 0.3734875649248035,
+      "z-score": 0.9883962878671619
+    },
+    {
+      "source": "lily-pad",
+      "target": "toad-network",
+      "value": 12679.03,
+      "level": 0,
+      "min-max": 2.6555029150891226e-7,
+      "z-score": -0.3566480497761539
+    },
+    {
+      "source": "lily-pad",
+      "target": "bnb",
+      "value": 7907.91,
+      "level": 0,
+      "min-max": 1.6459945995515162e-7,
+      "z-score": -0.356648413331607
+    },
+    {
+      "source": "lily-pad",
+      "target": "busd",
+      "value": 5351.38,
+      "level": 0,
+      "min-max": 1.1050653640845074e-7,
+      "z-score": -0.35664860813710814
+    },
+    {
+      "source": "lily-pad",
+      "target": "pxbsc",
+      "value": 1511.97,
+      "level": 0,
+      "min-max": 2.9269503557500884e-8,
+      "z-score": -0.35664890069701904
+    },
+    {
+      "source": "lily-pad",
+      "target": "catoshi",
+      "value": 907.74,
+      "level": 0,
+      "min-max": 1.6484765183758712e-8,
+      "z-score": -0.35664894673885233
+    },
+    {
+      "source": "lily-pad",
+      "target": "gallant",
+      "value": 423.65,
+      "level": 0,
+      "min-max": 6.242036422616683e-9,
+      "z-score": -0.3566489836261156
+    },
+    {
+      "source": "lily-pad",
+      "target": "hoge",
+      "value": 271.81,
+      "level": 0,
+      "min-max": 3.029295124321313e-9,
+      "z-score": -0.3566489951961997
+    },
+    {
+      "source": "lily-pad",
+      "target": "ethereum",
+      "value": 254.54,
+      "level": 0,
+      "min-max": 2.6638838873510743e-9,
+      "z-score": -0.35664899651215964
+    },
+    {
+      "source": "lily-pad",
+      "target": "bitcoin",
+      "value": 222.14,
+      "level": 0,
+      "min-max": 1.9783410918770884e-9,
+      "z-score": -0.35664899898101315
+    },
+    {
+      "source": "lily-pad",
+      "target": "fukarens",
+      "value": 192.56,
+      "level": 0,
+      "min-max": 1.3524659100832464e-9,
+      "z-score": -0.35664900123498505
+    },
+    {
+      "source": "lily-pad",
+      "target": "bullishjackpot",
+      "value": 128.64,
+      "level": 0,
+      "min-max": 0,
+      "z-score": -0.35664900610563693
+    },
+    {
+      "source": "paxg",
+      "target": "gold",
+      "value": 613215423.36,
+      "level": 0,
+      "min-max": 0.012974855783017063,
+      "z-score": -0.30992250072804417
+    },
+    {
+      "source": "usdc",
+      "target": "usd",
+      "value": 47261819834,
+      "level": 0,
+      "min-max": 1,
+      "z-score": 3.2446631131977326
+    }
+  ]
 }
