@@ -19,7 +19,7 @@
 	export let filter;
 </script>
 
-<div key={title} class="px-4 py-5 overflow-hidden sm:p-6">
+<div key={title} class="px-4 py-5 overflow-hidden sm:p-6 text-gray-900">
 	<dt>
 		<div class="flex items-center space-x-2 ">
 			<svelte:component this={icon} class="h-5 w-5 text-neon-pink" aria-hidden="true" />
