@@ -1,1000 +1,704 @@
 {
-  "bitcoin": [
-    {
-      "timestamp": "2022-10-30T17:35:52.964Z",
-      "nodes": [
-        {
-          "id": "unbacked",
-          "value": 411753925813.58
-        },
-        {
-          "id": "bitcoin",
-          "name": "Bitcoin",
-          "value": 411753925813.58,
-          "level": 0
-        }
-      ],
-      "links": [
-        {
-          "source": "bitcoin",
-          "target": "unbacked",
-          "value": 411753925813.58,
-          "level": 0
-        }
-      ],
-      "value": 411753925813.58,
-      "unbacked": 411753925813.58,
-      "backed": 0
-    }
-  ],
-  "bnb": [
-    {
-      "timestamp": "2022-10-30T17:35:52.968Z",
-      "nodes": [
-        {
-          "id": "unbacked",
-          "value": 48525916860.04
-        },
-        {
-          "id": "bnb",
-          "name": "BNB",
-          "value": 48525916860.04,
-          "level": 0
-        }
-      ],
-      "links": [
-        {
-          "source": "bnb",
-          "target": "unbacked",
-          "value": 48525916860.04,
-          "level": 0
-        }
-      ],
-      "value": 48525916860.04,
-      "unbacked": 48525916860.04,
-      "backed": 0
-    }
-  ],
-  "bullishjackpot": [
-    {
-      "timestamp": "2022-10-30T17:35:52.970Z",
-      "nodes": [
-        {
-          "id": "unbacked",
-          "value": 2478
-        },
-        {
-          "id": "bullishjackpot",
-          "name": "Bullish Jackpot",
-          "value": 2478,
-          "level": 0
-        }
-      ],
-      "links": [
-        {
-          "source": "bullishjackpot",
-          "target": "unbacked",
-          "value": 2478,
-          "level": 0
-        }
-      ],
-      "value": 2478,
-      "unbacked": 2478,
-      "backed": 0
-    }
-  ],
-  "busd": [
-    {
-      "timestamp": "2022-04-29T00:00:00.000Z",
-      "nodes": [
-        {
-          "id": "busd",
-          "name": "BUSD",
-          "value": 17651702084.31,
-          "level": 0
-        },
-        {
-          "id": "unbacked",
-          "value": 0
-        },
-        {
-          "id": "usd",
-          "name": "U.S. dollar",
-          "value": 17651702084.31,
-          "level": 1
-        }
-      ],
-      "links": [
-        {
-          "source": "busd",
-          "target": "usd",
-          "value": 17651702084.31,
-          "level": 0
-        },
-        {
-          "source": "usd",
-          "target": "unbacked",
-          "value": 17651702084.31,
-          "level": 1
-        }
-      ],
-      "value": 17651702084.31,
-      "unbacked": 0,
-      "backed": 17651702084.31
-    }
-  ],
-  "catoshi": [
-    {
-      "timestamp": "2022-10-30T17:35:52.979Z",
-      "nodes": [
-        {
-          "id": "unbacked",
-          "value": 1564395.46
-        },
-        {
-          "id": "catoshi",
-          "name": "Catoshi",
-          "value": 1564395.46,
-          "level": 0
-        }
-      ],
-      "links": [
-        {
-          "source": "catoshi",
-          "target": "unbacked",
-          "value": 1564395.46,
-          "level": 0
-        }
-      ],
-      "value": 1564395.46,
-      "unbacked": 1564395.46,
-      "backed": 0
-    }
-  ],
-  "ethereum": [
-    {
-      "timestamp": "2022-10-30T17:35:52.986Z",
-      "nodes": [
-        {
-          "id": "unbacked",
-          "value": 199571281939.63
-        },
-        {
-          "id": "ethereum",
-          "name": "Ethereum",
-          "value": 199571281939.63,
-          "level": 0
-        }
-      ],
-      "links": [
-        {
-          "source": "ethereum",
-          "target": "unbacked",
-          "value": 199571281939.63,
-          "level": 0
-        }
-      ],
-      "value": 199571281939.63,
-      "unbacked": 199571281939.63,
-      "backed": 0
-    }
-  ],
-  "fukarens": [
-    {
-      "timestamp": "2022-10-30T17:35:52.988Z",
-      "nodes": [
-        {
-          "id": "unbacked",
-          "value": 27600
-        },
-        {
-          "id": "fukarens",
-          "name": "FuckYouKarens",
-          "value": 27600,
-          "level": 0
-        }
-      ],
-      "links": [
-        {
-          "source": "fukarens",
-          "target": "unbacked",
-          "value": 27600,
-          "level": 0
-        }
-      ],
-      "value": 27600,
-      "unbacked": 27600,
-      "backed": 0
-    }
-  ],
-  "gallant": [
-    {
-      "timestamp": "2022-10-30T17:35:52.991Z",
-      "nodes": [
-        {
-          "id": "unbacked",
-          "value": 93597.7
-        },
-        {
-          "id": "gallant",
-          "name": "Gallant",
-          "value": 93597.7,
-          "level": 0
-        }
-      ],
-      "links": [
-        {
-          "source": "gallant",
-          "target": "unbacked",
-          "value": 93597.7,
-          "level": 0
-        }
-      ],
-      "value": 93597.7,
-      "unbacked": 93597.7,
-      "backed": 0
-    }
-  ],
-  "glmr-pad": [
-    {
-      "timestamp": "2022-10-30T17:35:52.993Z",
-      "nodes": [
-        {
-          "id": "unbacked",
-          "value": 60510.78
-        },
-        {
-          "id": "glmr-pad",
-          "name": "Glmr Pad",
-          "value": 60510.78,
-          "level": 0
-        }
-      ],
-      "links": [
-        {
-          "source": "glmr-pad",
-          "target": "unbacked",
-          "value": 60510.78,
-          "level": 0
-        }
-      ],
-      "value": 60510.78,
-      "unbacked": 60510.78,
-      "backed": 0
-    }
-  ],
-  "gold": [
-    {
-      "timestamp": "2022-10-30T17:35:52.996Z",
-      "nodes": [
-        {
-          "id": "unbacked",
-          "value": 16167875486956.51
-        },
-        {
-          "id": "gold",
-          "name": "Gold",
-          "value": 16167875486956.51,
-          "level": 0
-        }
-      ],
-      "links": [
-        {
-          "source": "gold",
-          "target": "unbacked",
-          "value": 16167875486956.51,
-          "level": 0
-        }
-      ],
-      "value": 16167875486956.51,
-      "unbacked": 16167875486956.51,
-      "backed": 0
-    }
-  ],
-  "hoge": [
-    {
-      "timestamp": "2022-10-30T17:35:52.997Z",
-      "nodes": [
-        {
-          "id": "unbacked",
-          "value": 22089194.8
-        },
-        {
-          "id": "hoge",
-          "name": "Hoge Finance",
-          "value": 22089194.8,
-          "level": 0
-        }
-      ],
-      "links": [
-        {
-          "source": "hoge",
-          "target": "unbacked",
-          "value": 22089194.8,
-          "level": 0
-        }
-      ],
-      "value": 22089194.8,
-      "unbacked": 22089194.8,
-      "backed": 0
-    }
-  ],
-  "lily-pad": [
-    {
-      "timestamp": "2022-08-23T17:00:00.000Z",
-      "nodes": [
-        {
-          "id": "unbacked",
-          "value": 23259.85
-        },
-        {
-          "id": "lily-pad",
-          "name": "Lily Pad",
-          "value": 53111.22,
-          "level": 0
-        },
-        {
-          "id": "toad-network",
-          "name": "Toad Network",
-          "value": 12679.03,
-          "level": 1
-        },
-        {
-          "id": "bnb",
-          "name": "BNB",
-          "value": 7907.91,
-          "level": 1
-        },
-        {
-          "id": "busd",
-          "name": "BUSD",
-          "value": 5351.38,
-          "level": 1
-        },
-        {
-          "id": "usd",
-          "name": "U.S. dollar",
-          "value": 5351.38,
-          "level": 2
-        },
-        {
-          "id": "pxbsc",
-          "name": "Paradox NFT",
-          "value": 1511.97,
-          "level": 1
-        },
-        {
-          "id": "catoshi",
-          "name": "Catoshi",
-          "value": 907.74,
-          "level": 1
-        },
-        {
-          "id": "gallant",
-          "name": "Gallant",
-          "value": 423.65,
-          "level": 1
-        },
-        {
-          "id": "hoge",
-          "name": "Hoge Finance",
-          "value": 271.81,
-          "level": 1
-        },
-        {
-          "id": "ethereum",
-          "name": "Ethereum",
-          "value": 254.54,
-          "level": 1
-        },
-        {
-          "id": "bitcoin",
-          "name": "Bitcoin",
-          "value": 222.14,
-          "level": 1
-        },
-        {
-          "id": "fukarens",
-          "name": "FuckYouKarens",
-          "value": 192.56,
-          "level": 1
-        },
-        {
-          "id": "bullishjackpot",
-          "name": "Bullish Jackpot",
-          "value": 128.64,
-          "level": 1
-        }
-      ],
-      "links": [
-        {
-          "source": "lily-pad",
-          "target": "unbacked",
-          "value": 23259.85,
-          "level": 0
-        },
-        {
-          "source": "lily-pad",
-          "target": "toad-network",
-          "value": 12679.03,
-          "level": 0
-        },
-        {
-          "source": "toad-network",
-          "target": "unbacked",
-          "value": 12679.03,
-          "level": 1
-        },
-        {
-          "source": "lily-pad",
-          "target": "bnb",
-          "value": 7907.91,
-          "level": 0
-        },
-        {
-          "source": "bnb",
-          "target": "unbacked",
-          "value": 7907.91,
-          "level": 1
-        },
-        {
-          "source": "lily-pad",
-          "target": "busd",
-          "value": 5351.38,
-          "level": 0
-        },
-        {
-          "source": "busd",
-          "target": "usd",
-          "value": 5351.38,
-          "level": 1
-        },
-        {
-          "source": "usd",
-          "target": "unbacked",
-          "value": 5351.38,
-          "level": 2
-        },
-        {
-          "source": "lily-pad",
-          "target": "pxbsc",
-          "value": 1511.97,
-          "level": 0
-        },
-        {
-          "source": "pxbsc",
-          "target": "unbacked",
-          "value": 1511.97,
-          "level": 1
-        },
-        {
-          "source": "lily-pad",
-          "target": "catoshi",
-          "value": 907.74,
-          "level": 0
-        },
-        {
-          "source": "catoshi",
-          "target": "unbacked",
-          "value": 907.74,
-          "level": 1
-        },
-        {
-          "source": "lily-pad",
-          "target": "gallant",
-          "value": 423.65,
-          "level": 0
-        },
-        {
-          "source": "gallant",
-          "target": "unbacked",
-          "value": 423.65,
-          "level": 1
-        },
-        {
-          "source": "lily-pad",
-          "target": "hoge",
-          "value": 271.81,
-          "level": 0
-        },
-        {
-          "source": "hoge",
-          "target": "unbacked",
-          "value": 271.81,
-          "level": 1
-        },
-        {
-          "source": "lily-pad",
-          "target": "ethereum",
-          "value": 254.54,
-          "level": 0
-        },
-        {
-          "source": "ethereum",
-          "target": "unbacked",
-          "value": 254.54,
-          "level": 1
-        },
-        {
-          "source": "lily-pad",
-          "target": "bitcoin",
-          "value": 222.14,
-          "level": 0
-        },
-        {
-          "source": "bitcoin",
-          "target": "unbacked",
-          "value": 222.14,
-          "level": 1
-        },
-        {
-          "source": "lily-pad",
-          "target": "fukarens",
-          "value": 192.56,
-          "level": 0
-        },
-        {
-          "source": "fukarens",
-          "target": "unbacked",
-          "value": 192.56,
-          "level": 1
-        },
-        {
-          "source": "lily-pad",
-          "target": "bullishjackpot",
-          "value": 128.64,
-          "level": 0
-        },
-        {
-          "source": "bullishjackpot",
-          "target": "unbacked",
-          "value": 128.64,
-          "level": 1
-        }
-      ],
-      "value": 53111.22,
-      "unbacked": 23259.85,
-      "backed": 29851.37
-    },
-    {
-      "timestamp": "2022-06-04T00:00:00.000Z",
-      "nodes": [
-        {
-          "id": "unbacked",
-          "value": 28771.66
-        },
-        {
-          "id": "lily-pad",
-          "name": "Lily Pad",
-          "value": 53111.22,
-          "level": 0
-        },
-        {
-          "id": "toad-network",
-          "name": "Toad Network",
-          "value": 8511.58,
-          "level": 1
-        },
-        {
-          "id": "bnb",
-          "name": "BNB",
-          "value": 8322.54,
-          "level": 1
-        },
-        {
-          "id": "busd",
-          "name": "BUSD",
-          "value": 5600,
-          "level": 1
-        },
-        {
-          "id": "usd",
-          "name": "U.S. dollar",
-          "value": 5600,
-          "level": 2
-        },
-        {
-          "id": "pxbsc",
-          "name": "Paradox NFT",
-          "value": 997.7,
-          "level": 1
-        },
-        {
-          "id": "catoshi",
-          "name": "Catoshi",
-          "value": 907.74,
-          "level": 1
-        }
-      ],
-      "links": [
-        {
-          "source": "lily-pad",
-          "target": "unbacked",
-          "value": 28771.66,
-          "level": 0
-        },
-        {
-          "source": "lily-pad",
-          "target": "toad-network",
-          "value": 8511.58,
-          "level": 0
-        },
-        {
-          "source": "toad-network",
-          "target": "unbacked",
-          "value": 8511.58,
-          "level": 1
-        },
-        {
-          "source": "lily-pad",
-          "target": "bnb",
-          "value": 8322.54,
-          "level": 0
-        },
-        {
-          "source": "bnb",
-          "target": "unbacked",
-          "value": 8322.54,
-          "level": 1
-        },
-        {
-          "source": "lily-pad",
-          "target": "busd",
-          "value": 5600,
-          "level": 0
-        },
-        {
-          "source": "busd",
-          "target": "usd",
-          "value": 5600,
-          "level": 1
-        },
-        {
-          "source": "usd",
-          "target": "unbacked",
-          "value": 5600,
-          "level": 2
-        },
-        {
-          "source": "lily-pad",
-          "target": "pxbsc",
-          "value": 997.7,
-          "level": 0
-        },
-        {
-          "source": "pxbsc",
-          "target": "unbacked",
-          "value": 997.7,
-          "level": 1
-        },
-        {
-          "source": "lily-pad",
-          "target": "catoshi",
-          "value": 907.74,
-          "level": 0
-        },
-        {
-          "source": "catoshi",
-          "target": "unbacked",
-          "value": 907.74,
-          "level": 1
-        }
-      ],
-      "value": 53111.22,
-      "unbacked": 28771.66,
-      "backed": 24339.56
-    }
-  ],
-  "movr-pad": [
-    {
-      "timestamp": "2022-10-30T17:35:53.004Z",
-      "nodes": [
-        {
-          "id": "unbacked",
-          "value": 9448.25
-        },
-        {
-          "id": "movr-pad",
-          "name": "Movr Pad",
-          "value": 9448.25,
-          "level": 0
-        }
-      ],
-      "links": [
-        {
-          "source": "movr-pad",
-          "target": "unbacked",
-          "value": 9448.25,
-          "level": 0
-        }
-      ],
-      "value": 9448.25,
-      "unbacked": 9448.25,
-      "backed": 0
-    }
-  ],
-  "paxg": [
-    {
-      "timestamp": "2022-04-29T00:00:00.000Z",
-      "nodes": [
-        {
-          "id": "unbacked",
-          "value": 0
-        },
-        {
-          "id": "paxg",
-          "name": "PAX Gold",
-          "value": 613215423.36,
-          "level": 0
-        },
-        {
-          "id": "gold",
-          "name": "Gold",
-          "value": 613215423.36,
-          "level": 1
-        }
-      ],
-      "links": [
-        {
-          "source": "paxg",
-          "target": "unbacked",
-          "value": 0,
-          "level": 0
-        },
-        {
-          "source": "paxg",
-          "target": "gold",
-          "value": 613215423.36,
-          "level": 0
-        },
-        {
-          "source": "gold",
-          "target": "unbacked",
-          "value": 613215423.36,
-          "level": 1
-        }
-      ],
-      "value": 613215423.36,
-      "unbacked": 0,
-      "backed": 613215423.36
-    }
-  ],
-  "pxbsc": [
-    {
-      "timestamp": "2022-10-30T17:35:53.008Z",
-      "nodes": [
-        {
-          "id": "unbacked",
-          "value": 37767.12
-        },
-        {
-          "id": "pxbsc",
-          "name": "Paradox NFT",
-          "value": 37767.12,
-          "level": 0
-        }
-      ],
-      "links": [
-        {
-          "source": "pxbsc",
-          "target": "unbacked",
-          "value": 37767.12,
-          "level": 0
-        }
-      ],
-      "value": 37767.12,
-      "unbacked": 37767.12,
-      "backed": 0
-    }
-  ],
-  "toad-network": [
-    {
-      "timestamp": "2022-10-30T17:35:53.011Z",
-      "nodes": [
-        {
-          "id": "unbacked",
-          "value": 516750
-        },
-        {
-          "id": "toad-network",
-          "name": "Toad Network",
-          "value": 516750,
-          "level": 0
-        }
-      ],
-      "links": [
-        {
-          "source": "toad-network",
-          "target": "unbacked",
-          "value": 516750,
-          "level": 0
-        }
-      ],
-      "value": 516750,
-      "unbacked": 516750,
-      "backed": 0
-    }
-  ],
-  "usd": [
-    {
-      "timestamp": "2022-10-30T17:35:53.012Z",
-      "nodes": [
-        {
-          "id": "unbacked",
-          "value": 21728000000000.03
-        },
-        {
-          "id": "usd",
-          "name": "U.S. dollar",
-          "value": 21728000000000.02,
-          "level": 0
-        }
-      ],
-      "links": [
-        {
-          "source": "usd",
-          "target": "unbacked",
-          "value": 21728000000000.02,
-          "level": 0
-        }
-      ],
-      "value": 21728000000000.02,
-      "unbacked": 21728000000000.02,
-      "backed": 0
-    }
-  ],
-  "usdc": [
-    {
-      "timestamp": "2022-10-01T06:59:00.000Z",
-      "nodes": [
-        {
-          "id": "usdc",
-          "name": "USD Coin",
-          "value": 47261819834,
-          "level": 0
-        },
-        {
-          "id": "unbacked",
-          "value": 0
-        },
-        {
-          "id": "usd",
-          "name": "U.S. dollar",
-          "value": 47261819834,
-          "level": 1
-        }
-      ],
-      "links": [
-        {
-          "source": "usdc",
-          "target": "usd",
-          "value": 47261819834,
-          "level": 0
-        },
-        {
-          "source": "usd",
-          "target": "unbacked",
-          "value": 47261819834,
-          "level": 1
-        }
-      ],
-      "value": 47261819834,
-      "unbacked": 0,
-      "backed": 47261819834
-    },
-    {
-      "timestamp": "2022-09-01T06:59:00.000Z",
-      "nodes": [
-        {
-          "id": "usdc",
-          "name": "USD Coin",
-          "value": 47261819834,
-          "level": 0
-        },
-        {
-          "id": "unbacked",
-          "value": 0
-        },
-        {
-          "id": "usd",
-          "name": "U.S. dollar",
-          "value": 47261819834,
-          "level": 1
-        }
-      ],
-      "links": [
-        {
-          "source": "usdc",
-          "target": "usd",
-          "value": 47261819834,
-          "level": 0
-        },
-        {
-          "source": "usd",
-          "target": "unbacked",
-          "value": 47261819834,
-          "level": 1
-        }
-      ],
-      "value": 47261819834,
-      "unbacked": 0,
-      "backed": 47261819834
-    },
-    {
-      "timestamp": "2022-08-01T06:59:00.000Z",
-      "nodes": [
-        {
-          "id": "usdc",
-          "name": "USD Coin",
-          "value": 47261819834,
-          "level": 0
-        },
-        {
-          "id": "unbacked",
-          "value": 0
-        },
-        {
-          "id": "usd",
-          "name": "U.S. dollar",
-          "value": 47261819834,
-          "level": 1
-        }
-      ],
-      "links": [
-        {
-          "source": "usdc",
-          "target": "usd",
-          "value": 47261819834,
-          "level": 0
-        },
-        {
-          "source": "usd",
-          "target": "unbacked",
-          "value": 47261819834,
-          "level": 1
-        }
-      ],
-      "value": 47261819834,
-      "unbacked": 0,
-      "backed": 47261819834
-    },
-    {
-      "timestamp": "2022-07-01T06:59:00.000Z",
-      "nodes": [
-        {
-          "id": "usdc",
-          "name": "USD Coin",
-          "value": 47261819834,
-          "level": 0
-        },
-        {
-          "id": "unbacked",
-          "value": 0
-        },
-        {
-          "id": "usd",
-          "name": "U.S. dollar",
-          "value": 47261819834,
-          "level": 1
-        }
-      ],
-      "links": [
-        {
-          "source": "usdc",
-          "target": "usd",
-          "value": 47261819834,
-          "level": 0
-        },
-        {
-          "source": "usd",
-          "target": "unbacked",
-          "value": 47261819834,
-          "level": 1
-        }
-      ],
-      "value": 47261819834,
-      "unbacked": 0,
-      "backed": 47261819834
-    }
-  ]
+  "bitcoin": {
+    "nodes": [
+      {
+        "id": "unbacked",
+        "value": 411753925813.58
+      },
+      {
+        "id": "bitcoin",
+        "name": "Bitcoin",
+        "value": 411753925813.58,
+        "level": 0
+      }
+    ],
+    "links": [
+      {
+        "source": "bitcoin",
+        "target": "unbacked",
+        "value": 411753925813.58,
+        "level": 0
+      }
+    ],
+    "value": 411753925813.58,
+    "unbacked": 411753925813.58,
+    "backed": 0
+  },
+  "bnb": {
+    "nodes": [
+      {
+        "id": "unbacked",
+        "value": 48525916860.04
+      },
+      {
+        "id": "bnb",
+        "name": "BNB",
+        "value": 48525916860.04,
+        "level": 0
+      }
+    ],
+    "links": [
+      {
+        "source": "bnb",
+        "target": "unbacked",
+        "value": 48525916860.04,
+        "level": 0
+      }
+    ],
+    "value": 48525916860.04,
+    "unbacked": 48525916860.04,
+    "backed": 0
+  },
+  "bullishjackpot": {
+    "nodes": [
+      {
+        "id": "unbacked",
+        "value": 2478
+      },
+      {
+        "id": "bullishjackpot",
+        "name": "Bullish Jackpot",
+        "value": 2478,
+        "level": 0
+      }
+    ],
+    "links": [
+      {
+        "source": "bullishjackpot",
+        "target": "unbacked",
+        "value": 2478,
+        "level": 0
+      }
+    ],
+    "value": 2478,
+    "unbacked": 2478,
+    "backed": 0
+  },
+  "busd": {
+    "nodes": [
+      {
+        "id": "busd",
+        "name": "BUSD",
+        "value": 17651702084.31,
+        "level": 0
+      },
+      {
+        "id": "unbacked",
+        "value": 0
+      },
+      {
+        "id": "usd",
+        "name": "U.S. dollar",
+        "value": 17651702084.31,
+        "level": 1
+      }
+    ],
+    "links": [
+      {
+        "source": "busd",
+        "target": "usd",
+        "value": 17651702084.31,
+        "level": 0
+      },
+      {
+        "source": "usd",
+        "target": "unbacked",
+        "value": 17651702084.31,
+        "level": 1
+      }
+    ],
+    "value": 17651702084.31,
+    "unbacked": 0,
+    "backed": 17651702084.31
+  },
+  "catoshi": {
+    "nodes": [
+      {
+        "id": "unbacked",
+        "value": 1564395.46
+      },
+      {
+        "id": "catoshi",
+        "name": "Catoshi",
+        "value": 1564395.46,
+        "level": 0
+      }
+    ],
+    "links": [
+      {
+        "source": "catoshi",
+        "target": "unbacked",
+        "value": 1564395.46,
+        "level": 0
+      }
+    ],
+    "value": 1564395.46,
+    "unbacked": 1564395.46,
+    "backed": 0
+  },
+  "ethereum": {
+    "nodes": [
+      {
+        "id": "unbacked",
+        "value": 199571281939.63
+      },
+      {
+        "id": "ethereum",
+        "name": "Ethereum",
+        "value": 199571281939.63,
+        "level": 0
+      }
+    ],
+    "links": [
+      {
+        "source": "ethereum",
+        "target": "unbacked",
+        "value": 199571281939.63,
+        "level": 0
+      }
+    ],
+    "value": 199571281939.63,
+    "unbacked": 199571281939.63,
+    "backed": 0
+  },
+  "fukarens": {
+    "nodes": [
+      {
+        "id": "unbacked",
+        "value": 27600
+      },
+      {
+        "id": "fukarens",
+        "name": "FuckYouKarens",
+        "value": 27600,
+        "level": 0
+      }
+    ],
+    "links": [
+      {
+        "source": "fukarens",
+        "target": "unbacked",
+        "value": 27600,
+        "level": 0
+      }
+    ],
+    "value": 27600,
+    "unbacked": 27600,
+    "backed": 0
+  },
+  "gallant": {
+    "nodes": [
+      {
+        "id": "unbacked",
+        "value": 93597.7
+      },
+      {
+        "id": "gallant",
+        "name": "Gallant",
+        "value": 93597.7,
+        "level": 0
+      }
+    ],
+    "links": [
+      {
+        "source": "gallant",
+        "target": "unbacked",
+        "value": 93597.7,
+        "level": 0
+      }
+    ],
+    "value": 93597.7,
+    "unbacked": 93597.7,
+    "backed": 0
+  },
+  "glmr-pad": {
+    "nodes": [
+      {
+        "id": "unbacked",
+        "value": 60510.78
+      },
+      {
+        "id": "glmr-pad",
+        "name": "Glmr Pad",
+        "value": 60510.78,
+        "level": 0
+      }
+    ],
+    "links": [
+      {
+        "source": "glmr-pad",
+        "target": "unbacked",
+        "value": 60510.78,
+        "level": 0
+      }
+    ],
+    "value": 60510.78,
+    "unbacked": 60510.78,
+    "backed": 0
+  },
+  "gold": {
+    "nodes": [
+      {
+        "id": "unbacked",
+        "value": 16167875486956.51
+      },
+      {
+        "id": "gold",
+        "name": "Gold",
+        "value": 16167875486956.51,
+        "level": 0
+      }
+    ],
+    "links": [
+      {
+        "source": "gold",
+        "target": "unbacked",
+        "value": 16167875486956.51,
+        "level": 0
+      }
+    ],
+    "value": 16167875486956.51,
+    "unbacked": 16167875486956.51,
+    "backed": 0
+  },
+  "hoge": {
+    "nodes": [
+      {
+        "id": "unbacked",
+        "value": 22089194.8
+      },
+      {
+        "id": "hoge",
+        "name": "Hoge Finance",
+        "value": 22089194.8,
+        "level": 0
+      }
+    ],
+    "links": [
+      {
+        "source": "hoge",
+        "target": "unbacked",
+        "value": 22089194.8,
+        "level": 0
+      }
+    ],
+    "value": 22089194.8,
+    "unbacked": 22089194.8,
+    "backed": 0
+  },
+  "lily-pad": {
+    "nodes": [
+      {
+        "id": "unbacked",
+        "value": 23259.85
+      },
+      {
+        "id": "lily-pad",
+        "name": "Lily Pad",
+        "value": 53111.22,
+        "level": 0
+      },
+      {
+        "id": "toad-network",
+        "name": "Toad Network",
+        "value": 12679.03,
+        "level": 1
+      },
+      {
+        "id": "bnb",
+        "name": "BNB",
+        "value": 7907.91,
+        "level": 1
+      },
+      {
+        "id": "busd",
+        "name": "BUSD",
+        "value": 5351.38,
+        "level": 1
+      },
+      {
+        "id": "usd",
+        "name": "U.S. dollar",
+        "value": 5351.38,
+        "level": 2
+      },
+      {
+        "id": "pxbsc",
+        "name": "Paradox NFT",
+        "value": 1511.97,
+        "level": 1
+      },
+      {
+        "id": "catoshi",
+        "name": "Catoshi",
+        "value": 907.74,
+        "level": 1
+      },
+      {
+        "id": "gallant",
+        "name": "Gallant",
+        "value": 423.65,
+        "level": 1
+      },
+      {
+        "id": "hoge",
+        "name": "Hoge Finance",
+        "value": 271.81,
+        "level": 1
+      },
+      {
+        "id": "ethereum",
+        "name": "Ethereum",
+        "value": 254.54,
+        "level": 1
+      },
+      {
+        "id": "bitcoin",
+        "name": "Bitcoin",
+        "value": 222.14,
+        "level": 1
+      },
+      {
+        "id": "fukarens",
+        "name": "FuckYouKarens",
+        "value": 192.56,
+        "level": 1
+      },
+      {
+        "id": "bullishjackpot",
+        "name": "Bullish Jackpot",
+        "value": 128.64,
+        "level": 1
+      }
+    ],
+    "links": [
+      {
+        "source": "lily-pad",
+        "target": "unbacked",
+        "value": 23259.85,
+        "level": 0
+      },
+      {
+        "source": "lily-pad",
+        "target": "toad-network",
+        "value": 12679.03,
+        "level": 0
+      },
+      {
+        "source": "toad-network",
+        "target": "unbacked",
+        "value": 12679.03,
+        "level": 1
+      },
+      {
+        "source": "lily-pad",
+        "target": "bnb",
+        "value": 7907.91,
+        "level": 0
+      },
+      {
+        "source": "bnb",
+        "target": "unbacked",
+        "value": 7907.91,
+        "level": 1
+      },
+      {
+        "source": "lily-pad",
+        "target": "busd",
+        "value": 5351.38,
+        "level": 0
+      },
+      {
+        "source": "busd",
+        "target": "usd",
+        "value": 5351.38,
+        "level": 1
+      },
+      {
+        "source": "usd",
+        "target": "unbacked",
+        "value": 5351.38,
+        "level": 2
+      },
+      {
+        "source": "lily-pad",
+        "target": "pxbsc",
+        "value": 1511.97,
+        "level": 0
+      },
+      {
+        "source": "pxbsc",
+        "target": "unbacked",
+        "value": 1511.97,
+        "level": 1
+      },
+      {
+        "source": "lily-pad",
+        "target": "catoshi",
+        "value": 907.74,
+        "level": 0
+      },
+      {
+        "source": "catoshi",
+        "target": "unbacked",
+        "value": 907.74,
+        "level": 1
+      },
+      {
+        "source": "lily-pad",
+        "target": "gallant",
+        "value": 423.65,
+        "level": 0
+      },
+      {
+        "source": "gallant",
+        "target": "unbacked",
+        "value": 423.65,
+        "level": 1
+      },
+      {
+        "source": "lily-pad",
+        "target": "hoge",
+        "value": 271.81,
+        "level": 0
+      },
+      {
+        "source": "hoge",
+        "target": "unbacked",
+        "value": 271.81,
+        "level": 1
+      },
+      {
+        "source": "lily-pad",
+        "target": "ethereum",
+        "value": 254.54,
+        "level": 0
+      },
+      {
+        "source": "ethereum",
+        "target": "unbacked",
+        "value": 254.54,
+        "level": 1
+      },
+      {
+        "source": "lily-pad",
+        "target": "bitcoin",
+        "value": 222.14,
+        "level": 0
+      },
+      {
+        "source": "bitcoin",
+        "target": "unbacked",
+        "value": 222.14,
+        "level": 1
+      },
+      {
+        "source": "lily-pad",
+        "target": "fukarens",
+        "value": 192.56,
+        "level": 0
+      },
+      {
+        "source": "fukarens",
+        "target": "unbacked",
+        "value": 192.56,
+        "level": 1
+      },
+      {
+        "source": "lily-pad",
+        "target": "bullishjackpot",
+        "value": 128.64,
+        "level": 0
+      },
+      {
+        "source": "bullishjackpot",
+        "target": "unbacked",
+        "value": 128.64,
+        "level": 1
+      }
+    ],
+    "value": 53111.22,
+    "unbacked": 23259.85,
+    "backed": 29851.37
+  },
+  "movr-pad": {
+    "nodes": [
+      {
+        "id": "unbacked",
+        "value": 9448.25
+      },
+      {
+        "id": "movr-pad",
+        "name": "Movr Pad",
+        "value": 9448.25,
+        "level": 0
+      }
+    ],
+    "links": [
+      {
+        "source": "movr-pad",
+        "target": "unbacked",
+        "value": 9448.25,
+        "level": 0
+      }
+    ],
+    "value": 9448.25,
+    "unbacked": 9448.25,
+    "backed": 0
+  },
+  "paxg": {
+    "nodes": [
+      {
+        "id": "unbacked",
+        "value": 0
+      },
+      {
+        "id": "paxg",
+        "name": "PAX Gold",
+        "value": 613215423.36,
+        "level": 0
+      },
+      {
+        "id": "gold",
+        "name": "Gold",
+        "value": 613215423.36,
+        "level": 1
+      }
+    ],
+    "links": [
+      {
+        "source": "paxg",
+        "target": "unbacked",
+        "value": 0,
+        "level": 0
+      },
+      {
+        "source": "paxg",
+        "target": "gold",
+        "value": 613215423.36,
+        "level": 0
+      },
+      {
+        "source": "gold",
+        "target": "unbacked",
+        "value": 613215423.36,
+        "level": 1
+      }
+    ],
+    "value": 613215423.36,
+    "unbacked": 0,
+    "backed": 613215423.36
+  },
+  "pxbsc": {
+    "nodes": [
+      {
+        "id": "unbacked",
+        "value": 37767.12
+      },
+      {
+        "id": "pxbsc",
+        "name": "Paradox NFT",
+        "value": 37767.12,
+        "level": 0
+      }
+    ],
+    "links": [
+      {
+        "source": "pxbsc",
+        "target": "unbacked",
+        "value": 37767.12,
+        "level": 0
+      }
+    ],
+    "value": 37767.12,
+    "unbacked": 37767.12,
+    "backed": 0
+  },
+  "toad-network": {
+    "nodes": [
+      {
+        "id": "unbacked",
+        "value": 516750
+      },
+      {
+        "id": "toad-network",
+        "name": "Toad Network",
+        "value": 516750,
+        "level": 0
+      }
+    ],
+    "links": [
+      {
+        "source": "toad-network",
+        "target": "unbacked",
+        "value": 516750,
+        "level": 0
+      }
+    ],
+    "value": 516750,
+    "unbacked": 516750,
+    "backed": 0
+  },
+  "usd": {
+    "nodes": [
+      {
+        "id": "unbacked",
+        "value": 21728000000000.03
+      },
+      {
+        "id": "usd",
+        "name": "U.S. dollar",
+        "value": 21728000000000.02,
+        "level": 0
+      }
+    ],
+    "links": [
+      {
+        "source": "usd",
+        "target": "unbacked",
+        "value": 21728000000000.02,
+        "level": 0
+      }
+    ],
+    "value": 21728000000000.02,
+    "unbacked": 21728000000000.02,
+    "backed": 0
+  },
+  "usdc": {
+    "nodes": [
+      {
+        "id": "usdc",
+        "name": "USD Coin",
+        "value": 47261819834,
+        "level": 0
+      },
+      {
+        "id": "unbacked",
+        "value": 0
+      },
+      {
+        "id": "usd",
+        "name": "U.S. dollar",
+        "value": 47261819834,
+        "level": 1
+      }
+    ],
+    "links": [
+      {
+        "source": "usdc",
+        "target": "usd",
+        "value": 47261819834,
+        "level": 0
+      },
+      {
+        "source": "usd",
+        "target": "unbacked",
+        "value": 47261819834,
+        "level": 1
+      }
+    ],
+    "value": 47261819834,
+    "unbacked": 0,
+    "backed": 47261819834
+  }
 }
