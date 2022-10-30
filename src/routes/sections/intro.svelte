@@ -5,6 +5,7 @@
 	import Search from '$lib/components/search.svelte';
 	import ForceGraph from '$lib/components/force-graph.svelte';
 
+	/** @type {import('./types').Theme} */
 	export let theme = {
 		main: {
 			text: 'text-neon-blue',

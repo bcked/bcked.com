@@ -1,10 +1,8 @@
 <script>
-	import { base } from '$app/paths';
-	import { ChevronRightIcon } from '@rgossiaux/svelte-heroicons/solid';
-	import Table from '$lib/components/table.svelte';
 	import SvelteSeo from 'svelte-seo';
 	import IntroSection from './sections/intro.svelte';
 	import DiscoverSection from './sections/discover.svelte';
+	import RoadmapSection from './sections/roadmap.svelte';
 	import RankingSection from './sections/ranking.svelte';
 
 	/** @type {import('./$types').PageData} */
@@ -20,8 +18,7 @@
 
 <main>
 	<IntroSection {assets} {graph} />
-	<div class="bg-neon-gray-light">
-		<DiscoverSection {assets} {stats} />
-	</div>
+	<DiscoverSection {assets} {stats} />
+	<RoadmapSection />
 	<RankingSection {assets} {trees} />
 </main>

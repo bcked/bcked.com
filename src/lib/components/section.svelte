@@ -21,18 +21,20 @@
 	}
 </script>
 
-<section
-	{id}
-	aria-label={label}
-	class="relative text-center lg:text-left max-w-7xl mx-auto py-16 sm:py-24 sm:px-6 lg:px-8 {clazz}"
-	use:inview={inViewOptions}
-	on:enter={(event) => {
-		const { inView, entry, scrollDirection, observer, node } = event.detail;
-		isInView = inView;
-		if (isInView) {
-			setUrl();
-		}
-	}}
->
-	<slot />
-</section>
+<div class="odd:bg-gray-200 even:bg-neon-gray-light">
+	<section
+		{id}
+		aria-label={label}
+		class="relative text-center lg:text-left max-w-7xl mx-auto py-16 sm:py-24 sm:px-6 lg:px-8 {clazz}"
+		use:inview={inViewOptions}
+		on:enter={(event) => {
+			const { inView, entry, scrollDirection, observer, node } = event.detail;
+			isInView = inView;
+			if (isInView) {
+				setUrl();
+			}
+		}}
+	>
+		<slot />
+	</section>
+</div>

@@ -10,6 +10,7 @@
 
 	const mainNavigation = [
 		{ name: 'Discover', path: `${base}/#discover` },
+		{ name: 'Roadmap', path: `${base}/#roadmap` },
 		{ name: 'Ranking', path: `${base}/#ranking` }
 	];
 
@@ -25,10 +26,15 @@
 	];
 
 	const socials = [
-		// {
+		// { // TODO
 		// 	name: 'Twitter',
 		// 	href: '#',
 		// 	icon: TwitterIcon
+		// },
+		// { // TODO
+		// 	name: 'Reddit',
+		// 	href: '#',
+		// 	icon: RedditIcon
 		// },
 		{
 			name: 'Telegram',

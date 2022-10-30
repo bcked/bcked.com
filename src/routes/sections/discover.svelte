@@ -12,6 +12,7 @@
 	/** @type {any} */
 	export let stats;
 
+	/** @type {import('./types').Theme} */
 	export let theme = {
 		main: {
 			text: 'text-neon-yellow',

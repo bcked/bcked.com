@@ -12,6 +12,7 @@
 	/** @type {any} */
 	export let trees;
 
+	/** @type {import('./types').Theme} */
 	export let theme = {
 		main: {
 			text: 'text-neon-pink',
