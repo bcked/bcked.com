@@ -38,7 +38,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2022-10-31T18:58:45.895Z",
+        "timestamp": "2022-10-31T22:28:31.325Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -103,7 +103,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2022-10-31T18:58:45.900Z",
+        "timestamp": "2022-10-31T22:28:31.329Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -153,7 +153,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2022-10-31T18:58:45.902Z",
+        "timestamp": "2022-10-31T22:28:31.333Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -271,7 +271,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2022-10-31T18:58:45.912Z",
+        "timestamp": "2022-10-31T22:28:31.341Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -332,7 +332,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2022-10-31T18:58:45.921Z",
+        "timestamp": "2022-10-31T22:28:31.348Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -384,7 +384,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2022-10-31T18:58:45.926Z",
+        "timestamp": "2022-10-31T22:28:31.350Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -444,7 +444,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2022-10-31T18:58:45.929Z",
+        "timestamp": "2022-10-31T22:28:31.360Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -502,7 +502,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2022-10-31T18:58:45.931Z",
+        "timestamp": "2022-10-31T22:28:31.362Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -548,7 +548,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2022-10-31T18:58:45.933Z",
+        "timestamp": "2022-10-31T22:28:31.365Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -607,7 +607,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2022-10-31T18:58:45.935Z",
+        "timestamp": "2022-10-31T22:28:31.367Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -703,7 +703,11 @@
           "pxbsc": 16924476797.09,
           "catoshi": 16775.84
         },
-        "source": "https://v2.padswap.exchange/vault/"
+        "source": "https://v2.padswap.exchange/vault/",
+        "backing-assets": 5,
+        "backing-usd": 24339.56,
+        "ratio": 0.4583,
+        "uniformity": 0.7166
       }
     ],
     "mcap": 53111.22,
@@ -755,7 +759,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2022-10-31T18:58:45.941Z",
+        "timestamp": "2022-10-31T22:28:31.375Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -871,7 +875,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2022-10-31T18:58:45.945Z",
+        "timestamp": "2022-10-31T22:28:31.380Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -937,7 +941,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2022-10-31T18:58:45.947Z",
+        "timestamp": "2022-10-31T22:28:31.382Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -983,7 +987,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2022-10-31T18:58:45.948Z",
+        "timestamp": "2022-10-31T22:28:31.384Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -1115,21 +1119,33 @@
         "assets": {
           "usd": 52430816552
         },
-        "source": "https://www.centre.io/hubfs/USDC%202022_Circle%20Examination%20Report%20August%202022.pdf?hsLang=en"
+        "source": "https://www.centre.io/hubfs/USDC%202022_Circle%20Examination%20Report%20August%202022.pdf?hsLang=en",
+        "backing-assets": 1,
+        "backing-usd": 52258056105,
+        "ratio": 1.1057,
+        "uniformity": 1
       },
       {
         "timestamp": "2022-08-01T06:59:00.000Z",
         "assets": {
           "usd": 54618693479
         },
-        "source": "https://www.centre.io/hubfs/PDF/USDC%202022_Circle%20Examination%20Report%20July%202022.pdf?hsLang=en"
+        "source": "https://www.centre.io/hubfs/PDF/USDC%202022_Circle%20Examination%20Report%20July%202022.pdf?hsLang=en",
+        "backing-assets": 1,
+        "backing-usd": 54488837404,
+        "ratio": 1.1529,
+        "uniformity": 1
       },
       {
         "timestamp": "2022-07-01T06:59:00.000Z",
         "assets": {
           "usd": 55569660586
         },
-        "source": "https://www.centre.io/hubfs/PDF/USDC%202022_Circle%20Examination%20Report%20June%202022.pdf?hsLang=en"
+        "source": "https://www.centre.io/hubfs/PDF/USDC%202022_Circle%20Examination%20Report%20June%202022.pdf?hsLang=en",
+        "backing-assets": 1,
+        "backing-usd": 55569660586,
+        "ratio": 1.1758,
+        "uniformity": 1
       }
     ],
     "mcap": 47261819834,
