@@ -1,4 +1,5 @@
 <script>
+	import { generate } from '$lib/utils/array';
 	import * as d3 from 'd3';
 
 	/** @type {string} */
@@ -34,10 +35,13 @@
 		.domain(d3.extent(data, (d) => parseTime(d.date)))
 		.range([0, width]);
 
+	const maxValue = d3.max(data, (d) => d.value);
+	const minValue = d3.min(data, (d) => d.value);
+
 	// vertically  consider the input values
 	const yScale = d3
 		.scaleLinear()
-		.domain([0, d3.max(data, (d) => d.value)])
+		.domain([minValue, maxValue])
 		// swap [0, height] to have the shapes positioned _from_ the bottom of the svg
 		.range([height, 0]);
 
@@ -65,23 +69,31 @@
 		value: data[point].value
 	}));
 
+	// const dataPoints = data.map((point) => ({
+	// 	x: xScale(parseTime(point.date)),
+	// 	y: yScale(point.value),
+	// 	value: point.value
+	// }));
+
 	// "ticks", milestones marked on the x-axis
 	// instead of using d3, we create here marks for an arbitrary set of dates
 	const minDate = d3.min(data, (d) => parseTime(d.date));
 	const maxDate = d3.max(data, (d) => parseTime(d.date));
-	const q1 = d3.quantile(data, 0.25, (d) => parseTime(d.date));
-	const q2 = d3.quantile(data, 0.5, (d) => parseTime(d.date));
-	const q3 = d3.quantile(data, 0.75, (d) => parseTime(d.date));
+	const xq1 = d3.quantile(data, 0.25, (d) => parseTime(d.date));
+	const xq2 = d3.quantile(data, 0.5, (d) => parseTime(d.date));
+	const xq3 = d3.quantile(data, 0.75, (d) => parseTime(d.date));
 
-	const xAxis = [minDate, q1, q2, q3, maxDate];
+	const xAxis = [minDate, xq1, xq2, xq3, maxDate];
 
 	// "ticks" for the y-axis
 	// the idea is to include 10 values, up to the maximum value
-	const maxValue = d3.max(data, (d) => d.value);
-	const yTicks = 10;
-	const yAxis = Array(Math.floor(maxValue / yTicks))
-		.fill()
-		.map((value, index) => (index + 1) * yTicks);
+	// const yTicks = 6;
+	// const yAxis = generate(minValue, maxValue, yTicks).map(Math.round);
+
+	const yq1 = d3.quantile(data, 0.25, (d) => d.value);
+	const yq2 = d3.quantile(data, 0.5, (d) => d.value);
+	const yq3 = d3.quantile(data, 0.75, (d) => d.value);
+	const yAxis = [minValue, yq1, yq2, yq3, maxValue];
 
 	// variable describing the tooltip
 	// the idea is to assign a data point to this variable
@@ -101,7 +113,6 @@
 	}}
 	on:blur={() => {}}
 >
-	<h1>{title}</h1>
 	<svg
 		{width}
 		{height}
@@ -239,7 +250,7 @@
 			{#each data as dataPoint, index}
 				<g transform="translate({xScale(parseTime(dataPoint.date))} 0)">
 					<!-- upon entering the rectangle update the tooltip with the data point behind the respective rectangle -->
-					<rect
+					<!-- <rect
 						on:mouseenter={() => {
 							tooltip = data[index];
 						}}
@@ -247,7 +258,7 @@
 						x="-{xScale(parseTime(data[data.length - 1].date)) / 2}"
 						width={xScale(parseTime(data[data.length - 1].date)) - xScale(parseTime(data[0].date))}
 						{height}
-					/>
+					/> -->
 				</g>
 			{/each}
 		</g>

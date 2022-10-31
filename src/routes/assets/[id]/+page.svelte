@@ -108,10 +108,10 @@
 				</div>
 				<div class="max-w-3xl mx-auto text-center mt-12 text-lg font-thin text-gray-500">
 					<LineChart
-						title=""
-						data={asset.price.map(({ timestamp, usd }) => ({
-							date: timestamp,
-							value: usd
+						title="Backing history of {asset.name}"
+						data={asset.backing.map((backing) => ({
+							date: backing.timestamp,
+							value: backing['backing-usd']
 						}))}
 					/>
 				</div>

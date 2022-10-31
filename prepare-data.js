@@ -99,6 +99,10 @@ async function followBackingTree(id, backedAsset, assetValue, assets, level, tim
     const totalBackingUsd = backedAssets.reduce((partialSum, [key, value, backingUsd]) => partialSum + backingUsd, 0);
     const unbacked = totalBackingUsd > assetValue ? 0 : assetValue - totalBackingUsd
 
+    console.log(totalBackingUsd)
+    console.log(unbacked)
+    console.log(assetValue)
+
     /** @type {Object[]} */
     let nodes = [{ id, name: backedAsset.name, value: assetValue, level }, { id: "unbacked", value: 0 }];
     /** @type {Object[]} */
@@ -120,7 +124,10 @@ async function followBackingTree(id, backedAsset, assetValue, assets, level, tim
 }
 
 async function buildBackingTree(id, asset, assets, timestamp) {
-    const { nodes, links } = await followBackingTree(id, asset, asset.mcap, assets, 0, timestamp)
+    const supply = closest(asset.supply, timestamp).circulating || closest(asset.supply, timestamp).total || 0
+    const mcap = round(closest(asset.price, timestamp).usd * supply, 2)
+
+    const { nodes, links } = await followBackingTree(id, asset, mcap, assets, 0, timestamp)
 
     let reduced_links = []
     for (const link of links) {
@@ -178,22 +185,22 @@ export async function prepareData() {
     fs.writeFileSync('./_generated/backing-tree.yml', yaml.stringify(backingTree))
 
     for (const [key, { backing, mcap }] of Object.entries(assets)) {
-        // TODO do for all timestamps
         if (!backing || !mcap) {
             continue;
         }
-        var currentBacking = backing[0]
 
-        const lastLevelBacking = backingTree[key][0].links
-            .filter((l) => l.target == 'unbacked' && l.source != key)
-            .map((l) => l.value);
+        for (let [i, currentBacking] of backing.entries()) {
+            const lastLevelBacking = backingTree[key][i].links
+                .filter((l) => l.target == 'unbacked' && l.source != key)
+                .map((l) => l.value);
 
-        currentBacking['backing-assets'] = lastLevelBacking.length
+            currentBacking['backing-assets'] = lastLevelBacking.length
 
-        const totalLastLevelBacking = lastLevelBacking.reduce((s, v) => s + v, 0);
-        currentBacking['backing-usd'] = round(totalLastLevelBacking, 2) || 0
-        currentBacking['ratio'] = round(totalLastLevelBacking / mcap, 4) || 0
-        currentBacking['uniformity'] = round(uniformity(lastLevelBacking), 4)
+            const totalLastLevelBacking = lastLevelBacking.reduce((s, v) => s + v, 0);
+            currentBacking['backing-usd'] = round(totalLastLevelBacking, 2) || 0
+            currentBacking['ratio'] = round(totalLastLevelBacking / mcap, 4) || 0
+            currentBacking['uniformity'] = round(uniformity(lastLevelBacking), 4)
+        }
     }
 
     fs.writeFileSync('./_generated/assets.yml', yaml.stringify(assets))
@@ -202,7 +209,7 @@ export async function prepareData() {
         if (backing.length == 0 || !('backing-usd' in backing[0])) {
             return a
         }
-        currentBacking = backing[0]
+        let currentBacking = backing[0]
 
         if (currentBacking['backing-usd'] == 0) {
             return { ...a, "assets": a['assets'] + 1 }
