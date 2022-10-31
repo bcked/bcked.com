@@ -6,9 +6,6 @@ import _ from "lodash";
  * @param {string} timestamp
  */
 export function closest(array, timestamp) {
-    console.log(array)
-    console.log(timestamp)
-    console.log(_.minBy(array, (item) => Math.abs(new Date(item.timestamp).getTime() - new Date(timestamp).getTime())))
     return _.minBy(array, (item) => Math.abs(new Date(item.timestamp).getTime() - new Date(timestamp).getTime()))
 }
 

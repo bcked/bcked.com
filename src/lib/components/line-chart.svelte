@@ -4,24 +4,24 @@
 
 	/** @type {string} */
 	export let title;
-	/* data describes an array of objects structured to describe a date and a value
-        {
-            date,
-            value
-        }
-        */
-	/** @type {{ date: string, value: Number}} */
+
+	/**
+	 * Data describes an array of objects structured to describe a date and a value.
+	 * @type {{ date: string, value: Number}} */
 	export let data;
+
+	/** @type {(v: number) => string} */
+	export let formatValue = (v) => v.toString();
 
 	// size of the svg
 	const width = 100;
-	const height = 80;
+	const height = 50;
 
 	const margin = {
-		top: 15,
-		right: 15,
-		bottom: 15,
-		left: 15
+		top: 5,
+		right: 5,
+		bottom: 5,
+		left: 5
 	};
 
 	// timeParse to parse the input data as to create a date object
@@ -60,21 +60,6 @@
 		.y1((d) => yScale(d.value))
 		.curve(d3.curveCatmullRom);
 
-	// points highlighted through circle elements
-	// in this instance the first and last
-	const points = [0, data.length - 1];
-	const dataPoints = points.map((point) => ({
-		x: xScale(parseTime(data[point].date)),
-		y: yScale(data[point].value),
-		value: data[point].value
-	}));
-
-	// const dataPoints = data.map((point) => ({
-	// 	x: xScale(parseTime(point.date)),
-	// 	y: yScale(point.value),
-	// 	value: point.value
-	// }));
-
 	// "ticks", milestones marked on the x-axis
 	// instead of using d3, we create here marks for an arbitrary set of dates
 	const minDate = d3.min(data, (d) => parseTime(d.date));
@@ -106,151 +91,117 @@
 	const highlight = data.slice(highlightStart, highlightEnd + 1);
 </script>
 
-<!-- when exiting the article remove the tooltip -->
-<article
-	on:mouseout={() => {
-		tooltip = null;
-	}}
-	on:blur={() => {}}
+<svg
+	{width}
+	{height}
+	viewBox="0 0 {width + (margin.left + margin.right)} {height + (margin.top + margin.bottom)}"
 >
-	<svg
-		{width}
-		{height}
-		viewBox="0 0 {width + (margin.left + margin.right)} {height + (margin.top + margin.bottom)}"
-	>
-		<defs>
-			<!-- through a carve out the area dedicated to the data points
+	<defs>
+		<!-- through a carve out the area dedicated to the data points
             this makes it possible to hide elements behind their circles
             ! use the title in the ID to avoid a conflict between multiple svg
             -->
-			<mask id="mask-{title.toLowerCase().split(' ').join('-')}">
-				<rect
-					x={-margin.left}
-					y={-margin.top}
-					width={width + (margin.left + margin.right)}
-					height={height + (margin.top + margin.bottom)}
-					fill="hsl(0, 0%, 100%)"
-				/>
-				{#each dataPoints as dataPoint}
-					<circle fill="hsl(0, 0%, 0%)" stroke="none" r="1.5" cx={dataPoint.x} cy={dataPoint.y} />
-				{/each}
-			</mask>
-			<!-- repeating linear gradient describing the highlight section
+		<mask id="mask-{title.toLowerCase().split(' ').join('-')}">
+			<rect
+				x={-margin.left}
+				y={-margin.top}
+				width={width + (margin.left + margin.right)}
+				height={height + (margin.top + margin.bottom)}
+				fill="hsl(0, 0%, 100%)"
+			/>
+		</mask>
+		<!-- repeating linear gradient describing the highlight section
             ! use the title in the ID to avoid a conflict between multiple svg
              -->
-			<linearGradient
-				id="gradient-{title.toLowerCase().split(' ').join('-')}"
-				gradientUnits="userSpaceOnUse"
-				spreadMethod="repeat"
-				x1="0"
-				x2="1"
-				y1="0"
-				y2="1"
-			>
-				<stop stop-color="currentColor" offset="0.5" />
-				<stop stop-color="hsl(0, 0%, 100%)" offset="0.5" />
-			</linearGradient>
-		</defs>
-		<g transform="translate({margin.top} {margin.left})">
-			<!-- line+area chart
+		<linearGradient
+			id="gradient-{title.toLowerCase().split(' ').join('-')}"
+			gradientUnits="userSpaceOnUse"
+			spreadMethod="repeat"
+			x1="0"
+			x2="1"
+			y1="0"
+			y2="1"
+		>
+			<stop stop-color="currentColor" offset="0.5" />
+			<stop stop-color="hsl(0, 0%, 100%)" offset="0.5" />
+		</linearGradient>
+	</defs>
+	<g transform="translate({margin.top} {margin.left})">
+		<!-- line+area chart
             using the mask to avoid drawing shapes where the highlighted points rest
             -->
-			<g mask="url(#mask-{title.toLowerCase().split(' ').join('-')})">
-				<!-- area describing the highlight section -->
-				<path
-					opacity="0.25"
-					fill="url(#gradient-{title.toLowerCase().split(' ').join('-')})"
-					stroke="none"
-					d={area(highlight)}
-				/>
+		<g mask="url(#mask-{title.toLowerCase().split(' ').join('-')})">
+			<!-- area describing the highlight section -->
+			<path
+				opacity="0.25"
+				fill="url(#gradient-{title.toLowerCase().split(' ').join('-')})"
+				stroke="none"
+				d={area(highlight)}
+			/>
 
-				<!-- made-up axes using the dates and values chosen in the Axis variables to draw text and a few lines -->
-				<g class="axes">
-					<g transform="translate(0 {height})">
-						<!-- solid dash of the xAxis -->
-						<path fill="none" stroke="hsl(0, 0%, 0%)" stroke-width="0.5" d="M 0 0 h {width}" />
-						{#each xAxis as xTick}
-							<g transform="translate({xScale(xTick)} 0)">
-								<text fill="hsl(0, 0%, 0%)" font-size="3" text-anchor="middle" y="5"
-									>{formatTime(xTick)}</text
-								>
-							</g>
-						{/each}
-					</g>
-					{#each yAxis as yTick}
-						<g transform="translate(0 {yScale(yTick)})">
-							<!-- grid lines for the y axis -->
-							<path
-								opacity="0.2"
-								fill="none"
-								stroke="hsl(0, 0%, 0%)"
-								stroke-width="0.5"
-								stroke-dasharray="1"
-								d="M 0 0 h {width}"
-							/>
-							<!-- position the text right atop the grid lines -->
-							<text
-								fill="hsl(0, 0%, 0%)"
-								opacity="0.5"
-								font-size="3"
-								text-anchor="start"
-								x="0"
-								y="-1">{yTick}</text
+			<!-- made-up axes using the dates and values chosen in the Axis variables to draw text and a few lines -->
+			<g class="axes">
+				<g transform="translate(0 {height})">
+					<!-- solid dash of the xAxis -->
+					<path fill="none" stroke="hsl(0, 0%, 0%)" stroke-width="0.5" d="M 0 0 h {width}" />
+					{#each xAxis as xTick}
+						<g transform="translate({xScale(xTick)} 0)">
+							<text fill="hsl(0, 0%, 0%)" font-size="3" text-anchor="middle" y="5"
+								>{formatTime(xTick)}</text
 							>
 						</g>
 					{/each}
 				</g>
-
-				<!-- line chart -->
-				<path fill="none" stroke="currentColor" stroke-width="1" d={line(data)} />
-				<!-- area chart -->
-				<path opacity="0.15" fill="currentColor" stroke="none" d={area(data)} />
+				{#each yAxis as yTick}
+					<g transform="translate(0 {yScale(yTick)})">
+						<!-- grid lines for the y axis -->
+						<path
+							opacity="0.2"
+							fill="none"
+							stroke="hsl(0, 0%, 0%)"
+							stroke-width="0.5"
+							stroke-dasharray="1"
+							d="M 0 0 h {width}"
+						/>
+						<!-- position the text right atop the grid lines -->
+						<text fill="hsl(0, 0%, 0%)" opacity="0.5" font-size="3" text-anchor="start" x="0" y="-1"
+							>{formatValue(yTick)}</text
+						>
+					</g>
+				{/each}
 			</g>
 
-			<!-- data points highlighted through circle and text elements -->
-			{#each dataPoints as dataPoint}
-				<circle
+			<!-- line chart -->
+			<path fill="none" stroke="currentColor" stroke-width="1" d={line(data)} />
+			<!-- area chart -->
+			<path opacity="0.15" fill="currentColor" stroke="none" d={area(data)} />
+		</g>
+
+		<!-- tooltip described with a text, circle, and a line connecting the data point vertically to the x axis -->
+		{#if tooltip}
+			<g
+				fill="currentColor"
+				transform="translate({xScale(parseTime(tooltip.date))} {yScale(tooltip.value)})"
+			>
+				<text text-anchor="middle" font-size="5" font-weight="bold" fill="hsl(0, 0%, 10%)" y="-3"
+					>{tooltip.value}</text
+				>
+				<path
+					opacity="0.75"
 					fill="none"
-					stroke="currentColor"
-					stroke-width="1"
-					r="1.5"
-					cx={dataPoint.x}
-					cy={dataPoint.y}
+					stroke="hsl(0, 0%, 10%)"
+					stroke-width="0.5"
+					stroke-dasharray="1"
+					d="M 0 0 v {height - yScale(tooltip.value)}"
 				/>
-				<text
-					text-anchor="middle"
-					font-size="5"
-					font-weight="bold"
-					fill="currentColor"
-					x={dataPoint.x}
-					y={dataPoint.y - 3}>{dataPoint.value}</text
-				>
-			{/each}
-			<!-- tooltip described with a text, circle, and a line connecting the data point vertically to the x axis -->
-			{#if tooltip}
-				<g
-					fill="currentColor"
-					transform="translate({xScale(parseTime(tooltip.date))} {yScale(tooltip.value)})"
-				>
-					<text text-anchor="middle" font-size="5" font-weight="bold" fill="hsl(0, 0%, 10%)" y="-3"
-						>{tooltip.value}</text
-					>
-					<path
-						opacity="0.75"
-						fill="none"
-						stroke="hsl(0, 0%, 10%)"
-						stroke-width="0.5"
-						stroke-dasharray="1"
-						d="M 0 0 v {height - yScale(tooltip.value)}"
-					/>
-					<circle r="2" fill="hsl(0, 0%, 10%)" />
-				</g>
-			{/if}
-			<!-- rectangles included atop the visualization to manage mouse events  -->
-			{#each data as dataPoint, index}
-				<g transform="translate({xScale(parseTime(dataPoint.date))} 0)">
-					<!-- upon entering the rectangle update the tooltip with the data point behind the respective rectangle -->
-					<!-- <rect
+				<circle r="2" fill="hsl(0, 0%, 10%)" />
+			</g>
+		{/if}
+		<!-- rectangles included atop the visualization to manage mouse events  -->
+		{#each data as dataPoint, index}
+			<g transform="translate({xScale(parseTime(dataPoint.date))} 0)">
+				<!-- upon entering the rectangle update the tooltip with the data point behind the respective rectangle -->
+				<!-- <rect
 						on:mouseenter={() => {
 							tooltip = data[index];
 						}}
@@ -259,11 +210,10 @@
 						width={xScale(parseTime(data[data.length - 1].date)) - xScale(parseTime(data[0].date))}
 						{height}
 					/> -->
-				</g>
-			{/each}
-		</g>
-	</svg>
-</article>
+			</g>
+		{/each}
+	</g>
+</svg>
 
 <style>
 	svg {

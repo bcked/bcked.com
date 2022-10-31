@@ -99,10 +99,6 @@ async function followBackingTree(id, backedAsset, assetValue, assets, level, tim
     const totalBackingUsd = backedAssets.reduce((partialSum, [key, value, backingUsd]) => partialSum + backingUsd, 0);
     const unbacked = totalBackingUsd > assetValue ? 0 : assetValue - totalBackingUsd
 
-    console.log(totalBackingUsd)
-    console.log(unbacked)
-    console.log(assetValue)
-
     /** @type {Object[]} */
     let nodes = [{ id, name: backedAsset.name, value: assetValue, level }, { id: "unbacked", value: 0 }];
     /** @type {Object[]} */

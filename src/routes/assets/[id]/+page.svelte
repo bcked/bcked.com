@@ -113,6 +113,7 @@
 							date: backing.timestamp,
 							value: backing['backing-usd']
 						}))}
+						formatValue={(v) => formatCurrency(v)}
 					/>
 				</div>
 			</div>
