@@ -18,10 +18,10 @@
 	const height = 50;
 
 	const margin = {
-		top: 5,
-		right: 5,
-		bottom: 5,
-		left: 5
+		top: 0,
+		right: 0,
+		bottom: 0,
+		left: 0
 	};
 
 	// timeParse to parse the input data as to create a date object
@@ -143,10 +143,10 @@
 			<g class="axes">
 				<g transform="translate(0 {height})">
 					<!-- solid dash of the xAxis -->
-					<path fill="none" stroke="hsl(0, 0%, 0%)" stroke-width="0.5" d="M 0 0 h {width}" />
+					<!-- <path fill="none" stroke="hsl(0, 0%, 0%)" stroke-width="0.5" d="M 0 0 h {width}" /> -->
 					{#each xAxis as xTick}
 						<g transform="translate({xScale(xTick)} 0)">
-							<text fill="hsl(0, 0%, 0%)" font-size="3" text-anchor="middle" y="5"
+							<text fill="hsl(0, 0%, 0%)" font-size="3" text-anchor="middle" y={-1}
 								>{formatTime(xTick)}</text
 							>
 						</g>
@@ -198,20 +198,6 @@
 			</g>
 		{/if}
 		<!-- rectangles included atop the visualization to manage mouse events  -->
-		{#each data as dataPoint, index}
-			<g transform="translate({xScale(parseTime(dataPoint.date))} 0)">
-				<!-- upon entering the rectangle update the tooltip with the data point behind the respective rectangle -->
-				<!-- <rect
-						on:mouseenter={() => {
-							tooltip = data[index];
-						}}
-						opacity="0"
-						x="-{xScale(parseTime(data[data.length - 1].date)) / 2}"
-						width={xScale(parseTime(data[data.length - 1].date)) - xScale(parseTime(data[0].date))}
-						{height}
-					/> -->
-			</g>
-		{/each}
 	</g>
 </svg>
 

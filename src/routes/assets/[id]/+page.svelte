@@ -87,26 +87,30 @@
 		</div>
 
 		<div class="grid grid-cols-1 gap-4 lg:grid-cols-2 shadow-none">
-			<div class="px-4 py-5 bg-gray-50 shadow sm:rounded-lg overflow-hidden sm:p-6">
-				<div class="max-w-3xl mx-auto text-center">
-					<h2 class="text-3xl tracking-tight font-bold text-gray-900">Backing History</h2>
-					<p class="mt-4 text-lg text-gray-500">
-						View the backing history of {asset.name}.
-					</p>
+			<div class="bg-gray-50 shadow sm:rounded-lg overflow-hidden">
+				<div class="px-4 py-5 sm:p-6">
+					<div class="max-w-3xl mx-auto text-center">
+						<h2 class="text-3xl tracking-tight font-bold text-gray-900">Backing History</h2>
+						<p class="mt-4 text-lg text-gray-500">
+							View the backing history of {asset.name}.
+						</p>
+					</div>
+					<div class="flex mt-6 items-center justify-between">
+						<dl>
+							<dt class="text-sm font-medium text-gray-500 truncate">Current Backing</dt>
+							<dd class="mt-1 text-3xl font-semibold text-gray-900">
+								{formatCurrency(asset.backing[0]['backing-usd'])}
+							</dd>
+						</dl>
+						<dl class="text-right">
+							<dt class="text-sm font-medium text-gray-500 truncate">Current Market Cap</dt>
+							<dd class="mt-1 text-3xl font-semibold text-gray-900">
+								{formatCurrency(asset.mcap)}
+							</dd>
+						</dl>
+					</div>
 				</div>
-				<div class="flex mt-6 items-center justify-between">
-					<dl>
-						<dt class="text-sm font-medium text-gray-500 truncate">Current Backing</dt>
-						<dd class="mt-1 text-3xl font-semibold text-gray-900">
-							{formatCurrency(asset.backing[0]['backing-usd'])}
-						</dd>
-					</dl>
-					<dl class="text-right">
-						<dt class="text-sm font-medium text-gray-500 truncate">Current Market Cap</dt>
-						<dd class="mt-1 text-3xl font-semibold text-gray-900">{formatCurrency(asset.mcap)}</dd>
-					</dl>
-				</div>
-				<div class="max-w-3xl mx-auto text-center mt-12 text-lg font-thin text-gray-500">
+				<div class="max-w-3xl mx-auto text-center mt-6 text-lg font-thin text-gray-500">
 					<LineChart
 						title="Backing history of {asset.name}"
 						data={asset.backing.map((backing) => ({
