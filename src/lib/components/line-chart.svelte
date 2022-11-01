@@ -41,8 +41,8 @@
 		.domain(d3.extent(data, (d) => parseX(d.x)))
 		.range([0, width]);
 
-	const maxY = d3.max(data, (d) => parseY(d.y));
-	const minY = d3.min(data, (d) => parseY(d.y));
+	$: maxY = d3.max(data, (d) => parseY(d.y));
+	$: minY = d3.min(data, (d) => parseY(d.y));
 
 	// vertically  consider the input values
 	$: yScale = d3.scaleLinear().domain([minY, maxY]).range([height, 0]);
@@ -74,7 +74,7 @@
 	);
 
 	// "ticks" for the y-axis
-	const yAxis = generate(minY, maxY, 5);
+	$: yAxis = generate(minY, maxY, 5);
 </script>
 
 <div class="overflow-visible" bind:offsetWidth={width}>
