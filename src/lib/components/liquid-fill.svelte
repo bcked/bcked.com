@@ -82,7 +82,7 @@
 		.area()
 		.x((d) => waveScaleX(d.x))
 		.y0((d) => waveScaleY(Math.sin(Math.PI * 2 * waveOffset * -1 + d.y * 2 * Math.PI)))
-		.y1((d) => 100 + waveHeightLocal + 20); // TODO check if adding 10 here is okay
+		.y1((d) => 100 + waveHeightLocal + 20); // TODO check if adding 20 here is okay
 
 	let waveData = '';
 	$: waveData = clipArea(data);
@@ -99,11 +99,17 @@
 					id="clipWave-{gaugeId}"
 					transform="translate({waveGroupXPosition}, {waveRiseScale(fillPercent)})"
 				>
-					<path
-						d={waveData}
-						class="animate-water"
-						style="--waveAnimateTime: {waveAnimateTime}ms;"
-					/>
+					<path d={waveData}>
+						<animateTransform
+							attributeName="transform"
+							attributeType="XML"
+							type="translate"
+							from="0"
+							to="-{width * 2}"
+							dur="{waveAnimateTime}ms"
+							repeatCount="indefinite"
+						/>
+					</path>
 				</clipPath>
 			</defs>
 			<g clip-path="url(#clipWave-{gaugeId})">
@@ -112,15 +118,3 @@
 		</g>
 	</svg>
 </div>
-
-<style>
-	.animate-water {
-		animation: ripple var(--waveAnimateTime) infinite linear;
-	}
-
-	@keyframes ripple {
-		100% {
-			transform: translate3d(-200%, 0, 0);
-		}
-	}
-</style>
