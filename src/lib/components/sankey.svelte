@@ -67,7 +67,7 @@
 	function sankeyLinkPath(link) {
 		// Start and end of the link
 		let sy1 = link.source.x1;
-		let ty0 = link.target.x0 + 1;
+		let ty0 = link.target.x0;
 
 		// All four outer corners of the link
 		// where e.g. lsx0 is the right corner of the link on the source side
@@ -109,8 +109,9 @@
 			{@const asset = assets[d.id]}
 			{@const nodeWidth = d.y1 - d.y0}
 			{@const iconSize = nodeHeight * 0.8}
-			{#if nodeWidth / sankeyWidth < 0.05}
-				<!-- {#if asset.icon}
+			<g class="sankey-node group">
+				{#if nodeWidth / sankeyWidth < 0.05}
+					<!-- {#if asset.icon}
 					<image
 						x={d.y0 + nodeWidth / 2}
 						y={d.x0 + nodeHeight / 2}
@@ -121,77 +122,74 @@
 						text-anchor="middle"
 					/>
 				{/if} -->
-				<rect
-					x={d.y0}
-					y={d.x0}
-					height={nodeHeight}
-					width={nodeWidth}
-					rx="5"
-					ry="5"
-					fill={colorNodes(d)}
-					><title
-						>{#if asset}
-							{asset.name}
-						{:else}
-							Unknown Name
-						{/if}</title
-					></rect
-				>
-			{:else if d.id == 'other'}
-				<rect
-					x={d.y0}
-					y={d.x0}
-					height={nodeHeight}
-					width={nodeWidth}
-					rx="5"
-					ry="5"
-					fill={colorNodes(d)}
-				/>
-				<text
-					class="pointer-events-none"
-					x={d.y0 + nodeWidth / 2}
-					y={d.x0 + nodeHeight / 2}
-					dominant-baseline="central"
-					text-anchor="middle"
-					style="
-				fill: {colorText(d)};
-                font-size: {fontSize}px;
-				"
-				>
-					{'<'}10%
-				</text>
-			{:else if d.id == 'unbacked'}
-				<rect
-					x={d.y0}
-					y={d.x0}
-					height={nodeHeight}
-					width={nodeWidth}
-					rx="5"
-					ry="5"
-					fill={colorNodes(d)}
-				/>
-				<text
-					class="pointer-events-none"
-					x={d.y0 + nodeWidth / 2}
-					y={d.x0 + nodeHeight / 2}
-					dominant-baseline="central"
-					text-anchor="middle"
-					style="
-			fill: {colorText(d)};
-			font-size: {fontSize}px;
-			"
-				>
-					Unbacked
-				</text>
-			{:else}
-				<a href={asset.path}>
 					<rect
+						class="opacity-50 group-hover:opacity-80"
+						x={d.y0}
+						y={d.x0}
+						height={nodeHeight}
+						width={nodeWidth}
+						fill={colorNodes(d)}
+						><title
+							>{#if asset}
+								{asset.name}
+							{:else}
+								Unknown Name
+							{/if}</title
+						></rect
+					>
+				{:else if d.id == 'other'}
+					<rect
+						class="opacity-50 hover:opacity-80"
 						x={d.y0}
 						y={d.x0}
 						height={nodeHeight}
 						width={nodeWidth}
 						rx="5"
 						ry="5"
+						fill={colorNodes(d)}
+					/>
+					<text
+						class="pointer-events-none"
+						x={d.y0 + nodeWidth / 2}
+						y={d.x0 + nodeHeight / 2}
+						dominant-baseline="central"
+						text-anchor="middle"
+						style="
+				fill: {colorText(d)};
+                font-size: {fontSize}px;
+				"
+					>
+						{'<'}10%
+					</text>
+				{:else if d.id == 'unbacked'}
+					<rect
+						class="opacity-80"
+						x={d.y0}
+						y={d.x0}
+						height={nodeHeight}
+						width={nodeWidth}
+						fill={colorNodes(d)}
+					/>
+					<text
+						class="pointer-events-none"
+						x={d.y0 + nodeWidth / 2}
+						y={d.x0 + nodeHeight / 2}
+						dominant-baseline="central"
+						text-anchor="middle"
+						style="
+			fill: {colorText(d)};
+			font-size: {fontSize}px;
+			"
+					>
+						Unbacked
+					</text>
+				{:else if d.id == sankeyData.links[0].source.id}
+					<rect
+						class="opacity-80"
+						x={d.y0}
+						y={d.x0}
+						height={nodeHeight}
+						width={nodeWidth}
 						fill={colorNodes(d)}
 					/>
 					{#if asset.icon}
@@ -212,9 +210,9 @@
 							dominant-baseline="central"
 							text-anchor="middle"
 							style="
-					fill: {colorText(d)};
-					font-size: {fontSize}px;
-					"
+				fill: {colorText(d)};
+				font-size: {fontSize}px;
+				"
 						>
 							{#if asset.name}
 								{asset.name}
@@ -223,8 +221,50 @@
 							{/if}
 						</text>
 					{/if}
-				</a>
-			{/if}
+				{:else}
+					<a href={asset.path}>
+						<rect
+							class="opacity-50 group-hover:opacity-80"
+							x={d.y0}
+							y={d.x0}
+							height={nodeHeight}
+							width={nodeWidth}
+							rx="5"
+							ry="5"
+							fill={colorNodes(d)}
+						/>
+						{#if asset.icon}
+							<image
+								x={d.y0 + nodeWidth / 2 - iconSize / 2}
+								y={d.x0 + nodeHeight / 2 - iconSize / 2}
+								href="{base}/{asset.icon}"
+								height={iconSize}
+								width={iconSize}
+								dominant-baseline="central"
+								text-anchor="middle"
+							/>
+						{:else}
+							<text
+								class="pointer-events-none"
+								x={d.y0 + nodeWidth / 2}
+								y={d.x0 + nodeHeight / 2}
+								dominant-baseline="central"
+								text-anchor="middle"
+								style="
+					fill: {colorText(d)};
+					font-size: {fontSize}px;
+					"
+							>
+								{#if asset.name}
+									{asset.name}
+								{:else}
+									Unknown Name
+								{/if}
+							</text>
+						{/if}
+					</a>
+				{/if}
+			</g>
 			<!-- <foreignobject x={d.y0} y={d.x0} {height} {width}>
 				<xhtml:body xmlns="http://www.w3.org/1999/xhtml">
 					<div class="text-inherit text-white font-sans h-full w-full overflow-auto bg-green-200">

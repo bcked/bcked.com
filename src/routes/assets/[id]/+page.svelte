@@ -122,12 +122,14 @@
 				</div>
 			</div>
 
-			<div class="px-4 py-5 bg-gray-50 shadow sm:rounded-lg overflow-hidden sm:p-6">
-				<div class="max-w-3xl mx-auto text-center">
-					<h2 class="text-3xl tracking-tight font-bold text-gray-900">Backing Chain</h2>
-					<p class="mt-4 text-lg text-gray-500">
-						View the full chain of assets backing {asset.name}.
-					</p>
+			<div class="bg-gray-50 shadow sm:rounded-lg overflow-hidden">
+				<div class="px-4 pt-5 sm:px-6 sm:pt-6">
+					<div class="max-w-3xl mx-auto text-center">
+						<h2 class="text-3xl tracking-tight font-bold text-gray-900">Backing Chain</h2>
+						<p class="mt-4 text-lg text-gray-500">
+							View the full chain of assets backing {asset.name}.
+						</p>
+					</div>
 				</div>
 
 				<div class="flex mt-6 justify-center">
