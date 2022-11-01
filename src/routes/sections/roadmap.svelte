@@ -13,9 +13,7 @@
 		theme={{ title: theme.text }}
 	>
 		<div class="mt-10 w-full mx-auto lg:mx-0">
-			<div class="flex items-center space-x-2">
-				<span>The roadmap will be shown here soon.</span>
-			</div>
+			<span>The roadmap will be shown here soon.</span>
 		</div>
 	</SectionHeader>
 </Section>
