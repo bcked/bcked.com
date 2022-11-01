@@ -3,151 +3,111 @@
 	import * as d3 from 'd3';
 
 	/** @type {string} */
-	export let title;
+	export let id;
 
 	/**
 	 * Data describes an array of objects structured to describe a date and a value.
-	 * @type {{ date: string, value: Number}} */
+	 * @type {{ x: any, y: any}[]} */
 	export let data;
 
-	/** @type {(v: number) => string} */
-	export let formatValue = (v) => v.toString();
+	/** @type {(v: any) => any} */
+	export let parseX = (v) => v;
 
-	// size of the svg
-	const width = 100;
-	const height = 50;
+	/** @type {(v: any) => string} */
+	export let formatX = (v) => v;
 
-	const margin = {
-		top: 0,
-		right: 0,
-		bottom: 0,
-		left: 0
-	};
+	/** @type {(v: any) => any} */
+	export let parseY = (v) => v;
 
-	// timeParse to parse the input data as to create a date object
-	const parseTime = d3.timeParse('%Y-%m-%dT%H:%M:%S.%LZ');
-	// timeFormat to style the date objects to a chosen format
-	const formatTime = d3.timeFormat('%e %B');
+	/** @type {(v: any) => string} */
+	export let formatY = (v) => v;
+
+	export let heightRatio = 0.4;
+
+	export let fontSize = 12;
+
+	export let yAxisTop = 15;
+	export let xAxisTop = 25;
+
+	const sm = 640; // Tailwindui defined small screen size
+
+	// width of the svg
+	$: width = 0;
+	$: height = width * heightRatio;
 
 	// horizontally create a scale based on the input dates
-	const xScale = d3
+	$: xScale = d3
 		.scaleTime()
-		.domain(d3.extent(data, (d) => parseTime(d.date)))
+		.domain(d3.extent(data, (d) => parseX(d.x)))
 		.range([0, width]);
 
-	const maxValue = d3.max(data, (d) => d.value);
-	const minValue = d3.min(data, (d) => d.value);
+	const maxY = d3.max(data, (d) => parseY(d.y));
+	const minY = d3.min(data, (d) => parseY(d.y));
 
 	// vertically  consider the input values
-	const yScale = d3
-		.scaleLinear()
-		.domain([minValue, maxValue])
-		// swap [0, height] to have the shapes positioned _from_ the bottom of the svg
-		.range([height, 0]);
+	$: yScale = d3.scaleLinear().domain([minY, maxY]).range([height, 0]);
+
+	// Curve shapes: https://github.com/d3/d3-shape#curves
+	// const curveShape = d3.curveCatmullRom;
+	// const curveShape = d3.curveLinear;
+	const curveShape = d3.curveBumpX;
+	// const curveShape = d3.curveStep; // Looks less smooth but more true to the data
 
 	// line function mapping the date and value in the svg
-	const line = d3
+	$: line = d3
 		.line()
-		.x((d) => xScale(parseTime(d.date)))
-		.y((d) => yScale(d.value))
-		.curve(d3.curveCatmullRom);
+		.x((d) => xScale(parseX(d.x)))
+		.y((d) => yScale(parseY(d.y)))
+		.curve(curveShape);
 
 	// area function describing the area below the curve described by the dates and values
-	const area = d3
+	$: area = d3
 		.area()
-		.x((d) => xScale(parseTime(d.date)))
-		.y0((d) => yScale(0))
-		.y1((d) => yScale(d.value))
-		.curve(d3.curveCatmullRom);
+		.x((d) => xScale(parseX(d.x)))
+		.y0((d) => yScale(minY) + yAxisTop * 2)
+		.y1((d) => yScale(parseY(d.y)))
+		.curve(curveShape);
 
 	// "ticks", milestones marked on the x-axis
-	// instead of using d3, we create here marks for an arbitrary set of dates
-	const minDate = d3.min(data, (d) => parseTime(d.date));
-	const maxDate = d3.max(data, (d) => parseTime(d.date));
-	const xq1 = d3.quantile(data, 0.25, (d) => parseTime(d.date));
-	const xq2 = d3.quantile(data, 0.5, (d) => parseTime(d.date));
-	const xq3 = d3.quantile(data, 0.75, (d) => parseTime(d.date));
-
-	const xAxis = [minDate, xq1, xq2, xq3, maxDate];
+	$: xAxis = generate(0.1, 0.9, width > sm ? 5 : 3).map((q) =>
+		d3.quantile(data, q, (d) => parseX(d.x))
+	);
 
 	// "ticks" for the y-axis
-	// the idea is to include 10 values, up to the maximum value
-	// const yTicks = 6;
-	// const yAxis = generate(minValue, maxValue, yTicks).map(Math.round);
-
-	const yq1 = d3.quantile(data, 0.25, (d) => d.value);
-	const yq2 = d3.quantile(data, 0.5, (d) => d.value);
-	const yq3 = d3.quantile(data, 0.75, (d) => d.value);
-	const yAxis = [minValue, yq1, yq2, yq3, maxValue];
-
-	// variable describing the tooltip
-	// the idea is to assign a data point to this variable
-	let tooltip = null;
-
-	// subset of the input data delimited by the data points describing an arbitrary start and end
-	// the idea is to highlight the specific area through a different visual (in this instance a repeating linear gradient)
-	const highlightStart = data.findIndex((d) => d.start);
-	const highlightEnd = data.findIndex((d) => d.end);
-	const highlight = data.slice(highlightStart, highlightEnd + 1);
+	const yAxis = generate(minY, maxY, 5);
 </script>
 
-<svg
-	{width}
-	{height}
-	viewBox="0 0 {width + (margin.left + margin.right)} {height + (margin.top + margin.bottom)}"
->
-	<defs>
-		<!-- through a carve out the area dedicated to the data points
-            this makes it possible to hide elements behind their circles
-            ! use the title in the ID to avoid a conflict between multiple svg
-            -->
-		<mask id="mask-{title.toLowerCase().split(' ').join('-')}">
-			<rect
-				x={-margin.left}
-				y={-margin.top}
-				width={width + (margin.left + margin.right)}
-				height={height + (margin.top + margin.bottom)}
-				fill="hsl(0, 0%, 100%)"
-			/>
-		</mask>
-		<!-- repeating linear gradient describing the highlight section
-            ! use the title in the ID to avoid a conflict between multiple svg
-             -->
-		<linearGradient
-			id="gradient-{title.toLowerCase().split(' ').join('-')}"
-			gradientUnits="userSpaceOnUse"
-			spreadMethod="repeat"
-			x1="0"
-			x2="1"
-			y1="0"
-			y2="1"
-		>
-			<stop stop-color="currentColor" offset="0.5" />
-			<stop stop-color="hsl(0, 0%, 100%)" offset="0.5" />
-		</linearGradient>
-	</defs>
-	<g transform="translate({margin.top} {margin.left})">
-		<!-- line+area chart
-            using the mask to avoid drawing shapes where the highlighted points rest
-            -->
-		<g mask="url(#mask-{title.toLowerCase().split(' ').join('-')})">
-			<!-- area describing the highlight section -->
-			<path
-				opacity="0.25"
-				fill="url(#gradient-{title.toLowerCase().split(' ').join('-')})"
-				stroke="none"
-				d={area(highlight)}
-			/>
+<div class="overflow-visible" bind:offsetWidth={width}>
+	<svg
+		{id}
+		class="overflow-visible"
+		{width}
+		height={height + xAxisTop * 2 + yAxisTop}
+		viewBox={[0, -xAxisTop, width, height + xAxisTop + yAxisTop].toString()}
+	>
+		<defs>
+			<linearGradient id="gradient-{id}" x1="0%" x2="0%" y1="0%" y2="100%">
+				<stop offset="0%" stop-color="currentColor" stop-opacity="30%" />
+				<stop offset="20%" stop-color="currentColor" stop-opacity="20%" />
+				<stop offset="100%" stop-color="currentColor" stop-opacity="0%" />
+			</linearGradient>
+		</defs>
+		<g>
+			<!-- line chart -->
+			<path fill="none" stroke="currentColor" stroke-width="2.5" d={line(data)} />
+			<!-- area chart -->
+			<path fill="url(#gradient-{id})" stroke="none" d={area(data)} />
 
 			<!-- made-up axes using the dates and values chosen in the Axis variables to draw text and a few lines -->
 			<g class="axes">
 				<g transform="translate(0 {height})">
-					<!-- solid dash of the xAxis -->
-					<!-- <path fill="none" stroke="hsl(0, 0%, 0%)" stroke-width="0.5" d="M 0 0 h {width}" /> -->
 					{#each xAxis as xTick}
 						<g transform="translate({xScale(xTick)} 0)">
-							<text fill="hsl(0, 0%, 0%)" font-size="3" text-anchor="middle" y={-1}
-								>{formatTime(xTick)}</text
+							<text
+								fill="hsl(0, 0%, 0%)"
+								font-size="{fontSize}px"
+								text-anchor="middle"
+								y={-(height + xAxisTop)}>{formatX(xTick)}</text
 							>
 						</g>
 					{/each}
@@ -163,49 +123,25 @@
 							stroke-dasharray="1"
 							d="M 0 0 h {width}"
 						/>
-						<!-- position the text right atop the grid lines -->
-						<text fill="hsl(0, 0%, 0%)" opacity="0.5" font-size="3" text-anchor="start" x="0" y="-1"
-							>{formatValue(yTick)}</text
+						<!-- position the text at the end left below the grid lines -->
+						<text
+							fill="hsl(0, 0%, 0%)"
+							opacity="0.5"
+							font-size="{fontSize}px"
+							text-anchor="end"
+							x={width - (width > sm ? 24 : 20)}
+							y={yAxisTop}>{formatY(yTick)}</text
 						>
 					</g>
 				{/each}
 			</g>
-
-			<!-- line chart -->
-			<path fill="none" stroke="currentColor" stroke-width="1" d={line(data)} />
-			<!-- area chart -->
-			<path opacity="0.15" fill="currentColor" stroke="none" d={area(data)} />
 		</g>
-
-		<!-- tooltip described with a text, circle, and a line connecting the data point vertically to the x axis -->
-		{#if tooltip}
-			<g
-				fill="currentColor"
-				transform="translate({xScale(parseTime(tooltip.date))} {yScale(tooltip.value)})"
-			>
-				<text text-anchor="middle" font-size="5" font-weight="bold" fill="hsl(0, 0%, 10%)" y="-3"
-					>{tooltip.value}</text
-				>
-				<path
-					opacity="0.75"
-					fill="none"
-					stroke="hsl(0, 0%, 10%)"
-					stroke-width="0.5"
-					stroke-dasharray="1"
-					d="M 0 0 v {height - yScale(tooltip.value)}"
-				/>
-				<circle r="2" fill="hsl(0, 0%, 10%)" />
-			</g>
-		{/if}
-		<!-- rectangles included atop the visualization to manage mouse events  -->
-	</g>
-</svg>
+	</svg>
+</div>
 
 <style>
 	svg {
-		width: 100%;
-		height: auto;
-		display: block;
-		color: #ff3b77;
+		color: #ff3b76;
+		max-width: 100%;
 	}
 </style>

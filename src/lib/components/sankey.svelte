@@ -89,7 +89,7 @@
 		return path.toString();
 	}
 
-	$: fontSize = $width <= 320 ? 10 : 12;
+	export let fontSize = 12;
 </script>
 
 <g class="sankey-layer">

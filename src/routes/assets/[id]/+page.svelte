@@ -1,11 +1,12 @@
 <script>
+	import * as d3 from 'd3';
+	import { ExclamationIcon, CheckCircleIcon } from '@rgossiaux/svelte-heroicons/outline';
+	import SvelteSeo from 'svelte-seo';
 	import Sankey from '$lib/components/sankey-layer.svelte';
 	import LiquidFill from '$lib/components/liquid-fill.svelte';
 	import Table from '$lib/components/table.svelte';
 	import LineChart from '$lib/components/line-chart.svelte';
 	import { formatCurrency, formatPercentage, formatNum } from '$lib/utils/string-formatting';
-	import { ExclamationIcon, CheckCircleIcon } from '@rgossiaux/svelte-heroicons/outline';
-	import SvelteSeo from 'svelte-seo';
 
 	/** @type {import('./$types').PageData} */
 	export let data;
@@ -54,10 +55,7 @@
 		<div class="grid grid-cols-2 gap-[0.1rem] sm:gap-4 md:grid-cols-4 shadow sm:shadow-none">
 			<!-- {stats.length <= 4 ? stats.length : 4} -->
 			{#each stats as item}
-				<div
-					key={item.name}
-					class="relative px-4 py-5 bg-gray-50 sm:shadow sm:rounded-lg overflow-hidden sm:p-6"
-				>
+				<div class="relative px-4 py-5 bg-gray-50 sm:shadow sm:rounded-lg overflow-hidden sm:p-6">
 					{#if item.type == 'percent'}
 						<div class="absolute top-0 left-0 h-full w-full">
 							<LiquidFill
@@ -88,7 +86,7 @@
 
 		<div class="grid grid-cols-1 gap-4 lg:grid-cols-2 shadow-none">
 			<div class="bg-gray-50 shadow sm:rounded-lg overflow-hidden">
-				<div class="px-4 py-5 sm:p-6">
+				<div class="px-4 pt-5 sm:px-6 sm:pt-6">
 					<div class="max-w-3xl mx-auto text-center">
 						<h2 class="text-3xl tracking-tight font-bold text-gray-900">Backing History</h2>
 						<p class="mt-4 text-lg text-gray-500">
@@ -110,14 +108,16 @@
 						</dl>
 					</div>
 				</div>
-				<div class="max-w-3xl mx-auto text-center mt-6 text-lg font-thin text-gray-500">
+				<div class="text-center mt-6 text-lg font-thin text-gray-500 overflow-visible">
 					<LineChart
-						title="Backing history of {asset.name}"
+						id="{asset.name.toLowerCase().split(' ').join('-')}-backing-history"
 						data={asset.backing.map((backing) => ({
-							date: backing.timestamp,
-							value: backing['backing-usd']
+							x: backing.timestamp,
+							y: backing['backing-usd']
 						}))}
-						formatValue={(v) => formatCurrency(v)}
+						parseX={d3.timeParse('%Y-%m-%dT%H:%M:%S.%LZ')}
+						formatX={d3.timeFormat('%e %B')}
+						formatY={(v) => formatCurrency(v)}
 					/>
 				</div>
 			</div>
