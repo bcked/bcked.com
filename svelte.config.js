@@ -9,13 +9,11 @@ await prepareData();
 const assets = parse(fs.readFileSync(`./_generated/assets.yml`, 'utf-8'));
 const tokens = parse(fs.readFileSync(`./_generated/token-asset-mapping.yml`, 'utf-8'));
 
-const dev = process.env.NODE_ENV === 'development';
-
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	kit: {
 		paths: {
-			base: dev ? '' : '',
+			base: '',
 		},
 		adapter: adapter({
 			pages: 'build',
