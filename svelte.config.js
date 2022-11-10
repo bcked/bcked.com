@@ -40,6 +40,7 @@ const config = {
 				'/tokens.json',
 				...Object.keys(tokens).map((id) => `/tokens/${id}.json`),
 				...Object.keys(tokens).map((id) => `/tokens/${id}`),
+				'/sitemap.xml'
 			],
 		},
 	},

@@ -58,6 +58,16 @@ export function compare(a, b, reverse = true) {
     return comp * (reverse ? -1 : 1)
 }
 
+/** 
+ * @param {string} a 
+ * @param {string} b 
+ */
+export function compareDates(a, b) {
+    const aTime = new Date(a).getTime();
+    const bTime = new Date(b).getTime();
+    return bTime - aTime;
+}
+
 /** @param {any[]} criteria */
 export function combine(...criteria) {
     return (a, b) => {
