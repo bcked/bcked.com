@@ -3,6 +3,8 @@ import { base } from '$app/paths';
 import { compareDates } from '$lib/utils/string-formatting';
 import { readAssets } from '../(api)/assets.json/+server';
 
+export const prerender = true;
+
 export async function GET() {
   const assets = readAssets()
   const sortedAssets = Object.entries(assets)
