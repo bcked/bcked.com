@@ -5,6 +5,7 @@
 	import Footer from '$lib/components/footer.svelte';
 	import Banner from '$lib/components/banner.svelte';
 	import GitHubIcon from '$lib/icons/github.svelte';
+	import RedditIcon from '$lib/icons/reddit.svelte';
 	import TelegramIcon from '$lib/icons/telegram.svelte';
 	// import TwitterIcon from '$lib/icons/twitter.svelte';
 
@@ -28,14 +29,14 @@
 	const socials = [
 		// { // TODO
 		// 	name: 'Twitter',
-		// 	href: '#',
+		// 	path: '#',
 		// 	icon: TwitterIcon
 		// },
-		// { // TODO
-		// 	name: 'Reddit',
-		// 	href: '#',
-		// 	icon: RedditIcon
-		// },
+		{
+			name: 'Reddit',
+			path: 'https://www.reddit.com/r/bcked/',
+			icon: RedditIcon
+		},
 		{
 			name: 'Telegram',
 			path: 'https://t.me/bcked_com',
