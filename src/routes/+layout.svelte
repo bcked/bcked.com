@@ -7,7 +7,7 @@
 	import GitHubIcon from '$lib/icons/github.svelte';
 	import RedditIcon from '$lib/icons/reddit.svelte';
 	import TelegramIcon from '$lib/icons/telegram.svelte';
-	// import TwitterIcon from '$lib/icons/twitter.svelte';
+	import TwitterIcon from '$lib/icons/twitter.svelte';
 
 	const mainNavigation = [
 		{ name: 'Discover', path: `${base}/#discover` },
@@ -27,11 +27,11 @@
 	];
 
 	const socials = [
-		// { // TODO
-		// 	name: 'Twitter',
-		// 	path: '#',
-		// 	icon: TwitterIcon
-		// },
+		{
+			name: 'Twitter',
+			path: 'https://twitter.com/bcked_com',
+			icon: TwitterIcon
+		},
 		{
 			name: 'Reddit',
 			path: 'https://www.reddit.com/r/bcked/',
