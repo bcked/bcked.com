@@ -10,11 +10,9 @@ renderer.paragraph = function (text) {
     return `<dd class="mt-3 text-sm text-gray-500">${text}</dd>`
 }
 
-marked.setOptions({ renderer })
-
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ params }) {
     return {
-        faqs: glob.sync('./FAQ/q*.md').map((filePath) => marked(fs.readFileSync(filePath, 'utf-8')))
+        faqs: glob.sync('./FAQ/q*.md').map((filePath) => marked(fs.readFileSync(filePath, 'utf-8'), { renderer }))
     };
 }

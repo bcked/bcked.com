@@ -4,20 +4,18 @@ import { marked } from 'marked'
 import { readBacking } from '../../(api)/trees/[id].json/+server';
 import { readAssets } from '../../(api)/assets.json/+server';
 
-var commentRenderer = new marked.Renderer();
-commentRenderer.heading = function (text) {
+var renderer = new marked.Renderer();
+renderer.heading = function (text) {
     return `<dt class="text-lg leading-6 font-medium text-gray-900">${text}</dt>`
 }
-commentRenderer.paragraph = function (text) {
+renderer.paragraph = function (text) {
     return `<dd class="mt-2 text-base text-gray-500">${text}</dd>`
 }
-
-marked.setOptions({ renderer: commentRenderer })
 
 function loadComments(assetId, pattern) {
     const commentsPath = `./assets/${assetId}/comments`
     if (!fs.existsSync(commentsPath)) return []
-    return glob.sync(`${commentsPath}/${pattern}-*.md`).map((filePath) => marked(fs.readFileSync(filePath, 'utf-8')))
+    return glob.sync(`${commentsPath}/${pattern}-*.md`).map((filePath) => marked(fs.readFileSync(filePath, 'utf-8'), { renderer }))
 }
 
 /** @type {import('./$types').PageServerLoad} */

@@ -1,5 +1,4 @@
 // https://www.sitemaps.org/protocol.html
-import { base } from '$app/paths';
 import { compareDates } from '$lib/utils/string-formatting';
 import { readAssets } from '../(api)/assets.json/+server';
 import { dev } from '$app/environment';
