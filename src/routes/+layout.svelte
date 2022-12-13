@@ -57,17 +57,6 @@
 </script>
 
 <div class="flex flex-col h-screen justify-between">
-	<Banner placement="top" class="bg-neon-blue text-gray-50">
-		<div class="pr-16 sm:text-center sm:px-16">
-			<p class="font-medium">
-				<span class="md:hidden">Page under construction. Data should not be used!</span>
-				<span class="hidden md:inline"
-					>This page is under construction and the shown data should not be used!</span
-				>
-			</p>
-		</div>
-	</Banner>
-
 	<Header navigation={mainNavigation} />
 
 	<div class="flex-grow mx-auto w-full flex flex-col">
