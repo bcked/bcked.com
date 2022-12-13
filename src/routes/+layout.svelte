@@ -23,6 +23,10 @@
 		{
 			name: 'About',
 			path: `${base}/about`
+		},
+		{
+			name: 'Legal Notice',
+			path: `${base}/legal-notice`
 		}
 	];
 

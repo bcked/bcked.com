@@ -29,6 +29,7 @@ const config = {
 				'/',
 				'/faq',
 				'/about',
+				'/legal-notice',
 				'/assets.json',
 				...Object.keys(assets).map((id) => `/assets/${id}.json`),
 				...Object.keys(assets).map((id) => `/assets/${id}`),

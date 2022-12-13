@@ -10,11 +10,6 @@
 
 TBD
 
-## Risk and Liability
-
-By no means should the provided data be used to make financial decisions.
-The shown data can be wrong, biased, or simply outdated.
-
 ## Contributing
 
 If you would like to contribute, please read [our contribution guideline](CONTRIBUTING.md).
@@ -26,3 +21,7 @@ This tool is an open source community project released under the [GNU General Pu
 ## About
 
 You can read more about the background of this project [here](ABOUT.md).
+
+## Legal Notice
+
+See our Terms and Conditions [here](LEGAL_NOTICE.md).
