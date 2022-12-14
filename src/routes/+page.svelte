@@ -4,6 +4,7 @@
 	import DiscoverSection from './sections/discover.svelte';
 	import RoadmapSection from './sections/roadmap.svelte';
 	import RankingSection from './sections/ranking.svelte';
+	import { formatCurrency } from '$lib/utils/string-formatting';
 
 	/** @type {import('./$types').PageData} */
 	export let data;
@@ -34,8 +35,12 @@
 </script>
 
 <SvelteSeo
-	title="bcked: Asset Backing Information Source"
-	description="bcked is an open source community project that provides and visualizes data about asset backing."
+	title="bcked: Cryptocurrency Backing, Ranking, History, Stats, ..."
+	description="The cryptocurrencies recorded in bcked are backed by {formatCurrency(
+		stats['backing-usd']
+	)} with an average backing of {formatCurrency(
+		stats['backing-usd-avg']
+	)}. Read more on bcked, which is an open source community project that provides and visualizes data about cryptocurrency backing."
 />
 
 <main>

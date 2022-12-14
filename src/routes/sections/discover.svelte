@@ -16,7 +16,7 @@
 	export let stats;
 </script>
 
-<Section id="discover" label="Discover backed assets">
+<Section id="discover" label="Discover backed cryptocurrencies">
 	<SectionHeader
 		title="Discover"
 		description="Of the {stats['assets']} assets recorded in bcked, {stats[

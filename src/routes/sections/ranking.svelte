@@ -16,10 +16,10 @@
 	export let trees;
 </script>
 
-<Section id="ranking" label="Ranking of asset backing">
+<Section id="ranking" label="Ranking of backed cryptocurrencies">
 	<SectionHeader
 		title="Ranking"
-		description="Compare assets based on their backing amount, ratio and uniformity."
+		description="Compare cryptocurrencies based on their backing amount, ratio and uniformity."
 		theme={{ title: theme.text }}
 	/>
 	<div class="mt-10 w-full mx-auto lg:mx-0">

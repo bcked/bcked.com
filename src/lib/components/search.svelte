@@ -111,9 +111,9 @@
 			{:else}
 				<SearchIcon class="h-5 w-5 text-gray-500" aria-hidden="true" />
 				{#if !query}
-					<span class="text-gray-500 tracking-tighter sm:hidden">Search asset</span>
+					<span class="text-gray-500 tracking-tighter sm:hidden">Search cryptocurrency</span>
 					<span class="hidden text-gray-500 tracking-tighter sm:block"
-						>What asset are you looking for?</span
+						>What cryptocurrency are you looking for?</span
 					>
 				{/if}
 			{/if}

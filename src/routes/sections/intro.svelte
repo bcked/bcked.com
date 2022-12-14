@@ -17,8 +17,8 @@
 
 <Section label="Introduction to bcked" class="lg:flex lg:justify-between items-center">
 	<SectionHeader
-		title="Reduce your exposure to unbacked assets."
-		description="Leverage insights from our community driven open source knowledge base to find assets backed
+		title="Reduce your exposure to unbacked cryptocurrencies."
+		description="Leverage insights from our community driven open source knowledge base to find cryptocurrencies backed
 		by various asset classes."
 		theme={{ title: theme.text }}
 	>
