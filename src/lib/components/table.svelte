@@ -27,7 +27,7 @@
 				{#each columns as column}
 					<th
 						scope="col"
-						class="group-column cursor-pointer py-3.5 pl-4 sm:pl-6 lg:pl-8 pr-1 text-left text-sm font-semibold text-gray-900 transition-all duration-500 {column.class}"
+						class="group-column cursor-pointer py-3.5 pl-4 sm:pl-6 lg:pl-8 pr-1 text-left text-sm font-semibold text-gray-900 transition-all motion-reduce:transition-none duration-500 {column.class}"
 						on:click={(e) => {
 							if (sortBy == column.id) {
 								sortAsc = !sortAsc;
@@ -68,7 +68,7 @@
 				<tr key={i}>
 					{#each columns as column}
 						<td
-							class="whitespace-nowrap py-4 pl-4 pr-1 text-sm text-gray-900 sm:pl-6 lg:pl-8 transition-all duration-500 {column.class}"
+							class="whitespace-nowrap py-4 pl-4 pr-1 text-sm text-gray-900 sm:pl-6 lg:pl-8 transition-all motion-reduce:transition-none duration-500 {column.class}"
 						>
 							{#if column.link}
 								<a href={row[column.id + '-path'].text}>

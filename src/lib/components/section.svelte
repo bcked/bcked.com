@@ -40,7 +40,7 @@
 		aria-label={label}
 		class="relative text-center lg:text-left max-w-7xl mx-auto py-16 sm:py-24 sm:px-6 lg:px-8 {!show
 			? '-translate-x-12 opacity-0 blur-sm'
-			: 'translate-x-0 opacity-100 blur-none'} transition-all duration-1000 {clazz}"
+			: 'translate-x-0 opacity-100 blur-none'} transition-all motion-reduce:transition-none duration-1000 {clazz}"
 		use:inview={inViewOptions}
 		on:enter={(event) => {
 			const { inView, entry, scrollDirection, observer, node } = event.detail;
