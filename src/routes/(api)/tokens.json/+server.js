@@ -7,7 +7,7 @@ import { jsonResponse } from '$lib/utils/response';
 export const prerender = true;
 
 /** @returns {object} */
-export function readTokens() {
+export function _readTokens() {
     const tokenAssetMapping = parse(fs.readFileSync(`./_generated/token-asset-mapping.yml`, 'utf-8'));
 
     if (!tokenAssetMapping) {
@@ -26,7 +26,7 @@ export function readTokens() {
 
 /** @type {import('./$types').RequestHandler} */
 export async function GET({ params }) {
-    const tokens = readTokens();
+    const tokens = _readTokens();
 
     return jsonResponse(tokens);
 }

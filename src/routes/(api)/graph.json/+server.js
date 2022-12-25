@@ -1,14 +1,14 @@
 import { minMaxNorm, zScoreNorm } from '$lib/utils/math';
 import { jsonResponse } from '$lib/utils/response';
-import { readTrees } from '../trees.json/+server';
+import { _readTrees } from '../trees.json/+server';
 import _ from 'lodash'
 import * as d3 from 'd3'
 
 export const prerender = true;
 
 /** @returns {{ nodes: { id: string, name: string, value: Number, level: Number, "min-max": Number, "z-score": Number }[], links: { source: string, target: string, value: Number, level: Number, "min-max-norm": Number, "z-score": Number }[] }} */
-export function readGraph() {
-    let trees = readTrees();
+export function _readGraph() {
+    let trees = _readTrees();
     trees = _.map(Object.values(trees), (items) => items[0])
     trees = _.filter(trees, ({ backed }) => (backed > 0))
 
@@ -37,7 +37,7 @@ export function readGraph() {
 
 /** @type {import('./$types').RequestHandler} */
 export async function GET({ params }) {
-    const graph = readGraph();
+    const graph = _readGraph();
 
     return jsonResponse(graph);
 }

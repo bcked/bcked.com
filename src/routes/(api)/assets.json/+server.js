@@ -7,7 +7,7 @@ import { jsonResponse } from '$lib/utils/response';
 export const prerender = true;
 
 /** @returns {object} */
-export function readAssets() {
+export function _readAssets() {
     let assets = parse(fs.readFileSync(`./_generated/assets.yml`, 'utf-8'));
 
     if (!assets) {
@@ -28,7 +28,7 @@ export function readAssets() {
 
 /** @type {import('./$types').RequestHandler} */
 export async function GET({ params }) {
-    const assets = readAssets();
+    const assets = _readAssets();
 
     return jsonResponse(assets);
 }

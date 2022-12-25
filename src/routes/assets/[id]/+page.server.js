@@ -1,8 +1,8 @@
 import fs from 'fs';
 import glob from 'glob'
 import { marked } from 'marked'
-import { readBacking } from '../../(api)/trees/[id].json/+server';
-import { readAssets } from '../../(api)/assets.json/+server';
+import { _readBacking } from '../../(api)/trees/[id].json/+server';
+import { _readAssets } from '../../(api)/assets.json/+server';
 
 var renderer = new marked.Renderer();
 renderer.heading = function (text) {
@@ -20,9 +20,9 @@ function loadComments(assetId, pattern) {
 
 /** @type {import('./$types').PageServerLoad} */
 export function load({ params }) {
-    const assets = readAssets();
+    const assets = _readAssets();
     const asset = assets[params.id]
-    const backing = readBacking(params.id);
+    const backing = _readBacking(params.id);
     const doubts = loadComments(params.id, 'doubt')
     const praise = loadComments(params.id, 'praise')
 

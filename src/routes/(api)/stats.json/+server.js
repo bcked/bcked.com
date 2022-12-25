@@ -6,7 +6,7 @@ import { jsonResponse } from '$lib/utils/response';
 export const prerender = true;
 
 /** @returns {object} */
-export function readStats() {
+export function _readStats() {
     let stats = parse(fs.readFileSync(`./_generated/global.yml`, 'utf-8'));
 
     if (!stats) {
@@ -18,7 +18,7 @@ export function readStats() {
 
 /** @type {import('./$types').RequestHandler} */
 export async function GET({ params }) {
-    const stats = readStats();
+    const stats = _readStats();
 
     return jsonResponse(stats);
 }

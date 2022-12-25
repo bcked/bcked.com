@@ -6,7 +6,7 @@ import { jsonResponse } from '$lib/utils/response';
 export const prerender = true;
 
 /** @returns {object} */
-export function readTrees() {
+export function _readTrees() {
     let trees = parse(fs.readFileSync(`./_generated/backing-tree.yml`, 'utf-8'));
 
     if (!trees) {
@@ -18,7 +18,7 @@ export function readTrees() {
 
 /** @type {import('./$types').RequestHandler} */
 export async function GET({ params }) {
-    const trees = readTrees();
+    const trees = _readTrees();
 
     return jsonResponse(trees);
 }

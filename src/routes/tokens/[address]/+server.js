@@ -1,10 +1,10 @@
-import { readToken } from '../../(api)/tokens/[address].json/+server';
+import { _readToken } from '../../(api)/tokens/[address].json/+server';
 
 export const prerender = true;
 
 /** @type {import('./$types').RequestHandler} */
 export async function GET({ params }) {
-    const token = readToken(params.address);
+    const token = _readToken(params.address);
 
     return new Response(null, {
         headers: { location: token.asset.path },

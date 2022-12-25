@@ -1,6 +1,6 @@
 // https://www.sitemaps.org/protocol.html
 import { compareDates } from '$lib/utils/string-formatting';
-import { readAssets } from '../(api)/assets.json/+server';
+import { _readAssets } from '../(api)/assets.json/+server';
 import { dev } from '$app/environment';
 
 export const prerender = true;
@@ -8,7 +8,7 @@ export const prerender = true;
 export async function GET() {
   const domain = dev ? 'http://localhost:5173' : 'https://bcked.com'
 
-  const assets = readAssets()
+  const assets = _readAssets()
   const sortedAssets = Object.entries(assets)
     .map(([id, asset]) => ({ ...asset, path: `${domain}/assets/${id}` }))
     .filter((asset) => asset.backing[0]['backing-assets'] > 0)

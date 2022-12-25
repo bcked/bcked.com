@@ -23,7 +23,6 @@ const config = {
 		}),
 
 		prerender: {
-			enabled: true,
 			entries: [
 				'*',
 				'/',
