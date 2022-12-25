@@ -1,24 +1,19 @@
 <script>
 	import {
-		chain,
 		createClient,
 		configureChains,
-		defaultChains,
-		allChains,
 		connect,
 		disconnect,
 		watchAccount,
 		watchNetwork
 	} from '@wagmi/core';
+
+	import { mainnet } from '@wagmi/core/chains';
+
 	import { publicProvider } from '@wagmi/core/providers/public';
 	import { MetaMaskConnector } from '@wagmi/core/connectors/metaMask';
 
-	const { chains, provider, webSocketProvider } = configureChains(
-		[chain.mainnet],
-		[publicProvider()]
-	);
-
-	// console.log(allChains);
+	const { chains, provider, webSocketProvider } = configureChains([mainnet], [publicProvider()]);
 
 	// https://chainlist.org/
 	const supportedChains = [{ id: 1 }];
