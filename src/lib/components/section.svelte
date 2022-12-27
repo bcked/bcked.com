@@ -30,7 +30,7 @@
 <div
 	class="odd:bg-gray-200 odd:text-gray-900 even:bg-neon-gray-light even:text-gray-50"
 	use:inview
-	on:change={(event) => {
+	on:enter={(event) => {
 		const { inView, entry, scrollDirection, observer, node } = event.detail;
 		show = inView;
 	}}
