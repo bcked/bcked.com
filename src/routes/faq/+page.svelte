@@ -28,10 +28,8 @@
 	<main>
 		<dl class="mt-12 grid grid-cols-1 gap-y-10 sm:mt-16 md:grid-cols-2 md:gap-x-6 lg:grid-cols-3">
 			{#each data.faqs as faq, i}
-				<div key={i}>
+				<div>
 					{@html faq}
-					<!-- <dt class="text-base font-medium text-gray-900">{faq.question}</dt>
-					<dd class="mt-3 text-sm text-gray-500">{faq.answer}</dd> -->
 				</div>
 			{/each}
 		</dl>

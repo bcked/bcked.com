@@ -12,7 +12,7 @@
 	/** @type {any} */
 	export let rows;
 
-	/** @type {{ by: string, asc: (boolean|undefined) }[]} */
+	/** @type {{ by: string, asc?: (boolean) }[]} */
 	export let sort;
 
 	let { by: sortBy, asc: sortAsc = true } = sort[sort.length - 1];
@@ -65,7 +65,7 @@
 				.map((row, i) => ({ ...row, rank: { text: i + 1, value: i } }))
 				.sort((a, b) => compare(a[sortBy].value, b[sortBy].value, sortAsc))
 				.slice(0, length) as row, i}
-				<tr key={i}>
+				<tr>
 					{#each columns as column}
 						<td
 							class="whitespace-nowrap py-4 pl-4 pr-1 text-sm text-gray-900 sm:pl-6 lg:pl-8 transition-all motion-reduce:transition-none duration-500 {column.class}"

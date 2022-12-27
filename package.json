@@ -5,11 +5,12 @@
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
-		"check": "svelte-check --tsconfig ./jsconfig.json",
-		"check:watch": "svelte-check --tsconfig ./jsconfig.json --watch",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"test": "playwright test",
-		"lint": "prettier --check --plugin-search-dir=. .",
-		"format": "prettier --write --plugin-search-dir=. ."
+		"test:unit": "vitest",
+		"lint": "prettier --plugin-search-dir . --check .",
+		"format": "prettier --plugin-search-dir . --write ."
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.29.1",
@@ -20,8 +21,11 @@
 		"@sveltejs/vite-plugin-svelte": "^2.0.2",
 		"@tailwindcss/forms": "^0.5.3",
 		"@tailwindcss/typography": "^0.5.8",
+		"@types/d3": "^7.4.0",
+		"@types/d3-sankey": "^0.12.0",
 		"@types/glob": "^8.0.0",
 		"@types/lodash": "^4.14.191",
+		"@types/lodash-es": "^4.17.6",
 		"@types/marked": "^4.0.8",
 		"@wagmi/core": "^0.8.5",
 		"autoprefixer": "^10.4.13",
