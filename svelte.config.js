@@ -1,4 +1,4 @@
-import preprocess from 'svelte-preprocess';
+import { vitePreprocess } from '@sveltejs/kit/vite';
 import adapter from '@sveltejs/adapter-static';
 import { prepareData } from './prepare-data.js';
 import fs from 'fs';
@@ -11,6 +11,18 @@ const tokens = parse(fs.readFileSync(`./_generated/token-asset-mapping.yml`, 'ut
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
+	preprocess: [
+		// Consult https://kit.svelte.dev/docs/integrations#preprocessors
+		// for more information about preprocessors
+		vitePreprocess({
+			scss: {
+				prependData: '@use "src/variables.scss" as *;'
+			},
+			postcss: true,
+			preserve: ['ld+json']
+		})
+	],
+
 	kit: {
 		paths: {
 			base: '',
@@ -42,16 +54,6 @@ const config = {
 			],
 		},
 	},
-
-	preprocess: [
-		preprocess({
-			scss: {
-				prependData: '@use "src/variables.scss" as *;'
-			},
-			postcss: true,
-			preserve: ['ld+json']
-		})
-	]
 };
 
 export default config;
