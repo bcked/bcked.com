@@ -24,6 +24,9 @@ const config = {
 	],
 
 	kit: {
+		alias: {
+			$components: 'src/components',
+		},
 		paths: {
 			base: '',
 		},

@@ -2,10 +2,10 @@
 	import * as d3 from 'd3';
 	import { ExclamationIcon, CheckCircleIcon } from '@rgossiaux/svelte-heroicons/outline';
 	import SvelteSeo from 'svelte-seo';
-	import Sankey from '$lib/components/sankey-layer.svelte';
-	import LiquidFill from '$lib/components/liquid-fill.svelte';
-	import Table from '$lib/components/table.svelte';
-	import LineChart from '$lib/components/line-chart.svelte';
+	import Sankey from '$components/sankey-layer.svelte';
+	import LiquidFill from '$components/liquid-fill.svelte';
+	import Table from '$components/table.svelte';
+	import LineChart from '$components/line-chart.svelte';
 	import { formatCurrency, formatPercentage, formatNum } from '$lib/utils/string-formatting';
 
 	/** @type {import('./$types').PageData} */

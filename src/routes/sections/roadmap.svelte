@@ -1,6 +1,6 @@
 <script>
-	import Section from '$lib/components/section.svelte';
-	import SectionHeader from '$lib/components/section-header.svelte';
+	import Section from '$components/section.svelte';
+	import SectionHeader from '$components/section-header.svelte';
 
 	/** @type {import('./types').Theme} */
 	export let theme;

@@ -3,7 +3,7 @@
 	import { base } from '$app/paths';
 	import { Disclosure, DisclosurePanel, DisclosureButton } from '@rgossiaux/svelte-headlessui';
 	import { MenuIcon, XIcon } from '@rgossiaux/svelte-heroicons/outline';
-	import Search from '$lib/components/search.svelte';
+	import Search from '$components/search.svelte';
 
 	/** @type {{name: string, path: string}[]} */
 	export let navigation = [];

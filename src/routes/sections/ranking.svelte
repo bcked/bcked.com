@@ -1,8 +1,8 @@
 <script>
-	import Section from '$lib/components/section.svelte';
-	import SectionHeader from '$lib/components/section-header.svelte';
-	import Glow from '$lib/components/glow.svelte';
-	import Table from '$lib/components/table.svelte';
+	import Section from '$components/section.svelte';
+	import SectionHeader from '$components/section-header.svelte';
+	import Glow from '$components/glow.svelte';
+	import Table from '$components/table.svelte';
 	import { formatCurrency, formatPercentage } from '$lib/utils/string-formatting';
 	import { merge } from 'lodash-es';
 

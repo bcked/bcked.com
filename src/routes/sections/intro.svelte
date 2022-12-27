@@ -1,9 +1,9 @@
 <script>
-	import Section from '$lib/components/section.svelte';
-	import SectionHeader from '$lib/components/section-header.svelte';
-	import Glow from '$lib/components/glow.svelte';
-	import Search from '$lib/components/search.svelte';
-	import ForceGraph from '$lib/components/force-graph.svelte';
+	import Section from '$components/section.svelte';
+	import SectionHeader from '$components/section-header.svelte';
+	import Glow from '$components/glow.svelte';
+	import Search from '$components/search.svelte';
+	import ForceGraph from '$components/force-graph.svelte';
 
 	/** @type {import('./types').Theme} */
 	export let theme;

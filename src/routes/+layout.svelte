@@ -1,9 +1,9 @@
 <script lang="ts">
 	import '../app.css';
 	import { base } from '$app/paths';
-	import Header from '$lib/components/header.svelte';
-	import Footer from '$lib/components/footer.svelte';
-	import Banner from '$lib/components/banner.svelte';
+	import Header from '$components/header.svelte';
+	import Footer from '$components/footer.svelte';
+	import Banner from '$components/banner.svelte';
 	import GitHubIcon from '$lib/icons/github.svelte';
 	import RedditIcon from '$lib/icons/reddit.svelte';
 	import TelegramIcon from '$lib/icons/telegram.svelte';

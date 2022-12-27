@@ -1,6 +1,6 @@
 <script>
 	import { LayerCake, Svg } from 'layercake';
-	import Sankey from '$lib/components/sankey.svelte';
+	import Sankey from '$components/sankey.svelte';
 
 	/** @type {any} */
 	export let backing;
