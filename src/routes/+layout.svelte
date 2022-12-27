@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import '../app.css';
 	import { base } from '$app/paths';
 	import Header from '$lib/components/header.svelte';
@@ -53,7 +53,7 @@
 		}
 	];
 
-	const copyRight = '&copy; 2022 bcked. All rights reserved.';
+	const copyRight: string = '&copy; 2022 bcked. All rights reserved.';
 </script>
 
 <div class="flex flex-col h-screen justify-between">
