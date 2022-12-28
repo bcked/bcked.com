@@ -4,7 +4,10 @@ import { _readAssets } from '../../assets.json/+server';
 
 export const prerender = true;
 
-/** @param {string} id */
+/** 
+ * @param {string} id
+ * @returns {bcked.Asset}
+ */
 export function _readAsset(id) {
     const assets = _readAssets();
 

@@ -5,7 +5,7 @@ import { jsonResponse } from '$lib/utils/response';
 
 export const prerender = true;
 
-/** @returns {object} */
+/** @returns {bcked.Stats} */
 export function _readStats() {
     let stats = parse(fs.readFileSync(`./_generated/global.yml`, 'utf-8'));
 

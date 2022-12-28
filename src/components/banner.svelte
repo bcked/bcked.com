@@ -1,13 +1,12 @@
-<script>
+<script lang="ts">
 	import { XIcon } from '@rgossiaux/svelte-heroicons/outline';
 
-	let clazz = '';
+	let clazz: string = '';
 	export { clazz as class };
 
-	let open = true;
+	let open: boolean = true;
 
-	/** @type {('top'|'bottom')} */
-	export let placement = 'top';
+	export let placement: ui.Placement = 'top';
 </script>
 
 {#if open}

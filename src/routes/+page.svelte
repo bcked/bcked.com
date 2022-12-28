@@ -1,4 +1,5 @@
-<script>
+<script lang="ts">
+	import type { PageData } from './$types';
 	import SvelteSeo from 'svelte-seo';
 	import IntroSection from './sections/intro.svelte';
 	import DiscoverSection from './sections/discover.svelte';
@@ -6,13 +7,11 @@
 	import RankingSection from './sections/ranking.svelte';
 	import { formatCurrency } from '$lib/utils/string-formatting';
 
-	/** @type {import('./$types').PageData} */
-	export let data;
+	export let data: PageData;
 
 	$: ({ assets, stats, trees, graph } = data);
 
-	/** @type {{[key: string]: import('./sections/types').Theme}} */
-	let themes = {
+	let themes: { [key: string]: ui.Theme } = {
 		blue: {
 			text: 'text-neon-blue',
 			from: 'from-neon-blue',

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { ChartBarIcon, ClockIcon, HashtagIcon } from '@rgossiaux/svelte-heroicons/outline';
 	import Section from '$components/section.svelte';
 	import SectionHeader from '$components/section-header.svelte';
@@ -6,14 +6,11 @@
 	import { formatCurrency } from '$lib/utils/string-formatting';
 	import AssetList from '$components/asset-list.svelte';
 
-	/** @type {import('./types').Theme} */
-	export let theme;
+	export let theme: ui.Theme;
 
-	/** @type {any} */
-	export let assets;
+	export let assets: bcked.Assets;
 
-	/** @type {any} */
-	export let stats;
+	export let stats: bcked.Stats;
 </script>
 
 <Section id="discover" label="Discover backed cryptocurrencies">

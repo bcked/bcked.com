@@ -1,9 +1,9 @@
-<script>
-	/** @type {{name: string, path: string}[]} */
-	export let navigation = [];
-	/** @type {{name: string, path: string, icon: any}[]} */
-	export let socials = [];
-	export let copyRight = '';
+<script lang="ts">
+	export let navigation: ui.Navigation = [];
+
+	export let socials: ui.Navigation = [];
+
+	export let copyRight: string = '';
 </script>
 
 <footer>

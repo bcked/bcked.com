@@ -1,8 +1,8 @@
-<script>
-	let clazz = '';
+<script lang="ts">
+	let clazz: string = '';
 	export { clazz as class };
 
-	export let theme = {
+	export let theme: ui.Theme = {
 		from: 'from-gray-50',
 		via: 'via-gray-50',
 		to: 'to-gray-50'

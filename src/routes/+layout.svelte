@@ -9,13 +9,13 @@
 	import TelegramIcon from '$lib/icons/telegram.svelte';
 	import TwitterIcon from '$lib/icons/twitter.svelte';
 
-	const mainNavigation = [
+	const mainNavigation: ui.Navigation = [
 		{ name: 'Discover', path: `${base}/#discover` },
 		{ name: 'Roadmap', path: `${base}/#roadmap` },
 		{ name: 'Ranking', path: `${base}/#ranking` }
 	];
 
-	const bottomNavigation = [
+	const bottomNavigation: ui.Navigation = [
 		{
 			name: 'FAQ',
 			path: `${base}/faq`
@@ -30,7 +30,7 @@
 		}
 	];
 
-	const socials = [
+	const socials: ui.Navigation = [
 		{
 			name: 'Twitter',
 			path: 'https://twitter.com/bcked_com',

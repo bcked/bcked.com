@@ -1,10 +1,9 @@
-<script>
+<script lang="ts">
 	import { base } from '$app/paths';
 	import GitHubIcon from '$lib/icons/github.svelte';
 	import SvelteSeo from 'svelte-seo';
 
-	/** @type {any} */
-	export let message;
+	export let message: string;
 </script>
 
 <SvelteSeo

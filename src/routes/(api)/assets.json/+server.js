@@ -6,7 +6,7 @@ import { jsonResponse } from '$lib/utils/response';
 
 export const prerender = true;
 
-/** @returns {object} */
+/** @returns {bcked.Assets} */
 export function _readAssets() {
     let assets = parse(fs.readFileSync(`./_generated/assets.yml`, 'utf-8'));
 
