@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
 	import { base } from '$app/paths';
@@ -6,14 +6,23 @@
 	import { SearchIcon, XCircleIcon } from '@rgossiaux/svelte-heroicons/solid';
 	import { CashIcon, EmojiSadIcon } from '@rgossiaux/svelte-heroicons/outline';
 
-	let clazz = '';
+	let clazz: string = '';
 	export { clazz as class };
 
-	/** @type {any[]} */
-	let data = [];
+	type SearchItem = {
+		name: string;
+		symbol: string;
+		category: string;
+		path: string;
+		icon: string;
+		indices: string[];
+	};
+	type SearchItems = SearchItem[];
+
+	let data: SearchItems = [];
 
 	onMount(async function () {
-		const assets = await (await fetch(`${base}/assets.json`)).json();
+		const assets: bcked.Assets = await (await fetch(`${base}/assets.json`)).json();
 		data = Object.entries(assets).map(([id, asset]) => ({
 			name: asset.name,
 			symbol: asset.symbol,
@@ -29,16 +38,15 @@
 		}));
 	});
 
-	let query = '';
+	let query: string = '';
 
-	let open = false;
+	let open: boolean = false;
 	$: open = query !== '';
 
-	let selected = '';
+	let selected: SearchItem | undefined = undefined;
 	$: selected = data.find((item) => $page.url.pathname == item.path);
 
-	/** @type {any[]} */
-	let filteredItems = [];
+	let filteredItems: SearchItems = [];
 	$: filteredItems =
 		query === ''
 			? []
@@ -49,8 +57,9 @@
 					);
 			  });
 
-	let groups = {};
-	$: groups = filteredItems.reduce((lgroups, item) => {
+	type SearchItemGroups = { [key: string]: SearchItems };
+	let groups: SearchItemGroups = {};
+	$: groups = filteredItems.reduce((lgroups: SearchItemGroups, item: SearchItem) => {
 		return { ...lgroups, [item.category]: [...(lgroups[item.category] || []), item] };
 	}, {});
 
@@ -58,10 +67,8 @@
 		query = '';
 	}
 
-	/** @param {any} node */
 	function clickOutside(node) {
-		/** @param {any} event */
-		const handleClick = (event) => {
+		const handleClick = (event: MouseEvent) => {
 			if (node && !node.contains(event.target) && !event.defaultPrevented) {
 				node.dispatchEvent(new CustomEvent('click_outside', node));
 			}
@@ -118,7 +125,11 @@
 				{/if}
 			{/if}
 		</div>
-		<div class="absolute inset-y-0 right-0 pr-3 flex items-center" on:click={clearQuery}>
+		<div
+			class="absolute inset-y-0 right-0 pr-3 flex items-center"
+			on:click={clearQuery}
+			on:keypress={clearQuery}
+		>
 			<XCircleIcon
 				class={query
 					? 'h-5 w-5 cursor-pointer text-gray-500 hover:outline-none hover:text-neon-pink'
@@ -138,7 +149,7 @@
 							<a href={item.path} on:click={clearQuery}>
 								<ListboxOption
 									key={item.path}
-									value={item}
+									value={item.path}
 									class="cursor-default select-none relative py-2 pl-3 pr-3 text-gray-900 hover:text-white hover:bg-neon-pink"
 								>
 									<div class="flex items-center space-x-2">

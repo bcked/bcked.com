@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import Error from '$components/404.svelte';
 </script>
 

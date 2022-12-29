@@ -1,12 +1,10 @@
-<script>
+<script lang="ts">
 	import { LayerCake, Svg } from 'layercake';
 	import Sankey from '$components/sankey.svelte';
 
-	/** @type {any} */
-	export let backing;
+	export let backing: bcked.Backing;
 
-	/** @type {any} */
-	export let assets;
+	export let assets: bcked.Assets;
 </script>
 
 <div class="w-full h-96">

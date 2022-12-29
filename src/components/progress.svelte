@@ -1,10 +1,7 @@
-<script>
-	/** @type {string} */
-	export let textLeft;
-	/** @type {string} */
-	export let textRight;
-	/** @type {Number} */
-	export let ratio = 0;
+<script lang="ts">
+	export let textLeft: string;
+	export let textRight: string;
+	export let ratio: number = 0;
 </script>
 
 <div class="relative pt-1">
