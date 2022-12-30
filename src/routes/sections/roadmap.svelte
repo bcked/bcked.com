@@ -1,9 +1,8 @@
-<script>
+<script lang="ts">
 	import Section from '$components/section.svelte';
 	import SectionHeader from '$components/section-header.svelte';
 
-	/** @type {import('./types').Theme} */
-	export let theme;
+	export let theme: ui.Theme;
 </script>
 
 <Section id="roadmap" label="Roadmap of bcked">

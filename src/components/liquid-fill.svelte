@@ -1,24 +1,24 @@
-<script>
+<script lang="ts">
 	import * as d3 from 'd3';
 
-	let clazz = '';
+	let clazz: string = '';
 	export { clazz as class };
-	/** @type {Number} Percentage of fill. */
-	export let fillPercent;
-	/** @type {Number} The outer circle thickness as a percentage of it's radius. */
-	export let circleThickness = 0.05;
-	/** @type {Number} The size of the gap between the outer circle and wave circle as a percentage of the outer circles radius. */
-	export let circleFillGap = 0.05;
-	/** @type {Number} The wave height as a percentage of the radius of the wave circle. */
-	export let waveHeight = 0.05;
-	/** @type {Number} The amount of time in milliseconds for a full wave to enter the wave circle. */
-	export let waveAnimateTime = 18000;
-	/** @type {boolean} Controls wave size scaling at low and high fill percentages. When true, wave height reaches it's maximum at 50% fill, and minimum at 0% and 100% fill. This helps to prevent the wave from making the wave circle from appear totally full or empty when near it's minimum or maximum fill. */
-	export let waveHeightScaling = true;
-	/** @type {String} The color of the fill wave. */
-	export let waveColor = '#178BCA';
-	/** @type {Number} The amount to initially offset the wave. 0 = no offset. 1 = offset of one full wave. */
-	export let waveOffset = 0;
+	/** Percentage of fill. */
+	export let fillPercent: number;
+	/** The outer circle thickness as a percentage of it's radius. */
+	export let circleThickness: number = 0.05;
+	/** The size of the gap between the outer circle and wave circle as a percentage of the outer circles radius. */
+	export let circleFillGap: number = 0.05;
+	/** The wave height as a percentage of the radius of the wave circle. */
+	export let waveHeight: number = 0.05;
+	/** The amount of time in milliseconds for a full wave to enter the wave circle. */
+	export let waveAnimateTime: number = 18000;
+	/** Controls wave size scaling at low and high fill percentages. When true, wave height reaches it's maximum at 50% fill, and minimum at 0% and 100% fill. This helps to prevent the wave from making the wave circle from appear totally full or empty when near it's minimum or maximum fill. */
+	export let waveHeightScaling: boolean = true;
+	/** The color of the fill wave. */
+	export let waveColor: string = '#178BCA';
+	/** The amount to initially offset the wave. 0 = no offset. 1 = offset of one full wave. */
+	export let waveOffset: number = 0;
 
 	const localId = Math.floor(Math.random() * 100);
 	const gaugeId = `fill-gauge-${localId}`;
@@ -26,8 +26,7 @@
 	let width = 0;
 	let height = 0;
 
-	/** @param {Number} a */
-	let waveHeightScale = (a) => 0;
+	let waveHeightScale = (a: number) => 0;
 	$: waveHeightScale = waveHeightScaling
 		? d3.scaleLinear().range([0, waveHeight, 0]).domain([0, 50, 100])
 		: d3.scaleLinear().range([waveHeight, waveHeight]).domain([0, 100]);
@@ -40,19 +39,16 @@
 	let waveClipWidth = waveLength * waveClipCount;
 
 	// Scales for controlling the size of the clipping path.
-	/** @param {Number} a */
-	let waveScaleX = (a) => 0;
+	let waveScaleX = (a: number) => 0;
 	$: waveScaleX = d3
 		.scaleLinear()
 		.range([0, width * 4]) // Added * 4 here
 		.domain([0, 1]);
-	/** @param {Number} a */
-	let waveScaleY = (a) => 0;
+	let waveScaleY = (a: number) => 0;
 	$: waveScaleY = d3.scaleLinear().range([0, waveHeightLocal]).domain([0, 1]);
 
 	// Scales for controlling the position of the clipping path.
-	/** @param {Number} a */
-	let waveRiseScale = (a) => 0;
+	let waveRiseScale = (a: number) => 0;
 	$: waveRiseScale = d3
 		.scaleLinear()
 		// The clipping area size is the height of the fill circle + the wave height, so we position the clip wave
@@ -61,11 +57,7 @@
 		.range([100 + waveHeightLocal, -waveHeightLocal])
 		.domain([0, 1]);
 
-	/**
-	 * @param {Number} clipCount
-	 * @return {any}
-	 */
-	let calculateData = (clipCount) => [];
+	let calculateData = (clipCount: number): any => [];
 	$: calculateData = (clipCount) => {
 		let data = [];
 		for (let i = 0; i <= 40 * clipCount; i++) {

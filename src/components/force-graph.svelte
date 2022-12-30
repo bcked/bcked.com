@@ -1,15 +1,12 @@
-<script>
+<script lang="ts">
 	import { base } from '$app/paths';
 	import _ from 'lodash-es';
 	import * as d3 from 'd3';
 	import forceBoundary from 'd3-force-boundary';
 	import { onMount } from 'svelte';
 
-	/** @type {any} */
-	export let assets;
-
-	/** @type {any} */
-	export let graph;
+	export let assets: bcked.Assets;
+	export let graph: bcked.Graph;
 
 	let width = 400;
 	let height = 400;
@@ -41,8 +38,7 @@
 		return Math.max(5 * factor, 1.5);
 	}; // given d in links, returns a stroke width in pixels
 	export let linkStrokeLinecap = 'round'; // link stroke linecap
-	/** @type {Number|undefined} */
-	export let linkStrength = undefined;
+	export let linkStrength: number | undefined = undefined;
 	export let invalidation = new Promise(() => ({})); // when this promise resolves, stop the simulation
 
 	let {

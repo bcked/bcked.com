@@ -1,22 +1,16 @@
-<script>
+<script lang="ts">
+	import type { ComponentType } from 'svelte';
 	import { base } from '$app/paths';
 	import { ChevronRightIcon } from '@rgossiaux/svelte-heroicons/solid';
 	import { CashIcon } from '@rgossiaux/svelte-heroicons/outline';
 
-	/** @type {any} */
-	export let assets;
-	/** @type {any} */
-	export let icon;
-	/** @type {string} */
-	export let title;
-	/** @type {(a: any, b: any) => Number} */
-	export let compare;
-	/** @type {Number} */
-	export let size;
-	/** @type {(asset: any) => string} */
-	export let select;
-	/** @type {(asset: any) => boolean} */
-	export let filter;
+	export let assets: bcked.Assets;
+	export let icon: ComponentType;
+	export let title: string;
+	export let compare: (a: bcked.Asset, b: bcked.Asset) => number;
+	export let size: number;
+	export let select: (asset: bcked.Asset) => string;
+	export let filter: (asset: bcked.Asset) => boolean;
 </script>
 
 <div class="px-4 py-5 overflow-hidden sm:p-6 text-gray-900">

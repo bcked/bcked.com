@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import Section from '$components/section.svelte';
 	import SectionHeader from '$components/section-header.svelte';
 	import Glow from '$components/glow.svelte';
@@ -6,14 +6,11 @@
 	import { formatCurrency, formatPercentage } from '$lib/utils/string-formatting';
 	import { merge } from 'lodash-es';
 
-	/** @type {import('./types').Theme} */
-	export let theme;
+	export let theme: ui.Theme;
 
-	/** @type {any} */
-	export let assets;
+	export let assets: bcked.Assets;
 
-	/** @type {any} */
-	export let trees;
+	export let trees: bcked.Tree;
 </script>
 
 <Section id="ranking" label="Ranking of backed cryptocurrencies">

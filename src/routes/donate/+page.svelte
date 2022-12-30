@@ -1,11 +1,13 @@
-<script>
+<script lang="ts">
 	import {
 		createClient,
 		configureChains,
 		connect,
 		disconnect,
 		watchAccount,
-		watchNetwork
+		watchNetwork,
+		type GetAccountResult,
+		type Chain
 	} from '@wagmi/core';
 
 	import { mainnet } from '@wagmi/core/chains';
@@ -30,8 +32,7 @@
 		webSocketProvider
 	});
 
-	/** @type {import("@wagmi/core").GetAccountResult} */
-	let account = {
+	let account: GetAccountResult = {
 		address: undefined,
 		connector: undefined,
 		isConnected: false,
@@ -42,10 +43,8 @@
 	};
 	$: watchAccount((data) => (account = data));
 
-	/** @type {import("@wagmi/core").Chain | undefined} */
-	let selectedChain;
-	/** @type {import("@wagmi/core").Chain[]} */
-	let availableChains = [];
+	let selectedChain: Chain | undefined;
+	let availableChains: Chain[] = [];
 	$: watchNetwork((data) => ({ chain: selectedChain, chains: availableChains } = data));
 </script>
 

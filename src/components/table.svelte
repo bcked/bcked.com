@@ -1,23 +1,27 @@
-<script>
+<script lang="ts">
+	import type { ComponentType } from 'svelte';
 	import { base } from '$app/paths';
 	import { compare, combine } from '$lib/utils/string-formatting';
 	import { ChevronDownIcon, ChevronUpIcon } from '@rgossiaux/svelte-heroicons/solid';
 	import { CashIcon } from '@rgossiaux/svelte-heroicons/outline';
 
-	let clazz = '';
+	let clazz: string = '';
 	export { clazz as class };
 
-	/** @type {any} */
-	export let columns;
-	/** @type {any} */
-	export let rows;
+	type Column = {
+		id: string;
+		title: string;
+		class: string;
+	};
+	export let columns: Column[];
 
-	/** @type {{ by: string, asc?: (boolean) }[]} */
-	export let sort;
+	type Row = { [key: string]: { text: string; value: string | number; icon: ComponentType } };
+	export let rows: Row[];
+
+	export let sort: { by: string; asc?: boolean }[];
 
 	let { by: sortBy, asc: sortAsc = true } = sort[sort.length - 1];
-	/** @type {Number=} */
-	export let length = undefined;
+	export let length: number | undefined = undefined;
 </script>
 
 <div class={clazz}>

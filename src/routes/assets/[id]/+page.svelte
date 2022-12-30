@@ -1,4 +1,5 @@
-<script>
+<script lang="ts">
+	import type { PageData } from './$types';
 	import * as d3 from 'd3';
 	import { ExclamationIcon, CheckCircleIcon } from '@rgossiaux/svelte-heroicons/outline';
 	import SvelteSeo from 'svelte-seo';
@@ -8,13 +9,11 @@
 	import LineChart from '$components/line-chart.svelte';
 	import { formatCurrency, formatPercentage, formatNum } from '$lib/utils/string-formatting';
 
-	/** @type {import('./$types').PageData} */
-	export let data;
+	export let data: PageData;
 
 	$: ({ assets, asset, backing, comments } = data);
 
-	/** @type {any[]} */
-	let stats = [];
+	let stats: bcked.Stat[] = [];
 	$: stats = [
 		{
 			name: 'Price',

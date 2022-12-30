@@ -1,26 +1,20 @@
-<script>
+<script lang="ts">
 	import { base } from '$app/paths';
-	import { inview } from 'svelte-inview';
+	import { inview, type Options } from 'svelte-inview';
 
-	/** @type {string?} */
-	export let id = null;
+	export let id: string | null = null;
 
-	/** @type {string} */
-	export let label;
+	export let label: string;
 
-	let clazz = '';
+	let clazz: string = '';
 	export { clazz as class };
 
-	/** @type {boolean} */
-	export let isInView = false;
+	export let isInView: boolean = false;
 
-	/**
-	 * When to animate showing the section.
-	 * @type {boolean}
-	 * */
-	export let show = false;
+	/** When to animate showing the section. */
+	export let show: boolean = false;
 
-	export let inViewOptions = { threshold: 0.7 };
+	export let inViewOptions: Options = { threshold: 0.7 };
 
 	function setUrl() {
 		window.history.replaceState({}, '', id ? `${base}/#${id}` : `${base}/`);

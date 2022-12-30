@@ -1,18 +1,15 @@
-<script>
+<script lang="ts">
 	import Section from '$components/section.svelte';
 	import SectionHeader from '$components/section-header.svelte';
 	import Glow from '$components/glow.svelte';
 	import Search from '$components/search.svelte';
 	import ForceGraph from '$components/force-graph.svelte';
 
-	/** @type {import('./types').Theme} */
-	export let theme;
+	export let theme: ui.Theme;
 
-	/** @type {any} */
-	export let assets;
+	export let assets: bcked.Assets;
 
-	/** @type {any} */
-	export let graph;
+	export let graph: bcked.Graph;
 </script>
 
 <Section label="Introduction to bcked" class="lg:flex lg:justify-between items-center">

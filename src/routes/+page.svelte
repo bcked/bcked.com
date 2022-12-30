@@ -11,7 +11,7 @@
 
 	$: ({ assets, stats, trees, graph } = data);
 
-	let themes: { [key: string]: ui.Theme } = {
+	const themes = {
 		blue: {
 			text: 'text-neon-blue',
 			from: 'from-neon-blue',

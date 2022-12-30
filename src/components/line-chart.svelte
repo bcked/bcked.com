@@ -1,26 +1,19 @@
-<script>
+<script lang="ts">
 	import { generate } from '$lib/utils/array';
 	import * as d3 from 'd3';
 
-	/** @type {string} */
-	export let id;
+	export let id: string;
 
-	/**
-	 * Data describes an array of objects structured to describe a date and a value.
-	 * @type {{ x: any, y: any}[]} */
-	export let data;
+	/** Data describes an array of objects structured to describe a date and a value. */
+	export let data: { x: any; y: any }[];
 
-	/** @type {(v: any) => any} */
-	export let parseX = (v) => v;
+	export let parseX: (v: any) => any = (v) => v;
 
-	/** @type {(v: any) => string} */
-	export let formatX = (v) => v;
+	export let formatX: (v: any) => string = (v) => v;
 
-	/** @type {(v: any) => any} */
-	export let parseY = (v) => v;
+	export let parseY: (v: any) => any = (v) => v;
 
-	/** @type {(v: any) => string} */
-	export let formatY = (v) => v;
+	export let formatY: (v: any) => string = (v) => v;
 
 	export let heightRatio = 0.4;
 

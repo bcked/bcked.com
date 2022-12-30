@@ -1,8 +1,8 @@
-<script>
+<script lang="ts">
+	import type { PageData } from './$types';
 	import SvelteSeo from 'svelte-seo';
 
-	/** @type {import('./$types').PageData} */
-	export let data;
+	export let data: PageData;
 </script>
 
 <SvelteSeo

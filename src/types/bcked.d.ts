@@ -42,6 +42,16 @@ declare namespace bcked {
 
 	type Backing = {};
 
+	type Tree = {};
+
+	type Graph = {};
+
+	type Stat = {
+		name: string;
+		value: string | number | bigint;
+		type: string;
+	};
+
 	type Stats = {
 		'backing-usd': number;
 		'ratio-avg': number;

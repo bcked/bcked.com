@@ -2,44 +2,43 @@
   @component
   Generates an SVG Sankey chart using [d3-sankey](https://github.com/d3/d3-sankey).
  -->
-<script>
+<script lang="ts">
 	import { base } from '$app/paths';
 	import { getContext } from 'svelte';
 	import * as Sankey from 'd3-sankey';
 	import * as d3 from 'd3';
 
-	/** @type {any} */
-	export let assets;
+	export let assets: bcked.Assets;
 
 	const { data, width, height } = getContext('LayerCake');
 
 	$: sankeyWidth = $width;
 
-	/** @type {Function} [colorLinks=d => 'rgba(0, 0, 0, .2)'] - A function to return a color for the links. */
+	/** [colorLinks=d => 'rgba(0, 0, 0, .2)'] - A function to return a color for the links. */
 	export let colorLinks = (d) => 'rgba(0, 0, 0, .2)';
 
-	/** @type {Function} [colorNodes=d => '#333'] - A function to return a color for each node. */
+	/** [colorNodes=d => '#333'] - A function to return a color for each node. */
 	export let colorNodes = (d) => '#333';
 
-	/** @type {Function} [colorText=d => '#263238'] - A function to return a color for each text label. */
+	/** [colorText=d => '#263238'] - A function to return a color for each text label. */
 	export let colorText = (d) => '#263238';
 
-	/** @type {Number} [nodeHight=5] - The width of each node, in pixels, passed to [`sankey.nodeHight`](https://github.com/d3/d3-sankey#sankey_nodeWidth). */
-	export let nodeHeight = 40;
+	/** [nodeHight=5] - The width of each node, in pixels, passed to [`sankey.nodeHight`](https://github.com/d3/d3-sankey#sankey_nodeWidth). */
+	export let nodeHeight: number = 40;
 
-	/** @type {Function} [linkWidth=d => '0.9'] - A function to return a float to scale the link width. */
+	/** [linkWidth=d => '0.9'] - A function to return a float to scale the link width. */
 	export let linkWidth = (d) => 0.9;
 
-	/** @type {Number} [nodePadding=10] - The padding between nodes, passed to [`sankey.nodePadding`](https://github.com/d3/d3-sankey#sankey_nodePadding). */
-	export let nodePadding = 10;
+	/** [nodePadding=10] - The padding between nodes, passed to [`sankey.nodePadding`](https://github.com/d3/d3-sankey#sankey_nodePadding). */
+	export let nodePadding: number = 10;
 
-	/** @type {Function} [linkSort=(a, b) => a.value < b.value ? 1 : -1] - How to sort the links, passed to [`sankey.linkSort`](https://github.com/d3/d3-sankey#sankey_linkSort). */
+	/** [linkSort=(a, b) => a.value < b.value ? 1 : -1] - How to sort the links, passed to [`sankey.linkSort`](https://github.com/d3/d3-sankey#sankey_linkSort). */
 	export let linkSort = (a, b) => (a.value > b.value ? 1 : -1);
 
-	/** @type {Function} [nodeId=d => d.id] - The ID field accessor, passed to [`sankey.nodeId`](https://github.com/d3/d3-sankey#sankey_nodeId). */
+	/** [nodeId=d => d.id] - The ID field accessor, passed to [`sankey.nodeId`](https://github.com/d3/d3-sankey#sankey_nodeId). */
 	export let nodeId = (d) => d.id;
 
-	/** @type {Function} [nodeAlign=d3.sankeyLeft] - An alignment function to position the Sankey blocks. See the [d3-sankey documentation](https://github.com/d3/d3-sankey#alignments) for more. */
+	/** [nodeAlign=d3.sankeyLeft] - An alignment function to position the Sankey blocks. See the [d3-sankey documentation](https://github.com/d3/d3-sankey#alignments) for more. */
 	export let nodeAlign = Sankey.sankeyJustify;
 
 	$: sankey = Sankey.sankey()
@@ -52,19 +51,29 @@
 
 	$: sankeyData = sankey($data);
 
+	type Link = {
+		/** y coordinate for the start of the link. */
+		y0: number;
+		/** y coordinate for the end of the link. */
+		y1: number;
+		/** Width of the link. */
+		width: number;
+		/** Source node object. */
+		source: {
+			/** x coordinate for the start of the link. */
+			x1: number;
+		};
+		/** Target node object. */
+		target: {
+			/** x coordinate for the end of the link. */
+			x0: number;
+		};
+	};
 	/**
 	 * This function is a drop in replacement for d3.sankeyLinkVertical().
 	 * Except any accessors/options.
-	 * @param {Object} link - Link object.
-	 * @param {Number} link.y0 - y coordinate for the start of the link.
-	 * @param {Number} link.y1 - y coordinate for the end of the link.
-	 * @param {Number} link.width - Width of the link.
-	 * @param {Object} link.source - Source node object.
-	 * @param {Number} link.source.x1 - x coordinate for the start of the link.
-	 * @param {Object} link.target - Target node object.
-	 * @param {Number} link.target.x0 - x coordinate for the end of the link.
 	 **/
-	function sankeyLinkPath(link) {
+	function sankeyLinkPath(link: Link) {
 		// Start and end of the link
 		let sy1 = link.source.x1;
 		let ty0 = link.target.x0;
