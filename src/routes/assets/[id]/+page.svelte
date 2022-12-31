@@ -13,7 +13,7 @@
 
 	$: ({ assets, asset, backing, comments } = data);
 
-	let stats: bcked.Stat[] = [];
+	let stats: api.Stat[] = [];
 	$: stats = [
 		{
 			name: 'Price',

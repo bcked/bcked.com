@@ -22,7 +22,7 @@
 	let data: SearchItems = [];
 
 	onMount(async function () {
-		const assets: bcked.Assets = await (await fetch(`${base}/assets.json`)).json();
+		const assets: api.Assets = await (await fetch(`${base}/assets.json`)).json();
 		data = Object.entries(assets).map(([id, asset]) => ({
 			name: asset.name,
 			symbol: asset.symbol,

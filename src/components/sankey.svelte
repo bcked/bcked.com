@@ -8,7 +8,7 @@
 	import * as Sankey from 'd3-sankey';
 	import * as d3 from 'd3';
 
-	export let assets: bcked.Assets;
+	export let assets: api.Assets;
 
 	const { data, width, height } = getContext('LayerCake');
 

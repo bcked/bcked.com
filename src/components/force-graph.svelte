@@ -5,8 +5,8 @@
 	import forceBoundary from 'd3-force-boundary';
 	import { onMount } from 'svelte';
 
-	export let assets: bcked.Assets;
-	export let graph: bcked.Graph;
+	export let assets: api.Assets;
+	export let graph: api.Graph;
 
 	let width = 400;
 	let height = 400;

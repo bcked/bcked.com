@@ -1,6 +1,6 @@
 // https://www.sitemaps.org/protocol.html
 import { compareDates } from '$lib/utils/string-formatting';
-import { _readAssets } from '../(api)/assets.json/+server';
+import { _readAssets } from '$api/assets.json/+server';
 import { dev } from '$app/environment';
 
 export const prerender = true;

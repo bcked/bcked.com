@@ -1,4 +1,4 @@
-import { _readToken } from '../../(api)/tokens/[address].json/+server';
+import { _readToken } from '$api/tokens/[address].json/+server';
 
 export const prerender = true;
 

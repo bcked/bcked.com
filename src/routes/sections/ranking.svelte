@@ -8,9 +8,9 @@
 
 	export let theme: ui.Theme;
 
-	export let assets: bcked.Assets;
+	export let assets: api.Assets;
 
-	export let trees: bcked.Tree;
+	export let trees: api.Tree;
 </script>
 
 <Section id="ranking" label="Ranking of backed cryptocurrencies">

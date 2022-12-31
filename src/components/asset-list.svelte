@@ -4,13 +4,13 @@
 	import { ChevronRightIcon } from '@rgossiaux/svelte-heroicons/solid';
 	import { CashIcon } from '@rgossiaux/svelte-heroicons/outline';
 
-	export let assets: bcked.Assets;
+	export let assets: api.Assets;
 	export let icon: ComponentType;
 	export let title: string;
-	export let compare: (a: bcked.Asset, b: bcked.Asset) => number;
+	export let compare: (a: api.Asset, b: api.Asset) => number;
 	export let size: number;
-	export let select: (asset: bcked.Asset) => string;
-	export let filter: (asset: bcked.Asset) => boolean;
+	export let select: (asset: api.Asset) => string;
+	export let filter: (asset: api.Asset) => boolean;
 </script>
 
 <div class="px-4 py-5 overflow-hidden sm:p-6 text-gray-900">

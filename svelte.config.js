@@ -7,6 +7,7 @@ import { parse } from 'yaml';
 await prepareData();
 
 const assets = parse(fs.readFileSync(`./_generated/assets.yml`, 'utf-8'));
+/** @type {{[key: string]: string}} */
 const tokens = parse(fs.readFileSync(`./_generated/token-asset-mapping.yml`, 'utf-8'));
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -26,6 +27,7 @@ const config = {
 	kit: {
 		alias: {
 			$components: 'src/components',
+			$api: 'src/routes/(api)',
 		},
 		paths: {
 			base: '',

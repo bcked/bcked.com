@@ -8,9 +8,9 @@
 
 	export let theme: ui.Theme;
 
-	export let assets: bcked.Assets;
+	export let assets: api.Assets;
 
-	export let stats: bcked.Stats;
+	export let stats: api.Stats;
 </script>
 
 <Section id="discover" label="Discover backed cryptocurrencies">

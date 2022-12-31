@@ -1,4 +1,4 @@
-declare namespace bcked {
+declare namespace api {
 	type Asset = {
 		id: string;
 		path: string;
@@ -38,13 +38,68 @@ declare namespace bcked {
 		icon: string;
 	};
 
-	type Assets = { [key: string]: bcked.Asset };
+	type Assets = { [key: string]: Asset };
+
+	type Token = {
+		id: string;
+		path: string;
+		asset: {
+			id: string;
+			path: string;
+		};
+	};
+
+	type Tokens = { [key: string]: Token };
 
 	type Backing = {};
 
-	type Tree = {};
+	type Node = {
+		id: string;
+		name?: string;
+		value: number;
+		level?: number;
+	};
 
-	type Graph = {};
+	type Nodes = Node[];
+
+	type Link = {
+		source: string;
+		target: string;
+		value: number;
+		level: number;
+	};
+
+	type Links = Link[];
+
+	type Tree = {
+		timestamp: string;
+		nodes: Nodes;
+		links: Links;
+		value: number;
+		unbacked: number;
+		backed: number;
+	};
+
+	type Trees = { [key: string]: Tree[] };
+
+	type GraphNode = Node & {
+		'min-max': number;
+		'z-score': number;
+	};
+
+	type GraphNodes = GraphNode[];
+
+	type GraphLink = Link & {
+		'min-max': number;
+		'z-score': number;
+	};
+
+	type GraphLinks = GraphLink[];
+
+	type Graph = {
+		nodes: GraphNodes;
+		links: GraphLinks;
+	};
 
 	type Stat = {
 		name: string;

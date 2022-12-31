@@ -1,8 +1,8 @@
 import fs from 'fs';
 import glob from 'glob'
 import { marked } from 'marked'
-import { _readBacking } from '../../(api)/trees/[id].json/+server';
-import { _readAssets } from '../../(api)/assets.json/+server';
+import { _readBacking } from '$api/trees/[id].json/+server';
+import { _readAssets } from '$api/assets.json/+server';
 
 var renderer = new marked.Renderer();
 renderer.heading = function (text) {

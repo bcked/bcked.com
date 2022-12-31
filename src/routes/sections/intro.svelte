@@ -7,9 +7,9 @@
 
 	export let theme: ui.Theme;
 
-	export let assets: bcked.Assets;
+	export let assets: api.Assets;
 
-	export let graph: bcked.Graph;
+	export let graph: api.Graph;
 </script>
 
 <Section label="Introduction to bcked" class="lg:flex lg:justify-between items-center">
