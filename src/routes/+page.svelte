@@ -45,6 +45,6 @@
 <main>
 	<IntroSection {assets} {graph} theme={themes.blue} />
 	<DiscoverSection {assets} {stats} theme={themes.yellow} />
-	<RoadmapSection theme={themes.pink} />
-	<RankingSection {assets} {trees} theme={themes.yellow} />
+	<!-- <RoadmapSection theme={themes.pink} /> -->
+	<RankingSection {assets} {trees} theme={themes.pink} />
 </main>

@@ -11,7 +11,7 @@
 
 	const mainNavigation: ui.Navigation = [
 		{ name: 'Discover', path: `${base}/#discover` },
-		{ name: 'Roadmap', path: `${base}/#roadmap` },
+		// { name: 'Roadmap', path: `${base}/#roadmap` },
 		{ name: 'Ranking', path: `${base}/#ranking` }
 	];
 
