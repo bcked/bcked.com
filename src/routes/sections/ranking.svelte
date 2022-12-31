@@ -10,7 +10,7 @@
 
 	export let assets: api.Assets;
 
-	export let trees: api.Tree;
+	export let trees: api.Trees;
 </script>
 
 <Section id="ranking" label="Ranking of backed cryptocurrencies">
