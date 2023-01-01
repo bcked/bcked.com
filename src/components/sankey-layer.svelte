@@ -2,7 +2,7 @@
 	import { LayerCake, Svg } from 'layercake';
 	import Sankey from '$components/sankey.svelte';
 
-	export let backing: api.Backing;
+	export let backing: api.Tree;
 
 	export let assets: api.Assets;
 </script>

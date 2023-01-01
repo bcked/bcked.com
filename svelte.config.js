@@ -4,6 +4,7 @@ import { prepareData } from './prepare-data.js';
 import fs from 'fs';
 import { parse } from 'yaml';
 
+// Right now there is no typescript support for this config: https://github.com/sveltejs/kit/issues/2576
 await prepareData();
 
 const assets = parse(fs.readFileSync(`./_generated/assets.yml`, 'utf-8'));

@@ -110,9 +110,9 @@
 				<div class="text-center mt-6 text-lg font-thin text-gray-500 overflow-visible">
 					<LineChart
 						id="{asset.name.toLowerCase().split(' ').join('-')}-backing-history"
-						data={asset.backing.map((backing) => ({
-							x: backing.timestamp,
-							y: backing['backing-usd']
+						data={asset.backing.map((b) => ({
+							x: b.timestamp,
+							y: b['backing-usd']
 						}))}
 						parseX={d3.timeParse('%Y-%m-%dT%H:%M:%S.%LZ')}
 						formatX={d3.timeFormat('%e %B')}

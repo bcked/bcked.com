@@ -10,7 +10,12 @@
 
 	export let assets: api.Assets;
 
-	const { data, width, height } = getContext('LayerCake');
+	type LayerCakeContext = {
+		data: SvelteStore<api.Tree>;
+		width: SvelteStore<number>;
+		height: SvelteStore<number>;
+	};
+	const { data, width, height } = getContext<LayerCakeContext>('LayerCake');
 
 	$: sankeyWidth = $width;
 

@@ -51,8 +51,6 @@ declare namespace api {
 
 	type Tokens = { [key: string]: Token };
 
-	type Backing = {};
-
 	type Node = {
 		id: string;
 		name?: string;
