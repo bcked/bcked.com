@@ -1,7 +1,7 @@
 {
   "bitcoin": [
     {
-      "timestamp": "2023-01-01T16:36:24.869Z",
+      "timestamp": "2023-01-01T17:47:39.609Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -29,7 +29,7 @@
   ],
   "bnb": [
     {
-      "timestamp": "2023-01-01T16:36:24.871Z",
+      "timestamp": "2023-01-01T17:47:39.612Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -57,7 +57,7 @@
   ],
   "bullishjackpot": [
     {
-      "timestamp": "2023-01-01T16:36:24.872Z",
+      "timestamp": "2023-01-01T17:47:39.615Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -125,7 +125,7 @@
   ],
   "catoshi": [
     {
-      "timestamp": "2023-01-01T16:36:24.877Z",
+      "timestamp": "2023-01-01T17:47:39.625Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -153,7 +153,7 @@
   ],
   "ethereum": [
     {
-      "timestamp": "2023-01-01T16:36:24.878Z",
+      "timestamp": "2023-01-01T17:47:39.628Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -181,7 +181,7 @@
   ],
   "fukarens": [
     {
-      "timestamp": "2023-01-01T16:36:24.888Z",
+      "timestamp": "2023-01-01T17:47:39.637Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -209,7 +209,7 @@
   ],
   "gallant": [
     {
-      "timestamp": "2023-01-01T16:36:24.890Z",
+      "timestamp": "2023-01-01T17:47:39.638Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -237,7 +237,7 @@
   ],
   "glmr-pad": [
     {
-      "timestamp": "2023-01-01T16:36:24.891Z",
+      "timestamp": "2023-01-01T17:47:39.640Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -265,7 +265,7 @@
   ],
   "gold": [
     {
-      "timestamp": "2023-01-01T16:36:24.892Z",
+      "timestamp": "2023-01-01T17:47:39.641Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -293,7 +293,7 @@
   ],
   "hoge": [
     {
-      "timestamp": "2023-01-01T16:36:24.893Z",
+      "timestamp": "2023-01-01T17:47:39.644Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -687,7 +687,7 @@
   ],
   "movr-pad": [
     {
-      "timestamp": "2023-01-01T16:36:24.897Z",
+      "timestamp": "2023-01-01T17:47:39.649Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -761,7 +761,7 @@
   ],
   "pxbsc": [
     {
-      "timestamp": "2023-01-01T16:36:24.900Z",
+      "timestamp": "2023-01-01T17:47:39.652Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -789,7 +789,7 @@
   ],
   "toad-network": [
     {
-      "timestamp": "2023-01-01T16:36:24.902Z",
+      "timestamp": "2023-01-01T17:47:39.654Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -817,7 +817,7 @@
   ],
   "usd": [
     {
-      "timestamp": "2023-01-01T16:36:24.902Z",
+      "timestamp": "2023-01-01T17:47:39.655Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -844,6 +844,82 @@
     }
   ],
   "usdc": [
+    {
+      "timestamp": "2022-12-01T06:59:00.000Z",
+      "nodes": [
+        {
+          "id": "usdc",
+          "name": "USD Coin",
+          "value": 43238943390,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 43238943390,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "usdc",
+          "target": "usd",
+          "value": 43238943390,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 43238943390,
+          "level": 1
+        }
+      ],
+      "value": 43238943390,
+      "unbacked": 0,
+      "backed": 43238943390
+    },
+    {
+      "timestamp": "2022-11-01T06:59:00.000Z",
+      "nodes": [
+        {
+          "id": "usdc",
+          "name": "USD Coin",
+          "value": 43507961021,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 43507961021,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "usdc",
+          "target": "usd",
+          "value": 43507961021,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 43507961021,
+          "level": 1
+        }
+      ],
+      "value": 43507961021,
+      "unbacked": 0,
+      "backed": 43507961021
+    },
     {
       "timestamp": "2022-10-01T06:59:00.000Z",
       "nodes": [
@@ -995,6 +1071,272 @@
       "value": 55569660586,
       "unbacked": 0,
       "backed": 55569660586
+    },
+    {
+      "timestamp": "2022-06-01T06:59:00.000Z",
+      "nodes": [
+        {
+          "id": "usdc",
+          "name": "USD Coin",
+          "value": 54005995420,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 54005995420,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "usdc",
+          "target": "usd",
+          "value": 54005995420,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 54005995420,
+          "level": 1
+        }
+      ],
+      "value": 54005995420,
+      "unbacked": 0,
+      "backed": 54005995420
+    },
+    {
+      "timestamp": "2022-05-01T06:59:00.000Z",
+      "nodes": [
+        {
+          "id": "usdc",
+          "name": "USD Coin",
+          "value": 49260105739,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 49260105739,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "usdc",
+          "target": "usd",
+          "value": 49260105739,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 49260105739,
+          "level": 1
+        }
+      ],
+      "value": 49260105739,
+      "unbacked": 0,
+      "backed": 49260105739
+    },
+    {
+      "timestamp": "2022-04-01T06:59:00.000Z",
+      "nodes": [
+        {
+          "id": "usdc",
+          "name": "USD Coin",
+          "value": 51388555903,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 51388555903,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "usdc",
+          "target": "usd",
+          "value": 51388555903,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 51388555903,
+          "level": 1
+        }
+      ],
+      "value": 51388555903,
+      "unbacked": 0,
+      "backed": 51388555903
+    },
+    {
+      "timestamp": "2022-03-01T06:59:00.000Z",
+      "nodes": [
+        {
+          "id": "usdc",
+          "name": "USD Coin",
+          "value": 53496850808,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 53496850808,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "usdc",
+          "target": "usd",
+          "value": 53496850808,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 53496850808,
+          "level": 1
+        }
+      ],
+      "value": 53496850808,
+      "unbacked": 0,
+      "backed": 53496850808
+    },
+    {
+      "timestamp": "2022-02-01T06:59:00.000Z",
+      "nodes": [
+        {
+          "id": "usdc",
+          "name": "USD Coin",
+          "value": 50031478777,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 50031478777,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "usdc",
+          "target": "usd",
+          "value": 50031478777,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 50031478777,
+          "level": 1
+        }
+      ],
+      "value": 50031478777,
+      "unbacked": 0,
+      "backed": 50031478777
+    },
+    {
+      "timestamp": "2022-01-01T06:59:00.000Z",
+      "nodes": [
+        {
+          "id": "usdc",
+          "name": "USD Coin",
+          "value": 42416160651,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 42416160651,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "usdc",
+          "target": "usd",
+          "value": 42416160651,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 42416160651,
+          "level": 1
+        }
+      ],
+      "value": 42416160651,
+      "unbacked": 0,
+      "backed": 42416160651
+    },
+    {
+      "timestamp": "2021-12-01T06:59:00.000Z",
+      "nodes": [
+        {
+          "id": "usdc",
+          "name": "USD Coin",
+          "value": 38744141217,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 38744141217,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "usdc",
+          "target": "usd",
+          "value": 38744141217,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 38744141217,
+          "level": 1
+        }
+      ],
+      "value": 38744141217,
+      "unbacked": 0,
+      "backed": 38744141217
     }
   ]
 }

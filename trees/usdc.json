@@ -1,10 +1,10 @@
 {
-  "timestamp": "2022-10-01T06:59:00.000Z",
+  "timestamp": "2022-12-01T06:59:00.000Z",
   "nodes": [
     {
       "id": "usdc",
       "name": "USD Coin",
-      "value": 47261819834,
+      "value": 43238943390,
       "level": 0
     },
     {
@@ -14,7 +14,7 @@
     {
       "id": "usd",
       "name": "U.S. dollar",
-      "value": 47261819834,
+      "value": 43238943390,
       "level": 1
     }
   ],
@@ -22,17 +22,17 @@
     {
       "source": "usdc",
       "target": "usd",
-      "value": 47261819834,
+      "value": 43238943390,
       "level": 0
     },
     {
       "source": "usd",
       "target": "unbacked",
-      "value": 47261819834,
+      "value": 43238943390,
       "level": 1
     }
   ],
-  "value": 47261819834,
+  "value": 43238943390,
   "unbacked": 0,
-  "backed": 47261819834
+  "backed": 43238943390
 }

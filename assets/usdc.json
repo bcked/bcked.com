@@ -73,6 +73,20 @@
   ],
   "supply": [
     {
+      "timestamp": "2022-12-01T06:59:00.000Z",
+      "circulating": 43238943390,
+      "max": null,
+      "total": 43238943390,
+      "source": "https://www.centre.io/hubfs/USDC%202022-Circle%20Examination%20Report%20November%202022.pdf?hsLang=en"
+    },
+    {
+      "timestamp": "2022-11-01T06:59:00.000Z",
+      "circulating": 43507961021,
+      "max": null,
+      "total": 43507961021,
+      "source": "https://www.centre.io/hubfs/USDC%202022_Circle%20Examination%20Report%20October%202022.pdf?hsLang=en"
+    },
+    {
       "timestamp": "2022-10-01T06:59:00.000Z",
       "circulating": 47261819834,
       "max": null,
@@ -99,9 +113,80 @@
       "max": null,
       "total": 55569660586,
       "source": "https://www.centre.io/hubfs/PDF/USDC%202022_Circle%20Examination%20Report%20June%202022.pdf?hsLang=en"
+    },
+    {
+      "timestamp": "2022-06-01T06:59:00.000Z",
+      "circulating": 54005995420,
+      "max": null,
+      "total": 54005995420,
+      "source": "https://www.centre.io/hubfs/PDF/2022%20Circle%20Examination%20Report%20May%202022.pdf?hsLang=en"
+    },
+    {
+      "timestamp": "2022-05-01T06:59:00.000Z",
+      "circulating": 49260105739,
+      "max": null,
+      "total": 49260105739,
+      "source": "https://www.centre.io/hubfs/PDF/2022%20Circle%20Examination%20Report%20April%202022.pdf?hsLang=en"
+    },
+    {
+      "timestamp": "2022-04-01T06:59:00.000Z",
+      "circulating": 51388555903,
+      "max": null,
+      "total": 51388555903,
+      "source": "https://www.centre.io/hubfs/PDF/2022%20Circle%20Examination%20Report%20March%202022.pdf?hsLang=en"
+    },
+    {
+      "timestamp": "2022-03-01T06:59:00.000Z",
+      "circulating": 53496850808,
+      "max": null,
+      "total": 53496850808,
+      "source": "https://www.centre.io/hubfs/PDF/2022%20Circle%20Examination%20Report%20February%202022.pdf?hsLang=en"
+    },
+    {
+      "timestamp": "2022-02-01T06:59:00.000Z",
+      "circulating": 50031478777,
+      "max": null,
+      "total": 50031478777,
+      "source": "https://www.centre.io/hubfs/PDF/2022%20Circle%20Examination%20Report%20January%202022.pdf?hsLang=en"
+    },
+    {
+      "timestamp": "2022-01-01T06:59:00.000Z",
+      "circulating": 42416160651,
+      "max": null,
+      "total": 42416160651,
+      "source": "https://f.hubspotusercontent30.net/hubfs/9304636/PDF/2021%20Circle%20Examination%20Report%20December%202021.pdf"
+    },
+    {
+      "timestamp": "2021-12-01T06:59:00.000Z",
+      "circulating": 38744141217,
+      "max": null,
+      "total": 38744141217,
+      "source": "https://www.centre.io/hubfs/pdfs/attestation/2021%20Circle%20Examination%20Report%20November%202021%20Final.pdf?hsLang=en"
     }
   ],
   "backing": [
+    {
+      "timestamp": "2022-12-01T06:59:00.000Z",
+      "assets": {
+        "usd": 43404329767
+      },
+      "source": "https://www.centre.io/hubfs/USDC%202022-Circle%20Examination%20Report%20November%202022.pdf?hsLang=en",
+      "backing-assets": 1,
+      "backing-usd": 43238943390,
+      "ratio": 1,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2022-11-01T06:59:00.000Z",
+      "assets": {
+        "usd": 43754958453
+      },
+      "source": "https://www.centre.io/hubfs/USDC%202022_Circle%20Examination%20Report%20October%202022.pdf?hsLang=en",
+      "backing-assets": 1,
+      "backing-usd": 43507961021,
+      "ratio": 1.0062,
+      "uniformity": 1
+    },
     {
       "timestamp": "2022-10-01T06:59:00.000Z",
       "assets": {
@@ -110,7 +195,7 @@
       "source": "https://www.centre.io/hubfs/USDC%202022_Circle%20Examination%20Report%20Sept%202022-1.pdf?hsLang=en",
       "backing-assets": 1,
       "backing-usd": 47261819834,
-      "ratio": 1,
+      "ratio": 1.093,
       "uniformity": 1
     },
     {
@@ -121,7 +206,7 @@
       "source": "https://www.centre.io/hubfs/USDC%202022_Circle%20Examination%20Report%20August%202022.pdf?hsLang=en",
       "backing-assets": 1,
       "backing-usd": 52258056105,
-      "ratio": 1.1057,
+      "ratio": 1.2086,
       "uniformity": 1
     },
     {
@@ -132,7 +217,7 @@
       "source": "https://www.centre.io/hubfs/PDF/USDC%202022_Circle%20Examination%20Report%20July%202022.pdf?hsLang=en",
       "backing-assets": 1,
       "backing-usd": 54488837404,
-      "ratio": 1.1529,
+      "ratio": 1.2602,
       "uniformity": 1
     },
     {
@@ -143,10 +228,87 @@
       "source": "https://www.centre.io/hubfs/PDF/USDC%202022_Circle%20Examination%20Report%20June%202022.pdf?hsLang=en",
       "backing-assets": 1,
       "backing-usd": 55569660586,
-      "ratio": 1.1758,
+      "ratio": 1.2852,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2022-06-01T06:59:00.000Z",
+      "assets": {
+        "usd": 54005995420
+      },
+      "source": "https://www.centre.io/hubfs/PDF/2022%20Circle%20Examination%20Report%20May%202022.pdf?hsLang=en",
+      "backing-assets": 1,
+      "backing-usd": 54005995420,
+      "ratio": 1.249,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2022-05-01T06:59:00.000Z",
+      "assets": {
+        "usd": 49260105739
+      },
+      "source": "https://www.centre.io/hubfs/PDF/2022%20Circle%20Examination%20Report%20April%202022.pdf?hsLang=en",
+      "backing-assets": 1,
+      "backing-usd": 49260105739,
+      "ratio": 1.1393,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2022-04-01T06:59:00.000Z",
+      "assets": {
+        "usd": 51388555903
+      },
+      "source": "https://www.centre.io/hubfs/PDF/2022%20Circle%20Examination%20Report%20March%202022.pdf?hsLang=en",
+      "backing-assets": 1,
+      "backing-usd": 51388555903,
+      "ratio": 1.1885,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2022-03-01T06:59:00.000Z",
+      "assets": {
+        "usd": 53496850808
+      },
+      "source": "https://www.centre.io/hubfs/PDF/2022%20Circle%20Examination%20Report%20February%202022.pdf?hsLang=en",
+      "backing-assets": 1,
+      "backing-usd": 53496850808,
+      "ratio": 1.2372,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2022-02-01T06:59:00.000Z",
+      "assets": {
+        "usd": 50031478777
+      },
+      "source": "https://www.centre.io/hubfs/PDF/2022%20Circle%20Examination%20Report%20January%202022.pdf?hsLang=en",
+      "backing-assets": 1,
+      "backing-usd": 50031478777,
+      "ratio": 1.1571,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2022-01-01T06:59:00.000Z",
+      "assets": {
+        "usd": 42416160651
+      },
+      "source": "https://f.hubspotusercontent30.net/hubfs/9304636/PDF/2021%20Circle%20Examination%20Report%20December%202021.pdf",
+      "backing-assets": 1,
+      "backing-usd": 42416160651,
+      "ratio": 0.981,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2021-12-01T06:59:00.000Z",
+      "assets": {
+        "usd": 38744141217
+      },
+      "source": "https://www.centre.io/hubfs/pdfs/attestation/2021%20Circle%20Examination%20Report%20November%202021%20Final.pdf?hsLang=en",
+      "backing-assets": 1,
+      "backing-usd": 38744141217,
+      "ratio": 0.896,
       "uniformity": 1
     }
   ],
-  "mcap": 47261819834,
+  "mcap": 43238943390,
   "icon": "assets/usdc/icon.png"
 }
