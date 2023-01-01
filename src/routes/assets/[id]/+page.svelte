@@ -115,7 +115,7 @@
 							y: b['backing-usd']
 						}))}
 						parseX={d3.timeParse('%Y-%m-%dT%H:%M:%S.%LZ')}
-						formatX={d3.timeFormat('%e %B')}
+						formatX={d3.timeFormat('%e %B %Y')}
 						formatY={(v) => formatCurrency(v)}
 					/>
 				</div>
