@@ -1,7 +1,10 @@
+import type { UserConfig } from 'vite';
 import { sveltekit } from '@sveltejs/kit/vite';
+import { prepareData } from './src/compile-data/prepare-data';
 
-/** @type {import('vite').UserConfig} */
-const config = {
+await prepareData();
+
+const config: UserConfig = {
 	plugins: [sveltekit()],
 	css: {
 		preprocessorOptions: {

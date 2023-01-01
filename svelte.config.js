@@ -1,15 +1,15 @@
 import { vitePreprocess } from '@sveltejs/kit/vite';
 import adapter from '@sveltejs/adapter-static';
-import { prepareData } from './prepare-data.js';
 import fs from 'fs';
 import { parse } from 'yaml';
-
-// Right now there is no typescript support for this config: https://github.com/sveltejs/kit/issues/2576
-await prepareData();
 
 const assets = parse(fs.readFileSync(`./_generated/assets.yml`, 'utf-8'));
 /** @type {{[key: string]: string}} */
 const tokens = parse(fs.readFileSync(`./_generated/token-asset-mapping.yml`, 'utf-8'));
+
+if (!assets || !tokens) {
+	throw new Error('Preprocessed data was not found.')
+}
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
