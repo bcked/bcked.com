@@ -62,7 +62,7 @@
 		.curve(curveShape);
 
 	// "ticks", milestones marked on the x-axis
-	$: xAxis = generate(0.1, 0.9, width > sm ? 5 : 3).map((q) =>
+	$: xAxis = generate(0.15, 0.85, width > sm ? 5 : 3).map((q) =>
 		d3.quantile(data, q, (d) => parseX(d.x))
 	);
 
