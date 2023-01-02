@@ -25,12 +25,24 @@
   ],
   "price": [
     {
+      "timestamp": "2023-01-02T18:10:00.000Z",
+      "usd": 1821.57,
+      "source": "https://coinmarketcap.com/currencies/pax-gold/"
+    },
+    {
       "timestamp": "2022-06-11T00:00:00.000Z",
       "usd": 1878.49,
       "source": "https://coinmarketcap.com/currencies/pax-gold/"
     }
   ],
   "supply": [
+    {
+      "timestamp": "2023-01-02T18:10:00.000Z",
+      "circulating": 271264,
+      "max": null,
+      "total": 271264,
+      "source": "https://coinmarketcap.com/currencies/pax-gold/"
+    },
     {
       "timestamp": "2022-04-29T00:00:00.000Z",
       "circulating": 326440.611,
@@ -48,10 +60,10 @@
       "source": "https://paxos.com/attestations/",
       "backing-assets": 1,
       "backing-usd": 613215423.36,
-      "ratio": 1,
+      "ratio": 1.241,
       "uniformity": 1
     }
   ],
-  "mcap": 613215423.36,
+  "mcap": 494126364.48,
   "icon": "assets/paxg/icon.png"
 }

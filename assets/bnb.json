@@ -30,6 +30,11 @@
   ],
   "price": [
     {
+      "timestamp": "2023-01-02T18:22:00.000Z",
+      "usd": 246.61,
+      "source": "https://coinmarketcap.com/currencies/bnb/"
+    },
+    {
       "timestamp": "2022-08-23T17:00:00.000Z",
       "usd": 297.2,
       "source": "https://coinmarketcap.com/currencies/bnb/"
@@ -42,6 +47,13 @@
   ],
   "supply": [
     {
+      "timestamp": "2023-01-02T18:22:00.000Z",
+      "circulating": 159964410,
+      "max": 200000000,
+      "total": 159979964,
+      "source": "https://coinmarketcap.com/currencies/bnb/"
+    },
+    {
       "timestamp": "2022-06-11T00:00:00.000Z",
       "circulating": 163276974.63,
       "max": 200000000,
@@ -51,7 +63,7 @@
   ],
   "backing": [
     {
-      "timestamp": "2023-01-02T17:58:48.109Z",
+      "timestamp": "2023-01-02T22:58:35.666Z",
       "assets": [],
       "source": null,
       "backing-assets": 0,
@@ -60,6 +72,6 @@
       "uniformity": 1
     }
   ],
-  "mcap": 48525916860.04,
+  "mcap": 39448823150.1,
   "icon": "assets/bnb/icon.png"
 }

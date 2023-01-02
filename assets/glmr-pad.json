@@ -28,12 +28,24 @@
   ],
   "price": [
     {
+      "timestamp": "2023-01-02T18:22:00.000Z",
+      "usd": 1.935e-7,
+      "source": "https://dexscreener.com/moonbeam/0x7c33896ce19831dc170d99330878688a5f6df614"
+    },
+    {
       "timestamp": "2022-06-11T00:00:00.000Z",
       "usd": 0.000001439,
       "source": "https://dexscreener.com/moonbeam/0x7c33896ce19831dc170d99330878688a5f6df614"
     }
   ],
   "supply": [
+    {
+      "timestamp": "2023-01-02T18:22:00.000Z",
+      "circulating": 56277548015.57,
+      "max": 200000000000,
+      "total": 56277548015.57,
+      "source": "https://moonscan.io/token/0x59193512877E2EC3bB27C178A8888Cfac62FB32D"
+    },
     {
       "timestamp": "2022-06-11T00:00:00.000Z",
       "circulating": 42050576900.08,
@@ -44,7 +56,7 @@
   ],
   "backing": [
     {
-      "timestamp": "2023-01-02T17:58:48.118Z",
+      "timestamp": "2023-01-02T22:58:35.712Z",
       "assets": [],
       "source": null,
       "backing-assets": 0,
@@ -53,6 +65,6 @@
       "uniformity": 1
     }
   ],
-  "mcap": 60510.78,
+  "mcap": 10889.71,
   "icon": "assets/glmr-pad/icon.png"
 }

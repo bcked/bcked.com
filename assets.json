@@ -22,12 +22,24 @@
     ],
     "price": [
       {
+        "timestamp": "2023-01-02T18:39:00.000Z",
+        "usd": 16719.83,
+        "source": "https://coinmarketcap.com/currencies/bitcoin/"
+      },
+      {
         "timestamp": "2022-08-23T18:23:00.000Z",
         "usd": 21524.18,
         "source": "https://coinmarketcap.com/currencies/bitcoin/"
       }
     ],
     "supply": [
+      {
+        "timestamp": "2023-01-02T18:39:00.000Z",
+        "circulating": 19250400,
+        "max": 21000000,
+        "total": 19250400,
+        "source": "https://coinmarketcap.com/currencies/bitcoin/"
+      },
       {
         "timestamp": "2022-08-23T18:23:00.000Z",
         "circulating": 19129831,
@@ -38,7 +50,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-01-02T17:58:48.107Z",
+        "timestamp": "2023-01-02T22:58:35.658Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -47,7 +59,7 @@
         "uniformity": 1
       }
     ],
-    "mcap": 411753925813.58,
+    "mcap": 321863415432,
     "icon": "assets/bitcoin/icon.png"
   },
   "bnb": {
@@ -82,6 +94,11 @@
     ],
     "price": [
       {
+        "timestamp": "2023-01-02T18:22:00.000Z",
+        "usd": 246.61,
+        "source": "https://coinmarketcap.com/currencies/bnb/"
+      },
+      {
         "timestamp": "2022-08-23T17:00:00.000Z",
         "usd": 297.2,
         "source": "https://coinmarketcap.com/currencies/bnb/"
@@ -94,6 +111,13 @@
     ],
     "supply": [
       {
+        "timestamp": "2023-01-02T18:22:00.000Z",
+        "circulating": 159964410,
+        "max": 200000000,
+        "total": 159979964,
+        "source": "https://coinmarketcap.com/currencies/bnb/"
+      },
+      {
         "timestamp": "2022-06-11T00:00:00.000Z",
         "circulating": 163276974.63,
         "max": 200000000,
@@ -103,7 +127,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-01-02T17:58:48.109Z",
+        "timestamp": "2023-01-02T22:58:35.666Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -112,7 +136,7 @@
         "uniformity": 1
       }
     ],
-    "mcap": 48525916860.04,
+    "mcap": 39448823150.1,
     "icon": "assets/bnb/icon.png"
   },
   "bullishjackpot": {
@@ -137,6 +161,11 @@
     ],
     "price": [
       {
+        "timestamp": "2023-01-02T18:22:00.000Z",
+        "usd": 1.527e-9,
+        "source": "https://dexscreener.com/bsc/0xeb22ebb99d5e6b16ae35b77cf136c60cd077b8cb"
+      },
+      {
         "timestamp": "2022-08-23T18:54:00.000Z",
         "usd": 2.478e-9,
         "source": "https://dexscreener.com/bsc/0xeb22ebb99d5e6b16ae35b77cf136c60cd077b8cb"
@@ -153,7 +182,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-01-02T17:58:48.110Z",
+        "timestamp": "2023-01-02T22:58:35.671Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -162,7 +191,7 @@
         "uniformity": 1
       }
     ],
-    "mcap": 2478,
+    "mcap": 1527,
     "icon": "assets/bullishjackpot/icon.png"
   },
   "busd": {
@@ -255,6 +284,11 @@
     ],
     "price": [
       {
+        "timestamp": "2023-01-02T18:22:00.000Z",
+        "usd": 0.02271,
+        "source": "https://dexscreener.com/bsc/0xd91636511cdc2b9f2af58cc8fcacbb0f0127f37f"
+      },
+      {
         "timestamp": "2022-08-21T00:00:00.000Z",
         "usd": 0.05411,
         "source": "https://dexscreener.com/bsc/0xd91636511cdc2b9f2af58cc8fcacbb0f0127f37f"
@@ -271,7 +305,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-01-02T17:58:48.113Z",
+        "timestamp": "2023-01-02T22:58:35.684Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -280,7 +314,7 @@
         "uniformity": 1
       }
     ],
-    "mcap": 1564395.46,
+    "mcap": 656577.73,
     "icon": "assets/catoshi/icon.png"
   },
   "ethereum": {
@@ -316,12 +350,24 @@
     ],
     "price": [
       {
+        "timestamp": "2023-01-02T18:22:00.000Z",
+        "usd": 1217.83,
+        "source": "https://coinmarketcap.com/currencies/ethereum/"
+      },
+      {
         "timestamp": "2022-08-23T18:14:00.000Z",
         "usd": 1634.74,
         "source": "https://coinmarketcap.com/currencies/ethereum/"
       }
     ],
     "supply": [
+      {
+        "timestamp": "2023-01-02T18:22:00.000Z",
+        "circulating": 122373866,
+        "max": null,
+        "total": 122373866,
+        "source": "https://coinmarketcap.com/currencies/ethereum/"
+      },
       {
         "timestamp": "2022-08-23T18:14:00.000Z",
         "circulating": 122081359.69,
@@ -332,7 +378,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-01-02T17:58:48.114Z",
+        "timestamp": "2023-01-02T22:58:35.691Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -341,7 +387,7 @@
         "uniformity": 1
       }
     ],
-    "mcap": 199571281939.63,
+    "mcap": 149030565230.78,
     "icon": "assets/ethereum/icon.png"
   },
   "fukarens": {
@@ -368,6 +414,11 @@
     ],
     "price": [
       {
+        "timestamp": "2023-01-02T18:22:00.000Z",
+        "usd": 2.234e-8,
+        "source": "https://dexscreener.com/bsc/0x2c001a059a0f2bd76293c755b3455163cc03a159"
+      },
+      {
         "timestamp": "2022-08-23T18:33:00.000Z",
         "usd": 2.76e-8,
         "source": "https://dexscreener.com/bsc/0x2c001a059a0f2bd76293c755b3455163cc03a159"
@@ -384,7 +435,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-01-02T17:58:48.115Z",
+        "timestamp": "2023-01-02T22:58:35.697Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -393,7 +444,7 @@
         "uniformity": 1
       }
     ],
-    "mcap": 27600,
+    "mcap": 22340,
     "icon": "assets/fukarens/icon.png"
   },
   "gallant": {
@@ -428,6 +479,11 @@
     ],
     "price": [
       {
+        "timestamp": "2023-01-02T18:22:00.000Z",
+        "usd": 4.186e-10,
+        "source": "https://dexscreener.com/bsc/0x1afe79f5eb36798b92106885507ba1a9cda954f6"
+      },
+      {
         "timestamp": "2022-08-23T17:26:00.000Z",
         "usd": 9.35977e-10,
         "source": "https://dexscreener.com/bsc/0xd4c39e96bf03d6fb5156bc25ed1d6303c38d91cc"
@@ -444,7 +500,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-01-02T17:58:48.117Z",
+        "timestamp": "2023-01-02T22:58:35.700Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -453,7 +509,7 @@
         "uniformity": 1
       }
     ],
-    "mcap": 93597.7,
+    "mcap": 41860,
     "icon": "assets/gallant/icon.png"
   },
   "glmr-pad": {
@@ -486,12 +542,24 @@
     ],
     "price": [
       {
+        "timestamp": "2023-01-02T18:22:00.000Z",
+        "usd": 1.935e-7,
+        "source": "https://dexscreener.com/moonbeam/0x7c33896ce19831dc170d99330878688a5f6df614"
+      },
+      {
         "timestamp": "2022-06-11T00:00:00.000Z",
         "usd": 0.000001439,
         "source": "https://dexscreener.com/moonbeam/0x7c33896ce19831dc170d99330878688a5f6df614"
       }
     ],
     "supply": [
+      {
+        "timestamp": "2023-01-02T18:22:00.000Z",
+        "circulating": 56277548015.57,
+        "max": 200000000000,
+        "total": 56277548015.57,
+        "source": "https://moonscan.io/token/0x59193512877E2EC3bB27C178A8888Cfac62FB32D"
+      },
       {
         "timestamp": "2022-06-11T00:00:00.000Z",
         "circulating": 42050576900.08,
@@ -502,7 +570,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-01-02T17:58:48.118Z",
+        "timestamp": "2023-01-02T22:58:35.712Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -511,7 +579,7 @@
         "uniformity": 1
       }
     ],
-    "mcap": 60510.78,
+    "mcap": 10889.71,
     "icon": "assets/glmr-pad/icon.png"
   },
   "gold": {
@@ -532,6 +600,11 @@
     ],
     "price": [
       {
+        "timestamp": "2023-01-02T18:19:20.000Z",
+        "usd": 1821.66,
+        "source": "https://coinmarketcap.com/currencies/pax-gold/"
+      },
+      {
         "timestamp": "2022-06-11T00:00:00.000Z",
         "usd": 1878.49,
         "source": "https://coinmarketcap.com/currencies/pax-gold/"
@@ -548,7 +621,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-01-02T17:58:48.119Z",
+        "timestamp": "2023-01-02T22:58:35.715Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -557,7 +630,7 @@
         "uniformity": 1
       }
     ],
-    "mcap": 16167875486956.51,
+    "mcap": 15678748388103.85,
     "icon": "assets/gold/icon.png"
   },
   "hoge": {
@@ -591,12 +664,24 @@
     ],
     "price": [
       {
+        "timestamp": "2023-01-02T18:20:00.000Z",
+        "usd": 0.00002026,
+        "source": "https://coinmarketcap.com/currencies/hoge-finance/"
+      },
+      {
         "timestamp": "2022-08-23T17:58:00.000Z",
         "usd": 0.00005491,
         "source": "https://coinmarketcap.com/currencies/hoge-finance/"
       }
     ],
     "supply": [
+      {
+        "timestamp": "2023-01-02T18:19:00.000Z",
+        "circulating": 402276464812,
+        "max": 1000000000000,
+        "total": 398806755522,
+        "source": "https://coinmarketcap.com/currencies/hoge-finance/"
+      },
       {
         "timestamp": "2022-08-23T17:58:00.000Z",
         "circulating": 402280000000,
@@ -607,7 +692,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-01-02T17:58:48.120Z",
+        "timestamp": "2023-01-02T22:58:35.718Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -616,7 +701,7 @@
         "uniformity": 1
       }
     ],
-    "mcap": 22089194.8,
+    "mcap": 8150121.18,
     "icon": "assets/hoge/icon.png"
   },
   "lily-pad": {
@@ -651,6 +736,11 @@
     ],
     "price": [
       {
+        "timestamp": "2023-01-02T18:10:00.000Z",
+        "usd": 4.348e-7,
+        "source": "https://dexscreener.com/bsc/0x2856add546e729425383173d4f65bb3e23e796a4"
+      },
+      {
         "timestamp": "2022-08-23T17:00:00.000Z",
         "usd": 6.267e-7,
         "source": "https://dexscreener.com/bsc/0x2856add546e729425383173d4f65bb3e23e796a4"
@@ -662,6 +752,13 @@
       }
     ],
     "supply": [
+      {
+        "timestamp": "2023-01-02T18:10:00.000Z",
+        "circulating": 108009978902.42,
+        "max": 200000000000,
+        "total": 108009978902.42,
+        "source": "https://bscscan.com/token/0xc0888d80ee0abf84563168b3182650c0addeb6d5"
+      },
       {
         "timestamp": "2022-06-11T00:00:00.000Z",
         "circulating": 84747438916.33,
@@ -690,7 +787,7 @@
         "source": "https://toadlytics.com/#/vault-explorer",
         "backing-assets": 11,
         "backing-usd": 29851.37,
-        "ratio": 0.5621,
+        "ratio": 0.6356,
         "uniformity": 0.1194
       },
       {
@@ -706,11 +803,11 @@
         "source": "https://v2.padswap.exchange/vault/",
         "backing-assets": 5,
         "backing-usd": 24339.56,
-        "ratio": 0.4583,
+        "ratio": 0.5183,
         "uniformity": 0.7166
       }
     ],
-    "mcap": 53111.22,
+    "mcap": 46962.74,
     "icon": "assets/lily-pad/icon.png"
   },
   "movr-pad": {
@@ -743,12 +840,24 @@
     ],
     "price": [
       {
+        "timestamp": "2023-01-02T18:17:00.000Z",
+        "usd": 1.165e-7,
+        "source": "https://dexscreener.com/moonriver/0xf635481baa52d40bdd3a5225add1064b4a113c0c"
+      },
+      {
         "timestamp": "2022-06-11T00:00:00.000Z",
         "usd": 1.851e-7,
         "source": "https://dexscreener.com/moonriver/0xf635481baa52d40bdd3a5225add1064b4a113c0c"
       }
     ],
     "supply": [
+      {
+        "timestamp": "2023-01-02T18:17:00.000Z",
+        "circulating": 75602211595.61,
+        "max": 200000000000,
+        "total": 75602211595.61,
+        "source": "https://moonriver.moonscan.io/token/0x45488c50184ce2092756ba7cdf85731fd17e6f3d"
+      },
       {
         "timestamp": "2022-06-11T00:00:00.000Z",
         "circulating": 51044023817.91,
@@ -759,7 +868,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-01-02T17:58:48.123Z",
+        "timestamp": "2023-01-02T22:58:35.734Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -768,7 +877,7 @@
         "uniformity": 1
       }
     ],
-    "mcap": 9448.25,
+    "mcap": 8807.66,
     "icon": "assets/movr-pad/icon.png"
   },
   "paxg": {
@@ -798,12 +907,24 @@
     ],
     "price": [
       {
+        "timestamp": "2023-01-02T18:10:00.000Z",
+        "usd": 1821.57,
+        "source": "https://coinmarketcap.com/currencies/pax-gold/"
+      },
+      {
         "timestamp": "2022-06-11T00:00:00.000Z",
         "usd": 1878.49,
         "source": "https://coinmarketcap.com/currencies/pax-gold/"
       }
     ],
     "supply": [
+      {
+        "timestamp": "2023-01-02T18:10:00.000Z",
+        "circulating": 271264,
+        "max": null,
+        "total": 271264,
+        "source": "https://coinmarketcap.com/currencies/pax-gold/"
+      },
       {
         "timestamp": "2022-04-29T00:00:00.000Z",
         "circulating": 326440.611,
@@ -821,11 +942,11 @@
         "source": "https://paxos.com/attestations/",
         "backing-assets": 1,
         "backing-usd": 613215423.36,
-        "ratio": 1,
+        "ratio": 1.241,
         "uniformity": 1
       }
     ],
-    "mcap": 613215423.36,
+    "mcap": 494126364.48,
     "icon": "assets/paxg/icon.png"
   },
   "pxbsc": {
@@ -854,6 +975,11 @@
     ],
     "price": [
       {
+        "timestamp": "2023-01-02T18:10:00.000Z",
+        "usd": 4.215e-8,
+        "source": "https://dexscreener.com/bsc/0x6f547381e6594c177a4c56bc818b599cc78a8c16"
+      },
+      {
         "timestamp": "2022-08-23T17:00:00.000Z",
         "usd": 7.644e-8,
         "source": "https://dexscreener.com/bsc/0x6f547381e6594c177a4c56bc818b599cc78a8c16"
@@ -875,7 +1001,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-01-02T17:58:48.128Z",
+        "timestamp": "2023-01-02T22:58:35.744Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -884,7 +1010,7 @@
         "uniformity": 1
       }
     ],
-    "mcap": 37767.12,
+    "mcap": 20825.28,
     "icon": "assets/pxbsc/icon.png"
   },
   "toad-network": {
@@ -920,6 +1046,11 @@
     ],
     "price": [
       {
+        "timestamp": "2023-01-02T18:04:00.000Z",
+        "usd": 1.74,
+        "source": "https://dexscreener.com/bsc/0x20a3dc9c2ac748e3684015209735b7cdd6ca6ba5"
+      },
+      {
         "timestamp": "2022-08-23T17:00:00.000Z",
         "usd": 2.65,
         "source": "https://dexscreener.com/bsc/0x20a3dc9c2ac748e3684015209735b7cdd6ca6ba5"
@@ -941,7 +1072,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-01-02T17:58:48.129Z",
+        "timestamp": "2023-01-02T22:58:35.747Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -950,7 +1081,7 @@
         "uniformity": 1
       }
     ],
-    "mcap": 516750,
+    "mcap": 339300,
     "icon": "assets/toad-network/icon.png"
   },
   "usd": {
@@ -987,7 +1118,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-01-02T17:58:48.130Z",
+        "timestamp": "2023-01-02T22:58:35.748Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -1066,6 +1197,11 @@
       "stable"
     ],
     "price": [
+      {
+        "timestamp": "2023-01-02T18:04:00.000Z",
+        "usd": 1,
+        "source": "https://coinmarketcap.com/currencies/usd-coin/"
+      },
       {
         "timestamp": "2022-10-29T00:00:00.000Z",
         "usd": 1,

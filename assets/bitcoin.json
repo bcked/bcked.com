@@ -21,12 +21,24 @@
   ],
   "price": [
     {
+      "timestamp": "2023-01-02T18:39:00.000Z",
+      "usd": 16719.83,
+      "source": "https://coinmarketcap.com/currencies/bitcoin/"
+    },
+    {
       "timestamp": "2022-08-23T18:23:00.000Z",
       "usd": 21524.18,
       "source": "https://coinmarketcap.com/currencies/bitcoin/"
     }
   ],
   "supply": [
+    {
+      "timestamp": "2023-01-02T18:39:00.000Z",
+      "circulating": 19250400,
+      "max": 21000000,
+      "total": 19250400,
+      "source": "https://coinmarketcap.com/currencies/bitcoin/"
+    },
     {
       "timestamp": "2022-08-23T18:23:00.000Z",
       "circulating": 19129831,
@@ -37,7 +49,7 @@
   ],
   "backing": [
     {
-      "timestamp": "2023-01-02T17:58:48.107Z",
+      "timestamp": "2023-01-02T22:58:35.658Z",
       "assets": [],
       "source": null,
       "backing-assets": 0,
@@ -46,6 +58,6 @@
       "uniformity": 1
     }
   ],
-  "mcap": 411753925813.58,
+  "mcap": 321863415432,
   "icon": "assets/bitcoin/icon.png"
 }

@@ -29,12 +29,24 @@
   ],
   "price": [
     {
+      "timestamp": "2023-01-02T18:20:00.000Z",
+      "usd": 0.00002026,
+      "source": "https://coinmarketcap.com/currencies/hoge-finance/"
+    },
+    {
       "timestamp": "2022-08-23T17:58:00.000Z",
       "usd": 0.00005491,
       "source": "https://coinmarketcap.com/currencies/hoge-finance/"
     }
   ],
   "supply": [
+    {
+      "timestamp": "2023-01-02T18:19:00.000Z",
+      "circulating": 402276464812,
+      "max": 1000000000000,
+      "total": 398806755522,
+      "source": "https://coinmarketcap.com/currencies/hoge-finance/"
+    },
     {
       "timestamp": "2022-08-23T17:58:00.000Z",
       "circulating": 402280000000,
@@ -45,7 +57,7 @@
   ],
   "backing": [
     {
-      "timestamp": "2023-01-02T17:58:48.120Z",
+      "timestamp": "2023-01-02T22:58:35.718Z",
       "assets": [],
       "source": null,
       "backing-assets": 0,
@@ -54,6 +66,6 @@
       "uniformity": 1
     }
   ],
-  "mcap": 22089194.8,
+  "mcap": 8150121.18,
   "icon": "assets/hoge/icon.png"
 }

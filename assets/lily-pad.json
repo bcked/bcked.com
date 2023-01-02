@@ -30,6 +30,11 @@
   ],
   "price": [
     {
+      "timestamp": "2023-01-02T18:10:00.000Z",
+      "usd": 4.348e-7,
+      "source": "https://dexscreener.com/bsc/0x2856add546e729425383173d4f65bb3e23e796a4"
+    },
+    {
       "timestamp": "2022-08-23T17:00:00.000Z",
       "usd": 6.267e-7,
       "source": "https://dexscreener.com/bsc/0x2856add546e729425383173d4f65bb3e23e796a4"
@@ -41,6 +46,13 @@
     }
   ],
   "supply": [
+    {
+      "timestamp": "2023-01-02T18:10:00.000Z",
+      "circulating": 108009978902.42,
+      "max": 200000000000,
+      "total": 108009978902.42,
+      "source": "https://bscscan.com/token/0xc0888d80ee0abf84563168b3182650c0addeb6d5"
+    },
     {
       "timestamp": "2022-06-11T00:00:00.000Z",
       "circulating": 84747438916.33,
@@ -69,7 +81,7 @@
       "source": "https://toadlytics.com/#/vault-explorer",
       "backing-assets": 11,
       "backing-usd": 29851.37,
-      "ratio": 0.5621,
+      "ratio": 0.6356,
       "uniformity": 0.1194
     },
     {
@@ -85,10 +97,10 @@
       "source": "https://v2.padswap.exchange/vault/",
       "backing-assets": 5,
       "backing-usd": 24339.56,
-      "ratio": 0.4583,
+      "ratio": 0.5183,
       "uniformity": 0.7166
     }
   ],
-  "mcap": 53111.22,
+  "mcap": 46962.74,
   "icon": "assets/lily-pad/icon.png"
 }

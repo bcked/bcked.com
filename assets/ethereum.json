@@ -31,12 +31,24 @@
   ],
   "price": [
     {
+      "timestamp": "2023-01-02T18:22:00.000Z",
+      "usd": 1217.83,
+      "source": "https://coinmarketcap.com/currencies/ethereum/"
+    },
+    {
       "timestamp": "2022-08-23T18:14:00.000Z",
       "usd": 1634.74,
       "source": "https://coinmarketcap.com/currencies/ethereum/"
     }
   ],
   "supply": [
+    {
+      "timestamp": "2023-01-02T18:22:00.000Z",
+      "circulating": 122373866,
+      "max": null,
+      "total": 122373866,
+      "source": "https://coinmarketcap.com/currencies/ethereum/"
+    },
     {
       "timestamp": "2022-08-23T18:14:00.000Z",
       "circulating": 122081359.69,
@@ -47,7 +59,7 @@
   ],
   "backing": [
     {
-      "timestamp": "2023-01-02T17:58:48.114Z",
+      "timestamp": "2023-01-02T22:58:35.691Z",
       "assets": [],
       "source": null,
       "backing-assets": 0,
@@ -56,6 +68,6 @@
       "uniformity": 1
     }
   ],
-  "mcap": 199571281939.63,
+  "mcap": 149030565230.78,
   "icon": "assets/ethereum/icon.png"
 }
