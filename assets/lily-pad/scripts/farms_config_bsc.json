@@ -1,0 +1,3094 @@
+{
+	"padAddress": "0xc0888d80ee0abf84563168b3182650c0addeb6d5",
+	"BEP20ABI": [
+		{ "inputs": [], "stateMutability": "nonpayable", "type": "constructor" },
+		{
+			"anonymous": false,
+			"inputs": [
+				{ "indexed": true, "internalType": "address", "name": "owner", "type": "address" },
+				{ "indexed": true, "internalType": "address", "name": "spender", "type": "address" },
+				{ "indexed": false, "internalType": "uint256", "name": "value", "type": "uint256" }
+			],
+			"name": "Approval",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{ "indexed": true, "internalType": "address", "name": "from", "type": "address" },
+				{ "indexed": true, "internalType": "address", "name": "to", "type": "address" },
+				{ "indexed": false, "internalType": "uint256", "name": "value", "type": "uint256" }
+			],
+			"name": "Transfer",
+			"type": "event"
+		},
+		{
+			"inputs": [
+				{ "internalType": "address", "name": "owner", "type": "address" },
+				{ "internalType": "address", "name": "spender", "type": "address" }
+			],
+			"name": "allowance",
+			"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{ "internalType": "address", "name": "spender", "type": "address" },
+				{ "internalType": "uint256", "name": "amount", "type": "uint256" }
+			],
+			"name": "approve",
+			"outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{ "internalType": "address", "name": "account", "type": "address" }],
+			"name": "balanceOf",
+			"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "decimals",
+			"outputs": [{ "internalType": "uint8", "name": "", "type": "uint8" }],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{ "internalType": "address", "name": "spender", "type": "address" },
+				{ "internalType": "uint256", "name": "subtractedValue", "type": "uint256" }
+			],
+			"name": "decreaseAllowance",
+			"outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{ "internalType": "address", "name": "spender", "type": "address" },
+				{ "internalType": "uint256", "name": "addedValue", "type": "uint256" }
+			],
+			"name": "increaseAllowance",
+			"outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "name",
+			"outputs": [{ "internalType": "string", "name": "", "type": "string" }],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "symbol",
+			"outputs": [{ "internalType": "string", "name": "", "type": "string" }],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "totalSupply",
+			"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{ "internalType": "address", "name": "recipient", "type": "address" },
+				{ "internalType": "uint256", "name": "amount", "type": "uint256" }
+			],
+			"name": "transfer",
+			"outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{ "internalType": "address", "name": "sender", "type": "address" },
+				{ "internalType": "address", "name": "recipient", "type": "address" },
+				{ "internalType": "uint256", "name": "amount", "type": "uint256" }
+			],
+			"name": "transferFrom",
+			"outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		}
+	],
+	"regularFarms": {
+		"defaultAbi": [
+			{
+				"inputs": [
+					{ "internalType": "address", "name": "_minter", "type": "address" },
+					{ "internalType": "address", "name": "_vaultAddress", "type": "address" },
+					{ "internalType": "address", "name": "_pad", "type": "address" },
+					{ "internalType": "address", "name": "_acceptedToken", "type": "address" }
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "farmerAddress",
+						"type": "address"
+					},
+					{ "indexed": false, "internalType": "uint256", "name": "padWithdrawn", "type": "uint256" }
+				],
+				"name": "onHarvest",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "farmerAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "stakedTokens",
+						"type": "uint256"
+					},
+					{ "indexed": false, "internalType": "uint256", "name": "timestamp", "type": "uint256" }
+				],
+				"name": "onNewStake",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "farmerAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "tokensRemoved",
+						"type": "uint256"
+					},
+					{ "indexed": false, "internalType": "uint256", "name": "timestamp", "type": "uint256" }
+				],
+				"name": "onRemoveStake",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{ "indexed": false, "internalType": "uint256", "name": "mintedPad", "type": "uint256" },
+					{ "indexed": false, "internalType": "uint256", "name": "timestamp", "type": "uint256" }
+				],
+				"name": "onTokenMint",
+				"type": "event"
+			},
+			{ "stateMutability": "payable", "type": "fallback" },
+			{
+				"inputs": [{ "internalType": "uint256", "name": "_amount", "type": "uint256" }],
+				"name": "deposit",
+				"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [{ "internalType": "address", "name": "_farmerAddress", "type": "address" }],
+				"name": "estimateRewardsOf",
+				"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "farmPool",
+				"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [{ "internalType": "address", "name": "", "type": "address" }],
+				"name": "farmedPad",
+				"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "harvest",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "lastDripTime",
+				"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "mintPad",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "mintedPad",
+				"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "myEstimateRewards",
+				"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "myRewards",
+				"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "myShares",
+				"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "payVault",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [{ "internalType": "uint256", "name": "_amountOfShares", "type": "uint256" }],
+				"name": "remove",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [{ "internalType": "address", "name": "_farmerAddress", "type": "address" }],
+				"name": "rewardsOf",
+				"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [{ "internalType": "address", "name": "_farmerAddress", "type": "address" }],
+				"name": "sharesOf",
+				"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "tokensToPay",
+				"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalSupply",
+				"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalTokenBalance",
+				"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalVaultFundCollected",
+				"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalVaultFundReceived",
+				"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "vaultAddress",
+				"outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{ "stateMutability": "payable", "type": "receive" }
+		],
+		"farms": [
+			{
+				"name": "BNB-BUSD",
+				"contract": "0x9eC11e716d029142a206614AA1628B5aE3c07646",
+				"acceptedToken": "0x1ed31db9078fafa28ba8a2c09c0fa421943cb383",
+				"token1": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+				"token2": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c"
+			},
+			{
+				"name": "PAD-BNB",
+				"contract": "0xA13CB324Af6A9B31332756464c089D3511436345",
+				"acceptedToken": "0xf199cb43149132eb2d6cf03afcba0cf074dc806b",
+				"token1": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+				"token2": "0xc0888d80ee0abf84563168b3182650c0addeb6d5"
+			},
+			{
+				"name": "PAD-BUSD",
+				"contract": "0xF189bd30bCe093fca7E688A2dE28BB14aFF47A35",
+				"acceptedToken": "0x2856add546e729425383173d4f65bb3e23e796a4",
+				"token1": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+				"token2": "0xc0888d80ee0abf84563168b3182650c0addeb6d5"
+			},
+			{
+				"name": "TOAD-HOGE",
+				"contract": "0xA9F4eaA4e55Be6EB54018BAE0698b644BB36B47C",
+				"acceptedToken": "0xc8b8568e7963054a00f107805f8156a7b283a6c2",
+				"token1": "0xa4fffc757e8c4f24e7b209c033c123d20983ad40",
+				"token2": "0x463e737d8f740395abf44f7aac2d9531d8d539e9"
+			},
+			{
+				"name": "TOAD-BNB",
+				"contract": "0xB69829f8e0F5D920F1B53D5685B76af723Fd5007",
+				"acceptedToken": "0xef6421325f7ed6ebeeaa2b092f9cc64ee2aa3b3b",
+				"token1": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+				"token2": "0x463e737d8f740395abf44f7aac2d9531d8d539e9"
+			},
+			{
+				"name": "PAD-TOAD",
+				"contract": "0x39205195afb9c79a5eB1D9575091B5a6A19DB7EA",
+				"acceptedToken": "0x26234882c1d95fcada4553a655045c35cffc9dad",
+				"token1": "0x463e737d8f740395abf44f7aac2d9531d8d539e9",
+				"token2": "0xc0888d80ee0abf84563168b3182650c0addeb6d5"
+			},
+			{
+				"name": "TOAD-BUSD",
+				"contract": "0x6555c387c721b02E157B723B43c5AAe3f1becd40",
+				"acceptedToken": "0x71d40923e39ac8d93471477c677018d0223b3da9",
+				"token1": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+				"token2": "0x463e737d8f740395abf44f7aac2d9531d8d539e9"
+			},
+			{
+				"name": "BUSD-USDT",
+				"contract": "0x317De8C509D9a87C9E20c8dF1e1ef960cc9dc534",
+				"acceptedToken": "0x79be2fdef6db5235c637fbafde2ee2df343118c8",
+				"token1": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+				"token2": "0x55d398326f99059ff775485246999027b3197955"
+			},
+			{
+				"name": "BUSD-USDC",
+				"contract": "0x85Fc454FbBFB00a75724943A56065a3c7627ACC6",
+				"acceptedToken": "0x88348dffc9797b7be0a88c5e7775ca9aa29ba6eb",
+				"token1": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+				"token2": "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d"
+			},
+			{
+				"name": "BNB-USDC",
+				"contract": "0x48e214578Fb7F31EBaDd31416713D280a5c604C8",
+				"acceptedToken": "0xce71f919daae7a2d0708f84c657af46f57cbde2b",
+				"token1": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+				"token2": "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d"
+			},
+			{
+				"name": "BNB-BTC",
+				"contract": "0xb87b836083617f61B9c35ddd934C7bC03fF55E82",
+				"acceptedToken": "0x8e06c9a375da80d972e687981310b6da56530b80",
+				"token1": "0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c",
+				"token2": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c"
+			},
+			{
+				"name": "BNB-ETH",
+				"contract": "0x19D61e9a075a2d67E45871313cBCE8Fe744D115a",
+				"acceptedToken": "0x088690de46947b82ec7ae5fa36493003a169616f",
+				"token1": "0x2170ed0880ac9a755fd29b2688956bd959f933f8",
+				"token2": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c"
+			},
+			{
+				"single_token": true,
+				"name": "TOAD",
+				"contract": "0x4992df071416370fe780627eDFDD8CbC694Ed08b",
+				"acceptedToken": "0x463e737d8f740395abf44f7aac2d9531d8d539e9",
+				"token1": "0x463e737d8f740395abf44f7aac2d9531d8d539e9",
+				"token2": "0x463e737d8f740395abf44f7aac2d9531d8d539e9"
+			},
+			{
+				"pad_only_farm": true,
+				"name": "PAD",
+				"abi": [
+					{
+						"inputs": [
+							{ "internalType": "address", "name": "_minter", "type": "address" },
+							{ "internalType": "address", "name": "_pad", "type": "address" }
+						],
+						"stateMutability": "nonpayable",
+						"type": "constructor"
+					},
+					{
+						"anonymous": false,
+						"inputs": [
+							{
+								"indexed": true,
+								"internalType": "address",
+								"name": "userAddress",
+								"type": "address"
+							},
+							{ "indexed": false, "internalType": "uint256", "name": "tokens", "type": "uint256" }
+						],
+						"name": "onDonation",
+						"type": "event"
+					},
+					{
+						"anonymous": false,
+						"inputs": [
+							{
+								"indexed": true,
+								"internalType": "address",
+								"name": "farmerAddress",
+								"type": "address"
+							},
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "padWithdrawn",
+								"type": "uint256"
+							}
+						],
+						"name": "onHarvest",
+						"type": "event"
+					},
+					{
+						"anonymous": false,
+						"inputs": [
+							{
+								"indexed": true,
+								"internalType": "address",
+								"name": "farmerAddress",
+								"type": "address"
+							},
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "stakedTokens",
+								"type": "uint256"
+							},
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "timestamp",
+								"type": "uint256"
+							}
+						],
+						"name": "onNewStake",
+						"type": "event"
+					},
+					{
+						"anonymous": false,
+						"inputs": [
+							{
+								"indexed": true,
+								"internalType": "address",
+								"name": "farmerAddress",
+								"type": "address"
+							},
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "tokensReinvested",
+								"type": "uint256"
+							}
+						],
+						"name": "onReinvest",
+						"type": "event"
+					},
+					{
+						"anonymous": false,
+						"inputs": [
+							{
+								"indexed": true,
+								"internalType": "address",
+								"name": "farmerAddress",
+								"type": "address"
+							},
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "tokensRemoved",
+								"type": "uint256"
+							},
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "timestamp",
+								"type": "uint256"
+							}
+						],
+						"name": "onRemoveStake",
+						"type": "event"
+					},
+					{
+						"anonymous": false,
+						"inputs": [
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "mintedPad",
+								"type": "uint256"
+							},
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "timestamp",
+								"type": "uint256"
+							}
+						],
+						"name": "onTokenMint",
+						"type": "event"
+					},
+					{ "stateMutability": "payable", "type": "fallback" },
+					{
+						"inputs": [],
+						"name": "burnPad",
+						"outputs": [],
+						"stateMutability": "nonpayable",
+						"type": "function"
+					},
+					{
+						"inputs": [{ "internalType": "uint256", "name": "_amount", "type": "uint256" }],
+						"name": "deposit",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "nonpayable",
+						"type": "function"
+					},
+					{
+						"inputs": [{ "internalType": "uint256", "name": "_amount", "type": "uint256" }],
+						"name": "donateToPool",
+						"outputs": [],
+						"stateMutability": "nonpayable",
+						"type": "function"
+					},
+					{
+						"inputs": [{ "internalType": "address", "name": "_farmerAddress", "type": "address" }],
+						"name": "estimateRewardsOf",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "farmPool",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [{ "internalType": "address", "name": "", "type": "address" }],
+						"name": "farmedPad",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "harvest",
+						"outputs": [],
+						"stateMutability": "nonpayable",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "lastDripTime",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "mintPad",
+						"outputs": [],
+						"stateMutability": "nonpayable",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "mintedPad",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "myEstimateRewards",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "myRewards",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "myShares",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "reinvest",
+						"outputs": [],
+						"stateMutability": "nonpayable",
+						"type": "function"
+					},
+					{
+						"inputs": [{ "internalType": "uint256", "name": "_amountOfShares", "type": "uint256" }],
+						"name": "remove",
+						"outputs": [],
+						"stateMutability": "nonpayable",
+						"type": "function"
+					},
+					{
+						"inputs": [{ "internalType": "address", "name": "_farmerAddress", "type": "address" }],
+						"name": "rewardsOf",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [{ "internalType": "address", "name": "_farmerAddress", "type": "address" }],
+						"name": "sharesOf",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "tokensToBurn",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "totalBurnFundCollected",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "totalPadBurned",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "totalSupply",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "totalTokenBalance",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{ "stateMutability": "payable", "type": "receive" }
+				],
+				"contract": "0x30024473EFd45ef9bFD7781Db5438E1A58664ED1",
+				"acceptedToken": "0xc0888d80ee0abf84563168b3182650c0addeb6d5",
+				"token1": "0xc0888d80ee0abf84563168b3182650c0addeb6d5",
+				"token2": "0xc0888d80ee0abf84563168b3182650c0addeb6d5"
+			}
+		],
+		"retiredFarms": [
+			{
+				"name": "PAD-BTC",
+				"contract": "0x5A86157Ea673A3b6608fc2D99f4D3E624631B53d",
+				"acceptedToken": "0x8db3e34f642aa4b404956557a681bc8973529356",
+				"token1": "0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c",
+				"token2": "0xc0888d80ee0abf84563168b3182650c0addeb6d5"
+			},
+			{
+				"name": "PAD-ETH",
+				"contract": "0xaF56Ae5De49Fb6F94309E00Bf9C9368B0dd0fC96",
+				"acceptedToken": "0x4bddda73f0a83ccada25107830e29de594e8f7c2",
+				"token1": "0x2170ed0880ac9a755fd29b2688956bd959f933f8",
+				"token2": "0xc0888d80ee0abf84563168b3182650c0addeb6d5"
+			},
+			{
+				"name": "PAD-HOGE",
+				"contract": "0x662425AaB93bA95b3bF3cBF9A909b9B1bC93E834",
+				"acceptedToken": "0xb7073b6082e8b77ab667fac3ab02e88b2c3937d3",
+				"token1": "0xa4fffc757e8c4f24e7b209c033c123d20983ad40",
+				"token2": "0xc0888d80ee0abf84563168b3182650c0addeb6d5"
+			},
+			{
+				"name": "TOAD-DOT",
+				"contract": "0xB6D1631E82cE3c5D29F0AF066BD6B1B0e77CdE2E",
+				"acceptedToken": "0x16e3070c41025d6ad2f24a0b2ecdae22f8f4aa98",
+				"token1": "0x7083609fce4d1d8dc0c979aab8c869ea2c873402",
+				"token2": "0x463e737d8f740395abf44f7aac2d9531d8d539e9"
+			},
+			{
+				"name": "PAD-DOGE",
+				"contract": "0xc27192bd78e60393725F4c4515f6358c65F8BeFa",
+				"acceptedToken": "0x2658d6f3f3ce0d908b85a13bccf690991568ffe8",
+				"token1": "0xbA2aE424d960c26247Dd6c32edC70B295c744C43",
+				"token2": "0xc0888d80ee0abf84563168b3182650c0addeb6d5"
+			},
+			{
+				"name": "PAD-ADA",
+				"contract": "0x5459A5CD736c09e8A7fc3aCA1cF6A184Bed8a567",
+				"acceptedToken": "0xfc7a8c82f0f223503a08c632d5f32660e29bd017",
+				"token1": "0x3ee2200efb3400fabb9aacf31297cbdd1d435d47",
+				"token2": "0xc0888d80ee0abf84563168b3182650c0addeb6d5"
+			},
+			{
+				"name": "PAD-PR",
+				"contract": "0xf6E5A88EC5eBa2c8A22845bdf5f1f5167119b270",
+				"acceptedToken": "0x8fa44181b09096cbffffd148c3854adeb224f990",
+				"token1": "0xcf9f991b14620f5ad144eec11f9bc7bf08987622",
+				"token2": "0xc0888d80ee0abf84563168b3182650c0addeb6d5"
+			}
+		],
+		"incompatibleFarms": [
+			{
+				"name": "PAD-TOAD (old)",
+				"old": true,
+				"abi": [
+					{
+						"inputs": [
+							{ "internalType": "address", "name": "_minter", "type": "address" },
+							{ "internalType": "address", "name": "_pad", "type": "address" },
+							{ "internalType": "address", "name": "_acceptedToken", "type": "address" }
+						],
+						"stateMutability": "nonpayable",
+						"type": "constructor"
+					},
+					{
+						"anonymous": false,
+						"inputs": [
+							{
+								"indexed": true,
+								"internalType": "address",
+								"name": "farmerAddress",
+								"type": "address"
+							},
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "padWithdrawn",
+								"type": "uint256"
+							}
+						],
+						"name": "onHarvest",
+						"type": "event"
+					},
+					{
+						"anonymous": false,
+						"inputs": [
+							{
+								"indexed": true,
+								"internalType": "address",
+								"name": "farmerAddress",
+								"type": "address"
+							},
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "stakedTokens",
+								"type": "uint256"
+							},
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "timestamp",
+								"type": "uint256"
+							}
+						],
+						"name": "onNewStake",
+						"type": "event"
+					},
+					{
+						"anonymous": false,
+						"inputs": [
+							{
+								"indexed": true,
+								"internalType": "address",
+								"name": "farmerAddress",
+								"type": "address"
+							},
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "tokensRemoved",
+								"type": "uint256"
+							},
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "timestamp",
+								"type": "uint256"
+							}
+						],
+						"name": "onRemoveStake",
+						"type": "event"
+					},
+					{
+						"anonymous": false,
+						"inputs": [
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "mintedPad",
+								"type": "uint256"
+							},
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "timestamp",
+								"type": "uint256"
+							}
+						],
+						"name": "onTokenMint",
+						"type": "event"
+					},
+					{ "stateMutability": "payable", "type": "fallback" },
+					{
+						"inputs": [{ "internalType": "uint256", "name": "_amount", "type": "uint256" }],
+						"name": "deposit",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "nonpayable",
+						"type": "function"
+					},
+					{
+						"inputs": [{ "internalType": "address", "name": "_farmerAddress", "type": "address" }],
+						"name": "estimateRewardsOf",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "farmPool",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [{ "internalType": "address", "name": "", "type": "address" }],
+						"name": "farmedPad",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "harvest",
+						"outputs": [],
+						"stateMutability": "nonpayable",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "lastDripTime",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "mintPad",
+						"outputs": [],
+						"stateMutability": "nonpayable",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "mintedPad",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "myEstimateDividends",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "myRewards",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "myShares",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [{ "internalType": "uint256", "name": "_amountOfShares", "type": "uint256" }],
+						"name": "remove",
+						"outputs": [],
+						"stateMutability": "nonpayable",
+						"type": "function"
+					},
+					{
+						"inputs": [{ "internalType": "address", "name": "_farmerAddress", "type": "address" }],
+						"name": "rewardsOf",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [{ "internalType": "address", "name": "_farmerAddress", "type": "address" }],
+						"name": "sharesOf",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "totalSupply",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "totalTokenBalance",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					}
+				],
+				"contract": "0xd45E11B8b33AF0e530208c2756AE52Fc20F7cbEF",
+				"acceptedToken": "0x26234882c1d95fcada4553a655045c35cffc9dad"
+			},
+			{
+				"name": "TOAD-BNB (old)",
+				"old": true,
+				"abi": [
+					{
+						"inputs": [
+							{ "internalType": "address", "name": "_minter", "type": "address" },
+							{ "internalType": "address", "name": "_pad", "type": "address" },
+							{ "internalType": "address", "name": "_acceptedToken", "type": "address" }
+						],
+						"stateMutability": "nonpayable",
+						"type": "constructor"
+					},
+					{
+						"anonymous": false,
+						"inputs": [
+							{
+								"indexed": true,
+								"internalType": "address",
+								"name": "farmerAddress",
+								"type": "address"
+							},
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "padWithdrawn",
+								"type": "uint256"
+							}
+						],
+						"name": "onHarvest",
+						"type": "event"
+					},
+					{
+						"anonymous": false,
+						"inputs": [
+							{
+								"indexed": true,
+								"internalType": "address",
+								"name": "farmerAddress",
+								"type": "address"
+							},
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "stakedTokens",
+								"type": "uint256"
+							},
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "timestamp",
+								"type": "uint256"
+							}
+						],
+						"name": "onNewStake",
+						"type": "event"
+					},
+					{
+						"anonymous": false,
+						"inputs": [
+							{
+								"indexed": true,
+								"internalType": "address",
+								"name": "farmerAddress",
+								"type": "address"
+							},
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "tokensRemoved",
+								"type": "uint256"
+							},
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "timestamp",
+								"type": "uint256"
+							}
+						],
+						"name": "onRemoveStake",
+						"type": "event"
+					},
+					{
+						"anonymous": false,
+						"inputs": [
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "mintedPad",
+								"type": "uint256"
+							},
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "timestamp",
+								"type": "uint256"
+							}
+						],
+						"name": "onTokenMint",
+						"type": "event"
+					},
+					{ "stateMutability": "payable", "type": "fallback" },
+					{
+						"inputs": [{ "internalType": "uint256", "name": "_amount", "type": "uint256" }],
+						"name": "deposit",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "nonpayable",
+						"type": "function"
+					},
+					{
+						"inputs": [{ "internalType": "address", "name": "_farmerAddress", "type": "address" }],
+						"name": "estimateRewardsOf",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "farmPool",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [{ "internalType": "address", "name": "", "type": "address" }],
+						"name": "farmedPad",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "harvest",
+						"outputs": [],
+						"stateMutability": "nonpayable",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "lastDripTime",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "mintPad",
+						"outputs": [],
+						"stateMutability": "nonpayable",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "mintedPad",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "myEstimateDividends",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "myRewards",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "myShares",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [{ "internalType": "uint256", "name": "_amountOfShares", "type": "uint256" }],
+						"name": "remove",
+						"outputs": [],
+						"stateMutability": "nonpayable",
+						"type": "function"
+					},
+					{
+						"inputs": [{ "internalType": "address", "name": "_farmerAddress", "type": "address" }],
+						"name": "rewardsOf",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [{ "internalType": "address", "name": "_farmerAddress", "type": "address" }],
+						"name": "sharesOf",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "totalSupply",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "totalTokenBalance",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					}
+				],
+				"contract": "0x612D22edd4a8754346Bda1d0Bbc87c7390711B9d",
+				"acceptedToken": "0xef6421325f7ed6ebeeaa2b092f9cc64ee2aa3b3b"
+			},
+			{
+				"name": "TOAD-BUSD (old)",
+				"old": true,
+				"abi": [
+					{
+						"inputs": [
+							{ "internalType": "address", "name": "_minter", "type": "address" },
+							{ "internalType": "address", "name": "_pad", "type": "address" },
+							{ "internalType": "address", "name": "_acceptedToken", "type": "address" }
+						],
+						"stateMutability": "nonpayable",
+						"type": "constructor"
+					},
+					{
+						"anonymous": false,
+						"inputs": [
+							{
+								"indexed": true,
+								"internalType": "address",
+								"name": "farmerAddress",
+								"type": "address"
+							},
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "padWithdrawn",
+								"type": "uint256"
+							}
+						],
+						"name": "onHarvest",
+						"type": "event"
+					},
+					{
+						"anonymous": false,
+						"inputs": [
+							{
+								"indexed": true,
+								"internalType": "address",
+								"name": "farmerAddress",
+								"type": "address"
+							},
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "stakedTokens",
+								"type": "uint256"
+							},
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "timestamp",
+								"type": "uint256"
+							}
+						],
+						"name": "onNewStake",
+						"type": "event"
+					},
+					{
+						"anonymous": false,
+						"inputs": [
+							{
+								"indexed": true,
+								"internalType": "address",
+								"name": "farmerAddress",
+								"type": "address"
+							},
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "tokensRemoved",
+								"type": "uint256"
+							},
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "timestamp",
+								"type": "uint256"
+							}
+						],
+						"name": "onRemoveStake",
+						"type": "event"
+					},
+					{
+						"anonymous": false,
+						"inputs": [
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "mintedPad",
+								"type": "uint256"
+							},
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "timestamp",
+								"type": "uint256"
+							}
+						],
+						"name": "onTokenMint",
+						"type": "event"
+					},
+					{ "stateMutability": "payable", "type": "fallback" },
+					{
+						"inputs": [{ "internalType": "uint256", "name": "_amount", "type": "uint256" }],
+						"name": "deposit",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "nonpayable",
+						"type": "function"
+					},
+					{
+						"inputs": [{ "internalType": "address", "name": "_farmerAddress", "type": "address" }],
+						"name": "estimateRewardsOf",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "farmPool",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [{ "internalType": "address", "name": "", "type": "address" }],
+						"name": "farmedPad",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "harvest",
+						"outputs": [],
+						"stateMutability": "nonpayable",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "lastDripTime",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "mintPad",
+						"outputs": [],
+						"stateMutability": "nonpayable",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "mintedPad",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "myEstimateDividends",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "myRewards",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "myShares",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [{ "internalType": "uint256", "name": "_amountOfShares", "type": "uint256" }],
+						"name": "remove",
+						"outputs": [],
+						"stateMutability": "nonpayable",
+						"type": "function"
+					},
+					{
+						"inputs": [{ "internalType": "address", "name": "_farmerAddress", "type": "address" }],
+						"name": "rewardsOf",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [{ "internalType": "address", "name": "_farmerAddress", "type": "address" }],
+						"name": "sharesOf",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "totalSupply",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "totalTokenBalance",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					}
+				],
+				"contract": "0xA2e5C6eD6AC6ccCA6a4FFfD3fE13350106061b7D",
+				"acceptedToken": "0x71d40923e39ac8d93471477c677018d0223b3da9"
+			},
+			{
+				"name": "TOAD (old)",
+				"old": true,
+				"abi": [
+					{
+						"inputs": [
+							{ "internalType": "address", "name": "_minter", "type": "address" },
+							{ "internalType": "address", "name": "_pad", "type": "address" },
+							{ "internalType": "address", "name": "_acceptedToken", "type": "address" }
+						],
+						"stateMutability": "nonpayable",
+						"type": "constructor"
+					},
+					{
+						"anonymous": false,
+						"inputs": [
+							{
+								"indexed": true,
+								"internalType": "address",
+								"name": "farmerAddress",
+								"type": "address"
+							},
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "padWithdrawn",
+								"type": "uint256"
+							}
+						],
+						"name": "onHarvest",
+						"type": "event"
+					},
+					{
+						"anonymous": false,
+						"inputs": [
+							{
+								"indexed": true,
+								"internalType": "address",
+								"name": "farmerAddress",
+								"type": "address"
+							},
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "stakedTokens",
+								"type": "uint256"
+							},
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "timestamp",
+								"type": "uint256"
+							}
+						],
+						"name": "onNewStake",
+						"type": "event"
+					},
+					{
+						"anonymous": false,
+						"inputs": [
+							{
+								"indexed": true,
+								"internalType": "address",
+								"name": "farmerAddress",
+								"type": "address"
+							},
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "tokensRemoved",
+								"type": "uint256"
+							},
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "timestamp",
+								"type": "uint256"
+							}
+						],
+						"name": "onRemoveStake",
+						"type": "event"
+					},
+					{
+						"anonymous": false,
+						"inputs": [
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "mintedPad",
+								"type": "uint256"
+							},
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "timestamp",
+								"type": "uint256"
+							}
+						],
+						"name": "onTokenMint",
+						"type": "event"
+					},
+					{ "stateMutability": "payable", "type": "fallback" },
+					{
+						"inputs": [{ "internalType": "uint256", "name": "_amount", "type": "uint256" }],
+						"name": "deposit",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "nonpayable",
+						"type": "function"
+					},
+					{
+						"inputs": [{ "internalType": "address", "name": "_farmerAddress", "type": "address" }],
+						"name": "estimateRewardsOf",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "farmPool",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [{ "internalType": "address", "name": "", "type": "address" }],
+						"name": "farmedPad",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "harvest",
+						"outputs": [],
+						"stateMutability": "nonpayable",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "lastDripTime",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "mintPad",
+						"outputs": [],
+						"stateMutability": "nonpayable",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "mintedPad",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "myEstimateDividends",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "myRewards",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "myShares",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [{ "internalType": "uint256", "name": "_amountOfShares", "type": "uint256" }],
+						"name": "remove",
+						"outputs": [],
+						"stateMutability": "nonpayable",
+						"type": "function"
+					},
+					{
+						"inputs": [{ "internalType": "address", "name": "_farmerAddress", "type": "address" }],
+						"name": "rewardsOf",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [{ "internalType": "address", "name": "_farmerAddress", "type": "address" }],
+						"name": "sharesOf",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "totalSupply",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "totalTokenBalance",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					}
+				],
+				"contract": "0xD2d7b6b333AbF180520494c021f7125806eD273e",
+				"acceptedToken": "0x463e737d8f740395abf44f7aac2d9531d8d539e9"
+			}
+		]
+	},
+	"lpFarms": {
+		"defaultAbi": [
+			{ "inputs": [], "stateMutability": "nonpayable", "type": "constructor" },
+			{
+				"anonymous": false,
+				"inputs": [
+					{ "indexed": true, "internalType": "address", "name": "userAddress", "type": "address" },
+					{ "indexed": false, "internalType": "uint256", "name": "tokens", "type": "uint256" }
+				],
+				"name": "onDonation",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "customerAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "tokensReinvested",
+						"type": "uint256"
+					}
+				],
+				"name": "onReinvest",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{ "indexed": true, "internalType": "address", "name": "userAddress", "type": "address" },
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "incomingTokens",
+						"type": "uint256"
+					},
+					{ "indexed": false, "internalType": "uint256", "name": "timestamp", "type": "uint256" }
+				],
+				"name": "onStake",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "customerAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "tokenRemoved",
+						"type": "uint256"
+					},
+					{ "indexed": false, "internalType": "uint256", "name": "timestamp", "type": "uint256" }
+				],
+				"name": "onUnstake",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "customerAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "tokensWithdrawn",
+						"type": "uint256"
+					}
+				],
+				"name": "onWithdraw",
+				"type": "event"
+			},
+			{ "stateMutability": "payable", "type": "fallback" },
+			{
+				"inputs": [{ "internalType": "uint256", "name": "_amount", "type": "uint256" }],
+				"name": "deposit",
+				"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "dividendPool",
+				"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [{ "internalType": "uint256", "name": "_amount", "type": "uint256" }],
+				"name": "donateToPool",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [{ "internalType": "address", "name": "_customerAddress", "type": "address" }],
+				"name": "estimateRewardsOf",
+				"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "lastDripTime",
+				"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "myEstimateRewards",
+				"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "myRewards",
+				"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "myShares",
+				"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "payVault",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "reinvest",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [{ "internalType": "uint256", "name": "_amountOfTokens", "type": "uint256" }],
+				"name": "remove",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [{ "internalType": "address", "name": "_customerAddress", "type": "address" }],
+				"name": "rewardsOf",
+				"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [{ "internalType": "address", "name": "_customerAddress", "type": "address" }],
+				"name": "sharesOf",
+				"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "tokensToPay",
+				"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalDonation",
+				"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalSupply",
+				"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalTokenBalance",
+				"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalVaultFundCollected",
+				"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalVaultFundReceived",
+				"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "vaultAddress",
+				"outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{ "stateMutability": "payable", "type": "receive" }
+		],
+		"farms": [
+			{
+				"name": "PAD-TOAD",
+				"contract": "0x816ed1589b7783d7DD820bA4ebDef5899515dC76",
+				"acceptedToken": "0x26234882c1d95fcada4553a655045c35cffc9dad",
+				"token1": "0x463e737d8f740395abf44f7aac2d9531d8d539e9",
+				"token2": "0xc0888d80ee0abf84563168b3182650c0addeb6d5"
+			},
+			{
+				"name": "TOAD-BNB",
+				"contract": "0xC1B3bFaF4fA50b339F068948e9DcEC298Df84101",
+				"acceptedToken": "0xef6421325f7ed6ebeeaa2b092f9cc64ee2aa3b3b",
+				"token1": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+				"token2": "0x463e737d8f740395abf44f7aac2d9531d8d539e9"
+			},
+			{
+				"name": "KISH-BNB",
+				"contract": "0xe70e0aBDa4FE7A744cCbCd8Ee5E7336477349555",
+				"acceptedToken": "0x249ae58eb4340af605cb8d6b5d3b2f0473057042",
+				"token1": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+				"token2": "0xcab599d699f818e6cefd07cf54f448dab9367b05"
+			},
+			{
+				"name": "CZATS-BNB",
+				"contract": "0x73f41fb2121d4810316ba28f5fdc2ee07db28a1d",
+				"acceptedToken": "0xd91636511cdc2b9f2af58cc8fcacbb0f0127f37f",
+				"token1": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+				"token2": "0x56747ed2fca81b25fae112c7a9d4465e947aac56"
+			},
+			{
+				"name": "PXBSC-BNB",
+				"contract": "0xe878bc2efa5961a515968f175568bc1aa6ee4c9f",
+				"acceptedToken": "0x6f547381e6594c177a4c56bc818b599cc78a8c16",
+				"token1": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+				"token2": "0xa4cfe5ea184a9a8bb2bb8377a378606a36ddea80"
+			},
+			{
+				"name": "FUK-BNB",
+				"contract": "0xe8d79dcc9b0b2285ac47ee9ccd4be5925fb4b273",
+				"acceptedToken": "0x2c001a059a0f2bd76293c755b3455163cc03a159",
+				"token1": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+				"token2": "0xa898bbb508c04be26af3d319b7775927afcb02af"
+			},
+			{
+				"name": "GAL-BNB",
+				"contract": "0x00ae3d7eC0D75D0423BEffBCC7b53DaDA6aB04e4",
+				"acceptedToken": "0x1afe79f5eb36798b92106885507ba1a9cda954f6",
+				"token1": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+				"token2": "0x580655e2c6d4fc125c0b2d37b2a3e56219bf9f78"
+			},
+			{
+				"name": "BJT-BNB",
+				"contract": "0x51270eaf64d08b50858e385fa751e3c89cf27118",
+				"acceptedToken": "0xeb22ebb99d5e6b16ae35b77cf136c60cd077b8cb",
+				"token1": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+				"token2": "0x37f3ef4e065f3415d1b6f9284389cc9d9439f658"
+			},
+			{
+				"name": "MRBTC-BNB",
+				"contract": "0x50A90CbCBfb896306cC29f6EFef89f528Cf88E30",
+				"acceptedToken": "0x097Dece9EA7ae30C8Ab475958992D19aF2FE044e",
+				"token1": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+				"token2": "0x001ef4385d199454b76527fd91af3da8c0a51537"
+			}
+		]
+	},
+	"partnerFarms": {
+		"defaultAbi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "farmerAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "onDonation",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "farmerAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "rewardsWithdrawn",
+						"type": "uint256"
+					}
+				],
+				"name": "onHarvest",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "farmerAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "stakedTokens",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					}
+				],
+				"name": "onNewStake",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "farmerAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "tokensRemoved",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					}
+				],
+				"name": "onRemoveStake",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "deposit",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "donateToPool",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "harvest",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "payVault",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_amountOfShares",
+						"type": "uint256"
+					}
+				],
+				"name": "remove",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "fallback"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_vaultAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_rewardToken",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_acceptedToken",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "deflationaryTax",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_farmerAddress",
+						"type": "address"
+					}
+				],
+				"name": "estimateRewardsOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "farmedTokens",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "farmPool",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "lastDripTime",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "myEstimateRewards",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "myRewards",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "myShares",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_farmerAddress",
+						"type": "address"
+					}
+				],
+				"name": "rewardsOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_farmerAddress",
+						"type": "address"
+					}
+				],
+				"name": "sharesOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "tokensToPay",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalDonation",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalSupply",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalTokenBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalVaultFundCollected",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalVaultFundReceived",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "vaultAddress",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"farms": [
+			{
+				"name": "FUK-BNB",
+				"rewardToken": "FUK",
+				"contract": "0xC646878Fc8ae951f0407B865b29e3f4eEe71c608",
+				"acceptedToken": "0x2c001a059a0f2bd76293c755b3455163cc03a159",
+				"token1": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+				"token2": "0xa898bbb508c04be26af3d319b7775927afcb02af"
+			},
+			{
+				"name": "FUK-PAD",
+				"rewardToken": "FUK",
+				"contract": "0x2ca6545753a9b919deb752b81f689285dcba35cd",
+				"acceptedToken": "0xa9a20f4387f404bc5749f16d1325a0e5a7bc34ce",
+				"token1": "0xc0888d80ee0abf84563168b3182650c0addeb6d5",
+				"token2": "0xa898bbb508c04be26af3d319b7775927afcb02af"
+			},
+			{
+				"name": "FUK-BUSD",
+				"rewardToken": "FUK",
+				"contract": "0x32aF21a0B4e70A222C887b93F87617768EF5d070",
+				"acceptedToken": "0x5c1b44efc56065c70a44e4eeb1477c48a90dda5b",
+				"token1": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+				"token2": "0xa898bbb508c04be26af3d319b7775927afcb02af"
+			},
+			{
+				"name": "FUK-TOAD",
+				"rewardToken": "FUK",
+				"contract": "0x98eA23a72c606c8aeEDcc8da3B3A14Ce450a0DCE",
+				"acceptedToken": "0xf428a95969c7f552725ad33db265593d71e4999f",
+				"token1": "0x463e737d8f740395abf44f7aac2d9531d8d539e9",
+				"token2": "0xa898bbb508c04be26af3d319b7775927afcb02af"
+			},
+			{
+				"name": "FUK-HOGE",
+				"rewardToken": "FUK",
+				"contract": "0x5E771a95bcfF6Cc01522C69C5dff5323C09B29d9",
+				"acceptedToken": "0x8be750094787288e61b08c15f45f697e559fddd4",
+				"token1": "0xa4fffc757e8c4f24e7b209c033c123d20983ad40",
+				"token2": "0xa898bbb508c04be26af3d319b7775927afcb02af"
+			},
+			{
+				"single_token": true,
+				"name": "FUK",
+				"rewardToken": "FUK",
+				"contract": "0x40DF957589Bf64588cd2617886B6d4aB70D0e666",
+				"acceptedToken": "0xa898bbb508c04be26af3d319b7775927afcb02af",
+				"token1": "0xa898bbb508c04be26af3d319b7775927afcb02af",
+				"token2": "0xa898bbb508c04be26af3d319b7775927afcb02af"
+			}
+		],
+		"bjtFarms": [
+			{
+				"name": "PAD-BJT",
+				"abi": [
+					{
+						"inputs": [
+							{ "internalType": "address", "name": "_vaultAddress", "type": "address" },
+							{ "internalType": "address", "name": "_bjt", "type": "address" },
+							{ "internalType": "address", "name": "_acceptedToken", "type": "address" }
+						],
+						"stateMutability": "nonpayable",
+						"type": "constructor"
+					},
+					{
+						"anonymous": false,
+						"inputs": [
+							{
+								"indexed": true,
+								"internalType": "address",
+								"name": "farmerAddress",
+								"type": "address"
+							},
+							{ "indexed": false, "internalType": "uint256", "name": "amount", "type": "uint256" }
+						],
+						"name": "onDonation",
+						"type": "event"
+					},
+					{
+						"anonymous": false,
+						"inputs": [
+							{
+								"indexed": true,
+								"internalType": "address",
+								"name": "farmerAddress",
+								"type": "address"
+							},
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "bjtWithdrawn",
+								"type": "uint256"
+							}
+						],
+						"name": "onHarvest",
+						"type": "event"
+					},
+					{
+						"anonymous": false,
+						"inputs": [
+							{
+								"indexed": true,
+								"internalType": "address",
+								"name": "farmerAddress",
+								"type": "address"
+							},
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "stakedTokens",
+								"type": "uint256"
+							},
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "timestamp",
+								"type": "uint256"
+							}
+						],
+						"name": "onNewStake",
+						"type": "event"
+					},
+					{
+						"anonymous": false,
+						"inputs": [
+							{
+								"indexed": true,
+								"internalType": "address",
+								"name": "farmerAddress",
+								"type": "address"
+							},
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "tokensRemoved",
+								"type": "uint256"
+							},
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "timestamp",
+								"type": "uint256"
+							}
+						],
+						"name": "onRemoveStake",
+						"type": "event"
+					},
+					{ "stateMutability": "payable", "type": "fallback" },
+					{
+						"inputs": [],
+						"name": "deflationaryTax",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [{ "internalType": "uint256", "name": "_amount", "type": "uint256" }],
+						"name": "deposit",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "nonpayable",
+						"type": "function"
+					},
+					{
+						"inputs": [{ "internalType": "uint256", "name": "_amount", "type": "uint256" }],
+						"name": "donateToPool",
+						"outputs": [],
+						"stateMutability": "nonpayable",
+						"type": "function"
+					},
+					{
+						"inputs": [{ "internalType": "address", "name": "_farmerAddress", "type": "address" }],
+						"name": "estimateRewardsOf",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "farmPool",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [{ "internalType": "address", "name": "", "type": "address" }],
+						"name": "farmedBjt",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "harvest",
+						"outputs": [],
+						"stateMutability": "nonpayable",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "lastDripTime",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "myEstimateRewards",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "myRewards",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "myShares",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "payVault",
+						"outputs": [],
+						"stateMutability": "nonpayable",
+						"type": "function"
+					},
+					{
+						"inputs": [{ "internalType": "uint256", "name": "_amountOfShares", "type": "uint256" }],
+						"name": "remove",
+						"outputs": [],
+						"stateMutability": "nonpayable",
+						"type": "function"
+					},
+					{
+						"inputs": [{ "internalType": "address", "name": "_farmerAddress", "type": "address" }],
+						"name": "rewardsOf",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [{ "internalType": "address", "name": "_farmerAddress", "type": "address" }],
+						"name": "sharesOf",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "tokensToPay",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "totalDonation",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "totalSupply",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "totalTokenBalance",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "totalVaultFundCollected",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "totalVaultFundReceived",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "vaultAddress",
+						"outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{ "stateMutability": "payable", "type": "receive" }
+				],
+				"contract": "0xEfDaceE0e5f6C295FdaBf42aA0A6a9ab02963Fa6",
+				"acceptedToken": "0x46c037bcda9706f8904cfb51255dc486a98d36ba"
+			},
+			{
+				"name": "BJT-BNB",
+				"abi": [
+					{
+						"inputs": [
+							{ "internalType": "address", "name": "_vaultAddress", "type": "address" },
+							{ "internalType": "address", "name": "_bjt", "type": "address" },
+							{ "internalType": "address", "name": "_acceptedToken", "type": "address" }
+						],
+						"stateMutability": "nonpayable",
+						"type": "constructor"
+					},
+					{
+						"anonymous": false,
+						"inputs": [
+							{
+								"indexed": true,
+								"internalType": "address",
+								"name": "farmerAddress",
+								"type": "address"
+							},
+							{ "indexed": false, "internalType": "uint256", "name": "amount", "type": "uint256" }
+						],
+						"name": "onDonation",
+						"type": "event"
+					},
+					{
+						"anonymous": false,
+						"inputs": [
+							{
+								"indexed": true,
+								"internalType": "address",
+								"name": "farmerAddress",
+								"type": "address"
+							},
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "bjtWithdrawn",
+								"type": "uint256"
+							}
+						],
+						"name": "onHarvest",
+						"type": "event"
+					},
+					{
+						"anonymous": false,
+						"inputs": [
+							{
+								"indexed": true,
+								"internalType": "address",
+								"name": "farmerAddress",
+								"type": "address"
+							},
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "stakedTokens",
+								"type": "uint256"
+							},
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "timestamp",
+								"type": "uint256"
+							}
+						],
+						"name": "onNewStake",
+						"type": "event"
+					},
+					{
+						"anonymous": false,
+						"inputs": [
+							{
+								"indexed": true,
+								"internalType": "address",
+								"name": "farmerAddress",
+								"type": "address"
+							},
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "tokensRemoved",
+								"type": "uint256"
+							},
+							{
+								"indexed": false,
+								"internalType": "uint256",
+								"name": "timestamp",
+								"type": "uint256"
+							}
+						],
+						"name": "onRemoveStake",
+						"type": "event"
+					},
+					{ "stateMutability": "payable", "type": "fallback" },
+					{
+						"inputs": [],
+						"name": "deflationaryTax",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [{ "internalType": "uint256", "name": "_amount", "type": "uint256" }],
+						"name": "deposit",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "nonpayable",
+						"type": "function"
+					},
+					{
+						"inputs": [{ "internalType": "uint256", "name": "_amount", "type": "uint256" }],
+						"name": "donateToPool",
+						"outputs": [],
+						"stateMutability": "nonpayable",
+						"type": "function"
+					},
+					{
+						"inputs": [{ "internalType": "address", "name": "_farmerAddress", "type": "address" }],
+						"name": "estimateRewardsOf",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "farmPool",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [{ "internalType": "address", "name": "", "type": "address" }],
+						"name": "farmedBjt",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "harvest",
+						"outputs": [],
+						"stateMutability": "nonpayable",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "lastDripTime",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "myEstimateRewards",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "myRewards",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "myShares",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "payVault",
+						"outputs": [],
+						"stateMutability": "nonpayable",
+						"type": "function"
+					},
+					{
+						"inputs": [{ "internalType": "uint256", "name": "_amountOfShares", "type": "uint256" }],
+						"name": "remove",
+						"outputs": [],
+						"stateMutability": "nonpayable",
+						"type": "function"
+					},
+					{
+						"inputs": [{ "internalType": "address", "name": "_farmerAddress", "type": "address" }],
+						"name": "rewardsOf",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [{ "internalType": "address", "name": "_farmerAddress", "type": "address" }],
+						"name": "sharesOf",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "tokensToPay",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "totalDonation",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "totalSupply",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "totalTokenBalance",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "totalVaultFundCollected",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "totalVaultFundReceived",
+						"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "vaultAddress",
+						"outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{ "stateMutability": "payable", "type": "receive" }
+				],
+				"contract": "0xDAA2D10451a0ff883D3235522f52aeBF084F0F5F",
+				"acceptedToken": "0xeb22ebb99d5e6b16ae35b77cf136c60cd077b8cb"
+			}
+		]
+	},
+	"vault": {
+		"address": "0x6bEee53eFa847ec426707693c83836E359E92609",
+		"abi": [
+			{ "inputs": [], "payable": false, "stateMutability": "nonpayable", "type": "constructor" },
+			{
+				"anonymous": false,
+				"inputs": [
+					{ "indexed": true, "internalType": "address", "name": "tokenAddress", "type": "address" },
+					{ "indexed": false, "internalType": "uint256", "name": "amount", "type": "uint256" },
+					{ "indexed": false, "internalType": "uint256", "name": "timestamp", "type": "uint256" }
+				],
+				"name": "onBackingDeposit",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "customerAddress",
+						"type": "address"
+					},
+					{ "indexed": false, "internalType": "uint256", "name": "burntAmount", "type": "uint256" },
+					{ "indexed": false, "internalType": "uint256", "name": "timestamp", "type": "uint256" }
+				],
+				"name": "onBackingRedeem",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{ "indexed": true, "internalType": "address", "name": "tokenAddress", "type": "address" },
+					{ "indexed": false, "internalType": "uint256", "name": "timestamp", "type": "uint256" }
+				],
+				"name": "onTokenListing",
+				"type": "event"
+			},
+			{ "payable": true, "stateMutability": "payable", "type": "fallback" },
+			{
+				"constant": false,
+				"inputs": [
+					{ "internalType": "address", "name": "_tokenAddress", "type": "address" },
+					{ "internalType": "uint256", "name": "_amount", "type": "uint256" }
+				],
+				"name": "addBacking",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [{ "internalType": "address", "name": "_tokenAddress", "type": "address" }],
+				"name": "delistToken",
+				"outputs": [{ "internalType": "address[]", "name": "", "type": "address[]" }],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "getPadSupply",
+				"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "leverage",
+				"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [{ "internalType": "address", "name": "_tokenAddress", "type": "address" }],
+				"name": "listToken",
+				"outputs": [{ "internalType": "address[]", "name": "", "type": "address[]" }],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "owner",
+				"outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [{ "internalType": "uint256", "name": "_burnAmount", "type": "uint256" }],
+				"name": "redeemBacking",
+				"outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+				"name": "tokenList",
+				"outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [{ "internalType": "uint256", "name": "_leverage", "type": "uint256" }],
+				"name": "updateLeverage",
+				"outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"pairs": [
+			"0x26234882c1d95fcada4553a655045c35cffc9dad",
+			"0xef6421325f7ed6ebeeaa2b092f9cc64ee2aa3b3b",
+			"0x71d40923e39ac8d93471477c677018d0223b3da9",
+			"0xf199cb43149132eb2d6cf03afcba0cf074dc806b",
+			"0x2856add546e729425383173d4f65bb3e23e796a4",
+			"0x1ed31db9078fafa28ba8a2c09c0fa421943cb383",
+			"0x4bddda73f0a83ccada25107830e29de594e8f7c2",
+			"0x8db3e34f642aa4b404956557a681bc8973529356",
+			"0xc8b8568e7963054a00f107805f8156a7b283a6c2",
+			"0xeb22ebb99d5e6b16ae35b77cf136c60cd077b8cb",
+			"0x6f547381e6594c177a4c56bc818b599cc78a8c16",
+			"0x2c001a059a0f2bd76293c755b3455163cc03a159",
+			"0x1afe79f5eb36798b92106885507ba1a9cda954f6",
+			"0xb7073b6082e8b77ab667fac3ab02e88b2c3937d3",
+			"0xd91636511cdc2b9f2af58cc8fcacbb0f0127f37f"
+		],
+		"tokens": ["0x463e737d8f740395abf44f7aac2d9531d8d539e9"]
+	}
+}
