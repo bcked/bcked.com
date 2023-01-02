@@ -194,7 +194,10 @@
 				.map((node, i) => ({
 					name: { text: node.asset.name, value: node.asset.name, icon: node.asset.icon },
 					'name-path': { text: node.asset.path, value: node.asset.path },
-					price: { text: formatCurrency(node.asset.price[0].usd), value: node.asset.price[0].usd },
+					price: {
+						text: formatCurrency(node.value / asset.backing[0].assets[node.id]),
+						value: node.value / asset.backing[0].assets[node.id]
+					},
 					amount: {
 						text: formatNum(asset.backing[0].assets[node.id]),
 						value: asset.backing[0].assets[node.id]
