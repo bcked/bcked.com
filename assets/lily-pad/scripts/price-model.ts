@@ -169,14 +169,14 @@ class PriceModel {
 		}
 	}
 
-	getPrice(token) {
+	getPrice(token, tokenDecimals: number = 18) {
 		const { graph, tokens } = this._getTokenGraph();
 		const startNode = tokens.indexOf(token.toLowerCase());
 		const endNode = tokens.indexOf(this.reserveCurrency.toLowerCase());
 		const search = new jsgraphs.BellmanFord(graph, startNode);
 		const path = search.pathTo(endNode);
 
-		let price = ethers.BigNumber.from((1e18).toString());
+		let price = ethers.BigNumber.from((10 ** tokenDecimals).toString());
 		for (const edge of path) {
 			const { numerator, denominator } = edge._exchangeRate;
 			price = price.mul(numerator).div(denominator);
@@ -185,8 +185,8 @@ class PriceModel {
 		return tokenPrice;
 	}
 
-	getPriceUsd(token) {
-		const tokenBnbPrice = this.getPrice(token);
+	getPriceUsd(token, tokenDecimals: number = 18) {
+		const tokenBnbPrice = this.getPrice(token, tokenDecimals);
 		const bnbPrice = this.getBnbPrice();
 		return tokenBnbPrice * bnbPrice;
 	}
