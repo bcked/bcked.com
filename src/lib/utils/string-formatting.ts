@@ -18,7 +18,7 @@ export function formatCurrency(
 	let notation: Notation = 'standard';
 	if (num >= 1000) {
 		notation = 'compact';
-	} else if (num < 1 && num > 0) {
+	} else if (num < 0.1 && num > 0) {
 		notation = 'scientific';
 	}
 	return Intl.NumberFormat('en-US', { notation, ...options }).format(num);
