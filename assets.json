@@ -50,7 +50,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-01-03T18:37:41.760Z",
+        "timestamp": "2023-01-03T19:08:21.409Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -90,7 +90,7 @@
     "backing-info": null,
     "tags": [
       "cryptocurrency",
-      "stable"
+      "native"
     ],
     "price": [
       {
@@ -127,7 +127,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-01-03T18:37:41.766Z",
+        "timestamp": "2023-01-03T19:08:21.413Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -182,7 +182,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-01-03T18:37:41.768Z",
+        "timestamp": "2023-01-03T19:08:21.415Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -305,7 +305,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-01-03T18:37:41.775Z",
+        "timestamp": "2023-01-03T19:08:21.418Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -378,7 +378,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-01-03T18:37:41.779Z",
+        "timestamp": "2023-01-03T19:08:21.423Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -435,7 +435,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-01-03T18:37:41.781Z",
+        "timestamp": "2023-01-03T19:08:21.425Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -500,7 +500,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-01-03T18:37:41.784Z",
+        "timestamp": "2023-01-03T19:08:21.426Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -570,7 +570,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-01-03T18:37:41.787Z",
+        "timestamp": "2023-01-03T19:08:21.428Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -621,7 +621,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-01-03T18:37:41.789Z",
+        "timestamp": "2023-01-03T19:08:21.429Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -692,7 +692,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-01-03T18:37:41.792Z",
+        "timestamp": "2023-01-03T19:08:21.439Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -769,7 +769,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-01-02T22:16:00.000Z",
+        "timestamp": "2023-01-03T18:40:00.000Z",
         "assets": {
           "toad-network": 5781.8576492905595,
           "lily-pad": 6115227221.205986,
@@ -833,6 +833,61 @@
     "mcap": 46962.74,
     "icon": "assets/lily-pad/icon.png"
   },
+  "movr": {
+    "id": "movr",
+    "path": "/assets/movr",
+    "symbol": "MOVR",
+    "name": "Moonriver",
+    "description": null,
+    "homepage": "https://moonbeam.network/networks/moonriver/",
+    "docs": "https://docs.moonbeam.network/",
+    "source": "https://github.com/PureStake/moonbeam",
+    "community": [
+      "https://medium.com/Moonriver-network",
+      "https://twitter.com/MoonriverNW",
+      "https://reddit.com/r/moonbeam",
+      "https://t.me/Moonbeam_Official",
+      "https://discord.gg/amTRXQ9ZpW"
+    ],
+    "audits": [],
+    "contracts": {
+      "0x663a07a2648296f1A3C02EE86A126fE1407888E5": "movr"
+    },
+    "backing-info": null,
+    "tags": [
+      "cryptocurrency",
+      "native"
+    ],
+    "price": [
+      {
+        "timestamp": "2023-01-03T18:45:00.000Z",
+        "usd": 6.13,
+        "source": "https://dexscreener.com/moonriver/0x38185bf42e4d6d0b51db5f6c2b83064008549087"
+      }
+    ],
+    "supply": [
+      {
+        "timestamp": "2023-01-03T18:45:00.000Z",
+        "circulating": 5973124,
+        "max": null,
+        "total": 10613366,
+        "source": "https://coinmarketcap.com/currencies/moonriver/"
+      }
+    ],
+    "backing": [
+      {
+        "timestamp": "2023-01-03T19:08:21.444Z",
+        "assets": [],
+        "source": null,
+        "backing-assets": 0,
+        "backing-usd": 0,
+        "ratio": 0,
+        "uniformity": 1
+      }
+    ],
+    "mcap": 36615250.12,
+    "icon": "assets/movr/icon.png"
+  },
   "movr-pad": {
     "id": "movr-pad",
     "path": "/assets/movr-pad",
@@ -891,13 +946,19 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-01-03T18:37:41.802Z",
-        "assets": [],
-        "source": null,
-        "backing-assets": 0,
-        "backing-usd": 0,
-        "ratio": 0,
-        "uniformity": 1
+        "timestamp": "2023-01-03T18:40:00.000Z",
+        "assets": {
+          "movr-pad": 9488974201.18063,
+          "movr": 343.2075067600664,
+          "busd": 580.8499001075859,
+          "usdc": 804.3876987466698,
+          "toad-network": 463.71059617055926
+        },
+        "source": "../lily-pad/scripts",
+        "backing-assets": 3,
+        "backing-usd": 4295.96,
+        "ratio": 0.4878,
+        "uniformity": 0.93
       }
     ],
     "mcap": 8807.66,
@@ -1024,7 +1085,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-01-03T18:37:41.832Z",
+        "timestamp": "2023-01-03T19:08:21.450Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -1095,7 +1156,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-01-03T18:37:41.834Z",
+        "timestamp": "2023-01-03T19:08:21.451Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -1141,7 +1202,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-01-03T18:37:41.835Z",
+        "timestamp": "2023-01-03T19:08:21.453Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,

@@ -56,13 +56,19 @@
   ],
   "backing": [
     {
-      "timestamp": "2023-01-03T18:37:41.802Z",
-      "assets": [],
-      "source": null,
-      "backing-assets": 0,
-      "backing-usd": 0,
-      "ratio": 0,
-      "uniformity": 1
+      "timestamp": "2023-01-03T18:40:00.000Z",
+      "assets": {
+        "movr-pad": 9488974201.18063,
+        "movr": 343.2075067600664,
+        "busd": 580.8499001075859,
+        "usdc": 804.3876987466698,
+        "toad-network": 463.71059617055926
+      },
+      "source": "../lily-pad/scripts",
+      "backing-assets": 3,
+      "backing-usd": 4295.96,
+      "ratio": 0.4878,
+      "uniformity": 0.93
     }
   ],
   "mcap": 8807.66,

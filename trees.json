@@ -1,7 +1,7 @@
 {
   "bitcoin": [
     {
-      "timestamp": "2023-01-03T18:37:41.760Z",
+      "timestamp": "2023-01-03T19:08:21.409Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -29,7 +29,7 @@
   ],
   "bnb": [
     {
-      "timestamp": "2023-01-03T18:37:41.766Z",
+      "timestamp": "2023-01-03T19:08:21.413Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -57,7 +57,7 @@
   ],
   "bullishjackpot": [
     {
-      "timestamp": "2023-01-03T18:37:41.768Z",
+      "timestamp": "2023-01-03T19:08:21.415Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -125,7 +125,7 @@
   ],
   "catoshi": [
     {
-      "timestamp": "2023-01-03T18:37:41.775Z",
+      "timestamp": "2023-01-03T19:08:21.418Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -153,7 +153,7 @@
   ],
   "ethereum": [
     {
-      "timestamp": "2023-01-03T18:37:41.779Z",
+      "timestamp": "2023-01-03T19:08:21.423Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -181,7 +181,7 @@
   ],
   "fukarens": [
     {
-      "timestamp": "2023-01-03T18:37:41.781Z",
+      "timestamp": "2023-01-03T19:08:21.425Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -209,7 +209,7 @@
   ],
   "gallant": [
     {
-      "timestamp": "2023-01-03T18:37:41.784Z",
+      "timestamp": "2023-01-03T19:08:21.426Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -237,7 +237,7 @@
   ],
   "glmr-pad": [
     {
-      "timestamp": "2023-01-03T18:37:41.787Z",
+      "timestamp": "2023-01-03T19:08:21.428Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -265,7 +265,7 @@
   ],
   "gold": [
     {
-      "timestamp": "2023-01-03T18:37:41.789Z",
+      "timestamp": "2023-01-03T19:08:21.429Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -293,7 +293,7 @@
   ],
   "hoge": [
     {
-      "timestamp": "2023-01-03T18:37:41.792Z",
+      "timestamp": "2023-01-03T19:08:21.439Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -321,7 +321,7 @@
   ],
   "lily-pad": [
     {
-      "timestamp": "2023-01-02T22:16:00.000Z",
+      "timestamp": "2023-01-03T18:40:00.000Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -939,32 +939,144 @@
       "backed": 24339.56
     }
   ],
-  "movr-pad": [
+  "movr": [
     {
-      "timestamp": "2023-01-03T18:37:41.802Z",
+      "timestamp": "2023-01-03T19:08:21.444Z",
       "nodes": [
         {
           "id": "unbacked",
-          "value": 8807.66
+          "value": 36615250.12
+        },
+        {
+          "id": "movr",
+          "name": "Moonriver",
+          "value": 36615250.12,
+          "level": 0
+        }
+      ],
+      "links": [
+        {
+          "source": "movr",
+          "target": "unbacked",
+          "value": 36615250.12,
+          "level": 0
+        }
+      ],
+      "value": 36615250.12,
+      "unbacked": 36615250.12,
+      "backed": 0
+    }
+  ],
+  "movr-pad": [
+    {
+      "timestamp": "2023-01-03T18:40:00.000Z",
+      "nodes": [
+        {
+          "id": "unbacked",
+          "value": 4511.7
         },
         {
           "id": "movr-pad",
           "name": "Movr Pad",
           "value": 8807.66,
           "level": 0
+        },
+        {
+          "id": "movr",
+          "name": "Moonriver",
+          "value": 2103.86,
+          "level": 1
+        },
+        {
+          "id": "busd",
+          "name": "BUSD",
+          "value": 580.85,
+          "level": 1
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 1385.24,
+          "level": 2
+        },
+        {
+          "id": "usdc",
+          "name": "USD Coin",
+          "value": 804.39,
+          "level": 1
+        },
+        {
+          "id": "toad-network",
+          "name": "Toad Network",
+          "value": 806.86,
+          "level": 1
         }
       ],
       "links": [
         {
           "source": "movr-pad",
           "target": "unbacked",
-          "value": 8807.66,
+          "value": 4511.7,
           "level": 0
+        },
+        {
+          "source": "movr-pad",
+          "target": "movr",
+          "value": 2103.86,
+          "level": 0
+        },
+        {
+          "source": "movr",
+          "target": "unbacked",
+          "value": 2103.86,
+          "level": 1
+        },
+        {
+          "source": "movr-pad",
+          "target": "busd",
+          "value": 580.85,
+          "level": 0
+        },
+        {
+          "source": "busd",
+          "target": "usd",
+          "value": 580.85,
+          "level": 1
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 1385.24,
+          "level": 2
+        },
+        {
+          "source": "movr-pad",
+          "target": "usdc",
+          "value": 804.39,
+          "level": 0
+        },
+        {
+          "source": "usdc",
+          "target": "usd",
+          "value": 804.39,
+          "level": 1
+        },
+        {
+          "source": "movr-pad",
+          "target": "toad-network",
+          "value": 806.86,
+          "level": 0
+        },
+        {
+          "source": "toad-network",
+          "target": "unbacked",
+          "value": 806.86,
+          "level": 1
         }
       ],
       "value": 8807.66,
-      "unbacked": 8807.66,
-      "backed": 0
+      "unbacked": 4511.7,
+      "backed": 4295.96
     }
   ],
   "paxg": [
@@ -1015,7 +1127,7 @@
   ],
   "pxbsc": [
     {
-      "timestamp": "2023-01-03T18:37:41.832Z",
+      "timestamp": "2023-01-03T19:08:21.450Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -1043,7 +1155,7 @@
   ],
   "toad-network": [
     {
-      "timestamp": "2023-01-03T18:37:41.834Z",
+      "timestamp": "2023-01-03T19:08:21.451Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -1071,7 +1183,7 @@
   ],
   "usd": [
     {
-      "timestamp": "2023-01-03T18:37:41.835Z",
+      "timestamp": "2023-01-03T19:08:21.453Z",
       "nodes": [
         {
           "id": "unbacked",
