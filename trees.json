@@ -1,7 +1,7 @@
 {
   "bitcoin": [
     {
-      "timestamp": "2023-01-03T19:44:16.658Z",
+      "timestamp": "2023-01-03T22:07:00.525Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -29,7 +29,7 @@
   ],
   "bnb": [
     {
-      "timestamp": "2023-01-03T19:44:16.666Z",
+      "timestamp": "2023-01-03T22:07:00.528Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -57,7 +57,7 @@
   ],
   "bullishjackpot": [
     {
-      "timestamp": "2023-01-03T19:44:16.668Z",
+      "timestamp": "2023-01-03T22:07:00.529Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -125,7 +125,7 @@
   ],
   "catoshi": [
     {
-      "timestamp": "2023-01-03T19:44:16.675Z",
+      "timestamp": "2023-01-03T22:07:00.532Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -153,7 +153,7 @@
   ],
   "ethereum": [
     {
-      "timestamp": "2023-01-03T19:44:16.678Z",
+      "timestamp": "2023-01-03T22:07:00.535Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -181,7 +181,7 @@
   ],
   "fukarens": [
     {
-      "timestamp": "2023-01-03T19:44:16.682Z",
+      "timestamp": "2023-01-03T22:07:00.536Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -209,7 +209,7 @@
   ],
   "gallant": [
     {
-      "timestamp": "2023-01-03T19:44:16.687Z",
+      "timestamp": "2023-01-03T22:07:00.538Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -237,7 +237,7 @@
   ],
   "glmr": [
     {
-      "timestamp": "2023-01-03T19:44:16.689Z",
+      "timestamp": "2023-01-03T22:07:00.540Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -377,7 +377,7 @@
   ],
   "gold": [
     {
-      "timestamp": "2023-01-03T19:44:16.694Z",
+      "timestamp": "2023-01-03T22:07:00.543Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -405,7 +405,7 @@
   ],
   "hoge": [
     {
-      "timestamp": "2023-01-03T19:44:16.697Z",
+      "timestamp": "2023-01-03T22:07:00.545Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -1053,7 +1053,7 @@
   ],
   "movr": [
     {
-      "timestamp": "2023-01-03T19:44:16.706Z",
+      "timestamp": "2023-01-03T22:07:00.550Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -1231,7 +1231,203 @@
       "backed": 494125838.05
     },
     {
-      "timestamp": "2022-04-29T00:00:00.000Z",
+      "timestamp": "2022-10-31T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "paxg",
+          "name": "PAX Gold",
+          "value": 548480160.74,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "gold",
+          "name": "Gold",
+          "value": 548480160.74,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "paxg",
+          "target": "gold",
+          "value": 548480160.74,
+          "level": 0
+        },
+        {
+          "source": "gold",
+          "target": "unbacked",
+          "value": 548480160.74,
+          "level": 1
+        }
+      ],
+      "value": 548480160.74,
+      "unbacked": 0,
+      "backed": 548480160.74
+    },
+    {
+      "timestamp": "2022-09-30T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "paxg",
+          "name": "PAX Gold",
+          "value": 559725153.17,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "gold",
+          "name": "Gold",
+          "value": 559725153.17,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "paxg",
+          "target": "gold",
+          "value": 559725153.17,
+          "level": 0
+        },
+        {
+          "source": "gold",
+          "target": "unbacked",
+          "value": 559725153.17,
+          "level": 1
+        }
+      ],
+      "value": 559725153.17,
+      "unbacked": 0,
+      "backed": 559725153.17
+    },
+    {
+      "timestamp": "2022-08-31T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "paxg",
+          "name": "PAX Gold",
+          "value": 626754424.01,
+          "level": 0
+        },
+        {
+          "id": "gold",
+          "name": "Gold",
+          "value": 626754424.01,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "paxg",
+          "target": "unbacked",
+          "value": 0,
+          "level": 0
+        },
+        {
+          "source": "paxg",
+          "target": "gold",
+          "value": 626754424.01,
+          "level": 0
+        },
+        {
+          "source": "gold",
+          "target": "unbacked",
+          "value": 626754424.01,
+          "level": 1
+        }
+      ],
+      "value": 626754424.01,
+      "unbacked": 0,
+      "backed": 626754424.01
+    },
+    {
+      "timestamp": "2022-07-29T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "paxg",
+          "name": "PAX Gold",
+          "value": 638098942.58,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "gold",
+          "name": "Gold",
+          "value": 638098942.58,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "paxg",
+          "target": "gold",
+          "value": 638098942.58,
+          "level": 0
+        },
+        {
+          "source": "gold",
+          "target": "unbacked",
+          "value": 638098942.58,
+          "level": 1
+        }
+      ],
+      "value": 638098942.58,
+      "unbacked": 0,
+      "backed": 638098942.58
+    },
+    {
+      "timestamp": "2022-06-30T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "paxg",
+          "name": "PAX Gold",
+          "value": 626778066.68,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "gold",
+          "name": "Gold",
+          "value": 626778066.68,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "paxg",
+          "target": "gold",
+          "value": 626778066.68,
+          "level": 0
+        },
+        {
+          "source": "gold",
+          "target": "unbacked",
+          "value": 626778066.68,
+          "level": 1
+        }
+      ],
+      "value": 626778066.68,
+      "unbacked": 0,
+      "backed": 626778066.68
+    },
+    {
+      "timestamp": "2022-04-29T22:00:00.000Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -1273,11 +1469,1291 @@
       "value": 613215423.36,
       "unbacked": 0,
       "backed": 613215423.36
+    },
+    {
+      "timestamp": "2022-03-31T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "paxg",
+          "name": "PAX Gold",
+          "value": 598271714.19,
+          "level": 0
+        },
+        {
+          "id": "gold",
+          "name": "Gold",
+          "value": 598271714.19,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "paxg",
+          "target": "unbacked",
+          "value": 0,
+          "level": 0
+        },
+        {
+          "source": "paxg",
+          "target": "gold",
+          "value": 598271714.19,
+          "level": 0
+        },
+        {
+          "source": "gold",
+          "target": "unbacked",
+          "value": 598271714.19,
+          "level": 1
+        }
+      ],
+      "value": 598271714.19,
+      "unbacked": 0,
+      "backed": 598271714.19
+    },
+    {
+      "timestamp": "2022-02-28T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "paxg",
+          "name": "PAX Gold",
+          "value": 520679245.81,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "gold",
+          "name": "Gold",
+          "value": 520679245.81,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "paxg",
+          "target": "gold",
+          "value": 520679245.81,
+          "level": 0
+        },
+        {
+          "source": "gold",
+          "target": "unbacked",
+          "value": 520679245.81,
+          "level": 1
+        }
+      ],
+      "value": 520679245.81,
+      "unbacked": 0,
+      "backed": 520679245.81
+    },
+    {
+      "timestamp": "2022-01-31T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "paxg",
+          "name": "PAX Gold",
+          "value": 368740416.8,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "gold",
+          "name": "Gold",
+          "value": 368740416.8,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "paxg",
+          "target": "gold",
+          "value": 368740416.8,
+          "level": 0
+        },
+        {
+          "source": "gold",
+          "target": "unbacked",
+          "value": 368740416.8,
+          "level": 1
+        }
+      ],
+      "value": 368740416.8,
+      "unbacked": 0,
+      "backed": 368740416.8
+    },
+    {
+      "timestamp": "2021-12-31T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "paxg",
+          "name": "PAX Gold",
+          "value": 334288867,
+          "level": 0
+        },
+        {
+          "id": "gold",
+          "name": "Gold",
+          "value": 334288867,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "paxg",
+          "target": "unbacked",
+          "value": 0,
+          "level": 0
+        },
+        {
+          "source": "paxg",
+          "target": "gold",
+          "value": 334288867,
+          "level": 0
+        },
+        {
+          "source": "gold",
+          "target": "unbacked",
+          "value": 334288867,
+          "level": 1
+        }
+      ],
+      "value": 334288867,
+      "unbacked": 0,
+      "backed": 334288867
+    },
+    {
+      "timestamp": "2021-11-30T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "paxg",
+          "name": "PAX Gold",
+          "value": 336515375.45,
+          "level": 0
+        },
+        {
+          "id": "gold",
+          "name": "Gold",
+          "value": 336515375.45,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "paxg",
+          "target": "unbacked",
+          "value": 0,
+          "level": 0
+        },
+        {
+          "source": "paxg",
+          "target": "gold",
+          "value": 336515375.45,
+          "level": 0
+        },
+        {
+          "source": "gold",
+          "target": "unbacked",
+          "value": 336515375.45,
+          "level": 1
+        }
+      ],
+      "value": 336515375.45,
+      "unbacked": 0,
+      "backed": 336515375.45
+    },
+    {
+      "timestamp": "2021-10-29T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "paxg",
+          "name": "PAX Gold",
+          "value": 335260269.87,
+          "level": 0
+        },
+        {
+          "id": "gold",
+          "name": "Gold",
+          "value": 335260269.87,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "paxg",
+          "target": "unbacked",
+          "value": 0,
+          "level": 0
+        },
+        {
+          "source": "paxg",
+          "target": "gold",
+          "value": 335260269.87,
+          "level": 0
+        },
+        {
+          "source": "gold",
+          "target": "unbacked",
+          "value": 335260269.87,
+          "level": 1
+        }
+      ],
+      "value": 335260269.87,
+      "unbacked": 0,
+      "backed": 335260269.87
+    },
+    {
+      "timestamp": "2021-09-30T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "paxg",
+          "name": "PAX Gold",
+          "value": 334542667.9,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "gold",
+          "name": "Gold",
+          "value": 334542667.9,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "paxg",
+          "target": "gold",
+          "value": 334542667.9,
+          "level": 0
+        },
+        {
+          "source": "gold",
+          "target": "unbacked",
+          "value": 334542667.9,
+          "level": 1
+        }
+      ],
+      "value": 334542667.9,
+      "unbacked": 0,
+      "backed": 334542667.9
+    },
+    {
+      "timestamp": "2021-08-31T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "paxg",
+          "name": "PAX Gold",
+          "value": 339068382.37,
+          "level": 0
+        },
+        {
+          "id": "gold",
+          "name": "Gold",
+          "value": 339068382.37,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "paxg",
+          "target": "unbacked",
+          "value": 0,
+          "level": 0
+        },
+        {
+          "source": "paxg",
+          "target": "gold",
+          "value": 339068382.37,
+          "level": 0
+        },
+        {
+          "source": "gold",
+          "target": "unbacked",
+          "value": 339068382.37,
+          "level": 1
+        }
+      ],
+      "value": 339068382.37,
+      "unbacked": 0,
+      "backed": 339068382.37
+    },
+    {
+      "timestamp": "2021-07-30T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "paxg",
+          "name": "PAX Gold",
+          "value": 315250164.21,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "gold",
+          "name": "Gold",
+          "value": 315250164.21,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "paxg",
+          "target": "gold",
+          "value": 315250164.21,
+          "level": 0
+        },
+        {
+          "source": "gold",
+          "target": "unbacked",
+          "value": 315250164.21,
+          "level": 1
+        }
+      ],
+      "value": 315250164.21,
+      "unbacked": 0,
+      "backed": 315250164.21
+    },
+    {
+      "timestamp": "2021-06-30T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "paxg",
+          "name": "PAX Gold",
+          "value": 300823248.31,
+          "level": 0
+        },
+        {
+          "id": "gold",
+          "name": "Gold",
+          "value": 300823248.31,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "paxg",
+          "target": "unbacked",
+          "value": 0,
+          "level": 0
+        },
+        {
+          "source": "paxg",
+          "target": "gold",
+          "value": 300823248.31,
+          "level": 0
+        },
+        {
+          "source": "gold",
+          "target": "unbacked",
+          "value": 300823248.31,
+          "level": 1
+        }
+      ],
+      "value": 300823248.31,
+      "unbacked": 0,
+      "backed": 300823248.31
+    },
+    {
+      "timestamp": "2021-05-28T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "paxg",
+          "name": "PAX Gold",
+          "value": 249063973.53,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "gold",
+          "name": "Gold",
+          "value": 249063973.53,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "paxg",
+          "target": "gold",
+          "value": 249063973.53,
+          "level": 0
+        },
+        {
+          "source": "gold",
+          "target": "unbacked",
+          "value": 249063973.53,
+          "level": 1
+        }
+      ],
+      "value": 249063973.53,
+      "unbacked": 0,
+      "backed": 249063973.53
+    },
+    {
+      "timestamp": "2021-04-30T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "paxg",
+          "name": "PAX Gold",
+          "value": 188587051.21,
+          "level": 0
+        },
+        {
+          "id": "gold",
+          "name": "Gold",
+          "value": 188587051.21,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "paxg",
+          "target": "unbacked",
+          "value": 0,
+          "level": 0
+        },
+        {
+          "source": "paxg",
+          "target": "gold",
+          "value": 188587051.21,
+          "level": 0
+        },
+        {
+          "source": "gold",
+          "target": "unbacked",
+          "value": 188587051.21,
+          "level": 1
+        }
+      ],
+      "value": 188587051.21,
+      "unbacked": 0,
+      "backed": 188587051.21
+    },
+    {
+      "timestamp": "2021-03-31T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "paxg",
+          "name": "PAX Gold",
+          "value": 163974105.93,
+          "level": 0
+        },
+        {
+          "id": "gold",
+          "name": "Gold",
+          "value": 163974105.93,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "paxg",
+          "target": "unbacked",
+          "value": 0,
+          "level": 0
+        },
+        {
+          "source": "paxg",
+          "target": "gold",
+          "value": 163974105.93,
+          "level": 0
+        },
+        {
+          "source": "gold",
+          "target": "unbacked",
+          "value": 163974105.93,
+          "level": 1
+        }
+      ],
+      "value": 163974105.93,
+      "unbacked": 0,
+      "backed": 163974105.93
+    },
+    {
+      "timestamp": "2021-02-26T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "paxg",
+          "name": "PAX Gold",
+          "value": 133228535.12,
+          "level": 0
+        },
+        {
+          "id": "gold",
+          "name": "Gold",
+          "value": 133228535.12,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "paxg",
+          "target": "unbacked",
+          "value": 0,
+          "level": 0
+        },
+        {
+          "source": "paxg",
+          "target": "gold",
+          "value": 133228535.12,
+          "level": 0
+        },
+        {
+          "source": "gold",
+          "target": "unbacked",
+          "value": 133228535.12,
+          "level": 1
+        }
+      ],
+      "value": 133228535.12,
+      "unbacked": 0,
+      "backed": 133228535.12
+    },
+    {
+      "timestamp": "2021-01-29T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "paxg",
+          "name": "PAX Gold",
+          "value": 113012103.64,
+          "level": 0
+        },
+        {
+          "id": "gold",
+          "name": "Gold",
+          "value": 113012103.64,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "paxg",
+          "target": "unbacked",
+          "value": 0,
+          "level": 0
+        },
+        {
+          "source": "paxg",
+          "target": "gold",
+          "value": 113012103.64,
+          "level": 0
+        },
+        {
+          "source": "gold",
+          "target": "unbacked",
+          "value": 113012103.64,
+          "level": 1
+        }
+      ],
+      "value": 113012103.64,
+      "unbacked": 0,
+      "backed": 113012103.64
+    },
+    {
+      "timestamp": "2020-12-31T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "paxg",
+          "name": "PAX Gold",
+          "value": 73996963.37,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "gold",
+          "name": "Gold",
+          "value": 73996963.37,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "paxg",
+          "target": "gold",
+          "value": 73996963.37,
+          "level": 0
+        },
+        {
+          "source": "gold",
+          "target": "unbacked",
+          "value": 73996963.37,
+          "level": 1
+        }
+      ],
+      "value": 73996963.37,
+      "unbacked": 0,
+      "backed": 73996963.37
+    },
+    {
+      "timestamp": "2020-11-30T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "paxg",
+          "name": "PAX Gold",
+          "value": 77747173.3,
+          "level": 0
+        },
+        {
+          "id": "gold",
+          "name": "Gold",
+          "value": 77747173.3,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "paxg",
+          "target": "unbacked",
+          "value": 0,
+          "level": 0
+        },
+        {
+          "source": "paxg",
+          "target": "gold",
+          "value": 77747173.3,
+          "level": 0
+        },
+        {
+          "source": "gold",
+          "target": "unbacked",
+          "value": 77747173.3,
+          "level": 1
+        }
+      ],
+      "value": 77747173.3,
+      "unbacked": 0,
+      "backed": 77747173.3
+    },
+    {
+      "timestamp": "2020-10-30T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "paxg",
+          "name": "PAX Gold",
+          "value": 70362855.4,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "gold",
+          "name": "Gold",
+          "value": 70362855.4,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "paxg",
+          "target": "gold",
+          "value": 70362855.4,
+          "level": 0
+        },
+        {
+          "source": "gold",
+          "target": "unbacked",
+          "value": 70362855.4,
+          "level": 1
+        }
+      ],
+      "value": 70362855.4,
+      "unbacked": 0,
+      "backed": 70362855.4
+    },
+    {
+      "timestamp": "2020-09-30T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "paxg",
+          "name": "PAX Gold",
+          "value": 61331137.47,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "gold",
+          "name": "Gold",
+          "value": 61331137.47,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "paxg",
+          "target": "gold",
+          "value": 61331137.47,
+          "level": 0
+        },
+        {
+          "source": "gold",
+          "target": "unbacked",
+          "value": 61331137.47,
+          "level": 1
+        }
+      ],
+      "value": 61331137.47,
+      "unbacked": 0,
+      "backed": 61331137.47
+    },
+    {
+      "timestamp": "2020-08-31T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "paxg",
+          "name": "PAX Gold",
+          "value": 56929835.4,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "gold",
+          "name": "Gold",
+          "value": 56929835.4,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "paxg",
+          "target": "gold",
+          "value": 56929835.4,
+          "level": 0
+        },
+        {
+          "source": "gold",
+          "target": "unbacked",
+          "value": 56929835.4,
+          "level": 1
+        }
+      ],
+      "value": 56929835.4,
+      "unbacked": 0,
+      "backed": 56929835.4
+    },
+    {
+      "timestamp": "2020-07-31T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "paxg",
+          "name": "PAX Gold",
+          "value": 48632515.02,
+          "level": 0
+        },
+        {
+          "id": "gold",
+          "name": "Gold",
+          "value": 48632515.02,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "paxg",
+          "target": "unbacked",
+          "value": 0,
+          "level": 0
+        },
+        {
+          "source": "paxg",
+          "target": "gold",
+          "value": 48632515.02,
+          "level": 0
+        },
+        {
+          "source": "gold",
+          "target": "unbacked",
+          "value": 48632515.02,
+          "level": 1
+        }
+      ],
+      "value": 48632515.02,
+      "unbacked": 0,
+      "backed": 48632515.02
+    },
+    {
+      "timestamp": "2020-06-30T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "paxg",
+          "name": "PAX Gold",
+          "value": 41863387.57,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "gold",
+          "name": "Gold",
+          "value": 41863387.57,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "paxg",
+          "target": "gold",
+          "value": 41863387.57,
+          "level": 0
+        },
+        {
+          "source": "gold",
+          "target": "unbacked",
+          "value": 41863387.57,
+          "level": 1
+        }
+      ],
+      "value": 41863387.57,
+      "unbacked": 0,
+      "backed": 41863387.57
+    },
+    {
+      "timestamp": "2020-05-29T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "paxg",
+          "name": "PAX Gold",
+          "value": 51663156.2,
+          "level": 0
+        },
+        {
+          "id": "gold",
+          "name": "Gold",
+          "value": 51663156.2,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "paxg",
+          "target": "unbacked",
+          "value": 0,
+          "level": 0
+        },
+        {
+          "source": "paxg",
+          "target": "gold",
+          "value": 51663156.2,
+          "level": 0
+        },
+        {
+          "source": "gold",
+          "target": "unbacked",
+          "value": 51663156.2,
+          "level": 1
+        }
+      ],
+      "value": 51663156.2,
+      "unbacked": 0,
+      "backed": 51663156.2
+    },
+    {
+      "timestamp": "2020-04-30T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "paxg",
+          "name": "PAX Gold",
+          "value": 47896039.87,
+          "level": 0
+        },
+        {
+          "id": "gold",
+          "name": "Gold",
+          "value": 47896039.87,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "paxg",
+          "target": "unbacked",
+          "value": 0,
+          "level": 0
+        },
+        {
+          "source": "paxg",
+          "target": "gold",
+          "value": 47896039.87,
+          "level": 0
+        },
+        {
+          "source": "gold",
+          "target": "unbacked",
+          "value": 47896039.87,
+          "level": 1
+        }
+      ],
+      "value": 47896039.87,
+      "unbacked": 0,
+      "backed": 47896039.87
+    },
+    {
+      "timestamp": "2020-03-31T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "paxg",
+          "name": "PAX Gold",
+          "value": 32109114.1,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "gold",
+          "name": "Gold",
+          "value": 32109114.1,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "paxg",
+          "target": "gold",
+          "value": 32109114.1,
+          "level": 0
+        },
+        {
+          "source": "gold",
+          "target": "unbacked",
+          "value": 32109114.1,
+          "level": 1
+        }
+      ],
+      "value": 32109114.1,
+      "unbacked": 0,
+      "backed": 32109114.1
+    },
+    {
+      "timestamp": "2020-02-28T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "paxg",
+          "name": "PAX Gold",
+          "value": 21013570.59,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "gold",
+          "name": "Gold",
+          "value": 21013570.59,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "paxg",
+          "target": "gold",
+          "value": 21013570.59,
+          "level": 0
+        },
+        {
+          "source": "gold",
+          "target": "unbacked",
+          "value": 21013570.59,
+          "level": 1
+        }
+      ],
+      "value": 21013570.59,
+      "unbacked": 0,
+      "backed": 21013570.59
+    },
+    {
+      "timestamp": "2020-01-31T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "paxg",
+          "name": "PAX Gold",
+          "value": 18019629.47,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "gold",
+          "name": "Gold",
+          "value": 18019629.47,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "paxg",
+          "target": "gold",
+          "value": 18019629.47,
+          "level": 0
+        },
+        {
+          "source": "gold",
+          "target": "unbacked",
+          "value": 18019629.47,
+          "level": 1
+        }
+      ],
+      "value": 18019629.47,
+      "unbacked": 0,
+      "backed": 18019629.47
+    },
+    {
+      "timestamp": "2019-12-31T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "paxg",
+          "name": "PAX Gold",
+          "value": 15788122.36,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "gold",
+          "name": "Gold",
+          "value": 15788122.36,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "paxg",
+          "target": "gold",
+          "value": 15788122.36,
+          "level": 0
+        },
+        {
+          "source": "gold",
+          "target": "unbacked",
+          "value": 15788122.36,
+          "level": 1
+        }
+      ],
+      "value": 15788122.36,
+      "unbacked": 0,
+      "backed": 15788122.36
+    },
+    {
+      "timestamp": "2019-11-29T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "paxg",
+          "name": "PAX Gold",
+          "value": 14242250.95,
+          "level": 0
+        },
+        {
+          "id": "gold",
+          "name": "Gold",
+          "value": 14242250.95,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "paxg",
+          "target": "unbacked",
+          "value": 0,
+          "level": 0
+        },
+        {
+          "source": "paxg",
+          "target": "gold",
+          "value": 14242250.95,
+          "level": 0
+        },
+        {
+          "source": "gold",
+          "target": "unbacked",
+          "value": 14242250.95,
+          "level": 1
+        }
+      ],
+      "value": 14242250.95,
+      "unbacked": 0,
+      "backed": 14242250.95
+    },
+    {
+      "timestamp": "2019-10-31T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "paxg",
+          "name": "PAX Gold",
+          "value": 6034213.32,
+          "level": 0
+        },
+        {
+          "id": "gold",
+          "name": "Gold",
+          "value": 6034213.32,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "paxg",
+          "target": "unbacked",
+          "value": 0,
+          "level": 0
+        },
+        {
+          "source": "paxg",
+          "target": "gold",
+          "value": 6034213.32,
+          "level": 0
+        },
+        {
+          "source": "gold",
+          "target": "unbacked",
+          "value": 6034213.32,
+          "level": 1
+        }
+      ],
+      "value": 6034213.32,
+      "unbacked": 0,
+      "backed": 6034213.32
+    },
+    {
+      "timestamp": "2019-09-30T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "paxg",
+          "name": "PAX Gold",
+          "value": 5275688.45,
+          "level": 0
+        },
+        {
+          "id": "gold",
+          "name": "Gold",
+          "value": 5275688.45,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "paxg",
+          "target": "unbacked",
+          "value": 0,
+          "level": 0
+        },
+        {
+          "source": "paxg",
+          "target": "gold",
+          "value": 5275688.45,
+          "level": 0
+        },
+        {
+          "source": "gold",
+          "target": "unbacked",
+          "value": 5275688.45,
+          "level": 1
+        }
+      ],
+      "value": 5275688.45,
+      "unbacked": 0,
+      "backed": 5275688.45
     }
   ],
   "pxbsc": [
     {
-      "timestamp": "2023-01-03T19:44:16.727Z",
+      "timestamp": "2023-01-03T22:07:00.584Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -1305,7 +2781,7 @@
   ],
   "toad-network": [
     {
-      "timestamp": "2023-01-03T19:44:16.730Z",
+      "timestamp": "2023-01-03T22:07:00.589Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -1333,7 +2809,7 @@
   ],
   "usd": [
     {
-      "timestamp": "2023-01-03T19:44:16.731Z",
+      "timestamp": "2023-01-03T22:07:00.590Z",
       "nodes": [
         {
           "id": "unbacked",
