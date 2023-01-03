@@ -1,44 +1,38 @@
 {
-  "timestamp": "2022-04-29T00:00:00.000Z",
+  "timestamp": "2022-11-30T22:00:00.000Z",
   "nodes": [
+    {
+      "id": "paxg",
+      "name": "PAX Gold",
+      "value": 494125838.05,
+      "level": 0
+    },
     {
       "id": "unbacked",
       "value": 0
     },
     {
-      "id": "paxg",
-      "name": "PAX Gold",
-      "value": 613215423.36,
-      "level": 0
-    },
-    {
       "id": "gold",
       "name": "Gold",
-      "value": 613215423.36,
+      "value": 494125838.05,
       "level": 1
     }
   ],
   "links": [
     {
       "source": "paxg",
-      "target": "unbacked",
-      "value": 0,
-      "level": 0
-    },
-    {
-      "source": "paxg",
       "target": "gold",
-      "value": 613215423.36,
+      "value": 494125838.05,
       "level": 0
     },
     {
       "source": "gold",
       "target": "unbacked",
-      "value": 613215423.36,
+      "value": 494125838.05,
       "level": 1
     }
   ],
-  "value": 613215423.36,
+  "value": 494125838.05,
   "unbacked": 0,
-  "backed": 613215423.36
+  "backed": 494125838.05
 }

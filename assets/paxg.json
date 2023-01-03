@@ -37,11 +37,11 @@
   ],
   "supply": [
     {
-      "timestamp": "2023-01-02T18:10:00.000Z",
-      "circulating": 271264,
+      "timestamp": "2022-11-30T22:00:00.000Z",
+      "circulating": 271263.711,
       "max": null,
-      "total": 271264,
-      "source": "https://coinmarketcap.com/currencies/pax-gold/"
+      "total": 271263.711,
+      "source": "https://paxos.com/wp-content/uploads/2022/12/PAXG-November-Report-executed.pdf"
     },
     {
       "timestamp": "2022-04-29T00:00:00.000Z",
@@ -52,6 +52,17 @@
     }
   ],
   "backing": [
+    {
+      "timestamp": "2022-11-30T22:00:00.000Z",
+      "assets": {
+        "gold": 271263.711
+      },
+      "source": "https://paxos.com/wp-content/uploads/2022/12/PAXG-November-Report-executed.pdf",
+      "backing-assets": 1,
+      "backing-usd": 494125838.05,
+      "ratio": 1,
+      "uniformity": 1
+    },
     {
       "timestamp": "2022-04-29T00:00:00.000Z",
       "assets": {
@@ -64,6 +75,6 @@
       "uniformity": 1
     }
   ],
-  "mcap": 494126364.48,
+  "mcap": 494125838.05,
   "icon": "assets/paxg/icon.png"
 }
