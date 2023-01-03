@@ -2,8 +2,9 @@
 	"name": "pad-backing",
 	"version": "1.0.0",
 	"scripts": {
-		"gen": "ts-node --esm --logError ./retrieve-vault-holdings.ts"
+		"gen": "ts-node --esm --logError ./src/retrieve-vault-holdings.ts"
 	},
+	"main": "./src/retrieve-vault-holdings.ts",
 	"devDependencies": {
 		"@0xsequence/multicall": "^0.43.7",
 		"await-lock": "^1.2.1",

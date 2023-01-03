@@ -1,9 +1,9 @@
 import { ethers } from 'ethers';
 
 import { MULTICALL_ADDRESS, BSC_MINTER_ADDRESS, MOVR_MINTER_ADDRESS } from './constants.js';
-import farmsBsc from './farms_config_bsc.json' assert { type: 'json' };
-import farmsMoonriver from './farms_config_movr.json' assert { type: 'json' };
-import farmsMoonbeam from './farms_config_glmr.json' assert { type: 'json' };
+import farmsBsc from './config_bsc.json' assert { type: 'json' };
+import farmsMoonriver from './config_movr.json' assert { type: 'json' };
+import farmsMoonbeam from './config_glmr.json' assert { type: 'json' };
 
 import {
 	PriceModel,
