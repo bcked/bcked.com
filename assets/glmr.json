@@ -1,0 +1,55 @@
+{
+  "id": "glmr",
+  "path": "/assets/glmr",
+  "symbol": "GLMR",
+  "name": "Moonbeam",
+  "description": null,
+  "homepage": "https://moonbeam.network/networks/moonbeam/",
+  "docs": "https://docs.moonbeam.network/",
+  "source": "https://github.com/PureStake/moonbeam",
+  "community": [
+    "https://medium.com/moonbeam-network",
+    "https://twitter.com/moonbeamnetwork",
+    "https://reddit.com/r/moonbeam",
+    "https://t.me/Moonbeam_Official",
+    "https://discord.gg/vGwBvvRpmm"
+  ],
+  "audits": [],
+  "contracts": {
+    "0xacc15dc74880c9944775448304b263d191c6077f": "glmr"
+  },
+  "backing-info": null,
+  "tags": [
+    "cryptocurrency",
+    "native"
+  ],
+  "price": [
+    {
+      "timestamp": "2023-01-03T20:05:00.000Z",
+      "usd": 0.3233,
+      "source": "https://dexscreener.com/moonbeam/0x8577273fb3b72306f3a59e26ab77116f5d428daa"
+    }
+  ],
+  "supply": [
+    {
+      "timestamp": "2023-01-03T20:05:00.000Z",
+      "circulating": 491806494,
+      "max": null,
+      "total": 1046109654,
+      "source": "https://coinmarketcap.com/currencies/moonriver/"
+    }
+  ],
+  "backing": [
+    {
+      "timestamp": "2023-01-03T19:26:22.559Z",
+      "assets": [],
+      "source": null,
+      "backing-assets": 0,
+      "backing-usd": 0,
+      "ratio": 0,
+      "uniformity": 1
+    }
+  ],
+  "mcap": 159001039.51,
+  "icon": "assets/glmr/icon.png"
+}

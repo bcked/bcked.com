@@ -1,26 +1,110 @@
 {
-  "timestamp": "2023-01-03T19:08:21.428Z",
+  "timestamp": "2023-01-03T20:05:00.000Z",
   "nodes": [
     {
       "id": "unbacked",
-      "value": 10889.71
+      "value": 4670.01
     },
     {
       "id": "glmr-pad",
       "name": "Glmr Pad",
       "value": 10889.71,
       "level": 0
+    },
+    {
+      "id": "glmr",
+      "name": "Moonbeam",
+      "value": 2399.56,
+      "level": 1
+    },
+    {
+      "id": "usdc",
+      "name": "USD Coin",
+      "value": 1226.17,
+      "level": 1
+    },
+    {
+      "id": "usd",
+      "name": "U.S. dollar",
+      "value": 2072.18,
+      "level": 2
+    },
+    {
+      "id": "busd",
+      "name": "BUSD",
+      "value": 846.01,
+      "level": 1
+    },
+    {
+      "id": "toad-network",
+      "name": "Toad Network",
+      "value": 1747.96,
+      "level": 1
     }
   ],
   "links": [
     {
       "source": "glmr-pad",
       "target": "unbacked",
-      "value": 10889.71,
+      "value": 4670.01,
       "level": 0
+    },
+    {
+      "source": "glmr-pad",
+      "target": "glmr",
+      "value": 2399.56,
+      "level": 0
+    },
+    {
+      "source": "glmr",
+      "target": "unbacked",
+      "value": 2399.56,
+      "level": 1
+    },
+    {
+      "source": "glmr-pad",
+      "target": "usdc",
+      "value": 1226.17,
+      "level": 0
+    },
+    {
+      "source": "usdc",
+      "target": "usd",
+      "value": 1226.17,
+      "level": 1
+    },
+    {
+      "source": "usd",
+      "target": "unbacked",
+      "value": 2072.18,
+      "level": 2
+    },
+    {
+      "source": "glmr-pad",
+      "target": "busd",
+      "value": 846.01,
+      "level": 0
+    },
+    {
+      "source": "busd",
+      "target": "usd",
+      "value": 846.01,
+      "level": 1
+    },
+    {
+      "source": "glmr-pad",
+      "target": "toad-network",
+      "value": 1747.96,
+      "level": 0
+    },
+    {
+      "source": "toad-network",
+      "target": "unbacked",
+      "value": 1747.96,
+      "level": 1
     }
   ],
   "value": 10889.71,
-  "unbacked": 10889.71,
-  "backed": 0
+  "unbacked": 4670.01,
+  "backed": 6219.7
 }

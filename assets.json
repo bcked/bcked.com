@@ -50,7 +50,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-01-03T19:08:21.409Z",
+        "timestamp": "2023-01-03T19:26:22.542Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -127,7 +127,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-01-03T19:08:21.413Z",
+        "timestamp": "2023-01-03T19:26:22.545Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -182,7 +182,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-01-03T19:08:21.415Z",
+        "timestamp": "2023-01-03T19:26:22.547Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -305,7 +305,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-01-03T19:08:21.418Z",
+        "timestamp": "2023-01-03T19:26:22.551Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -378,7 +378,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-01-03T19:08:21.423Z",
+        "timestamp": "2023-01-03T19:26:22.553Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -435,7 +435,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-01-03T19:08:21.425Z",
+        "timestamp": "2023-01-03T19:26:22.555Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -500,7 +500,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-01-03T19:08:21.426Z",
+        "timestamp": "2023-01-03T19:26:22.557Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -511,6 +511,61 @@
     ],
     "mcap": 41860,
     "icon": "assets/gallant/icon.png"
+  },
+  "glmr": {
+    "id": "glmr",
+    "path": "/assets/glmr",
+    "symbol": "GLMR",
+    "name": "Moonbeam",
+    "description": null,
+    "homepage": "https://moonbeam.network/networks/moonbeam/",
+    "docs": "https://docs.moonbeam.network/",
+    "source": "https://github.com/PureStake/moonbeam",
+    "community": [
+      "https://medium.com/moonbeam-network",
+      "https://twitter.com/moonbeamnetwork",
+      "https://reddit.com/r/moonbeam",
+      "https://t.me/Moonbeam_Official",
+      "https://discord.gg/vGwBvvRpmm"
+    ],
+    "audits": [],
+    "contracts": {
+      "0xacc15dc74880c9944775448304b263d191c6077f": "glmr"
+    },
+    "backing-info": null,
+    "tags": [
+      "cryptocurrency",
+      "native"
+    ],
+    "price": [
+      {
+        "timestamp": "2023-01-03T20:05:00.000Z",
+        "usd": 0.3233,
+        "source": "https://dexscreener.com/moonbeam/0x8577273fb3b72306f3a59e26ab77116f5d428daa"
+      }
+    ],
+    "supply": [
+      {
+        "timestamp": "2023-01-03T20:05:00.000Z",
+        "circulating": 491806494,
+        "max": null,
+        "total": 1046109654,
+        "source": "https://coinmarketcap.com/currencies/moonriver/"
+      }
+    ],
+    "backing": [
+      {
+        "timestamp": "2023-01-03T19:26:22.559Z",
+        "assets": [],
+        "source": null,
+        "backing-assets": 0,
+        "backing-usd": 0,
+        "ratio": 0,
+        "uniformity": 1
+      }
+    ],
+    "mcap": 159001039.51,
+    "icon": "assets/glmr/icon.png"
   },
   "glmr-pad": {
     "id": "glmr-pad",
@@ -570,13 +625,19 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-01-03T19:08:21.428Z",
-        "assets": [],
-        "source": null,
-        "backing-assets": 0,
-        "backing-usd": 0,
-        "ratio": 0,
-        "uniformity": 1
+        "timestamp": "2023-01-03T20:05:00.000Z",
+        "assets": {
+          "glmr-pad": 6833630437.305681,
+          "glmr": 7422.069899331382,
+          "usdc": 1226.167533796442,
+          "busd": 846.0104610817741,
+          "toad-network": 1004.5757598012117
+        },
+        "source": "../lily-pad/scripts",
+        "backing-assets": 3,
+        "backing-usd": 6219.7,
+        "ratio": 0.5712,
+        "uniformity": 0.9917
       }
     ],
     "mcap": 10889.71,
@@ -621,7 +682,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-01-03T19:08:21.429Z",
+        "timestamp": "2023-01-03T19:26:22.564Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -692,7 +753,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-01-03T19:08:21.439Z",
+        "timestamp": "2023-01-03T19:26:22.567Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -876,7 +937,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-01-03T19:08:21.444Z",
+        "timestamp": "2023-01-03T19:26:22.580Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -1085,7 +1146,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-01-03T19:08:21.450Z",
+        "timestamp": "2023-01-03T19:26:22.589Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -1156,7 +1217,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-01-03T19:08:21.451Z",
+        "timestamp": "2023-01-03T19:26:22.591Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
@@ -1202,7 +1263,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-01-03T19:08:21.453Z",
+        "timestamp": "2023-01-03T19:26:22.592Z",
         "assets": [],
         "source": null,
         "backing-assets": 0,
