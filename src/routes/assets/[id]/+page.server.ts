@@ -10,7 +10,7 @@ renderer.heading = function (text: string) {
 	return `<dt class="text-lg leading-6 font-medium text-gray-900">${text}</dt>`;
 };
 renderer.paragraph = function (text: string) {
-	return `<dd class="mt-2 text-base text-gray-500">${text}</dd>`;
+	return `<dd class="prose prose-pink mt-2 text-base text-gray-500">${text}</dd>`;
 };
 
 function loadComments(assetId: string, pattern: string) {
