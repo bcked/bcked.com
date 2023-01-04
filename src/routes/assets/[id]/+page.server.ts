@@ -1,4 +1,5 @@
 import type { PageServerLoad } from './$types';
+import { shuffle } from 'lodash';
 import fs from 'fs';
 import glob from 'glob';
 import { marked } from 'marked';
@@ -13,12 +14,15 @@ renderer.paragraph = function (text: string) {
 	return `<dd class="prose prose-pink mt-2 text-base text-gray-500">${text}</dd>`;
 };
 
-function loadComments(assetId: string, pattern: string) {
+type CommentType = 'doubt' | 'praise';
+type Comments = { type: CommentType; html: string }[];
+function loadComments(assetId: string, commentType: CommentType): Comments {
 	const commentsPath = `./assets/${assetId}/comments`;
 	if (!fs.existsSync(commentsPath)) return [];
 	return glob
-		.sync(`${commentsPath}/${pattern}-*.md`)
-		.map((filePath) => marked(fs.readFileSync(filePath, 'utf-8'), { renderer }));
+		.sync(`${commentsPath}/${commentType}-*.md`)
+		.map((filePath) => marked(fs.readFileSync(filePath, 'utf-8'), { renderer }))
+		.map((html) => ({ type: commentType, html }));
 }
 
 export const load: PageServerLoad = ({ params }) => {
@@ -32,6 +36,6 @@ export const load: PageServerLoad = ({ params }) => {
 		assets,
 		asset,
 		backing,
-		comments: { doubts, praise }
+		comments: shuffle([...doubts, ...praise])
 	};
 };

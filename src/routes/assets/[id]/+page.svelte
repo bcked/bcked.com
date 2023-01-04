@@ -144,27 +144,21 @@
 					Any praise and doubts the community has about {asset.name}'s backing.
 				</p>
 			</div>
-			{#if comments.praise.length > 0 || comments.doubts.length > 0}
+			{#if comments.length > 0}
 				<div
 					class="mt-6 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-3 lg:gap-x-8"
 				>
-					{#each comments.praise as praise}
+					{#each comments as comment}
 						<div class="relative flex">
 							<div class="flex-shrink-0 mr-4">
-								<CheckCircleIcon class="h-6 w-6 text-green-500" aria-hidden="true" />
-							</div>
-							<dl class="comment">
-								{@html praise}
-							</dl>
-						</div>
-					{/each}
-					{#each comments.doubts as doubt}
-						<div class="relative flex">
-							<div class="flex-shrink-0 mr-4">
-								<ExclamationIcon class="h-6 w-6 text-red-500" aria-hidden="true" />
+								{#if comment.type == 'doubt'}
+									<ExclamationIcon class="h-6 w-6 text-red-500" aria-hidden="true" />
+								{:else if comment.type == 'praise'}
+									<CheckCircleIcon class="h-6 w-6 text-green-500" aria-hidden="true" />
+								{/if}
 							</div>
 							<dl class="flex-1">
-								{@html doubt}
+								{@html comment.html}
 							</dl>
 						</div>
 					{/each}
