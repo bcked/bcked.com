@@ -1,5 +1,5 @@
 import type { PageServerLoad } from './$types';
-import { shuffle } from 'lodash';
+import { shuffle } from 'lodash-es';
 import fs from 'fs';
 import glob from 'glob';
 import { marked } from 'marked';
