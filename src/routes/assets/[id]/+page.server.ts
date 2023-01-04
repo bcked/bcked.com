@@ -1,5 +1,4 @@
 import type { PageServerLoad } from './$types';
-import { shuffle } from 'lodash-es';
 import fs from 'fs';
 import glob from 'glob';
 import { marked } from 'marked';
@@ -36,6 +35,6 @@ export const load: PageServerLoad = ({ params }) => {
 		assets,
 		asset,
 		backing,
-		comments: shuffle([...doubts, ...praise])
+		comments: [...doubts, ...praise]
 	};
 };

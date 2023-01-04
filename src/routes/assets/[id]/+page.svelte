@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { PageData } from './$types';
+	import { shuffle } from 'lodash-es';
 	import * as d3 from 'd3';
 	import { ExclamationIcon, CheckCircleIcon } from '@rgossiaux/svelte-heroicons/outline';
 	import SvelteSeo from 'svelte-seo';
@@ -148,7 +149,7 @@
 				<div
 					class="mt-6 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-3 lg:gap-x-8"
 				>
-					{#each comments as comment}
+					{#each shuffle(comments) as comment}
 						<div class="relative flex">
 							<div class="flex-shrink-0 mr-4">
 								{#if comment.type == 'doubt'}
