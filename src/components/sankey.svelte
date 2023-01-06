@@ -176,27 +176,32 @@
 						{'<'}10%
 					</text>
 				{:else if d.id == 'unbacked'}
-					<rect
-						class="opacity-80"
-						x={d.y0}
-						y={d.x0}
-						height={nodeHeight}
-						width={nodeWidth}
-						fill={colorNodes(d)}
-					/>
-					<text
-						class="pointer-events-none"
-						x={d.y0 + nodeWidth / 2}
-						y={d.x0 + nodeHeight / 2}
-						dominant-baseline="central"
-						text-anchor="middle"
-						style="
+					<a
+						style="fill: {colorText(d)};"
+						href="https://github.com/Spenhouet/bcked/issues"
+						class="underline"
+						><rect
+							class="opacity-80"
+							x={d.y0}
+							y={d.x0}
+							height={nodeHeight}
+							width={nodeWidth}
+							fill={colorNodes(d)}
+						/>
+						<text
+							class="pointer-events-none"
+							x={d.y0 + nodeWidth / 2}
+							y={d.x0 + nodeHeight / 2}
+							dominant-baseline="central"
+							text-anchor="middle"
+							style="
 			fill: {colorText(d)};
 			font-size: {fontSize}px;
 			"
+						>
+							Unbacked or Unknown. Add here...
+						</text></a
 					>
-						Unbacked
-					</text>
 				{:else if d.id == sankeyData.links[0].source.id}
 					<rect
 						class="opacity-80"
