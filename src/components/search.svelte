@@ -5,6 +5,7 @@
 	import { Listbox, ListboxOptions, ListboxOption } from '@rgossiaux/svelte-headlessui';
 	import { SearchIcon, XCircleIcon } from '@rgossiaux/svelte-heroicons/solid';
 	import { CashIcon, EmojiSadIcon } from '@rgossiaux/svelte-heroicons/outline';
+	import Typewriter from 'svelte-typewriter';
 
 	let clazz: string = '';
 	export { clazz as class };
@@ -120,8 +121,13 @@
 				{#if !query}
 					<span class="text-gray-500 tracking-tighter sm:hidden">Search cryptocurrency</span>
 					<span class="hidden text-gray-500 tracking-tighter sm:block"
-						>What cryptocurrency are you looking for?</span
-					>
+						><Typewriter mode="loop">
+							<div>What cryptocurrency are you looking for?</div>
+							<div>Search by name e.g. PAX Gold</div>
+							<div>Or by symbol e.g. PAXG</div>
+							<div>Or by address e.g. 0x45804880de22913da...</div>
+						</Typewriter>
+					</span>
 				{/if}
 			{/if}
 		</div>
