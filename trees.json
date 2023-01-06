@@ -1,7 +1,7 @@
 {
   "bitcoin": [
     {
-      "timestamp": "2023-01-04T22:08:59.712Z",
+      "timestamp": "2023-01-06T13:34:12.406Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -29,7 +29,7 @@
   ],
   "bnb": [
     {
-      "timestamp": "2023-01-04T22:08:59.717Z",
+      "timestamp": "2023-01-06T13:34:12.408Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -57,7 +57,7 @@
   ],
   "bullishjackpot": [
     {
-      "timestamp": "2023-01-04T22:08:59.718Z",
+      "timestamp": "2023-01-06T13:34:12.409Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -85,7 +85,425 @@
   ],
   "busd": [
     {
-      "timestamp": "2022-04-29T00:00:00.000Z",
+      "timestamp": "2022-11-30T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "busd",
+          "name": "BUSD",
+          "value": 22262030911.99,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 22262030911.99,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "busd",
+          "target": "usd",
+          "value": 22262030911.99,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 22262030911.99,
+          "level": 1
+        }
+      ],
+      "value": 22262030911.99,
+      "unbacked": 0,
+      "backed": 22262030911.99
+    },
+    {
+      "timestamp": "2022-11-14T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "busd",
+          "name": "BUSD",
+          "value": 23455924354.73,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 23455924354.73,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "busd",
+          "target": "usd",
+          "value": 23455924354.73,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 23455924354.73,
+          "level": 1
+        }
+      ],
+      "value": 23455924354.73,
+      "unbacked": 0,
+      "backed": 23455924354.73
+    },
+    {
+      "timestamp": "2022-10-31T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "busd",
+          "name": "BUSD",
+          "value": 21143340673.75,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 21143340673.75,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "busd",
+          "target": "usd",
+          "value": 21143340673.75,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 21143340673.75,
+          "level": 1
+        }
+      ],
+      "value": 21143340673.75,
+      "unbacked": 0,
+      "backed": 21143340673.75
+    },
+    {
+      "timestamp": "2022-10-19T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "busd",
+          "name": "BUSD",
+          "value": 21485442901.91,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 21485442901.91,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "busd",
+          "target": "usd",
+          "value": 21485442901.91,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 21485442901.91,
+          "level": 1
+        }
+      ],
+      "value": 21485442901.91,
+      "unbacked": 0,
+      "backed": 21485442901.91
+    },
+    {
+      "timestamp": "2022-09-30T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "busd",
+          "name": "BUSD",
+          "value": 20922577480.49,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 20922577480.49,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "busd",
+          "target": "usd",
+          "value": 20922577480.49,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 20922577480.49,
+          "level": 1
+        }
+      ],
+      "value": 20922577480.49,
+      "unbacked": 0,
+      "backed": 20922577480.49
+    },
+    {
+      "timestamp": "2022-09-16T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "busd",
+          "name": "BUSD",
+          "value": 20656471724.98,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 20656471724.98,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "busd",
+          "target": "usd",
+          "value": 20656471724.98,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 20656471724.98,
+          "level": 1
+        }
+      ],
+      "value": 20656471724.98,
+      "unbacked": 0,
+      "backed": 20656471724.98
+    },
+    {
+      "timestamp": "2022-08-31T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "busd",
+          "name": "BUSD",
+          "value": 19266983009.88,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 19266983009.88,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "busd",
+          "target": "usd",
+          "value": 19266983009.88,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 19266983009.88,
+          "level": 1
+        }
+      ],
+      "value": 19266983009.88,
+      "unbacked": 0,
+      "backed": 19266983009.88
+    },
+    {
+      "timestamp": "2022-08-23T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "busd",
+          "name": "BUSD",
+          "value": 19028354509.36,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 19028354509.36,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "busd",
+          "target": "usd",
+          "value": 19028354509.36,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 19028354509.36,
+          "level": 1
+        }
+      ],
+      "value": 19028354509.36,
+      "unbacked": 0,
+      "backed": 19028354509.36
+    },
+    {
+      "timestamp": "2022-07-29T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "busd",
+          "name": "BUSD",
+          "value": 17858623546.3,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 17858623546.3,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "busd",
+          "target": "usd",
+          "value": 17858623546.3,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 17858623546.3,
+          "level": 1
+        }
+      ],
+      "value": 17858623546.3,
+      "unbacked": 0,
+      "backed": 17858623546.3
+    },
+    {
+      "timestamp": "2022-06-30T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "busd",
+          "name": "BUSD",
+          "value": 17492602397.83,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 17492602397.83,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "busd",
+          "target": "usd",
+          "value": 17492602397.83,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 17492602397.83,
+          "level": 1
+        }
+      ],
+      "value": 17492602397.83,
+      "unbacked": 0,
+      "backed": 17492602397.83
+    },
+    {
+      "timestamp": "2022-05-31T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "busd",
+          "name": "BUSD",
+          "value": 18199987674.51,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 18199987674.51,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "busd",
+          "target": "usd",
+          "value": 18199987674.51,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 18199987674.51,
+          "level": 1
+        }
+      ],
+      "value": 18199987674.51,
+      "unbacked": 0,
+      "backed": 18199987674.51
+    },
+    {
+      "timestamp": "2022-04-29T22:00:00.000Z",
       "nodes": [
         {
           "id": "busd",
@@ -121,11 +539,1189 @@
       "value": 17651702084.31,
       "unbacked": 0,
       "backed": 17651702084.31
+    },
+    {
+      "timestamp": "2022-03-31T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "busd",
+          "name": "BUSD",
+          "value": 17451253126.95,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 17451253126.95,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "busd",
+          "target": "usd",
+          "value": 17451253126.95,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 17451253126.95,
+          "level": 1
+        }
+      ],
+      "value": 17451253126.95,
+      "unbacked": 0,
+      "backed": 17451253126.95
+    },
+    {
+      "timestamp": "2022-02-28T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "busd",
+          "name": "BUSD",
+          "value": 18341651341.83,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 18341651341.83,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "busd",
+          "target": "usd",
+          "value": 18341651341.83,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 18341651341.83,
+          "level": 1
+        }
+      ],
+      "value": 18341651341.83,
+      "unbacked": 0,
+      "backed": 18341651341.83
+    },
+    {
+      "timestamp": "2022-01-31T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "busd",
+          "name": "BUSD",
+          "value": 15318103437.84,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 15318103437.84,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "busd",
+          "target": "usd",
+          "value": 15318103437.84,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 15318103437.84,
+          "level": 1
+        }
+      ],
+      "value": 15318103437.84,
+      "unbacked": 0,
+      "backed": 15318103437.84
+    },
+    {
+      "timestamp": "2021-12-31T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "busd",
+          "name": "BUSD",
+          "value": 14434991724.17,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 14434991724.17,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "busd",
+          "target": "usd",
+          "value": 14434991724.17,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 14434991724.17,
+          "level": 1
+        }
+      ],
+      "value": 14434991724.17,
+      "unbacked": 0,
+      "backed": 14434991724.17
+    },
+    {
+      "timestamp": "2021-11-30T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "busd",
+          "name": "BUSD",
+          "value": 13430804109.55,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 13430804109.55,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "busd",
+          "target": "usd",
+          "value": 13430804109.55,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 13430804109.55,
+          "level": 1
+        }
+      ],
+      "value": 13430804109.55,
+      "unbacked": 0,
+      "backed": 13430804109.55
+    },
+    {
+      "timestamp": "2021-10-29T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "busd",
+          "name": "BUSD",
+          "value": 13156917361.68,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 13156917361.68,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "busd",
+          "target": "usd",
+          "value": 13156917361.68,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 13156917361.68,
+          "level": 1
+        }
+      ],
+      "value": 13156917361.68,
+      "unbacked": 0,
+      "backed": 13156917361.68
+    },
+    {
+      "timestamp": "2021-09-30T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "busd",
+          "name": "BUSD",
+          "value": 13061906347.28,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 13061906347.28,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "busd",
+          "target": "usd",
+          "value": 13061906347.28,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 13061906347.28,
+          "level": 1
+        }
+      ],
+      "value": 13061906347.28,
+      "unbacked": 0,
+      "backed": 13061906347.28
+    },
+    {
+      "timestamp": "2021-08-31T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "busd",
+          "name": "BUSD",
+          "value": 12250266849.36,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 12250266849.36,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "busd",
+          "target": "usd",
+          "value": 12250266849.36,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 12250266849.36,
+          "level": 1
+        }
+      ],
+      "value": 12250266849.36,
+      "unbacked": 0,
+      "backed": 12250266849.36
+    },
+    {
+      "timestamp": "2021-07-30T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "busd",
+          "name": "BUSD",
+          "value": 12253063081.25,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 12253063081.25,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "busd",
+          "target": "usd",
+          "value": 12253063081.25,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 12253063081.25,
+          "level": 1
+        }
+      ],
+      "value": 12253063081.25,
+      "unbacked": 0,
+      "backed": 12253063081.25
+    },
+    {
+      "timestamp": "2021-06-30T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "busd",
+          "name": "BUSD",
+          "value": 10061961534.86,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 10061961534.86,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "busd",
+          "target": "usd",
+          "value": 10061961534.86,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 10061961534.86,
+          "level": 1
+        }
+      ],
+      "value": 10061961534.86,
+      "unbacked": 0,
+      "backed": 10061961534.86
+    },
+    {
+      "timestamp": "2021-05-28T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "busd",
+          "name": "BUSD",
+          "value": 8869528892.17,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 8869528892.17,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "busd",
+          "target": "usd",
+          "value": 8869528892.17,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 8869528892.17,
+          "level": 1
+        }
+      ],
+      "value": 8869528892.17,
+      "unbacked": 0,
+      "backed": 8869528892.17
+    },
+    {
+      "timestamp": "2021-04-30T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "busd",
+          "name": "BUSD",
+          "value": 7431114803.61,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 7431114803.61,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "busd",
+          "target": "usd",
+          "value": 7431114803.61,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 7431114803.61,
+          "level": 1
+        }
+      ],
+      "value": 7431114803.61,
+      "unbacked": 0,
+      "backed": 7431114803.61
+    },
+    {
+      "timestamp": "2021-03-31T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "busd",
+          "name": "BUSD",
+          "value": 3500089125.56,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 3500089125.56,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "busd",
+          "target": "usd",
+          "value": 3500089125.56,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 3500089125.56,
+          "level": 1
+        }
+      ],
+      "value": 3500089125.56,
+      "unbacked": 0,
+      "backed": 3500089125.56
+    },
+    {
+      "timestamp": "2021-02-26T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "busd",
+          "name": "BUSD",
+          "value": 2315860502.56,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 2315860502.56,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "busd",
+          "target": "usd",
+          "value": 2315860502.56,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 2315860502.56,
+          "level": 1
+        }
+      ],
+      "value": 2315860502.56,
+      "unbacked": 0,
+      "backed": 2315860502.56
+    },
+    {
+      "timestamp": "2021-01-29T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "busd",
+          "name": "BUSD",
+          "value": 1498514668.53,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 1498514668.53,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "busd",
+          "target": "usd",
+          "value": 1498514668.53,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 1498514668.53,
+          "level": 1
+        }
+      ],
+      "value": 1498514668.53,
+      "unbacked": 0,
+      "backed": 1498514668.53
+    },
+    {
+      "timestamp": "2020-12-31T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "busd",
+          "name": "BUSD",
+          "value": 984118176.56,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 984118176.56,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "busd",
+          "target": "usd",
+          "value": 984118176.56,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 984118176.56,
+          "level": 1
+        }
+      ],
+      "value": 984118176.56,
+      "unbacked": 0,
+      "backed": 984118176.56
+    },
+    {
+      "timestamp": "2020-11-30T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "busd",
+          "name": "BUSD",
+          "value": 691591829.9,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 691591829.9,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "busd",
+          "target": "usd",
+          "value": 691591829.9,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 691591829.9,
+          "level": 1
+        }
+      ],
+      "value": 691591829.9,
+      "unbacked": 0,
+      "backed": 691591829.9
+    },
+    {
+      "timestamp": "2020-10-30T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "busd",
+          "name": "BUSD",
+          "value": 710353927.51,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 710353927.51,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "busd",
+          "target": "usd",
+          "value": 710353927.51,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 710353927.51,
+          "level": 1
+        }
+      ],
+      "value": 710353927.51,
+      "unbacked": 0,
+      "backed": 710353927.51
+    },
+    {
+      "timestamp": "2020-09-30T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "busd",
+          "name": "BUSD",
+          "value": 503349908.47,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 503349908.47,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "busd",
+          "target": "usd",
+          "value": 503349908.47,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 503349908.47,
+          "level": 1
+        }
+      ],
+      "value": 503349908.47,
+      "unbacked": 0,
+      "backed": 503349908.47
+    },
+    {
+      "timestamp": "2020-08-31T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "busd",
+          "name": "BUSD",
+          "value": 190041130.72,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 190041130.72,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "busd",
+          "target": "usd",
+          "value": 190041130.72,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 190041130.72,
+          "level": 1
+        }
+      ],
+      "value": 190041130.72,
+      "unbacked": 0,
+      "backed": 190041130.72
+    },
+    {
+      "timestamp": "2020-07-31T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "busd",
+          "name": "BUSD",
+          "value": 159231367.05,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 159231367.05,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "busd",
+          "target": "usd",
+          "value": 159231367.05,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 159231367.05,
+          "level": 1
+        }
+      ],
+      "value": 159231367.05,
+      "unbacked": 0,
+      "backed": 159231367.05
+    },
+    {
+      "timestamp": "2020-06-30T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "busd",
+          "name": "BUSD",
+          "value": 174038298.92,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 174038298.92,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "busd",
+          "target": "usd",
+          "value": 174038298.92,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 174038298.92,
+          "level": 1
+        }
+      ],
+      "value": 174038298.92,
+      "unbacked": 0,
+      "backed": 174038298.92
+    },
+    {
+      "timestamp": "2020-05-29T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "busd",
+          "name": "BUSD",
+          "value": 172836383.58,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 172836383.58,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "busd",
+          "target": "usd",
+          "value": 172836383.58,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 172836383.58,
+          "level": 1
+        }
+      ],
+      "value": 172836383.58,
+      "unbacked": 0,
+      "backed": 172836383.58
+    },
+    {
+      "timestamp": "2020-04-30T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "busd",
+          "name": "BUSD",
+          "value": 176405207.58,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 176405207.58,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "busd",
+          "target": "usd",
+          "value": 176405207.58,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 176405207.58,
+          "level": 1
+        }
+      ],
+      "value": 176405207.58,
+      "unbacked": 0,
+      "backed": 176405207.58
+    },
+    {
+      "timestamp": "2020-03-31T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "busd",
+          "name": "BUSD",
+          "value": 187790574.09,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 187790574.09,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "busd",
+          "target": "usd",
+          "value": 187790574.09,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 187790574.09,
+          "level": 1
+        }
+      ],
+      "value": 187790574.09,
+      "unbacked": 0,
+      "backed": 187790574.09
+    },
+    {
+      "timestamp": "2020-02-28T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "busd",
+          "name": "BUSD",
+          "value": 70338972.78,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 70338972.78,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "busd",
+          "target": "usd",
+          "value": 70338972.78,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 70338972.78,
+          "level": 1
+        }
+      ],
+      "value": 70338972.78,
+      "unbacked": 0,
+      "backed": 70338972.78
+    },
+    {
+      "timestamp": "2020-01-31T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "busd",
+          "name": "BUSD",
+          "value": 40562789.85,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 40562789.85,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "busd",
+          "target": "usd",
+          "value": 40562789.85,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 40562789.85,
+          "level": 1
+        }
+      ],
+      "value": 40562789.85,
+      "unbacked": 0,
+      "backed": 40562789.85
+    },
+    {
+      "timestamp": "2019-12-31T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "busd",
+          "name": "BUSD",
+          "value": 30914646.25,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 30914646.25,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "busd",
+          "target": "usd",
+          "value": 30914646.25,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 30914646.25,
+          "level": 1
+        }
+      ],
+      "value": 30914646.25,
+      "unbacked": 0,
+      "backed": 30914646.25
+    },
+    {
+      "timestamp": "2019-11-29T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "busd",
+          "name": "BUSD",
+          "value": 26530286.8,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 26530286.8,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "busd",
+          "target": "usd",
+          "value": 26530286.8,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 26530286.8,
+          "level": 1
+        }
+      ],
+      "value": 26530286.8,
+      "unbacked": 0,
+      "backed": 26530286.8
+    },
+    {
+      "timestamp": "2019-10-31T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "busd",
+          "name": "BUSD",
+          "value": 32058774.35,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 32058774.35,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "busd",
+          "target": "usd",
+          "value": 32058774.35,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 32058774.35,
+          "level": 1
+        }
+      ],
+      "value": 32058774.35,
+      "unbacked": 0,
+      "backed": 32058774.35
+    },
+    {
+      "timestamp": "2019-09-30T22:00:00.000Z",
+      "nodes": [
+        {
+          "id": "busd",
+          "name": "BUSD",
+          "value": 19257948.22,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usd",
+          "name": "U.S. dollar",
+          "value": 19257948.22,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "busd",
+          "target": "usd",
+          "value": 19257948.22,
+          "level": 0
+        },
+        {
+          "source": "usd",
+          "target": "unbacked",
+          "value": 19257948.22,
+          "level": 1
+        }
+      ],
+      "value": 19257948.22,
+      "unbacked": 0,
+      "backed": 19257948.22
     }
   ],
   "catoshi": [
     {
-      "timestamp": "2023-01-04T22:08:59.724Z",
+      "timestamp": "2023-01-06T13:34:12.434Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -153,7 +1749,7 @@
   ],
   "ethereum": [
     {
-      "timestamp": "2023-01-04T22:08:59.727Z",
+      "timestamp": "2023-01-06T13:34:12.435Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -181,7 +1777,7 @@
   ],
   "fukarens": [
     {
-      "timestamp": "2023-01-04T22:08:59.729Z",
+      "timestamp": "2023-01-06T13:34:12.437Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -209,7 +1805,7 @@
   ],
   "gallant": [
     {
-      "timestamp": "2023-01-04T22:08:59.732Z",
+      "timestamp": "2023-01-06T13:34:12.439Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -237,7 +1833,7 @@
   ],
   "glmr": [
     {
-      "timestamp": "2023-01-04T22:08:59.734Z",
+      "timestamp": "2023-01-06T13:34:12.440Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -377,7 +1973,7 @@
   ],
   "gold": [
     {
-      "timestamp": "2023-01-04T22:08:59.739Z",
+      "timestamp": "2023-01-06T13:34:12.442Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -405,7 +2001,7 @@
   ],
   "hoge": [
     {
-      "timestamp": "2023-01-04T22:08:59.741Z",
+      "timestamp": "2023-01-06T13:34:12.443Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -1053,7 +2649,7 @@
   ],
   "movr": [
     {
-      "timestamp": "2023-01-04T22:08:59.748Z",
+      "timestamp": "2023-01-06T13:34:12.449Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -2753,7 +4349,7 @@
   ],
   "pxbsc": [
     {
-      "timestamp": "2023-01-04T22:08:59.785Z",
+      "timestamp": "2023-01-06T13:34:12.468Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -2781,7 +4377,7 @@
   ],
   "toad-network": [
     {
-      "timestamp": "2023-01-04T22:08:59.787Z",
+      "timestamp": "2023-01-06T13:34:12.469Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -2809,7 +4405,7 @@
   ],
   "usd": [
     {
-      "timestamp": "2023-01-04T22:08:59.789Z",
+      "timestamp": "2023-01-06T13:34:12.470Z",
       "nodes": [
         {
           "id": "unbacked",
