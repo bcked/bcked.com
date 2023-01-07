@@ -1,6 +1,5 @@
 <script lang="ts">
 	import type { PageData } from './$types';
-	import { base } from '$app/paths';
 	import { shuffle } from 'lodash-es';
 	import * as d3 from 'd3';
 	import { ExclamationIcon, CheckCircleIcon } from '@rgossiaux/svelte-heroicons/outline';
@@ -13,7 +12,7 @@
 
 	export let data: PageData;
 
-	$: ({ assets, asset, backing, comments } = data);
+	$: ({ assets, asset, backing, comments, domain } = data);
 
 	let stats: api.Stat[] = [];
 	$: stats = [
@@ -51,9 +50,9 @@
 	$: seo = {
 		title: `${asset.name}'s Backing`,
 		description: `Detailed information on ${asset.name}'s backing. Backed to ${backingRatio} with ${backingUsd} by ${backingAssets}. Learn more ...`,
-		url: `${base}/assets/${asset.id}`,
+		url: `${domain}/assets/${asset.id}`,
 		image: {
-			url: `${base}/previews/assets/${asset.id}.jpg`,
+			url: `${domain}/previews/assets/${asset.id}.jpg`,
 			width: 1200,
 			height: 630,
 			alt: `Preview of ${asset.name}'s backing view.`

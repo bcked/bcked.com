@@ -1,4 +1,5 @@
 <script lang="ts">
+	import type { PageData } from './$types';
 	import '../app.css';
 	import { base } from '$app/paths';
 	import SvelteSeo from 'svelte-seo';
@@ -9,6 +10,10 @@
 	import RedditIcon from '$lib/icons/reddit.svelte';
 	import TelegramIcon from '$lib/icons/telegram.svelte';
 	import TwitterIcon from '$lib/icons/twitter.svelte';
+
+	export let data: PageData;
+
+	$: ({ domain } = data);
 
 	const mainNavigation: ui.Navigation = [
 		{ name: 'Discover', path: `${base}/#discover` },
@@ -62,8 +67,8 @@
 		'@context': 'https://schema.org',
 		'@type': 'Organization',
 		name: 'bcked',
-		url: `${base}`,
-		logo: `${base}/bcked-logo.svg`,
+		url: `${domain}`,
+		logo: `${domain}/bcked-logo.svg`,
 		sameAs: [
 			'https://twitter.com/bcked_com',
 			'https://www.reddit.com/r/bcked/',

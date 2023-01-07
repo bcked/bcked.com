@@ -1,6 +1,5 @@
 <script lang="ts">
 	import type { PageData } from './$types';
-	import { base } from '$app/paths';
 	import SvelteSeo from 'svelte-seo';
 	import IntroSection from './sections/intro.svelte';
 	import DiscoverSection from './sections/discover.svelte';
@@ -10,7 +9,7 @@
 
 	export let data: PageData;
 
-	$: ({ assets, stats, trees, graph } = data);
+	$: ({ assets, stats, trees, graph, domain } = data);
 
 	const themes = {
 		blue: {
@@ -38,9 +37,9 @@
 	$: seo = {
 		title: 'bcked: Cryptocurrency Backing, Ranking, History, Stats, ...',
 		description: `The cryptocurrencies recorded in bcked are backed by ${backingUsd} with an average backing of ${backingUsdAvg}. Read more on bcked, which is an open source community project that provides and visualizes data about cryptocurrency backing.`,
-		url: `${base}/`,
+		url: `${domain}`,
 		image: {
-			url: `${base}/previews/landing.jpg`,
+			url: `${domain}/previews/landing.jpg`,
 			width: 1200,
 			height: 630,
 			alt: `Preview of bcked's landing page.`
