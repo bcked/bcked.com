@@ -35,7 +35,7 @@ async function screenshot(page: Page, url: string, path: string, locator?: Locat
 }
 
 test('Screenshot of landing page', async ({ page }) => {
-	await screenshot(page, '/', './static/preview/landing.jpg', page.locator('nav + div').nth(0));
+	await screenshot(page, '/', './build/previews/landing.jpg', page.locator('nav + div').nth(0));
 });
 
 test('Screenshots of asset pages', async ({ page }) => {
@@ -44,7 +44,7 @@ test('Screenshots of asset pages', async ({ page }) => {
 		await screenshot(
 			page,
 			`/assets/${id}`,
-			`./static/preview/assets/${id}.jpg`,
+			`./build/previews/assets/${id}.jpg`,
 			page.locator('nav + div').nth(0)
 		);
 	}
