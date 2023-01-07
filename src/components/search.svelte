@@ -95,7 +95,7 @@
 			name="search"
 			class="block w-full pl-10 pr-3 py-2 rounded-md leading-5 bg-gray-50 focus:bg-white caret-gray-400 focus:outline-none focus:ring-1 focus:ring-transparent border border-gray-300 focus:border-gray-400 sm:text-sm {clazz}"
 			type="search"
-			autoComplete="none"
+			autoComplete="off"
 			bind:value={query}
 			on:focusin={() => (inFocus = true)}
 			on:focusout={() => (inFocus = false)}
