@@ -49,7 +49,11 @@
 	$: backingAssets = asset.backing[0]!['backing-assets'];
 	$: seo = {
 		title: `${asset.name}'s Backing`,
-		description: `Detailed information on ${asset.name}'s backing. Backed to ${backingRatio} with ${backingUsd} by ${backingAssets}. Learn more ...`,
+		description: `Detailed information on ${
+			asset.name
+		}'s backing. Backed to ${backingRatio} with ${backingUsd} by ${backingAssets} ${
+			backingAssets == 1 ? 'asset' : 'assets'
+		}. Learn more ...`,
 		url: `${domain}/assets/${asset.id}`,
 		image: {
 			url: `${domain}/previews/assets/${asset.id}.jpg`,

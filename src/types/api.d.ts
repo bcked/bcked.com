@@ -29,7 +29,7 @@ declare namespace api {
 			timestamp: string;
 			assets: { [key: string]: number };
 			source: string;
-			'backing-assets': bigint;
+			'backing-assets': number;
 			'backing-usd': number;
 			ratio: number;
 			uniformity: number;
@@ -101,7 +101,7 @@ declare namespace api {
 
 	type Stat = {
 		name: string;
-		value: string | number | bigint;
+		value: string | number;
 		type: string;
 	};
 
@@ -109,8 +109,8 @@ declare namespace api {
 		'backing-usd': number;
 		'ratio-avg': number;
 		'uniformity-avg': number;
-		'backed-assets': bigint;
-		assets: bigint;
+		'backed-assets': number;
+		assets: number;
 		'backing-usd-avg': number;
 	};
 }

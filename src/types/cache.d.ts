@@ -27,7 +27,7 @@ declare namespace cache {
 			timestamp: string;
 			assets: { [key: string]: number };
 			source: string;
-			'backing-assets': bigint;
+			'backing-assets': number;
 			'backing-usd': number;
 			ratio: number;
 			uniformity: number;
