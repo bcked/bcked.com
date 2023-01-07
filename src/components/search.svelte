@@ -47,6 +47,8 @@
 	let selected: SearchItem | undefined = undefined;
 	$: selected = data.find((item) => $page.url.pathname == item.path);
 
+	let inFocus: boolean = false;
+
 	let filteredItems: SearchItems = [];
 	$: filteredItems =
 		query === ''
@@ -95,6 +97,8 @@
 			type="search"
 			autoComplete="none"
 			bind:value={query}
+			on:focusin={() => (inFocus = true)}
+			on:focusout={() => (inFocus = false)}
 		/>
 		<div class="absolute inset-y-0 left-0 pl-3 flex items-center space-x-2 pointer-events-none">
 			{#if selected && !query}
@@ -118,11 +122,20 @@
 				</div>
 			{:else}
 				<SearchIcon class="h-5 w-5 text-gray-500" aria-hidden="true" />
-				{#if !query}
-					<span class="text-gray-500 tracking-tighter sm:hidden">Search cryptocurrency</span>
+				{#if !query && !inFocus}
+					<span class="text-gray-500 tracking-tighter sm:hidden">
+						<Typewriter mode="loop" --cursor-width="0.2ch" --cursor-color="rgb(107 114 128)">
+							<div>Search for assets</div>
+							<div>Like cryptocurrencies, RWAs, ...</div>
+							<div>By name e.g. PAX Gold</div>
+							<div>By symbol e.g. PAXG</div>
+							<div>By address e.g. 0x45804880d...</div>
+						</Typewriter>
+					</span>
 					<span class="hidden text-gray-500 tracking-tighter sm:block"
-						><Typewriter mode="loop">
-							<div>What cryptocurrency are you looking for?</div>
+						><Typewriter mode="loop" --cursor-width="0.2ch" --cursor-color="rgb(107 114 128)">
+							<div>What assets are you looking for?</div>
+							<div>Search for cryptocurrencies, RWAs, ...</div>
 							<div>Search by name e.g. PAX Gold</div>
 							<div>Or by symbol e.g. PAXG</div>
 							<div>Or by address e.g. 0x45804880de22913da...</div>
