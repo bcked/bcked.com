@@ -19,6 +19,7 @@ jobs:
           npm run build
           npx playwright install --with-deps
           npm run test
+          npm run gen:previews
           touch build/.nojekyll
 
       - name: Deploy to GitHub Pages

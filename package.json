@@ -7,10 +7,11 @@
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"test": "playwright test",
+		"test": "playwright test ./tests/",
 		"test:unit": "vitest",
 		"lint": "prettier --plugin-search-dir . --check .",
-		"format": "prettier --plugin-search-dir . --write ."
+		"format": "prettier --plugin-search-dir . --write .",
+		"gen:previews": "playwright test ./src/compile-data/preview-screenshots.spec.ts && cp -rf ./static/previews ./build/previews"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.29.1",

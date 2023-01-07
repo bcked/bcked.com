@@ -1,6 +1,7 @@
 <script lang="ts">
 	import '../app.css';
 	import { base } from '$app/paths';
+	import SvelteSeo from 'svelte-seo';
 	import Header from '$components/header.svelte';
 	import Footer from '$components/footer.svelte';
 	import Banner from '$components/banner.svelte';
@@ -55,6 +56,22 @@
 
 	const copyRight: string = '&copy; 2022 bcked. All rights reserved.';
 </script>
+
+<SvelteSeo
+	jsonLd={{
+		'@context': 'https://schema.org',
+		'@type': 'Organization',
+		name: 'bcked',
+		url: `${base}`,
+		logo: `${base}/bcked-logo.svg`,
+		sameAs: [
+			'https://twitter.com/bcked_com',
+			'https://www.reddit.com/r/bcked/',
+			'https://t.me/bcked_com',
+			'https://github.com/Spenhouet/bcked'
+		]
+	}}
+/>
 
 <div class="flex flex-col h-screen justify-between">
 	<Header navigation={mainNavigation} />

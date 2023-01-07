@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { PageData } from './$types';
+	import { base } from '$app/paths';
 	import { shuffle } from 'lodash-es';
 	import * as d3 from 'd3';
 	import { ExclamationIcon, CheckCircleIcon } from '@rgossiaux/svelte-heroicons/outline';
@@ -18,23 +19,23 @@
 	$: stats = [
 		{
 			name: 'Price',
-			value: asset.price[0].usd,
+			value: asset.price[0]!.usd,
 			type: 'currency'
 		},
 		{
 			name: 'Backing Assets',
-			value: asset.backing[0]['backing-assets'],
+			value: asset.backing[0]!['backing-assets'],
 			type: 'standard'
 		},
 		{
 			name: 'Backing Ratio',
-			value: asset.backing[0].ratio,
+			value: asset.backing[0]!.ratio,
 			type: 'percent'
 		},
-		asset.backing[0]['backing-assets'] > 0
+		asset.backing[0]!['backing-assets'] > 0
 			? {
 					name: 'Backing Uniformity',
-					value: asset.backing[0].uniformity,
+					value: asset.backing[0]!.uniformity,
 					type: 'percent'
 			  }
 			: {
@@ -43,11 +44,40 @@
 					type: 'standard'
 			  }
 	];
+
+	$: backingRatio = formatPercentage(asset.backing[0]!.ratio);
+	$: backingUsd = formatCurrency(asset.backing[0]!['backing-usd']);
+	$: backingAssets = asset.backing[0]!['backing-assets'];
+	$: seo = {
+		title: `${asset.name}'s Backing`,
+		description: `Detailed information on ${asset.name}'s backing. Backed to ${backingRatio} with ${backingUsd} by ${backingAssets}. Learn more ...`,
+		url: `${base}/assets/${asset.id}`,
+		image: {
+			url: `${base}/previews/assets/${asset.id}.jpg`,
+			width: 1200,
+			height: 630,
+			alt: `Preview of ${asset.name}'s backing view.`
+		}
+	};
 </script>
 
 <SvelteSeo
-	title="{asset.name}'s Backing"
-	description="Detailed information on {asset.name}'s backing."
+	title={seo.title}
+	description={seo.description}
+	openGraph={{
+		title: seo.title,
+		description: seo.description,
+		url: seo.url,
+		type: 'website',
+		images: [seo.image]
+	}}
+	twitter={{
+		site: '@bcked_com',
+		title: seo.title,
+		description: seo.description,
+		image: seo.image.url,
+		imageAlt: seo.image.alt
+	}}
 />
 
 <div class="py-10">

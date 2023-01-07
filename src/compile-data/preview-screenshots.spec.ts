@@ -3,6 +3,8 @@ import { test, type Page, type Locator } from '@playwright/test';
 import fs from 'fs';
 import { parse } from 'yaml';
 
+const TARGET_DIR = './static/previews';
+
 const OPEN_GRAPH_IMAGE_SIZE = { width: 1200, height: 830 };
 
 const DEFAULT_BOUNDING_BOX = { x: 0, y: 0, ...OPEN_GRAPH_IMAGE_SIZE };
@@ -35,17 +37,14 @@ async function screenshot(page: Page, url: string, path: string, locator?: Locat
 }
 
 test('Screenshot of landing page', async ({ page }) => {
-	await screenshot(page, '/', './build/previews/landing.jpg', page.locator('nav + div').nth(0));
+	const navbarSuccessor = page.locator('nav + div').nth(0);
+	await screenshot(page, '/', `${TARGET_DIR}//landing.jpg`, navbarSuccessor);
 });
 
 test('Screenshots of asset pages', async ({ page }) => {
 	const assets = parse(fs.readFileSync(`./_generated/assets.yml`, 'utf-8'));
+	const navbarSuccessor = page.locator('nav + div').nth(0);
 	for (const id of Object.keys(assets)) {
-		await screenshot(
-			page,
-			`/assets/${id}`,
-			`./build/previews/assets/${id}.jpg`,
-			page.locator('nav + div').nth(0)
-		);
+		await screenshot(page, `/assets/${id}`, `${TARGET_DIR}/assets/${id}.jpg`, navbarSuccessor);
 	}
 });

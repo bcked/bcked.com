@@ -26,7 +26,7 @@ function loadComments(assetId: string, commentType: CommentType): Comments {
 
 export const load: PageServerLoad = ({ params }) => {
 	const assets = _readAssets();
-	const asset = assets[params.id];
+	const asset = assets[params.id]!;
 	const backing = _readBacking(params.id);
 	const doubts = loadComments(params.id, 'doubt');
 	const praise = loadComments(params.id, 'praise');

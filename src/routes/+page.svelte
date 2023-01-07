@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { PageData } from './$types';
+	import { base } from '$app/paths';
 	import SvelteSeo from 'svelte-seo';
 	import IntroSection from './sections/intro.svelte';
 	import DiscoverSection from './sections/discover.svelte';
@@ -31,15 +32,39 @@
 			to: 'to-gray-light'
 		}
 	};
+
+	$: backingUsd = formatCurrency(stats['backing-usd']);
+	$: backingUsdAvg = formatCurrency(stats['backing-usd-avg']);
+	$: seo = {
+		title: 'bcked: Cryptocurrency Backing, Ranking, History, Stats, ...',
+		description: `The cryptocurrencies recorded in bcked are backed by ${backingUsd} with an average backing of ${backingUsdAvg}. Read more on bcked, which is an open source community project that provides and visualizes data about cryptocurrency backing.`,
+		url: `${base}/`,
+		image: {
+			url: `${base}/previews/landing.jpg`,
+			width: 1200,
+			height: 630,
+			alt: `Preview of bcked's landing page.`
+		}
+	};
 </script>
 
 <SvelteSeo
-	title="bcked: Cryptocurrency Backing, Ranking, History, Stats, ..."
-	description="The cryptocurrencies recorded in bcked are backed by {formatCurrency(
-		stats['backing-usd']
-	)} with an average backing of {formatCurrency(
-		stats['backing-usd-avg']
-	)}. Read more on bcked, which is an open source community project that provides and visualizes data about cryptocurrency backing."
+	title={seo.title}
+	description={seo.description}
+	openGraph={{
+		title: seo.title,
+		description: seo.description,
+		url: seo.url,
+		type: 'website',
+		images: [seo.image]
+	}}
+	twitter={{
+		site: '@bcked_com',
+		title: seo.title,
+		description: seo.description,
+		image: seo.image.url,
+		imageAlt: seo.image.alt
+	}}
 />
 
 <main>
