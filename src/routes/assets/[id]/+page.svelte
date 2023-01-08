@@ -48,10 +48,10 @@
 	$: backingUsd = formatCurrency(asset.backing[0]!['backing-usd']);
 	$: backingAssets = asset.backing[0]!['backing-assets'];
 	$: seo = {
-		title: `${asset.name}'s Backing`,
-		description: `Detailed information on ${
+		title: `${asset.name} (${asset.symbol}) Backing, History, Chain`,
+		description: `${
 			asset.name
-		}'s backing. Backed to ${backingRatio} with ${backingUsd} by ${backingAssets} ${
+		} is backed to ${backingRatio} with ${backingUsd} by ${backingAssets} ${
 			backingAssets == 1 ? 'asset' : 'assets'
 		}. Learn more ...`,
 		url: `${domain}/assets/${asset.id}`,
