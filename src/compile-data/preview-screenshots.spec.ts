@@ -5,7 +5,7 @@ import { parse } from 'yaml';
 
 const TARGET_DIR = './static/previews';
 
-const OPEN_GRAPH_IMAGE_SIZE = { width: 1200, height: 830 };
+const OPEN_GRAPH_IMAGE_SIZE = { width: 1200, height: 630 };
 
 const DEFAULT_BOUNDING_BOX = { x: 0, y: 0, ...OPEN_GRAPH_IMAGE_SIZE };
 
