@@ -151,6 +151,7 @@
 						parseX={d3.timeParse('%Y-%m-%dT%H:%M:%S.%LZ')}
 						formatX={d3.timeFormat('%e %B %Y')}
 						formatY={(v) => formatCurrency(v)}
+						heightRatio={0.39}
 					/>
 				</div>
 			</div>
