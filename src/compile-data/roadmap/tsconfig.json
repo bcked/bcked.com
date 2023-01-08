@@ -1,0 +1,29 @@
+{
+	"$schema": "https://json.schemastore.org/tsconfig",
+	"compilerOptions": {
+		"module": "esnext",
+		"moduleResolution": "node",
+		"lib": ["es2020"],
+		"target": "es2022",
+		"importsNotUsedAsValues": "error",
+		"isolatedModules": true,
+		"baseUrl": ".",
+		"allowJs": true,
+		"checkJs": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"resolveJsonModule": true,
+		"skipLibCheck": true,
+		"sourceMap": true,
+		"strict": true,
+		"allowUnreachableCode": false,
+		"exactOptionalPropertyTypes": true,
+		"noImplicitAny": true,
+		"noImplicitOverride": true,
+		"noImplicitReturns": true,
+		"noImplicitThis": true,
+		"noFallthroughCasesInSwitch": true,
+		"noUncheckedIndexedAccess": true
+	},
+	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts"]
+}
