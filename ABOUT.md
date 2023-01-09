@@ -11,4 +11,4 @@ assets of different asset classes. While researching this topic, I quickly notic
 of information on backed cryptocurrencies. This is why I created this open-source project which seeks
 to build up a knowledge base and a community around the topic of cryptocurrency backing.
 
-If you have any questions, want to contribute or any other request, feel free to write [on GitHub](https://github.com/Spenhouet/bcked/discussions) or by email [contact@bcked.com](mailto:contact@bcked.com).
+If you have any questions, want to contribute or any other request, feel free to write [on GitHub](https://github.com/bcked/bcked.com/discussions) or by email [contact@bcked.com](mailto:contact@bcked.com).

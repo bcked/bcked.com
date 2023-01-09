@@ -178,7 +178,7 @@
 				{:else if d.id == 'unbacked'}
 					<a
 						style="fill: {colorText(d)};"
-						href="https://github.com/Spenhouet/bcked/issues"
+						href="https://github.com/bcked/bcked.com/issues"
 						class="underline"
 						><rect
 							class="opacity-80"

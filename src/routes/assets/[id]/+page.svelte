@@ -201,7 +201,7 @@
 			{:else}
 				<div class="max-w-3xl mx-auto text-center mt-12 text-lg font-thin text-gray-500">
 					There are no comments yet. Be the first to leave your praise and doubts <a
-						href="https://github.com/Spenhouet/bcked/issues"
+						href="https://github.com/bcked/bcked.com/issues"
 						class="underline hover:text-neon-pink">here</a
 					>!
 				</div>

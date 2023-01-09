@@ -204,7 +204,7 @@
 							<span class="font-medium"
 								>No assets found.{' '}
 								<a
-									href="https://github.com/Spenhouet/bcked/issues"
+									href="https://github.com/bcked/bcked.com/issues"
 									class="underline hover:text-neon-pink">Report it here...</a
 								>
 							</span>

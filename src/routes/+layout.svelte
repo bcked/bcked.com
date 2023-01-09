@@ -54,7 +54,7 @@
 		},
 		{
 			name: 'GitHub',
-			path: 'https://github.com/Spenhouet/bcked',
+			path: 'https://github.com/bcked/bcked.com',
 			icon: GitHubIcon
 		}
 	];
@@ -73,7 +73,7 @@
 			'https://twitter.com/bcked_com',
 			'https://www.reddit.com/r/bcked/',
 			'https://t.me/bcked_com',
-			'https://github.com/Spenhouet/bcked'
+			'https://github.com/bcked/bcked.com'
 		]
 	}}
 />

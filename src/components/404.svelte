@@ -34,7 +34,7 @@
 						Go back home
 					</a>
 					<a
-						href="https://github.com/Spenhouet/bcked/issues"
+						href="https://github.com/bcked/bcked.com/issues"
 						class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-md bg-neon-gray-dark text-gray-50  hover:bg-neon-yellow hover:text-gray-900"
 					>
 						<GitHubIcon class="mr-3 text-opacity-50 transform" />
