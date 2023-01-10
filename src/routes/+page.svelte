@@ -3,7 +3,6 @@
 	import SvelteSeo from 'svelte-seo';
 	import IntroSection from './sections/intro.svelte';
 	import DiscoverSection from './sections/discover.svelte';
-	import RoadmapSection from './sections/roadmap.svelte';
 	import RankingSection from './sections/ranking.svelte';
 	import { formatCurrency } from '$lib/utils/string-formatting';
 
@@ -69,6 +68,5 @@
 <main>
 	<IntroSection {assets} {graph} theme={themes.blue} />
 	<DiscoverSection {assets} {stats} theme={themes.yellow} />
-	<!-- <RoadmapSection theme={themes.pink} /> -->
 	<RankingSection {assets} {trees} theme={themes.pink} />
 </main>
