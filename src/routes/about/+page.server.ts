@@ -1,7 +1,7 @@
 import type { PageServerLoad } from './$types';
 import fs from 'fs';
 import { marked } from 'marked';
-import { Octokit } from 'octokit';
+import { Octokit } from '@octokit/rest';
 import { compareDates } from '$lib/utils/string-formatting';
 
 export const load: PageServerLoad = async () => {
@@ -16,8 +16,9 @@ export const load: PageServerLoad = async () => {
 		})
 	)
 		.filter((issue) => issue.milestone && issue.milestone.due_on)
+		.filter((issue) => issue.labels.some((label) => label.name == 'enhancement'))
 		.sort((a, b) => compareDates(a.updated_at, b.updated_at))
-		.sort((a, b) => compareDates(a.milestone!.due_on!, b.milestone!.due_on!))
+		.sort((a, b) => -compareDates(a.milestone!.due_on!, b.milestone!.due_on!))
 		.map((issue) => ({ ...issue, body: marked(issue.body!) }));
 
 	return {
