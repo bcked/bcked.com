@@ -1,6 +1,6 @@
 import type { RequestHandler } from './$types';
 import { jsonResponse } from '$lib/utils/response';
-import { error } from '@sveltejs/kit';
+import { jsonError } from '$lib/utils/response';
 import { _readTokens } from '$api/tokens.json/+server';
 
 export const prerender = true;
@@ -9,7 +9,7 @@ export function _readToken(address: string): api.Token {
 	const tokens = _readTokens();
 
 	if (!(address in tokens)) {
-		throw error(404, `Token ${address} not found.`);
+		throw jsonError(404, { id: address, asset: {}, message: `Token ${address} not found.` });
 	}
 
 	return tokens[address]!;

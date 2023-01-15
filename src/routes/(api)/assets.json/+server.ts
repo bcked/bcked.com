@@ -2,7 +2,7 @@ import type { RequestHandler } from './$types';
 import fs from 'fs';
 import { parse } from 'yaml';
 import { base } from '$app/paths';
-import { error } from '@sveltejs/kit';
+import { jsonError } from '$lib/utils/response';
 import { jsonResponse } from '$lib/utils/response';
 
 export const prerender = true;
@@ -11,7 +11,9 @@ export function _readAssets(): api.Assets {
 	const cacheAssets: cache.Assets = parse(fs.readFileSync(`./_generated/assets.yml`, 'utf-8'));
 
 	if (!cacheAssets) {
-		throw error(404, `Asset mapping not found.`);
+		throw jsonError(404, {
+			message: `Asset mapping not found.`
+		});
 	}
 
 	let assets = Object.entries(cacheAssets).reduce(

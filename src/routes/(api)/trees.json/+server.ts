@@ -1,7 +1,7 @@
 import type { RequestHandler } from './$types';
 import fs from 'fs';
 import { parse } from 'yaml';
-import { error } from '@sveltejs/kit';
+import { jsonError } from '$lib/utils/response';
 import { jsonResponse } from '$lib/utils/response';
 
 export const prerender = true;
@@ -10,7 +10,7 @@ export function _readTrees(): api.Trees {
 	let trees = parse(fs.readFileSync(`./_generated/backing-tree.yml`, 'utf-8'));
 
 	if (!trees) {
-		throw error(404, `Asset mapping not found.`);
+		throw jsonError(404, { message: `Asset mapping not found.` });
 	}
 
 	return trees;

@@ -2,7 +2,7 @@ import type { RequestHandler } from './$types';
 import fs from 'fs';
 import { parse } from 'yaml';
 import { base } from '$app/paths';
-import { error } from '@sveltejs/kit';
+import { jsonError } from '$lib/utils/response';
 import { jsonResponse } from '$lib/utils/response';
 
 export const prerender = true;
@@ -14,7 +14,7 @@ export function _readTokens(): api.Tokens {
 	);
 
 	if (!tokenAssetMapping) {
-		throw error(404, `Token mapping not found.`);
+		throw jsonError(404, { message: `Token mapping not found.` });
 	}
 
 	return Object.entries(tokenAssetMapping)

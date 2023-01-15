@@ -1,6 +1,6 @@
 import type { RequestHandler } from './$types';
 import { jsonResponse } from '$lib/utils/response';
-import { error } from '@sveltejs/kit';
+import { jsonError } from '$lib/utils/response';
 import { _readAssets } from '$api/assets.json/+server';
 
 export const prerender = true;
@@ -9,7 +9,10 @@ export function _readAsset(id: string): api.Asset {
 	const assets = _readAssets();
 
 	if (!(id in assets)) {
-		throw error(404, `Asset ${id} not found.`);
+		throw jsonError(404, {
+			id,
+			message: `Asset ${id} not found.`
+		});
 	}
 
 	return assets[id]!;
