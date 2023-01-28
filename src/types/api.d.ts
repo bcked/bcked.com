@@ -1,78 +1,32 @@
 declare namespace api {
-	type Asset = {
-		id: string;
-		path: string;
-		symbol: string;
-		name: string;
-		description: string;
-		homepage: string;
-		docs: string;
-		source: string;
-		community: string[];
-		audits: string[];
-		contracts: { [key: string]: string };
-		'backing-info': string;
-		tags: string[];
-		price: {
-			timestamp: string;
-			usd: number;
-			source: string;
-		}[];
-		supply: {
-			timestamp: string;
-			circulating: number | undefined;
-			max: number | undefined;
-			total: number | undefined;
-			source: string;
-		}[];
-		backing: {
-			timestamp: string;
-			assets: { [key: string]: number };
-			source: string;
-			'backing-assets': number;
-			'backing-usd': number;
-			ratio: number;
-			uniformity: number;
-		}[];
-		mcap: number;
-		icon: string;
-	};
+	type ID = cache.ID;
+	type LinkJson = cache.LinkJson;
+	type LinkUi = cache.LinkUi;
+	type Contracts = cache.Contracts;
+	type Price = cache.Price;
+	type Supply = cache.Supply;
+	type Backing = cache.Backing;
+	type Asset = cache.Asset;
+	type Assets = cache.Assets;
+	type Token = cache.Token;
+	type Tokens = cache.Tokens;
 
-	type Assets = { [key: string]: Asset };
-
-	type Token = {
-		id: string;
-		path: string;
-		asset: {
-			id: string;
-			path: string;
-		};
-	};
-
-	type Tokens = { [key: string]: Token };
-
-	type Node = {
+	type TreeNode = {
 		id: string;
 		name?: string;
 		value: number;
 		level?: number;
 	};
 
-	type Nodes = Node[];
+	type TreeNodes = TreeNode[];
 
-	type Link = {
-		source: string;
-		target: string;
-		value: number;
-		level: number;
-	};
-
-	type Links = Link[];
+	type TreeLink = cache.TreeLink;
+	type TreeLinks = cache.TreeLinks;
 
 	type Tree = {
 		timestamp: string;
-		nodes: Nodes;
-		links: Links;
+		nodes: TreeNodes;
+		links: TreeLinks;
 		value: number;
 		unbacked: number;
 		backed: number;
@@ -80,14 +34,14 @@ declare namespace api {
 
 	type Trees = { [key: string]: Tree[] };
 
-	type GraphNode = Node & {
+	type GraphNode = TreeNode & {
 		'min-max': number;
 		'z-score': number;
 	};
 
 	type GraphNodes = GraphNode[];
 
-	type GraphLink = Link & {
+	type GraphLink = TreeLink & {
 		'min-max': number;
 		'z-score': number;
 	};
@@ -105,12 +59,5 @@ declare namespace api {
 		type: string;
 	};
 
-	type Stats = {
-		'backing-usd': number;
-		'ratio-avg': number;
-		'uniformity-avg': number;
-		'backed-assets': number;
-		assets: number;
-		'backing-usd-avg': number;
-	};
+	type Stats = cache.Stats;
 }

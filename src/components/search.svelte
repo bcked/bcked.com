@@ -28,7 +28,7 @@
 			name: asset.name,
 			symbol: asset.symbol,
 			category: 'Asset',
-			path: asset.path,
+			path: asset.links.ui,
 			icon: asset.icon,
 			indices: [
 				id,

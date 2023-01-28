@@ -1,10 +1,14 @@
 <script lang="ts">
 	import * as d3 from 'd3';
+	import { clamp } from 'lodash-es';
 
 	let clazz: string = '';
 	export { clazz as class };
-	/** Percentage of fill. */
+	/** Percentage of fill in [0, 1]. */
 	export let fillPercent: number;
+	// Avoid overflow
+	fillPercent = clamp(fillPercent, 0, 1);
+
 	/** The outer circle thickness as a percentage of it's radius. */
 	export let circleThickness: number = 0.05;
 	/** The size of the gap between the outer circle and wave circle as a percentage of the outer circles radius. */

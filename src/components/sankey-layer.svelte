@@ -1,9 +1,8 @@
 <script lang="ts">
-	import { LayerCake, Svg } from 'layercake';
 	import Sankey from '$components/sankey.svelte';
+	import { LayerCake, Svg } from 'layercake';
 
 	export let backing: api.Tree;
-
 	export let assets: api.Assets;
 </script>
 

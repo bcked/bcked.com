@@ -1,32 +1,18 @@
 import type { RequestHandler } from './$types';
-import fs from 'fs';
-import { parse } from 'yaml';
-import { base } from '$app/paths';
 import { jsonError } from '$lib/utils/response';
 import { jsonResponse } from '$lib/utils/response';
+import { readFromCache } from '$pre/cache';
 
 export const prerender = true;
 
 export function _readTokens(): api.Tokens {
-	type Mapping = { [key: string]: string };
-	const tokenAssetMapping: Mapping = parse(
-		fs.readFileSync(`./_generated/token-asset-mapping.yml`, 'utf-8')
-	);
+	const tokens = readFromCache<api.Tokens>('tokens');
 
-	if (!tokenAssetMapping) {
+	if (!tokens) {
 		throw jsonError(404, { message: `Token mapping not found.` });
 	}
 
-	return Object.entries(tokenAssetMapping)
-		.map(([id, assetId]) => ({
-			id,
-			path: `${base}/tokens/${id}`,
-			asset: {
-				id: assetId,
-				path: `${base}/assets/${assetId}`
-			}
-		}))
-		.reduce((a, v) => ({ ...a, [v.id]: v }), {});
+	return tokens;
 }
 
 export const GET: RequestHandler = async ({ params }) => {

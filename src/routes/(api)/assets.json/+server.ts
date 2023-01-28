@@ -1,32 +1,19 @@
 import type { RequestHandler } from './$types';
-import fs from 'fs';
-import { parse } from 'yaml';
 import { base } from '$app/paths';
 import { jsonError } from '$lib/utils/response';
 import { jsonResponse } from '$lib/utils/response';
+import { readFromCache } from '$pre/cache';
 
 export const prerender = true;
 
 export function _readAssets(): api.Assets {
-	const cacheAssets: cache.Assets = parse(fs.readFileSync(`./_generated/assets.yml`, 'utf-8'));
+	const assets = readFromCache<api.Assets>('assets');
 
-	if (!cacheAssets) {
+	if (!assets) {
 		throw jsonError(404, {
 			message: `Asset mapping not found.`
 		});
 	}
-
-	let assets = Object.entries(cacheAssets).reduce(
-		(a, [id, asset]) => ({
-			...a,
-			[id]: {
-				id,
-				path: `${base}/assets/${id}`,
-				...asset
-			}
-		}),
-		{}
-	);
 
 	return assets;
 }

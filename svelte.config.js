@@ -1,15 +1,10 @@
 import { vitePreprocess } from '@sveltejs/kit/vite';
 import adapter from '@sveltejs/adapter-static';
 import fs from 'fs';
-import { parse } from 'yaml';
 
-const assets = parse(fs.readFileSync(`./_generated/assets.yml`, 'utf-8'));
-/** @type {{[key: string]: string}} */
-const tokens = parse(fs.readFileSync(`./_generated/token-asset-mapping.yml`, 'utf-8'));
+const assets = fs.readdirSync('./assets');
 
-if (!assets || !tokens) {
-	throw new Error('Preprocessed data was not found.')
-}
+const tokens = Object.keys(JSON.parse(fs.readFileSync('./.cache/tokens.json', 'utf-8')))
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -29,6 +24,7 @@ const config = {
 		alias: {
 			$components: 'src/components',
 			$api: 'src/routes/(api)',
+			$pre: 'src/preprocess',
 		},
 		paths: {
 			base: '',
@@ -48,14 +44,12 @@ const config = {
 				'/about',
 				'/legal-notice',
 				'/assets.json',
-				...Object.keys(assets).map((id) => `/assets/${id}.json`),
-				...Object.keys(assets).map((id) => `/assets/${id}`),
+				...assets.map((id) => `/assets/${id}.json`),
+				...assets.map((id) => `/assets/${id}`),
 				'/trees.json',
 				'/graph.json',
-				...Object.keys(assets).map((id) => `/trees/${id}.json`),
-				'/tokens.json',
-				...Object.keys(tokens).map((id) => `/tokens/${id}.json`),
-				...Object.keys(tokens).map((id) => `/tokens/${id}`),
+				...assets.map((id) => `/trees/${id}.json`),
+				...tokens.map((id) => `/tokens/${id}.json`),
 				'/sitemap.xml'
 			],
 		},

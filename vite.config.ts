@@ -1,8 +1,5 @@
 import type { UserConfig } from 'vite';
 import { sveltekit } from '@sveltejs/kit/vite';
-import { prepareData } from './src/compile-data/prepare-data';
-
-await prepareData();
 
 const config: UserConfig = {
 	plugins: [sveltekit()],

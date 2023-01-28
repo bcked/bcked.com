@@ -10,6 +10,7 @@
 	import RedditIcon from '$lib/icons/reddit.svelte';
 	import TelegramIcon from '$lib/icons/telegram.svelte';
 	import TwitterIcon from '$lib/icons/twitter.svelte';
+	import Search from '$components/search.svelte';
 
 	export let data: PageData;
 
@@ -78,7 +79,9 @@
 />
 
 <div class="flex flex-col h-screen justify-between">
-	<Header navigation={mainNavigation} />
+	<Header navigation={mainNavigation}>
+		<Search />
+	</Header>
 
 	<div class="flex-grow mx-auto w-full flex flex-col">
 		<slot />
