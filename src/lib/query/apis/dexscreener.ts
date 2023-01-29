@@ -32,8 +32,9 @@ export class Dexscreener implements query.ApiModule {
 
 		const priceRoute = this.getPriceRoute(Object.keys(tokensByAddress).join(','));
 		const response = await this.api.fetchJson<{ pairs: Pair[] }>(priceRoute);
+		const pairs = response.pairs ?? [];
 
-		const tokenPairs = response.pairs.filter((pair) => pair.baseToken.address in tokensByAddress);
+		const tokenPairs = pairs.filter((pair) => pair.baseToken.address in tokensByAddress);
 		const pairsPerToken = _.groupBy(tokenPairs, 'baseToken.address');
 		const pricePerToken = Object.fromEntries(
 			Object.entries(pairsPerToken)

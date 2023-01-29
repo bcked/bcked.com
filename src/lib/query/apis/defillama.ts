@@ -33,10 +33,11 @@ export class DefiLlama implements query.ApiModule {
 
 		const priceRoute = this.getPriceRoute(tokenStrings.join(','));
 		const response = await this.api.fetchJson<{ coins: { [key: string]: Coin } }>(priceRoute);
+		const coins = response.coins ?? {};
 
 		return Object.fromEntries(
 			tokenStrings
-				.map((id): [string, Coin | undefined] => [id, response.coins[id]])
+				.map((id): [string, Coin | undefined] => [id, coins[id]])
 				.map(([id, coin]) => [
 					id,
 					coin
