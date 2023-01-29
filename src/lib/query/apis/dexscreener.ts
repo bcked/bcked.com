@@ -28,7 +28,8 @@ async function _getPrices(tokens: cache.TokenContract[]): Promise<{ [key: string
 	const priceRoute = getPriceRoute(Object.keys(tokensByAddress).join(','));
 	const response = await api.fetchJson<{ pairs: Pair[] }>(priceRoute);
 
-	const pairsPerToken = _.groupBy(response.pairs, 'baseToken.address');
+	const tokenPairs = response.pairs.filter((pair) => pair.baseToken.address in tokensByAddress);
+	const pairsPerToken = _.groupBy(tokenPairs, 'baseToken.address');
 	const pricePerToken = Object.fromEntries(
 		Object.entries(pairsPerToken)
 			.map(([address, pairs]): [string, Pair[]] => {
