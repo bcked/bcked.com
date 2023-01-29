@@ -1,5 +1,5 @@
 declare namespace api {
-	type ID = cache.ID;
+	type GenericId = cache.GenericId;
 	type LinkJson = cache.LinkJson;
 	type LinkUi = cache.LinkUi;
 	type Contracts = cache.Contracts;

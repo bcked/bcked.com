@@ -1,17 +1,25 @@
-import { getPrices as defiLlama } from './defillama.js';
-import { getPrices as dexscreener } from './dexscreener.js';
+import { InstanceProxy } from '$lib/utils/instanceProxy.js';
+import { DefiLlama } from './defillama.js';
+import { Dexscreener } from './dexscreener.js';
 
-export async function getPrices(
-	tokens: cache.TokenContract[]
-): Promise<{ [key: string]: query.Price }> {
-	const prices = await defiLlama(tokens);
+export class ApiProxy extends InstanceProxy<query.ApiModule> implements query.ApiModule {
+	constructor() {
+		super({
+			defillama: DefiLlama,
+			dexscreener: Dexscreener
+		});
+	}
 
-	const tokensWithMissingPrice = tokens.filter((token) => !prices[token.id]);
-	if (tokensWithMissingPrice.length == 0) return prices;
+	async getPrices(tokens: cache.TokenContract[]): Promise<{ [key: string]: query.Price }> {
+		let prices: { [key: string]: query.Price } = {};
+		for (const api of this.instances) {
+			prices = { ...prices, ...(await api.getPrices(tokens.filter((token) => !prices[token.id]))) };
+			if (tokens.every((token) => prices[token.id])) break; // Stop iterating if all prices are known
+		}
+		return prices;
+	}
 
-	return { ...prices, ...(await dexscreener(tokensWithMissingPrice)) };
-}
-
-export async function getPrice(token: cache.TokenContract): Promise<query.Price | undefined> {
-	return (await getPrices([token]))[token.id];
+	async getPrice(token: cache.TokenContract): Promise<query.Price | undefined> {
+		return (await this.getPrices([token]))[token.id];
+	}
 }

@@ -4,7 +4,7 @@
 	import LiquidFill from '$components/liquid-fill.svelte';
 	import Sankey from '$components/sankey-layer.svelte';
 	import Table from '$components/table.svelte';
-	import { getPrice } from '$lib/query/apis/proxy';
+	import { ApiProxy } from '$lib/query/apis/proxy';
 	import { formatCurrency, formatNum, formatPercentage } from '$lib/utils/string-formatting';
 	import { CheckCircleIcon, ExclamationIcon } from '@rgossiaux/svelte-heroicons/outline';
 	import * as d3 from 'd3';
@@ -24,9 +24,11 @@
 
 	$: price = asset.price[0]!;
 
+	const api = new ApiProxy();
+
 	async function fetchCurrentPrice() {
 		if (asset.contracts) {
-			price = ((await getPrice(asset.contracts.token)) ?? price) as cache.Price;
+			price = ((await api.getPrice(asset.contracts.token)) ?? price) as cache.Price;
 		}
 	}
 

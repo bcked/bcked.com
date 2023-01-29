@@ -1,5 +1,5 @@
 declare namespace cache {
-	type ID = { id: string };
+	type GenericId = { id: string };
 	type LinkJson = {
 		links: {
 			self: string;
@@ -12,9 +12,9 @@ declare namespace cache {
 		};
 	};
 
-	type TokenContract = ID & LinkJson & files.TokenContract;
+	type TokenContract = GenericId & LinkJson & files.TokenContract;
 	type VaultContract = files.Contract & {
-		'underlying-assets': (ID & LinkJson)[];
+		'underlying-assets': ({ id: derived.AssetId } & LinkJson)[];
 	};
 
 	type Contracts = {
@@ -38,8 +38,7 @@ declare namespace cache {
 		uniformity: number;
 	} & files.Backing;
 
-	type Asset = ID &
-		LinkUi &
+	type Asset = { id: derived.AssetId } & LinkUi &
 		files.Details & {
 			contracts: Contracts | null;
 			price: Price[];
@@ -49,10 +48,10 @@ declare namespace cache {
 			icon: string | null;
 		};
 
-	type Assets = { [key: string]: Asset };
+	type Assets = { [Property in derived.AssetId]: Asset };
 
 	type Token = TokenContract & {
-		asset: ID & LinkJson;
+		asset: { id: derived.AssetId } & LinkJson;
 	};
 
 	type Tokens = { [key: string]: Token };

@@ -1,13 +1,13 @@
 declare namespace files {
 	type Contract = {
 		address: string;
-		chain: string;
+		chain: derived.ChainId;
 	};
 
 	type TokenContract = Contract;
 
 	type VaultContract = Contract & {
-		'underlying-assets': string[];
+		'underlying-assets': derived.AssetId[];
 	};
 
 	type Contracts = {

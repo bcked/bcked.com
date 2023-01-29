@@ -5,13 +5,7 @@
 
 import { urlLengthGrouping } from '$lib/utils/requests';
 import _ from 'lodash';
-import { JsonApi } from './api';
-
-const api = new JsonApi('https://coins.llama.fi');
-
-function getPriceRoute(tokens: string, searchWidth: string = '4h') {
-	return `/prices/current/${tokens}?searchWidth=${searchWidth}`;
-}
+import { JsonApi } from '../../utils/jsonApi';
 
 type Coin = {
 	decimals: number;
@@ -21,42 +15,52 @@ type Coin = {
 	confidence: number;
 };
 
-async function _getPrices(
-	tokens: cache.TokenContract[]
-): Promise<{ [key: string]: query.Price | null }> {
-	const tokenStrings = _.map(tokens, 'id');
+export class DefiLlama implements query.ApiModule {
+	api: JsonApi;
 
-	const priceRoute = getPriceRoute(tokenStrings.join(','));
-	const response = await api.fetchJson<{ coins: { [key: string]: Coin } }>(priceRoute);
+	constructor() {
+		this.api = new JsonApi('https://coins.llama.fi');
+	}
 
-	return Object.fromEntries(
-		tokenStrings
-			.map((id): [string, Coin | undefined] => [id, response.coins[id]])
-			.map(([id, coin]) => [
-				id,
-				coin
-					? {
-							usd: coin.price,
-							timestamp: coin.timestamp,
-							source: api.baseURL + priceRoute
-					  }
-					: null
-			])
-	);
-}
+	private getPriceRoute(tokens: string, searchWidth: string = '4h') {
+		return `/prices/current/${tokens}?searchWidth=${searchWidth}`;
+	}
 
-export async function getPrices(
-	tokens: cache.TokenContract[]
-): Promise<{ [key: string]: query.Price }> {
-	const groups = urlLengthGrouping(tokens, api.baseURL, (group) =>
-		getPriceRoute(_.map(group, 'id').join(','))
-	);
+	private async _getPrices(
+		tokens: cache.TokenContract[]
+	): Promise<{ [key: string]: query.Price | null }> {
+		const tokenStrings = _.map(tokens, 'id');
 
-	const prices = await Promise.all(groups.map((group) => _getPrices(group)));
+		const priceRoute = this.getPriceRoute(tokenStrings.join(','));
+		const response = await this.api.fetchJson<{ coins: { [key: string]: Coin } }>(priceRoute);
 
-	return _.merge({}, ...prices);
-}
+		return Object.fromEntries(
+			tokenStrings
+				.map((id): [string, Coin | undefined] => [id, response.coins[id]])
+				.map(([id, coin]) => [
+					id,
+					coin
+						? {
+								usd: coin.price,
+								timestamp: coin.timestamp,
+								source: this.api.baseURL + priceRoute
+						  }
+						: null
+				])
+		);
+	}
 
-export async function getPrice(token: cache.TokenContract): Promise<query.Price | undefined> {
-	return (await getPrices([token]))[token.id];
+	async getPrices(tokens: cache.TokenContract[]): Promise<{ [key: string]: query.Price }> {
+		const groups = urlLengthGrouping(tokens, this.api.baseURL, (group) =>
+			this.getPriceRoute(_.map(group, 'id').join(','))
+		);
+
+		const prices = await Promise.all(groups.map((group) => this._getPrices(group)));
+
+		return _.merge({}, ...prices);
+	}
+
+	async getPrice(token: cache.TokenContract): Promise<query.Price | undefined> {
+		return (await this.getPrices([token]))[token.id];
+	}
 }
