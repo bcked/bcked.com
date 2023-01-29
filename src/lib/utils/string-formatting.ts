@@ -79,3 +79,10 @@ export function combine(...criteria: CompareFunction[]) {
 		return 0;
 	};
 }
+
+export function format(template: string, placeholders: { [key: string]: string }): string {
+	for (const [key, placeholder] of Object.entries(placeholders)) {
+		template = template.replace(new RegExp(`\\{${key}\\}`, 'gi'), placeholder);
+	}
+	return template;
+}

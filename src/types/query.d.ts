@@ -8,7 +8,7 @@ declare namespace query {
 	type Decimals = { decimals: number } & Timestamp;
 
 	interface ChainModule {
-		getRpcUrl(chain: string): string;
+		getRpcUrl(chain: string, replace: boolean): string;
 		getBalance(address: string, token: string, chain: string): Promise<query.Balance>;
 		getSupply(token: string, chain: string): Promise<query.Supply>;
 		getDecimals(token: string, chain: string): Promise<query.Decimals>;

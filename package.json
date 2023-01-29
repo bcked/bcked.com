@@ -8,7 +8,8 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"test": "playwright test ./tests/",
-		"test:unit": "vitest",
+		"unit": "vitest run",
+		"unit:watch": "vitest watch",
 		"lint": "prettier --plugin-search-dir . --check .",
 		"format": "prettier --plugin-search-dir . --write .",
 		"gen:previews": "playwright test ./src/preprocess/preview-screenshots.spec.ts && cp -rf ./static/previews ./build/previews"

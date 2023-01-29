@@ -1,15 +1,14 @@
-import type { LayoutServerLoad } from './$types';
-import fs from 'fs';
-import _ from 'lodash';
 import { dev } from '$app/environment';
 import { loadAssets } from '$pre/assets';
-import { loadTokens } from '$pre/tokens';
 import { writeToCache } from '$pre/cache';
-import { loadTrees } from '$pre/tree';
-import { calcCurrentBacking } from '$pre/current-backing';
-import { calcStats } from '$pre/stats';
-import { buildGraph } from '$pre/graph';
 import copyIcons from '$pre/copy-icons';
+import { calcCurrentBacking } from '$pre/current-backing';
+import { buildGraph } from '$pre/graph';
+import { calcStats } from '$pre/stats';
+import { loadTokens } from '$pre/tokens';
+import { loadTrees } from '$pre/tree';
+import fs from 'fs';
+import type { LayoutServerLoad } from './$types';
 
 export const load: LayoutServerLoad = async () => {
 	const domain = dev ? 'http://localhost:5173' : 'https://bcked.com';

@@ -14,9 +14,15 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Install, Test and Build
+        env:
+          ALCHEMY_ETHEREUM: ${{ secrets.ALCHEMY_ETHEREUM }}
+          ALCHEMY_POLYGON: ${{ secrets.ALCHEMY_POLYGON }}
+          ALCHEMY_SOLANA: ${{ secrets.ALCHEMY_SOLANA }}
+          ALCHEMY_ARBITRUM: ${{ secrets.ALCHEMY_ARBITRUM }}
         run: |
           npm install
           npm run build
+          npm run unit
           npx playwright install --with-deps
           npm run test
           npm run gen:previews
