@@ -38,12 +38,10 @@ export class Dexscreener implements query.ApiModule {
 		const pairsPerToken = _.groupBy(tokenPairs, 'baseToken.address');
 		const pricePerToken = Object.fromEntries(
 			Object.entries(pairsPerToken)
-				.map(([address, pairs]): [string, Pair[]] => {
-					const pairsOnSameChain = pairs.filter(
-						(pair) => pair.chainId == tokensByAddress[address]![0]!.chain
-					);
-					return [address, pairsOnSameChain.length ? pairsOnSameChain : pairs];
-				})
+				.map(([address, pairs]): [string, Pair[]] => [
+					address,
+					pairs.filter((pair) => pair.chainId == tokensByAddress[address]![0]!.chain)
+				])
 				.map(([address, pairs]) => [
 					tokensByAddress[address]![0]!.id,
 					{
