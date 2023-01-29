@@ -1,16 +1,14 @@
 <script lang="ts">
-	import type { PageData } from './$types';
-	import '../app.css';
 	import { base } from '$app/paths';
-	import SvelteSeo from 'svelte-seo';
-	import Header from '$components/header.svelte';
 	import Footer from '$components/footer.svelte';
-	import Banner from '$components/banner.svelte';
+	import Header from '$components/header.svelte';
 	import GitHubIcon from '$lib/icons/github.svelte';
 	import RedditIcon from '$lib/icons/reddit.svelte';
 	import TelegramIcon from '$lib/icons/telegram.svelte';
 	import TwitterIcon from '$lib/icons/twitter.svelte';
-	import Search from '$components/search.svelte';
+	import SvelteSeo from 'svelte-seo';
+	import '../app.css';
+	import type { PageData } from './$types';
 
 	export let data: PageData;
 
@@ -79,9 +77,7 @@
 />
 
 <div class="flex flex-col h-screen justify-between">
-	<Header navigation={mainNavigation}>
-		<Search />
-	</Header>
+	<Header navigation={mainNavigation} />
 
 	<div class="flex-grow mx-auto w-full flex flex-col">
 		<slot />
