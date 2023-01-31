@@ -136,9 +136,9 @@ export async function loadTrees(assets: api.Assets): Promise<api.Trees> {
 	for (const [key, value] of Object.entries(assets)) {
 		let backingTrees = [];
 		for (const timestamp of _.map(value.backing, 'timestamp')) {
-			backingTrees.push(await buildBackingTree(key, value, assets, timestamp));
+			backingTrees.push(buildBackingTree(key, value, assets, timestamp));
 		}
-		backingTree[key] = backingTrees;
+		backingTree[key] = await Promise.all(backingTrees);
 	}
 
 	return backingTree;
