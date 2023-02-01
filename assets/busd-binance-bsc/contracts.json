@@ -1,6 +1,11 @@
 {
-    "token": {
-        "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
-        "chain": "bsc"
-    }
+	"token": {
+		"address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+		"chain": "bsc"
+	},
+	"vault": {
+		"address": "0x47ac0Fb4F2D84898e4D9E7b4DaB3C24507a6D503",
+		"chain": "ethereum",
+		"underlying-assets": ["busd-paxos-ethereum"]
+	}
 }

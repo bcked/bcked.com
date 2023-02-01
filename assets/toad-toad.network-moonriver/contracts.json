@@ -1,6 +1,11 @@
 {
-    "token": {
-        "address": "0x165DBb08de0476271714952C3C1F068693bd60D7",
-        "chain": "moonriver"
-    }
+	"token": {
+		"address": "0x165DBb08de0476271714952C3C1F068693bd60D7",
+		"chain": "moonriver"
+	},
+	"vault": {
+		"address": "0xd6faf697504075a358524996b132b532cc5D0F14",
+		"chain": "bsc",
+		"underlying-assets": ["toad-toad.network-bsc"]
+	}
 }

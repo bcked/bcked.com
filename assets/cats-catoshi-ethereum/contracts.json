@@ -1,6 +1,11 @@
 {
-    "token": {
-        "address": "0xA10989335F3ba92bd43e60fBE8D42FE739412ac4",
-        "chain": "ethereum"
-    }
+	"token": {
+		"address": "0xA10989335F3ba92bd43e60fBE8D42FE739412ac4",
+		"chain": "ethereum"
+	},
+	"vault": {
+		"address": "0x5083bbc1f936A3CDa2a3C9C529Ae42EA8371294B",
+		"chain": "bsc",
+		"underlying-assets": ["cats-catoshi-bsc"]
+	}
 }

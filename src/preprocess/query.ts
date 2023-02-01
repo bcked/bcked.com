@@ -27,10 +27,12 @@ async function queryBacking(vault: cache.VaultContract, assets: cache.Assets) {
 	return {
 		assets: Object.fromEntries(
 			await Promise.all(
-				vault['underlying-assets'].map(async (u) => [
-					u.id,
-					await queryUnderlying(assets[u.id]!, vault as cache.VaultContract)
-				])
+				vault['underlying-assets']
+					.filter((u) => assets[u.id]?.contracts)
+					.map(async (u) => [
+						u.id,
+						await queryUnderlying(assets[u.id]!, vault as cache.VaultContract)
+					])
 			)
 		),
 		source: chain.getRpcUrl(vault.chain)

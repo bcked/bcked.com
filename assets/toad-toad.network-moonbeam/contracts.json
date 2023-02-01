@@ -1,6 +1,11 @@
 {
-    "token": {
-        "address": "0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA",
-        "chain": "moonbeam"
-    }
+	"token": {
+		"address": "0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA",
+		"chain": "moonbeam"
+	},
+	"vault": {
+		"address": "0xadfc9a631157B59A65EB337FEd810DaB8879A5Fd",
+		"chain": "bsc",
+		"underlying-assets": ["toad-toad.network-bsc"]
+	}
 }
