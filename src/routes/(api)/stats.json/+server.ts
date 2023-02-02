@@ -1,13 +1,12 @@
 import type { RequestHandler } from './$types';
-import fs from 'fs';
-import { parse } from 'yaml';
 import { jsonError } from '$lib/utils/response';
 import { jsonResponse } from '$lib/utils/response';
+import { readFromCache } from '$pre/cache';
 
 export const prerender = true;
 
 export function _readStats(): api.Stats {
-	let stats = parse(fs.readFileSync(`./_generated/global.yml`, 'utf-8'));
+	let stats = readFromCache<api.Stats>(`stats`);
 
 	if (!stats) {
 		throw jsonError(404, { message: `Global stats not found.` });

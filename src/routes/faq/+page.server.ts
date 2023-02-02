@@ -14,7 +14,7 @@ renderer.paragraph = function (text) {
 export const load: PageServerLoad = () => {
 	return {
 		faqs: glob
-			.sync('./FAQ/q*.md')
+			.sync('./faqs/q*.md')
 			.map((filePath) => marked(fs.readFileSync(filePath, 'utf-8'), { renderer }))
 	};
 };

@@ -1,49 +1,21 @@
 import type { RequestHandler } from './$types';
-import { minMaxNorm, zScoreNorm } from '$lib/utils/math';
-import { jsonResponse } from '$lib/utils/response';
+import { jsonError, jsonResponse } from '$lib/utils/response';
 import { _readTrees } from '$api/trees.json/+server';
 import _ from 'lodash';
-import * as d3 from 'd3';
+import { readFromCache } from '$pre/cache';
 
 export const prerender = true;
 
 export function _readGraph(): api.Graph {
-	const trees = _readTrees();
-	let _trees = _.map(Object.values(trees), (items) => items[0]!);
-	_trees = _.filter(_trees, ({ backed }) => backed > 0);
+	const graph = readFromCache<api.Graph>('graph');
 
-	let apiNodes: api.Nodes = [];
-	apiNodes = _.flatMap(_trees, 'nodes');
-	apiNodes = _.filter(
-		apiNodes,
-		({ id, level }) => id != 'unbacked' && level != undefined && level <= 1
-	);
-	apiNodes = _.sortBy(apiNodes, 'level');
-	apiNodes = _.uniqBy(apiNodes, 'id');
+	if (!graph) {
+		throw jsonError(404, {
+			message: `Asset mapping not found.`
+		});
+	}
 
-	const nodeAvg = d3.mean(apiNodes, (d) => d.value) || 0;
-	const nodeStd = d3.deviation(apiNodes, (d) => d.value) || 1;
-	const [nodeMin, nodeMax] = d3.extent(apiNodes, (d) => d.value);
-	let nodes: api.GraphNodes = _.map(apiNodes, (d) => ({
-		...d,
-		'min-max': minMaxNorm(d.value, nodeMin!, nodeMax!),
-		'z-score': zScoreNorm(d.value, nodeAvg, nodeStd)
-	}));
-
-	let apiLinks: api.Links = [];
-	apiLinks = _.flatMap(_trees, 'links');
-	apiLinks = _.filter(apiLinks, ({ target, level }) => target != 'unbacked' && level == 0);
-
-	const linksAvg = d3.mean(apiLinks, (d) => d.value) || 0;
-	const linksStd = d3.deviation(apiLinks, (d) => d.value) || 1;
-	const [linksMin, linksMax] = d3.extent(apiLinks, (d) => d.value);
-	let links: api.GraphLinks = _.map(apiLinks, (d) => ({
-		...d,
-		'min-max': minMaxNorm(d.value, linksMin!, linksMax!),
-		'z-score': zScoreNorm(d.value, linksAvg, linksStd)
-	}));
-
-	return { nodes, links };
+	return graph;
 }
 
 export const GET: RequestHandler = async ({ params }) => {

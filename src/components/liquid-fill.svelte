@@ -1,10 +1,12 @@
 <script lang="ts">
 	import * as d3 from 'd3';
+	import { clamp } from 'lodash-es';
 
 	let clazz: string = '';
 	export { clazz as class };
-	/** Percentage of fill. */
+	/** Percentage of fill in [0, 1]. */
 	export let fillPercent: number;
+
 	/** The outer circle thickness as a percentage of it's radius. */
 	export let circleThickness: number = 0.05;
 	/** The size of the gap between the outer circle and wave circle as a percentage of the outer circles radius. */
@@ -32,7 +34,7 @@
 		: d3.scaleLinear().range([waveHeight, waveHeight]).domain([0, 100]);
 
 	let waveHeightLocal = 0;
-	$: waveHeightLocal = 50 * waveHeightScale(fillPercent * 100);
+	$: waveHeightLocal = 50 * waveHeightScale(clamp(fillPercent, 0, 1) * 100);
 
 	let waveLength = 100;
 	let waveClipCount = 2;
@@ -89,7 +91,7 @@
 			<defs>
 				<clipPath
 					id="clipWave-{gaugeId}"
-					transform="translate({waveGroupXPosition}, {waveRiseScale(fillPercent)})"
+					transform="translate({waveGroupXPosition}, {waveRiseScale(clamp(fillPercent, 0, 1))})"
 				>
 					<path d={waveData}>
 						<animateTransform

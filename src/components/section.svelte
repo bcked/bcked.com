@@ -17,7 +17,7 @@
 	export let inViewOptions: Options = { threshold: 0.7 };
 
 	function setUrl() {
-		window.history.replaceState({}, '', id ? `${base}/#${id}` : `${base}/`);
+		window.history.replaceState(history.state, '', id ? `${base}/#${id}` : `${base}/`);
 	}
 </script>
 

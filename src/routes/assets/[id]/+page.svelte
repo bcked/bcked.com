@@ -1,24 +1,53 @@
 <script lang="ts">
-	import type { PageData } from './$types';
-	import { shuffle } from 'lodash-es';
-	import * as d3 from 'd3';
-	import { ExclamationIcon, CheckCircleIcon } from '@rgossiaux/svelte-heroicons/outline';
-	import SvelteSeo from 'svelte-seo';
-	import Sankey from '$components/sankey-layer.svelte';
-	import LiquidFill from '$components/liquid-fill.svelte';
-	import Table from '$components/table.svelte';
+	import { page } from '$app/stores';
 	import LineChart from '$components/line-chart.svelte';
-	import { formatCurrency, formatPercentage, formatNum } from '$lib/utils/string-formatting';
+	import LiquidFill from '$components/liquid-fill.svelte';
+	import Sankey from '$components/sankey-layer.svelte';
+	import Table from '$components/table.svelte';
+	import { ApiProxy } from '$lib/query/apis/proxy';
+	import { formatCurrency, formatNum, formatPercentage } from '$lib/utils/string-formatting';
+	import { CheckCircleIcon, ExclamationIcon } from '@rgossiaux/svelte-heroicons/outline';
+	import * as d3 from 'd3';
+	import { shuffle } from 'lodash-es';
+	import { onMount } from 'svelte';
+	import SvelteSeo from 'svelte-seo';
+	import type { PageData } from './$types';
 
 	export let data: PageData;
 
-	$: ({ assets, asset, backing, comments, domain } = data);
+	$: ({ assets, trees, comments, domain } = data);
+
+	$: id = $page.params.id!;
+
+	$: asset = assets[id]!;
+	$: tree = trees[id]![0]!;
+
+	$: price = asset.price[0]!;
+
+	const api = new ApiProxy();
+
+	async function fetchCurrentPrice() {
+		if (asset.contracts) {
+			price = ((await api.getPrice(asset.contracts.token)) ?? price) as cache.Price;
+		}
+	}
+
+	onMount(async () => {
+		await fetchCurrentPrice();
+		const interval = setInterval(async () => {
+			await fetchCurrentPrice();
+		}, 5000);
+
+		return () => {
+			clearInterval(interval);
+		};
+	});
 
 	let stats: api.Stat[] = [];
 	$: stats = [
 		{
 			name: 'Price',
-			value: asset.price[0]!.usd,
+			value: price.usd,
 			type: 'currency'
 		},
 		{
@@ -89,7 +118,7 @@
 			<!-- {stats.length <= 4 ? stats.length : 4} -->
 			{#each stats as item}
 				<div class="relative px-4 py-5 bg-gray-50 sm:shadow sm:rounded-lg overflow-hidden sm:p-6">
-					{#if item.type == 'percent'}
+					{#if item.type == 'percent' && typeof item.value == 'number'}
 						<div class="absolute top-0 left-0 h-full w-full">
 							<LiquidFill
 								fillPercent={item.value}
@@ -106,10 +135,12 @@
 						<dd class="mt-1 text-3xl font-semibold text-gray-900">
 							{#if item.type == 'standard'}
 								{item.value}
-							{:else if item.type == 'currency'}
+							{:else if item.type == 'currency' && typeof item.value == 'number'}
 								{formatCurrency(item.value)}
-							{:else if item.type == 'percent'}
+							{:else if item.type == 'percent' && typeof item.value == 'number'}
 								{formatPercentage(item.value)}
+							{:else}
+								{item.value}
 							{/if}
 						</dd>
 					</dl>
@@ -167,7 +198,7 @@
 				</div>
 
 				<div class="flex mt-6 justify-center">
-					<Sankey {backing} {assets} />
+					<Sankey backing={tree} {assets} />
 				</div>
 			</div>
 		</div>
@@ -216,13 +247,13 @@
 				{ id: 'backing-usd', title: 'Backing', class: '' },
 				{ id: 'backing-ratio', title: 'Backing Ratio', class: '' }
 			]}
-			rows={backing.nodes
+			rows={tree.nodes
 				.filter((node) => node['id'] in assets)
-				.filter(({ id, level }) => level == 1 && id != backing.id && id != 'unbacked')
+				.filter(({ id, level }) => level == 1 && id != tree.id && id != 'unbacked')
 				.map((node) => ({ ...node, asset: assets[node.id] }))
 				.map((node, i) => ({
 					name: { text: node.asset.name, value: node.asset.name, icon: node.asset.icon },
-					'name-path': { text: node.asset.path, value: node.asset.path },
+					'name-path': { text: node.asset.links.ui, value: node.asset.links.ui },
 					price: {
 						text: formatCurrency(node.value / asset.backing[0].assets[node.id]),
 						value: node.value / asset.backing[0].assets[node.id]
@@ -232,13 +263,13 @@
 						value: asset.backing[0].assets[node.id]
 					},
 					share: {
-						text: formatPercentage(node.value / backing.backed),
-						value: node.value / backing.value
+						text: formatPercentage(node.value / tree.backed),
+						value: node.value / tree.value
 					},
 					'backing-usd': { text: formatCurrency(node.value), value: node.value },
 					'backing-ratio': {
-						text: formatPercentage(node.value / backing.value),
-						value: node.value / backing.value
+						text: formatPercentage(node.value / tree.value),
+						value: node.value / tree.value
 					}
 				}))}
 			sort={[{ by: 'share' }]}

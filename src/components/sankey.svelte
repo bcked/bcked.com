@@ -4,9 +4,9 @@
  -->
 <script lang="ts">
 	import { base } from '$app/paths';
-	import { getContext } from 'svelte';
-	import * as Sankey from 'd3-sankey';
 	import * as d3 from 'd3';
+	import * as Sankey from 'd3-sankey';
+	import { getContext } from 'svelte';
 
 	export let assets: api.Assets;
 
@@ -202,7 +202,7 @@
 							Unbacked or Unknown. Add here...
 						</text></a
 					>
-				{:else if d.id == sankeyData.links[0].source.id}
+				{:else if d.id == sankeyData.links[0]?.source?.id}
 					<rect
 						class="opacity-80"
 						x={d.y0}
@@ -211,7 +211,7 @@
 						width={nodeWidth}
 						fill={colorNodes(d)}
 					/>
-					{#if asset.icon}
+					{#if asset?.icon}
 						<image
 							x={d.y0 + nodeWidth / 2 - iconSize / 2}
 							y={d.x0 + nodeHeight / 2 - iconSize / 2}
@@ -233,7 +233,7 @@
 				font-size: {fontSize}px;
 				"
 						>
-							{#if asset.name}
+							{#if asset?.name}
 								{asset.name}
 							{:else}
 								Unknown Name
@@ -241,7 +241,7 @@
 						</text>
 					{/if}
 				{:else}
-					<a href={asset.path}>
+					<a href={asset?.links.ui}>
 						<rect
 							class="opacity-50 group-hover:opacity-80"
 							x={d.y0}
@@ -252,7 +252,7 @@
 							ry="5"
 							fill={colorNodes(d)}
 						/>
-						{#if asset.icon}
+						{#if asset?.icon}
 							<image
 								x={d.y0 + nodeWidth / 2 - iconSize / 2}
 								y={d.x0 + nodeHeight / 2 - iconSize / 2}
@@ -274,7 +274,7 @@
 					font-size: {fontSize}px;
 					"
 							>
-								{#if asset.name}
+								{#if asset?.name}
 									{asset.name}
 								{:else}
 									Unknown Name

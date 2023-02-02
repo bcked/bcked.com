@@ -24,7 +24,7 @@
 		<ul class="mt-2 space-y-2">
 			{#each Object.values(assets).filter(filter).sort(compare).slice(0, size) as asset, i}
 				<li>
-					<a href={asset.path} class="rounded-md block">
+					<a href={asset.links.ui} class="rounded-md block">
 						<div class="flex items-center min-w-0 flex-1 justify-between">
 							<div class="flex items-center">
 								<div class="text-gray-500 text-sm">

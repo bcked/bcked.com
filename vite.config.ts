@@ -1,10 +1,8 @@
-import type { UserConfig } from 'vite';
 import { sveltekit } from '@sveltejs/kit/vite';
-import { prepareData } from './src/compile-data/prepare-data';
+import type { UserConfigExport } from 'vite';
+import { configDefaults, defineConfig } from 'vitest/config';
 
-await prepareData();
-
-const config: UserConfig = {
+const config: UserConfigExport = defineConfig({
 	plugins: [sveltekit()],
 	css: {
 		preprocessorOptions: {
@@ -14,8 +12,9 @@ const config: UserConfig = {
 		}
 	},
 	test: {
-		include: ['src/**/*.{test,spec}.{js,ts}']
+		include: ['src/**/*.{test,spec}.{js,ts}'],
+		exclude: [...configDefaults.exclude, 'src/preprocess/preview-screenshots.spec.ts']
 	}
-};
+});
 
 export default config;

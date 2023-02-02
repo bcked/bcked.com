@@ -14,22 +14,22 @@
 	export let minNodeSize = 24;
 	export let maxNodeSize = 32;
 
-	export let nodeId = (d) => d.id; // given d in nodes, returns a unique identifier (string)
+	export let nodeId: (node: api.GraphNode) => string = (d) => d.id; // given d in nodes, returns a unique identifier (string)
 
-	export let nodeRadius = (d) => {
+	export let nodeRadius: (node: api.GraphNode) => number = (d) => {
 		// const n = graph.nodes.find(({ id }) => id == d.id);
 		// const factor = (Math.max(Math.min(n['z-score'], 1), -1) + 1) * 0.5;
 		// return Math.max(maxNodeSize * factor, minNodeSize);
-		return Object.keys(assets[d.id].backing[0].assets).length > 0 ? maxNodeSize : minNodeSize;
+		return Object.keys(assets[d.id]!.backing[0]!.assets).length > 0 ? maxNodeSize : minNodeSize;
 	}; // node radius, in pixels
-	export let nodeStrength = (n) => {
+	export let nodeStrength: (node: api.GraphNode) => number = (n) => {
 		return -nodeRadius(n) * 20;
 	};
-	export let linkSource = ({ source }) => source; // given d in links, returns a node identifier string
-	export let linkTarget = ({ target }) => target; // given d in links, returns a node identifier string
+	export let linkSource: (link: api.GraphLink) => string = ({ source }) => source; // given d in links, returns a node identifier string
+	export let linkTarget: (link: api.GraphLink) => string = ({ target }) => target; // given d in links, returns a node identifier string
 	export let linkStroke = '#999'; // link stroke color
 	export let linkStrokeOpacity = 0.6; // link stroke opacity
-	export let linkStrokeWidth = (d) => {
+	export let linkStrokeWidth: (link: any) => number = (d) => {
 		const l = graph.links.find(
 			({ source, target }) => source == d.source.id && target == d.target.id
 		);
@@ -42,8 +42,8 @@
 	export let invalidation = new Promise(() => ({})); // when this promise resolves, stop the simulation
 
 	let {
-		nodes, // an iterable of link objects (typically [{source, target}, …])
-		links // an iterable of node objects (typically [{id}, …])
+		nodes, // an iterable of node objects (typically [{id}, …])
+		links // an iterable of link objects (typically [{source, target}, …])
 	} = graph;
 
 	onMount(async function () {
@@ -66,7 +66,7 @@
 
 		const svg = d3.select('#force-graph');
 
-		const d3link = d3.selectAll('line').data(links).join();
+		const d3Link = d3.selectAll('line').data(links).join();
 
 		const d3Node = svg.selectAll('g image').data(nodes).join();
 
@@ -92,8 +92,8 @@
 		}
 
 		function ticked() {
-			if (d3link == undefined || d3Node == undefined) return;
-			d3link
+			if (d3Link == undefined || d3Node == undefined) return;
+			d3Link
 				.attr('x1', (d) => d.source.x)
 				.attr('y1', (d) => d.source.y)
 				.attr('x2', (d) => d.target.x)

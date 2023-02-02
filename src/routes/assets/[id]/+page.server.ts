@@ -2,7 +2,7 @@ import type { PageServerLoad } from './$types';
 import fs from 'fs';
 import glob from 'glob';
 import { marked } from 'marked';
-import { _readBacking } from '$api/trees/[id].json/+server';
+import { _readTree } from '$api/trees/[id].json/+server';
 import { _readAssets } from '$api/assets.json/+server';
 
 var renderer = new marked.Renderer();
@@ -27,7 +27,7 @@ function loadComments(assetId: string, commentType: CommentType): Comments {
 export const load: PageServerLoad = ({ params }) => {
 	const assets = _readAssets();
 	const asset = assets[params.id]!;
-	const backing = _readBacking(params.id);
+	const backing = _readTree(params.id);
 	const doubts = loadComments(params.id, 'doubt');
 	const praise = loadComments(params.id, 'praise');
 

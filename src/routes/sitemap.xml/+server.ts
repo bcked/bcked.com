@@ -35,7 +35,7 @@ export const GET: RequestHandler = async () => {
         <priority>1.0</priority>
       </url>
       <url>
-        <loc>${lastmodAsset.path}</loc>
+        <loc>${lastmodAsset.links.ui}</loc>
         <lastmod>${lastmodAsset.backing[0]!.timestamp}</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
@@ -44,7 +44,7 @@ export const GET: RequestHandler = async () => {
 				.map(
 					(asset) => `
       <url>
-        <loc>${asset.path}</loc>
+        <loc>${asset.links.ui}</loc>
         <lastmod>${asset.backing[0]!.timestamp}</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
