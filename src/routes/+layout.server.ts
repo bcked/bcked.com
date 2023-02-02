@@ -3,8 +3,6 @@ import { readFromCache } from '$pre/cache';
 import type { LayoutServerLoad } from './$types';
 
 export const load: LayoutServerLoad = async () => {
-	console.log('layout load');
-
 	return {
 		assets: readFromCache('assets'),
 		stats: readFromCache('stats'),

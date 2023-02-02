@@ -15,7 +15,7 @@ const TOKEN_ABI = {
 const RPC_URLS: { [chain: string]: string } = {
 	bsc: 'https://bsc-dataseed3.binance.org/',
 	ethereum: 'https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}',
-	moonbeam: 'https://rpc.api.moonbeam.network',
+	moonbeam: 'https://1rpc.io/glmr', //'https://rpc.api.moonbeam.network',
 	moonriver: 'https://rpc.api.moonriver.moonbeam.network',
 	polygon: 'https://polygon-mainnet.g.alchemy.com/v2/{ALCHEMY_POLYGON}',
 	arbitrum: 'https://arb-mainnet.g.alchemy.com/v2/{ALCHEMY_ARBITRUM}'

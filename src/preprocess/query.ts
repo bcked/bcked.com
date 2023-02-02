@@ -18,12 +18,10 @@ async function queryUnderlying(asset: cache.Asset, vault: cache.VaultContract) {
 	return await balance;
 }
 
-export type Backing = {
-	assets: { [Property in derived.AssetId]: query.Balance };
-	source: string;
-};
-
-async function queryBacking(vault: cache.VaultContract, assets: cache.Assets) {
+async function queryBacking(
+	vault: cache.VaultContract,
+	assets: cache.Assets
+): Promise<query.Backing> {
 	return {
 		assets: Object.fromEntries(
 			await Promise.all(
@@ -31,11 +29,12 @@ async function queryBacking(vault: cache.VaultContract, assets: cache.Assets) {
 					.filter((u) => assets[u.id]?.contracts)
 					.map(async (u) => [
 						u.id,
-						await queryUnderlying(assets[u.id]!, vault as cache.VaultContract)
+						(await queryUnderlying(assets[u.id]!, vault as cache.VaultContract)).balance
 					])
 			)
 		),
-		source: chain.getRpcUrl(vault.chain)
+		source: chain.getRpcUrl(vault.chain),
+		timestamp: Date.now()
 	};
 }
 
@@ -43,8 +42,18 @@ async function queryChainData(asset: cache.Asset, assets: cache.Assets) {
 	const contracts = asset.contracts!;
 	const token = contracts.token;
 
-	const supply = chain.getSupply(token.address, token.chain as derived.ChainId);
-	const backing = contracts.vault ? queryBacking(contracts.vault, assets) : null;
+	let supply = null;
+	try {
+		supply = chain.getSupply(token.address, token.chain as derived.ChainId);
+	} catch (error) {
+		console.log(error);
+	}
+	let backing = null;
+	try {
+		backing = contracts.vault ? queryBacking(contracts.vault, assets) : null;
+	} catch (error) {
+		console.log(error);
+	}
 
 	return {
 		id: asset.id,
@@ -57,8 +66,8 @@ async function queryChainData(asset: cache.Asset, assets: cache.Assets) {
 export type QueryResults = {
 	id: string;
 	token: string;
-	supply: query.Supply;
-	backing: Backing | null;
+	supply: query.Supply | null;
+	backing: query.Backing | null;
 	price: query.Price | null;
 };
 

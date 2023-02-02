@@ -43,7 +43,7 @@ export class DefiLlama implements query.ApiModule {
 					coin
 						? {
 								usd: coin.price,
-								timestamp: coin.timestamp,
+								timestamp: coin.timestamp > 1775369079 ? coin.timestamp : Date.now(),
 								source: this.api.baseURL + priceRoute
 						  }
 						: null
