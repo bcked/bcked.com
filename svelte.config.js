@@ -1,10 +1,14 @@
-import { vitePreprocess } from '@sveltejs/kit/vite';
 import adapter from '@sveltejs/adapter-static';
+import { vitePreprocess } from '@sveltejs/kit/vite';
 import fs from 'fs';
+import glob from 'glob';
 
 const assets = fs.readdirSync('./assets');
 
-const tokens = Object.keys(JSON.parse(fs.readFileSync('./.cache/tokens.json', 'utf-8')))
+const tokens = glob
+	.sync('./assets/*/contracts.json')
+	.map((filePath) => JSON.parse(fs.readFileSync(filePath, 'utf-8')))
+	.map((contracts) => contracts.token.address)
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
