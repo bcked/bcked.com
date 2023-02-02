@@ -1,9 +1,8 @@
-import type { RequestHandler } from './$types';
-import { jsonResponse } from '$lib/utils/response';
-import { jsonError } from '$lib/utils/response';
 import { _readTokens } from '$api/tokens.json/+server';
+import { jsonError, jsonResponse } from '$lib/utils/response';
+import type { RequestHandler } from './$types';
 
-export const prerender = true;
+export const prerender = false;
 
 export function _readToken(address: string): api.Token {
 	const tokens = _readTokens();

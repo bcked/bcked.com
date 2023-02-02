@@ -1,9 +1,8 @@
-import type { RequestHandler } from './$types';
-import { jsonError } from '$lib/utils/response';
-import { jsonResponse } from '$lib/utils/response';
+import { jsonError, jsonResponse } from '$lib/utils/response';
 import { readFromCache } from '$pre/cache';
+import type { RequestHandler } from './$types';
 
-export const prerender = true;
+export const prerender = false;
 
 export function _readTokens(): api.Tokens {
 	const tokens = readFromCache<api.Tokens>('tokens');
