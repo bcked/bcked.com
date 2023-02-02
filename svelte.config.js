@@ -1,14 +1,14 @@
 import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/kit/vite';
 import fs from 'fs';
-import glob from 'glob';
+// import glob from 'glob';
 
 const assets = fs.readdirSync('./assets');
 
-const tokens = glob
-	.sync('./assets/*/contracts.json')
-	.map((filePath) => JSON.parse(fs.readFileSync(filePath, 'utf-8')))
-	.map((contracts) => contracts.token.address)
+// const tokens = glob
+// 	.sync('./assets/*/contracts.json')
+// 	.map((filePath) => JSON.parse(fs.readFileSync(filePath, 'utf-8')))
+// 	.map((contracts) => contracts.token.address)
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -53,7 +53,7 @@ const config = {
 				'/trees.json',
 				'/graph.json',
 				...assets.map((id) => `/trees/${id}.json`),
-				...tokens.map((id) => `/tokens/${id}.json`),
+				// ...tokens.map((id) => `/tokens/${id}.json`),
 				'/sitemap.xml'
 			],
 		},
