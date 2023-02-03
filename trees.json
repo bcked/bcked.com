@@ -1,7 +1,7 @@
 {
   "bjt-bsc": [
     {
-      "timestamp": "2023-02-03T19:17:12.772Z",
+      "timestamp": "2023-02-03T22:09:21.562Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -29,16 +29,16 @@
   ],
   "bnb-binance-bsc": [
     {
-      "timestamp": "2023-02-03T19:17:12.772Z",
+      "timestamp": "2023-02-03T22:09:21.562Z",
       "nodes": [
         {
           "id": "unbacked",
-          "value": 1244482675.18
+          "value": 1230116299.86
         },
         {
           "id": "bnb-binance-bsc",
           "name": "Wrapped BNB",
-          "value": 1244482675.18,
+          "value": 1230116299.86,
           "level": 0
         }
       ],
@@ -46,16 +46,54 @@
         {
           "source": "bnb-binance-bsc",
           "target": "unbacked",
-          "value": 1244482675.18,
+          "value": 1230116299.86,
           "level": 0
         }
       ],
-      "value": 1244482675.18,
-      "unbacked": 1244482675.18,
+      "value": 1230116299.86,
+      "unbacked": 1230116299.86,
       "backed": 0
     }
   ],
   "bnb-wormhole-ethereum": [
+    {
+      "timestamp": "2023-02-03T22:09:21.456Z",
+      "nodes": [
+        {
+          "id": "bnb-wormhole-ethereum",
+          "name": "Wrapped BNB",
+          "value": 1212467.95,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "bnb-binance-bsc",
+          "name": "Wrapped BNB",
+          "value": 1212467.95,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "bnb-wormhole-ethereum",
+          "target": "bnb-binance-bsc",
+          "value": 1212467.95,
+          "level": 0
+        },
+        {
+          "source": "bnb-binance-bsc",
+          "target": "unbacked",
+          "value": 1212467.95,
+          "level": 1
+        }
+      ],
+      "value": 1212467.95,
+      "unbacked": 0,
+      "backed": 1212467.95
+    },
     {
       "timestamp": "2023-02-03T19:17:12.683Z",
       "nodes": [
@@ -135,6 +173,44 @@
   ],
   "bnb-wormhole-solana": [
     {
+      "timestamp": "2023-02-03T22:09:21.456Z",
+      "nodes": [
+        {
+          "id": "bnb-wormhole-solana",
+          "name": "Wrapped BNB",
+          "value": 3372467.93,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "bnb-binance-bsc",
+          "name": "Wrapped BNB",
+          "value": 3372467.93,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "bnb-wormhole-solana",
+          "target": "bnb-binance-bsc",
+          "value": 3372467.93,
+          "level": 0
+        },
+        {
+          "source": "bnb-binance-bsc",
+          "target": "unbacked",
+          "value": 3372467.93,
+          "level": 1
+        }
+      ],
+      "value": 3372467.93,
+      "unbacked": 0,
+      "backed": 3372467.93
+    },
+    {
       "timestamp": "2023-02-03T19:17:12.683Z",
       "nodes": [
         {
@@ -213,16 +289,16 @@
   ],
   "btc-binance-bsc": [
     {
-      "timestamp": "2023-02-03T19:17:12.773Z",
+      "timestamp": "2023-02-03T22:09:21.563Z",
       "nodes": [
         {
           "id": "unbacked",
-          "value": 1415904903
+          "value": 1411004322
         },
         {
           "id": "btc-binance-bsc",
           "name": "Binance-Peg Bitcoin",
-          "value": 1415904903,
+          "value": 1411004322,
           "level": 0
         }
       ],
@@ -230,18 +306,18 @@
         {
           "source": "btc-binance-bsc",
           "target": "unbacked",
-          "value": 1415904903,
+          "value": 1411004322,
           "level": 0
         }
       ],
-      "value": 1415904903,
-      "unbacked": 1415904903,
+      "value": 1411004322,
+      "unbacked": 1411004322,
       "backed": 0
     }
   ],
   "btc-bitcoin": [
     {
-      "timestamp": "2023-02-03T19:17:12.773Z",
+      "timestamp": "2023-02-03T22:09:21.563Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -268,6 +344,68 @@
     }
   ],
   "busd-allbridge-solana": [
+    {
+      "timestamp": "2023-02-03T22:09:21.456Z",
+      "nodes": [
+        {
+          "id": "busd-allbridge-solana",
+          "name": "Wrapped BUSD",
+          "value": 107759.23,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "busd-binance-bsc",
+          "name": "Binance-Peg BUSD",
+          "value": 107759.23,
+          "level": 1
+        },
+        {
+          "id": "busd-paxos-ethereum",
+          "name": "Binance USD",
+          "value": 107759.23,
+          "level": 2
+        },
+        {
+          "id": "usd-fed",
+          "name": "U.S. dollar",
+          "value": 107759.23,
+          "level": 3
+        }
+      ],
+      "links": [
+        {
+          "source": "busd-allbridge-solana",
+          "target": "busd-binance-bsc",
+          "value": 107759.23,
+          "level": 0
+        },
+        {
+          "source": "busd-binance-bsc",
+          "target": "busd-paxos-ethereum",
+          "value": 107759.23,
+          "level": 1
+        },
+        {
+          "source": "busd-paxos-ethereum",
+          "target": "usd-fed",
+          "value": 107759.23,
+          "level": 2
+        },
+        {
+          "source": "usd-fed",
+          "target": "unbacked",
+          "value": 107759.23,
+          "level": 3
+        }
+      ],
+      "value": 107759.23,
+      "unbacked": 0,
+      "backed": 107759.23
+    },
     {
       "timestamp": "2023-02-03T19:17:12.683Z",
       "nodes": [
@@ -395,6 +533,56 @@
   ],
   "busd-binance-bsc": [
     {
+      "timestamp": "2023-02-03T22:09:20.499Z",
+      "nodes": [
+        {
+          "id": "busd-binance-bsc",
+          "name": "Binance-Peg BUSD",
+          "value": 4840054109.43,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "busd-paxos-ethereum",
+          "name": "Binance USD",
+          "value": 4840054109.43,
+          "level": 1
+        },
+        {
+          "id": "usd-fed",
+          "name": "U.S. dollar",
+          "value": 4840054109.43,
+          "level": 2
+        }
+      ],
+      "links": [
+        {
+          "source": "busd-binance-bsc",
+          "target": "busd-paxos-ethereum",
+          "value": 4840054109.43,
+          "level": 0
+        },
+        {
+          "source": "busd-paxos-ethereum",
+          "target": "usd-fed",
+          "value": 4840054109.43,
+          "level": 1
+        },
+        {
+          "source": "usd-fed",
+          "target": "unbacked",
+          "value": 4840054109.43,
+          "level": 2
+        }
+      ],
+      "value": 4840054109.43,
+      "unbacked": 0,
+      "backed": 4840054109.43
+    },
+    {
       "timestamp": "2023-02-03T19:17:12.065Z",
       "nodes": [
         {
@@ -496,6 +684,68 @@
     }
   ],
   "busd-multichain-moonbeam": [
+    {
+      "timestamp": "2023-02-03T22:09:21.456Z",
+      "nodes": [
+        {
+          "id": "busd-multichain-moonbeam",
+          "name": "Binance-Peg BUSD",
+          "value": 602221.93,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "busd-binance-bsc",
+          "name": "Binance-Peg BUSD",
+          "value": 602221.93,
+          "level": 1
+        },
+        {
+          "id": "busd-paxos-ethereum",
+          "name": "Binance USD",
+          "value": 602221.93,
+          "level": 2
+        },
+        {
+          "id": "usd-fed",
+          "name": "U.S. dollar",
+          "value": 602221.93,
+          "level": 3
+        }
+      ],
+      "links": [
+        {
+          "source": "busd-multichain-moonbeam",
+          "target": "busd-binance-bsc",
+          "value": 602221.93,
+          "level": 0
+        },
+        {
+          "source": "busd-binance-bsc",
+          "target": "busd-paxos-ethereum",
+          "value": 602221.93,
+          "level": 1
+        },
+        {
+          "source": "busd-paxos-ethereum",
+          "target": "usd-fed",
+          "value": 602221.93,
+          "level": 2
+        },
+        {
+          "source": "usd-fed",
+          "target": "unbacked",
+          "value": 602221.93,
+          "level": 3
+        }
+      ],
+      "value": 602221.93,
+      "unbacked": 0,
+      "backed": 602221.93
+    },
     {
       "timestamp": "2023-02-03T19:17:12.683Z",
       "nodes": [
@@ -622,6 +872,68 @@
     }
   ],
   "busd-multichain-moonriver": [
+    {
+      "timestamp": "2023-02-03T22:09:21.456Z",
+      "nodes": [
+        {
+          "id": "busd-multichain-moonriver",
+          "name": "Binance-Peg BUSD",
+          "value": 892205.6,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "busd-binance-bsc",
+          "name": "Binance-Peg BUSD",
+          "value": 892205.6,
+          "level": 1
+        },
+        {
+          "id": "busd-paxos-ethereum",
+          "name": "Binance USD",
+          "value": 892205.6,
+          "level": 2
+        },
+        {
+          "id": "usd-fed",
+          "name": "U.S. dollar",
+          "value": 892205.6,
+          "level": 3
+        }
+      ],
+      "links": [
+        {
+          "source": "busd-multichain-moonriver",
+          "target": "busd-binance-bsc",
+          "value": 892205.6,
+          "level": 0
+        },
+        {
+          "source": "busd-binance-bsc",
+          "target": "busd-paxos-ethereum",
+          "value": 892205.6,
+          "level": 1
+        },
+        {
+          "source": "busd-paxos-ethereum",
+          "target": "usd-fed",
+          "value": 892205.6,
+          "level": 2
+        },
+        {
+          "source": "usd-fed",
+          "target": "unbacked",
+          "value": 892205.6,
+          "level": 3
+        }
+      ],
+      "value": 892205.6,
+      "unbacked": 0,
+      "backed": 892205.6
+    },
     {
       "timestamp": "2023-02-03T19:17:12.683Z",
       "nodes": [
@@ -2385,16 +2697,16 @@
   ],
   "cats-catoshi-bsc": [
     {
-      "timestamp": "2023-02-03T19:17:12.777Z",
+      "timestamp": "2023-02-03T22:09:21.567Z",
       "nodes": [
         {
           "id": "unbacked",
-          "value": 437855
+          "value": 444235
         },
         {
           "id": "cats-catoshi-bsc",
           "name": "Catoshi",
-          "value": 437855,
+          "value": 444235,
           "level": 0
         }
       ],
@@ -2402,16 +2714,60 @@
         {
           "source": "cats-catoshi-bsc",
           "target": "unbacked",
-          "value": 437855,
+          "value": 444235,
           "level": 0
         }
       ],
-      "value": 437855,
-      "unbacked": 437855,
+      "value": 444235,
+      "unbacked": 444235,
       "backed": 0
     }
   ],
   "cats-catoshi-ethereum": [
+    {
+      "timestamp": "2023-02-03T22:09:21.456Z",
+      "nodes": [
+        {
+          "id": "unbacked",
+          "value": 113646.38
+        },
+        {
+          "id": "cats-catoshi-ethereum",
+          "name": "Catoshi",
+          "value": 263143.45,
+          "level": 0
+        },
+        {
+          "id": "cats-catoshi-bsc",
+          "name": "Catoshi",
+          "value": 149497.07,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "cats-catoshi-ethereum",
+          "target": "unbacked",
+          "value": 113646.38,
+          "level": 0
+        },
+        {
+          "source": "cats-catoshi-ethereum",
+          "target": "cats-catoshi-bsc",
+          "value": 149497.07,
+          "level": 0
+        },
+        {
+          "source": "cats-catoshi-bsc",
+          "target": "unbacked",
+          "value": 149497.07,
+          "level": 1
+        }
+      ],
+      "value": 263143.45,
+      "unbacked": 113646.38,
+      "backed": 149497.07
+    },
     {
       "timestamp": "2023-02-03T19:17:12.683Z",
       "nodes": [
@@ -2503,6 +2859,32 @@
   ],
   "eth-binance-bsc": [
     {
+      "timestamp": "2023-02-03T22:09:19.997Z",
+      "nodes": [
+        {
+          "id": "unbacked",
+          "value": 1001728749.98
+        },
+        {
+          "id": "eth-binance-bsc",
+          "name": "Binance-Peg Ethereum",
+          "value": 1001728749.98,
+          "level": 0
+        }
+      ],
+      "links": [
+        {
+          "source": "eth-binance-bsc",
+          "target": "unbacked",
+          "value": 1001728749.98,
+          "level": 0
+        }
+      ],
+      "value": 1001728749.98,
+      "unbacked": 1001728749.98,
+      "backed": 0
+    },
+    {
       "timestamp": "2023-02-03T19:17:11.304Z",
       "nodes": [
         {
@@ -2557,7 +2939,7 @@
   ],
   "eth-ethereum": [
     {
-      "timestamp": "2023-02-03T19:17:12.777Z",
+      "timestamp": "2023-02-03T22:09:21.568Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -2585,16 +2967,16 @@
   ],
   "eth.wrapped-ethereum": [
     {
-      "timestamp": "2023-02-03T19:17:12.778Z",
+      "timestamp": "2023-02-03T22:09:21.568Z",
       "nodes": [
         {
           "id": "unbacked",
-          "value": 6497507029.08
+          "value": 6490250605.88
         },
         {
           "id": "eth.wrapped-ethereum",
           "name": "Wrapped Ether",
-          "value": 6497507029.08,
+          "value": 6490250605.88,
           "level": 0
         }
       ],
@@ -2602,18 +2984,18 @@
         {
           "source": "eth.wrapped-ethereum",
           "target": "unbacked",
-          "value": 6497507029.08,
+          "value": 6490250605.88,
           "level": 0
         }
       ],
-      "value": 6497507029.08,
-      "unbacked": 6497507029.08,
+      "value": 6490250605.88,
+      "unbacked": 6490250605.88,
       "backed": 0
     }
   ],
   "fuk-bsc": [
     {
-      "timestamp": "2023-02-03T19:17:12.778Z",
+      "timestamp": "2023-02-03T22:09:21.568Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -2641,7 +3023,7 @@
   ],
   "gal-bsc": [
     {
-      "timestamp": "2023-02-03T19:17:12.778Z",
+      "timestamp": "2023-02-03T22:09:21.569Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -2669,7 +3051,7 @@
   ],
   "glmr-moonbeam-moonbeam": [
     {
-      "timestamp": "2023-02-03T19:17:12.778Z",
+      "timestamp": "2023-02-03T22:09:21.569Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -2697,16 +3079,16 @@
   ],
   "glmr.wrapped-moonbeam-moonbeam": [
     {
-      "timestamp": "2023-02-03T19:17:12.778Z",
+      "timestamp": "2023-02-03T22:09:21.569Z",
       "nodes": [
         {
           "id": "unbacked",
-          "value": 10987059.11
+          "value": 11105380.41
         },
         {
           "id": "glmr.wrapped-moonbeam-moonbeam",
           "name": "Wrapped GLMR",
-          "value": 10987059.11,
+          "value": 11105380.41,
           "level": 0
         }
       ],
@@ -2714,18 +3096,18 @@
         {
           "source": "glmr.wrapped-moonbeam-moonbeam",
           "target": "unbacked",
-          "value": 10987059.11,
+          "value": 11105380.41,
           "level": 0
         }
       ],
-      "value": 10987059.11,
-      "unbacked": 10987059.11,
+      "value": 11105380.41,
+      "unbacked": 11105380.41,
       "backed": 0
     }
   ],
   "gold": [
     {
-      "timestamp": "2023-02-03T19:17:12.778Z",
+      "timestamp": "2023-02-03T22:09:21.569Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -2753,16 +3135,16 @@
   ],
   "hoge-ethereum": [
     {
-      "timestamp": "2023-02-03T19:17:12.779Z",
+      "timestamp": "2023-02-03T22:09:21.569Z",
       "nodes": [
         {
           "id": "unbacked",
-          "value": 39170000
+          "value": 39770000
         },
         {
           "id": "hoge-ethereum",
           "name": "Hoge Finance",
-          "value": 39170000,
+          "value": 39770000,
           "level": 0
         }
       ],
@@ -2770,16 +3152,60 @@
         {
           "source": "hoge-ethereum",
           "target": "unbacked",
-          "value": 39170000,
+          "value": 39770000,
           "level": 0
         }
       ],
-      "value": 39170000,
-      "unbacked": 39170000,
+      "value": 39770000,
+      "unbacked": 39770000,
       "backed": 0
     }
   ],
   "hoge-multichain-bsc": [
+    {
+      "timestamp": "2023-02-03T22:09:20.499Z",
+      "nodes": [
+        {
+          "id": "unbacked",
+          "value": 63906.17
+        },
+        {
+          "id": "hoge-multichain-bsc",
+          "name": "Hoge Finance",
+          "value": 621404.69,
+          "level": 0
+        },
+        {
+          "id": "hoge-ethereum",
+          "name": "Hoge Finance",
+          "value": 557498.52,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "hoge-multichain-bsc",
+          "target": "unbacked",
+          "value": 63906.17,
+          "level": 0
+        },
+        {
+          "source": "hoge-multichain-bsc",
+          "target": "hoge-ethereum",
+          "value": 557498.52,
+          "level": 0
+        },
+        {
+          "source": "hoge-ethereum",
+          "target": "unbacked",
+          "value": 557498.52,
+          "level": 1
+        }
+      ],
+      "value": 621404.69,
+      "unbacked": 63906.17,
+      "backed": 557498.52
+    },
     {
       "timestamp": "2023-02-03T19:17:12.065Z",
       "nodes": [
@@ -2871,7 +3297,7 @@
   ],
   "movr-moonbeam-moonriver": [
     {
-      "timestamp": "2023-02-03T19:17:12.779Z",
+      "timestamp": "2023-02-03T22:09:21.570Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -2899,16 +3325,16 @@
   ],
   "movr.wrapped-moonbeam-moonriver": [
     {
-      "timestamp": "2023-02-03T19:17:12.779Z",
+      "timestamp": "2023-02-03T22:09:21.570Z",
       "nodes": [
         {
           "id": "unbacked",
-          "value": 5194.43
+          "value": 5144.18
         },
         {
           "id": "movr.wrapped-moonbeam-moonriver",
           "name": "Wrapped MOVR",
-          "value": 5194.43,
+          "value": 5144.18,
           "level": 0
         }
       ],
@@ -2916,12 +3342,12 @@
         {
           "source": "movr.wrapped-moonbeam-moonriver",
           "target": "unbacked",
-          "value": 5194.43,
+          "value": 5144.18,
           "level": 0
         }
       ],
-      "value": 5194.43,
-      "unbacked": 5194.43,
+      "value": 5144.18,
+      "unbacked": 5144.18,
       "backed": 0
     }
   ],
@@ -3938,6 +4364,68 @@
     }
   ],
   "paxg-binance-bsc": [
+    {
+      "timestamp": "2023-02-03T22:09:20.499Z",
+      "nodes": [
+        {
+          "id": "unbacked",
+          "value": 1
+        },
+        {
+          "id": "paxg-binance-bsc",
+          "name": "Binance-Peg PAX Gold",
+          "value": 0,
+          "level": 0
+        },
+        {
+          "id": "paxg-paxos-ethereum",
+          "name": "PAX Gold",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "id": "gold",
+          "name": "Gold",
+          "value": 0,
+          "level": 2
+        }
+      ],
+      "links": [
+        {
+          "source": "paxg-binance-bsc",
+          "target": "unbacked",
+          "value": 1,
+          "level": 0
+        },
+        {
+          "source": "paxg-binance-bsc",
+          "target": "paxg-paxos-ethereum",
+          "value": 0,
+          "level": 0
+        },
+        {
+          "source": "paxg-paxos-ethereum",
+          "target": "unbacked",
+          "value": 1,
+          "level": 1
+        },
+        {
+          "source": "paxg-paxos-ethereum",
+          "target": "gold",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "gold",
+          "target": "unbacked",
+          "value": 1,
+          "level": 2
+        }
+      ],
+      "value": 0,
+      "unbacked": 1,
+      "backed": -1
+    },
     {
       "timestamp": "2023-02-03T19:17:12.065Z",
       "nodes": [
@@ -5625,6 +6113,56 @@
   ],
   "paxg-wormhole-solana": [
     {
+      "timestamp": "2023-02-03T22:09:20.499Z",
+      "nodes": [
+        {
+          "id": "paxg-wormhole-solana",
+          "name": "Paxos Gold",
+          "value": 821564.65,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "paxg-paxos-ethereum",
+          "name": "PAX Gold",
+          "value": 821564.65,
+          "level": 1
+        },
+        {
+          "id": "gold",
+          "name": "Gold",
+          "value": 821564.65,
+          "level": 2
+        }
+      ],
+      "links": [
+        {
+          "source": "paxg-wormhole-solana",
+          "target": "paxg-paxos-ethereum",
+          "value": 821564.65,
+          "level": 0
+        },
+        {
+          "source": "paxg-paxos-ethereum",
+          "target": "gold",
+          "value": 821564.65,
+          "level": 1
+        },
+        {
+          "source": "gold",
+          "target": "unbacked",
+          "value": 821564.65,
+          "level": 2
+        }
+      ],
+      "value": 821564.65,
+      "unbacked": 0,
+      "backed": 821564.65
+    },
+    {
       "timestamp": "2023-02-03T19:17:12.065Z",
       "nodes": [
         {
@@ -5727,7 +6265,7 @@
   ],
   "pxbsc-bsc": [
     {
-      "timestamp": "2023-02-03T19:17:12.783Z",
+      "timestamp": "2023-02-03T22:09:21.574Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -5755,16 +6293,16 @@
   ],
   "toad-toad.network-bsc": [
     {
-      "timestamp": "2023-02-03T19:17:12.783Z",
+      "timestamp": "2023-02-03T22:09:21.574Z",
       "nodes": [
         {
           "id": "unbacked",
-          "value": 386000
+          "value": 385000
         },
         {
           "id": "toad-toad.network-bsc",
           "name": "Toad Network",
-          "value": 386000,
+          "value": 385000,
           "level": 0
         }
       ],
@@ -5772,16 +6310,60 @@
         {
           "source": "toad-toad.network-bsc",
           "target": "unbacked",
-          "value": 386000,
+          "value": 385000,
           "level": 0
         }
       ],
-      "value": 386000,
-      "unbacked": 386000,
+      "value": 385000,
+      "unbacked": 385000,
       "backed": 0
     }
   ],
   "toad-toad.network-moonbeam": [
+    {
+      "timestamp": "2023-02-03T22:09:21.456Z",
+      "nodes": [
+        {
+          "id": "unbacked",
+          "value": 546.3
+        },
+        {
+          "id": "toad-toad.network-moonbeam",
+          "name": "Wrapped Toad",
+          "value": 47304.83,
+          "level": 0
+        },
+        {
+          "id": "toad-toad.network-bsc",
+          "name": "Toad Network",
+          "value": 46758.53,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "toad-toad.network-moonbeam",
+          "target": "unbacked",
+          "value": 546.3,
+          "level": 0
+        },
+        {
+          "source": "toad-toad.network-moonbeam",
+          "target": "toad-toad.network-bsc",
+          "value": 46758.53,
+          "level": 0
+        },
+        {
+          "source": "toad-toad.network-bsc",
+          "target": "unbacked",
+          "value": 46758.53,
+          "level": 1
+        }
+      ],
+      "value": 47304.83,
+      "unbacked": 546.3,
+      "backed": 46758.53
+    },
     {
       "timestamp": "2023-02-03T19:17:12.683Z",
       "nodes": [
@@ -5866,6 +6448,50 @@
     }
   ],
   "toad-toad.network-moonriver": [
+    {
+      "timestamp": "2023-02-03T22:09:21.456Z",
+      "nodes": [
+        {
+          "id": "unbacked",
+          "value": 617.4
+        },
+        {
+          "id": "toad-toad.network-moonriver",
+          "name": "Wrapped Toad",
+          "value": 9763.28,
+          "level": 0
+        },
+        {
+          "id": "toad-toad.network-bsc",
+          "name": "Toad Network",
+          "value": 9145.88,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "toad-toad.network-moonriver",
+          "target": "unbacked",
+          "value": 617.4,
+          "level": 0
+        },
+        {
+          "source": "toad-toad.network-moonriver",
+          "target": "toad-toad.network-bsc",
+          "value": 9145.88,
+          "level": 0
+        },
+        {
+          "source": "toad-toad.network-bsc",
+          "target": "unbacked",
+          "value": 9145.88,
+          "level": 1
+        }
+      ],
+      "value": 9763.28,
+      "unbacked": 617.4,
+      "backed": 9145.88
+    },
     {
       "timestamp": "2023-02-03T19:17:12.683Z",
       "nodes": [
@@ -5957,7 +6583,7 @@
   ],
   "usd-fed": [
     {
-      "timestamp": "2023-02-03T19:17:12.784Z",
+      "timestamp": "2023-02-03T22:09:21.575Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -5984,6 +6610,56 @@
     }
   ],
   "usdc-binance-bsc": [
+    {
+      "timestamp": "2023-02-03T22:09:20.499Z",
+      "nodes": [
+        {
+          "id": "usdc-binance-bsc",
+          "name": "USD Coin",
+          "value": 878082323.85,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usdc-circle-ethereum",
+          "name": "USD Coin",
+          "value": 878082323.85,
+          "level": 1
+        },
+        {
+          "id": "usd-fed",
+          "name": "U.S. dollar",
+          "value": 878082323.85,
+          "level": 2
+        }
+      ],
+      "links": [
+        {
+          "source": "usdc-binance-bsc",
+          "target": "usdc-circle-ethereum",
+          "value": 878082323.85,
+          "level": 0
+        },
+        {
+          "source": "usdc-circle-ethereum",
+          "target": "usd-fed",
+          "value": 878082323.85,
+          "level": 1
+        },
+        {
+          "source": "usd-fed",
+          "target": "unbacked",
+          "value": 878082323.85,
+          "level": 2
+        }
+      ],
+      "value": 878082323.85,
+      "unbacked": 0,
+      "backed": 878082323.85
+    },
     {
       "timestamp": "2023-02-03T19:17:12.065Z",
       "nodes": [
@@ -8007,16 +8683,16 @@
   ],
   "usdc-circle-solana": [
     {
-      "timestamp": "2023-02-03T19:17:12.787Z",
+      "timestamp": "2023-02-03T22:09:21.578Z",
       "nodes": [
         {
           "id": "unbacked",
-          "value": 5039988976.5
+          "value": 5029697530.48
         },
         {
           "id": "usdc-circle-solana",
           "name": "USD Coin",
-          "value": 5039988976.5,
+          "value": 5029697530.48,
           "level": 0
         }
       ],
@@ -8024,16 +8700,66 @@
         {
           "source": "usdc-circle-solana",
           "target": "unbacked",
-          "value": 5039988976.5,
+          "value": 5029697530.48,
           "level": 0
         }
       ],
-      "value": 5039988976.5,
-      "unbacked": 5039988976.5,
+      "value": 5029697530.48,
+      "unbacked": 5029697530.48,
       "backed": 0
     }
   ],
   "usdc-multichain-moonbeam": [
+    {
+      "timestamp": "2023-02-03T22:09:20.499Z",
+      "nodes": [
+        {
+          "id": "usdc-multichain-moonbeam",
+          "name": "USD Coin",
+          "value": 14336120.54,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usdc-circle-ethereum",
+          "name": "USD Coin",
+          "value": 14336120.54,
+          "level": 1
+        },
+        {
+          "id": "usd-fed",
+          "name": "U.S. dollar",
+          "value": 14336120.54,
+          "level": 2
+        }
+      ],
+      "links": [
+        {
+          "source": "usdc-multichain-moonbeam",
+          "target": "usdc-circle-ethereum",
+          "value": 14336120.54,
+          "level": 0
+        },
+        {
+          "source": "usdc-circle-ethereum",
+          "target": "usd-fed",
+          "value": 14336120.54,
+          "level": 1
+        },
+        {
+          "source": "usd-fed",
+          "target": "unbacked",
+          "value": 14336120.54,
+          "level": 2
+        }
+      ],
+      "value": 14336120.54,
+      "unbacked": 0,
+      "backed": 14336120.54
+    },
     {
       "timestamp": "2023-02-03T19:17:12.065Z",
       "nodes": [
@@ -8136,6 +8862,56 @@
     }
   ],
   "usdc-multichain-moonriver": [
+    {
+      "timestamp": "2023-02-03T22:09:20.499Z",
+      "nodes": [
+        {
+          "id": "usdc-multichain-moonriver",
+          "name": "USD Coin",
+          "value": 13718652.14,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usdc-circle-ethereum",
+          "name": "USD Coin",
+          "value": 13718652.14,
+          "level": 1
+        },
+        {
+          "id": "usd-fed",
+          "name": "U.S. dollar",
+          "value": 13718652.14,
+          "level": 2
+        }
+      ],
+      "links": [
+        {
+          "source": "usdc-multichain-moonriver",
+          "target": "usdc-circle-ethereum",
+          "value": 13718652.14,
+          "level": 0
+        },
+        {
+          "source": "usdc-circle-ethereum",
+          "target": "usd-fed",
+          "value": 13718652.14,
+          "level": 1
+        },
+        {
+          "source": "usd-fed",
+          "target": "unbacked",
+          "value": 13718652.14,
+          "level": 2
+        }
+      ],
+      "value": 13718652.14,
+      "unbacked": 0,
+      "backed": 13718652.14
+    },
     {
       "timestamp": "2023-02-03T19:17:12.065Z",
       "nodes": [

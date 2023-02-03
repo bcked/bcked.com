@@ -37,6 +37,11 @@
   },
   "price": [
     {
+      "timestamp": "2023-02-03T22:09:21.461Z",
+      "usd": 2.065,
+      "source": "https://api.dexscreener.com/latest/dex/tokens/0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,0xA898bbb508C04BE26af3d319b7775927AFCB02AF,0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,0x663a07a2648296f1A3C02EE86A126fE1407888E5,0xc0888d80ee0abf84563168b3182650c0addeb6d5,0x59193512877E2EC3bB27C178A8888Cfac62FB32D,0x45488c50184ce2092756ba7cdf85731fd17e6f3d,0x7950865a9140cB519342433146Ed5b40c6F210f7,0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,0x463E737D8F740395ABf44f7aac2D9531D8D539E9,0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,0x165DBb08de0476271714952C3C1F068693bd60D7"
+    },
+    {
       "timestamp": "2023-02-03T19:17:12.349Z",
       "usd": 2.0700000000000003,
       "source": "https://api.dexscreener.com/latest/dex/tokens/0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,0xA898bbb508C04BE26af3d319b7775927AFCB02AF,0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,0x663a07a2648296f1A3C02EE86A126fE1407888E5,0xc0888d80ee0abf84563168b3182650c0addeb6d5,0x59193512877E2EC3bB27C178A8888Cfac62FB32D,0x45488c50184ce2092756ba7cdf85731fd17e6f3d,0x7950865a9140cB519342433146Ed5b40c6F210f7,0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,0x463E737D8F740395ABf44f7aac2D9531D8D539E9,0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,0x165DBb08de0476271714952C3C1F068693bd60D7"
@@ -48,6 +53,11 @@
     }
   ],
   "supply": [
+    {
+      "timestamp": "2023-02-03T22:09:20.919Z",
+      "total": 4727.979945625573,
+      "source": "https://rpc.api.moonriver.moonbeam.network"
+    },
     {
       "timestamp": "2023-02-03T19:17:12.491Z",
       "total": 4727.979945625573,
@@ -61,6 +71,17 @@
   ],
   "backing": [
     {
+      "timestamp": "2023-02-03T22:09:21.456Z",
+      "assets": {
+        "toad-toad.network-bsc": 4751.107421076151
+      },
+      "source": "https://bsc-dataseed3.binance.org/",
+      "backing-assets": 1,
+      "backing-usd": 9145.88,
+      "ratio": 0.9368,
+      "uniformity": 1
+    },
+    {
       "timestamp": "2023-02-03T19:17:12.683Z",
       "assets": {
         "toad-toad.network-bsc": 4751.107421076151
@@ -68,7 +89,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 1,
       "backing-usd": 9169.64,
-      "ratio": 0.9369,
+      "ratio": 0.9392,
       "uniformity": 1
     },
     {
@@ -79,9 +100,9 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 1,
       "backing-usd": 9217.15,
-      "ratio": 0.9418,
+      "ratio": 0.9441,
       "uniformity": 1
     }
   ],
-  "mcap": 9786.92
+  "mcap": 9763.28
 }
