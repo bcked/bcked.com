@@ -54,6 +54,12 @@
       "level": 1
     },
     {
+      "id": "cats-catoshi-ethereum",
+      "name": "Catoshi",
+      "value": 724.71,
+      "level": 2
+    },
+    {
       "id": "gal-bsc",
       "name": "Gallant",
       "value": 247.2,
@@ -183,9 +189,15 @@
     },
     {
       "source": "cats-catoshi-bsc",
-      "target": "unbacked",
+      "target": "cats-catoshi-ethereum",
       "value": 724.71,
       "level": 1
+    },
+    {
+      "source": "cats-catoshi-ethereum",
+      "target": "unbacked",
+      "value": 724.71,
+      "level": 2
     },
     {
       "source": "pad-toad.network-bsc",

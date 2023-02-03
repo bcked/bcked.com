@@ -22,18 +22,7 @@
       "address": "0xA10989335F3ba92bd43e60fBE8D42FE739412ac4",
       "chain": "ethereum"
     },
-    "vault": {
-      "address": "0x5083bbc1f936A3CDa2a3C9C529Ae42EA8371294B",
-      "chain": "bsc",
-      "underlying-assets": [
-        {
-          "id": "cats-catoshi-bsc",
-          "links": {
-            "self": "/assets/cats-catoshi-bsc.json"
-          }
-        }
-      ]
-    }
+    "vault": null
   },
   "price": [
     {
@@ -71,36 +60,12 @@
   ],
   "backing": [
     {
-      "timestamp": "2023-02-03T22:09:21.456Z",
-      "assets": {
-        "cats-catoshi-bsc": 3701796.943521551
-      },
-      "source": "https://bsc-dataseed3.binance.org/",
-      "backing-assets": 1,
-      "backing-usd": 149497.07,
-      "ratio": 0.5681,
-      "uniformity": 1
-    },
-    {
-      "timestamp": "2023-02-03T19:17:12.683Z",
-      "assets": {
-        "cats-catoshi-bsc": 3694391.6454605507
-      },
-      "source": "https://bsc-dataseed3.binance.org/",
-      "backing-assets": 1,
-      "backing-usd": 147055.26,
-      "ratio": 0.5588,
-      "uniformity": 1
-    },
-    {
-      "timestamp": "2023-02-02T20:58:58.064Z",
-      "assets": {
-        "cats-catoshi-bsc": 3675066.8530369387
-      },
-      "source": "https://bsc-dataseed3.binance.org/",
-      "backing-assets": 1,
-      "backing-usd": 173205.9,
-      "ratio": 0.6582,
+      "timestamp": "2023-02-03T22:17:41.519Z",
+      "assets": {},
+      "source": "No supply recorded in bcked.",
+      "backing-assets": 0,
+      "backing-usd": 0,
+      "ratio": 0,
       "uniformity": 1
     }
   ],
