@@ -1,0 +1,67 @@
+{
+  "id": "fuk-bsc",
+  "links": {
+    "self": "/assets/fuk-bsc.json",
+    "ui": "/assets/fuk-bsc"
+  },
+  "icon": "assets/fuk-bsc/icon.png",
+  "name": "FuckYouKarens",
+  "symbol": "FUK",
+  "issuer": null,
+  "reference": "https://www.fuckyoukarens.com/",
+  "tags": [
+    "cryptocurrency"
+  ],
+  "contracts": {
+    "token": {
+      "id": "bsc:0xA898bbb508C04BE26af3d319b7775927AFCB02AF",
+      "links": {
+        "self": "/tokens/bsc:0xA898bbb508C04BE26af3d319b7775927AFCB02AF.json"
+      },
+      "address": "0xA898bbb508C04BE26af3d319b7775927AFCB02AF",
+      "chain": "bsc"
+    },
+    "vault": null
+  },
+  "price": [
+    {
+      "timestamp": "2023-01-02T18:22:00.000Z",
+      "usd": 2.234e-8,
+      "source": "https://dexscreener.com/bsc/0x2c001a059a0f2bd76293c755b3455163cc03a159"
+    },
+    {
+      "timestamp": "2022-08-23T18:33:00.000Z",
+      "usd": 2.76e-8,
+      "source": "https://dexscreener.com/bsc/0x2c001a059a0f2bd76293c755b3455163cc03a159"
+    }
+  ],
+  "supply": [
+    {
+      "timestamp": "2023-02-03T18:58:12.324Z",
+      "total": 1000000000000,
+      "source": "https://bsc-dataseed3.binance.org/"
+    },
+    {
+      "timestamp": "2023-02-02T20:58:58.063Z",
+      "total": 1000000000000,
+      "source": "https://bsc-dataseed3.binance.org/"
+    },
+    {
+      "timestamp": "2022-08-23T18:33:00.000Z",
+      "total": 1000000000000,
+      "source": null
+    }
+  ],
+  "backing": [
+    {
+      "timestamp": "2023-02-03T18:58:13.636Z",
+      "assets": {},
+      "source": "No supply recorded in bcked.",
+      "backing-assets": 0,
+      "backing-usd": 0,
+      "ratio": 0,
+      "uniformity": 1
+    }
+  ],
+  "mcap": 22340
+}

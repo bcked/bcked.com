@@ -1,0 +1,130 @@
+{
+  "id": "pad-toad.network-bsc",
+  "links": {
+    "self": "/assets/pad-toad.network-bsc.json",
+    "ui": "/assets/pad-toad.network-bsc"
+  },
+  "icon": "assets/pad-toad.network-bsc/icon.png",
+  "name": "Lily Pad",
+  "symbol": "PAD",
+  "issuer": "toad.network",
+  "reference": "https://dapps.padswap.exchange/",
+  "tags": [
+    "cryptocurrency",
+    "vault"
+  ],
+  "contracts": {
+    "token": {
+      "id": "bsc:0xc0888d80ee0abf84563168b3182650c0addeb6d5",
+      "links": {
+        "self": "/tokens/bsc:0xc0888d80ee0abf84563168b3182650c0addeb6d5.json"
+      },
+      "address": "0xc0888d80ee0abf84563168b3182650c0addeb6d5",
+      "chain": "bsc"
+    },
+    "vault": null
+  },
+  "price": [
+    {
+      "timestamp": "2023-01-02T18:10:00.000Z",
+      "usd": 4.348e-7,
+      "source": "https://dexscreener.com/bsc/0x2856add546e729425383173d4f65bb3e23e796a4"
+    },
+    {
+      "timestamp": "2022-08-23T17:00:00.000Z",
+      "usd": 6.267e-7,
+      "source": "https://dexscreener.com/bsc/0x2856add546e729425383173d4f65bb3e23e796a4"
+    },
+    {
+      "timestamp": "2022-06-11T00:00:00.000Z",
+      "usd": 7.536e-7,
+      "source": "https://dexscreener.com/bsc/0x2856add546e729425383173d4f65bb3e23e796a4"
+    }
+  ],
+  "supply": [
+    {
+      "timestamp": "2023-02-03T18:58:12.325Z",
+      "total": 113005870943.184,
+      "source": "https://bsc-dataseed3.binance.org/"
+    },
+    {
+      "timestamp": "2023-02-02T20:58:58.063Z",
+      "total": 112870578719.02803,
+      "source": "https://bsc-dataseed3.binance.org/"
+    },
+    {
+      "timestamp": "2023-01-02T18:10:00.000Z",
+      "total": 108009978902.42,
+      "source": "https://bscscan.com/token/0xc0888d80ee0abf84563168b3182650c0addeb6d5"
+    },
+    {
+      "timestamp": "2022-06-11T00:00:00.000Z",
+      "total": 84747438916.33,
+      "source": "https://bscscan.com/token/0xc0888d80ee0abf84563168b3182650c0addeb6d5"
+    }
+  ],
+  "backing": [
+    {
+      "timestamp": "2023-01-03T18:40:00.000Z",
+      "assets": {
+        "toad-toad.network-bsc": 5781.8576492905595,
+        "pad-toad.network-bsc": 6115227221.205986,
+        "bnb-binance-bsc": 36.586637497880055,
+        "busd-binance-bsc": 6010.77131342834,
+        "pxbsc-bsc": 29915118648.794098,
+        "cats-catoshi-bsc": 31911.558344776568,
+        "gal-bsc": 590530049247.2657,
+        "hoge-multichain-bsc": 13513047.597388366,
+        "eth-binance-bsc": 0.17943629710114847,
+        "btc-binance-bsc": 0.011811177066700965,
+        "fuk-bsc": 10797317722.179977,
+        "bjt-bsc": 77938421363.4727,
+        "usdc-binance-bsc": 580.9470565152784
+      },
+      "source": "./scripts",
+      "backing-assets": 11,
+      "backing-usd": 29407.68,
+      "ratio": 0.5985,
+      "uniformity": 0.1624
+    },
+    {
+      "timestamp": "2022-08-23T17:00:00.000Z",
+      "assets": {
+        "toad-toad.network-bsc": 4784.54,
+        "pad-toad.network-bsc": 4090952608.9,
+        "bnb-binance-bsc": 26.60804172274563,
+        "busd-binance-bsc": 5351.38,
+        "pxbsc-bsc": 19779827315.5416,
+        "cats-catoshi-bsc": 16775.84,
+        "gal-bsc": 452628643652.57,
+        "hoge-multichain-bsc": 4950100.16,
+        "eth-binance-bsc": 0.1557067178878598,
+        "btc-binance-bsc": 0.0103204860765892,
+        "fuk-bsc": 6976811594.2,
+        "bjt-bsc": 51912832929.78
+      },
+      "source": "https://toadlytics.com/#/vault-explorer",
+      "backing-assets": 11,
+      "backing-usd": 29807.78,
+      "ratio": 0.6067,
+      "uniformity": 0.1157
+    },
+    {
+      "timestamp": "2022-06-04T00:00:00.000Z",
+      "assets": {
+        "toad-toad.network-bsc": 2763.5,
+        "pad-toad.network-bsc": 3991301010.62,
+        "bnb-binance-bsc": 30.79,
+        "busd-binance-bsc": 5600,
+        "pxbsc-bsc": 16924476797.09,
+        "cats-catoshi-bsc": 16775.84
+      },
+      "source": "https://v2.padswap.exchange/vault/",
+      "backing-assets": 5,
+      "backing-usd": 24328.49,
+      "ratio": 0.4951,
+      "uniformity": 0.7165
+    }
+  ],
+  "mcap": 49134.95
+}

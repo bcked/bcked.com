@@ -1,0 +1,62 @@
+{
+  "timestamp": "2023-02-03T18:58:12.012Z",
+  "nodes": [
+    {
+      "id": "unbacked",
+      "value": 1
+    },
+    {
+      "id": "paxg-binance-bsc",
+      "name": "Binance-Peg PAX Gold",
+      "value": 0,
+      "level": 0
+    },
+    {
+      "id": "paxg-paxos-ethereum",
+      "name": "PAX Gold",
+      "value": 0,
+      "level": 1
+    },
+    {
+      "id": "gold",
+      "name": "Gold",
+      "value": 0,
+      "level": 2
+    }
+  ],
+  "links": [
+    {
+      "source": "paxg-binance-bsc",
+      "target": "unbacked",
+      "value": 1,
+      "level": 0
+    },
+    {
+      "source": "paxg-binance-bsc",
+      "target": "paxg-paxos-ethereum",
+      "value": 0,
+      "level": 0
+    },
+    {
+      "source": "paxg-paxos-ethereum",
+      "target": "unbacked",
+      "value": 1,
+      "level": 1
+    },
+    {
+      "source": "paxg-paxos-ethereum",
+      "target": "gold",
+      "value": 0,
+      "level": 1
+    },
+    {
+      "source": "gold",
+      "target": "unbacked",
+      "value": 1,
+      "level": 2
+    }
+  ],
+  "value": 0,
+  "unbacked": 1,
+  "backed": -1
+}

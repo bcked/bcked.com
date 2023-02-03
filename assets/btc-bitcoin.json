@@ -1,0 +1,52 @@
+{
+  "id": "btc-bitcoin",
+  "links": {
+    "self": "/assets/btc-bitcoin.json",
+    "ui": "/assets/btc-bitcoin"
+  },
+  "icon": "assets/btc-bitcoin/icon.png",
+  "name": "Bitcoin",
+  "symbol": "BTC",
+  "issuer": null,
+  "reference": null,
+  "tags": [
+    "cryptocurrency"
+  ],
+  "contracts": null,
+  "price": [
+    {
+      "timestamp": "2023-01-02T18:39:00.000Z",
+      "usd": 16719.83,
+      "source": "https://coinmarketcap.com/currencies/bitcoin/"
+    },
+    {
+      "timestamp": "2022-08-23T18:23:00.000Z",
+      "usd": 21524.18,
+      "source": "https://coinmarketcap.com/currencies/bitcoin/"
+    }
+  ],
+  "supply": [
+    {
+      "timestamp": "2023-01-02T18:39:00.000Z",
+      "total": 19250400,
+      "source": "https://coinmarketcap.com/currencies/bitcoin/"
+    },
+    {
+      "timestamp": "2022-08-23T18:23:00.000Z",
+      "total": 19129831,
+      "source": "https://coinmarketcap.com/currencies/bitcoin/"
+    }
+  ],
+  "backing": [
+    {
+      "timestamp": "2023-02-03T18:58:13.631Z",
+      "assets": {},
+      "source": "No supply recorded in bcked.",
+      "backing-assets": 0,
+      "backing-usd": 0,
+      "ratio": 0,
+      "uniformity": 1
+    }
+  ],
+  "mcap": 321863415432
+}

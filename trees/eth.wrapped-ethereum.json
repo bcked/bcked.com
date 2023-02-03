@@ -1,0 +1,26 @@
+{
+  "timestamp": "2023-02-03T18:58:13.636Z",
+  "nodes": [
+    {
+      "id": "unbacked",
+      "value": 6485604670.44
+    },
+    {
+      "id": "eth.wrapped-ethereum",
+      "name": "Wrapped Ether",
+      "value": 6485604670.44,
+      "level": 0
+    }
+  ],
+  "links": [
+    {
+      "source": "eth.wrapped-ethereum",
+      "target": "unbacked",
+      "value": 6485604670.44,
+      "level": 0
+    }
+  ],
+  "value": 6485604670.44,
+  "unbacked": 6485604670.44,
+  "backed": 0
+}

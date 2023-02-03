@@ -1,0 +1,72 @@
+{
+  "id": "pxbsc-bsc",
+  "links": {
+    "self": "/assets/pxbsc-bsc.json",
+    "ui": "/assets/pxbsc-bsc"
+  },
+  "icon": "assets/pxbsc-bsc/icon.png",
+  "name": "Paradox NFT",
+  "symbol": "PXBSC",
+  "issuer": null,
+  "reference": "https://www.paradoxnftcoin.com/",
+  "tags": [
+    "cryptocurrency"
+  ],
+  "contracts": {
+    "token": {
+      "id": "bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80",
+      "links": {
+        "self": "/tokens/bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80.json"
+      },
+      "address": "0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80",
+      "chain": "bsc"
+    },
+    "vault": null
+  },
+  "price": [
+    {
+      "timestamp": "2023-01-02T18:10:00.000Z",
+      "usd": 4.215e-8,
+      "source": "https://dexscreener.com/bsc/0x6f547381e6594c177a4c56bc818b599cc78a8c16"
+    },
+    {
+      "timestamp": "2022-08-23T17:00:00.000Z",
+      "usd": 7.644e-8,
+      "source": "https://dexscreener.com/bsc/0x6f547381e6594c177a4c56bc818b599cc78a8c16"
+    },
+    {
+      "timestamp": "2022-07-08T10:31:03.000Z",
+      "usd": 5.895e-8,
+      "source": "https://www.coingecko.com/en/coins/paradox-nft"
+    }
+  ],
+  "supply": [
+    {
+      "timestamp": "2023-02-03T18:58:12.325Z",
+      "total": 486208138739.14685,
+      "source": "https://bsc-dataseed3.binance.org/"
+    },
+    {
+      "timestamp": "2023-02-02T20:58:58.063Z",
+      "total": 486208138739.14685,
+      "source": "https://bsc-dataseed3.binance.org/"
+    },
+    {
+      "timestamp": "2022-06-26T00:00:00.000Z",
+      "total": 494075338357,
+      "source": "https://www.coingecko.com/en/coins/paradox-nft"
+    }
+  ],
+  "backing": [
+    {
+      "timestamp": "2023-02-03T18:58:13.641Z",
+      "assets": {},
+      "source": "No supply recorded in bcked.",
+      "backing-assets": 0,
+      "backing-usd": 0,
+      "ratio": 0,
+      "uniformity": 1
+    }
+  ],
+  "mcap": 20493.67
+}

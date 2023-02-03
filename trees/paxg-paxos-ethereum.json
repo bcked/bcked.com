@@ -1,0 +1,38 @@
+{
+  "timestamp": "2022-11-30T22:00:00.000Z",
+  "nodes": [
+    {
+      "id": "paxg-paxos-ethereum",
+      "name": "PAX Gold",
+      "value": 494125838.05,
+      "level": 0
+    },
+    {
+      "id": "unbacked",
+      "value": 0
+    },
+    {
+      "id": "gold",
+      "name": "Gold",
+      "value": 494125838.05,
+      "level": 1
+    }
+  ],
+  "links": [
+    {
+      "source": "paxg-paxos-ethereum",
+      "target": "gold",
+      "value": 494125838.05,
+      "level": 0
+    },
+    {
+      "source": "gold",
+      "target": "unbacked",
+      "value": 494125838.05,
+      "level": 1
+    }
+  ],
+  "value": 494125838.05,
+  "unbacked": 0,
+  "backed": 494125838.05
+}

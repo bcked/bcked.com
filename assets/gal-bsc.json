@@ -1,0 +1,67 @@
+{
+  "id": "gal-bsc",
+  "links": {
+    "self": "/assets/gal-bsc.json",
+    "ui": "/assets/gal-bsc"
+  },
+  "icon": "assets/gal-bsc/icon.png",
+  "name": "Gallant",
+  "symbol": "GAL",
+  "issuer": null,
+  "reference": "https://gallanttoken.com/",
+  "tags": [
+    "cryptocurrency"
+  ],
+  "contracts": {
+    "token": {
+      "id": "bsc:0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78",
+      "links": {
+        "self": "/tokens/bsc:0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78.json"
+      },
+      "address": "0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78",
+      "chain": "bsc"
+    },
+    "vault": null
+  },
+  "price": [
+    {
+      "timestamp": "2023-01-02T18:22:00.000Z",
+      "usd": 4.186e-10,
+      "source": "https://dexscreener.com/bsc/0x1afe79f5eb36798b92106885507ba1a9cda954f6"
+    },
+    {
+      "timestamp": "2022-08-23T17:26:00.000Z",
+      "usd": 9.35977e-10,
+      "source": "https://dexscreener.com/bsc/0xd4c39e96bf03d6fb5156bc25ed1d6303c38d91cc"
+    }
+  ],
+  "supply": [
+    {
+      "timestamp": "2023-02-03T18:58:12.324Z",
+      "total": 100000000000000,
+      "source": "https://bsc-dataseed3.binance.org/"
+    },
+    {
+      "timestamp": "2023-02-02T20:58:58.063Z",
+      "total": 100000000000000,
+      "source": "https://bsc-dataseed3.binance.org/"
+    },
+    {
+      "timestamp": "2022-08-23T17:26:00.000Z",
+      "total": 100000000000000,
+      "source": null
+    }
+  ],
+  "backing": [
+    {
+      "timestamp": "2023-02-03T18:58:13.636Z",
+      "assets": {},
+      "source": "No supply recorded in bcked.",
+      "backing-assets": 0,
+      "backing-usd": 0,
+      "ratio": 0,
+      "uniformity": 1
+    }
+  ],
+  "mcap": 41860
+}

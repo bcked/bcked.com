@@ -1,0 +1,38 @@
+{
+  "timestamp": "2022-12-01T06:59:00.000Z",
+  "nodes": [
+    {
+      "id": "usdc-circle-ethereum",
+      "name": "USD Coin",
+      "value": 43238943390,
+      "level": 0
+    },
+    {
+      "id": "unbacked",
+      "value": 0
+    },
+    {
+      "id": "usd-fed",
+      "name": "U.S. dollar",
+      "value": 43238943390,
+      "level": 1
+    }
+  ],
+  "links": [
+    {
+      "source": "usdc-circle-ethereum",
+      "target": "usd-fed",
+      "value": 43238943390,
+      "level": 0
+    },
+    {
+      "source": "usd-fed",
+      "target": "unbacked",
+      "value": 43238943390,
+      "level": 1
+    }
+  ],
+  "value": 43238943390,
+  "unbacked": 0,
+  "backed": 43238943390
+}

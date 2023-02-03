@@ -1,0 +1,26 @@
+{
+  "timestamp": "2023-02-03T18:58:13.642Z",
+  "nodes": [
+    {
+      "id": "unbacked",
+      "value": 21728000000000.03
+    },
+    {
+      "id": "usd-fed",
+      "name": "U.S. dollar",
+      "value": 21728000000000.02,
+      "level": 0
+    }
+  ],
+  "links": [
+    {
+      "source": "usd-fed",
+      "target": "unbacked",
+      "value": 21728000000000.02,
+      "level": 0
+    }
+  ],
+  "value": 21728000000000.02,
+  "unbacked": 21728000000000.02,
+  "backed": 0
+}

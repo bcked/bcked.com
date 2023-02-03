@@ -1,0 +1,747 @@
+{
+  "id": "busd-paxos-ethereum",
+  "links": {
+    "self": "/assets/busd-paxos-ethereum.json",
+    "ui": "/assets/busd-paxos-ethereum"
+  },
+  "icon": "assets/busd-paxos-ethereum/icon.png",
+  "name": "Binance USD",
+  "symbol": "BUSD",
+  "issuer": "paxos",
+  "reference": "http://www.paxos.com/busd",
+  "tags": [
+    "cryptocurrency",
+    "stable"
+  ],
+  "contracts": {
+    "token": {
+      "id": "ethereum:0x4Fabb145d64652a948d72533023f6E7A623C7C53",
+      "links": {
+        "self": "/tokens/ethereum:0x4Fabb145d64652a948d72533023f6E7A623C7C53.json"
+      },
+      "address": "0x4Fabb145d64652a948d72533023f6E7A623C7C53",
+      "chain": "ethereum"
+    },
+    "vault": null
+  },
+  "price": [
+    {
+      "timestamp": "2023-02-03T18:58:12.566Z",
+      "usd": 1,
+      "source": "https://coins.llama.fi/prices/current/bsc:0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,bsc:0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c,ethereum:0x418D75f65a02b3D53B2418FB8E1fe493759c7605,solana:9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,bsc:0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c,solana:6nuaX3ogrr2CaoAPjtaKHAoBNWok32BMcRozuf32s2QF,bsc:0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56,moonbeam:0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F,moonriver:0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818,ethereum:0x4Fabb145d64652a948d72533023f6E7A623C7C53,bsc:0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,ethereum:0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,bsc:0x2170Ed0880ac9A755fd29B2688956BD959F933F8,ethereum:0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2,bsc:0xA898bbb508C04BE26af3d319b7775927AFCB02AF,bsc:0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,moonbeam:0xAcc15dC74880C9944775448304B263D191c6077F,ethereum:0xfAd45E47083e4607302aa43c65fB3106F1cd7607,bsc:0xa4FFfc757e8c4F24E7b209C033c123D20983Ad40,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xc0888d80ee0abf84563168b3182650c0addeb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488c50184ce2092756ba7cdf85731fd17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b,moonriver:0xe3f5a90f9cb311505cd691a46596599aa1a0ad7d?searchWidth=4h"
+    },
+    {
+      "timestamp": "2023-02-02T20:58:57.525Z",
+      "usd": 1,
+      "source": "https://coins.llama.fi/prices/current/bsc:0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,bsc:0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c,ethereum:0x418D75f65a02b3D53B2418FB8E1fe493759c7605,solana:9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,bsc:0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c,solana:6nuaX3ogrr2CaoAPjtaKHAoBNWok32BMcRozuf32s2QF,bsc:0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56,moonbeam:0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F,moonriver:0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818,ethereum:0x4Fabb145d64652a948d72533023f6E7A623C7C53,bsc:0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,ethereum:0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,bsc:0x2170Ed0880ac9A755fd29B2688956BD959F933F8,ethereum:0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2,bsc:0xA898bbb508C04BE26af3d319b7775927AFCB02AF,bsc:0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,moonbeam:0xAcc15dC74880C9944775448304B263D191c6077F,ethereum:0xfAd45E47083e4607302aa43c65fB3106F1cd7607,bsc:0xa4FFfc757e8c4F24E7b209C033c123D20983Ad40,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xc0888d80ee0abf84563168b3182650c0addeb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488c50184ce2092756ba7cdf85731fd17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b,moonriver:0xe3f5a90f9cb311505cd691a46596599aa1a0ad7d?searchWidth=4h"
+    },
+    {
+      "timestamp": "2022-06-11T00:00:00.000Z",
+      "usd": 1,
+      "source": "https://coinmarketcap.com/currencies/binance-usd/"
+    }
+  ],
+  "supply": [
+    {
+      "timestamp": "2023-02-03T18:58:12.011Z",
+      "total": 16061357881.42,
+      "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}"
+    },
+    {
+      "timestamp": "2023-02-02T20:58:58.054Z",
+      "total": 16080575630.27,
+      "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}"
+    },
+    {
+      "timestamp": "2022-11-30T22:00:00.000Z",
+      "total": 22262030911.99,
+      "source": "https://paxos.com/busd-transparency/"
+    },
+    {
+      "timestamp": "2022-11-14T22:00:00.000Z",
+      "total": 23455924354.73,
+      "source": "https://paxos.com/busd-transparency/"
+    },
+    {
+      "timestamp": "2022-10-31T22:00:00.000Z",
+      "total": 21143340673.75,
+      "source": "https://paxos.com/busd-transparency/"
+    },
+    {
+      "timestamp": "2022-10-19T22:00:00.000Z",
+      "total": 21485442901.91,
+      "source": "https://paxos.com/busd-transparency/"
+    },
+    {
+      "timestamp": "2022-09-30T22:00:00.000Z",
+      "total": 20922577480.49,
+      "source": "https://paxos.com/busd-transparency/"
+    },
+    {
+      "timestamp": "2022-09-16T22:00:00.000Z",
+      "total": 20656471724.98,
+      "source": "https://paxos.com/busd-transparency/"
+    },
+    {
+      "timestamp": "2022-08-31T22:00:00.000Z",
+      "total": 19266983009.88,
+      "source": "https://paxos.com/busd-transparency/"
+    },
+    {
+      "timestamp": "2022-08-23T22:00:00.000Z",
+      "total": 19028354509.36,
+      "source": "https://paxos.com/busd-transparency/"
+    },
+    {
+      "timestamp": "2022-07-29T22:00:00.000Z",
+      "total": 17858623546.3,
+      "source": "https://paxos.com/busd-transparency/"
+    },
+    {
+      "timestamp": "2022-06-30T22:00:00.000Z",
+      "total": 17492602397.83,
+      "source": "https://paxos.com/busd-transparency/"
+    },
+    {
+      "timestamp": "2022-05-31T22:00:00.000Z",
+      "total": 18199987674.51,
+      "source": "https://paxos.com/busd-transparency/"
+    },
+    {
+      "timestamp": "2022-04-29T22:00:00.000Z",
+      "total": 17651702084.31,
+      "source": "https://paxos.com/busd-transparency/"
+    },
+    {
+      "timestamp": "2022-03-31T22:00:00.000Z",
+      "total": 17451253126.95,
+      "source": "https://paxos.com/busd-transparency/"
+    },
+    {
+      "timestamp": "2022-02-28T22:00:00.000Z",
+      "total": 18341651341.83,
+      "source": "https://paxos.com/busd-transparency/"
+    },
+    {
+      "timestamp": "2022-01-31T22:00:00.000Z",
+      "total": 15318103437.84,
+      "source": "https://paxos.com/busd-transparency/"
+    },
+    {
+      "timestamp": "2021-12-31T22:00:00.000Z",
+      "total": 14434991724.17,
+      "source": "https://paxos.com/busd-transparency/"
+    },
+    {
+      "timestamp": "2021-11-30T22:00:00.000Z",
+      "total": 13430804109.55,
+      "source": "https://paxos.com/busd-transparency/"
+    },
+    {
+      "timestamp": "2021-10-29T22:00:00.000Z",
+      "total": 13156917361.68,
+      "source": "https://paxos.com/busd-transparency/"
+    },
+    {
+      "timestamp": "2021-09-30T22:00:00.000Z",
+      "total": 13061906347.28,
+      "source": "https://paxos.com/busd-transparency/"
+    },
+    {
+      "timestamp": "2021-08-31T22:00:00.000Z",
+      "total": 12250266849.36,
+      "source": "https://paxos.com/busd-transparency/"
+    },
+    {
+      "timestamp": "2021-07-30T22:00:00.000Z",
+      "total": 12253063081.25,
+      "source": "https://paxos.com/busd-transparency/"
+    },
+    {
+      "timestamp": "2021-06-30T22:00:00.000Z",
+      "total": 10061961534.86,
+      "source": "https://paxos.com/busd-transparency/"
+    },
+    {
+      "timestamp": "2021-05-28T22:00:00.000Z",
+      "total": 8869528892.17,
+      "source": "https://paxos.com/busd-transparency/"
+    },
+    {
+      "timestamp": "2021-04-30T22:00:00.000Z",
+      "total": 7431114803.61,
+      "source": "https://paxos.com/busd-transparency/"
+    },
+    {
+      "timestamp": "2021-03-31T22:00:00.000Z",
+      "total": 3500089125.56,
+      "source": "https://paxos.com/busd-transparency/"
+    },
+    {
+      "timestamp": "2021-02-26T22:00:00.000Z",
+      "total": 2315860502.56,
+      "source": "https://paxos.com/busd-transparency/"
+    },
+    {
+      "timestamp": "2021-01-29T22:00:00.000Z",
+      "total": 1498514668.53,
+      "source": "https://paxos.com/busd-transparency/"
+    },
+    {
+      "timestamp": "2020-12-31T22:00:00.000Z",
+      "total": 984118176.56,
+      "source": "https://paxos.com/busd-transparency/"
+    },
+    {
+      "timestamp": "2020-11-30T22:00:00.000Z",
+      "total": 691591829.9,
+      "source": "https://paxos.com/busd-transparency/"
+    },
+    {
+      "timestamp": "2020-10-30T22:00:00.000Z",
+      "total": 710353927.51,
+      "source": "https://paxos.com/busd-transparency/"
+    },
+    {
+      "timestamp": "2020-09-30T22:00:00.000Z",
+      "total": 503349908.47,
+      "source": "https://paxos.com/busd-transparency/"
+    },
+    {
+      "timestamp": "2020-08-31T22:00:00.000Z",
+      "total": 190041130.72,
+      "source": "https://paxos.com/busd-transparency/"
+    },
+    {
+      "timestamp": "2020-07-31T22:00:00.000Z",
+      "total": 159231367.05,
+      "source": "https://paxos.com/busd-transparency/"
+    },
+    {
+      "timestamp": "2020-06-30T22:00:00.000Z",
+      "total": 174038298.92,
+      "source": "https://paxos.com/busd-transparency/"
+    },
+    {
+      "timestamp": "2020-05-29T22:00:00.000Z",
+      "total": 172836383.58,
+      "source": "https://paxos.com/busd-transparency/"
+    },
+    {
+      "timestamp": "2020-04-30T22:00:00.000Z",
+      "total": 176405207.58,
+      "source": "https://paxos.com/busd-transparency/"
+    },
+    {
+      "timestamp": "2020-03-31T22:00:00.000Z",
+      "total": 187790574.09,
+      "source": "https://paxos.com/busd-transparency/"
+    },
+    {
+      "timestamp": "2020-02-28T22:00:00.000Z",
+      "total": 70338972.78,
+      "source": "https://paxos.com/busd-transparency/"
+    },
+    {
+      "timestamp": "2020-01-31T22:00:00.000Z",
+      "total": 40562789.85,
+      "source": "https://paxos.com/busd-transparency/"
+    },
+    {
+      "timestamp": "2019-12-31T22:00:00.000Z",
+      "total": 30914646.25,
+      "source": "https://paxos.com/busd-transparency/"
+    },
+    {
+      "timestamp": "2019-11-29T22:00:00.000Z",
+      "total": 26530286.8,
+      "source": "https://paxos.com/busd-transparency/"
+    },
+    {
+      "timestamp": "2019-10-31T22:00:00.000Z",
+      "total": 32058774.35,
+      "source": "https://paxos.com/busd-transparency/"
+    },
+    {
+      "timestamp": "2019-09-30T22:00:00.000Z",
+      "total": 19257948.22,
+      "source": "https://paxos.com/busd-transparency/"
+    }
+  ],
+  "backing": [
+    {
+      "timestamp": "2022-11-30T22:00:00.000Z",
+      "assets": {
+        "usd-fed": 22262030911.99
+      },
+      "source": "https://paxos.com/busd-transparency/",
+      "backing-assets": 1,
+      "backing-usd": 22262030911.99,
+      "ratio": 1.3861,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2022-11-14T22:00:00.000Z",
+      "assets": {
+        "usd-fed": 23455924354.73
+      },
+      "source": "https://paxos.com/busd-transparency/",
+      "backing-assets": 1,
+      "backing-usd": 23455924354.73,
+      "ratio": 1.4604,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2022-10-31T22:00:00.000Z",
+      "assets": {
+        "usd-fed": 21143340673.75
+      },
+      "source": "https://paxos.com/busd-transparency/",
+      "backing-assets": 1,
+      "backing-usd": 21143340673.75,
+      "ratio": 1.3164,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2022-10-19T22:00:00.000Z",
+      "assets": {
+        "usd-fed": 21485442901.91
+      },
+      "source": "https://paxos.com/busd-transparency/",
+      "backing-assets": 1,
+      "backing-usd": 21485442901.91,
+      "ratio": 1.3377,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2022-09-30T22:00:00.000Z",
+      "assets": {
+        "usd-fed": 20922577480.49
+      },
+      "source": "https://paxos.com/busd-transparency/",
+      "backing-assets": 1,
+      "backing-usd": 20922577480.49,
+      "ratio": 1.3027,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2022-09-16T22:00:00.000Z",
+      "assets": {
+        "usd-fed": 20656471724.98
+      },
+      "source": "https://paxos.com/busd-transparency/",
+      "backing-assets": 1,
+      "backing-usd": 20656471724.98,
+      "ratio": 1.2861,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2022-08-31T22:00:00.000Z",
+      "assets": {
+        "usd-fed": 19266983009.88
+      },
+      "source": "https://paxos.com/busd-transparency/",
+      "backing-assets": 1,
+      "backing-usd": 19266983009.88,
+      "ratio": 1.1996,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2022-08-23T22:00:00.000Z",
+      "assets": {
+        "usd-fed": 19028354509.36
+      },
+      "source": "https://paxos.com/busd-transparency/",
+      "backing-assets": 1,
+      "backing-usd": 19028354509.36,
+      "ratio": 1.1847,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2022-07-29T22:00:00.000Z",
+      "assets": {
+        "usd-fed": 17858623546.3
+      },
+      "source": "https://paxos.com/busd-transparency/",
+      "backing-assets": 1,
+      "backing-usd": 17858623546.3,
+      "ratio": 1.1119,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2022-06-30T22:00:00.000Z",
+      "assets": {
+        "usd-fed": 17492602397.83
+      },
+      "source": "https://paxos.com/busd-transparency/",
+      "backing-assets": 1,
+      "backing-usd": 17492602397.83,
+      "ratio": 1.0891,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2022-05-31T22:00:00.000Z",
+      "assets": {
+        "usd-fed": 18199987674.51
+      },
+      "source": "https://paxos.com/busd-transparency/",
+      "backing-assets": 1,
+      "backing-usd": 18199987674.51,
+      "ratio": 1.1332,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2022-04-29T22:00:00.000Z",
+      "assets": {
+        "usd-fed": 17651702084.31
+      },
+      "source": "https://paxos.com/busd-transparency/",
+      "backing-assets": 1,
+      "backing-usd": 17651702084.31,
+      "ratio": 1.099,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2022-03-31T22:00:00.000Z",
+      "assets": {
+        "usd-fed": 17451253126.95
+      },
+      "source": "https://paxos.com/busd-transparency/",
+      "backing-assets": 1,
+      "backing-usd": 17451253126.95,
+      "ratio": 1.0865,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2022-02-28T22:00:00.000Z",
+      "assets": {
+        "usd-fed": 18341651341.83
+      },
+      "source": "https://paxos.com/busd-transparency/",
+      "backing-assets": 1,
+      "backing-usd": 18341651341.83,
+      "ratio": 1.142,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2022-01-31T22:00:00.000Z",
+      "assets": {
+        "usd-fed": 15318103437.84
+      },
+      "source": "https://paxos.com/busd-transparency/",
+      "backing-assets": 1,
+      "backing-usd": 15318103437.84,
+      "ratio": 0.9537,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2021-12-31T22:00:00.000Z",
+      "assets": {
+        "usd-fed": 14434991724.17
+      },
+      "source": "https://paxos.com/busd-transparency/",
+      "backing-assets": 1,
+      "backing-usd": 14434991724.17,
+      "ratio": 0.8987,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2021-11-30T22:00:00.000Z",
+      "assets": {
+        "usd-fed": 13430804109.55
+      },
+      "source": "https://paxos.com/busd-transparency/",
+      "backing-assets": 1,
+      "backing-usd": 13430804109.55,
+      "ratio": 0.8362,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2021-10-29T22:00:00.000Z",
+      "assets": {
+        "usd-fed": 13156917361.68
+      },
+      "source": "https://paxos.com/busd-transparency/",
+      "backing-assets": 1,
+      "backing-usd": 13156917361.68,
+      "ratio": 0.8192,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2021-09-30T22:00:00.000Z",
+      "assets": {
+        "usd-fed": 13061906347.28
+      },
+      "source": "https://paxos.com/busd-transparency/",
+      "backing-assets": 1,
+      "backing-usd": 13061906347.28,
+      "ratio": 0.8133,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2021-08-31T22:00:00.000Z",
+      "assets": {
+        "usd-fed": 12250266849.36
+      },
+      "source": "https://paxos.com/busd-transparency/",
+      "backing-assets": 1,
+      "backing-usd": 12250266849.36,
+      "ratio": 0.7627,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2021-07-30T22:00:00.000Z",
+      "assets": {
+        "usd-fed": 12253063081.25
+      },
+      "source": "https://paxos.com/busd-transparency/",
+      "backing-assets": 1,
+      "backing-usd": 12253063081.25,
+      "ratio": 0.7629,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2021-06-30T22:00:00.000Z",
+      "assets": {
+        "usd-fed": 10061961534.86
+      },
+      "source": "https://paxos.com/busd-transparency/",
+      "backing-assets": 1,
+      "backing-usd": 10061961534.86,
+      "ratio": 0.6265,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2021-05-28T22:00:00.000Z",
+      "assets": {
+        "usd-fed": 8869528892.17
+      },
+      "source": "https://paxos.com/busd-transparency/",
+      "backing-assets": 1,
+      "backing-usd": 8869528892.17,
+      "ratio": 0.5522,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2021-04-30T22:00:00.000Z",
+      "assets": {
+        "usd-fed": 7431114803.61
+      },
+      "source": "https://paxos.com/busd-transparency/",
+      "backing-assets": 1,
+      "backing-usd": 7431114803.61,
+      "ratio": 0.4627,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2021-03-31T22:00:00.000Z",
+      "assets": {
+        "usd-fed": 3500089125.56
+      },
+      "source": "https://paxos.com/busd-transparency/",
+      "backing-assets": 1,
+      "backing-usd": 3500089125.56,
+      "ratio": 0.2179,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2021-02-26T22:00:00.000Z",
+      "assets": {
+        "usd-fed": 2315860502.56
+      },
+      "source": "https://paxos.com/busd-transparency/",
+      "backing-assets": 1,
+      "backing-usd": 2315860502.56,
+      "ratio": 0.1442,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2021-01-29T22:00:00.000Z",
+      "assets": {
+        "usd-fed": 1498514668.53
+      },
+      "source": "https://paxos.com/busd-transparency/",
+      "backing-assets": 1,
+      "backing-usd": 1498514668.53,
+      "ratio": 0.0933,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2020-12-31T22:00:00.000Z",
+      "assets": {
+        "usd-fed": 984118176.56
+      },
+      "source": "https://paxos.com/busd-transparency/",
+      "backing-assets": 1,
+      "backing-usd": 984118176.56,
+      "ratio": 0.0613,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2020-11-30T22:00:00.000Z",
+      "assets": {
+        "usd-fed": 691591829.9
+      },
+      "source": "https://paxos.com/busd-transparency/",
+      "backing-assets": 1,
+      "backing-usd": 691591829.9,
+      "ratio": 0.0431,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2020-10-30T22:00:00.000Z",
+      "assets": {
+        "usd-fed": 710353927.51
+      },
+      "source": "https://paxos.com/busd-transparency/",
+      "backing-assets": 1,
+      "backing-usd": 710353927.51,
+      "ratio": 0.0442,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2020-09-30T22:00:00.000Z",
+      "assets": {
+        "usd-fed": 503349908.47
+      },
+      "source": "https://paxos.com/busd-transparency/",
+      "backing-assets": 1,
+      "backing-usd": 503349908.47,
+      "ratio": 0.0313,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2020-08-31T22:00:00.000Z",
+      "assets": {
+        "usd-fed": 190041130.72
+      },
+      "source": "https://paxos.com/busd-transparency/",
+      "backing-assets": 1,
+      "backing-usd": 190041130.72,
+      "ratio": 0.0118,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2020-07-31T22:00:00.000Z",
+      "assets": {
+        "usd-fed": 159231367.05
+      },
+      "source": "https://paxos.com/busd-transparency/",
+      "backing-assets": 1,
+      "backing-usd": 159231367.05,
+      "ratio": 0.0099,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2020-06-30T22:00:00.000Z",
+      "assets": {
+        "usd-fed": 174038298.92
+      },
+      "source": "https://paxos.com/busd-transparency/",
+      "backing-assets": 1,
+      "backing-usd": 174038298.92,
+      "ratio": 0.0108,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2020-05-29T22:00:00.000Z",
+      "assets": {
+        "usd-fed": 172836383.58
+      },
+      "source": "https://paxos.com/busd-transparency/",
+      "backing-assets": 1,
+      "backing-usd": 172836383.58,
+      "ratio": 0.0108,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2020-04-30T22:00:00.000Z",
+      "assets": {
+        "usd-fed": 176405207.58
+      },
+      "source": "https://paxos.com/busd-transparency/",
+      "backing-assets": 1,
+      "backing-usd": 176405207.58,
+      "ratio": 0.011,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2020-03-31T22:00:00.000Z",
+      "assets": {
+        "usd-fed": 187790574.09
+      },
+      "source": "https://paxos.com/busd-transparency/",
+      "backing-assets": 1,
+      "backing-usd": 187790574.09,
+      "ratio": 0.0117,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2020-02-28T22:00:00.000Z",
+      "assets": {
+        "usd-fed": 70338972.78
+      },
+      "source": "https://paxos.com/busd-transparency/",
+      "backing-assets": 1,
+      "backing-usd": 70338972.78,
+      "ratio": 0.0044,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2020-01-31T22:00:00.000Z",
+      "assets": {
+        "usd-fed": 40562789.85
+      },
+      "source": "https://paxos.com/busd-transparency/",
+      "backing-assets": 1,
+      "backing-usd": 40562789.85,
+      "ratio": 0.0025,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2019-12-31T22:00:00.000Z",
+      "assets": {
+        "usd-fed": 30914646.25
+      },
+      "source": "https://paxos.com/busd-transparency/",
+      "backing-assets": 1,
+      "backing-usd": 30914646.25,
+      "ratio": 0.0019,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2019-11-29T22:00:00.000Z",
+      "assets": {
+        "usd-fed": 26530286.8
+      },
+      "source": "https://paxos.com/busd-transparency/",
+      "backing-assets": 1,
+      "backing-usd": 26530286.8,
+      "ratio": 0.0017,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2019-10-31T22:00:00.000Z",
+      "assets": {
+        "usd-fed": 32058774.35
+      },
+      "source": "https://paxos.com/busd-transparency/",
+      "backing-assets": 1,
+      "backing-usd": 32058774.35,
+      "ratio": 0.002,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2019-09-30T22:00:00.000Z",
+      "assets": {
+        "usd-fed": 19257948.22
+      },
+      "source": "https://paxos.com/busd-transparency/",
+      "backing-assets": 1,
+      "backing-usd": 19257948.22,
+      "ratio": 0.0012,
+      "uniformity": 1
+    }
+  ],
+  "mcap": 16061357881.42
+}

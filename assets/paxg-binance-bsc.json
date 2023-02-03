@@ -1,0 +1,82 @@
+{
+  "id": "paxg-binance-bsc",
+  "links": {
+    "self": "/assets/paxg-binance-bsc.json",
+    "ui": "/assets/paxg-binance-bsc"
+  },
+  "icon": "assets/paxg-binance-bsc/icon.png",
+  "name": "Binance-Peg PAX Gold",
+  "symbol": "PAXG",
+  "issuer": "binance",
+  "reference": "https://paxos.com/paxgold/",
+  "tags": [
+    "commodity",
+    "derivative"
+  ],
+  "contracts": {
+    "token": {
+      "id": "bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7",
+      "links": {
+        "self": "/tokens/bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7.json"
+      },
+      "address": "0x7950865a9140cB519342433146Ed5b40c6F210f7",
+      "chain": "bsc"
+    },
+    "vault": {
+      "address": "0x47ac0Fb4F2D84898e4D9E7b4DaB3C24507a6D503",
+      "chain": "ethereum",
+      "underlying-assets": [
+        {
+          "id": "paxg-paxos-ethereum",
+          "links": {
+            "self": "/assets/paxg-paxos-ethereum.json"
+          }
+        }
+      ]
+    }
+  },
+  "price": [
+    {
+      "timestamp": "2023-02-03T18:58:13.639Z",
+      "usd": 0,
+      "source": "No price recorded in bcked."
+    }
+  ],
+  "supply": [
+    {
+      "timestamp": "2023-02-03T18:58:12.325Z",
+      "total": 300,
+      "source": "https://bsc-dataseed3.binance.org/"
+    },
+    {
+      "timestamp": "2023-02-02T20:58:58.063Z",
+      "total": 300,
+      "source": "https://bsc-dataseed3.binance.org/"
+    }
+  ],
+  "backing": [
+    {
+      "timestamp": "2023-02-03T18:58:12.012Z",
+      "assets": {
+        "paxg-paxos-ethereum": 300.9398
+      },
+      "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
+      "backing-assets": 0,
+      "backing-usd": 0,
+      "ratio": 0,
+      "uniformity": 0
+    },
+    {
+      "timestamp": "2023-02-02T20:58:58.055Z",
+      "assets": {
+        "paxg-paxos-ethereum": 300.9398
+      },
+      "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
+      "backing-assets": 0,
+      "backing-usd": 0,
+      "ratio": 0,
+      "uniformity": 0
+    }
+  ],
+  "mcap": 0
+}

@@ -1,0 +1,864 @@
+{
+  "id": "usdc-circle-ethereum",
+  "links": {
+    "self": "/assets/usdc-circle-ethereum.json",
+    "ui": "/assets/usdc-circle-ethereum"
+  },
+  "icon": "assets/usdc-circle-ethereum/icon.png",
+  "name": "USD Coin",
+  "symbol": "USDC",
+  "issuer": "circle",
+  "reference": "https://www.circle.com/en/usdc",
+  "tags": [
+    "cryptocurrency",
+    "stable"
+  ],
+  "contracts": {
+    "token": {
+      "id": "ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+      "links": {
+        "self": "/tokens/ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48.json"
+      },
+      "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+      "chain": "ethereum"
+    },
+    "vault": null
+  },
+  "price": [
+    {
+      "timestamp": "2023-02-03T18:58:12.566Z",
+      "usd": 1.001,
+      "source": "https://coins.llama.fi/prices/current/bsc:0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,bsc:0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c,ethereum:0x418D75f65a02b3D53B2418FB8E1fe493759c7605,solana:9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,bsc:0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c,solana:6nuaX3ogrr2CaoAPjtaKHAoBNWok32BMcRozuf32s2QF,bsc:0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56,moonbeam:0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F,moonriver:0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818,ethereum:0x4Fabb145d64652a948d72533023f6E7A623C7C53,bsc:0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,ethereum:0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,bsc:0x2170Ed0880ac9A755fd29B2688956BD959F933F8,ethereum:0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2,bsc:0xA898bbb508C04BE26af3d319b7775927AFCB02AF,bsc:0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,moonbeam:0xAcc15dC74880C9944775448304B263D191c6077F,ethereum:0xfAd45E47083e4607302aa43c65fB3106F1cd7607,bsc:0xa4FFfc757e8c4F24E7b209C033c123D20983Ad40,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xc0888d80ee0abf84563168b3182650c0addeb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488c50184ce2092756ba7cdf85731fd17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b,moonriver:0xe3f5a90f9cb311505cd691a46596599aa1a0ad7d?searchWidth=4h"
+    },
+    {
+      "timestamp": "2023-02-02T20:58:57.525Z",
+      "usd": 1.001,
+      "source": "https://coins.llama.fi/prices/current/bsc:0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,bsc:0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c,ethereum:0x418D75f65a02b3D53B2418FB8E1fe493759c7605,solana:9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,bsc:0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c,solana:6nuaX3ogrr2CaoAPjtaKHAoBNWok32BMcRozuf32s2QF,bsc:0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56,moonbeam:0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F,moonriver:0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818,ethereum:0x4Fabb145d64652a948d72533023f6E7A623C7C53,bsc:0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,ethereum:0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,bsc:0x2170Ed0880ac9A755fd29B2688956BD959F933F8,ethereum:0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2,bsc:0xA898bbb508C04BE26af3d319b7775927AFCB02AF,bsc:0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,moonbeam:0xAcc15dC74880C9944775448304B263D191c6077F,ethereum:0xfAd45E47083e4607302aa43c65fB3106F1cd7607,bsc:0xa4FFfc757e8c4F24E7b209C033c123D20983Ad40,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xc0888d80ee0abf84563168b3182650c0addeb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488c50184ce2092756ba7cdf85731fd17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b,moonriver:0xe3f5a90f9cb311505cd691a46596599aa1a0ad7d?searchWidth=4h"
+    },
+    {
+      "timestamp": "2023-01-02T18:04:00.000Z",
+      "usd": 1,
+      "source": "https://coinmarketcap.com/currencies/usd-coin/"
+    },
+    {
+      "timestamp": "2022-10-29T00:00:00.000Z",
+      "usd": 1,
+      "source": "https://coinmarketcap.com/currencies/usd-coin/"
+    }
+  ],
+  "supply": [
+    {
+      "timestamp": "2023-02-03T18:58:12.012Z",
+      "total": 39039377492.06955,
+      "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}"
+    },
+    {
+      "timestamp": "2023-02-02T20:58:58.054Z",
+      "total": 39156316078.91955,
+      "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}"
+    },
+    {
+      "timestamp": "2022-12-01T06:59:00.000Z",
+      "total": 43238943390,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2022-11-01T06:59:00.000Z",
+      "total": 43507961021,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2022-10-01T06:59:00.000Z",
+      "total": 47261819834,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2022-09-01T06:59:00.000Z",
+      "total": 52258056105,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2022-08-01T06:59:00.000Z",
+      "total": 54488837404,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2022-07-01T06:59:00.000Z",
+      "total": 55569660586,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2022-06-01T06:59:00.000Z",
+      "total": 54005995420,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2022-05-01T06:59:00.000Z",
+      "total": 49260105739,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2022-04-01T06:59:00.000Z",
+      "total": 51388555903,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2022-03-01T06:59:00.000Z",
+      "total": 53496850808,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2022-02-01T06:59:00.000Z",
+      "total": 50031478777,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2022-01-01T06:59:00.000Z",
+      "total": 42416160651,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2021-12-01T06:59:00.000Z",
+      "total": 38744141217,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2021-11-01T06:59:00.000Z",
+      "total": 32976946989,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2021-10-01T06:59:00.000Z",
+      "total": 31652676021,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2021-09-01T06:59:00.000Z",
+      "total": 27415446969,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2021-08-01T06:59:00.000Z",
+      "total": 27312456821,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2021-07-01T06:59:00.000Z",
+      "total": 25158531650,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2021-06-01T06:59:00.000Z",
+      "total": 22176182251,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2021-05-01T06:59:00.000Z",
+      "total": 14697267257,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2021-04-01T06:59:00.000Z",
+      "total": 11219974240,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2021-03-01T06:59:00.000Z",
+      "total": 9429129577,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2021-02-01T06:59:00.000Z",
+      "total": 5997307895,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2021-01-01T06:59:00.000Z",
+      "total": 4013497398,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2020-12-01T06:59:00.000Z",
+      "total": 3002021340,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2020-11-01T06:59:00.000Z",
+      "total": 2971030556,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2020-10-01T06:59:00.000Z",
+      "total": 2513941166,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2020-09-01T06:59:00.000Z",
+      "total": 1467498769,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2020-08-01T06:59:00.000Z",
+      "total": 1082327899,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2020-07-01T06:59:00.000Z",
+      "total": 985448435,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2020-06-01T06:59:00.000Z",
+      "total": 730800467,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2020-05-01T06:59:00.000Z",
+      "total": 726804679,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2020-04-01T06:59:00.000Z",
+      "total": 692955272,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2020-03-01T06:59:00.000Z",
+      "total": 444800620,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2020-02-01T06:59:00.000Z",
+      "total": 440715490,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2020-01-01T06:59:00.000Z",
+      "total": 519628995,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2019-12-01T06:59:00.000Z",
+      "total": 457103362,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2019-11-01T06:59:00.000Z",
+      "total": 464507005,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2019-10-01T06:59:00.000Z",
+      "total": 429470737,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2019-09-01T06:59:00.000Z",
+      "total": 453785690,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2019-08-01T06:59:00.000Z",
+      "total": 435017581,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2019-07-01T06:59:00.000Z",
+      "total": 366619335,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2019-06-01T06:59:00.000Z",
+      "total": 333854877,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2019-05-01T06:59:00.000Z",
+      "total": 293184174,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2019-04-01T06:59:00.000Z",
+      "total": 246586876,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2019-03-01T06:59:00.000Z",
+      "total": 236917932,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2019-02-01T06:59:00.000Z",
+      "total": 307793724,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2019-01-01T06:59:00.000Z",
+      "total": 251211148,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2018-12-01T06:59:00.000Z",
+      "total": 177190279,
+      "source": "https://www.centre.io/usdc-transparency"
+    },
+    {
+      "timestamp": "2018-11-01T06:59:00.000Z",
+      "total": 127408827,
+      "source": "https://www.centre.io/usdc-transparency"
+    }
+  ],
+  "backing": [
+    {
+      "timestamp": "2022-12-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 43404329767
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 43238943390,
+      "ratio": 1.1065,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2022-11-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 43754958453
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 43507961021,
+      "ratio": 1.1134,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2022-10-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 47479523936
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 47261819834,
+      "ratio": 1.2094,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2022-09-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 52430816552
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 52258056105,
+      "ratio": 1.3373,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2022-08-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 54618693479
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 54488837404,
+      "ratio": 1.3943,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2022-07-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 55569660586
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 55569660586,
+      "ratio": 1.422,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2022-06-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 54005995420
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 54005995420,
+      "ratio": 1.382,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2022-05-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 49260105739
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 49260105739,
+      "ratio": 1.2605,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2022-04-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 51388555903
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 51388555903,
+      "ratio": 1.315,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2022-03-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 53496850808
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 53496850808,
+      "ratio": 1.369,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2022-02-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 50031478777
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 50031478777,
+      "ratio": 1.2803,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2022-01-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 42416160651
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 42416160651,
+      "ratio": 1.0854,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2021-12-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 38744141217
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 38744141217,
+      "ratio": 0.9914,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2021-11-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 32976946989
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 32976946989,
+      "ratio": 0.8439,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2021-10-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 31652676021
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 31652676021,
+      "ratio": 0.81,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2021-09-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 27415446969
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 27415446969,
+      "ratio": 0.7015,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2021-08-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 27312456821
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 27312456821,
+      "ratio": 0.6989,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2021-07-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 25158531650
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 25158531650,
+      "ratio": 0.6438,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2021-06-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 22176182251
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 22176182251,
+      "ratio": 0.5675,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2021-05-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 14697267257
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 14697267257,
+      "ratio": 0.3761,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2021-04-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 11141404000
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 11141404000,
+      "ratio": 0.2851,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2021-03-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 9382986657
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 9382986657,
+      "ratio": 0.2401,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2021-02-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 6002293927
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 5997307895,
+      "ratio": 0.1535,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2021-01-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 4011270692
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 4011270692,
+      "ratio": 0.1026,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2020-12-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 3004921958
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 3002021340,
+      "ratio": 0.0768,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2020-11-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 2973954847
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 2971030556,
+      "ratio": 0.076,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2020-10-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 2515032711
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 2513941166,
+      "ratio": 0.0643,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2020-09-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 1477969595
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 1467498769,
+      "ratio": 0.0376,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2020-08-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 1085282837
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 1082327899,
+      "ratio": 0.0277,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2020-07-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 990897799
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 985448435,
+      "ratio": 0.0252,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2020-06-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 746657617
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 730800467,
+      "ratio": 0.0187,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2020-05-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 727324351
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 726804679,
+      "ratio": 0.0186,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2020-04-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 693685964
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 692955272,
+      "ratio": 0.0177,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2020-03-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 451257764
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 444800620,
+      "ratio": 0.0114,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2020-02-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 440780676
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 440715490,
+      "ratio": 0.0113,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2020-01-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 520537729
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 519628995,
+      "ratio": 0.0133,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2019-12-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 458157517
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 457103362,
+      "ratio": 0.0117,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2019-11-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 464628070
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 464507005,
+      "ratio": 0.0119,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2019-10-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 429965320
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 429470737,
+      "ratio": 0.011,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2019-09-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 453848516
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 453785690,
+      "ratio": 0.0116,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2019-08-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 436244741
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 435017581,
+      "ratio": 0.0111,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2019-07-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 366857842
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 366619335,
+      "ratio": 0.0094,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2019-06-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 333887466
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 333854877,
+      "ratio": 0.0085,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2019-05-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 293351374
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 293184174,
+      "ratio": 0.0075,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2019-04-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 246590714
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 246586876,
+      "ratio": 0.0063,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2019-03-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 236939216
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 236917932,
+      "ratio": 0.0061,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2019-02-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 307848312
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 307793724,
+      "ratio": 0.0079,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2019-01-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 251211209
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 251211148,
+      "ratio": 0.0064,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2018-12-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 180192792
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 177190279,
+      "ratio": 0.0045,
+      "uniformity": 1
+    },
+    {
+      "timestamp": "2018-11-01T06:59:00.000Z",
+      "assets": {
+        "usd-fed": 127412240.89
+      },
+      "source": "https://www.centre.io/usdc-transparency",
+      "backing-assets": 1,
+      "backing-usd": 127408827,
+      "ratio": 0.0033,
+      "uniformity": 1
+    }
+  ],
+  "mcap": 39078416869.56
+}

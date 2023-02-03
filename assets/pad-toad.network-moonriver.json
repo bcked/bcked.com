@@ -1,0 +1,79 @@
+{
+  "id": "pad-toad.network-moonriver",
+  "links": {
+    "self": "/assets/pad-toad.network-moonriver.json",
+    "ui": "/assets/pad-toad.network-moonriver"
+  },
+  "icon": "assets/pad-toad.network-moonriver/icon.png",
+  "name": "Movr Pad",
+  "symbol": "PAD",
+  "issuer": "toad.network",
+  "reference": "https://dapps.padswap.exchange/",
+  "tags": [
+    "cryptocurrency",
+    "vault"
+  ],
+  "contracts": {
+    "token": {
+      "id": "moonriver:0x45488c50184ce2092756ba7cdf85731fd17e6f3d",
+      "links": {
+        "self": "/tokens/moonriver:0x45488c50184ce2092756ba7cdf85731fd17e6f3d.json"
+      },
+      "address": "0x45488c50184ce2092756ba7cdf85731fd17e6f3d",
+      "chain": "moonriver"
+    },
+    "vault": null
+  },
+  "price": [
+    {
+      "timestamp": "2023-01-02T18:17:00.000Z",
+      "usd": 1.165e-7,
+      "source": "https://dexscreener.com/moonriver/0xf635481baa52d40bdd3a5225add1064b4a113c0c"
+    },
+    {
+      "timestamp": "2022-06-11T00:00:00.000Z",
+      "usd": 1.851e-7,
+      "source": "https://dexscreener.com/moonriver/0xf635481baa52d40bdd3a5225add1064b4a113c0c"
+    }
+  ],
+  "supply": [
+    {
+      "timestamp": "2023-02-03T18:58:12.732Z",
+      "total": 78661864766.78966,
+      "source": "https://rpc.api.moonriver.moonbeam.network"
+    },
+    {
+      "timestamp": "2023-02-02T20:58:58.065Z",
+      "total": 78643118083.44736,
+      "source": "https://rpc.api.moonriver.moonbeam.network"
+    },
+    {
+      "timestamp": "2023-01-02T18:17:00.000Z",
+      "total": 75602211595.61,
+      "source": "https://moonriver.moonscan.io/token/0x45488c50184ce2092756ba7cdf85731fd17e6f3d"
+    },
+    {
+      "timestamp": "2022-06-11T00:00:00.000Z",
+      "total": 51044023817.91,
+      "source": "https://moonriver.moonscan.io/token/0x45488c50184ce2092756ba7cdf85731fd17e6f3d"
+    }
+  ],
+  "backing": [
+    {
+      "timestamp": "2023-01-03T18:40:00.000Z",
+      "assets": {
+        "pad-toad.network-moonriver": 9488974201.18063,
+        "movr.wrapped-moonbeam-moonriver": 343.2075067600664,
+        "busd-multichain-moonriver": 580.8499001075859,
+        "usdc-multichain-moonriver": 804.3876987466698,
+        "toad-toad.network-moonriver": 463.71059617055926
+      },
+      "source": "../lily-pad/scripts",
+      "backing-assets": 3,
+      "backing-usd": 5371.9,
+      "ratio": 0.5862,
+      "uniformity": 0.8824
+    }
+  ],
+  "mcap": 9164.11
+}

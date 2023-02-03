@@ -1,19 +1,18 @@
 {
   "id": "gold",
-  "path": "/assets/gold",
-  "symbol": "GOLD",
+  "links": {
+    "self": "/assets/gold.json",
+    "ui": "/assets/gold"
+  },
+  "icon": "assets/gold/icon.png",
   "name": "Gold",
-  "description": null,
-  "homepage": null,
-  "docs": null,
-  "source": null,
-  "community": [],
-  "audits": [],
-  "contracts": [],
-  "backing-info": null,
+  "symbol": "GOLD",
+  "issuer": null,
+  "reference": null,
   "tags": [
     "commodity"
   ],
+  "contracts": null,
   "price": [
     {
       "timestamp": "2023-01-02T18:19:20.000Z",
@@ -29,23 +28,20 @@
   "supply": [
     {
       "timestamp": "2022-04-29T00:00:00.000Z",
-      "circulating": 8606846715.69,
-      "max": null,
       "total": 8606846715.69,
       "source": "https://www.usgs.gov/faqs/how-much-gold-has-been-found-world"
     }
   ],
   "backing": [
     {
-      "timestamp": "2023-01-15T17:09:59.359Z",
-      "assets": [],
-      "source": null,
+      "timestamp": "2023-02-03T18:58:13.637Z",
+      "assets": {},
+      "source": "No supply recorded in bcked.",
       "backing-assets": 0,
       "backing-usd": 0,
       "ratio": 0,
       "uniformity": 1
     }
   ],
-  "mcap": 15678748388103.85,
-  "icon": "assets/gold/icon.png"
+  "mcap": 15678748388103.85
 }

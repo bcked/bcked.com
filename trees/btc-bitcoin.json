@@ -1,0 +1,26 @@
+{
+  "timestamp": "2023-02-03T18:58:13.631Z",
+  "nodes": [
+    {
+      "id": "unbacked",
+      "value": 321863415432
+    },
+    {
+      "id": "btc-bitcoin",
+      "name": "Bitcoin",
+      "value": 321863415432,
+      "level": 0
+    }
+  ],
+  "links": [
+    {
+      "source": "btc-bitcoin",
+      "target": "unbacked",
+      "value": 321863415432,
+      "level": 0
+    }
+  ],
+  "value": 321863415432,
+  "unbacked": 321863415432,
+  "backed": 0
+}

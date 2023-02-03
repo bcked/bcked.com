@@ -1,0 +1,26 @@
+{
+  "timestamp": "2023-02-03T18:58:13.646Z",
+  "nodes": [
+    {
+      "id": "unbacked",
+      "value": 5039988976.5
+    },
+    {
+      "id": "usdc-circle-solana",
+      "name": "USD Coin",
+      "value": 5039988976.5,
+      "level": 0
+    }
+  ],
+  "links": [
+    {
+      "source": "usdc-circle-solana",
+      "target": "unbacked",
+      "value": 5039988976.5,
+      "level": 0
+    }
+  ],
+  "value": 5039988976.5,
+  "unbacked": 5039988976.5,
+  "backed": 0
+}

@@ -1,0 +1,38 @@
+{
+  "timestamp": "2023-02-03T18:58:12.326Z",
+  "nodes": [
+    {
+      "id": "bnb-wormhole-solana",
+      "name": "Wrapped BNB",
+      "value": 3408697.74,
+      "level": 0
+    },
+    {
+      "id": "unbacked",
+      "value": 0
+    },
+    {
+      "id": "bnb-binance-bsc",
+      "name": "Wrapped BNB",
+      "value": 3408697.74,
+      "level": 1
+    }
+  ],
+  "links": [
+    {
+      "source": "bnb-wormhole-solana",
+      "target": "bnb-binance-bsc",
+      "value": 3408697.74,
+      "level": 0
+    },
+    {
+      "source": "bnb-binance-bsc",
+      "target": "unbacked",
+      "value": 3408697.74,
+      "level": 1
+    }
+  ],
+  "value": 3408697.74,
+  "unbacked": 0,
+  "backed": 3408697.74
+}

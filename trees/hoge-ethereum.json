@@ -1,0 +1,26 @@
+{
+  "timestamp": "2023-02-03T18:58:13.637Z",
+  "nodes": [
+    {
+      "id": "unbacked",
+      "value": 40020000
+    },
+    {
+      "id": "hoge-ethereum",
+      "name": "Hoge Finance",
+      "value": 40020000,
+      "level": 0
+    }
+  ],
+  "links": [
+    {
+      "source": "hoge-ethereum",
+      "target": "unbacked",
+      "value": 40020000,
+      "level": 0
+    }
+  ],
+  "value": 40020000,
+  "unbacked": 40020000,
+  "backed": 0
+}

@@ -1,0 +1,50 @@
+{
+  "timestamp": "2023-02-03T18:58:12.012Z",
+  "nodes": [
+    {
+      "id": "usdc-binance-bsc",
+      "name": "USD Coin",
+      "value": 879878999.85,
+      "level": 0
+    },
+    {
+      "id": "unbacked",
+      "value": 0
+    },
+    {
+      "id": "usdc-circle-ethereum",
+      "name": "USD Coin",
+      "value": 879878999.85,
+      "level": 1
+    },
+    {
+      "id": "usd-fed",
+      "name": "U.S. dollar",
+      "value": 879878999.85,
+      "level": 2
+    }
+  ],
+  "links": [
+    {
+      "source": "usdc-binance-bsc",
+      "target": "usdc-circle-ethereum",
+      "value": 879878999.85,
+      "level": 0
+    },
+    {
+      "source": "usdc-circle-ethereum",
+      "target": "usd-fed",
+      "value": 879878999.85,
+      "level": 1
+    },
+    {
+      "source": "usd-fed",
+      "target": "unbacked",
+      "value": 879878999.85,
+      "level": 2
+    }
+  ],
+  "value": 879878999.85,
+  "unbacked": 0,
+  "backed": 879878999.85
+}

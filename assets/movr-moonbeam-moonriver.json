@@ -1,0 +1,43 @@
+{
+  "id": "movr-moonbeam-moonriver",
+  "links": {
+    "self": "/assets/movr-moonbeam-moonriver.json",
+    "ui": "/assets/movr-moonbeam-moonriver"
+  },
+  "icon": "assets/movr-moonbeam-moonriver/icon.png",
+  "name": "MOVR",
+  "symbol": "MOVR",
+  "issuer": "moonbeam",
+  "reference": "https://moonbeam.network/networks/moonriver/",
+  "tags": [
+    "cryptocurrency",
+    "native"
+  ],
+  "contracts": null,
+  "price": [
+    {
+      "timestamp": "2023-01-03T18:45:00.000Z",
+      "usd": 6.13,
+      "source": "https://dexscreener.com/moonriver/0x38185bf42e4d6d0b51db5f6c2b83064008549087"
+    }
+  ],
+  "supply": [
+    {
+      "timestamp": "2023-01-03T18:45:00.000Z",
+      "total": 10613366,
+      "source": "https://coinmarketcap.com/currencies/moonriver/"
+    }
+  ],
+  "backing": [
+    {
+      "timestamp": "2023-02-03T18:58:13.637Z",
+      "assets": {},
+      "source": "No supply recorded in bcked.",
+      "backing-assets": 0,
+      "backing-usd": 0,
+      "ratio": 0,
+      "uniformity": 1
+    }
+  ],
+  "mcap": 65059933.58
+}

@@ -1,0 +1,26 @@
+{
+  "timestamp": "2023-02-03T18:58:13.637Z",
+  "nodes": [
+    {
+      "id": "unbacked",
+      "value": 5194.43
+    },
+    {
+      "id": "movr.wrapped-moonbeam-moonriver",
+      "name": "Wrapped MOVR",
+      "value": 5194.43,
+      "level": 0
+    }
+  ],
+  "links": [
+    {
+      "source": "movr.wrapped-moonbeam-moonriver",
+      "target": "unbacked",
+      "value": 5194.43,
+      "level": 0
+    }
+  ],
+  "value": 5194.43,
+  "unbacked": 5194.43,
+  "backed": 0
+}

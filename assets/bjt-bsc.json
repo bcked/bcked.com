@@ -1,0 +1,67 @@
+{
+  "id": "bjt-bsc",
+  "links": {
+    "self": "/assets/bjt-bsc.json",
+    "ui": "/assets/bjt-bsc"
+  },
+  "icon": "assets/bjt-bsc/icon.png",
+  "name": "Bullish Jackpot",
+  "symbol": "BJT",
+  "issuer": null,
+  "reference": null,
+  "tags": [
+    "cryptocurrency"
+  ],
+  "contracts": {
+    "token": {
+      "id": "bsc:0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658",
+      "links": {
+        "self": "/tokens/bsc:0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658.json"
+      },
+      "address": "0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658",
+      "chain": "bsc"
+    },
+    "vault": null
+  },
+  "price": [
+    {
+      "timestamp": "2023-01-02T18:22:00.000Z",
+      "usd": 1.527e-9,
+      "source": "https://dexscreener.com/bsc/0xeb22ebb99d5e6b16ae35b77cf136c60cd077b8cb"
+    },
+    {
+      "timestamp": "2022-08-23T18:54:00.000Z",
+      "usd": 2.478e-9,
+      "source": "https://dexscreener.com/bsc/0xeb22ebb99d5e6b16ae35b77cf136c60cd077b8cb"
+    }
+  ],
+  "supply": [
+    {
+      "timestamp": "2023-02-03T18:58:12.324Z",
+      "total": 1000000000000,
+      "source": "https://bsc-dataseed3.binance.org/"
+    },
+    {
+      "timestamp": "2023-02-02T20:58:58.063Z",
+      "total": 1000000000000,
+      "source": "https://bsc-dataseed3.binance.org/"
+    },
+    {
+      "timestamp": "2022-08-23T18:54:00.000Z",
+      "total": 1000000000000,
+      "source": null
+    }
+  ],
+  "backing": [
+    {
+      "timestamp": "2023-02-03T18:58:13.630Z",
+      "assets": {},
+      "source": "No supply recorded in bcked.",
+      "backing-assets": 0,
+      "backing-usd": 0,
+      "ratio": 0,
+      "uniformity": 1
+    }
+  ],
+  "mcap": 1527
+}

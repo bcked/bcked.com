@@ -1,0 +1,26 @@
+{
+  "timestamp": "2023-02-03T18:58:13.631Z",
+  "nodes": [
+    {
+      "id": "unbacked",
+      "value": 1421047488
+    },
+    {
+      "id": "btc-binance-bsc",
+      "name": "Binance-Peg Bitcoin",
+      "value": 1421047488,
+      "level": 0
+    }
+  ],
+  "links": [
+    {
+      "source": "btc-binance-bsc",
+      "target": "unbacked",
+      "value": 1421047488,
+      "level": 0
+    }
+  ],
+  "value": 1421047488,
+  "unbacked": 1421047488,
+  "backed": 0
+}
