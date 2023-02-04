@@ -8,6 +8,7 @@ import { writeTimestampFile } from '$pre/record-file';
 import { calcStats } from '$pre/stats';
 import { loadTokens } from '$pre/tokens';
 import { loadTrees } from '$pre/tree';
+import fs from 'fs';
 
 console.log(`Hook execution`);
 
@@ -27,6 +28,7 @@ const update = await readFromCache<{ timestamp: number }>('update');
 
 if (!update || Date.now() - update.timestamp > 60 * 1000) {
 	console.log(`Preprocessing execution`);
+	fs.mkdirSync('./.cache');
 
 	// Update Data
 	let assets = await loadAssets({});
