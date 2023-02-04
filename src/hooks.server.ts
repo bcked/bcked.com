@@ -28,7 +28,7 @@ const update = await readFromCache<{ timestamp: number }>('update');
 
 if (!update || Date.now() - update.timestamp > 60 * 1000) {
 	console.log(`Preprocessing execution`);
-	fs.mkdirSync('./.cache');
+	fs.mkdirSync('./.cache', { recursive: true });
 
 	// Update Data
 	let assets = await loadAssets({});
