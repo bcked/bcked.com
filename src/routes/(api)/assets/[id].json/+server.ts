@@ -1,12 +1,11 @@
-import type { RequestHandler } from './$types';
-import { jsonResponse } from '$lib/utils/response';
-import { jsonError } from '$lib/utils/response';
 import { _readAssets } from '$api/assets.json/+server';
+import { jsonError, jsonResponse } from '$lib/utils/response';
+import type { RequestHandler } from './$types';
 
 export const prerender = true;
 
-export function _readAsset(id: string): api.Asset {
-	const assets = _readAssets();
+export async function _readAsset(id: string): Promise<api.Asset> {
+	const assets = await _readAssets();
 
 	if (!(id in assets)) {
 		throw jsonError(404, {
@@ -19,7 +18,7 @@ export function _readAsset(id: string): api.Asset {
 }
 
 export const GET: RequestHandler = async ({ params }) => {
-	const asset = _readAsset(params.id);
+	const asset = await _readAsset(params.id);
 
 	return jsonResponse(asset);
 };

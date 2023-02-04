@@ -1,9 +1,9 @@
-import type { PageServerLoad } from './$types';
+import { _readAssets } from '$api/assets.json/+server';
+import { _readTree } from '$api/trees/[id].json/+server';
 import fs from 'fs';
 import glob from 'glob';
 import { marked } from 'marked';
-import { _readTree } from '$api/trees/[id].json/+server';
-import { _readAssets } from '$api/assets.json/+server';
+import type { PageServerLoad } from './$types';
 
 var renderer = new marked.Renderer();
 renderer.heading = function (text: string) {
@@ -24,10 +24,10 @@ function loadComments(assetId: string, commentType: CommentType): Comments {
 		.map((html) => ({ type: commentType, html }));
 }
 
-export const load: PageServerLoad = ({ params }) => {
-	const assets = _readAssets();
+export const load: PageServerLoad = async ({ params }) => {
+	const assets = await _readAssets();
 	const asset = assets[params.id]!;
-	const backing = _readTree(params.id);
+	const backing = await _readTree(params.id);
 	const doubts = loadComments(params.id, 'doubt');
 	const praise = loadComments(params.id, 'praise');
 

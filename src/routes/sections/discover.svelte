@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { ChartBarIcon, ClockIcon, HashtagIcon } from '@rgossiaux/svelte-heroicons/outline';
-	import Section from '$components/section.svelte';
-	import SectionHeader from '$components/section-header.svelte';
-	import Glow from '$components/glow.svelte';
-	import { formatCurrency } from '$lib/utils/string-formatting';
 	import AssetList from '$components/asset-list.svelte';
+	import Glow from '$components/glow.svelte';
+	import SectionHeader from '$components/section-header.svelte';
+	import Section from '$components/section.svelte';
+	import { formatCurrency } from '$lib/utils/string-formatting';
+	import { ChartBarIcon, ClockIcon, HashtagIcon } from '@rgossiaux/svelte-heroicons/outline';
 
 	export let theme: ui.Theme;
 

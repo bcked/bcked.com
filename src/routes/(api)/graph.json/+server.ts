@@ -1,13 +1,11 @@
-import type { RequestHandler } from './$types';
+import { readFromCache } from '$lib/utils/files';
 import { jsonError, jsonResponse } from '$lib/utils/response';
-import { _readTrees } from '$api/trees.json/+server';
-import _ from 'lodash';
-import { readFromCache } from '$pre/cache';
+import type { RequestHandler } from './$types';
 
 export const prerender = true;
 
-export function _readGraph(): api.Graph {
-	const graph = readFromCache<api.Graph>('graph');
+export async function _readGraph(): Promise<api.Graph> {
+	const graph = await readFromCache<api.Graph>('graph');
 
 	if (!graph) {
 		throw jsonError(404, {
@@ -19,7 +17,7 @@ export function _readGraph(): api.Graph {
 }
 
 export const GET: RequestHandler = async ({ params }) => {
-	const graph = _readGraph();
+	const graph = await _readGraph();
 
 	return jsonResponse(graph);
 };

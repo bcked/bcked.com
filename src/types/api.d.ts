@@ -10,6 +10,10 @@ declare namespace api {
 	type Assets = cache.Assets;
 	type Token = cache.Token;
 	type Tokens = cache.Tokens;
+	type Issuer = cache.Issuer;
+	type Issuers = cache.Issuers;
+	type Chain = cache.Chain;
+	type Chains = cache.Chains;
 
 	type TreeNode = {
 		id: string;

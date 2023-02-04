@@ -1,15 +1,15 @@
 // https://www.sitemaps.org/protocol.html
-import type { RequestHandler } from './$types';
-import { compareDates } from '$lib/utils/string-formatting';
 import { _readAssets } from '$api/assets.json/+server';
 import { dev } from '$app/environment';
+import { compareDates } from '$lib/utils/string-formatting';
+import type { RequestHandler } from './$types';
 
 export const prerender = true;
 
 export const GET: RequestHandler = async () => {
 	const domain = dev ? 'http://localhost:5173' : 'https://bcked.com';
 
-	const assets = _readAssets();
+	const assets = await _readAssets();
 	const sortedAssets = Object.entries(assets)
 		.map(([id, asset]) => ({ ...asset, path: `${domain}/assets/${id}` }))
 		.filter((asset) => asset.backing[0]!['backing-assets'] > 0)

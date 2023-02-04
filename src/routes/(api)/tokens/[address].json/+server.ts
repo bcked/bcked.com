@@ -4,8 +4,8 @@ import type { RequestHandler } from './$types';
 
 export const prerender = false;
 
-export function _readToken(address: string): api.Token {
-	const tokens = _readTokens();
+export async function _readToken(address: string): Promise<api.Token> {
+	const tokens = await _readTokens();
 
 	if (!(address in tokens)) {
 		throw jsonError(404, { id: address, asset: {}, message: `Token ${address} not found.` });
@@ -15,7 +15,7 @@ export function _readToken(address: string): api.Token {
 }
 
 export const GET: RequestHandler = async ({ params }) => {
-	const token = _readToken(params.address);
+	const token = await _readToken(params.address);
 
 	return jsonResponse(token);
 };

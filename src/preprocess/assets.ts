@@ -1,27 +1,30 @@
-import fs from 'fs';
-import path from 'path';
-import _ from 'lodash';
 import { base } from '$app/paths';
 import { readJson } from '$lib/utils/files';
 import { round } from '$lib/utils/math';
+import fs from 'fs';
+import path from 'path';
 
-function loadHistoricalData<Type>(dirPath: string): ({ timestamp: string } & Type)[] | undefined {
+async function loadHistoricalData<Type>(
+	dirPath: string
+): Promise<({ timestamp: string } & Type)[] | undefined> {
 	if (!fs.existsSync(dirPath)) {
 		return undefined;
 	}
 
 	const timepoints = fs.readdirSync(dirPath);
-	return timepoints
-		.map((filename) => path.parse(filename).name)
-		.sort((a, b) => -a.localeCompare(b))
-		.map((timestamp) => ({
-			timestamp,
-			...readJson<Type>(`${dirPath}/${timestamp}.json`)!
-		}));
+	return Promise.all(
+		timepoints
+			.map((filename) => path.parse(filename).name)
+			.sort((a, b) => -a.localeCompare(b))
+			.map(async (timestamp) => ({
+				timestamp,
+				...(await readJson<Type>(`${dirPath}/${timestamp}.json`))!
+			}))
+	);
 }
 
-function loadContracts(assetPath: string): api.Contracts | undefined {
-	const fileContracts = readJson<files.Contracts>(`${assetPath}/contracts.json`);
+async function loadContracts(assetPath: string): Promise<api.Contracts | undefined> {
+	const fileContracts = await readJson<files.Contracts>(`${assetPath}/contracts.json`);
 	if (!fileContracts) return undefined;
 
 	const id = `${fileContracts.token.chain}:${fileContracts.token.address}`;
@@ -50,32 +53,32 @@ function loadContracts(assetPath: string): api.Contracts | undefined {
 	return contracts;
 }
 
-function loadAsset(id: string, icons: cache.Icons): api.Asset {
+async function loadAsset(id: string, icons: cache.Icons): Promise<api.Asset> {
 	const assetPath = `./assets/${id}`;
 
-	const details = readJson<files.Details>(`${assetPath}/details.json`) ?? {
+	const details = (await readJson<files.Details>(`${assetPath}/details.json`)) ?? {
 		name: 'Unknown',
 		symbol: 'UNK',
 		issuer: 'unknown',
 		reference: '',
 		tags: ['unknown']
 	};
-	const contracts = loadContracts(assetPath) ?? null;
-	const price = loadHistoricalData<files.Price>(`${assetPath}/price`) ?? [
+	const contracts = (await loadContracts(assetPath)) ?? null;
+	const price = (await loadHistoricalData<files.Price>(`${assetPath}/price`)) ?? [
 		{
 			timestamp: new Date().toISOString(),
 			usd: 0,
 			source: 'No price recorded in bcked.'
 		}
 	];
-	const supply = loadHistoricalData<files.Supply>(`${assetPath}/supply`) ?? [
+	const supply = (await loadHistoricalData<files.Supply>(`${assetPath}/supply`)) ?? [
 		{
 			timestamp: new Date().toISOString(),
 			total: 0,
 			source: 'No supply recorded in bcked.'
 		}
 	];
-	const backing = loadHistoricalData<files.Backing>(`${assetPath}/backing`) ?? [
+	const backing = (await loadHistoricalData<files.Backing>(`${assetPath}/backing`)) ?? [
 		{
 			timestamp: new Date().toISOString(),
 			assets: {},
@@ -109,15 +112,13 @@ function loadAsset(id: string, icons: cache.Icons): api.Asset {
 	};
 }
 
-export function loadAssets(icons: cache.Icons): api.Assets {
+export async function loadAssets(icons: cache.Icons): Promise<api.Assets> {
 	const assetNames = fs.readdirSync('./assets');
 
-	const assets = assetNames.reduce(
-		(a, assetName) => ({
-			...a,
-			[assetName]: loadAsset(assetName, icons)
-		}),
-		{}
+	const assets = Object.fromEntries(
+		await Promise.all(
+			assetNames.map(async (assetName) => [assetName, await loadAsset(assetName, icons)])
+		)
 	);
 
 	return assets;

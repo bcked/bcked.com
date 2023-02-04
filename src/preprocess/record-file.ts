@@ -17,7 +17,7 @@ export function writeTimestampFile(
 	name: string,
 	type: string,
 	obj: (Object & { timestamp: number | string }) | undefined | null,
-	patience: number = 60 * 60 * 1000
+	patience: number = 12 * 60 * 60 * 1000 // 12h
 ) {
 	if (!obj) {
 		console.log(`${name}: No ${type} data to store.`);

@@ -1,7 +1,6 @@
 import { minMaxNorm, zScoreNorm } from '$lib/utils/math';
-import { _readTrees } from '$api/trees.json/+server';
-import _ from 'lodash';
 import * as d3 from 'd3';
+import _ from 'lodash';
 
 export function buildGraph(trees: api.Trees): api.Graph {
 	let _trees = _.map(Object.values(trees), (items) => items[0]!);

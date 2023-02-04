@@ -1,11 +1,11 @@
+import { readFromCache } from '$lib/utils/files';
 import { jsonError, jsonResponse } from '$lib/utils/response';
-import { readFromCache } from '$pre/cache';
 import type { RequestHandler } from './$types';
 
 export const prerender = false;
 
-export function _readTokens(): api.Tokens {
-	const tokens = readFromCache<api.Tokens>('tokens');
+export async function _readTokens(): Promise<api.Tokens> {
+	const tokens = await readFromCache<api.Tokens>('tokens');
 
 	if (!tokens) {
 		throw jsonError(404, { message: `Token mapping not found.` });
@@ -15,7 +15,7 @@ export function _readTokens(): api.Tokens {
 }
 
 export const GET: RequestHandler = async ({ params }) => {
-	const tokens = _readTokens();
+	const tokens = await _readTokens();
 
 	return jsonResponse(tokens);
 };

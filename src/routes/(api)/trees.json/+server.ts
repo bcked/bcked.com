@@ -1,12 +1,11 @@
+import { readFromCache } from '$lib/utils/files';
+import { jsonError, jsonResponse } from '$lib/utils/response';
 import type { RequestHandler } from './$types';
-import { jsonError } from '$lib/utils/response';
-import { jsonResponse } from '$lib/utils/response';
-import { readFromCache } from '$pre/cache';
 
 export const prerender = true;
 
-export function _readTrees(): api.Trees {
-	let trees = readFromCache<api.Trees>('trees');
+export async function _readTrees(): Promise<api.Trees> {
+	let trees = await readFromCache<api.Trees>('trees');
 
 	if (!trees) {
 		throw jsonError(404, { message: `Asset mapping not found.` });
@@ -16,7 +15,7 @@ export function _readTrees(): api.Trees {
 }
 
 export const GET: RequestHandler = async ({ params }) => {
-	const trees = _readTrees();
+	const trees = await _readTrees();
 
 	return jsonResponse(trees);
 };

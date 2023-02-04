@@ -126,4 +126,19 @@ declare namespace cache {
 	};
 
 	type Icons = { [key: string]: Icon };
+
+	type Issuer = GenericId & {
+		name: string;
+		reference: string;
+		tags: string[];
+	};
+
+	type Issuers = { [key: string]: Issuer };
+
+	type Chain = GenericId & {
+		name: string;
+		explorer: string;
+	};
+
+	type Chains = { [key: string]: Chain };
 }
