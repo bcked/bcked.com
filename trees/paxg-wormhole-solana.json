@@ -1,10 +1,10 @@
 {
-  "timestamp": "2023-02-03T22:09:20.499Z",
+  "timestamp": "2023-02-04T22:09:01.310Z",
   "nodes": [
     {
       "id": "paxg-wormhole-solana",
       "name": "Paxos Gold",
-      "value": 821564.65,
+      "value": 820328.34,
       "level": 0
     },
     {
@@ -14,13 +14,13 @@
     {
       "id": "paxg-paxos-ethereum",
       "name": "PAX Gold",
-      "value": 821564.65,
+      "value": 820328.34,
       "level": 1
     },
     {
       "id": "gold",
       "name": "Gold",
-      "value": 821564.65,
+      "value": 820328.34,
       "level": 2
     }
   ],
@@ -28,23 +28,23 @@
     {
       "source": "paxg-wormhole-solana",
       "target": "paxg-paxos-ethereum",
-      "value": 821564.65,
+      "value": 820328.34,
       "level": 0
     },
     {
       "source": "paxg-paxos-ethereum",
       "target": "gold",
-      "value": 821564.65,
+      "value": 820328.34,
       "level": 1
     },
     {
       "source": "gold",
       "target": "unbacked",
-      "value": 821564.65,
+      "value": 820328.34,
       "level": 2
     }
   ],
-  "value": 821564.65,
+  "value": 820328.34,
   "unbacked": 0,
-  "backed": 821564.65
+  "backed": 820328.34
 }
