@@ -1,6 +1,17 @@
 {
-    "token": {
-        "address": "0x45488c50184ce2092756ba7cdf85731fd17e6f3d",
-        "chain": "moonriver"
-    }
+	"token": {
+		"address": "0x45488C50184Ce2092756ba7CdF85731fD17e6f3d",
+		"chain": "moonriver"
+	},
+	"vault": {
+		"address": "0x7a06dbaE8666e7DbdCf26A37be020dfedC782176",
+		"chain": "moonriver",
+		"underlying-assets": [
+			"lp-pad-movr-toad.network-moonriver",
+			"lp-busd-usdc-toad.network-moonriver",
+			"lp-usdc-movr-toad.network-moonriver",
+			"lp-toad-movr-toad.network-moonriver",
+			"toad-toad.network-moonriver"
+		]
+	}
 }

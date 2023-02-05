@@ -92,19 +92,23 @@ export async function queryAssets(assets: cache.Assets): Promise<QueryResults> {
 	Object.entries(allData).forEach(([id, data]) => {
 		if (!data.price && assets[id]!.tags.includes('lp') && data.supply && data.backing) {
 			// Calculate Net Asset Value (NAV) for LP tokens and take that as price.
-			const totalBacking = _.sum(
-				Object.entries(data.backing.assets).map(
-					([bId, bAmount]) => allData[bId]!.price!.usd * bAmount
-				)
-			);
-			const price = totalBacking / data.supply.total;
-			data.price = {
-				usd: price,
-				source: `Calculated Net Asset Value (NAV) based on the LPs underlying assets: ${Object.keys(
-					data.backing.assets
-				)}`,
-				timestamp: Date.now()
-			};
+			try {
+				const totalBacking = _.sum(
+					Object.entries(data.backing.assets).map(
+						([bId, bAmount]) => allData[bId]!.price!.usd * bAmount
+					)
+				);
+				const price = totalBacking / data.supply.total;
+				data.price = {
+					usd: price,
+					source: `Calculated Net Asset Value (NAV) based on the LPs underlying assets: ${Object.keys(
+						data.backing.assets
+					)}`,
+					timestamp: Date.now()
+				};
+			} catch {
+				console.log(`Failed to pull LP prices for ${id}.`);
+			}
 		}
 	});
 
