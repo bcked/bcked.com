@@ -38,6 +38,11 @@
     ],
     "supply": [
       {
+        "timestamp": "2023-02-05T12:18:56.500Z",
+        "total": 1000000000000,
+        "source": "https://bsc-dataseed3.binance.org/"
+      },
+      {
         "timestamp": "2023-02-04T22:09:01.639Z",
         "total": 1000000000000,
         "source": "https://bsc-dataseed3.binance.org/"
@@ -65,7 +70,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-04T22:47:14.396Z",
+        "timestamp": "2023-02-05T14:57:52.115Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -88,8 +93,7 @@
     "issuer": "binance",
     "reference": "https://www.binance.com/en",
     "tags": [
-      "cryptocurrency",
-      "native"
+      "cryptocurrency"
     ],
     "contracts": {
       "token": {
@@ -103,6 +107,11 @@
       "vault": null
     },
     "price": [
+      {
+        "timestamp": "2023-02-05T12:18:56.266Z",
+        "usd": 333.21,
+        "source": "https://coins.llama.fi/prices/current/bsc:0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,bsc:0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c,ethereum:0x418D75f65a02b3D53B2418FB8E1fe493759c7605,solana:9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,bsc:0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c,solana:6nuaX3ogrr2CaoAPjtaKHAoBNWok32BMcRozuf32s2QF,bsc:0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56,moonbeam:0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F,moonriver:0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818,ethereum:0x4Fabb145d64652a948d72533023f6E7A623C7C53,bsc:0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,ethereum:0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,bsc:0x2170Ed0880ac9A755fd29B2688956BD959F933F8,ethereum:0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2,bsc:0xA898bbb508C04BE26af3d319b7775927AFCB02AF,bsc:0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,moonbeam:0xAcc15dC74880C9944775448304B263D191c6077F,moonbeam:0xe3DB50049C74De2F7d7269823af3178Cf22fd5E3,ethereum:0xfAd45E47083e4607302aa43c65fB3106F1cd7607,bsc:0xa4FFfc757e8c4F24E7b209C033c123D20983Ad40,moonbeam:0x079095D0AA760Dd88964b24267Ef7d9e3DC32944,moonbeam:0x7C33896Ce19831dc170d99330878688a5f6DF614,moonbeam:0xed048a21361fff12fb10335655b273c396994AA0,moonbeam:0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xc0888d80ee0abf84563168b3182650c0addeb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488c50184ce2092756ba7cdf85731fd17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b?searchWidth=4h"
+      },
       {
         "timestamp": "2023-02-04T22:09:01.521Z",
         "usd": 329.88,
@@ -141,6 +150,11 @@
     ],
     "supply": [
       {
+        "timestamp": "2023-02-05T12:18:56.500Z",
+        "total": 3766587.1445776713,
+        "source": "https://bsc-dataseed3.binance.org/"
+      },
+      {
         "timestamp": "2023-02-04T22:09:01.639Z",
         "total": 3750102.4515921413,
         "source": "https://bsc-dataseed3.binance.org/"
@@ -173,7 +187,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-04T22:47:14.396Z",
+        "timestamp": "2023-02-05T14:57:52.115Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -182,7 +196,7 @@
         "uniformity": 1
       }
     ],
-    "mcap": 1237083796.73
+    "mcap": 1255064502.44
   },
   "bnb-wormhole-ethereum": {
     "id": "bnb-wormhole-ethereum",
@@ -223,6 +237,11 @@
     },
     "price": [
       {
+        "timestamp": "2023-02-05T12:18:56.266Z",
+        "usd": 331.51,
+        "source": "https://coins.llama.fi/prices/current/bsc:0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,bsc:0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c,ethereum:0x418D75f65a02b3D53B2418FB8E1fe493759c7605,solana:9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,bsc:0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c,solana:6nuaX3ogrr2CaoAPjtaKHAoBNWok32BMcRozuf32s2QF,bsc:0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56,moonbeam:0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F,moonriver:0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818,ethereum:0x4Fabb145d64652a948d72533023f6E7A623C7C53,bsc:0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,ethereum:0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,bsc:0x2170Ed0880ac9A755fd29B2688956BD959F933F8,ethereum:0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2,bsc:0xA898bbb508C04BE26af3d319b7775927AFCB02AF,bsc:0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,moonbeam:0xAcc15dC74880C9944775448304B263D191c6077F,moonbeam:0xe3DB50049C74De2F7d7269823af3178Cf22fd5E3,ethereum:0xfAd45E47083e4607302aa43c65fB3106F1cd7607,bsc:0xa4FFfc757e8c4F24E7b209C033c123D20983Ad40,moonbeam:0x079095D0AA760Dd88964b24267Ef7d9e3DC32944,moonbeam:0x7C33896Ce19831dc170d99330878688a5f6DF614,moonbeam:0xed048a21361fff12fb10335655b273c396994AA0,moonbeam:0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xc0888d80ee0abf84563168b3182650c0addeb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488c50184ce2092756ba7cdf85731fd17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b?searchWidth=4h"
+      },
+      {
         "timestamp": "2023-02-04T22:09:01.521Z",
         "usd": 329.04,
         "source": "https://coins.llama.fi/prices/current/bsc:0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,bsc:0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c,ethereum:0x418D75f65a02b3D53B2418FB8E1fe493759c7605,solana:9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,bsc:0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c,solana:6nuaX3ogrr2CaoAPjtaKHAoBNWok32BMcRozuf32s2QF,bsc:0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56,moonbeam:0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F,moonriver:0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818,ethereum:0x4Fabb145d64652a948d72533023f6E7A623C7C53,bsc:0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,ethereum:0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,bsc:0x2170Ed0880ac9A755fd29B2688956BD959F933F8,ethereum:0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2,bsc:0xA898bbb508C04BE26af3d319b7775927AFCB02AF,bsc:0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,moonbeam:0xAcc15dC74880C9944775448304B263D191c6077F,ethereum:0xfAd45E47083e4607302aa43c65fB3106F1cd7607,bsc:0xa4FFfc757e8c4F24E7b209C033c123D20983Ad40,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xc0888d80ee0abf84563168b3182650c0addeb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488c50184ce2092756ba7cdf85731fd17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b,moonriver:0xe3f5a90f9cb311505cd691a46596599aa1a0ad7d?searchWidth=4h"
@@ -244,6 +263,11 @@
       }
     ],
     "supply": [
+      {
+        "timestamp": "2023-02-05T12:18:56.216Z",
+        "total": 3702.43818701,
+        "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}"
+      },
       {
         "timestamp": "2023-02-04T22:09:01.308Z",
         "total": 3704.75986168,
@@ -267,6 +291,17 @@
     ],
     "backing": [
       {
+        "timestamp": "2023-02-05T12:18:56.501Z",
+        "assets": {
+          "bnb-binance-bsc": 15486.47391673
+        },
+        "source": "https://bsc-dataseed3.binance.org/",
+        "backing-assets": 1,
+        "backing-usd": 1227395.28,
+        "ratio": 1,
+        "uniformity": 1
+      },
+      {
         "timestamp": "2023-02-04T22:09:01.644Z",
         "assets": {
           "bnb-binance-bsc": 15486.26527407
@@ -274,7 +309,7 @@
         "source": "https://bsc-dataseed3.binance.org/",
         "backing-assets": 1,
         "backing-usd": 1219014.18,
-        "ratio": 1,
+        "ratio": 0.9932,
         "uniformity": 1
       },
       {
@@ -285,7 +320,7 @@
         "source": "https://bsc-dataseed3.binance.org/",
         "backing-assets": 1,
         "backing-usd": 1212467.95,
-        "ratio": 0.9946,
+        "ratio": 0.9878,
         "uniformity": 1
       },
       {
@@ -296,7 +331,7 @@
         "source": "https://bsc-dataseed3.binance.org/",
         "backing-assets": 1,
         "backing-usd": 1235732.63,
-        "ratio": 1.0137,
+        "ratio": 1.0068,
         "uniformity": 1
       },
       {
@@ -307,11 +342,11 @@
         "source": "https://bsc-dataseed3.binance.org/",
         "backing-assets": 1,
         "backing-usd": 1203762.22,
-        "ratio": 0.9875,
+        "ratio": 0.9807,
         "uniformity": 1
       }
     ],
-    "mcap": 1219014.18
+    "mcap": 1227395.28
   },
   "bnb-wormhole-solana": {
     "id": "bnb-wormhole-solana",
@@ -352,6 +387,11 @@
     },
     "price": [
       {
+        "timestamp": "2023-02-05T12:18:56.516Z",
+        "usd": 332.71,
+        "source": "https://api.dexscreener.com/latest/dex/tokens/0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,0xA898bbb508C04BE26af3d319b7775927AFCB02AF,0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,0xe3DB50049C74De2F7d7269823af3178Cf22fd5E3,0x079095D0AA760Dd88964b24267Ef7d9e3DC32944,0x7C33896Ce19831dc170d99330878688a5f6DF614,0xed048a21361fff12fb10335655b273c396994AA0,0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD,0x663a07a2648296f1A3C02EE86A126fE1407888E5,0xc0888d80ee0abf84563168b3182650c0addeb6d5,0x59193512877E2EC3bB27C178A8888Cfac62FB32D,0x45488c50184ce2092756ba7cdf85731fd17e6f3d,0x7950865a9140cB519342433146Ed5b40c6F210f7,0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,0x463E737D8F740395ABf44f7aac2D9531D8D539E9,0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,0x165DBb08de0476271714952C3C1F068693bd60D7"
+      },
+      {
         "timestamp": "2023-02-04T22:09:01.706Z",
         "usd": 330.26,
         "source": "https://api.dexscreener.com/latest/dex/tokens/0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,0xA898bbb508C04BE26af3d319b7775927AFCB02AF,0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,0x663a07a2648296f1A3C02EE86A126fE1407888E5,0xc0888d80ee0abf84563168b3182650c0addeb6d5,0x59193512877E2EC3bB27C178A8888Cfac62FB32D,0x45488c50184ce2092756ba7cdf85731fd17e6f3d,0x7950865a9140cB519342433146Ed5b40c6F210f7,0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,0x463E737D8F740395ABf44f7aac2D9531D8D539E9,0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,0x165DBb08de0476271714952C3C1F068693bd60D7"
@@ -373,6 +413,11 @@
       }
     ],
     "supply": [
+      {
+        "timestamp": "2023-02-05T12:18:56.019Z",
+        "total": 10265.70591036,
+        "source": "https://solana-mainnet.g.alchemy.com/v2/{ALCHEMY_SOLANA}"
+      },
       {
         "timestamp": "2023-02-04T22:09:00.782Z",
         "total": 10263.44171108,
@@ -396,6 +441,17 @@
     ],
     "backing": [
       {
+        "timestamp": "2023-02-05T12:18:56.501Z",
+        "assets": {
+          "bnb-binance-bsc": 15486.47391673
+        },
+        "source": "https://bsc-dataseed3.binance.org/",
+        "backing-assets": 1,
+        "backing-usd": 3415503.01,
+        "ratio": 1,
+        "uniformity": 1
+      },
+      {
         "timestamp": "2023-02-04T22:09:01.644Z",
         "assets": {
           "bnb-binance-bsc": 15486.26527407
@@ -403,7 +459,7 @@
         "source": "https://bsc-dataseed3.binance.org/",
         "backing-assets": 1,
         "backing-usd": 3389604.26,
-        "ratio": 1,
+        "ratio": 0.9924,
         "uniformity": 1
       },
       {
@@ -414,7 +470,7 @@
         "source": "https://bsc-dataseed3.binance.org/",
         "backing-assets": 1,
         "backing-usd": 3372467.93,
-        "ratio": 0.9949,
+        "ratio": 0.9874,
         "uniformity": 1
       },
       {
@@ -425,7 +481,7 @@
         "source": "https://bsc-dataseed3.binance.org/",
         "backing-assets": 1,
         "backing-usd": 3392744.2,
-        "ratio": 1.0009,
+        "ratio": 0.9933,
         "uniformity": 1
       },
       {
@@ -436,11 +492,11 @@
         "source": "https://bsc-dataseed3.binance.org/",
         "backing-assets": 1,
         "backing-usd": 3356542.14,
-        "ratio": 0.9902,
+        "ratio": 0.9827,
         "uniformity": 1
       }
     ],
-    "mcap": 3389604.26
+    "mcap": 3415503.01
   },
   "btc-binance-bsc": {
     "id": "btc-binance-bsc",
@@ -469,6 +525,11 @@
     },
     "price": [
       {
+        "timestamp": "2023-02-05T12:18:56.266Z",
+        "usd": 23400,
+        "source": "https://coins.llama.fi/prices/current/bsc:0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,bsc:0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c,ethereum:0x418D75f65a02b3D53B2418FB8E1fe493759c7605,solana:9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,bsc:0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c,solana:6nuaX3ogrr2CaoAPjtaKHAoBNWok32BMcRozuf32s2QF,bsc:0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56,moonbeam:0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F,moonriver:0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818,ethereum:0x4Fabb145d64652a948d72533023f6E7A623C7C53,bsc:0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,ethereum:0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,bsc:0x2170Ed0880ac9A755fd29B2688956BD959F933F8,ethereum:0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2,bsc:0xA898bbb508C04BE26af3d319b7775927AFCB02AF,bsc:0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,moonbeam:0xAcc15dC74880C9944775448304B263D191c6077F,moonbeam:0xe3DB50049C74De2F7d7269823af3178Cf22fd5E3,ethereum:0xfAd45E47083e4607302aa43c65fB3106F1cd7607,bsc:0xa4FFfc757e8c4F24E7b209C033c123D20983Ad40,moonbeam:0x079095D0AA760Dd88964b24267Ef7d9e3DC32944,moonbeam:0x7C33896Ce19831dc170d99330878688a5f6DF614,moonbeam:0xed048a21361fff12fb10335655b273c396994AA0,moonbeam:0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xc0888d80ee0abf84563168b3182650c0addeb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488c50184ce2092756ba7cdf85731fd17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b?searchWidth=4h"
+      },
+      {
         "timestamp": "2023-02-04T22:09:01.521Z",
         "usd": 23390,
         "source": "https://coins.llama.fi/prices/current/bsc:0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,bsc:0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c,ethereum:0x418D75f65a02b3D53B2418FB8E1fe493759c7605,solana:9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,bsc:0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c,solana:6nuaX3ogrr2CaoAPjtaKHAoBNWok32BMcRozuf32s2QF,bsc:0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56,moonbeam:0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F,moonriver:0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818,ethereum:0x4Fabb145d64652a948d72533023f6E7A623C7C53,bsc:0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,ethereum:0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,bsc:0x2170Ed0880ac9A755fd29B2688956BD959F933F8,ethereum:0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2,bsc:0xA898bbb508C04BE26af3d319b7775927AFCB02AF,bsc:0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,moonbeam:0xAcc15dC74880C9944775448304B263D191c6077F,ethereum:0xfAd45E47083e4607302aa43c65fB3106F1cd7607,bsc:0xa4FFfc757e8c4F24E7b209C033c123D20983Ad40,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xc0888d80ee0abf84563168b3182650c0addeb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488c50184ce2092756ba7cdf85731fd17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b,moonriver:0xe3f5a90f9cb311505cd691a46596599aa1a0ad7d?searchWidth=4h"
@@ -490,6 +551,11 @@
       }
     ],
     "supply": [
+      {
+        "timestamp": "2023-02-05T12:18:56.500Z",
+        "total": 60500.99999999999,
+        "source": "https://bsc-dataseed3.binance.org/"
+      },
       {
         "timestamp": "2023-02-04T22:09:01.639Z",
         "total": 60500.99999999999,
@@ -513,7 +579,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-04T22:47:14.396Z",
+        "timestamp": "2023-02-05T14:57:52.115Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -522,7 +588,7 @@
         "uniformity": 1
       }
     ],
-    "mcap": 1415118390
+    "mcap": 1415723400
   },
   "btc-bitcoin": {
     "id": "btc-bitcoin",
@@ -565,7 +631,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-04T22:47:14.396Z",
+        "timestamp": "2023-02-05T14:57:52.115Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -616,6 +682,11 @@
     },
     "price": [
       {
+        "timestamp": "2023-02-05T12:18:56.266Z",
+        "usd": 1,
+        "source": "https://coins.llama.fi/prices/current/bsc:0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,bsc:0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c,ethereum:0x418D75f65a02b3D53B2418FB8E1fe493759c7605,solana:9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,bsc:0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c,solana:6nuaX3ogrr2CaoAPjtaKHAoBNWok32BMcRozuf32s2QF,bsc:0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56,moonbeam:0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F,moonriver:0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818,ethereum:0x4Fabb145d64652a948d72533023f6E7A623C7C53,bsc:0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,ethereum:0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,bsc:0x2170Ed0880ac9A755fd29B2688956BD959F933F8,ethereum:0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2,bsc:0xA898bbb508C04BE26af3d319b7775927AFCB02AF,bsc:0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,moonbeam:0xAcc15dC74880C9944775448304B263D191c6077F,moonbeam:0xe3DB50049C74De2F7d7269823af3178Cf22fd5E3,ethereum:0xfAd45E47083e4607302aa43c65fB3106F1cd7607,bsc:0xa4FFfc757e8c4F24E7b209C033c123D20983Ad40,moonbeam:0x079095D0AA760Dd88964b24267Ef7d9e3DC32944,moonbeam:0x7C33896Ce19831dc170d99330878688a5f6DF614,moonbeam:0xed048a21361fff12fb10335655b273c396994AA0,moonbeam:0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xc0888d80ee0abf84563168b3182650c0addeb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488c50184ce2092756ba7cdf85731fd17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b?searchWidth=4h"
+      },
+      {
         "timestamp": "2023-02-04T22:09:01.521Z",
         "usd": 0.999825,
         "source": "https://coins.llama.fi/prices/current/bsc:0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,bsc:0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c,ethereum:0x418D75f65a02b3D53B2418FB8E1fe493759c7605,solana:9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,bsc:0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c,solana:6nuaX3ogrr2CaoAPjtaKHAoBNWok32BMcRozuf32s2QF,bsc:0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56,moonbeam:0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F,moonriver:0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818,ethereum:0x4Fabb145d64652a948d72533023f6E7A623C7C53,bsc:0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,ethereum:0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,bsc:0x2170Ed0880ac9A755fd29B2688956BD959F933F8,ethereum:0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2,bsc:0xA898bbb508C04BE26af3d319b7775927AFCB02AF,bsc:0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,moonbeam:0xAcc15dC74880C9944775448304B263D191c6077F,ethereum:0xfAd45E47083e4607302aa43c65fB3106F1cd7607,bsc:0xa4FFfc757e8c4F24E7b209C033c123D20983Ad40,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xc0888d80ee0abf84563168b3182650c0addeb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488c50184ce2092756ba7cdf85731fd17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b,moonriver:0xe3f5a90f9cb311505cd691a46596599aa1a0ad7d?searchWidth=4h"
@@ -637,6 +708,11 @@
       }
     ],
     "supply": [
+      {
+        "timestamp": "2023-02-05T12:18:56.018Z",
+        "total": 107797.729871845,
+        "source": "https://solana-mainnet.g.alchemy.com/v2/{ALCHEMY_SOLANA}"
+      },
       {
         "timestamp": "2023-02-04T22:09:00.750Z",
         "total": 107797.729871845,
@@ -660,6 +736,17 @@
     ],
     "backing": [
       {
+        "timestamp": "2023-02-05T12:18:56.501Z",
+        "assets": {
+          "busd-binance-bsc": 209571.79576610008
+        },
+        "source": "https://bsc-dataseed3.binance.org/",
+        "backing-assets": 1,
+        "backing-usd": 107797.73,
+        "ratio": 1,
+        "uniformity": 1
+      },
+      {
         "timestamp": "2023-02-04T22:09:01.644Z",
         "assets": {
           "busd-binance-bsc": 210239.77097136478
@@ -667,7 +754,7 @@
         "source": "https://bsc-dataseed3.binance.org/",
         "backing-assets": 1,
         "backing-usd": 107778.87,
-        "ratio": 1,
+        "ratio": 0.9998,
         "uniformity": 1
       },
       {
@@ -678,7 +765,7 @@
         "source": "https://bsc-dataseed3.binance.org/",
         "backing-assets": 1,
         "backing-usd": 107759.23,
-        "ratio": 0.9998,
+        "ratio": 0.9996,
         "uniformity": 1
       },
       {
@@ -689,7 +776,7 @@
         "source": "https://bsc-dataseed3.binance.org/",
         "backing-assets": 1,
         "backing-usd": 107498.82,
-        "ratio": 0.9974,
+        "ratio": 0.9972,
         "uniformity": 1
       },
       {
@@ -700,11 +787,11 @@
         "source": "https://bsc-dataseed3.binance.org/",
         "backing-assets": 1,
         "backing-usd": 129728.83,
-        "ratio": 1.2037,
+        "ratio": 1.2034,
         "uniformity": 1
       }
     ],
-    "mcap": 107778.87
+    "mcap": 107797.73
   },
   "busd-binance-bsc": {
     "id": "busd-binance-bsc",
@@ -746,6 +833,11 @@
     },
     "price": [
       {
+        "timestamp": "2023-02-05T12:18:56.266Z",
+        "usd": 0.9976971581243429,
+        "source": "https://coins.llama.fi/prices/current/bsc:0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,bsc:0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c,ethereum:0x418D75f65a02b3D53B2418FB8E1fe493759c7605,solana:9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,bsc:0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c,solana:6nuaX3ogrr2CaoAPjtaKHAoBNWok32BMcRozuf32s2QF,bsc:0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56,moonbeam:0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F,moonriver:0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818,ethereum:0x4Fabb145d64652a948d72533023f6E7A623C7C53,bsc:0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,ethereum:0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,bsc:0x2170Ed0880ac9A755fd29B2688956BD959F933F8,ethereum:0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2,bsc:0xA898bbb508C04BE26af3d319b7775927AFCB02AF,bsc:0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,moonbeam:0xAcc15dC74880C9944775448304B263D191c6077F,moonbeam:0xe3DB50049C74De2F7d7269823af3178Cf22fd5E3,ethereum:0xfAd45E47083e4607302aa43c65fB3106F1cd7607,bsc:0xa4FFfc757e8c4F24E7b209C033c123D20983Ad40,moonbeam:0x079095D0AA760Dd88964b24267Ef7d9e3DC32944,moonbeam:0x7C33896Ce19831dc170d99330878688a5f6DF614,moonbeam:0xed048a21361fff12fb10335655b273c396994AA0,moonbeam:0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xc0888d80ee0abf84563168b3182650c0addeb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488c50184ce2092756ba7cdf85731fd17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b?searchWidth=4h"
+      },
+      {
         "timestamp": "2023-02-04T22:09:01.521Z",
         "usd": 0.9975096412343772,
         "source": "https://coins.llama.fi/prices/current/bsc:0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,bsc:0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c,ethereum:0x418D75f65a02b3D53B2418FB8E1fe493759c7605,solana:9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,bsc:0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c,solana:6nuaX3ogrr2CaoAPjtaKHAoBNWok32BMcRozuf32s2QF,bsc:0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56,moonbeam:0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F,moonriver:0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818,ethereum:0x4Fabb145d64652a948d72533023f6E7A623C7C53,bsc:0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,ethereum:0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,bsc:0x2170Ed0880ac9A755fd29B2688956BD959F933F8,ethereum:0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2,bsc:0xA898bbb508C04BE26af3d319b7775927AFCB02AF,bsc:0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,moonbeam:0xAcc15dC74880C9944775448304B263D191c6077F,ethereum:0xfAd45E47083e4607302aa43c65fB3106F1cd7607,bsc:0xa4FFfc757e8c4F24E7b209C033c123D20983Ad40,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xc0888d80ee0abf84563168b3182650c0addeb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488c50184ce2092756ba7cdf85731fd17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b,moonriver:0xe3f5a90f9cb311505cd691a46596599aa1a0ad7d?searchWidth=4h"
@@ -767,6 +859,11 @@
       }
     ],
     "supply": [
+      {
+        "timestamp": "2023-02-05T12:18:56.500Z",
+        "total": 4850999089.475922,
+        "source": "https://bsc-dataseed3.binance.org/"
+      },
       {
         "timestamp": "2023-02-04T22:09:01.640Z",
         "total": 4850999089.475922,
@@ -790,6 +887,17 @@
     ],
     "backing": [
       {
+        "timestamp": "2023-02-05T12:18:56.217Z",
+        "assets": {
+          "busd-paxos-ethereum": 5435500000
+        },
+        "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
+        "backing-assets": 1,
+        "backing-usd": 4839828005.63,
+        "ratio": 1,
+        "uniformity": 1
+      },
+      {
         "timestamp": "2023-02-04T22:09:01.310Z",
         "assets": {
           "busd-paxos-ethereum": 5435500000
@@ -797,7 +905,7 @@
         "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
         "backing-assets": 1,
         "backing-usd": 4838918361.37,
-        "ratio": 1,
+        "ratio": 0.9998,
         "uniformity": 1
       },
       {
@@ -808,7 +916,7 @@
         "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
         "backing-assets": 1,
         "backing-usd": 4840054109.43,
-        "ratio": 1.0002,
+        "ratio": 1,
         "uniformity": 1
       },
       {
@@ -819,7 +927,7 @@
         "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
         "backing-assets": 1,
         "backing-usd": 4845326098.11,
-        "ratio": 1.0013,
+        "ratio": 1.0011,
         "uniformity": 1
       },
       {
@@ -830,11 +938,11 @@
         "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
         "backing-assets": 1,
         "backing-usd": 4841411318.9,
-        "ratio": 1.0005,
+        "ratio": 1.0003,
         "uniformity": 1
       }
     ],
-    "mcap": 4838918361.37
+    "mcap": 4839828005.63
   },
   "busd-multichain-moonbeam": {
     "id": "busd-multichain-moonbeam",
@@ -876,6 +984,11 @@
     },
     "price": [
       {
+        "timestamp": "2023-02-05T12:18:56.266Z",
+        "usd": 1,
+        "source": "https://coins.llama.fi/prices/current/bsc:0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,bsc:0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c,ethereum:0x418D75f65a02b3D53B2418FB8E1fe493759c7605,solana:9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,bsc:0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c,solana:6nuaX3ogrr2CaoAPjtaKHAoBNWok32BMcRozuf32s2QF,bsc:0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56,moonbeam:0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F,moonriver:0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818,ethereum:0x4Fabb145d64652a948d72533023f6E7A623C7C53,bsc:0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,ethereum:0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,bsc:0x2170Ed0880ac9A755fd29B2688956BD959F933F8,ethereum:0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2,bsc:0xA898bbb508C04BE26af3d319b7775927AFCB02AF,bsc:0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,moonbeam:0xAcc15dC74880C9944775448304B263D191c6077F,moonbeam:0xe3DB50049C74De2F7d7269823af3178Cf22fd5E3,ethereum:0xfAd45E47083e4607302aa43c65fB3106F1cd7607,bsc:0xa4FFfc757e8c4F24E7b209C033c123D20983Ad40,moonbeam:0x079095D0AA760Dd88964b24267Ef7d9e3DC32944,moonbeam:0x7C33896Ce19831dc170d99330878688a5f6DF614,moonbeam:0xed048a21361fff12fb10335655b273c396994AA0,moonbeam:0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xc0888d80ee0abf84563168b3182650c0addeb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488c50184ce2092756ba7cdf85731fd17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b?searchWidth=4h"
+      },
+      {
         "timestamp": "2023-02-04T22:09:01.521Z",
         "usd": 0.999825,
         "source": "https://coins.llama.fi/prices/current/bsc:0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,bsc:0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c,ethereum:0x418D75f65a02b3D53B2418FB8E1fe493759c7605,solana:9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,bsc:0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c,solana:6nuaX3ogrr2CaoAPjtaKHAoBNWok32BMcRozuf32s2QF,bsc:0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56,moonbeam:0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F,moonriver:0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818,ethereum:0x4Fabb145d64652a948d72533023f6E7A623C7C53,bsc:0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,ethereum:0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,bsc:0x2170Ed0880ac9A755fd29B2688956BD959F933F8,ethereum:0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2,bsc:0xA898bbb508C04BE26af3d319b7775927AFCB02AF,bsc:0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,moonbeam:0xAcc15dC74880C9944775448304B263D191c6077F,ethereum:0xfAd45E47083e4607302aa43c65fB3106F1cd7607,bsc:0xa4FFfc757e8c4F24E7b209C033c123D20983Ad40,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xc0888d80ee0abf84563168b3182650c0addeb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488c50184ce2092756ba7cdf85731fd17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b,moonriver:0xe3f5a90f9cb311505cd691a46596599aa1a0ad7d?searchWidth=4h"
@@ -897,6 +1010,11 @@
       }
     ],
     "supply": [
+      {
+        "timestamp": "2023-02-05T12:18:56.144Z",
+        "total": 603014.2050534395,
+        "source": "https://moonbeam.public.blastapi.io"
+      },
       {
         "timestamp": "2023-02-04T22:09:02.532Z",
         "total": 602657.2050534395,
@@ -920,6 +1038,17 @@
     ],
     "backing": [
       {
+        "timestamp": "2023-02-05T12:18:56.501Z",
+        "assets": {
+          "busd-binance-bsc": 705351.457338644
+        },
+        "source": "https://bsc-dataseed3.binance.org/",
+        "backing-assets": 1,
+        "backing-usd": 603014.21,
+        "ratio": 1,
+        "uniformity": 1
+      },
+      {
         "timestamp": "2023-02-04T22:09:01.644Z",
         "assets": {
           "busd-binance-bsc": 704994.4573084827
@@ -927,7 +1056,7 @@
         "source": "https://bsc-dataseed3.binance.org/",
         "backing-assets": 1,
         "backing-usd": 602551.74,
-        "ratio": 1,
+        "ratio": 0.9992,
         "uniformity": 1
       },
       {
@@ -938,7 +1067,7 @@
         "source": "https://bsc-dataseed3.binance.org/",
         "backing-assets": 1,
         "backing-usd": 602221.93,
-        "ratio": 0.9995,
+        "ratio": 0.9987,
         "uniformity": 1
       },
       {
@@ -949,7 +1078,7 @@
         "source": "https://bsc-dataseed3.binance.org/",
         "backing-assets": 1,
         "backing-usd": 602994.8,
-        "ratio": 1.0007,
+        "ratio": 1,
         "uniformity": 1
       },
       {
@@ -960,11 +1089,11 @@
         "source": "https://bsc-dataseed3.binance.org/",
         "backing-assets": 1,
         "backing-usd": 602256.7,
-        "ratio": 0.9995,
+        "ratio": 0.9987,
         "uniformity": 1
       }
     ],
-    "mcap": 602551.74
+    "mcap": 603014.21
   },
   "busd-multichain-moonriver": {
     "id": "busd-multichain-moonriver",
@@ -1006,6 +1135,11 @@
     },
     "price": [
       {
+        "timestamp": "2023-02-05T12:18:56.266Z",
+        "usd": 1,
+        "source": "https://coins.llama.fi/prices/current/bsc:0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,bsc:0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c,ethereum:0x418D75f65a02b3D53B2418FB8E1fe493759c7605,solana:9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,bsc:0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c,solana:6nuaX3ogrr2CaoAPjtaKHAoBNWok32BMcRozuf32s2QF,bsc:0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56,moonbeam:0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F,moonriver:0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818,ethereum:0x4Fabb145d64652a948d72533023f6E7A623C7C53,bsc:0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,ethereum:0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,bsc:0x2170Ed0880ac9A755fd29B2688956BD959F933F8,ethereum:0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2,bsc:0xA898bbb508C04BE26af3d319b7775927AFCB02AF,bsc:0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,moonbeam:0xAcc15dC74880C9944775448304B263D191c6077F,moonbeam:0xe3DB50049C74De2F7d7269823af3178Cf22fd5E3,ethereum:0xfAd45E47083e4607302aa43c65fB3106F1cd7607,bsc:0xa4FFfc757e8c4F24E7b209C033c123D20983Ad40,moonbeam:0x079095D0AA760Dd88964b24267Ef7d9e3DC32944,moonbeam:0x7C33896Ce19831dc170d99330878688a5f6DF614,moonbeam:0xed048a21361fff12fb10335655b273c396994AA0,moonbeam:0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xc0888d80ee0abf84563168b3182650c0addeb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488c50184ce2092756ba7cdf85731fd17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b?searchWidth=4h"
+      },
+      {
         "timestamp": "2023-02-04T22:09:01.521Z",
         "usd": 0.999825,
         "source": "https://coins.llama.fi/prices/current/bsc:0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,bsc:0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c,ethereum:0x418D75f65a02b3D53B2418FB8E1fe493759c7605,solana:9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,bsc:0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c,solana:6nuaX3ogrr2CaoAPjtaKHAoBNWok32BMcRozuf32s2QF,bsc:0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56,moonbeam:0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F,moonriver:0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818,ethereum:0x4Fabb145d64652a948d72533023f6E7A623C7C53,bsc:0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,ethereum:0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,bsc:0x2170Ed0880ac9A755fd29B2688956BD959F933F8,ethereum:0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2,bsc:0xA898bbb508C04BE26af3d319b7775927AFCB02AF,bsc:0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,moonbeam:0xAcc15dC74880C9944775448304B263D191c6077F,ethereum:0xfAd45E47083e4607302aa43c65fB3106F1cd7607,bsc:0xa4FFfc757e8c4F24E7b209C033c123D20983Ad40,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xc0888d80ee0abf84563168b3182650c0addeb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488c50184ce2092756ba7cdf85731fd17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b,moonriver:0xe3f5a90f9cb311505cd691a46596599aa1a0ad7d?searchWidth=4h"
@@ -1027,6 +1161,11 @@
       }
     ],
     "supply": [
+      {
+        "timestamp": "2023-02-05T12:18:56.169Z",
+        "total": 912921.6064872569,
+        "source": "https://rpc.api.moonriver.moonbeam.network"
+      },
       {
         "timestamp": "2023-02-04T22:09:01.509Z",
         "total": 893424.006487257,
@@ -1050,6 +1189,17 @@
     ],
     "backing": [
       {
+        "timestamp": "2023-02-05T12:18:56.501Z",
+        "assets": {
+          "busd-binance-bsc": 950868.0858944281
+        },
+        "source": "https://bsc-dataseed3.binance.org/",
+        "backing-assets": 1,
+        "backing-usd": 912921.61,
+        "ratio": 1,
+        "uniformity": 1
+      },
+      {
         "timestamp": "2023-02-04T22:09:01.644Z",
         "assets": {
           "busd-binance-bsc": 930956.9169608223
@@ -1057,7 +1207,7 @@
         "source": "https://bsc-dataseed3.binance.org/",
         "backing-assets": 1,
         "backing-usd": 893267.66,
-        "ratio": 1,
+        "ratio": 0.9785,
         "uniformity": 1
       },
       {
@@ -1068,7 +1218,7 @@
         "source": "https://bsc-dataseed3.binance.org/",
         "backing-assets": 1,
         "backing-usd": 892205.6,
-        "ratio": 0.9988,
+        "ratio": 0.9773,
         "uniformity": 1
       },
       {
@@ -1079,7 +1229,7 @@
         "source": "https://bsc-dataseed3.binance.org/",
         "backing-assets": 1,
         "backing-usd": 893350.62,
-        "ratio": 1.0001,
+        "ratio": 0.9786,
         "uniformity": 1
       },
       {
@@ -1090,11 +1240,11 @@
         "source": "https://bsc-dataseed3.binance.org/",
         "backing-assets": 1,
         "backing-usd": 899330.06,
-        "ratio": 1.0068,
+        "ratio": 0.9851,
         "uniformity": 1
       }
     ],
-    "mcap": 893267.66
+    "mcap": 912921.61
   },
   "busd-paxos-ethereum": {
     "id": "busd-paxos-ethereum",
@@ -1124,6 +1274,11 @@
     },
     "price": [
       {
+        "timestamp": "2023-02-05T12:18:56.266Z",
+        "usd": 1,
+        "source": "https://coins.llama.fi/prices/current/bsc:0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,bsc:0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c,ethereum:0x418D75f65a02b3D53B2418FB8E1fe493759c7605,solana:9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,bsc:0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c,solana:6nuaX3ogrr2CaoAPjtaKHAoBNWok32BMcRozuf32s2QF,bsc:0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56,moonbeam:0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F,moonriver:0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818,ethereum:0x4Fabb145d64652a948d72533023f6E7A623C7C53,bsc:0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,ethereum:0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,bsc:0x2170Ed0880ac9A755fd29B2688956BD959F933F8,ethereum:0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2,bsc:0xA898bbb508C04BE26af3d319b7775927AFCB02AF,bsc:0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,moonbeam:0xAcc15dC74880C9944775448304B263D191c6077F,moonbeam:0xe3DB50049C74De2F7d7269823af3178Cf22fd5E3,ethereum:0xfAd45E47083e4607302aa43c65fB3106F1cd7607,bsc:0xa4FFfc757e8c4F24E7b209C033c123D20983Ad40,moonbeam:0x079095D0AA760Dd88964b24267Ef7d9e3DC32944,moonbeam:0x7C33896Ce19831dc170d99330878688a5f6DF614,moonbeam:0xed048a21361fff12fb10335655b273c396994AA0,moonbeam:0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xc0888d80ee0abf84563168b3182650c0addeb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488c50184ce2092756ba7cdf85731fd17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b?searchWidth=4h"
+      },
+      {
         "timestamp": "2023-02-04T22:09:01.521Z",
         "usd": 0.999825,
         "source": "https://coins.llama.fi/prices/current/bsc:0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,bsc:0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c,ethereum:0x418D75f65a02b3D53B2418FB8E1fe493759c7605,solana:9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,bsc:0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c,solana:6nuaX3ogrr2CaoAPjtaKHAoBNWok32BMcRozuf32s2QF,bsc:0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56,moonbeam:0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F,moonriver:0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818,ethereum:0x4Fabb145d64652a948d72533023f6E7A623C7C53,bsc:0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,ethereum:0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,bsc:0x2170Ed0880ac9A755fd29B2688956BD959F933F8,ethereum:0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2,bsc:0xA898bbb508C04BE26af3d319b7775927AFCB02AF,bsc:0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,moonbeam:0xAcc15dC74880C9944775448304B263D191c6077F,ethereum:0xfAd45E47083e4607302aa43c65fB3106F1cd7607,bsc:0xa4FFfc757e8c4F24E7b209C033c123D20983Ad40,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xc0888d80ee0abf84563168b3182650c0addeb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488c50184ce2092756ba7cdf85731fd17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b,moonriver:0xe3f5a90f9cb311505cd691a46596599aa1a0ad7d?searchWidth=4h"
@@ -1150,6 +1305,11 @@
       }
     ],
     "supply": [
+      {
+        "timestamp": "2023-02-05T12:18:56.216Z",
+        "total": 16258271387.16,
+        "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}"
+      },
       {
         "timestamp": "2023-02-04T22:09:01.308Z",
         "total": 16272271387.16,
@@ -1395,7 +1555,7 @@
         "source": "https://paxos.com/busd-transparency/",
         "backing-assets": 1,
         "backing-usd": 22262030911.99,
-        "ratio": 1.3683,
+        "ratio": 1.3693,
         "uniformity": 1
       },
       {
@@ -1406,7 +1566,7 @@
         "source": "https://paxos.com/busd-transparency/",
         "backing-assets": 1,
         "backing-usd": 23455924354.73,
-        "ratio": 1.4417,
+        "ratio": 1.4427,
         "uniformity": 1
       },
       {
@@ -1417,7 +1577,7 @@
         "source": "https://paxos.com/busd-transparency/",
         "backing-assets": 1,
         "backing-usd": 21143340673.75,
-        "ratio": 1.2996,
+        "ratio": 1.3005,
         "uniformity": 1
       },
       {
@@ -1428,7 +1588,7 @@
         "source": "https://paxos.com/busd-transparency/",
         "backing-assets": 1,
         "backing-usd": 21485442901.91,
-        "ratio": 1.3206,
+        "ratio": 1.3215,
         "uniformity": 1
       },
       {
@@ -1439,7 +1599,7 @@
         "source": "https://paxos.com/busd-transparency/",
         "backing-assets": 1,
         "backing-usd": 20922577480.49,
-        "ratio": 1.286,
+        "ratio": 1.2869,
         "uniformity": 1
       },
       {
@@ -1450,7 +1610,7 @@
         "source": "https://paxos.com/busd-transparency/",
         "backing-assets": 1,
         "backing-usd": 20656471724.98,
-        "ratio": 1.2696,
+        "ratio": 1.2705,
         "uniformity": 1
       },
       {
@@ -1461,7 +1621,7 @@
         "source": "https://paxos.com/busd-transparency/",
         "backing-assets": 1,
         "backing-usd": 19266983009.88,
-        "ratio": 1.1842,
+        "ratio": 1.1851,
         "uniformity": 1
       },
       {
@@ -1472,7 +1632,7 @@
         "source": "https://paxos.com/busd-transparency/",
         "backing-assets": 1,
         "backing-usd": 19028354509.36,
-        "ratio": 1.1696,
+        "ratio": 1.1704,
         "uniformity": 1
       },
       {
@@ -1483,7 +1643,7 @@
         "source": "https://paxos.com/busd-transparency/",
         "backing-assets": 1,
         "backing-usd": 17858623546.3,
-        "ratio": 1.0977,
+        "ratio": 1.0984,
         "uniformity": 1
       },
       {
@@ -1494,7 +1654,7 @@
         "source": "https://paxos.com/busd-transparency/",
         "backing-assets": 1,
         "backing-usd": 17492602397.83,
-        "ratio": 1.0752,
+        "ratio": 1.0759,
         "uniformity": 1
       },
       {
@@ -1505,7 +1665,7 @@
         "source": "https://paxos.com/busd-transparency/",
         "backing-assets": 1,
         "backing-usd": 18199987674.51,
-        "ratio": 1.1187,
+        "ratio": 1.1194,
         "uniformity": 1
       },
       {
@@ -1516,7 +1676,7 @@
         "source": "https://paxos.com/busd-transparency/",
         "backing-assets": 1,
         "backing-usd": 17651702084.31,
-        "ratio": 1.085,
+        "ratio": 1.0857,
         "uniformity": 1
       },
       {
@@ -1527,7 +1687,7 @@
         "source": "https://paxos.com/busd-transparency/",
         "backing-assets": 1,
         "backing-usd": 17451253126.95,
-        "ratio": 1.0726,
+        "ratio": 1.0734,
         "uniformity": 1
       },
       {
@@ -1538,7 +1698,7 @@
         "source": "https://paxos.com/busd-transparency/",
         "backing-assets": 1,
         "backing-usd": 18341651341.83,
-        "ratio": 1.1274,
+        "ratio": 1.1281,
         "uniformity": 1
       },
       {
@@ -1549,7 +1709,7 @@
         "source": "https://paxos.com/busd-transparency/",
         "backing-assets": 1,
         "backing-usd": 15318103437.84,
-        "ratio": 0.9415,
+        "ratio": 0.9422,
         "uniformity": 1
       },
       {
@@ -1560,7 +1720,7 @@
         "source": "https://paxos.com/busd-transparency/",
         "backing-assets": 1,
         "backing-usd": 14434991724.17,
-        "ratio": 0.8872,
+        "ratio": 0.8879,
         "uniformity": 1
       },
       {
@@ -1571,7 +1731,7 @@
         "source": "https://paxos.com/busd-transparency/",
         "backing-assets": 1,
         "backing-usd": 13430804109.55,
-        "ratio": 0.8255,
+        "ratio": 0.8261,
         "uniformity": 1
       },
       {
@@ -1582,7 +1742,7 @@
         "source": "https://paxos.com/busd-transparency/",
         "backing-assets": 1,
         "backing-usd": 13156917361.68,
-        "ratio": 0.8087,
+        "ratio": 0.8092,
         "uniformity": 1
       },
       {
@@ -1593,7 +1753,7 @@
         "source": "https://paxos.com/busd-transparency/",
         "backing-assets": 1,
         "backing-usd": 13061906347.28,
-        "ratio": 0.8028,
+        "ratio": 0.8034,
         "uniformity": 1
       },
       {
@@ -1604,7 +1764,7 @@
         "source": "https://paxos.com/busd-transparency/",
         "backing-assets": 1,
         "backing-usd": 12250266849.36,
-        "ratio": 0.753,
+        "ratio": 0.7535,
         "uniformity": 1
       },
       {
@@ -1615,7 +1775,7 @@
         "source": "https://paxos.com/busd-transparency/",
         "backing-assets": 1,
         "backing-usd": 12253063081.25,
-        "ratio": 0.7531,
+        "ratio": 0.7537,
         "uniformity": 1
       },
       {
@@ -1626,7 +1786,7 @@
         "source": "https://paxos.com/busd-transparency/",
         "backing-assets": 1,
         "backing-usd": 10061961534.86,
-        "ratio": 0.6185,
+        "ratio": 0.6189,
         "uniformity": 1
       },
       {
@@ -1637,7 +1797,7 @@
         "source": "https://paxos.com/busd-transparency/",
         "backing-assets": 1,
         "backing-usd": 8869528892.17,
-        "ratio": 0.5452,
+        "ratio": 0.5455,
         "uniformity": 1
       },
       {
@@ -1648,7 +1808,7 @@
         "source": "https://paxos.com/busd-transparency/",
         "backing-assets": 1,
         "backing-usd": 7431114803.61,
-        "ratio": 0.4568,
+        "ratio": 0.4571,
         "uniformity": 1
       },
       {
@@ -1659,7 +1819,7 @@
         "source": "https://paxos.com/busd-transparency/",
         "backing-assets": 1,
         "backing-usd": 3500089125.56,
-        "ratio": 0.2151,
+        "ratio": 0.2153,
         "uniformity": 1
       },
       {
@@ -1670,7 +1830,7 @@
         "source": "https://paxos.com/busd-transparency/",
         "backing-assets": 1,
         "backing-usd": 2315860502.56,
-        "ratio": 0.1423,
+        "ratio": 0.1424,
         "uniformity": 1
       },
       {
@@ -1681,7 +1841,7 @@
         "source": "https://paxos.com/busd-transparency/",
         "backing-assets": 1,
         "backing-usd": 1498514668.53,
-        "ratio": 0.0921,
+        "ratio": 0.0922,
         "uniformity": 1
       },
       {
@@ -1725,7 +1885,7 @@
         "source": "https://paxos.com/busd-transparency/",
         "backing-assets": 1,
         "backing-usd": 503349908.47,
-        "ratio": 0.0309,
+        "ratio": 0.031,
         "uniformity": 1
       },
       {
@@ -1780,7 +1940,7 @@
         "source": "https://paxos.com/busd-transparency/",
         "backing-assets": 1,
         "backing-usd": 176405207.58,
-        "ratio": 0.0108,
+        "ratio": 0.0109,
         "uniformity": 1
       },
       {
@@ -1791,7 +1951,7 @@
         "source": "https://paxos.com/busd-transparency/",
         "backing-assets": 1,
         "backing-usd": 187790574.09,
-        "ratio": 0.0115,
+        "ratio": 0.0116,
         "uniformity": 1
       },
       {
@@ -1861,7 +2021,7 @@
         "uniformity": 1
       }
     ],
-    "mcap": 16269423739.67
+    "mcap": 16258271387.16
   },
   "cats-catoshi-bsc": {
     "id": "cats-catoshi-bsc",
@@ -1901,6 +2061,11 @@
     },
     "price": [
       {
+        "timestamp": "2023-02-05T12:18:56.516Z",
+        "usd": 0.041105,
+        "source": "https://api.dexscreener.com/latest/dex/tokens/0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,0xA898bbb508C04BE26af3d319b7775927AFCB02AF,0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,0xe3DB50049C74De2F7d7269823af3178Cf22fd5E3,0x079095D0AA760Dd88964b24267Ef7d9e3DC32944,0x7C33896Ce19831dc170d99330878688a5f6DF614,0xed048a21361fff12fb10335655b273c396994AA0,0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD,0x663a07a2648296f1A3C02EE86A126fE1407888E5,0xc0888d80ee0abf84563168b3182650c0addeb6d5,0x59193512877E2EC3bB27C178A8888Cfac62FB32D,0x45488c50184ce2092756ba7cdf85731fd17e6f3d,0x7950865a9140cB519342433146Ed5b40c6F210f7,0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,0x463E737D8F740395ABf44f7aac2D9531D8D539E9,0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,0x165DBb08de0476271714952C3C1F068693bd60D7"
+      },
+      {
         "timestamp": "2023-02-04T22:09:01.707Z",
         "usd": 0.041139999999999996,
         "source": "https://api.dexscreener.com/latest/dex/tokens/0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,0xA898bbb508C04BE26af3d319b7775927AFCB02AF,0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,0x663a07a2648296f1A3C02EE86A126fE1407888E5,0xc0888d80ee0abf84563168b3182650c0addeb6d5,0x59193512877E2EC3bB27C178A8888Cfac62FB32D,0x45488c50184ce2092756ba7cdf85731fd17e6f3d,0x7950865a9140cB519342433146Ed5b40c6F210f7,0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,0x463E737D8F740395ABf44f7aac2D9531D8D539E9,0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,0x165DBb08de0476271714952C3C1F068693bd60D7"
@@ -1933,6 +2098,11 @@
     ],
     "supply": [
       {
+        "timestamp": "2023-02-05T12:18:56.500Z",
+        "total": 11000000,
+        "source": "https://bsc-dataseed3.binance.org/"
+      },
+      {
         "timestamp": "2023-02-04T22:09:01.640Z",
         "total": 11000000,
         "source": "https://bsc-dataseed3.binance.org/"
@@ -1960,14 +2130,25 @@
     ],
     "backing": [
       {
+        "timestamp": "2023-02-05T12:18:56.217Z",
+        "assets": {
+          "cats-catoshi-ethereum": 2790998.0058717127
+        },
+        "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
+        "backing-assets": 1,
+        "backing-usd": 115519.41,
+        "ratio": 0.2555,
+        "uniformity": 1
+      },
+      {
         "timestamp": "2023-02-04T22:09:01.310Z",
         "assets": {
           "cats-catoshi-ethereum": 2802008.6914046854
         },
         "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
         "backing-assets": 1,
-        "backing-usd": 124913.55,
-        "ratio": 0.276,
+        "backing-usd": 115975.14,
+        "ratio": 0.2565,
         "uniformity": 1
       },
       {
@@ -1978,7 +2159,7 @@
         "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
         "backing-assets": 1,
         "backing-usd": 124913.55,
-        "ratio": 0.276,
+        "ratio": 0.2763,
         "uniformity": 1
       },
       {
@@ -1989,11 +2170,11 @@
         "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
         "backing-assets": 1,
         "backing-usd": 124913.55,
-        "ratio": 0.276,
+        "ratio": 0.2763,
         "uniformity": 1
       }
     ],
-    "mcap": 452540
+    "mcap": 452155
   },
   "cats-catoshi-ethereum": {
     "id": "cats-catoshi-ethereum",
@@ -2023,6 +2204,11 @@
     },
     "price": [
       {
+        "timestamp": "2023-02-05T12:18:56.516Z",
+        "usd": 0.04139,
+        "source": "https://api.dexscreener.com/latest/dex/tokens/0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,0xA898bbb508C04BE26af3d319b7775927AFCB02AF,0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,0xe3DB50049C74De2F7d7269823af3178Cf22fd5E3,0x079095D0AA760Dd88964b24267Ef7d9e3DC32944,0x7C33896Ce19831dc170d99330878688a5f6DF614,0xed048a21361fff12fb10335655b273c396994AA0,0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD,0x663a07a2648296f1A3C02EE86A126fE1407888E5,0xc0888d80ee0abf84563168b3182650c0addeb6d5,0x59193512877E2EC3bB27C178A8888Cfac62FB32D,0x45488c50184ce2092756ba7cdf85731fd17e6f3d,0x7950865a9140cB519342433146Ed5b40c6F210f7,0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,0x463E737D8F740395ABf44f7aac2D9531D8D539E9,0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,0x165DBb08de0476271714952C3C1F068693bd60D7"
+      },
+      {
         "timestamp": "2023-02-03T22:09:21.461Z",
         "usd": 0.04458,
         "source": "https://api.dexscreener.com/latest/dex/tokens/0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,0xA898bbb508C04BE26af3d319b7775927AFCB02AF,0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,0x663a07a2648296f1A3C02EE86A126fE1407888E5,0xc0888d80ee0abf84563168b3182650c0addeb6d5,0x59193512877E2EC3bB27C178A8888Cfac62FB32D,0x45488c50184ce2092756ba7cdf85731fd17e6f3d,0x7950865a9140cB519342433146Ed5b40c6F210f7,0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,0x463E737D8F740395ABf44f7aac2D9531D8D539E9,0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,0x165DBb08de0476271714952C3C1F068693bd60D7"
@@ -2039,6 +2225,11 @@
       }
     ],
     "supply": [
+      {
+        "timestamp": "2023-02-05T12:18:56.216Z",
+        "total": 5902504.740945341,
+        "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}"
+      },
       {
         "timestamp": "2023-02-04T22:09:01.308Z",
         "total": 5902724.294014868,
@@ -2062,7 +2253,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-04T22:47:14.396Z",
+        "timestamp": "2023-02-05T14:57:52.115Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -2071,7 +2262,7 @@
         "uniformity": 1
       }
     ],
-    "mcap": 263143.45
+    "mcap": 244304.67
   },
   "eth-binance-bsc": {
     "id": "eth-binance-bsc",
@@ -2112,6 +2303,11 @@
     },
     "price": [
       {
+        "timestamp": "2023-02-05T12:18:56.266Z",
+        "usd": 1663.76,
+        "source": "https://coins.llama.fi/prices/current/bsc:0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,bsc:0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c,ethereum:0x418D75f65a02b3D53B2418FB8E1fe493759c7605,solana:9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,bsc:0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c,solana:6nuaX3ogrr2CaoAPjtaKHAoBNWok32BMcRozuf32s2QF,bsc:0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56,moonbeam:0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F,moonriver:0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818,ethereum:0x4Fabb145d64652a948d72533023f6E7A623C7C53,bsc:0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,ethereum:0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,bsc:0x2170Ed0880ac9A755fd29B2688956BD959F933F8,ethereum:0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2,bsc:0xA898bbb508C04BE26af3d319b7775927AFCB02AF,bsc:0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,moonbeam:0xAcc15dC74880C9944775448304B263D191c6077F,moonbeam:0xe3DB50049C74De2F7d7269823af3178Cf22fd5E3,ethereum:0xfAd45E47083e4607302aa43c65fB3106F1cd7607,bsc:0xa4FFfc757e8c4F24E7b209C033c123D20983Ad40,moonbeam:0x079095D0AA760Dd88964b24267Ef7d9e3DC32944,moonbeam:0x7C33896Ce19831dc170d99330878688a5f6DF614,moonbeam:0xed048a21361fff12fb10335655b273c396994AA0,moonbeam:0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xc0888d80ee0abf84563168b3182650c0addeb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488c50184ce2092756ba7cdf85731fd17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b?searchWidth=4h"
+      },
+      {
         "timestamp": "2023-02-04T22:09:01.521Z",
         "usd": 1679.66,
         "source": "https://coins.llama.fi/prices/current/bsc:0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,bsc:0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c,ethereum:0x418D75f65a02b3D53B2418FB8E1fe493759c7605,solana:9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,bsc:0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c,solana:6nuaX3ogrr2CaoAPjtaKHAoBNWok32BMcRozuf32s2QF,bsc:0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56,moonbeam:0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F,moonriver:0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818,ethereum:0x4Fabb145d64652a948d72533023f6E7A623C7C53,bsc:0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,ethereum:0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,bsc:0x2170Ed0880ac9A755fd29B2688956BD959F933F8,ethereum:0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2,bsc:0xA898bbb508C04BE26af3d319b7775927AFCB02AF,bsc:0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,moonbeam:0xAcc15dC74880C9944775448304B263D191c6077F,ethereum:0xfAd45E47083e4607302aa43c65fB3106F1cd7607,bsc:0xa4FFfc757e8c4F24E7b209C033c123D20983Ad40,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xc0888d80ee0abf84563168b3182650c0addeb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488c50184ce2092756ba7cdf85731fd17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b,moonriver:0xe3f5a90f9cb311505cd691a46596599aa1a0ad7d?searchWidth=4h"
@@ -2134,6 +2330,11 @@
     ],
     "supply": [
       {
+        "timestamp": "2023-02-05T12:18:56.500Z",
+        "total": 604999.9999908485,
+        "source": "https://bsc-dataseed3.binance.org/"
+      },
+      {
         "timestamp": "2023-02-04T22:09:01.640Z",
         "total": 604999.9999908485,
         "source": "https://bsc-dataseed3.binance.org/"
@@ -2155,6 +2356,15 @@
       }
     ],
     "backing": [
+      {
+        "timestamp": "2023-02-05T12:18:55.534Z",
+        "assets": {},
+        "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
+        "backing-assets": 0,
+        "backing-usd": 0,
+        "ratio": 0,
+        "uniformity": 1
+      },
       {
         "timestamp": "2023-02-04T22:09:00.465Z",
         "assets": {},
@@ -2192,7 +2402,7 @@
         "uniformity": 1
       }
     ],
-    "mcap": 1016194299.98
+    "mcap": 1006574799.98
   },
   "eth-ethereum": {
     "id": "eth-ethereum",
@@ -2206,7 +2416,8 @@
     "issuer": null,
     "reference": "https://ethereum.org/en/",
     "tags": [
-      "cryptocurrency"
+      "cryptocurrency",
+      "native"
     ],
     "contracts": null,
     "price": [
@@ -2235,7 +2446,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-04T22:47:14.396Z",
+        "timestamp": "2023-02-05T14:57:52.115Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -2246,13 +2457,13 @@
     ],
     "mcap": 149030565230.78
   },
-  "eth.wrapped-ethereum": {
-    "id": "eth.wrapped-ethereum",
+  "eth.w-ethereum": {
+    "id": "eth.w-ethereum",
     "links": {
-      "self": "/assets/eth.wrapped-ethereum.json",
-      "ui": "/assets/eth.wrapped-ethereum"
+      "self": "/assets/eth.w-ethereum.json",
+      "ui": "/assets/eth.w-ethereum"
     },
-    "icon": "assets/eth.wrapped-ethereum/icon.png",
+    "icon": "assets/eth.w-ethereum/icon.png",
     "name": "Wrapped Ether",
     "symbol": "WETH",
     "issuer": null,
@@ -2273,6 +2484,11 @@
       "vault": null
     },
     "price": [
+      {
+        "timestamp": "2023-02-05T12:18:56.266Z",
+        "usd": 1663.76,
+        "source": "https://coins.llama.fi/prices/current/bsc:0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,bsc:0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c,ethereum:0x418D75f65a02b3D53B2418FB8E1fe493759c7605,solana:9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,bsc:0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c,solana:6nuaX3ogrr2CaoAPjtaKHAoBNWok32BMcRozuf32s2QF,bsc:0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56,moonbeam:0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F,moonriver:0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818,ethereum:0x4Fabb145d64652a948d72533023f6E7A623C7C53,bsc:0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,ethereum:0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,bsc:0x2170Ed0880ac9A755fd29B2688956BD959F933F8,ethereum:0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2,bsc:0xA898bbb508C04BE26af3d319b7775927AFCB02AF,bsc:0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,moonbeam:0xAcc15dC74880C9944775448304B263D191c6077F,moonbeam:0xe3DB50049C74De2F7d7269823af3178Cf22fd5E3,ethereum:0xfAd45E47083e4607302aa43c65fB3106F1cd7607,bsc:0xa4FFfc757e8c4F24E7b209C033c123D20983Ad40,moonbeam:0x079095D0AA760Dd88964b24267Ef7d9e3DC32944,moonbeam:0x7C33896Ce19831dc170d99330878688a5f6DF614,moonbeam:0xed048a21361fff12fb10335655b273c396994AA0,moonbeam:0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xc0888d80ee0abf84563168b3182650c0addeb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488c50184ce2092756ba7cdf85731fd17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b?searchWidth=4h"
+      },
       {
         "timestamp": "2023-02-04T22:09:01.521Z",
         "usd": 1679.66,
@@ -2296,6 +2512,11 @@
     ],
     "supply": [
       {
+        "timestamp": "2023-02-05T12:18:56.216Z",
+        "total": 3924949.1589160333,
+        "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}"
+      },
+      {
         "timestamp": "2023-02-04T22:09:01.308Z",
         "total": 3917286.6336228778,
         "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}"
@@ -2318,7 +2539,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-04T22:47:14.396Z",
+        "timestamp": "2023-02-05T14:57:52.115Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -2327,7 +2548,7 @@
         "uniformity": 1
       }
     ],
-    "mcap": 6579709667.03
+    "mcap": 6530173412.64
   },
   "fuk-bsc": {
     "id": "fuk-bsc",
@@ -2373,6 +2594,11 @@
     ],
     "supply": [
       {
+        "timestamp": "2023-02-05T12:18:56.500Z",
+        "total": 1000000000000,
+        "source": "https://bsc-dataseed3.binance.org/"
+      },
+      {
         "timestamp": "2023-02-04T22:09:01.640Z",
         "total": 1000000000000,
         "source": "https://bsc-dataseed3.binance.org/"
@@ -2400,7 +2626,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-04T22:47:14.396Z",
+        "timestamp": "2023-02-05T14:57:52.115Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -2450,6 +2676,11 @@
     ],
     "supply": [
       {
+        "timestamp": "2023-02-05T12:18:56.500Z",
+        "total": 100000000000000,
+        "source": "https://bsc-dataseed3.binance.org/"
+      },
+      {
         "timestamp": "2023-02-04T22:09:01.640Z",
         "total": 100000000000000,
         "source": "https://bsc-dataseed3.binance.org/"
@@ -2477,7 +2708,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-04T22:47:14.396Z",
+        "timestamp": "2023-02-05T14:57:52.115Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -2520,7 +2751,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-04T22:47:14.396Z",
+        "timestamp": "2023-02-05T14:57:52.115Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -2531,13 +2762,13 @@
     ],
     "mcap": 338207251.14
   },
-  "glmr.wrapped-moonbeam-moonbeam": {
-    "id": "glmr.wrapped-moonbeam-moonbeam",
+  "glmr.w-moonbeam-moonbeam": {
+    "id": "glmr.w-moonbeam-moonbeam",
     "links": {
-      "self": "/assets/glmr.wrapped-moonbeam-moonbeam.json",
-      "ui": "/assets/glmr.wrapped-moonbeam-moonbeam"
+      "self": "/assets/glmr.w-moonbeam-moonbeam.json",
+      "ui": "/assets/glmr.w-moonbeam-moonbeam"
     },
-    "icon": "assets/glmr.wrapped-moonbeam-moonbeam/icon.png",
+    "icon": "assets/glmr.w-moonbeam-moonbeam/icon.png",
     "name": "Wrapped GLMR",
     "symbol": "WGLMR",
     "issuer": "moonbeam",
@@ -2558,6 +2789,11 @@
       "vault": null
     },
     "price": [
+      {
+        "timestamp": "2023-02-05T12:18:56.266Z",
+        "usd": 0.484558,
+        "source": "https://coins.llama.fi/prices/current/bsc:0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,bsc:0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c,ethereum:0x418D75f65a02b3D53B2418FB8E1fe493759c7605,solana:9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,bsc:0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c,solana:6nuaX3ogrr2CaoAPjtaKHAoBNWok32BMcRozuf32s2QF,bsc:0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56,moonbeam:0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F,moonriver:0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818,ethereum:0x4Fabb145d64652a948d72533023f6E7A623C7C53,bsc:0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,ethereum:0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,bsc:0x2170Ed0880ac9A755fd29B2688956BD959F933F8,ethereum:0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2,bsc:0xA898bbb508C04BE26af3d319b7775927AFCB02AF,bsc:0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,moonbeam:0xAcc15dC74880C9944775448304B263D191c6077F,moonbeam:0xe3DB50049C74De2F7d7269823af3178Cf22fd5E3,ethereum:0xfAd45E47083e4607302aa43c65fB3106F1cd7607,bsc:0xa4FFfc757e8c4F24E7b209C033c123D20983Ad40,moonbeam:0x079095D0AA760Dd88964b24267Ef7d9e3DC32944,moonbeam:0x7C33896Ce19831dc170d99330878688a5f6DF614,moonbeam:0xed048a21361fff12fb10335655b273c396994AA0,moonbeam:0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xc0888d80ee0abf84563168b3182650c0addeb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488c50184ce2092756ba7cdf85731fd17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b?searchWidth=4h"
+      },
       {
         "timestamp": "2023-02-04T22:09:01.521Z",
         "usd": 0.485922,
@@ -2581,6 +2817,11 @@
     ],
     "supply": [
       {
+        "timestamp": "2023-02-05T12:18:56.195Z",
+        "total": 22252421.843324527,
+        "source": "https://moonbeam.public.blastapi.io"
+      },
+      {
         "timestamp": "2023-02-04T22:09:02.542Z",
         "total": 22619211.79236352,
         "source": "https://1rpc.io/glmr"
@@ -2603,7 +2844,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-04T22:47:14.396Z",
+        "timestamp": "2023-02-05T14:57:52.115Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -2612,7 +2853,60 @@
         "uniformity": 1
       }
     ],
-    "mcap": 10991172.63
+    "mcap": 10782589.02
+  },
+  "glmr.w-toad.network-moonbeam": {
+    "id": "glmr.w-toad.network-moonbeam",
+    "links": {
+      "self": "/assets/glmr.w-toad.network-moonbeam.json",
+      "ui": "/assets/glmr.w-toad.network-moonbeam"
+    },
+    "icon": "assets/glmr.w-toad.network-moonbeam/icon.png",
+    "name": "Wrapped GLMR",
+    "symbol": "WGLMR",
+    "issuer": "toad.network",
+    "reference": "https://dapps.padswap.exchange/",
+    "tags": [
+      "cryptocurrency",
+      "derivative"
+    ],
+    "contracts": {
+      "token": {
+        "id": "moonbeam:0xe3DB50049C74De2F7d7269823af3178Cf22fd5E3",
+        "links": {
+          "self": "/tokens/moonbeam:0xe3DB50049C74De2F7d7269823af3178Cf22fd5E3.json"
+        },
+        "address": "0xe3DB50049C74De2F7d7269823af3178Cf22fd5E3",
+        "chain": "moonbeam"
+      },
+      "vault": null
+    },
+    "price": [
+      {
+        "timestamp": "2023-02-05T12:18:56.516Z",
+        "usd": 0.49025,
+        "source": "https://api.dexscreener.com/latest/dex/tokens/0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,0xA898bbb508C04BE26af3d319b7775927AFCB02AF,0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,0xe3DB50049C74De2F7d7269823af3178Cf22fd5E3,0x079095D0AA760Dd88964b24267Ef7d9e3DC32944,0x7C33896Ce19831dc170d99330878688a5f6DF614,0xed048a21361fff12fb10335655b273c396994AA0,0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD,0x663a07a2648296f1A3C02EE86A126fE1407888E5,0xc0888d80ee0abf84563168b3182650c0addeb6d5,0x59193512877E2EC3bB27C178A8888Cfac62FB32D,0x45488c50184ce2092756ba7cdf85731fd17e6f3d,0x7950865a9140cB519342433146Ed5b40c6F210f7,0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,0x463E737D8F740395ABf44f7aac2D9531D8D539E9,0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,0x165DBb08de0476271714952C3C1F068693bd60D7"
+      }
+    ],
+    "supply": [
+      {
+        "timestamp": "2023-02-05T12:18:56.190Z",
+        "total": 43785.21114643491,
+        "source": "https://moonbeam.public.blastapi.io"
+      }
+    ],
+    "backing": [
+      {
+        "timestamp": "2023-02-05T14:57:52.115Z",
+        "assets": {},
+        "source": "No supply recorded in bcked.",
+        "backing-assets": 0,
+        "backing-usd": 0,
+        "ratio": 0,
+        "uniformity": 1
+      }
+    ],
+    "mcap": 21465.7
   },
   "gold": {
     "id": "gold",
@@ -2650,7 +2944,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-04T22:47:14.396Z",
+        "timestamp": "2023-02-05T14:57:52.115Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -2688,6 +2982,11 @@
     },
     "price": [
       {
+        "timestamp": "2023-02-05T12:18:56.266Z",
+        "usd": 0.00004185,
+        "source": "https://coins.llama.fi/prices/current/bsc:0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,bsc:0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c,ethereum:0x418D75f65a02b3D53B2418FB8E1fe493759c7605,solana:9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,bsc:0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c,solana:6nuaX3ogrr2CaoAPjtaKHAoBNWok32BMcRozuf32s2QF,bsc:0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56,moonbeam:0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F,moonriver:0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818,ethereum:0x4Fabb145d64652a948d72533023f6E7A623C7C53,bsc:0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,ethereum:0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,bsc:0x2170Ed0880ac9A755fd29B2688956BD959F933F8,ethereum:0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2,bsc:0xA898bbb508C04BE26af3d319b7775927AFCB02AF,bsc:0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,moonbeam:0xAcc15dC74880C9944775448304B263D191c6077F,moonbeam:0xe3DB50049C74De2F7d7269823af3178Cf22fd5E3,ethereum:0xfAd45E47083e4607302aa43c65fB3106F1cd7607,bsc:0xa4FFfc757e8c4F24E7b209C033c123D20983Ad40,moonbeam:0x079095D0AA760Dd88964b24267Ef7d9e3DC32944,moonbeam:0x7C33896Ce19831dc170d99330878688a5f6DF614,moonbeam:0xed048a21361fff12fb10335655b273c396994AA0,moonbeam:0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xc0888d80ee0abf84563168b3182650c0addeb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488c50184ce2092756ba7cdf85731fd17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b?searchWidth=4h"
+      },
+      {
         "timestamp": "2023-02-04T22:09:01.521Z",
         "usd": 0.00004012,
         "source": "https://coins.llama.fi/prices/current/bsc:0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,bsc:0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c,ethereum:0x418D75f65a02b3D53B2418FB8E1fe493759c7605,solana:9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,bsc:0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c,solana:6nuaX3ogrr2CaoAPjtaKHAoBNWok32BMcRozuf32s2QF,bsc:0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56,moonbeam:0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F,moonriver:0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818,ethereum:0x4Fabb145d64652a948d72533023f6E7A623C7C53,bsc:0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,ethereum:0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,bsc:0x2170Ed0880ac9A755fd29B2688956BD959F933F8,ethereum:0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2,bsc:0xA898bbb508C04BE26af3d319b7775927AFCB02AF,bsc:0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,moonbeam:0xAcc15dC74880C9944775448304B263D191c6077F,ethereum:0xfAd45E47083e4607302aa43c65fB3106F1cd7607,bsc:0xa4FFfc757e8c4F24E7b209C033c123D20983Ad40,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xc0888d80ee0abf84563168b3182650c0addeb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488c50184ce2092756ba7cdf85731fd17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b,moonriver:0xe3f5a90f9cb311505cd691a46596599aa1a0ad7d?searchWidth=4h"
@@ -2719,6 +3018,11 @@
       }
     ],
     "supply": [
+      {
+        "timestamp": "2023-02-05T12:18:56.216Z",
+        "total": 1000000000000,
+        "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}"
+      },
       {
         "timestamp": "2023-02-04T22:09:01.308Z",
         "total": 1000000000000,
@@ -2752,7 +3056,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-04T22:47:14.396Z",
+        "timestamp": "2023-02-05T14:57:52.115Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -2761,7 +3065,7 @@
         "uniformity": 1
       }
     ],
-    "mcap": 40120000
+    "mcap": 41850000
   },
   "hoge-multichain-bsc": {
     "id": "hoge-multichain-bsc",
@@ -2802,6 +3106,11 @@
     },
     "price": [
       {
+        "timestamp": "2023-02-05T12:18:56.266Z",
+        "usd": 0.00004185,
+        "source": "https://coins.llama.fi/prices/current/bsc:0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,bsc:0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c,ethereum:0x418D75f65a02b3D53B2418FB8E1fe493759c7605,solana:9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,bsc:0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c,solana:6nuaX3ogrr2CaoAPjtaKHAoBNWok32BMcRozuf32s2QF,bsc:0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56,moonbeam:0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F,moonriver:0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818,ethereum:0x4Fabb145d64652a948d72533023f6E7A623C7C53,bsc:0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,ethereum:0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,bsc:0x2170Ed0880ac9A755fd29B2688956BD959F933F8,ethereum:0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2,bsc:0xA898bbb508C04BE26af3d319b7775927AFCB02AF,bsc:0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,moonbeam:0xAcc15dC74880C9944775448304B263D191c6077F,moonbeam:0xe3DB50049C74De2F7d7269823af3178Cf22fd5E3,ethereum:0xfAd45E47083e4607302aa43c65fB3106F1cd7607,bsc:0xa4FFfc757e8c4F24E7b209C033c123D20983Ad40,moonbeam:0x079095D0AA760Dd88964b24267Ef7d9e3DC32944,moonbeam:0x7C33896Ce19831dc170d99330878688a5f6DF614,moonbeam:0xed048a21361fff12fb10335655b273c396994AA0,moonbeam:0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xc0888d80ee0abf84563168b3182650c0addeb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488c50184ce2092756ba7cdf85731fd17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b?searchWidth=4h"
+      },
+      {
         "timestamp": "2023-02-04T22:09:01.521Z",
         "usd": 0.00004012,
         "source": "https://coins.llama.fi/prices/current/bsc:0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,bsc:0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c,ethereum:0x418D75f65a02b3D53B2418FB8E1fe493759c7605,solana:9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,bsc:0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c,solana:6nuaX3ogrr2CaoAPjtaKHAoBNWok32BMcRozuf32s2QF,bsc:0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56,moonbeam:0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F,moonriver:0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818,ethereum:0x4Fabb145d64652a948d72533023f6E7A623C7C53,bsc:0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,ethereum:0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,bsc:0x2170Ed0880ac9A755fd29B2688956BD959F933F8,ethereum:0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2,bsc:0xA898bbb508C04BE26af3d319b7775927AFCB02AF,bsc:0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,moonbeam:0xAcc15dC74880C9944775448304B263D191c6077F,ethereum:0xfAd45E47083e4607302aa43c65fB3106F1cd7607,bsc:0xa4FFfc757e8c4F24E7b209C033c123D20983Ad40,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xc0888d80ee0abf84563168b3182650c0addeb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488c50184ce2092756ba7cdf85731fd17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b,moonriver:0xe3f5a90f9cb311505cd691a46596599aa1a0ad7d?searchWidth=4h"
@@ -2823,6 +3132,11 @@
       }
     ],
     "supply": [
+      {
+        "timestamp": "2023-02-05T12:18:56.500Z",
+        "total": 15645068001.253557,
+        "source": "https://bsc-dataseed3.binance.org/"
+      },
       {
         "timestamp": "2023-02-04T22:09:01.640Z",
         "total": 15645068001.253557,
@@ -2846,6 +3160,17 @@
     ],
     "backing": [
       {
+        "timestamp": "2023-02-05T12:18:56.217Z",
+        "assets": {
+          "hoge-ethereum": 14018258107.059162
+        },
+        "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
+        "backing-assets": 1,
+        "backing-usd": 586664.1,
+        "ratio": 0.896,
+        "uniformity": 1
+      },
+      {
         "timestamp": "2023-02-04T22:09:01.310Z",
         "assets": {
           "hoge-ethereum": 14018181208.180733
@@ -2853,7 +3178,7 @@
         "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
         "backing-assets": 1,
         "backing-usd": 562409.43,
-        "ratio": 0.896,
+        "ratio": 0.859,
         "uniformity": 1
       },
       {
@@ -2864,7 +3189,7 @@
         "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
         "backing-assets": 1,
         "backing-usd": 557498.52,
-        "ratio": 0.8882,
+        "ratio": 0.8515,
         "uniformity": 1
       },
       {
@@ -2875,7 +3200,7 @@
         "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
         "backing-assets": 1,
         "backing-usd": 549086.93,
-        "ratio": 0.8748,
+        "ratio": 0.8386,
         "uniformity": 1
       },
       {
@@ -2886,11 +3211,303 @@
         "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
         "backing-assets": 1,
         "backing-usd": 589875.71,
-        "ratio": 0.9398,
+        "ratio": 0.9009,
         "uniformity": 1
       }
     ],
-    "mcap": 627680.13
+    "mcap": 654746.1
+  },
+  "lp-busd-usdc-toad.network-moonbeam": {
+    "id": "lp-busd-usdc-toad.network-moonbeam",
+    "links": {
+      "self": "/assets/lp-busd-usdc-toad.network-moonbeam.json",
+      "ui": "/assets/lp-busd-usdc-toad.network-moonbeam"
+    },
+    "icon": "assets/lp-busd-usdc-toad.network-moonbeam/icon.png",
+    "name": "BUSD-USDC LPs",
+    "symbol": "LP-BUSD-USDC",
+    "issuer": "toad.network",
+    "reference": "https://dapps.padswap.exchange/",
+    "tags": [
+      "cryptocurrency",
+      "lp"
+    ],
+    "contracts": {
+      "token": {
+        "id": "moonbeam:0x079095D0AA760Dd88964b24267Ef7d9e3DC32944",
+        "links": {
+          "self": "/tokens/moonbeam:0x079095D0AA760Dd88964b24267Ef7d9e3DC32944.json"
+        },
+        "address": "0x079095D0AA760Dd88964b24267Ef7d9e3DC32944",
+        "chain": "moonbeam"
+      },
+      "vault": {
+        "address": "0x079095D0AA760Dd88964b24267Ef7d9e3DC32944",
+        "chain": "moonbeam",
+        "underlying-assets": [
+          {
+            "id": "busd-multichain-moonbeam",
+            "links": {
+              "self": "/assets/busd-multichain-moonbeam.json"
+            }
+          },
+          {
+            "id": "usdc-multichain-moonbeam",
+            "links": {
+              "self": "/assets/usdc-multichain-moonbeam.json"
+            }
+          }
+        ]
+      }
+    },
+    "price": [
+      {
+        "timestamp": "2023-02-05T14:32:59.451Z",
+        "usd": 2080015.4129270941,
+        "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: busd-multichain-moonbeam,usdc-multichain-moonbeam"
+      }
+    ],
+    "supply": [
+      {
+        "timestamp": "2023-02-05T12:18:56.147Z",
+        "total": 0.000816384213270556,
+        "source": "https://moonbeam.public.blastapi.io"
+      }
+    ],
+    "backing": [
+      {
+        "timestamp": "2023-02-05T12:18:56.147Z",
+        "assets": {
+          "busd-multichain-moonbeam": 847.9664726423256,
+          "usdc-multichain-moonbeam": 849.785721
+        },
+        "source": "https://moonbeam.public.blastapi.io",
+        "backing-assets": 1,
+        "backing-usd": 1697.76,
+        "ratio": 0.9998,
+        "uniformity": 1
+      }
+    ],
+    "mcap": 1698.09
+  },
+  "lp-glmr-pad-toad.network-moonbeam": {
+    "id": "lp-glmr-pad-toad.network-moonbeam",
+    "links": {
+      "self": "/assets/lp-glmr-pad-toad.network-moonbeam.json",
+      "ui": "/assets/lp-glmr-pad-toad.network-moonbeam"
+    },
+    "icon": "assets/lp-glmr-pad-toad.network-moonbeam/icon.png",
+    "name": "GLMR-PAD LPs",
+    "symbol": "LP-GLMR-PAD",
+    "issuer": "toad.network",
+    "reference": "https://dapps.padswap.exchange/",
+    "tags": [
+      "cryptocurrency",
+      "lp"
+    ],
+    "contracts": {
+      "token": {
+        "id": "moonbeam:0x7C33896Ce19831dc170d99330878688a5f6DF614",
+        "links": {
+          "self": "/tokens/moonbeam:0x7C33896Ce19831dc170d99330878688a5f6DF614.json"
+        },
+        "address": "0x7C33896Ce19831dc170d99330878688a5f6DF614",
+        "chain": "moonbeam"
+      },
+      "vault": {
+        "address": "0x7C33896Ce19831dc170d99330878688a5f6DF614",
+        "chain": "moonbeam",
+        "underlying-assets": [
+          {
+            "id": "pad-toad.network-moonbeam",
+            "links": {
+              "self": "/assets/pad-toad.network-moonbeam.json"
+            }
+          },
+          {
+            "id": "glmr.w-toad.network-moonbeam",
+            "links": {
+              "self": "/assets/glmr.w-toad.network-moonbeam.json"
+            }
+          }
+        ]
+      }
+    },
+    "price": [
+      {
+        "timestamp": "2023-02-05T14:32:59.451Z",
+        "usd": 0.000673993371629675,
+        "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: pad-toad.network-moonbeam,glmr.w-toad.network-moonbeam"
+      }
+    ],
+    "supply": [
+      {
+        "timestamp": "2023-02-05T12:18:56.113Z",
+        "total": 12433886.93628113,
+        "source": "https://moonbeam.public.blastapi.io"
+      }
+    ],
+    "backing": [
+      {
+        "timestamp": "2023-02-05T12:18:56.199Z",
+        "assets": {
+          "pad-toad.network-moonbeam": 19562800495.770412,
+          "glmr.w-toad.network-moonbeam": 8645.648918197563
+        },
+        "source": "https://moonbeam.public.blastapi.io",
+        "backing-assets": 4,
+        "backing-usd": 12104.43,
+        "ratio": 1.4444,
+        "uniformity": 0.6054
+      }
+    ],
+    "mcap": 8380.36
+  },
+  "lp-toad-glmr-toad.network-moonbeam": {
+    "id": "lp-toad-glmr-toad.network-moonbeam",
+    "links": {
+      "self": "/assets/lp-toad-glmr-toad.network-moonbeam.json",
+      "ui": "/assets/lp-toad-glmr-toad.network-moonbeam"
+    },
+    "icon": "assets/lp-toad-glmr-toad.network-moonbeam/icon.png",
+    "name": "TOAD-GLMR LPs",
+    "symbol": "LP-TOAD-GLMR",
+    "issuer": "toad.network",
+    "reference": "https://dapps.padswap.exchange/",
+    "tags": [
+      "cryptocurrency",
+      "lp"
+    ],
+    "contracts": {
+      "token": {
+        "id": "moonbeam:0xed048a21361fff12fb10335655b273c396994AA0",
+        "links": {
+          "self": "/tokens/moonbeam:0xed048a21361fff12fb10335655b273c396994AA0.json"
+        },
+        "address": "0xed048a21361fff12fb10335655b273c396994AA0",
+        "chain": "moonbeam"
+      },
+      "vault": {
+        "address": "0xed048a21361fff12fb10335655b273c396994AA0",
+        "chain": "moonbeam",
+        "underlying-assets": [
+          {
+            "id": "toad-toad.network-moonbeam",
+            "links": {
+              "self": "/assets/toad-toad.network-moonbeam.json"
+            }
+          },
+          {
+            "id": "glmr.w-toad.network-moonbeam",
+            "links": {
+              "self": "/assets/glmr.w-toad.network-moonbeam.json"
+            }
+          }
+        ]
+      }
+    },
+    "price": [
+      {
+        "timestamp": "2023-02-05T14:32:59.451Z",
+        "usd": 2.0038935834310303,
+        "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: toad-toad.network-moonbeam,glmr.w-toad.network-moonbeam"
+      }
+    ],
+    "supply": [
+      {
+        "timestamp": "2023-02-05T12:18:56.188Z",
+        "total": 5712.626921031073,
+        "source": "https://moonbeam.public.blastapi.io"
+      }
+    ],
+    "backing": [
+      {
+        "timestamp": "2023-02-05T12:18:56.155Z",
+        "assets": {
+          "toad-toad.network-moonbeam": 2898.5148191723283,
+          "glmr.w-toad.network-moonbeam": 11839.578799065806
+        },
+        "source": "https://moonbeam.public.blastapi.io",
+        "backing-assets": 2,
+        "backing-usd": 11572.39,
+        "ratio": 1.0109,
+        "uniformity": 1
+      }
+    ],
+    "mcap": 11447.5
+  },
+  "lp-usdc-glmr-toad.network-moonbeam": {
+    "id": "lp-usdc-glmr-toad.network-moonbeam",
+    "links": {
+      "self": "/assets/lp-usdc-glmr-toad.network-moonbeam.json",
+      "ui": "/assets/lp-usdc-glmr-toad.network-moonbeam"
+    },
+    "icon": "assets/lp-usdc-glmr-toad.network-moonbeam/icon.png",
+    "name": "USDC-GLMR LPs",
+    "symbol": "LP-USDC-GLMR",
+    "issuer": "toad.network",
+    "reference": "https://dapps.padswap.exchange/",
+    "tags": [
+      "cryptocurrency",
+      "lp"
+    ],
+    "contracts": {
+      "token": {
+        "id": "moonbeam:0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD",
+        "links": {
+          "self": "/tokens/moonbeam:0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD.json"
+        },
+        "address": "0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD",
+        "chain": "moonbeam"
+      },
+      "vault": {
+        "address": "0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD",
+        "chain": "moonbeam",
+        "underlying-assets": [
+          {
+            "id": "usdc-multichain-moonbeam",
+            "links": {
+              "self": "/assets/usdc-multichain-moonbeam.json"
+            }
+          },
+          {
+            "id": "glmr.w-toad.network-moonbeam",
+            "links": {
+              "self": "/assets/glmr.w-toad.network-moonbeam.json"
+            }
+          }
+        ]
+      }
+    },
+    "price": [
+      {
+        "timestamp": "2023-02-05T14:32:59.451Z",
+        "usd": 1580177.716549972,
+        "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: usdc-multichain-moonbeam,glmr.w-toad.network-moonbeam"
+      }
+    ],
+    "supply": [
+      {
+        "timestamp": "2023-02-05T12:18:56.192Z",
+        "total": 0.000798260065700403,
+        "source": "https://moonbeam.public.blastapi.io"
+      }
+    ],
+    "backing": [
+      {
+        "timestamp": "2023-02-05T12:18:56.185Z",
+        "assets": {
+          "usdc-multichain-moonbeam": 634.211757,
+          "glmr.w-toad.network-moonbeam": 1299.4959377750754
+        },
+        "source": "https://moonbeam.public.blastapi.io",
+        "backing-assets": 2,
+        "backing-usd": 1271.29,
+        "ratio": 1.0078,
+        "uniformity": 1
+      }
+    ],
+    "mcap": 1261.39
   },
   "movr-moonbeam-moonriver": {
     "id": "movr-moonbeam-moonriver",
@@ -2924,7 +3541,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-04T22:47:14.396Z",
+        "timestamp": "2023-02-05T14:57:52.115Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -2935,20 +3552,19 @@
     ],
     "mcap": 65059933.58
   },
-  "movr.wrapped-moonbeam-moonriver": {
-    "id": "movr.wrapped-moonbeam-moonriver",
+  "movr.w-moonbeam-moonriver": {
+    "id": "movr.w-moonbeam-moonriver",
     "links": {
-      "self": "/assets/movr.wrapped-moonbeam-moonriver.json",
-      "ui": "/assets/movr.wrapped-moonbeam-moonriver"
+      "self": "/assets/movr.w-moonbeam-moonriver.json",
+      "ui": "/assets/movr.w-moonbeam-moonriver"
     },
-    "icon": "assets/movr.wrapped-moonbeam-moonriver/icon.png",
+    "icon": "assets/movr.w-moonbeam-moonriver/icon.png",
     "name": "Wrapped MOVR",
     "symbol": "WMOVR",
     "issuer": "moonbeam",
     "reference": "https://moonbeam.network/networks/moonriver/",
     "tags": [
-      "cryptocurrency",
-      "native"
+      "cryptocurrency"
     ],
     "contracts": {
       "token": {
@@ -2962,6 +3578,11 @@
       "vault": null
     },
     "price": [
+      {
+        "timestamp": "2023-02-05T12:18:56.516Z",
+        "usd": 9.27,
+        "source": "https://api.dexscreener.com/latest/dex/tokens/0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,0xA898bbb508C04BE26af3d319b7775927AFCB02AF,0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,0xe3DB50049C74De2F7d7269823af3178Cf22fd5E3,0x079095D0AA760Dd88964b24267Ef7d9e3DC32944,0x7C33896Ce19831dc170d99330878688a5f6DF614,0xed048a21361fff12fb10335655b273c396994AA0,0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD,0x663a07a2648296f1A3C02EE86A126fE1407888E5,0xc0888d80ee0abf84563168b3182650c0addeb6d5,0x59193512877E2EC3bB27C178A8888Cfac62FB32D,0x45488c50184ce2092756ba7cdf85731fd17e6f3d,0x7950865a9140cB519342433146Ed5b40c6F210f7,0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,0x463E737D8F740395ABf44f7aac2D9531D8D539E9,0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,0x165DBb08de0476271714952C3C1F068693bd60D7"
+      },
       {
         "timestamp": "2023-02-04T22:09:01.707Z",
         "usd": 9.13,
@@ -2985,6 +3606,11 @@
     ],
     "supply": [
       {
+        "timestamp": "2023-02-05T12:18:56.178Z",
+        "total": 577.8848557764321,
+        "source": "https://rpc.api.moonriver.moonbeam.network"
+      },
+      {
         "timestamp": "2023-02-04T22:09:01.511Z",
         "total": 586.2479781925531,
         "source": "https://rpc.api.moonriver.moonbeam.network"
@@ -3007,7 +3633,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-04T22:47:14.397Z",
+        "timestamp": "2023-02-05T14:57:52.115Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -3016,7 +3642,7 @@
         "uniformity": 1
       }
     ],
-    "mcap": 5352.44
+    "mcap": 5356.99
   },
   "pad-toad.network-bsc": {
     "id": "pad-toad.network-bsc",
@@ -3062,6 +3688,11 @@
       }
     ],
     "supply": [
+      {
+        "timestamp": "2023-02-05T12:18:56.500Z",
+        "total": 113066747189.51103,
+        "source": "https://bsc-dataseed3.binance.org/"
+      },
       {
         "timestamp": "2023-02-04T22:09:01.640Z",
         "total": 113066747189.51103,
@@ -3182,9 +3813,49 @@
         "address": "0x59193512877E2EC3bB27C178A8888Cfac62FB32D",
         "chain": "moonbeam"
       },
-      "vault": null
+      "vault": {
+        "address": "0xdBD1BBCa71B2589504DE48a000D2E6386a277118",
+        "chain": "moonbeam",
+        "underlying-assets": [
+          {
+            "id": "lp-glmr-pad-toad.network-moonbeam",
+            "links": {
+              "self": "/assets/lp-glmr-pad-toad.network-moonbeam.json"
+            }
+          },
+          {
+            "id": "lp-busd-usdc-toad.network-moonbeam",
+            "links": {
+              "self": "/assets/lp-busd-usdc-toad.network-moonbeam.json"
+            }
+          },
+          {
+            "id": "lp-toad-glmr-toad.network-moonbeam",
+            "links": {
+              "self": "/assets/lp-toad-glmr-toad.network-moonbeam.json"
+            }
+          },
+          {
+            "id": "lp-usdc-glmr-toad.network-moonbeam",
+            "links": {
+              "self": "/assets/lp-usdc-glmr-toad.network-moonbeam.json"
+            }
+          },
+          {
+            "id": "toad-toad.network-moonbeam",
+            "links": {
+              "self": "/assets/toad-toad.network-moonbeam.json"
+            }
+          }
+        ]
+      }
     },
     "price": [
+      {
+        "timestamp": "2023-02-05T12:18:56.516Z",
+        "usd": 2.162e-7,
+        "source": "https://api.dexscreener.com/latest/dex/tokens/0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,0xA898bbb508C04BE26af3d319b7775927AFCB02AF,0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,0xe3DB50049C74De2F7d7269823af3178Cf22fd5E3,0x079095D0AA760Dd88964b24267Ef7d9e3DC32944,0x7C33896Ce19831dc170d99330878688a5f6DF614,0xed048a21361fff12fb10335655b273c396994AA0,0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD,0x663a07a2648296f1A3C02EE86A126fE1407888E5,0xc0888d80ee0abf84563168b3182650c0addeb6d5,0x59193512877E2EC3bB27C178A8888Cfac62FB32D,0x45488c50184ce2092756ba7cdf85731fd17e6f3d,0x7950865a9140cB519342433146Ed5b40c6F210f7,0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,0x463E737D8F740395ABf44f7aac2D9531D8D539E9,0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,0x165DBb08de0476271714952C3C1F068693bd60D7"
+      },
       {
         "timestamp": "2023-02-04T22:09:01.707Z",
         "usd": 2.152e-7,
@@ -3218,6 +3889,11 @@
     ],
     "supply": [
       {
+        "timestamp": "2023-02-05T12:18:56.172Z",
+        "total": 58697069754.81477,
+        "source": "https://moonbeam.public.blastapi.io"
+      },
+      {
         "timestamp": "2023-02-04T22:09:02.347Z",
         "total": 58697069754.81477,
         "source": "https://1rpc.io/glmr"
@@ -3250,10 +3926,25 @@
     ],
     "backing": [
       {
+        "timestamp": "2023-02-05T12:18:56.202Z",
+        "assets": {
+          "lp-glmr-pad-toad.network-moonbeam": 5023874.107928641,
+          "lp-busd-usdc-toad.network-moonbeam": 0.000816384213269556,
+          "lp-toad-glmr-toad.network-moonbeam": 920.3548326005991,
+          "lp-usdc-glmr-toad.network-moonbeam": 0.000584851116301421,
+          "toad-toad.network-moonbeam": 607
+        },
+        "source": "https://moonbeam.public.blastapi.io",
+        "backing-assets": 4,
+        "backing-usd": 11251.96,
+        "ratio": 0.8867,
+        "uniformity": 0.6336
+      },
+      {
         "timestamp": "2023-01-03T20:05:00.000Z",
         "assets": {
           "pad-toad.network-moonbeam": 6833630437.305681,
-          "glmr.wrapped-moonbeam-moonbeam": 7422.069899331382,
+          "glmr.w-moonbeam-moonbeam": 7422.069899331382,
           "usdc-multichain-moonbeam": 1226.167533796442,
           "busd-multichain-moonbeam": 846.0104610817741,
           "toad-toad.network-moonbeam": 1004.5757598012117
@@ -3261,11 +3952,11 @@
         "source": "../lily-pad/scripts",
         "backing-assets": 3,
         "backing-usd": 7495.45,
-        "ratio": 0.5934,
+        "ratio": 0.5906,
         "uniformity": 0.9595
       }
     ],
-    "mcap": 12631.61
+    "mcap": 12690.31
   },
   "pad-toad.network-moonriver": {
     "id": "pad-toad.network-moonriver",
@@ -3307,6 +3998,11 @@
     ],
     "supply": [
       {
+        "timestamp": "2023-02-05T12:18:56.195Z",
+        "total": 79007510287.90132,
+        "source": "https://rpc.api.moonriver.moonbeam.network"
+      },
+      {
         "timestamp": "2023-02-04T22:09:01.508Z",
         "total": 79007510287.90132,
         "source": "https://rpc.api.moonriver.moonbeam.network"
@@ -3342,7 +4038,7 @@
         "timestamp": "2023-01-03T18:40:00.000Z",
         "assets": {
           "pad-toad.network-moonriver": 9488974201.18063,
-          "movr.wrapped-moonbeam-moonriver": 343.2075067600664,
+          "movr.w-moonbeam-moonriver": 343.2075067600664,
           "busd-multichain-moonriver": 580.8499001075859,
           "usdc-multichain-moonriver": 804.3876987466698,
           "toad-toad.network-moonriver": 463.71059617055926
@@ -3395,12 +4091,17 @@
     },
     "price": [
       {
-        "timestamp": "2023-02-04T22:47:14.379Z",
+        "timestamp": "2023-02-05T14:57:52.099Z",
         "usd": 0,
         "source": "No price recorded in bcked."
       }
     ],
     "supply": [
+      {
+        "timestamp": "2023-02-05T12:18:56.500Z",
+        "total": 300,
+        "source": "https://bsc-dataseed3.binance.org/"
+      },
       {
         "timestamp": "2023-02-04T22:09:01.640Z",
         "total": 300,
@@ -3423,6 +4124,17 @@
       }
     ],
     "backing": [
+      {
+        "timestamp": "2023-02-05T12:18:56.217Z",
+        "assets": {
+          "paxg-paxos-ethereum": 300.9398
+        },
+        "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
+        "backing-assets": 0,
+        "backing-usd": 0,
+        "ratio": 0,
+        "uniformity": 0
+      },
       {
         "timestamp": "2023-02-04T22:09:01.310Z",
         "assets": {
@@ -3497,6 +4209,11 @@
     },
     "price": [
       {
+        "timestamp": "2023-02-05T12:18:56.266Z",
+        "usd": 1862.04,
+        "source": "https://coins.llama.fi/prices/current/bsc:0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,bsc:0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c,ethereum:0x418D75f65a02b3D53B2418FB8E1fe493759c7605,solana:9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,bsc:0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c,solana:6nuaX3ogrr2CaoAPjtaKHAoBNWok32BMcRozuf32s2QF,bsc:0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56,moonbeam:0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F,moonriver:0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818,ethereum:0x4Fabb145d64652a948d72533023f6E7A623C7C53,bsc:0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,ethereum:0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,bsc:0x2170Ed0880ac9A755fd29B2688956BD959F933F8,ethereum:0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2,bsc:0xA898bbb508C04BE26af3d319b7775927AFCB02AF,bsc:0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,moonbeam:0xAcc15dC74880C9944775448304B263D191c6077F,moonbeam:0xe3DB50049C74De2F7d7269823af3178Cf22fd5E3,ethereum:0xfAd45E47083e4607302aa43c65fB3106F1cd7607,bsc:0xa4FFfc757e8c4F24E7b209C033c123D20983Ad40,moonbeam:0x079095D0AA760Dd88964b24267Ef7d9e3DC32944,moonbeam:0x7C33896Ce19831dc170d99330878688a5f6DF614,moonbeam:0xed048a21361fff12fb10335655b273c396994AA0,moonbeam:0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xc0888d80ee0abf84563168b3182650c0addeb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488c50184ce2092756ba7cdf85731fd17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b?searchWidth=4h"
+      },
+      {
         "timestamp": "2023-02-04T22:09:01.521Z",
         "usd": 1864.52,
         "source": "https://coins.llama.fi/prices/current/bsc:0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,bsc:0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c,ethereum:0x418D75f65a02b3D53B2418FB8E1fe493759c7605,solana:9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,bsc:0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c,solana:6nuaX3ogrr2CaoAPjtaKHAoBNWok32BMcRozuf32s2QF,bsc:0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56,moonbeam:0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F,moonriver:0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818,ethereum:0x4Fabb145d64652a948d72533023f6E7A623C7C53,bsc:0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,ethereum:0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,bsc:0x2170Ed0880ac9A755fd29B2688956BD959F933F8,ethereum:0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2,bsc:0xA898bbb508C04BE26af3d319b7775927AFCB02AF,bsc:0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,moonbeam:0xAcc15dC74880C9944775448304B263D191c6077F,ethereum:0xfAd45E47083e4607302aa43c65fB3106F1cd7607,bsc:0xa4FFfc757e8c4F24E7b209C033c123D20983Ad40,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xc0888d80ee0abf84563168b3182650c0addeb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488c50184ce2092756ba7cdf85731fd17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b,moonriver:0xe3f5a90f9cb311505cd691a46596599aa1a0ad7d?searchWidth=4h"
@@ -3528,6 +4245,11 @@
       }
     ],
     "supply": [
+      {
+        "timestamp": "2023-02-05T12:18:56.216Z",
+        "total": 267106.524,
+        "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}"
+      },
       {
         "timestamp": "2023-02-04T22:09:01.309Z",
         "total": 267106.524,
@@ -3748,7 +4470,7 @@
         "source": "https://paxos.com/paxg-transparency/",
         "backing-assets": 1,
         "backing-usd": 494125838.05,
-        "ratio": 0.9922,
+        "ratio": 0.9935,
         "uniformity": 1
       },
       {
@@ -3759,7 +4481,7 @@
         "source": "https://paxos.com/paxg-transparency/",
         "backing-assets": 1,
         "backing-usd": 548480160.74,
-        "ratio": 1.1013,
+        "ratio": 1.1028,
         "uniformity": 1
       },
       {
@@ -3770,7 +4492,7 @@
         "source": "https://paxos.com/paxg-transparency/",
         "backing-assets": 1,
         "backing-usd": 559725153.17,
-        "ratio": 1.1239,
+        "ratio": 1.1254,
         "uniformity": 1
       },
       {
@@ -3781,7 +4503,7 @@
         "source": "https://paxos.com/paxg-transparency/",
         "backing-assets": 1,
         "backing-usd": 626754424.01,
-        "ratio": 1.2585,
+        "ratio": 1.2602,
         "uniformity": 1
       },
       {
@@ -3792,7 +4514,7 @@
         "source": "https://paxos.com/paxg-transparency/",
         "backing-assets": 1,
         "backing-usd": 638098942.58,
-        "ratio": 1.2813,
+        "ratio": 1.283,
         "uniformity": 1
       },
       {
@@ -3803,7 +4525,7 @@
         "source": "https://paxos.com/paxg-transparency/",
         "backing-assets": 1,
         "backing-usd": 626778066.68,
-        "ratio": 1.2585,
+        "ratio": 1.2602,
         "uniformity": 1
       },
       {
@@ -3814,7 +4536,7 @@
         "source": "https://paxos.com/paxg-transparency/",
         "backing-assets": 1,
         "backing-usd": 613215423.36,
-        "ratio": 1.2313,
+        "ratio": 1.2329,
         "uniformity": 1
       },
       {
@@ -3825,7 +4547,7 @@
         "source": "https://paxos.com/paxg-transparency/",
         "backing-assets": 1,
         "backing-usd": 598271714.19,
-        "ratio": 1.2013,
+        "ratio": 1.2029,
         "uniformity": 1
       },
       {
@@ -3836,7 +4558,7 @@
         "source": "https://paxos.com/paxg-transparency/",
         "backing-assets": 1,
         "backing-usd": 520679245.81,
-        "ratio": 1.0455,
+        "ratio": 1.0469,
         "uniformity": 1
       },
       {
@@ -3847,7 +4569,7 @@
         "source": "https://paxos.com/paxg-transparency/",
         "backing-assets": 1,
         "backing-usd": 368740416.8,
-        "ratio": 0.7404,
+        "ratio": 0.7414,
         "uniformity": 1
       },
       {
@@ -3858,7 +4580,7 @@
         "source": "https://paxos.com/paxg-transparency/",
         "backing-assets": 1,
         "backing-usd": 334288867,
-        "ratio": 0.6712,
+        "ratio": 0.6721,
         "uniformity": 1
       },
       {
@@ -3869,7 +4591,7 @@
         "source": "https://paxos.com/paxg-transparency/",
         "backing-assets": 1,
         "backing-usd": 336515375.45,
-        "ratio": 0.6757,
+        "ratio": 0.6766,
         "uniformity": 1
       },
       {
@@ -3880,7 +4602,7 @@
         "source": "https://paxos.com/paxg-transparency/",
         "backing-assets": 1,
         "backing-usd": 335260269.87,
-        "ratio": 0.6732,
+        "ratio": 0.6741,
         "uniformity": 1
       },
       {
@@ -3891,7 +4613,7 @@
         "source": "https://paxos.com/paxg-transparency/",
         "backing-assets": 1,
         "backing-usd": 334542667.9,
-        "ratio": 0.6717,
+        "ratio": 0.6726,
         "uniformity": 1
       },
       {
@@ -3902,7 +4624,7 @@
         "source": "https://paxos.com/paxg-transparency/",
         "backing-assets": 1,
         "backing-usd": 339068382.37,
-        "ratio": 0.6808,
+        "ratio": 0.6817,
         "uniformity": 1
       },
       {
@@ -3913,7 +4635,7 @@
         "source": "https://paxos.com/paxg-transparency/",
         "backing-assets": 1,
         "backing-usd": 315250164.21,
-        "ratio": 0.633,
+        "ratio": 0.6338,
         "uniformity": 1
       },
       {
@@ -3924,7 +4646,7 @@
         "source": "https://paxos.com/paxg-transparency/",
         "backing-assets": 1,
         "backing-usd": 300823248.31,
-        "ratio": 0.604,
+        "ratio": 0.6048,
         "uniformity": 1
       },
       {
@@ -3935,7 +4657,7 @@
         "source": "https://paxos.com/paxg-transparency/",
         "backing-assets": 1,
         "backing-usd": 249063973.53,
-        "ratio": 0.5001,
+        "ratio": 0.5008,
         "uniformity": 1
       },
       {
@@ -3946,7 +4668,7 @@
         "source": "https://paxos.com/paxg-transparency/",
         "backing-assets": 1,
         "backing-usd": 188587051.21,
-        "ratio": 0.3787,
+        "ratio": 0.3792,
         "uniformity": 1
       },
       {
@@ -3957,7 +4679,7 @@
         "source": "https://paxos.com/paxg-transparency/",
         "backing-assets": 1,
         "backing-usd": 163974105.93,
-        "ratio": 0.3292,
+        "ratio": 0.3297,
         "uniformity": 1
       },
       {
@@ -3968,7 +4690,7 @@
         "source": "https://paxos.com/paxg-transparency/",
         "backing-assets": 1,
         "backing-usd": 133228535.12,
-        "ratio": 0.2675,
+        "ratio": 0.2679,
         "uniformity": 1
       },
       {
@@ -3979,7 +4701,7 @@
         "source": "https://paxos.com/paxg-transparency/",
         "backing-assets": 1,
         "backing-usd": 113012103.64,
-        "ratio": 0.2269,
+        "ratio": 0.2272,
         "uniformity": 1
       },
       {
@@ -3990,7 +4712,7 @@
         "source": "https://paxos.com/paxg-transparency/",
         "backing-assets": 1,
         "backing-usd": 73996963.37,
-        "ratio": 0.1486,
+        "ratio": 0.1488,
         "uniformity": 1
       },
       {
@@ -4001,7 +4723,7 @@
         "source": "https://paxos.com/paxg-transparency/",
         "backing-assets": 1,
         "backing-usd": 77747173.3,
-        "ratio": 0.1561,
+        "ratio": 0.1563,
         "uniformity": 1
       },
       {
@@ -4012,7 +4734,7 @@
         "source": "https://paxos.com/paxg-transparency/",
         "backing-assets": 1,
         "backing-usd": 70362855.4,
-        "ratio": 0.1413,
+        "ratio": 0.1415,
         "uniformity": 1
       },
       {
@@ -4023,7 +4745,7 @@
         "source": "https://paxos.com/paxg-transparency/",
         "backing-assets": 1,
         "backing-usd": 61331137.47,
-        "ratio": 0.1231,
+        "ratio": 0.1233,
         "uniformity": 1
       },
       {
@@ -4034,7 +4756,7 @@
         "source": "https://paxos.com/paxg-transparency/",
         "backing-assets": 1,
         "backing-usd": 56929835.4,
-        "ratio": 0.1143,
+        "ratio": 0.1145,
         "uniformity": 1
       },
       {
@@ -4045,7 +4767,7 @@
         "source": "https://paxos.com/paxg-transparency/",
         "backing-assets": 1,
         "backing-usd": 48632515.02,
-        "ratio": 0.0977,
+        "ratio": 0.0978,
         "uniformity": 1
       },
       {
@@ -4056,7 +4778,7 @@
         "source": "https://paxos.com/paxg-transparency/",
         "backing-assets": 1,
         "backing-usd": 41863387.57,
-        "ratio": 0.0841,
+        "ratio": 0.0842,
         "uniformity": 1
       },
       {
@@ -4067,7 +4789,7 @@
         "source": "https://paxos.com/paxg-transparency/",
         "backing-assets": 1,
         "backing-usd": 51663156.2,
-        "ratio": 0.1037,
+        "ratio": 0.1039,
         "uniformity": 1
       },
       {
@@ -4078,7 +4800,7 @@
         "source": "https://paxos.com/paxg-transparency/",
         "backing-assets": 1,
         "backing-usd": 47896039.87,
-        "ratio": 0.0962,
+        "ratio": 0.0963,
         "uniformity": 1
       },
       {
@@ -4089,7 +4811,7 @@
         "source": "https://paxos.com/paxg-transparency/",
         "backing-assets": 1,
         "backing-usd": 32109114.1,
-        "ratio": 0.0645,
+        "ratio": 0.0646,
         "uniformity": 1
       },
       {
@@ -4159,7 +4881,7 @@
         "uniformity": 1
       }
     ],
-    "mcap": 498025456.13
+    "mcap": 497363031.95
   },
   "paxg-wormhole-solana": {
     "id": "paxg-wormhole-solana",
@@ -4200,6 +4922,11 @@
     },
     "price": [
       {
+        "timestamp": "2023-02-05T12:18:56.266Z",
+        "usd": 1862.04,
+        "source": "https://coins.llama.fi/prices/current/bsc:0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,bsc:0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c,ethereum:0x418D75f65a02b3D53B2418FB8E1fe493759c7605,solana:9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,bsc:0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c,solana:6nuaX3ogrr2CaoAPjtaKHAoBNWok32BMcRozuf32s2QF,bsc:0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56,moonbeam:0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F,moonriver:0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818,ethereum:0x4Fabb145d64652a948d72533023f6E7A623C7C53,bsc:0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,ethereum:0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,bsc:0x2170Ed0880ac9A755fd29B2688956BD959F933F8,ethereum:0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2,bsc:0xA898bbb508C04BE26af3d319b7775927AFCB02AF,bsc:0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,moonbeam:0xAcc15dC74880C9944775448304B263D191c6077F,moonbeam:0xe3DB50049C74De2F7d7269823af3178Cf22fd5E3,ethereum:0xfAd45E47083e4607302aa43c65fB3106F1cd7607,bsc:0xa4FFfc757e8c4F24E7b209C033c123D20983Ad40,moonbeam:0x079095D0AA760Dd88964b24267Ef7d9e3DC32944,moonbeam:0x7C33896Ce19831dc170d99330878688a5f6DF614,moonbeam:0xed048a21361fff12fb10335655b273c396994AA0,moonbeam:0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xc0888d80ee0abf84563168b3182650c0addeb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488c50184ce2092756ba7cdf85731fd17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b?searchWidth=4h"
+      },
+      {
         "timestamp": "2023-02-04T22:09:01.521Z",
         "usd": 1864.52,
         "source": "https://coins.llama.fi/prices/current/bsc:0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,bsc:0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c,ethereum:0x418D75f65a02b3D53B2418FB8E1fe493759c7605,solana:9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,bsc:0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c,solana:6nuaX3ogrr2CaoAPjtaKHAoBNWok32BMcRozuf32s2QF,bsc:0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56,moonbeam:0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F,moonriver:0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818,ethereum:0x4Fabb145d64652a948d72533023f6E7A623C7C53,bsc:0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,ethereum:0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,bsc:0x2170Ed0880ac9A755fd29B2688956BD959F933F8,ethereum:0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2,bsc:0xA898bbb508C04BE26af3d319b7775927AFCB02AF,bsc:0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,moonbeam:0xAcc15dC74880C9944775448304B263D191c6077F,ethereum:0xfAd45E47083e4607302aa43c65fB3106F1cd7607,bsc:0xa4FFfc757e8c4F24E7b209C033c123D20983Ad40,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xc0888d80ee0abf84563168b3182650c0addeb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488c50184ce2092756ba7cdf85731fd17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b,moonriver:0xe3f5a90f9cb311505cd691a46596599aa1a0ad7d?searchWidth=4h"
@@ -4221,6 +4948,11 @@
       }
     ],
     "supply": [
+      {
+        "timestamp": "2023-02-05T12:18:56.039Z",
+        "total": 439.9675732,
+        "source": "https://solana-mainnet.g.alchemy.com/v2/{ALCHEMY_SOLANA}"
+      },
       {
         "timestamp": "2023-02-04T22:09:00.739Z",
         "total": 439.9675732,
@@ -4244,6 +4976,17 @@
     ],
     "backing": [
       {
+        "timestamp": "2023-02-05T12:18:56.217Z",
+        "assets": {
+          "paxg-paxos-ethereum": 439.970318009818
+        },
+        "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
+        "backing-assets": 1,
+        "backing-usd": 819237.22,
+        "ratio": 1,
+        "uniformity": 1
+      },
+      {
         "timestamp": "2023-02-04T22:09:01.310Z",
         "assets": {
           "paxg-paxos-ethereum": 439.970318009818
@@ -4251,7 +4994,7 @@
         "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
         "backing-assets": 1,
         "backing-usd": 820328.34,
-        "ratio": 1,
+        "ratio": 1.0013,
         "uniformity": 1
       },
       {
@@ -4262,7 +5005,7 @@
         "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
         "backing-assets": 1,
         "backing-usd": 821564.65,
-        "ratio": 1.0015,
+        "ratio": 1.0028,
         "uniformity": 1
       },
       {
@@ -4273,7 +5016,7 @@
         "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
         "backing-assets": 1,
         "backing-usd": 825440.76,
-        "ratio": 1.0062,
+        "ratio": 1.0076,
         "uniformity": 1
       },
       {
@@ -4284,11 +5027,11 @@
         "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
         "backing-assets": 1,
         "backing-usd": 837632.26,
-        "ratio": 1.0211,
+        "ratio": 1.0225,
         "uniformity": 1
       }
     ],
-    "mcap": 820328.34
+    "mcap": 819237.22
   },
   "pxbsc-bsc": {
     "id": "pxbsc-bsc",
@@ -4334,6 +5077,11 @@
     ],
     "supply": [
       {
+        "timestamp": "2023-02-05T12:18:56.500Z",
+        "total": 486208138739.14685,
+        "source": "https://bsc-dataseed3.binance.org/"
+      },
+      {
         "timestamp": "2023-02-04T22:09:01.640Z",
         "total": 486208138739.14685,
         "source": "https://bsc-dataseed3.binance.org/"
@@ -4361,7 +5109,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-04T22:47:14.397Z",
+        "timestamp": "2023-02-05T14:57:52.115Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -4398,6 +5146,11 @@
       "vault": null
     },
     "price": [
+      {
+        "timestamp": "2023-02-05T12:18:56.516Z",
+        "usd": 1.93,
+        "source": "https://api.dexscreener.com/latest/dex/tokens/0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,0xA898bbb508C04BE26af3d319b7775927AFCB02AF,0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,0xe3DB50049C74De2F7d7269823af3178Cf22fd5E3,0x079095D0AA760Dd88964b24267Ef7d9e3DC32944,0x7C33896Ce19831dc170d99330878688a5f6DF614,0xed048a21361fff12fb10335655b273c396994AA0,0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD,0x663a07a2648296f1A3C02EE86A126fE1407888E5,0xc0888d80ee0abf84563168b3182650c0addeb6d5,0x59193512877E2EC3bB27C178A8888Cfac62FB32D,0x45488c50184ce2092756ba7cdf85731fd17e6f3d,0x7950865a9140cB519342433146Ed5b40c6F210f7,0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,0x463E737D8F740395ABf44f7aac2D9531D8D539E9,0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,0x165DBb08de0476271714952C3C1F068693bd60D7"
+      },
       {
         "timestamp": "2023-02-04T22:09:01.707Z",
         "usd": 1.91,
@@ -4436,6 +5189,11 @@
     ],
     "supply": [
       {
+        "timestamp": "2023-02-05T12:18:56.500Z",
+        "total": 200000,
+        "source": "https://bsc-dataseed3.binance.org/"
+      },
+      {
         "timestamp": "2023-02-04T22:09:01.640Z",
         "total": 200000,
         "source": "https://bsc-dataseed3.binance.org/"
@@ -4463,7 +5221,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-04T22:47:14.397Z",
+        "timestamp": "2023-02-05T14:57:52.115Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -4472,7 +5230,7 @@
         "uniformity": 1
       }
     ],
-    "mcap": 382000
+    "mcap": 386000
   },
   "toad-toad.network-moonbeam": {
     "id": "toad-toad.network-moonbeam",
@@ -4513,6 +5271,11 @@
     },
     "price": [
       {
+        "timestamp": "2023-02-05T12:18:56.516Z",
+        "usd": 1.99,
+        "source": "https://api.dexscreener.com/latest/dex/tokens/0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,0xA898bbb508C04BE26af3d319b7775927AFCB02AF,0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,0xe3DB50049C74De2F7d7269823af3178Cf22fd5E3,0x079095D0AA760Dd88964b24267Ef7d9e3DC32944,0x7C33896Ce19831dc170d99330878688a5f6DF614,0xed048a21361fff12fb10335655b273c396994AA0,0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD,0x663a07a2648296f1A3C02EE86A126fE1407888E5,0xc0888d80ee0abf84563168b3182650c0addeb6d5,0x59193512877E2EC3bB27C178A8888Cfac62FB32D,0x45488c50184ce2092756ba7cdf85731fd17e6f3d,0x7950865a9140cB519342433146Ed5b40c6F210f7,0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,0x463E737D8F740395ABf44f7aac2D9531D8D539E9,0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,0x165DBb08de0476271714952C3C1F068693bd60D7"
+      },
+      {
         "timestamp": "2023-02-04T22:09:01.707Z",
         "usd": 1.975,
         "source": "https://api.dexscreener.com/latest/dex/tokens/0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,0xA898bbb508C04BE26af3d319b7775927AFCB02AF,0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,0x663a07a2648296f1A3C02EE86A126fE1407888E5,0xc0888d80ee0abf84563168b3182650c0addeb6d5,0x59193512877E2EC3bB27C178A8888Cfac62FB32D,0x45488c50184ce2092756ba7cdf85731fd17e6f3d,0x7950865a9140cB519342433146Ed5b40c6F210f7,0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,0x463E737D8F740395ABf44f7aac2D9531D8D539E9,0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,0x165DBb08de0476271714952C3C1F068693bd60D7"
@@ -4534,6 +5297,11 @@
       }
     ],
     "supply": [
+      {
+        "timestamp": "2023-02-05T12:18:56.136Z",
+        "total": 23831.147702663122,
+        "source": "https://moonbeam.public.blastapi.io"
+      },
       {
         "timestamp": "2023-02-04T22:09:02.182Z",
         "total": 23831.147702663122,
@@ -4557,6 +5325,17 @@
     ],
     "backing": [
       {
+        "timestamp": "2023-02-05T12:18:56.501Z",
+        "assets": {
+          "toad-toad.network-bsc": 24290.147828251735
+        },
+        "source": "https://bsc-dataseed3.binance.org/",
+        "backing-assets": 1,
+        "backing-usd": 46879.99,
+        "ratio": 0.9885,
+        "uniformity": 1
+      },
+      {
         "timestamp": "2023-02-04T22:09:01.644Z",
         "assets": {
           "toad-toad.network-bsc": 24290.147828251735
@@ -4564,7 +5343,7 @@
         "source": "https://bsc-dataseed3.binance.org/",
         "backing-assets": 1,
         "backing-usd": 46394.18,
-        "ratio": 0.9857,
+        "ratio": 0.9783,
         "uniformity": 1
       },
       {
@@ -4575,7 +5354,7 @@
         "source": "https://bsc-dataseed3.binance.org/",
         "backing-assets": 1,
         "backing-usd": 46758.53,
-        "ratio": 0.9935,
+        "ratio": 0.986,
         "uniformity": 1
       },
       {
@@ -4586,7 +5365,7 @@
         "source": "https://bsc-dataseed3.binance.org/",
         "backing-assets": 1,
         "backing-usd": 46879.99,
-        "ratio": 0.996,
+        "ratio": 0.9885,
         "uniformity": 1
       },
       {
@@ -4597,11 +5376,11 @@
         "source": "https://bsc-dataseed3.binance.org/",
         "backing-assets": 1,
         "backing-usd": 45464.22,
-        "ratio": 0.966,
+        "ratio": 0.9587,
         "uniformity": 1
       }
     ],
-    "mcap": 47066.52
+    "mcap": 47423.98
   },
   "toad-toad.network-moonriver": {
     "id": "toad-toad.network-moonriver",
@@ -4642,6 +5421,11 @@
     },
     "price": [
       {
+        "timestamp": "2023-02-05T12:18:56.516Z",
+        "usd": 2.035,
+        "source": "https://api.dexscreener.com/latest/dex/tokens/0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,0xA898bbb508C04BE26af3d319b7775927AFCB02AF,0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,0xe3DB50049C74De2F7d7269823af3178Cf22fd5E3,0x079095D0AA760Dd88964b24267Ef7d9e3DC32944,0x7C33896Ce19831dc170d99330878688a5f6DF614,0xed048a21361fff12fb10335655b273c396994AA0,0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD,0x663a07a2648296f1A3C02EE86A126fE1407888E5,0xc0888d80ee0abf84563168b3182650c0addeb6d5,0x59193512877E2EC3bB27C178A8888Cfac62FB32D,0x45488c50184ce2092756ba7cdf85731fd17e6f3d,0x7950865a9140cB519342433146Ed5b40c6F210f7,0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,0x463E737D8F740395ABf44f7aac2D9531D8D539E9,0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,0x165DBb08de0476271714952C3C1F068693bd60D7"
+      },
+      {
         "timestamp": "2023-02-04T22:09:01.707Z",
         "usd": 2.125,
         "source": "https://api.dexscreener.com/latest/dex/tokens/0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,0xA898bbb508C04BE26af3d319b7775927AFCB02AF,0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,0x663a07a2648296f1A3C02EE86A126fE1407888E5,0xc0888d80ee0abf84563168b3182650c0addeb6d5,0x59193512877E2EC3bB27C178A8888Cfac62FB32D,0x45488c50184ce2092756ba7cdf85731fd17e6f3d,0x7950865a9140cB519342433146Ed5b40c6F210f7,0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,0x463E737D8F740395ABf44f7aac2D9531D8D539E9,0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,0x165DBb08de0476271714952C3C1F068693bd60D7"
@@ -4663,6 +5447,11 @@
       }
     ],
     "supply": [
+      {
+        "timestamp": "2023-02-05T12:18:56.191Z",
+        "total": 4689.303864021154,
+        "source": "https://rpc.api.moonriver.moonbeam.network"
+      },
       {
         "timestamp": "2023-02-04T22:09:01.504Z",
         "total": 4671.051838549887,
@@ -4686,6 +5475,17 @@
     ],
     "backing": [
       {
+        "timestamp": "2023-02-05T12:18:56.501Z",
+        "assets": {
+          "toad-toad.network-bsc": 4712.591339471732
+        },
+        "source": "https://bsc-dataseed3.binance.org/",
+        "backing-assets": 1,
+        "backing-usd": 9095.3,
+        "ratio": 0.9531,
+        "uniformity": 1
+      },
+      {
         "timestamp": "2023-02-04T22:09:01.644Z",
         "assets": {
           "toad-toad.network-bsc": 4751.107421076151
@@ -4693,7 +5493,7 @@
         "source": "https://bsc-dataseed3.binance.org/",
         "backing-assets": 1,
         "backing-usd": 9074.62,
-        "ratio": 0.9142,
+        "ratio": 0.9509,
         "uniformity": 1
       },
       {
@@ -4704,7 +5504,7 @@
         "source": "https://bsc-dataseed3.binance.org/",
         "backing-assets": 1,
         "backing-usd": 9145.88,
-        "ratio": 0.9214,
+        "ratio": 0.9584,
         "uniformity": 1
       },
       {
@@ -4715,7 +5515,7 @@
         "source": "https://bsc-dataseed3.binance.org/",
         "backing-assets": 1,
         "backing-usd": 9169.64,
-        "ratio": 0.9238,
+        "ratio": 0.9609,
         "uniformity": 1
       },
       {
@@ -4726,11 +5526,11 @@
         "source": "https://bsc-dataseed3.binance.org/",
         "backing-assets": 1,
         "backing-usd": 9217.15,
-        "ratio": 0.9286,
+        "ratio": 0.9659,
         "uniformity": 1
       }
     ],
-    "mcap": 9925.99
+    "mcap": 9542.73
   },
   "usd-fed": {
     "id": "usd-fed",
@@ -4763,7 +5563,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-04T22:47:14.397Z",
+        "timestamp": "2023-02-05T14:57:52.115Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -4814,6 +5614,11 @@
     },
     "price": [
       {
+        "timestamp": "2023-02-05T12:18:56.266Z",
+        "usd": 1,
+        "source": "https://coins.llama.fi/prices/current/bsc:0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,bsc:0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c,ethereum:0x418D75f65a02b3D53B2418FB8E1fe493759c7605,solana:9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,bsc:0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c,solana:6nuaX3ogrr2CaoAPjtaKHAoBNWok32BMcRozuf32s2QF,bsc:0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56,moonbeam:0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F,moonriver:0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818,ethereum:0x4Fabb145d64652a948d72533023f6E7A623C7C53,bsc:0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,ethereum:0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,bsc:0x2170Ed0880ac9A755fd29B2688956BD959F933F8,ethereum:0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2,bsc:0xA898bbb508C04BE26af3d319b7775927AFCB02AF,bsc:0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,moonbeam:0xAcc15dC74880C9944775448304B263D191c6077F,moonbeam:0xe3DB50049C74De2F7d7269823af3178Cf22fd5E3,ethereum:0xfAd45E47083e4607302aa43c65fB3106F1cd7607,bsc:0xa4FFfc757e8c4F24E7b209C033c123D20983Ad40,moonbeam:0x079095D0AA760Dd88964b24267Ef7d9e3DC32944,moonbeam:0x7C33896Ce19831dc170d99330878688a5f6DF614,moonbeam:0xed048a21361fff12fb10335655b273c396994AA0,moonbeam:0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xc0888d80ee0abf84563168b3182650c0addeb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488c50184ce2092756ba7cdf85731fd17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b?searchWidth=4h"
+      },
+      {
         "timestamp": "2023-02-04T22:09:01.521Z",
         "usd": 1,
         "source": "https://coins.llama.fi/prices/current/bsc:0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,bsc:0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c,ethereum:0x418D75f65a02b3D53B2418FB8E1fe493759c7605,solana:9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,bsc:0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c,solana:6nuaX3ogrr2CaoAPjtaKHAoBNWok32BMcRozuf32s2QF,bsc:0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56,moonbeam:0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F,moonriver:0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818,ethereum:0x4Fabb145d64652a948d72533023f6E7A623C7C53,bsc:0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,ethereum:0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,bsc:0x2170Ed0880ac9A755fd29B2688956BD959F933F8,ethereum:0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2,bsc:0xA898bbb508C04BE26af3d319b7775927AFCB02AF,bsc:0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,moonbeam:0xAcc15dC74880C9944775448304B263D191c6077F,ethereum:0xfAd45E47083e4607302aa43c65fB3106F1cd7607,bsc:0xa4FFfc757e8c4F24E7b209C033c123D20983Ad40,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xc0888d80ee0abf84563168b3182650c0addeb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488c50184ce2092756ba7cdf85731fd17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b,moonriver:0xe3f5a90f9cb311505cd691a46596599aa1a0ad7d?searchWidth=4h"
@@ -4836,6 +5641,11 @@
     ],
     "supply": [
       {
+        "timestamp": "2023-02-05T12:18:56.500Z",
+        "total": 878999999.8499041,
+        "source": "https://bsc-dataseed3.binance.org/"
+      },
+      {
         "timestamp": "2023-02-04T22:09:01.640Z",
         "total": 878999999.8499041,
         "source": "https://bsc-dataseed3.binance.org/"
@@ -4857,6 +5667,17 @@
       }
     ],
     "backing": [
+      {
+        "timestamp": "2023-02-05T12:18:56.217Z",
+        "assets": {
+          "usdc-circle-ethereum": 882999971.84
+        },
+        "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
+        "backing-assets": 1,
+        "backing-usd": 878999999.85,
+        "ratio": 1,
+        "uniformity": 1
+      },
       {
         "timestamp": "2023-02-04T22:09:01.310Z",
         "assets": {
@@ -4932,6 +5753,11 @@
     },
     "price": [
       {
+        "timestamp": "2023-02-05T12:18:56.266Z",
+        "usd": 1,
+        "source": "https://coins.llama.fi/prices/current/bsc:0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,bsc:0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c,ethereum:0x418D75f65a02b3D53B2418FB8E1fe493759c7605,solana:9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,bsc:0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c,solana:6nuaX3ogrr2CaoAPjtaKHAoBNWok32BMcRozuf32s2QF,bsc:0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56,moonbeam:0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F,moonriver:0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818,ethereum:0x4Fabb145d64652a948d72533023f6E7A623C7C53,bsc:0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,ethereum:0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,bsc:0x2170Ed0880ac9A755fd29B2688956BD959F933F8,ethereum:0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2,bsc:0xA898bbb508C04BE26af3d319b7775927AFCB02AF,bsc:0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,moonbeam:0xAcc15dC74880C9944775448304B263D191c6077F,moonbeam:0xe3DB50049C74De2F7d7269823af3178Cf22fd5E3,ethereum:0xfAd45E47083e4607302aa43c65fB3106F1cd7607,bsc:0xa4FFfc757e8c4F24E7b209C033c123D20983Ad40,moonbeam:0x079095D0AA760Dd88964b24267Ef7d9e3DC32944,moonbeam:0x7C33896Ce19831dc170d99330878688a5f6DF614,moonbeam:0xed048a21361fff12fb10335655b273c396994AA0,moonbeam:0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xc0888d80ee0abf84563168b3182650c0addeb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488c50184ce2092756ba7cdf85731fd17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b?searchWidth=4h"
+      },
+      {
         "timestamp": "2023-02-04T22:09:01.521Z",
         "usd": 1,
         "source": "https://coins.llama.fi/prices/current/bsc:0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,bsc:0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c,ethereum:0x418D75f65a02b3D53B2418FB8E1fe493759c7605,solana:9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,bsc:0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c,solana:6nuaX3ogrr2CaoAPjtaKHAoBNWok32BMcRozuf32s2QF,bsc:0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56,moonbeam:0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F,moonriver:0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818,ethereum:0x4Fabb145d64652a948d72533023f6E7A623C7C53,bsc:0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,ethereum:0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,bsc:0x2170Ed0880ac9A755fd29B2688956BD959F933F8,ethereum:0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2,bsc:0xA898bbb508C04BE26af3d319b7775927AFCB02AF,bsc:0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,moonbeam:0xAcc15dC74880C9944775448304B263D191c6077F,ethereum:0xfAd45E47083e4607302aa43c65fB3106F1cd7607,bsc:0xa4FFfc757e8c4F24E7b209C033c123D20983Ad40,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xc0888d80ee0abf84563168b3182650c0addeb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488c50184ce2092756ba7cdf85731fd17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b,moonriver:0xe3f5a90f9cb311505cd691a46596599aa1a0ad7d?searchWidth=4h"
@@ -4963,6 +5789,11 @@
       }
     ],
     "supply": [
+      {
+        "timestamp": "2023-02-05T12:18:56.216Z",
+        "total": 38943440890.79955,
+        "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}"
+      },
       {
         "timestamp": "2023-02-04T22:09:01.309Z",
         "total": 38903289826.13955,
@@ -5243,7 +6074,7 @@
         "source": "https://www.centre.io/usdc-transparency",
         "backing-assets": 1,
         "backing-usd": 43238943390,
-        "ratio": 1.1114,
+        "ratio": 1.1103,
         "uniformity": 1
       },
       {
@@ -5254,7 +6085,7 @@
         "source": "https://www.centre.io/usdc-transparency",
         "backing-assets": 1,
         "backing-usd": 43507961021,
-        "ratio": 1.1184,
+        "ratio": 1.1172,
         "uniformity": 1
       },
       {
@@ -5265,7 +6096,7 @@
         "source": "https://www.centre.io/usdc-transparency",
         "backing-assets": 1,
         "backing-usd": 47261819834,
-        "ratio": 1.2149,
+        "ratio": 1.2136,
         "uniformity": 1
       },
       {
@@ -5276,7 +6107,7 @@
         "source": "https://www.centre.io/usdc-transparency",
         "backing-assets": 1,
         "backing-usd": 52258056105,
-        "ratio": 1.3433,
+        "ratio": 1.3419,
         "uniformity": 1
       },
       {
@@ -5287,7 +6118,7 @@
         "source": "https://www.centre.io/usdc-transparency",
         "backing-assets": 1,
         "backing-usd": 54488837404,
-        "ratio": 1.4006,
+        "ratio": 1.3992,
         "uniformity": 1
       },
       {
@@ -5298,7 +6129,7 @@
         "source": "https://www.centre.io/usdc-transparency",
         "backing-assets": 1,
         "backing-usd": 55569660586,
-        "ratio": 1.4284,
+        "ratio": 1.4269,
         "uniformity": 1
       },
       {
@@ -5309,7 +6140,7 @@
         "source": "https://www.centre.io/usdc-transparency",
         "backing-assets": 1,
         "backing-usd": 54005995420,
-        "ratio": 1.3882,
+        "ratio": 1.3868,
         "uniformity": 1
       },
       {
@@ -5320,7 +6151,7 @@
         "source": "https://www.centre.io/usdc-transparency",
         "backing-assets": 1,
         "backing-usd": 49260105739,
-        "ratio": 1.2662,
+        "ratio": 1.2649,
         "uniformity": 1
       },
       {
@@ -5331,7 +6162,7 @@
         "source": "https://www.centre.io/usdc-transparency",
         "backing-assets": 1,
         "backing-usd": 51388555903,
-        "ratio": 1.3209,
+        "ratio": 1.3196,
         "uniformity": 1
       },
       {
@@ -5342,7 +6173,7 @@
         "source": "https://www.centre.io/usdc-transparency",
         "backing-assets": 1,
         "backing-usd": 53496850808,
-        "ratio": 1.3751,
+        "ratio": 1.3737,
         "uniformity": 1
       },
       {
@@ -5353,7 +6184,7 @@
         "source": "https://www.centre.io/usdc-transparency",
         "backing-assets": 1,
         "backing-usd": 50031478777,
-        "ratio": 1.286,
+        "ratio": 1.2847,
         "uniformity": 1
       },
       {
@@ -5364,7 +6195,7 @@
         "source": "https://www.centre.io/usdc-transparency",
         "backing-assets": 1,
         "backing-usd": 42416160651,
-        "ratio": 1.0903,
+        "ratio": 1.0892,
         "uniformity": 1
       },
       {
@@ -5375,7 +6206,7 @@
         "source": "https://www.centre.io/usdc-transparency",
         "backing-assets": 1,
         "backing-usd": 38744141217,
-        "ratio": 0.9959,
+        "ratio": 0.9949,
         "uniformity": 1
       },
       {
@@ -5386,7 +6217,7 @@
         "source": "https://www.centre.io/usdc-transparency",
         "backing-assets": 1,
         "backing-usd": 32976946989,
-        "ratio": 0.8477,
+        "ratio": 0.8468,
         "uniformity": 1
       },
       {
@@ -5397,7 +6228,7 @@
         "source": "https://www.centre.io/usdc-transparency",
         "backing-assets": 1,
         "backing-usd": 31652676021,
-        "ratio": 0.8136,
+        "ratio": 0.8128,
         "uniformity": 1
       },
       {
@@ -5408,7 +6239,7 @@
         "source": "https://www.centre.io/usdc-transparency",
         "backing-assets": 1,
         "backing-usd": 27415446969,
-        "ratio": 0.7047,
+        "ratio": 0.704,
         "uniformity": 1
       },
       {
@@ -5419,7 +6250,7 @@
         "source": "https://www.centre.io/usdc-transparency",
         "backing-assets": 1,
         "backing-usd": 27312456821,
-        "ratio": 0.7021,
+        "ratio": 0.7013,
         "uniformity": 1
       },
       {
@@ -5430,7 +6261,7 @@
         "source": "https://www.centre.io/usdc-transparency",
         "backing-assets": 1,
         "backing-usd": 25158531650,
-        "ratio": 0.6467,
+        "ratio": 0.646,
         "uniformity": 1
       },
       {
@@ -5441,7 +6272,7 @@
         "source": "https://www.centre.io/usdc-transparency",
         "backing-assets": 1,
         "backing-usd": 22176182251,
-        "ratio": 0.57,
+        "ratio": 0.5694,
         "uniformity": 1
       },
       {
@@ -5452,7 +6283,7 @@
         "source": "https://www.centre.io/usdc-transparency",
         "backing-assets": 1,
         "backing-usd": 14697267257,
-        "ratio": 0.3778,
+        "ratio": 0.3774,
         "uniformity": 1
       },
       {
@@ -5463,7 +6294,7 @@
         "source": "https://www.centre.io/usdc-transparency",
         "backing-assets": 1,
         "backing-usd": 11141404000,
-        "ratio": 0.2864,
+        "ratio": 0.2861,
         "uniformity": 1
       },
       {
@@ -5474,7 +6305,7 @@
         "source": "https://www.centre.io/usdc-transparency",
         "backing-assets": 1,
         "backing-usd": 9382986657,
-        "ratio": 0.2412,
+        "ratio": 0.2409,
         "uniformity": 1
       },
       {
@@ -5485,7 +6316,7 @@
         "source": "https://www.centre.io/usdc-transparency",
         "backing-assets": 1,
         "backing-usd": 5997307895,
-        "ratio": 0.1542,
+        "ratio": 0.154,
         "uniformity": 1
       },
       {
@@ -5496,7 +6327,7 @@
         "source": "https://www.centre.io/usdc-transparency",
         "backing-assets": 1,
         "backing-usd": 4011270692,
-        "ratio": 0.1031,
+        "ratio": 0.103,
         "uniformity": 1
       },
       {
@@ -5507,7 +6338,7 @@
         "source": "https://www.centre.io/usdc-transparency",
         "backing-assets": 1,
         "backing-usd": 3002021340,
-        "ratio": 0.0772,
+        "ratio": 0.0771,
         "uniformity": 1
       },
       {
@@ -5518,7 +6349,7 @@
         "source": "https://www.centre.io/usdc-transparency",
         "backing-assets": 1,
         "backing-usd": 2971030556,
-        "ratio": 0.0764,
+        "ratio": 0.0763,
         "uniformity": 1
       },
       {
@@ -5628,7 +6459,7 @@
         "source": "https://www.centre.io/usdc-transparency",
         "backing-assets": 1,
         "backing-usd": 519628995,
-        "ratio": 0.0134,
+        "ratio": 0.0133,
         "uniformity": 1
       },
       {
@@ -5771,7 +6602,7 @@
         "source": "https://www.centre.io/usdc-transparency",
         "backing-assets": 1,
         "backing-usd": 177190279,
-        "ratio": 0.0046,
+        "ratio": 0.0045,
         "uniformity": 1
       },
       {
@@ -5786,7 +6617,7 @@
         "uniformity": 1
       }
     ],
-    "mcap": 38903289826.14
+    "mcap": 38943440890.8
   },
   "usdc-circle-solana": {
     "id": "usdc-circle-solana",
@@ -5816,6 +6647,11 @@
     },
     "price": [
       {
+        "timestamp": "2023-02-05T12:18:56.266Z",
+        "usd": 1,
+        "source": "https://coins.llama.fi/prices/current/bsc:0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,bsc:0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c,ethereum:0x418D75f65a02b3D53B2418FB8E1fe493759c7605,solana:9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,bsc:0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c,solana:6nuaX3ogrr2CaoAPjtaKHAoBNWok32BMcRozuf32s2QF,bsc:0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56,moonbeam:0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F,moonriver:0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818,ethereum:0x4Fabb145d64652a948d72533023f6E7A623C7C53,bsc:0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,ethereum:0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,bsc:0x2170Ed0880ac9A755fd29B2688956BD959F933F8,ethereum:0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2,bsc:0xA898bbb508C04BE26af3d319b7775927AFCB02AF,bsc:0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,moonbeam:0xAcc15dC74880C9944775448304B263D191c6077F,moonbeam:0xe3DB50049C74De2F7d7269823af3178Cf22fd5E3,ethereum:0xfAd45E47083e4607302aa43c65fB3106F1cd7607,bsc:0xa4FFfc757e8c4F24E7b209C033c123D20983Ad40,moonbeam:0x079095D0AA760Dd88964b24267Ef7d9e3DC32944,moonbeam:0x7C33896Ce19831dc170d99330878688a5f6DF614,moonbeam:0xed048a21361fff12fb10335655b273c396994AA0,moonbeam:0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xc0888d80ee0abf84563168b3182650c0addeb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488c50184ce2092756ba7cdf85731fd17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b?searchWidth=4h"
+      },
+      {
         "timestamp": "2023-02-04T22:09:01.521Z",
         "usd": 1,
         "source": "https://coins.llama.fi/prices/current/bsc:0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,bsc:0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c,ethereum:0x418D75f65a02b3D53B2418FB8E1fe493759c7605,solana:9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,bsc:0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c,solana:6nuaX3ogrr2CaoAPjtaKHAoBNWok32BMcRozuf32s2QF,bsc:0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56,moonbeam:0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F,moonriver:0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818,ethereum:0x4Fabb145d64652a948d72533023f6E7A623C7C53,bsc:0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,ethereum:0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,bsc:0x2170Ed0880ac9A755fd29B2688956BD959F933F8,ethereum:0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2,bsc:0xA898bbb508C04BE26af3d319b7775927AFCB02AF,bsc:0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,moonbeam:0xAcc15dC74880C9944775448304B263D191c6077F,ethereum:0xfAd45E47083e4607302aa43c65fB3106F1cd7607,bsc:0xa4FFfc757e8c4F24E7b209C033c123D20983Ad40,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xc0888d80ee0abf84563168b3182650c0addeb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488c50184ce2092756ba7cdf85731fd17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b,moonriver:0xe3f5a90f9cb311505cd691a46596599aa1a0ad7d?searchWidth=4h"
@@ -5837,6 +6673,11 @@
       }
     ],
     "supply": [
+      {
+        "timestamp": "2023-02-05T12:18:56.019Z",
+        "total": 5034954022.329336,
+        "source": "https://solana-mainnet.g.alchemy.com/v2/{ALCHEMY_SOLANA}"
+      },
       {
         "timestamp": "2023-02-04T22:09:00.746Z",
         "total": 5034954022.454457,
@@ -5860,7 +6701,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-04T22:47:14.397Z",
+        "timestamp": "2023-02-05T14:57:52.115Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -5869,7 +6710,7 @@
         "uniformity": 1
       }
     ],
-    "mcap": 5034954022.45
+    "mcap": 5034954022.33
   },
   "usdc-multichain-moonbeam": {
     "id": "usdc-multichain-moonbeam",
@@ -5911,6 +6752,11 @@
     },
     "price": [
       {
+        "timestamp": "2023-02-05T12:18:56.266Z",
+        "usd": 1,
+        "source": "https://coins.llama.fi/prices/current/bsc:0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,bsc:0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c,ethereum:0x418D75f65a02b3D53B2418FB8E1fe493759c7605,solana:9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,bsc:0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c,solana:6nuaX3ogrr2CaoAPjtaKHAoBNWok32BMcRozuf32s2QF,bsc:0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56,moonbeam:0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F,moonriver:0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818,ethereum:0x4Fabb145d64652a948d72533023f6E7A623C7C53,bsc:0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,ethereum:0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,bsc:0x2170Ed0880ac9A755fd29B2688956BD959F933F8,ethereum:0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2,bsc:0xA898bbb508C04BE26af3d319b7775927AFCB02AF,bsc:0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,moonbeam:0xAcc15dC74880C9944775448304B263D191c6077F,moonbeam:0xe3DB50049C74De2F7d7269823af3178Cf22fd5E3,ethereum:0xfAd45E47083e4607302aa43c65fB3106F1cd7607,bsc:0xa4FFfc757e8c4F24E7b209C033c123D20983Ad40,moonbeam:0x079095D0AA760Dd88964b24267Ef7d9e3DC32944,moonbeam:0x7C33896Ce19831dc170d99330878688a5f6DF614,moonbeam:0xed048a21361fff12fb10335655b273c396994AA0,moonbeam:0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xc0888d80ee0abf84563168b3182650c0addeb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488c50184ce2092756ba7cdf85731fd17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b?searchWidth=4h"
+      },
+      {
         "timestamp": "2023-02-04T22:09:01.521Z",
         "usd": 1,
         "source": "https://coins.llama.fi/prices/current/bsc:0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,bsc:0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c,ethereum:0x418D75f65a02b3D53B2418FB8E1fe493759c7605,solana:9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,bsc:0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c,solana:6nuaX3ogrr2CaoAPjtaKHAoBNWok32BMcRozuf32s2QF,bsc:0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56,moonbeam:0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F,moonriver:0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818,ethereum:0x4Fabb145d64652a948d72533023f6E7A623C7C53,bsc:0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,ethereum:0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,bsc:0x2170Ed0880ac9A755fd29B2688956BD959F933F8,ethereum:0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2,bsc:0xA898bbb508C04BE26af3d319b7775927AFCB02AF,bsc:0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,moonbeam:0xAcc15dC74880C9944775448304B263D191c6077F,ethereum:0xfAd45E47083e4607302aa43c65fB3106F1cd7607,bsc:0xa4FFfc757e8c4F24E7b209C033c123D20983Ad40,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xc0888d80ee0abf84563168b3182650c0addeb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488c50184ce2092756ba7cdf85731fd17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b,moonriver:0xe3f5a90f9cb311505cd691a46596599aa1a0ad7d?searchWidth=4h"
@@ -5933,6 +6779,11 @@
     ],
     "supply": [
       {
+        "timestamp": "2023-02-05T12:18:56.188Z",
+        "total": 14328469.120675,
+        "source": "https://moonbeam.public.blastapi.io"
+      },
+      {
         "timestamp": "2023-02-04T22:09:02.356Z",
         "total": 14328469.120675,
         "source": "https://1rpc.io/glmr"
@@ -5954,6 +6805,17 @@
       }
     ],
     "backing": [
+      {
+        "timestamp": "2023-02-05T12:18:56.217Z",
+        "assets": {
+          "usdc-circle-ethereum": 14547398.85905
+        },
+        "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
+        "backing-assets": 1,
+        "backing-usd": 14328469.12,
+        "ratio": 1,
+        "uniformity": 1
+      },
       {
         "timestamp": "2023-02-04T22:09:01.310Z",
         "assets": {
@@ -6041,6 +6903,11 @@
     },
     "price": [
       {
+        "timestamp": "2023-02-05T12:18:56.275Z",
+        "usd": 1,
+        "source": "https://coins.llama.fi/prices/current/moonriver:0xe3f5a90f9cb311505cd691a46596599aa1a0ad7d?searchWidth=4h"
+      },
+      {
         "timestamp": "2023-02-04T22:09:01.521Z",
         "usd": 1,
         "source": "https://coins.llama.fi/prices/current/bsc:0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,bsc:0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c,ethereum:0x418D75f65a02b3D53B2418FB8E1fe493759c7605,solana:9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,bsc:0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c,solana:6nuaX3ogrr2CaoAPjtaKHAoBNWok32BMcRozuf32s2QF,bsc:0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56,moonbeam:0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F,moonriver:0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818,ethereum:0x4Fabb145d64652a948d72533023f6E7A623C7C53,bsc:0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,ethereum:0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,bsc:0x2170Ed0880ac9A755fd29B2688956BD959F933F8,ethereum:0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2,bsc:0xA898bbb508C04BE26af3d319b7775927AFCB02AF,bsc:0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,moonbeam:0xAcc15dC74880C9944775448304B263D191c6077F,ethereum:0xfAd45E47083e4607302aa43c65fB3106F1cd7607,bsc:0xa4FFfc757e8c4F24E7b209C033c123D20983Ad40,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xc0888d80ee0abf84563168b3182650c0addeb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488c50184ce2092756ba7cdf85731fd17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b,moonriver:0xe3f5a90f9cb311505cd691a46596599aa1a0ad7d?searchWidth=4h"
@@ -6062,6 +6929,11 @@
       }
     ],
     "supply": [
+      {
+        "timestamp": "2023-02-05T12:18:56.194Z",
+        "total": 13937357.044755,
+        "source": "https://rpc.api.moonriver.moonbeam.network"
+      },
       {
         "timestamp": "2023-02-04T22:09:01.512Z",
         "total": 13942798.144755,
@@ -6085,6 +6957,17 @@
     ],
     "backing": [
       {
+        "timestamp": "2023-02-05T12:18:56.217Z",
+        "assets": {
+          "usdc-circle-ethereum": 14309852.551016
+        },
+        "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
+        "backing-assets": 1,
+        "backing-usd": 13937357.04,
+        "ratio": 1,
+        "uniformity": 1
+      },
+      {
         "timestamp": "2023-02-04T22:09:01.310Z",
         "assets": {
           "usdc-circle-ethereum": 14356290.152661
@@ -6092,7 +6975,7 @@
         "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
         "backing-assets": 1,
         "backing-usd": 13942798.14,
-        "ratio": 1,
+        "ratio": 1.0004,
         "uniformity": 1
       },
       {
@@ -6103,7 +6986,7 @@
         "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
         "backing-assets": 1,
         "backing-usd": 13718652.14,
-        "ratio": 0.9839,
+        "ratio": 0.9843,
         "uniformity": 1
       },
       {
@@ -6114,7 +6997,7 @@
         "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
         "backing-assets": 1,
         "backing-usd": 13801519.14,
-        "ratio": 0.9899,
+        "ratio": 0.9903,
         "uniformity": 1
       },
       {
@@ -6125,10 +7008,10 @@
         "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
         "backing-assets": 1,
         "backing-usd": 13978766.96,
-        "ratio": 1.0026,
+        "ratio": 1.003,
         "uniformity": 1
       }
     ],
-    "mcap": 13942798.14
+    "mcap": 13937357.04
   }
 }

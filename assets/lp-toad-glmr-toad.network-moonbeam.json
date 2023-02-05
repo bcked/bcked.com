@@ -1,0 +1,73 @@
+{
+  "id": "lp-toad-glmr-toad.network-moonbeam",
+  "links": {
+    "self": "/assets/lp-toad-glmr-toad.network-moonbeam.json",
+    "ui": "/assets/lp-toad-glmr-toad.network-moonbeam"
+  },
+  "icon": "assets/lp-toad-glmr-toad.network-moonbeam/icon.png",
+  "name": "TOAD-GLMR LPs",
+  "symbol": "LP-TOAD-GLMR",
+  "issuer": "toad.network",
+  "reference": "https://dapps.padswap.exchange/",
+  "tags": [
+    "cryptocurrency",
+    "lp"
+  ],
+  "contracts": {
+    "token": {
+      "id": "moonbeam:0xed048a21361fff12fb10335655b273c396994AA0",
+      "links": {
+        "self": "/tokens/moonbeam:0xed048a21361fff12fb10335655b273c396994AA0.json"
+      },
+      "address": "0xed048a21361fff12fb10335655b273c396994AA0",
+      "chain": "moonbeam"
+    },
+    "vault": {
+      "address": "0xed048a21361fff12fb10335655b273c396994AA0",
+      "chain": "moonbeam",
+      "underlying-assets": [
+        {
+          "id": "toad-toad.network-moonbeam",
+          "links": {
+            "self": "/assets/toad-toad.network-moonbeam.json"
+          }
+        },
+        {
+          "id": "glmr.w-toad.network-moonbeam",
+          "links": {
+            "self": "/assets/glmr.w-toad.network-moonbeam.json"
+          }
+        }
+      ]
+    }
+  },
+  "price": [
+    {
+      "timestamp": "2023-02-05T14:32:59.451Z",
+      "usd": 2.0038935834310303,
+      "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: toad-toad.network-moonbeam,glmr.w-toad.network-moonbeam"
+    }
+  ],
+  "supply": [
+    {
+      "timestamp": "2023-02-05T12:18:56.188Z",
+      "total": 5712.626921031073,
+      "source": "https://moonbeam.public.blastapi.io"
+    }
+  ],
+  "backing": [
+    {
+      "timestamp": "2023-02-05T12:18:56.155Z",
+      "assets": {
+        "toad-toad.network-moonbeam": 2898.5148191723283,
+        "glmr.w-toad.network-moonbeam": 11839.578799065806
+      },
+      "source": "https://moonbeam.public.blastapi.io",
+      "backing-assets": 2,
+      "backing-usd": 11572.39,
+      "ratio": 1.0109,
+      "uniformity": 1
+    }
+  ],
+  "mcap": 11447.5
+}

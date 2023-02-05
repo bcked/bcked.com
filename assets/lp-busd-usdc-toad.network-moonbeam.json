@@ -1,0 +1,73 @@
+{
+  "id": "lp-busd-usdc-toad.network-moonbeam",
+  "links": {
+    "self": "/assets/lp-busd-usdc-toad.network-moonbeam.json",
+    "ui": "/assets/lp-busd-usdc-toad.network-moonbeam"
+  },
+  "icon": "assets/lp-busd-usdc-toad.network-moonbeam/icon.png",
+  "name": "BUSD-USDC LPs",
+  "symbol": "LP-BUSD-USDC",
+  "issuer": "toad.network",
+  "reference": "https://dapps.padswap.exchange/",
+  "tags": [
+    "cryptocurrency",
+    "lp"
+  ],
+  "contracts": {
+    "token": {
+      "id": "moonbeam:0x079095D0AA760Dd88964b24267Ef7d9e3DC32944",
+      "links": {
+        "self": "/tokens/moonbeam:0x079095D0AA760Dd88964b24267Ef7d9e3DC32944.json"
+      },
+      "address": "0x079095D0AA760Dd88964b24267Ef7d9e3DC32944",
+      "chain": "moonbeam"
+    },
+    "vault": {
+      "address": "0x079095D0AA760Dd88964b24267Ef7d9e3DC32944",
+      "chain": "moonbeam",
+      "underlying-assets": [
+        {
+          "id": "busd-multichain-moonbeam",
+          "links": {
+            "self": "/assets/busd-multichain-moonbeam.json"
+          }
+        },
+        {
+          "id": "usdc-multichain-moonbeam",
+          "links": {
+            "self": "/assets/usdc-multichain-moonbeam.json"
+          }
+        }
+      ]
+    }
+  },
+  "price": [
+    {
+      "timestamp": "2023-02-05T14:32:59.451Z",
+      "usd": 2080015.4129270941,
+      "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: busd-multichain-moonbeam,usdc-multichain-moonbeam"
+    }
+  ],
+  "supply": [
+    {
+      "timestamp": "2023-02-05T12:18:56.147Z",
+      "total": 0.000816384213270556,
+      "source": "https://moonbeam.public.blastapi.io"
+    }
+  ],
+  "backing": [
+    {
+      "timestamp": "2023-02-05T12:18:56.147Z",
+      "assets": {
+        "busd-multichain-moonbeam": 847.9664726423256,
+        "usdc-multichain-moonbeam": 849.785721
+      },
+      "source": "https://moonbeam.public.blastapi.io",
+      "backing-assets": 1,
+      "backing-usd": 1697.76,
+      "ratio": 0.9998,
+      "uniformity": 1
+    }
+  ],
+  "mcap": 1698.09
+}

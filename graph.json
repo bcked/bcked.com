@@ -3,50 +3,50 @@
     {
       "id": "bnb-wormhole-ethereum",
       "name": "Wrapped BNB",
-      "value": 1219014.18,
+      "value": 1227395.28,
       "level": 0,
-      "min-max": 0.00002818975390681633,
-      "z-score": -0.3116543695807324
+      "min-max": 0.0000283835861183825,
+      "z-score": -0.2937078697593994
     },
     {
       "id": "bnb-wormhole-solana",
       "name": "Wrapped BNB",
-      "value": 3389604.26,
+      "value": 3415503.01,
       "level": 0,
-      "min-max": 0.00007838964122590118,
-      "z-score": -0.31141089496959484
+      "min-max": 0.00007898860937916259,
+      "z-score": -0.2934493398841879
     },
     {
       "id": "busd-allbridge-solana",
       "name": "Wrapped BUSD",
-      "value": 107778.87,
+      "value": 107797.73,
       "level": 0,
-      "min-max": 0.0000024898818485286962,
-      "z-score": -0.3117790166006729
+      "min-max": 0.0000024903180294011516,
+      "z-score": -0.29384015274113745
     },
     {
       "id": "busd-binance-bsc",
       "name": "Binance-Peg BUSD",
-      "value": 4838918361.37,
+      "value": 4839828005.63,
       "level": 0,
-      "min-max": 0.11191111244401158,
-      "z-score": 0.23098930054846478
+      "min-max": 0.11193215005943848,
+      "z-score": 0.2779837315457549
     },
     {
       "id": "busd-multichain-moonbeam",
       "name": "Binance-Peg BUSD",
-      "value": 602551.74,
+      "value": 603014.21,
       "level": 0,
-      "min-max": 0.000013932642299428857,
-      "z-score": -0.31172351803683324
+      "min-max": 0.000013943337981723902,
+      "z-score": -0.29378164179443145
     },
     {
       "id": "busd-multichain-moonriver",
       "name": "Binance-Peg BUSD",
-      "value": 893267.66,
+      "value": 912921.61,
       "level": 0,
-      "min-max": 0.000020656116510581656,
-      "z-score": -0.3116909084961256
+      "min-max": 0.000021110659302638884,
+      "z-score": -0.2937450255344774
     },
     {
       "id": "busd-paxos-ethereum",
@@ -54,23 +54,55 @@
       "value": 22262030911.99,
       "level": 0,
       "min-max": 0.5148606582140066,
-      "z-score": 2.185335997400188
+      "z-score": 2.336456393351127
     },
     {
       "id": "cats-catoshi-bsc",
       "name": "Catoshi",
-      "value": 452540,
+      "value": 452155,
       "level": 0,
-      "min-max": 0.000010463275829026553,
-      "z-score": -0.31174034482066454
+      "min-max": 0.000010454371818639734,
+      "z-score": -0.2937994661511581
     },
     {
       "id": "hoge-multichain-bsc",
       "name": "Hoge Finance",
-      "value": 627680.13,
+      "value": 654746.1,
       "level": 0,
-      "min-max": 0.000014513794106088739,
-      "z-score": -0.31172069939086217
+      "min-max": 0.000015139756906113021,
+      "z-score": -0.2937755295546716
+    },
+    {
+      "id": "lp-busd-usdc-toad.network-moonbeam",
+      "name": "BUSD-USDC LPs",
+      "value": 1698.09,
+      "level": 0,
+      "min-max": 3.6519856419790004e-8,
+      "z-score": -0.29385268865347536
+    },
+    {
+      "id": "lp-glmr-pad-toad.network-moonbeam",
+      "name": "GLMR-PAD LPs",
+      "value": 8380.36,
+      "level": 0,
+      "min-max": 1.9106271742636992e-7,
+      "z-score": -0.2938518991281675
+    },
+    {
+      "id": "lp-toad-glmr-toad.network-moonbeam",
+      "name": "TOAD-GLMR LPs",
+      "value": 11447.5,
+      "level": 0,
+      "min-max": 2.619973834467075e-7,
+      "z-score": -0.2938515367386422
+    },
+    {
+      "id": "lp-usdc-glmr-toad.network-moonbeam",
+      "name": "USDC-GLMR LPs",
+      "value": 1261.39,
+      "level": 0,
+      "min-max": 2.6420164638168877e-8,
+      "z-score": -0.2938527402505677
     },
     {
       "id": "pad-toad.network-bsc",
@@ -78,15 +110,15 @@
       "value": 46962.74,
       "level": 0,
       "min-max": 0.0000010833689830581159,
-      "z-score": -0.3117858383325785
+      "z-score": -0.2938473405327428
     },
     {
       "id": "pad-toad.network-moonbeam",
       "name": "Glmr Pad",
-      "value": 10889.71,
+      "value": 12690.31,
       "level": 0,
-      "min-max": 2.490972069436838e-7,
-      "z-score": -0.31178988463640744
+      "min-max": 2.9074022279435245e-7,
+      "z-score": -0.293851389897831
     },
     {
       "id": "pad-toad.network-moonriver",
@@ -94,7 +126,7 @@
       "value": 8807.66,
       "level": 0,
       "min-max": 2.009450125907544e-7,
-      "z-score": -0.3117901181794973
+      "z-score": -0.2938518486417065
     },
     {
       "id": "paxg-paxos-ethereum",
@@ -102,31 +134,31 @@
       "value": 494125838.05,
       "level": 0,
       "min-max": 0.0114277935966932,
-      "z-score": -0.25636511972441267
+      "z-score": -0.2354708043927633
     },
     {
       "id": "paxg-wormhole-solana",
       "name": "Paxos Gold",
-      "value": 820328.34,
+      "value": 819237.22,
       "level": 0,
-      "min-max": 0.000018969226996587987,
-      "z-score": -0.3116990900835829
+      "min-max": 0.00001894399233733275,
+      "z-score": -0.2937560945569592
     },
     {
       "id": "toad-toad.network-moonbeam",
       "name": "Wrapped Toad",
-      "value": 47066.52,
+      "value": 47423.98,
       "level": 0,
-      "min-max": 0.0000010857691342216072,
-      "z-score": -0.3117858266915987
+      "min-max": 0.000001094036218774523,
+      "z-score": -0.293847286036194
     },
     {
       "id": "toad-toad.network-moonriver",
       "name": "Wrapped Toad",
-      "value": 9925.99,
+      "value": 9542.73,
       "level": 0,
-      "min-max": 2.2680896567099336e-7,
-      "z-score": -0.3117899927366676
+      "min-max": 2.179451967856622e-7,
+      "z-score": -0.2938517617915241
     },
     {
       "id": "usdc-binance-bsc",
@@ -134,7 +166,7 @@
       "value": 878999999.85,
       "level": 0,
       "min-max": 0.02032889368574697,
-      "z-score": -0.21319386977512395
+      "z-score": -0.18999705204590342
     },
     {
       "id": "usdc-circle-ethereum",
@@ -142,7 +174,7 @@
       "value": 43238943390,
       "level": 0,
       "min-max": 1,
-      "z-score": 4.538311649278628
+      "z-score": 4.814926027596088
     },
     {
       "id": "usdc-multichain-moonbeam",
@@ -150,23 +182,23 @@
       "value": 14328469.12,
       "level": 0,
       "min-max": 0.0003313760472868267,
-      "z-score": -0.3101838849078543
+      "z-score": -0.2921599482660681
     },
     {
       "id": "usdc-multichain-moonriver",
       "name": "USD Coin",
-      "value": 13942798.14,
+      "value": 13937357.04,
       "level": 0,
-      "min-max": 0.0003224565189444504,
-      "z-score": -0.3102271455367256
+      "min-max": 0.00032233068099401987,
+      "z-score": -0.2922061590425531
     },
     {
       "id": "bnb-binance-bsc",
       "name": "Wrapped BNB",
-      "value": 1219014.18,
+      "value": 1227395.28,
       "level": 1,
-      "min-max": 0.00002818975390681633,
-      "z-score": -0.3116543695807324
+      "min-max": 0.0000283835861183825,
+      "z-score": -0.2937078697593994
     },
     {
       "id": "usd-fed",
@@ -174,23 +206,31 @@
       "value": 22262030911.99,
       "level": 1,
       "min-max": 0.5148606582140066,
-      "z-score": 2.185335997400188
+      "z-score": 2.336456393351127
     },
     {
       "id": "cats-catoshi-ethereum",
       "name": "Catoshi",
-      "value": 124913.55,
+      "value": 115519.41,
       "level": 1,
-      "min-max": 0.0000028861607282555294,
-      "z-score": -0.31177709460739167
+      "min-max": 0.0000026688996369951713,
+      "z-score": -0.2938392404071882
     },
     {
       "id": "hoge-ethereum",
       "name": "Hoge Finance",
-      "value": 562409.43,
+      "value": 586664.1,
       "level": 1,
-      "min-max": 0.000013004259065166693,
-      "z-score": -0.31172802079090345
+      "min-max": 0.000013565204087527426,
+      "z-score": -0.29378357359689256
+    },
+    {
+      "id": "glmr.w-toad.network-moonbeam",
+      "name": "Wrapped GLMR",
+      "value": 5804.35,
+      "level": 1,
+      "min-max": 1.3148656211065235e-7,
+      "z-score": -0.2938522034895729
     },
     {
       "id": "toad-toad.network-bsc",
@@ -198,7 +238,7 @@
       "value": 10060.43,
       "level": 1,
       "min-max": 2.2991819984347137e-7,
-      "z-score": -0.31178997765656236
+      "z-score": -0.2938517006240987
     },
     {
       "id": "pxbsc-bsc",
@@ -206,7 +246,7 @@
       "value": 1260.92,
       "level": 1,
       "min-max": 2.6409294807307045e-8,
-      "z-score": -0.3117909646956607
+      "z-score": -0.29385274030609926
     },
     {
       "id": "gal-bsc",
@@ -214,7 +254,7 @@
       "value": 247.2,
       "level": 1,
       "min-max": 2.9646885493153488e-9,
-      "z-score": -0.31179107840440984
+      "z-score": -0.2938528600794091
     },
     {
       "id": "eth-binance-bsc",
@@ -222,7 +262,7 @@
       "value": 300.8,
       "level": 1,
       "min-max": 4.204311813558291e-9,
-      "z-score": -0.31179107239210957
+      "z-score": -0.2938528537464479
     },
     {
       "id": "btc-binance-bsc",
@@ -230,7 +270,7 @@
       "value": 281.72,
       "level": 1,
       "min-max": 3.763042935167334e-9,
-      "z-score": -0.31179107453230903
+      "z-score": -0.2938528560007931
     },
     {
       "id": "fuk-bsc",
@@ -238,7 +278,7 @@
       "value": 241.21,
       "level": 1,
       "min-max": 2.826156024076259e-9,
-      "z-score": -0.31179107907630677
+      "z-score": -0.2938528607871411
     },
     {
       "id": "bjt-bsc",
@@ -246,23 +286,15 @@
       "value": 119.01,
       "level": 1,
       "min-max": 0,
-      "z-score": -0.31179109278345385
+      "z-score": -0.29385287522534737
     },
     {
-      "id": "glmr.wrapped-moonbeam-moonbeam",
-      "name": "Wrapped GLMR",
-      "value": 3523.4,
-      "level": 1,
-      "min-max": 7.873434784619455e-8,
-      "z-score": -0.31179071091377747
-    },
-    {
-      "id": "movr.wrapped-moonbeam-moonriver",
+      "id": "movr.w-moonbeam-moonriver",
       "name": "Wrapped MOVR",
       "value": 3023.66,
       "level": 1,
       "min-max": 6.71767110911056e-8,
-      "z-score": -0.3117907669695032
+      "z-score": -0.29385253203438305
     },
     {
       "id": "gold",
@@ -270,57 +302,57 @@
       "value": 494125838.05,
       "level": 1,
       "min-max": 0.0114277935966932,
-      "z-score": -0.25636511972441267
+      "z-score": -0.2354708043927633
     }
   ],
   "links": [
     {
       "source": "bnb-wormhole-ethereum",
       "target": "bnb-binance-bsc",
-      "value": 1219014.18,
+      "value": 1227395.28,
       "level": 0,
-      "min-max": 0.00002818975390681633,
-      "z-score": -0.24510553166686255
+      "min-max": 0.0000283835861183825,
+      "z-score": -0.21906747351185787
     },
     {
       "source": "bnb-wormhole-solana",
       "target": "bnb-binance-bsc",
-      "value": 3389604.26,
+      "value": 3415503.01,
       "level": 0,
-      "min-max": 0.00007838964122590118,
-      "z-score": -0.24483100202474647
+      "min-max": 0.00007898860937916259,
+      "z-score": -0.2187599178173041
     },
     {
       "source": "busd-allbridge-solana",
       "target": "busd-binance-bsc",
-      "value": 107778.87,
+      "value": 107797.73,
       "level": 0,
-      "min-max": 0.0000024898818485286962,
-      "z-score": -0.24524607733450013
+      "min-max": 0.0000024903180294011516,
+      "z-score": -0.21922484172430456
     },
     {
       "source": "busd-binance-bsc",
       "target": "busd-paxos-ethereum",
-      "value": 4838918361.37,
+      "value": 4839828005.63,
       "level": 0,
-      "min-max": 0.11191111244401158,
-      "z-score": 0.36675199163356637
+      "min-max": 0.11193215005943848,
+      "z-score": 0.4610357732256213
     },
     {
       "source": "busd-multichain-moonbeam",
       "target": "busd-binance-bsc",
-      "value": 602551.74,
+      "value": 603014.21,
       "level": 0,
-      "min-max": 0.000013932642299428857,
-      "z-score": -0.24518349996432717
+      "min-max": 0.000013943337981723902,
+      "z-score": -0.2191552351659196
     },
     {
       "source": "busd-multichain-moonriver",
       "target": "busd-binance-bsc",
-      "value": 893267.66,
+      "value": 912921.61,
       "level": 0,
-      "min-max": 0.000020656116510581656,
-      "z-score": -0.24514673109755197
+      "min-max": 0.000021110659302638884,
+      "z-score": -0.21911167525141104
     },
     {
       "source": "busd-paxos-ethereum",
@@ -328,23 +360,87 @@
       "value": 22262030911.99,
       "level": 0,
       "min-max": 0.5148606582140066,
-      "z-score": 2.5703743601048834
+      "z-score": 2.9098629685492483
     },
     {
       "source": "cats-catoshi-bsc",
       "target": "cats-catoshi-ethereum",
-      "value": 124913.55,
+      "value": 115519.41,
       "level": 0,
-      "min-max": 0.0000028861607282555294,
-      "z-score": -0.2452439101922048
+      "min-max": 0.0000026688996369951713,
+      "z-score": -0.21922375638164845
     },
     {
       "source": "hoge-multichain-bsc",
       "target": "hoge-ethereum",
-      "value": 562409.43,
+      "value": 586664.1,
       "level": 0,
-      "min-max": 0.000013004259065166693,
-      "z-score": -0.24518857704180005
+      "min-max": 0.000013565204087527426,
+      "z-score": -0.21915753330205254
+    },
+    {
+      "source": "lp-busd-usdc-toad.network-moonbeam",
+      "target": "busd-multichain-moonbeam",
+      "value": 847.97,
+      "level": 0,
+      "min-max": 1.6858876393704007e-8,
+      "z-score": -0.21923987435147743
+    },
+    {
+      "source": "lp-busd-usdc-toad.network-moonbeam",
+      "target": "usdc-multichain-moonbeam",
+      "value": 849.79,
+      "level": 0,
+      "min-max": 1.6900968079168973e-8,
+      "z-score": -0.21923987409566217
+    },
+    {
+      "source": "lp-glmr-pad-toad.network-moonbeam",
+      "target": "pad-toad.network-moonbeam",
+      "value": 4229.48,
+      "level": 0,
+      "min-max": 9.50640716226247e-8,
+      "z-score": -0.21923939905373846
+    },
+    {
+      "source": "lp-glmr-pad-toad.network-moonbeam",
+      "target": "glmr.w-toad.network-moonbeam",
+      "value": 4238.53,
+      "level": 0,
+      "min-max": 9.527337368496423e-8,
+      "z-score": -0.21923939778169002
+    },
+    {
+      "source": "lp-toad-glmr-toad.network-moonbeam",
+      "target": "toad-toad.network-moonbeam",
+      "value": 5768.04,
+      "level": 0,
+      "min-max": 1.3064680985832658e-7,
+      "z-score": -0.21923918279706933
+    },
+    {
+      "source": "lp-toad-glmr-toad.network-moonbeam",
+      "target": "glmr.w-toad.network-moonbeam",
+      "value": 5804.35,
+      "level": 0,
+      "min-max": 1.3148656211065235e-7,
+      "z-score": -0.2192391776934142
+    },
+    {
+      "source": "lp-usdc-glmr-toad.network-moonbeam",
+      "target": "usdc-multichain-moonbeam",
+      "value": 634.21,
+      "level": 0,
+      "min-max": 1.1915184808544098e-8,
+      "z-score": -0.21923990439712115
+    },
+    {
+      "source": "lp-usdc-glmr-toad.network-moonbeam",
+      "target": "glmr.w-toad.network-moonbeam",
+      "value": 637.08,
+      "level": 0,
+      "min-max": 1.1981560158700389e-8,
+      "z-score": -0.21923990399372018
     },
     {
       "source": "pad-toad.network-bsc",
@@ -352,7 +448,7 @@
       "value": 10060.43,
       "level": 0,
       "min-max": 2.2991819984347137e-7,
-      "z-score": -0.24525843646606
+      "z-score": -0.21923857946800573
     },
     {
       "source": "pad-toad.network-bsc",
@@ -360,7 +456,7 @@
       "value": 9022.63,
       "level": 0,
       "min-max": 2.0591668820855858e-7,
-      "z-score": -0.24525856772385263
+      "z-score": -0.2192387253389313
     },
     {
       "source": "pad-toad.network-bsc",
@@ -368,7 +464,7 @@
       "value": 5998.89,
       "level": 0,
       "min-max": 1.3598574699546246e-7,
-      "z-score": -0.24525895015730595
+      "z-score": -0.21923915034929212
     },
     {
       "source": "pad-toad.network-bsc",
@@ -376,7 +472,7 @@
       "value": 1260.92,
       "level": 0,
       "min-max": 2.6409294807307045e-8,
-      "z-score": -0.24525954940136424
+      "z-score": -0.2192398163081177
     },
     {
       "source": "pad-toad.network-bsc",
@@ -384,7 +480,7 @@
       "value": 724.71,
       "level": 0,
       "min-max": 1.4008205431939362e-8,
-      "z-score": -0.24525961721957681
+      "z-score": -0.21923989167663668
     },
     {
       "source": "pad-toad.network-bsc",
@@ -392,7 +488,7 @@
       "value": 247.2,
       "level": 0,
       "min-max": 2.9646885493153488e-9,
-      "z-score": -0.2452596776135916
+      "z-score": -0.21923995879441052
     },
     {
       "source": "pad-toad.network-bsc",
@@ -400,7 +496,7 @@
       "value": 568.63,
       "level": 0,
       "min-max": 1.0398496493822975e-8,
-      "z-score": -0.24525963696010125
+      "z-score": -0.21923991361490422
     },
     {
       "source": "pad-toad.network-bsc",
@@ -408,7 +504,7 @@
       "value": 300.8,
       "level": 0,
       "min-max": 4.204311813558291e-9,
-      "z-score": -0.24525967083442637
+      "z-score": -0.21923995126051035
     },
     {
       "source": "pad-toad.network-bsc",
@@ -416,7 +512,7 @@
       "value": 281.72,
       "level": 0,
       "min-max": 3.763042935167334e-9,
-      "z-score": -0.24525967324760684
+      "z-score": -0.2192399539423539
     },
     {
       "source": "pad-toad.network-bsc",
@@ -424,7 +520,7 @@
       "value": 241.21,
       "level": 0,
       "min-max": 2.826156024076259e-9,
-      "z-score": -0.24525967837118862
+      "z-score": -0.21923995963635196
     },
     {
       "source": "pad-toad.network-bsc",
@@ -432,7 +528,7 @@
       "value": 119.01,
       "level": 0,
       "min-max": 0,
-      "z-score": -0.24525969382667354
+      "z-score": -0.21923997681251994
     },
     {
       "source": "pad-toad.network-bsc",
@@ -440,47 +536,55 @@
       "value": 581.53,
       "level": 0,
       "min-max": 1.0696838660030697e-8,
-      "z-score": -0.24525963532854844
+      "z-score": -0.21923991180170813
     },
     {
       "source": "pad-toad.network-moonbeam",
-      "target": "glmr.wrapped-moonbeam-moonbeam",
-      "value": 3523.4,
+      "target": "lp-glmr-pad-toad.network-moonbeam",
+      "value": 3386.06,
       "level": 0,
-      "min-max": 7.873434784619455e-8,
-      "z-score": -0.24525926324976408
+      "min-max": 7.555804450456908e-8,
+      "z-score": -0.21923951760303126
     },
     {
       "source": "pad-toad.network-moonbeam",
-      "target": "usdc-multichain-moonbeam",
-      "value": 1227.39,
+      "target": "lp-busd-usdc-toad.network-moonbeam",
+      "value": 1698.09,
       "level": 0,
-      "min-max": 2.5633836448164028e-8,
-      "z-score": -0.24525955364213683
+      "min-max": 3.6519856419790004e-8,
+      "z-score": -0.21923975486044714
     },
     {
       "source": "pad-toad.network-moonbeam",
-      "target": "busd-multichain-moonbeam",
-      "value": 846.01,
+      "target": "lp-toad-glmr-toad.network-moonbeam",
+      "value": 1844.29,
       "level": 0,
-      "min-max": 1.6813546886280197e-8,
-      "z-score": -0.24525960187792115
+      "min-max": 3.9901067636810864e-8,
+      "z-score": -0.21923973431089105
+    },
+    {
+      "source": "pad-toad.network-moonbeam",
+      "target": "lp-usdc-glmr-toad.network-moonbeam",
+      "value": 924.17,
+      "level": 0,
+      "min-max": 1.8621176631303114e-8,
+      "z-score": -0.21923986364097006
     },
     {
       "source": "pad-toad.network-moonbeam",
       "target": "toad-toad.network-moonbeam",
-      "value": 1898.65,
+      "value": 1207.93,
       "level": 0,
-      "min-max": 4.115826764883039e-8,
-      "z-score": -0.2452594687432104
+      "min-max": 2.5183779195884778e-8,
+      "z-score": -0.21923982375627762
     },
     {
       "source": "pad-toad.network-moonriver",
-      "target": "movr.wrapped-moonbeam-moonriver",
+      "target": "movr.w-moonbeam-moonriver",
       "value": 3023.66,
       "level": 0,
       "min-max": 6.71767110911056e-8,
-      "z-score": -0.24525932645536178
+      "z-score": -0.21923956854119217
     },
     {
       "source": "pad-toad.network-moonriver",
@@ -488,7 +592,7 @@
       "value": 580.85,
       "level": 0,
       "min-max": 1.0681112096230602e-8,
-      "z-score": -0.24525963541455278
+      "z-score": -0.21923991189728748
     },
     {
       "source": "pad-toad.network-moonriver",
@@ -496,7 +600,7 @@
       "value": 805.19,
       "level": 0,
       "min-max": 1.5869490512280258e-8,
-      "z-score": -0.2452596070407108
+      "z-score": -0.21923988036454178
     },
     {
       "source": "pad-toad.network-moonriver",
@@ -504,7 +608,7 @@
       "value": 962.2,
       "level": 0,
       "min-max": 1.9500707839123247e-8,
-      "z-score": -0.24525958718256277
+      "z-score": -0.21923985829555545
     },
     {
       "source": "paxg-paxos-ethereum",
@@ -512,31 +616,31 @@
       "value": 494125838.05,
       "level": 0,
       "min-max": 0.0114277935966932,
-      "z-score": -0.1827641733420303
+      "z-score": -0.14978673343120957
     },
     {
       "source": "paxg-wormhole-solana",
       "target": "paxg-paxos-ethereum",
-      "value": 820328.34,
+      "value": 819237.22,
       "level": 0,
-      "min-max": 0.000018969226996587987,
-      "z-score": -0.24515595624125847
+      "min-max": 0.00001894399233733275,
+      "z-score": -0.21912484332683996
     },
     {
       "source": "toad-toad.network-moonbeam",
       "target": "toad-toad.network-bsc",
-      "value": 46394.18,
+      "value": 46879.99,
       "level": 0,
-      "min-max": 0.0000010702197255372584,
-      "z-score": -0.24525384108369086
+      "min-max": 0.0000010814551990074422,
+      "z-score": -0.21923340419021037
     },
     {
       "source": "toad-toad.network-moonriver",
       "target": "toad-toad.network-bsc",
-      "value": 9074.62,
+      "value": 9095.3,
       "level": 0,
-      "min-max": 2.0711907652027485e-7,
-      "z-score": -0.24525856114831532
+      "min-max": 2.075973490781954e-7,
+      "z-score": -0.21923871512459314
     },
     {
       "source": "usdc-binance-bsc",
@@ -544,7 +648,7 @@
       "value": 878999999.85,
       "level": 0,
       "min-max": 0.02032889368574697,
-      "z-score": -0.13408645806440334
+      "z-score": -0.095689652869189
     },
     {
       "source": "usdc-circle-ethereum",
@@ -552,7 +656,7 @@
       "value": 43238943390,
       "level": 0,
       "min-max": 1,
-      "z-score": 5.223470551942489
+      "z-score": 5.858332460390728
     },
     {
       "source": "usdc-multichain-moonbeam",
@@ -560,15 +664,15 @@
       "value": 14328469.12,
       "level": 0,
       "min-max": 0.0003313760472868267,
-      "z-score": -0.24344748761415266
+      "z-score": -0.21722601488118018
     },
     {
       "source": "usdc-multichain-moonriver",
       "target": "usdc-circle-ethereum",
-      "value": 13942798.14,
+      "value": 13937357.04,
       "level": 0,
-      "min-max": 0.0003224565189444504,
-      "z-score": -0.24349626610857658
+      "min-max": 0.00032233068099401987,
+      "z-score": -0.21728098875004573
     }
   ]
 }

@@ -12,7 +12,7 @@
       "level": 0
     },
     {
-      "id": "movr.wrapped-moonbeam-moonriver",
+      "id": "movr.w-moonbeam-moonriver",
       "name": "Wrapped MOVR",
       "value": 3023.66,
       "level": 1
@@ -75,12 +75,12 @@
     },
     {
       "source": "pad-toad.network-moonriver",
-      "target": "movr.wrapped-moonbeam-moonriver",
+      "target": "movr.w-moonbeam-moonriver",
       "value": 3023.66,
       "level": 0
     },
     {
-      "source": "movr.wrapped-moonbeam-moonriver",
+      "source": "movr.w-moonbeam-moonriver",
       "target": "unbacked",
       "value": 3023.66,
       "level": 1
