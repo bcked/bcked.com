@@ -70,7 +70,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-05T14:57:52.115Z",
+        "timestamp": "2023-02-05T15:36:57.777Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -187,7 +187,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-05T14:57:52.115Z",
+        "timestamp": "2023-02-05T15:36:57.778Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -579,7 +579,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-05T14:57:52.115Z",
+        "timestamp": "2023-02-05T15:36:57.778Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -631,7 +631,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-05T14:57:52.115Z",
+        "timestamp": "2023-02-05T15:36:57.778Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -2253,7 +2253,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-05T14:57:52.115Z",
+        "timestamp": "2023-02-05T15:36:57.778Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -2446,7 +2446,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-05T14:57:52.115Z",
+        "timestamp": "2023-02-05T15:36:57.778Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -2539,7 +2539,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-05T14:57:52.115Z",
+        "timestamp": "2023-02-05T15:36:57.778Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -2626,7 +2626,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-05T14:57:52.115Z",
+        "timestamp": "2023-02-05T15:36:57.778Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -2708,7 +2708,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-05T14:57:52.115Z",
+        "timestamp": "2023-02-05T15:36:57.778Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -2751,7 +2751,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-05T14:57:52.115Z",
+        "timestamp": "2023-02-05T15:36:57.778Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -2844,7 +2844,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-05T14:57:52.115Z",
+        "timestamp": "2023-02-05T15:36:57.778Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -2897,7 +2897,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-05T14:57:52.115Z",
+        "timestamp": "2023-02-05T15:36:57.778Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -2944,7 +2944,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-05T14:57:52.115Z",
+        "timestamp": "2023-02-05T15:36:57.778Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -3056,7 +3056,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-05T14:57:52.115Z",
+        "timestamp": "2023-02-05T15:36:57.778Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -3290,15 +3290,88 @@
     ],
     "mcap": 1698.09
   },
-  "lp-glmr-pad-toad.network-moonbeam": {
-    "id": "lp-glmr-pad-toad.network-moonbeam",
+  "lp-busd-usdc-toad.network-moonriver": {
+    "id": "lp-busd-usdc-toad.network-moonriver",
     "links": {
-      "self": "/assets/lp-glmr-pad-toad.network-moonbeam.json",
-      "ui": "/assets/lp-glmr-pad-toad.network-moonbeam"
+      "self": "/assets/lp-busd-usdc-toad.network-moonriver.json",
+      "ui": "/assets/lp-busd-usdc-toad.network-moonriver"
     },
-    "icon": "assets/lp-glmr-pad-toad.network-moonbeam/icon.png",
-    "name": "GLMR-PAD LPs",
-    "symbol": "LP-GLMR-PAD",
+    "icon": "assets/lp-busd-usdc-toad.network-moonriver/icon.png",
+    "name": "BUSD-USDC LPs",
+    "symbol": "LP-BUSD-USDC",
+    "issuer": "toad.network",
+    "reference": "https://dapps.padswap.exchange/",
+    "tags": [
+      "cryptocurrency",
+      "lp"
+    ],
+    "contracts": {
+      "token": {
+        "id": "moonriver:0x21D6DbcA8aACdAa739e40180b1C8C828B46Ae376",
+        "links": {
+          "self": "/tokens/moonriver:0x21D6DbcA8aACdAa739e40180b1C8C828B46Ae376.json"
+        },
+        "address": "0x21D6DbcA8aACdAa739e40180b1C8C828B46Ae376",
+        "chain": "moonriver"
+      },
+      "vault": {
+        "address": "0x21D6DbcA8aACdAa739e40180b1C8C828B46Ae376",
+        "chain": "moonriver",
+        "underlying-assets": [
+          {
+            "id": "busd-multichain-moonriver",
+            "links": {
+              "self": "/assets/busd-multichain-moonriver.json"
+            }
+          },
+          {
+            "id": "usdc-multichain-moonriver",
+            "links": {
+              "self": "/assets/usdc-multichain-moonriver.json"
+            }
+          }
+        ]
+      }
+    },
+    "price": [
+      {
+        "timestamp": "2023-02-05T15:24:53.920Z",
+        "usd": 2030206.044109215,
+        "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: busd-multichain-moonriver,usdc-multichain-moonriver"
+      }
+    ],
+    "supply": [
+      {
+        "timestamp": "2023-02-05T15:24:52.903Z",
+        "total": 0.011786196566179115,
+        "source": "https://rpc.api.moonriver.moonbeam.network"
+      }
+    ],
+    "backing": [
+      {
+        "timestamp": "2023-02-05T15:24:53.913Z",
+        "assets": {
+          "busd-multichain-moonriver": 11939.112854713403,
+          "usdc-multichain-moonriver": 11965.390148
+        },
+        "source": "https://rpc.api.moonriver.moonbeam.network",
+        "backing-assets": 1,
+        "backing-usd": 23904.5,
+        "ratio": 0.999,
+        "uniformity": 1
+      }
+    ],
+    "mcap": 23928.41
+  },
+  "lp-pad-glmr-toad.network-moonbeam": {
+    "id": "lp-pad-glmr-toad.network-moonbeam",
+    "links": {
+      "self": "/assets/lp-pad-glmr-toad.network-moonbeam.json",
+      "ui": "/assets/lp-pad-glmr-toad.network-moonbeam"
+    },
+    "icon": "assets/lp-pad-glmr-toad.network-moonbeam/icon.png",
+    "name": "PAD-GLMR LPs",
+    "symbol": "LP-PAD-GLMR",
     "issuer": "toad.network",
     "reference": "https://dapps.padswap.exchange/",
     "tags": [
@@ -3362,6 +3435,79 @@
       }
     ],
     "mcap": 8380.36
+  },
+  "lp-pad-movr-toad.network-moonriver": {
+    "id": "lp-pad-movr-toad.network-moonriver",
+    "links": {
+      "self": "/assets/lp-pad-movr-toad.network-moonriver.json",
+      "ui": "/assets/lp-pad-movr-toad.network-moonriver"
+    },
+    "icon": "assets/lp-pad-movr-toad.network-moonriver/icon.png",
+    "name": "PAD-MOVR LPs",
+    "symbol": "LP-PAD-MOVR",
+    "issuer": "toad.network",
+    "reference": "https://dapps.padswap.exchange/",
+    "tags": [
+      "cryptocurrency",
+      "lp"
+    ],
+    "contracts": {
+      "token": {
+        "id": "moonriver:0xfDFaB6B6A5982F627F70f392207bfA536f66327b",
+        "links": {
+          "self": "/tokens/moonriver:0xfDFaB6B6A5982F627F70f392207bfA536f66327b.json"
+        },
+        "address": "0xfDFaB6B6A5982F627F70f392207bfA536f66327b",
+        "chain": "moonriver"
+      },
+      "vault": {
+        "address": "0xfDFaB6B6A5982F627F70f392207bfA536f66327b",
+        "chain": "moonriver",
+        "underlying-assets": [
+          {
+            "id": "pad-toad.network-moonriver",
+            "links": {
+              "self": "/assets/pad-toad.network-moonriver.json"
+            }
+          },
+          {
+            "id": "movr.w-moonbeam-moonriver",
+            "links": {
+              "self": "/assets/movr.w-moonbeam-moonriver.json"
+            }
+          }
+        ]
+      }
+    },
+    "price": [
+      {
+        "timestamp": "2023-02-05T15:30:31.982Z",
+        "usd": 0.0021882208279024404,
+        "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: pad-toad.network-moonriver,movr.w-moonbeam-moonriver"
+      }
+    ],
+    "supply": [
+      {
+        "timestamp": "2023-02-05T15:24:52.898Z",
+        "total": 1975300.9519440304,
+        "source": "https://rpc.api.moonriver.moonbeam.network"
+      }
+    ],
+    "backing": [
+      {
+        "timestamp": "2023-02-05T15:24:53.919Z",
+        "assets": {
+          "pad-toad.network-moonriver": 17784912500.864113,
+          "movr.w-moonbeam-moonriver": 238.37469893805488
+        },
+        "source": "https://rpc.api.moonriver.moonbeam.network",
+        "backing-assets": 3,
+        "backing-usd": 9299.09,
+        "ratio": 2.1514,
+        "uniformity": 0.9323
+      }
+    ],
+    "mcap": 4322.39
   },
   "lp-toad-glmr-toad.network-moonbeam": {
     "id": "lp-toad-glmr-toad.network-moonbeam",
@@ -3436,6 +3582,79 @@
     ],
     "mcap": 11447.5
   },
+  "lp-toad-movr-toad.network-moonriver": {
+    "id": "lp-toad-movr-toad.network-moonriver",
+    "links": {
+      "self": "/assets/lp-toad-movr-toad.network-moonriver.json",
+      "ui": "/assets/lp-toad-movr-toad.network-moonriver"
+    },
+    "icon": "assets/lp-toad-movr-toad.network-moonriver/icon.png",
+    "name": "PAD-MOVR LPs",
+    "symbol": "LP-PAD-MOVR",
+    "issuer": "toad.network",
+    "reference": "https://dapps.padswap.exchange/",
+    "tags": [
+      "cryptocurrency",
+      "lp"
+    ],
+    "contracts": {
+      "token": {
+        "id": "moonriver:0x3D44494656370126E50Fe6488606165Bc0f2fd80",
+        "links": {
+          "self": "/tokens/moonriver:0x3D44494656370126E50Fe6488606165Bc0f2fd80.json"
+        },
+        "address": "0x3D44494656370126E50Fe6488606165Bc0f2fd80",
+        "chain": "moonriver"
+      },
+      "vault": {
+        "address": "0x3D44494656370126E50Fe6488606165Bc0f2fd80",
+        "chain": "moonriver",
+        "underlying-assets": [
+          {
+            "id": "toad-toad.network-moonriver",
+            "links": {
+              "self": "/assets/toad-toad.network-moonriver.json"
+            }
+          },
+          {
+            "id": "movr.w-moonbeam-moonriver",
+            "links": {
+              "self": "/assets/movr.w-moonbeam-moonriver.json"
+            }
+          }
+        ]
+      }
+    },
+    "price": [
+      {
+        "timestamp": "2023-02-05T15:24:53.920Z",
+        "usd": 8.684086065026541,
+        "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: toad-toad.network-moonriver,movr.w-moonbeam-moonriver"
+      }
+    ],
+    "supply": [
+      {
+        "timestamp": "2023-02-05T15:24:52.891Z",
+        "total": 413.09952634577866,
+        "source": "https://rpc.api.moonriver.moonbeam.network"
+      }
+    ],
+    "backing": [
+      {
+        "timestamp": "2023-02-05T15:24:53.895Z",
+        "assets": {
+          "toad-toad.network-moonriver": 897.861548239238,
+          "movr.w-moonbeam-moonriver": 198.42390073407344
+        },
+        "source": "https://rpc.api.moonriver.moonbeam.network",
+        "backing-assets": 2,
+        "backing-usd": 3666.54,
+        "ratio": 1.0221,
+        "uniformity": 1
+      }
+    ],
+    "mcap": 3587.39
+  },
   "lp-usdc-glmr-toad.network-moonbeam": {
     "id": "lp-usdc-glmr-toad.network-moonbeam",
     "links": {
@@ -3509,6 +3728,79 @@
     ],
     "mcap": 1261.39
   },
+  "lp-usdc-movr-toad.network-moonriver": {
+    "id": "lp-usdc-movr-toad.network-moonriver",
+    "links": {
+      "self": "/assets/lp-usdc-movr-toad.network-moonriver.json",
+      "ui": "/assets/lp-usdc-movr-toad.network-moonriver"
+    },
+    "icon": "assets/lp-usdc-movr-toad.network-moonriver/icon.png",
+    "name": "PAD-MOVR LPs",
+    "symbol": "LP-PAD-MOVR",
+    "issuer": "toad.network",
+    "reference": "https://dapps.padswap.exchange/",
+    "tags": [
+      "cryptocurrency",
+      "lp"
+    ],
+    "contracts": {
+      "token": {
+        "id": "moonriver:0x38185BF42E4D6d0b51Db5F6C2B83064008549087",
+        "links": {
+          "self": "/tokens/moonriver:0x38185BF42E4D6d0b51Db5F6C2B83064008549087.json"
+        },
+        "address": "0x38185BF42E4D6d0b51Db5F6C2B83064008549087",
+        "chain": "moonriver"
+      },
+      "vault": {
+        "address": "0x38185BF42E4D6d0b51Db5F6C2B83064008549087",
+        "chain": "moonriver",
+        "underlying-assets": [
+          {
+            "id": "usdc-multichain-moonriver",
+            "links": {
+              "self": "/assets/usdc-multichain-moonriver.json"
+            }
+          },
+          {
+            "id": "movr.w-moonbeam-moonriver",
+            "links": {
+              "self": "/assets/movr.w-moonbeam-moonriver.json"
+            }
+          }
+        ]
+      }
+    },
+    "price": [
+      {
+        "timestamp": "2023-02-05T15:24:53.920Z",
+        "usd": 6493302.039180405,
+        "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: usdc-multichain-moonriver,movr.w-moonbeam-moonriver"
+      }
+    ],
+    "supply": [
+      {
+        "timestamp": "2023-02-05T15:24:52.903Z",
+        "total": 0.000289568153103044,
+        "source": "https://rpc.api.moonriver.moonbeam.network"
+      }
+    ],
+    "backing": [
+      {
+        "timestamp": "2023-02-05T15:24:53.907Z",
+        "assets": {
+          "usdc-multichain-moonriver": 939.659536,
+          "movr.w-moonbeam-moonriver": 103.03226792650214
+        },
+        "source": "https://rpc.api.moonriver.moonbeam.network",
+        "backing-assets": 2,
+        "backing-usd": 1894.77,
+        "ratio": 1.0077,
+        "uniformity": 1
+      }
+    ],
+    "mcap": 1880.25
+  },
   "movr-moonbeam-moonriver": {
     "id": "movr-moonbeam-moonriver",
     "links": {
@@ -3541,7 +3833,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-05T14:57:52.115Z",
+        "timestamp": "2023-02-05T15:36:57.778Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -3633,7 +3925,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-05T14:57:52.115Z",
+        "timestamp": "2023-02-05T15:36:57.778Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -3818,9 +4110,9 @@
         "chain": "moonbeam",
         "underlying-assets": [
           {
-            "id": "lp-glmr-pad-toad.network-moonbeam",
+            "id": "lp-pad-glmr-toad.network-moonbeam",
             "links": {
-              "self": "/assets/lp-glmr-pad-toad.network-moonbeam.json"
+              "self": "/assets/lp-pad-glmr-toad.network-moonbeam.json"
             }
           },
           {
@@ -3928,7 +4220,7 @@
       {
         "timestamp": "2023-02-05T12:18:56.202Z",
         "assets": {
-          "lp-glmr-pad-toad.network-moonbeam": 5023874.107928641,
+          "lp-pad-glmr-toad.network-moonbeam": 5023874.107928641,
           "lp-busd-usdc-toad.network-moonbeam": 0.000816384213269556,
           "lp-toad-glmr-toad.network-moonbeam": 920.3548326005991,
           "lp-usdc-glmr-toad.network-moonbeam": 0.000584851116301421,
@@ -3975,16 +4267,56 @@
     ],
     "contracts": {
       "token": {
-        "id": "moonriver:0x45488c50184ce2092756ba7cdf85731fd17e6f3d",
+        "id": "moonriver:0x45488C50184Ce2092756ba7CdF85731fD17e6f3d",
         "links": {
-          "self": "/tokens/moonriver:0x45488c50184ce2092756ba7cdf85731fd17e6f3d.json"
+          "self": "/tokens/moonriver:0x45488C50184Ce2092756ba7CdF85731fD17e6f3d.json"
         },
-        "address": "0x45488c50184ce2092756ba7cdf85731fd17e6f3d",
+        "address": "0x45488C50184Ce2092756ba7CdF85731fD17e6f3d",
         "chain": "moonriver"
       },
-      "vault": null
+      "vault": {
+        "address": "0x7a06dbaE8666e7DbdCf26A37be020dfedC782176",
+        "chain": "moonriver",
+        "underlying-assets": [
+          {
+            "id": "lp-pad-movr-toad.network-moonriver",
+            "links": {
+              "self": "/assets/lp-pad-movr-toad.network-moonriver.json"
+            }
+          },
+          {
+            "id": "lp-busd-usdc-toad.network-moonriver",
+            "links": {
+              "self": "/assets/lp-busd-usdc-toad.network-moonriver.json"
+            }
+          },
+          {
+            "id": "lp-usdc-movr-toad.network-moonriver",
+            "links": {
+              "self": "/assets/lp-usdc-movr-toad.network-moonriver.json"
+            }
+          },
+          {
+            "id": "lp-toad-movr-toad.network-moonriver",
+            "links": {
+              "self": "/assets/lp-toad-movr-toad.network-moonriver.json"
+            }
+          },
+          {
+            "id": "toad-toad.network-moonriver",
+            "links": {
+              "self": "/assets/toad-toad.network-moonriver.json"
+            }
+          }
+        ]
+      }
     },
     "price": [
+      {
+        "timestamp": "2023-02-05T15:30:31.460Z",
+        "usd": 1.208e-7,
+        "source": "https://api.dexscreener.com/latest/dex/tokens/0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,0xA898bbb508C04BE26af3d319b7775927AFCB02AF,0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,0xe3DB50049C74De2F7d7269823af3178Cf22fd5E3,0x079095D0AA760Dd88964b24267Ef7d9e3DC32944,0x21D6DbcA8aACdAa739e40180b1C8C828B46Ae376,0x7C33896Ce19831dc170d99330878688a5f6DF614,0xfDFaB6B6A5982F627F70f392207bfA536f66327b,0xed048a21361fff12fb10335655b273c396994AA0,0x3D44494656370126E50Fe6488606165Bc0f2fd80,0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD,0x38185BF42E4D6d0b51Db5F6C2B83064008549087,0x663a07a2648296f1A3C02EE86A126fE1407888E5,0xc0888d80ee0abf84563168b3182650c0addeb6d5,0x59193512877E2EC3bB27C178A8888Cfac62FB32D,0x45488C50184Ce2092756ba7CdF85731fD17e6f3d,0x7950865a9140cB519342433146Ed5b40c6F210f7,0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,0x463E737D8F740395ABf44f7aac2D9531D8D539E9,0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,0x165DBb08de0476271714952C3C1F068693bd60D7"
+      },
       {
         "timestamp": "2023-01-02T18:17:00.000Z",
         "usd": 1.165e-7,
@@ -4035,6 +4367,21 @@
     ],
     "backing": [
       {
+        "timestamp": "2023-02-05T15:24:52.907Z",
+        "assets": {
+          "lp-pad-movr-toad.network-moonriver": 1251474.4828931496,
+          "lp-busd-usdc-toad.network-moonriver": 0.00057273747194685,
+          "lp-usdc-movr-toad.network-moonriver": 0.000084492125073398,
+          "lp-toad-movr-toad.network-moonriver": 238.07869132570204,
+          "toad-toad.network-moonriver": 0.001516176345179241
+        },
+        "source": "https://rpc.api.moonriver.moonbeam.network",
+        "backing-assets": 3,
+        "backing-usd": 9299.09,
+        "ratio": 0.9743,
+        "uniformity": 0.9323
+      },
+      {
         "timestamp": "2023-01-03T18:40:00.000Z",
         "assets": {
           "pad-toad.network-moonriver": 9488974201.18063,
@@ -4046,11 +4393,11 @@
         "source": "../lily-pad/scripts",
         "backing-assets": 3,
         "backing-usd": 5371.9,
-        "ratio": 0.5836,
+        "ratio": 0.5628,
         "uniformity": 0.8824
       }
     ],
-    "mcap": 9204.37
+    "mcap": 9544.11
   },
   "paxg-binance-bsc": {
     "id": "paxg-binance-bsc",
@@ -4091,7 +4438,7 @@
     },
     "price": [
       {
-        "timestamp": "2023-02-05T14:57:52.099Z",
+        "timestamp": "2023-02-05T15:36:57.760Z",
         "usd": 0,
         "source": "No price recorded in bcked."
       }
@@ -5109,7 +5456,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-05T14:57:52.115Z",
+        "timestamp": "2023-02-05T15:36:57.778Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -5221,7 +5568,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-05T14:57:52.115Z",
+        "timestamp": "2023-02-05T15:36:57.778Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -5563,7 +5910,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-05T14:57:52.115Z",
+        "timestamp": "2023-02-05T15:36:57.778Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -6701,7 +7048,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-05T14:57:52.115Z",
+        "timestamp": "2023-02-05T15:36:57.778Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,

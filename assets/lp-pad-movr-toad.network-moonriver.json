@@ -1,0 +1,73 @@
+{
+  "id": "lp-pad-movr-toad.network-moonriver",
+  "links": {
+    "self": "/assets/lp-pad-movr-toad.network-moonriver.json",
+    "ui": "/assets/lp-pad-movr-toad.network-moonriver"
+  },
+  "icon": "assets/lp-pad-movr-toad.network-moonriver/icon.png",
+  "name": "PAD-MOVR LPs",
+  "symbol": "LP-PAD-MOVR",
+  "issuer": "toad.network",
+  "reference": "https://dapps.padswap.exchange/",
+  "tags": [
+    "cryptocurrency",
+    "lp"
+  ],
+  "contracts": {
+    "token": {
+      "id": "moonriver:0xfDFaB6B6A5982F627F70f392207bfA536f66327b",
+      "links": {
+        "self": "/tokens/moonriver:0xfDFaB6B6A5982F627F70f392207bfA536f66327b.json"
+      },
+      "address": "0xfDFaB6B6A5982F627F70f392207bfA536f66327b",
+      "chain": "moonriver"
+    },
+    "vault": {
+      "address": "0xfDFaB6B6A5982F627F70f392207bfA536f66327b",
+      "chain": "moonriver",
+      "underlying-assets": [
+        {
+          "id": "pad-toad.network-moonriver",
+          "links": {
+            "self": "/assets/pad-toad.network-moonriver.json"
+          }
+        },
+        {
+          "id": "movr.w-moonbeam-moonriver",
+          "links": {
+            "self": "/assets/movr.w-moonbeam-moonriver.json"
+          }
+        }
+      ]
+    }
+  },
+  "price": [
+    {
+      "timestamp": "2023-02-05T15:30:31.982Z",
+      "usd": 0.0021882208279024404,
+      "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: pad-toad.network-moonriver,movr.w-moonbeam-moonriver"
+    }
+  ],
+  "supply": [
+    {
+      "timestamp": "2023-02-05T15:24:52.898Z",
+      "total": 1975300.9519440304,
+      "source": "https://rpc.api.moonriver.moonbeam.network"
+    }
+  ],
+  "backing": [
+    {
+      "timestamp": "2023-02-05T15:24:53.919Z",
+      "assets": {
+        "pad-toad.network-moonriver": 17784912500.864113,
+        "movr.w-moonbeam-moonriver": 238.37469893805488
+      },
+      "source": "https://rpc.api.moonriver.moonbeam.network",
+      "backing-assets": 3,
+      "backing-usd": 9299.09,
+      "ratio": 2.1514,
+      "uniformity": 0.9323
+    }
+  ],
+  "mcap": 4322.39
+}

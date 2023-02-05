@@ -1,0 +1,73 @@
+{
+  "id": "lp-busd-usdc-toad.network-moonriver",
+  "links": {
+    "self": "/assets/lp-busd-usdc-toad.network-moonriver.json",
+    "ui": "/assets/lp-busd-usdc-toad.network-moonriver"
+  },
+  "icon": "assets/lp-busd-usdc-toad.network-moonriver/icon.png",
+  "name": "BUSD-USDC LPs",
+  "symbol": "LP-BUSD-USDC",
+  "issuer": "toad.network",
+  "reference": "https://dapps.padswap.exchange/",
+  "tags": [
+    "cryptocurrency",
+    "lp"
+  ],
+  "contracts": {
+    "token": {
+      "id": "moonriver:0x21D6DbcA8aACdAa739e40180b1C8C828B46Ae376",
+      "links": {
+        "self": "/tokens/moonriver:0x21D6DbcA8aACdAa739e40180b1C8C828B46Ae376.json"
+      },
+      "address": "0x21D6DbcA8aACdAa739e40180b1C8C828B46Ae376",
+      "chain": "moonriver"
+    },
+    "vault": {
+      "address": "0x21D6DbcA8aACdAa739e40180b1C8C828B46Ae376",
+      "chain": "moonriver",
+      "underlying-assets": [
+        {
+          "id": "busd-multichain-moonriver",
+          "links": {
+            "self": "/assets/busd-multichain-moonriver.json"
+          }
+        },
+        {
+          "id": "usdc-multichain-moonriver",
+          "links": {
+            "self": "/assets/usdc-multichain-moonriver.json"
+          }
+        }
+      ]
+    }
+  },
+  "price": [
+    {
+      "timestamp": "2023-02-05T15:24:53.920Z",
+      "usd": 2030206.044109215,
+      "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: busd-multichain-moonriver,usdc-multichain-moonriver"
+    }
+  ],
+  "supply": [
+    {
+      "timestamp": "2023-02-05T15:24:52.903Z",
+      "total": 0.011786196566179115,
+      "source": "https://rpc.api.moonriver.moonbeam.network"
+    }
+  ],
+  "backing": [
+    {
+      "timestamp": "2023-02-05T15:24:53.913Z",
+      "assets": {
+        "busd-multichain-moonriver": 11939.112854713403,
+        "usdc-multichain-moonriver": 11965.390148
+      },
+      "source": "https://rpc.api.moonriver.moonbeam.network",
+      "backing-assets": 1,
+      "backing-usd": 23904.5,
+      "ratio": 0.999,
+      "uniformity": 1
+    }
+  ],
+  "mcap": 23928.41
+}
