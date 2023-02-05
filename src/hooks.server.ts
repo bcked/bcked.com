@@ -18,7 +18,7 @@ console.log(`Hook execution`);
 // 3. Write aggregation method to add a new entry to the history aggregation
 // 4. Add aggregation folder to git auto-commit
 // 5. Adapt load tokens
-// 6. Adapt loadTrees
+// 6. Reimplement loadTrees to build a global graph of all assets first using ngraph.graph -> Trees/Sub graphs are then determined from that main graph
 // 7. Adapt calcCurrentBacking to make it store to an independent aggregation file
 // 8. Adapt calcStats
 // 9. Adapt buildGraph
@@ -34,11 +34,10 @@ if (!update || Date.now() - update.timestamp > 60 * 1000) {
 	let assets = await loadAssets({});
 	const queryResults = await queryAssets(assets);
 
-	for (const data of queryResults) {
-		console.log(`${data.id}: Updating`);
-		writeTimestampFile(data.id, 'price', data.price);
-		writeTimestampFile(data.id, 'supply', data.supply);
-		writeTimestampFile(data.id, 'backing', data.backing);
+	for (const [id, data] of Object.entries(queryResults)) {
+		writeTimestampFile(id, 'price', data.price);
+		writeTimestampFile(id, 'supply', data.supply);
+		writeTimestampFile(id, 'backing', data.backing);
 	}
 
 	// Copy static files

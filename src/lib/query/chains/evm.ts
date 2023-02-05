@@ -15,7 +15,7 @@ const TOKEN_ABI = {
 const RPC_URLS: { [chain: string]: string } = {
 	bsc: 'https://bsc-dataseed3.binance.org/',
 	ethereum: 'https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}',
-	moonbeam: 'https://1rpc.io/glmr', //'https://rpc.api.moonbeam.network',
+	moonbeam: 'https://moonbeam.public.blastapi.io', //'https://1rpc.io/glmr', //'https://rpc.api.moonbeam.network',
 	moonriver: 'https://rpc.api.moonriver.moonbeam.network',
 	polygon: 'https://polygon-mainnet.g.alchemy.com/v2/{ALCHEMY_POLYGON}',
 	arbitrum: 'https://arb-mainnet.g.alchemy.com/v2/{ALCHEMY_ARBITRUM}'
@@ -67,23 +67,35 @@ export class EVMChain implements query.ChainModule {
 	}
 
 	async getBalance(address: string, token: string, chain: string): Promise<query.Balance> {
-		const contract = this.getTokenContract(token, chain);
-		const balance: Promise<BigNumber> = contract.balanceOf(address);
-		const decimals: Promise<BigNumber> = this._getDecimals(contract);
-		return {
-			balance: parseFloat(utils.formatUnits(await balance, await decimals)),
-			timestamp: Date.now()
-		};
+		try {
+			const contract = this.getTokenContract(token, chain);
+			const balance: Promise<BigNumber> = contract.balanceOf(address);
+			const decimals: Promise<BigNumber> = this._getDecimals(contract);
+			return {
+				balance: parseFloat(utils.formatUnits(await balance, await decimals)),
+				timestamp: Date.now()
+			};
+		} catch (error) {
+			console.log(
+				`Error for query of balance of token ${token} on address ${address} on chain ${chain}.`
+			);
+			console.log(error);
+		}
 	}
 
 	async getSupply(token: string, chain: string): Promise<query.Supply> {
-		const contract = this.getTokenContract(token, chain);
-		const supply: Promise<BigNumber> = contract.totalSupply();
-		const decimals: Promise<BigNumber> = this._getDecimals(contract);
-		return {
-			total: parseFloat(utils.formatUnits(await supply, await decimals)),
-			timestamp: Date.now(),
-			source: this.getRpcUrl(chain)
-		};
+		try {
+			const contract = this.getTokenContract(token, chain);
+			const supply: Promise<BigNumber> = contract.totalSupply();
+			const decimals: Promise<BigNumber> = this._getDecimals(contract);
+			return {
+				total: parseFloat(utils.formatUnits(await supply, await decimals)),
+				timestamp: Date.now(),
+				source: this.getRpcUrl(chain)
+			};
+		} catch (error) {
+			console.log(`Error for query of supply of token ${token} on chain ${chain}.`);
+			console.log(error);
+		}
 	}
 }

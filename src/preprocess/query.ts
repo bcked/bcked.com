@@ -1,10 +1,14 @@
 import { ApiProxy } from '$lib/query/apis/proxy';
 import { ChainProxy } from '$lib/query/chains/proxy';
+import _ from 'lodash';
 
 const chain = new ChainProxy();
 const api = new ApiProxy();
 
-async function queryUnderlying(asset: cache.Asset, vault: cache.VaultContract) {
+async function queryUnderlying(
+	asset: cache.Asset,
+	vault: cache.VaultContract
+): Promise<query.Balance> {
 	const underlyingToken = asset.contracts!.token;
 
 	if (vault.chain != underlyingToken.chain) {
@@ -15,7 +19,7 @@ async function queryUnderlying(asset: cache.Asset, vault: cache.VaultContract) {
 
 	const balance = chain.getBalance(vault.address, underlyingToken.address, vault.chain);
 
-	return await balance;
+	return balance;
 }
 
 async function queryBacking(
@@ -27,10 +31,7 @@ async function queryBacking(
 			await Promise.all(
 				vault['underlying-assets']
 					.filter((u) => assets[u.id]?.contracts)
-					.map(async (u) => [
-						u.id,
-						(await queryUnderlying(assets[u.id]!, vault as cache.VaultContract)).balance
-					])
+					.map(async (u) => [u.id, (await queryUnderlying(assets[u.id]!, vault)).balance])
 			)
 		),
 		source: chain.getRpcUrl(vault.chain),
@@ -63,7 +64,7 @@ async function queryChainData(asset: cache.Asset, assets: cache.Assets) {
 	};
 }
 
-export type QueryResults = {
+export type QueryResult = {
 	id: string;
 	token: string;
 	supply: query.Supply | null;
@@ -71,7 +72,9 @@ export type QueryResults = {
 	price: query.Price | null;
 };
 
-export async function queryAssets(assets: cache.Assets): Promise<QueryResults[]> {
+export type QueryResults = { [id: string]: QueryResult };
+
+export async function queryAssets(assets: cache.Assets): Promise<QueryResults> {
 	const assetsWithContract = Object.values(assets).filter((asset) => asset.contracts);
 
 	const pricePromise = api.getPrices(assetsWithContract.map((asset) => asset.contracts!.token));
@@ -82,7 +85,30 @@ export async function queryAssets(assets: cache.Assets): Promise<QueryResults[]>
 
 	const [price, chainData] = await Promise.all([pricePromise, chainDataPromise]);
 
-	return chainData.map((data) => ({ ...data, price: price[data.token] ?? null }));
+	let allData = Object.fromEntries(
+		chainData.map((data) => [data.id, { ...data, price: price[data.token] ?? null }])
+	);
+
+	Object.entries(allData).forEach(([id, data]) => {
+		if (!data.price && assets[id]!.tags.includes('lp') && data.supply && data.backing) {
+			// Calculate Net Asset Value (NAV) for LP tokens and take that as price.
+			const totalBacking = _.sum(
+				Object.entries(data.backing.assets).map(
+					([bId, bAmount]) => allData[bId]!.price!.usd * bAmount
+				)
+			);
+			const price = totalBacking / data.supply.total;
+			data.price = {
+				usd: price,
+				source: `Calculated Net Asset Value (NAV) based on the LPs underlying assets: ${Object.keys(
+					data.backing.assets
+				)}`,
+				timestamp: Date.now()
+			};
+		}
+	});
+
+	return allData;
 }
 
 async function queryAsset(asset: cache.Asset) {

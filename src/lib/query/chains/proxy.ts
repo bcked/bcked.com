@@ -24,10 +24,22 @@ export class ChainProxy extends InstanceProxy<query.ChainModule> implements quer
 	}
 
 	async getBalance(address: string, token: string, chain: derived.ChainId): Promise<query.Balance> {
-		return this.getInstance(chain).getBalance(address, token, chain);
+		try {
+			return this.getInstance(chain).getBalance(address, token, chain);
+		} catch (error) {
+			console.log(
+				`Error for query of balance of token ${token} on address ${address} on chain ${chain}.`
+			);
+			console.log(error);
+		}
 	}
 
 	async getSupply(token: string, chain: derived.ChainId): Promise<query.Supply> {
-		return this.getInstance(chain).getSupply(token, chain);
+		try {
+			return this.getInstance(chain).getSupply(token, chain);
+		} catch (error) {
+			console.log(`Error for query of supply of token ${token} on chain ${chain}.`);
+			console.log(error);
+		}
 	}
 }

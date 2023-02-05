@@ -8,7 +8,8 @@ async function followBackingTree(
 	assetValue: number,
 	assets: api.Assets,
 	level: number,
-	timestamp: string
+	timestamp: string,
+	visited: string[]
 ): Promise<{ nodes: api.TreeNodes; links: api.TreeLinks }> {
 	if (!backedAsset) {
 		return {
@@ -55,6 +56,7 @@ async function followBackingTree(
 	];
 
 	for (const { key, value, backingUsd, backedSubAsset } of backedAssets) {
+		if (visited.includes(key)) continue;
 		const cappedBackingUsd = backingUsd > assetValue ? assetValue : backingUsd;
 		const backingData = await followBackingTree(
 			key,
@@ -62,7 +64,8 @@ async function followBackingTree(
 			cappedBackingUsd,
 			assets,
 			level + 1,
-			timestamp
+			timestamp,
+			[...visited, key]
 		);
 		nodes = [...nodes, ...backingData.nodes];
 		links = [
@@ -85,7 +88,7 @@ async function buildBackingTree(
 	const supply = closest(asset.supply, timestamp)!.total || 0;
 	const mcap = round(closest(asset.price, timestamp)!.usd * supply, 2);
 
-	const { nodes, links } = await followBackingTree(id, asset, mcap, assets, 0, timestamp);
+	const { nodes, links } = await followBackingTree(id, asset, mcap, assets, 0, timestamp, [id]);
 
 	let reducedLinks: api.TreeLinks = [];
 	for (const link of links) {
