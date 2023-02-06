@@ -25,7 +25,7 @@ jobs:
           ALCHEMY_ARBITRUM: ${{ secrets.ALCHEMY_ARBITRUM }}
         run: |
           sudo gem install apt-spy2
-          sudo apt-spy2 fix --commit --launchpad
+          sudo apt-spy2 fix --commit --launchpad --country=US
           sudo apt-get update
           npm install
           npm run build
