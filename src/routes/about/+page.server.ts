@@ -1,11 +1,12 @@
-import type { PageServerLoad } from './$types';
+import { GH_TOKEN } from '$env/static/private';
+import { compareDates } from '$lib/utils/string-formatting';
+import { Octokit } from '@octokit/rest';
 import fs from 'fs';
 import { marked } from 'marked';
-import { Octokit } from '@octokit/rest';
-import { compareDates } from '$lib/utils/string-formatting';
+import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async () => {
-	const octokit = new Octokit();
+	const octokit = new Octokit({ auth: GH_TOKEN });
 
 	const roadmapIssues = (
 		await octokit.paginate(octokit.rest.issues.listForRepo, {

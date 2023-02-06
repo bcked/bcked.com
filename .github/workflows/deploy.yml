@@ -18,6 +18,7 @@ jobs:
 
       - name: Install, Test and Build
         env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ALCHEMY_ETHEREUM: ${{ secrets.ALCHEMY_ETHEREUM }}
           ALCHEMY_POLYGON: ${{ secrets.ALCHEMY_POLYGON }}
           ALCHEMY_SOLANA: ${{ secrets.ALCHEMY_SOLANA }}
