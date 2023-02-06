@@ -1,4 +1,4 @@
-import { test, type Page, type Locator } from '@playwright/test';
+import { test, type Locator, type Page } from '@playwright/test';
 
 import fs from 'fs';
 
@@ -43,7 +43,7 @@ test('Screenshot of landing page', async ({ page }) => {
 test('Screenshots of asset pages', async ({ page }) => {
 	const assets = fs.readdirSync('./assets');
 	const navbarSuccessor = page.locator('nav + div').nth(0);
-	for (const id of Object.keys(assets)) {
+	for (const id of assets) {
 		await screenshot(page, `/assets/${id}`, `${TARGET_DIR}/assets/${id}.jpg`, navbarSuccessor);
 	}
 });
