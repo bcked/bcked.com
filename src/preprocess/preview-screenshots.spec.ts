@@ -41,6 +41,7 @@ test('Screenshot of landing page', async ({ page }) => {
 });
 
 test('Screenshots of asset pages', async ({ page }) => {
+	test.setTimeout(0);
 	const assets = fs.readdirSync('./assets');
 	const navbarSuccessor = page.locator('nav + div').nth(0);
 	for (const id of assets) {
