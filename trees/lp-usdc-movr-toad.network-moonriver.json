@@ -1,80 +1,86 @@
 {
-  "timestamp": "2023-02-05T15:24:53.907Z",
+  "timestamp": "2023-02-06T17:03:48.352Z",
   "nodes": [
-    {
-      "id": "lp-usdc-movr-toad.network-moonriver",
-      "name": "PAD-MOVR LPs",
-      "value": 1880.25,
-      "level": 0
-    },
     {
       "id": "unbacked",
       "value": 0
     },
     {
+      "id": "lp-usdc-movr-toad.network-moonriver",
+      "name": "PAD-MOVR LPs",
+      "value": 1865.99,
+      "level": 0
+    },
+    {
       "id": "usdc-multichain-moonriver",
       "name": "USD Coin",
-      "value": 939.66,
+      "value": 932.92,
       "level": 1
     },
     {
       "id": "usdc-circle-ethereum",
       "name": "USD Coin",
-      "value": 939.66,
+      "value": 932.92,
       "level": 2
     },
     {
       "id": "usd-fed",
       "name": "U.S. dollar",
-      "value": 939.66,
+      "value": 932.92,
       "level": 3
     },
     {
       "id": "movr.w-moonbeam-moonriver",
       "name": "Wrapped MOVR",
-      "value": 955.11,
+      "value": 933.07,
       "level": 1
     }
   ],
   "links": [
     {
       "source": "lp-usdc-movr-toad.network-moonriver",
+      "target": "unbacked",
+      "value": 0,
+      "level": 0
+    },
+    {
+      "source": "lp-usdc-movr-toad.network-moonriver",
       "target": "usdc-multichain-moonriver",
-      "value": 939.66,
+      "value": 932.92,
       "level": 0
     },
     {
       "source": "usdc-multichain-moonriver",
       "target": "usdc-circle-ethereum",
-      "value": 939.66,
+      "value": 932.92,
       "level": 1
     },
     {
       "source": "usdc-circle-ethereum",
       "target": "usd-fed",
-      "value": 939.66,
+      "value": 932.92,
       "level": 2
     },
     {
       "source": "usd-fed",
       "target": "unbacked",
-      "value": 939.66,
+      "value": 932.92,
       "level": 3
     },
     {
       "source": "lp-usdc-movr-toad.network-moonriver",
       "target": "movr.w-moonbeam-moonriver",
-      "value": 955.11,
+      "value": 933.07,
       "level": 0
     },
     {
       "source": "movr.w-moonbeam-moonriver",
       "target": "unbacked",
-      "value": 955.11,
+      "value": 933.07,
       "level": 1
     }
   ],
-  "value": 1880.25,
+  "value": 1865.99,
   "unbacked": 0,
-  "backed": 1880.25
+  "backed": 1865.99
 }
