@@ -198,7 +198,7 @@
 				</div>
 
 				<div class="flex mt-6 justify-center">
-					<Sankey backing={tree} {assets} />
+					<Sankey backing={JSON.parse(JSON.stringify(tree))} {assets} />
 				</div>
 			</div>
 		</div>
@@ -247,29 +247,30 @@
 				{ id: 'backing-usd', title: 'Backing', class: '' },
 				{ id: 'backing-ratio', title: 'Backing Ratio', class: '' }
 			]}
-			rows={tree.nodes
-				.filter((node) => node['id'] in assets)
-				.filter(({ id, level }) => level == 1 && id != tree.id && id != 'unbacked')
-				.map((node) => ({ ...node, asset: assets[node.id] }))
-				.map((node, i) => ({
-					name: { text: node.asset.name, value: node.asset.name, icon: node.asset.icon },
-					'name-path': { text: node.asset.links.ui, value: node.asset.links.ui },
+			rows={tree.links
+				.map((link) => ({ target: link.target, level: link.level, value: link.value }))
+				.filter((link) => link['target'] in assets)
+				.filter(({ level }) => level == 0)
+				.map((link) => ({ ...link, asset: assets[link.target] }))
+				.map((link, i) => ({
+					name: { text: link.asset.name, value: link.asset.name, icon: link.asset.icon },
+					'name-path': { text: link.asset.links.ui, value: link.asset.links.ui },
 					price: {
-						text: formatCurrency(node.value / asset.backing[0].assets[node.id]),
-						value: node.value / asset.backing[0].assets[node.id]
+						text: formatCurrency(link.value / asset.backing[0].assets[link.target]),
+						value: link.value / asset.backing[0].assets[link.target]
 					},
 					amount: {
-						text: formatNum(asset.backing[0].assets[node.id]),
-						value: asset.backing[0].assets[node.id]
+						text: formatNum(asset.backing[0].assets[link.target]),
+						value: asset.backing[0].assets[link.target]
 					},
 					share: {
-						text: formatPercentage(node.value / tree.backed),
-						value: node.value / tree.value
+						text: formatPercentage(link.value / tree.backed),
+						value: link.value / tree.value
 					},
-					'backing-usd': { text: formatCurrency(node.value), value: node.value },
+					'backing-usd': { text: formatCurrency(link.value), value: link.value },
 					'backing-ratio': {
-						text: formatPercentage(node.value / tree.value),
-						value: node.value / tree.value
+						text: formatPercentage(link.value / tree.value),
+						value: link.value / tree.value
 					}
 				}))}
 			sort={[{ by: 'share' }]}

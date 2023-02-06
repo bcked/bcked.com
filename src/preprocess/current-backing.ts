@@ -7,8 +7,11 @@ export function calcCurrentBacking(assets: api.Assets, trees: api.Trees) {
 		}
 
 		for (let [i, currentBacking] of backing.entries()) {
+			// const lastLevelBacking = trees[key]![i]!.links.filter(
+			// 	(l) => l.target == 'unbacked' && l.source != key
+			// ).map((l) => l.value);
 			const lastLevelBacking = trees[key]![i]!.links.filter(
-				(l) => l.target == 'unbacked' && l.source != key
+				(l) => l.target != 'unbacked' && l.source == key
 			).map((l) => l.value);
 
 			currentBacking['backing-assets'] = lastLevelBacking.length;
