@@ -1,0 +1,73 @@
+{
+  "id": "lp-bnb-gal-toad.network-bsc",
+  "links": {
+    "self": "/assets/lp-bnb-gal-toad.network-bsc.json",
+    "ui": "/assets/lp-bnb-gal-toad.network-bsc"
+  },
+  "icon": "assets/lp-bnb-gal-toad.network-bsc/icon.png",
+  "name": "BNB-GAL LPs",
+  "symbol": "LP-BNB-GAL",
+  "issuer": "toad.network",
+  "reference": "https://dapps.padswap.exchange/",
+  "tags": [
+    "cryptocurrency",
+    "lp"
+  ],
+  "contracts": {
+    "token": {
+      "id": "bsc:0x1afE79f5eB36798b92106885507Ba1A9cDA954f6",
+      "links": {
+        "self": "/tokens/bsc:0x1afE79f5eB36798b92106885507Ba1A9cDA954f6.json"
+      },
+      "address": "0x1afE79f5eB36798b92106885507Ba1A9cDA954f6",
+      "chain": "bsc"
+    },
+    "vault": {
+      "address": "0x1afE79f5eB36798b92106885507Ba1A9cDA954f6",
+      "chain": "bsc",
+      "underlying-assets": [
+        {
+          "id": "bnb-binance-bsc",
+          "links": {
+            "self": "/assets/bnb-binance-bsc.json"
+          }
+        },
+        {
+          "id": "gal-bsc",
+          "links": {
+            "self": "/assets/gal-bsc.json"
+          }
+        }
+      ]
+    }
+  },
+  "price": [
+    {
+      "timestamp": "2023-02-06T19:47:39.672Z",
+      "usd": 0,
+      "source": "No price recorded in bcked."
+    }
+  ],
+  "supply": [
+    {
+      "timestamp": "2023-02-06T18:30:54.987Z",
+      "total": 318.5318433049515,
+      "source": "https://bsc-dataseed3.binance.org/"
+    }
+  ],
+  "backing": [
+    {
+      "timestamp": "2023-02-06T18:30:55.060Z",
+      "assets": {
+        "bnb-binance-bsc": 14.49508093514898,
+        "gal-bsc": 7496786756702.138
+      },
+      "source": "https://bsc-dataseed3.binance.org/",
+      "backing-assets": 0,
+      "backing-usd": 0,
+      "ratio": 0,
+      "uniformity": 0
+    }
+  ],
+  "mcap": 0
+}

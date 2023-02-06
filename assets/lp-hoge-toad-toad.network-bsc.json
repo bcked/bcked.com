@@ -1,0 +1,73 @@
+{
+  "id": "lp-hoge-toad-toad.network-bsc",
+  "links": {
+    "self": "/assets/lp-hoge-toad-toad.network-bsc.json",
+    "ui": "/assets/lp-hoge-toad-toad.network-bsc"
+  },
+  "icon": "assets/lp-hoge-toad-toad.network-bsc/icon.png",
+  "name": "HOGE-TOAD LPs",
+  "symbol": "LP-HOGE-TOAD",
+  "issuer": "toad.network",
+  "reference": "https://dapps.padswap.exchange/",
+  "tags": [
+    "cryptocurrency",
+    "lp"
+  ],
+  "contracts": {
+    "token": {
+      "id": "bsc:0xc8B8568E7963054a00f107805f8156A7b283A6C2",
+      "links": {
+        "self": "/tokens/bsc:0xc8B8568E7963054a00f107805f8156A7b283A6C2.json"
+      },
+      "address": "0xc8B8568E7963054a00f107805f8156A7b283A6C2",
+      "chain": "bsc"
+    },
+    "vault": {
+      "address": "0xc8B8568E7963054a00f107805f8156A7b283A6C2",
+      "chain": "bsc",
+      "underlying-assets": [
+        {
+          "id": "hoge-multichain-bsc",
+          "links": {
+            "self": "/assets/hoge-multichain-bsc.json"
+          }
+        },
+        {
+          "id": "toad-toad.network-bsc",
+          "links": {
+            "self": "/assets/toad-toad.network-bsc.json"
+          }
+        }
+      ]
+    }
+  },
+  "price": [
+    {
+      "timestamp": "2023-02-06T18:30:55.412Z",
+      "usd": 604.2204300745035,
+      "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: hoge-multichain-bsc,toad-toad.network-bsc"
+    }
+  ],
+  "supply": [
+    {
+      "timestamp": "2023-02-06T18:30:54.671Z",
+      "total": 35.2095310212955,
+      "source": "https://bsc-dataseed3.binance.org/"
+    }
+  ],
+  "backing": [
+    {
+      "timestamp": "2023-02-06T18:30:55.060Z",
+      "assets": {
+        "hoge-multichain-bsc": 288354808.4826097,
+        "toad-toad.network-bsc": 5844.641756365382
+      },
+      "source": "https://bsc-dataseed3.binance.org/",
+      "backing-assets": 2,
+      "backing-usd": 21373.13,
+      "ratio": 1.0046,
+      "uniformity": 0.9992
+    }
+  ],
+  "mcap": 21274.32
+}

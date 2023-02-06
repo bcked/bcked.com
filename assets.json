@@ -75,7 +75,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-06T17:17:58.757Z",
+        "timestamp": "2023-02-06T19:47:39.690Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -202,7 +202,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-06T17:17:58.757Z",
+        "timestamp": "2023-02-06T19:47:39.690Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -646,7 +646,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-06T17:17:58.757Z",
+        "timestamp": "2023-02-06T19:47:39.690Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -698,7 +698,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-06T17:17:58.757Z",
+        "timestamp": "2023-02-06T19:47:39.690Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -2440,7 +2440,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-06T17:17:58.757Z",
+        "timestamp": "2023-02-06T19:47:39.690Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -2652,7 +2652,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-06T17:17:58.757Z",
+        "timestamp": "2023-02-06T19:47:39.690Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -2755,7 +2755,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-06T17:17:58.757Z",
+        "timestamp": "2023-02-06T19:47:39.690Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -2847,7 +2847,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-06T17:17:58.757Z",
+        "timestamp": "2023-02-06T19:47:39.690Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -2934,7 +2934,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-06T17:17:58.757Z",
+        "timestamp": "2023-02-06T19:47:39.690Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -2977,7 +2977,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-06T17:17:58.757Z",
+        "timestamp": "2023-02-06T19:47:39.690Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -3080,7 +3080,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-06T17:17:58.757Z",
+        "timestamp": "2023-02-06T19:47:39.690Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -3143,7 +3143,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-06T17:17:58.757Z",
+        "timestamp": "2023-02-06T19:47:39.690Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -3190,7 +3190,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-06T17:17:58.757Z",
+        "timestamp": "2023-02-06T19:47:39.690Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -3312,7 +3312,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-06T17:17:58.757Z",
+        "timestamp": "2023-02-06T19:47:39.690Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -3493,6 +3493,590 @@
       }
     ],
     "mcap": 557120.87
+  },
+  "lp-bnb-bjt-toad.network-bsc": {
+    "id": "lp-bnb-bjt-toad.network-bsc",
+    "links": {
+      "self": "/assets/lp-bnb-bjt-toad.network-bsc.json",
+      "ui": "/assets/lp-bnb-bjt-toad.network-bsc"
+    },
+    "icon": "assets/lp-bnb-bjt-toad.network-bsc/icon.png",
+    "name": "BNB-BJT LPs",
+    "symbol": "LP-BNB-BJT",
+    "issuer": "toad.network",
+    "reference": "https://dapps.padswap.exchange/",
+    "tags": [
+      "cryptocurrency",
+      "lp"
+    ],
+    "contracts": {
+      "token": {
+        "id": "bsc:0xeB22EbB99D5E6B16ae35b77Cf136c60cd077B8Cb",
+        "links": {
+          "self": "/tokens/bsc:0xeB22EbB99D5E6B16ae35b77Cf136c60cd077B8Cb.json"
+        },
+        "address": "0xeB22EbB99D5E6B16ae35b77Cf136c60cd077B8Cb",
+        "chain": "bsc"
+      },
+      "vault": {
+        "address": "0xeB22EbB99D5E6B16ae35b77Cf136c60cd077B8Cb",
+        "chain": "bsc",
+        "underlying-assets": [
+          {
+            "id": "bnb-binance-bsc",
+            "links": {
+              "self": "/assets/bnb-binance-bsc.json"
+            }
+          },
+          {
+            "id": "bjt-bsc",
+            "links": {
+              "self": "/assets/bjt-bsc.json"
+            }
+          }
+        ]
+      }
+    },
+    "price": [
+      {
+        "timestamp": "2023-02-06T19:47:39.672Z",
+        "usd": 0,
+        "source": "No price recorded in bcked."
+      }
+    ],
+    "supply": [
+      {
+        "timestamp": "2023-02-06T18:30:54.987Z",
+        "total": 657626.9366190747,
+        "source": "https://bsc-dataseed3.binance.org/"
+      }
+    ],
+    "backing": [
+      {
+        "timestamp": "2023-02-06T18:30:55.060Z",
+        "assets": {
+          "bnb-binance-bsc": 1.651440364589271,
+          "bjt-bsc": 308205566287.6039
+        },
+        "source": "https://bsc-dataseed3.binance.org/",
+        "backing-assets": 0,
+        "backing-usd": 0,
+        "ratio": 0,
+        "uniformity": 0
+      }
+    ],
+    "mcap": 0
+  },
+  "lp-bnb-cats-toad.network-bsc": {
+    "id": "lp-bnb-cats-toad.network-bsc",
+    "links": {
+      "self": "/assets/lp-bnb-cats-toad.network-bsc.json",
+      "ui": "/assets/lp-bnb-cats-toad.network-bsc"
+    },
+    "icon": "assets/lp-bnb-cats-toad.network-bsc/icon.png",
+    "name": "BNB-CZATS LPs",
+    "symbol": "LP-BNB-CZATS",
+    "issuer": "toad.network",
+    "reference": "https://dapps.padswap.exchange/",
+    "tags": [
+      "cryptocurrency",
+      "lp"
+    ],
+    "contracts": {
+      "token": {
+        "id": "bsc:0xD91636511cDc2B9F2Af58CC8fcacbB0F0127f37f",
+        "links": {
+          "self": "/tokens/bsc:0xD91636511cDc2B9F2Af58CC8fcacbB0F0127f37f.json"
+        },
+        "address": "0xD91636511cDc2B9F2Af58CC8fcacbB0F0127f37f",
+        "chain": "bsc"
+      },
+      "vault": {
+        "address": "0xD91636511cDc2B9F2Af58CC8fcacbB0F0127f37f",
+        "chain": "bsc",
+        "underlying-assets": [
+          {
+            "id": "bnb-binance-bsc",
+            "links": {
+              "self": "/assets/bnb-binance-bsc.json"
+            }
+          },
+          {
+            "id": "cats-catoshi-bsc",
+            "links": {
+              "self": "/assets/cats-catoshi-bsc.json"
+            }
+          }
+        ]
+      }
+    },
+    "price": [
+      {
+        "timestamp": "2023-02-06T19:47:39.672Z",
+        "usd": 0,
+        "source": "No price recorded in bcked."
+      }
+    ],
+    "supply": [
+      {
+        "timestamp": "2023-02-06T18:30:54.987Z",
+        "total": 3627.7410472147026,
+        "source": "https://bsc-dataseed3.binance.org/"
+      }
+    ],
+    "backing": [
+      {
+        "timestamp": "2023-02-06T18:30:55.060Z",
+        "assets": {
+          "bnb-binance-bsc": 41.536112330452234,
+          "cats-catoshi-bsc": 334935.10386057757
+        },
+        "source": "https://bsc-dataseed3.binance.org/",
+        "backing-assets": 0,
+        "backing-usd": 0,
+        "ratio": 0,
+        "uniformity": 0
+      }
+    ],
+    "mcap": 0
+  },
+  "lp-bnb-fuk-toad.network-bsc": {
+    "id": "lp-bnb-fuk-toad.network-bsc",
+    "links": {
+      "self": "/assets/lp-bnb-fuk-toad.network-bsc.json",
+      "ui": "/assets/lp-bnb-fuk-toad.network-bsc"
+    },
+    "icon": "assets/lp-bnb-fuk-toad.network-bsc/icon.png",
+    "name": "BNB-FUK LPs",
+    "symbol": "LP-BNB-FUK",
+    "issuer": "toad.network",
+    "reference": "https://dapps.padswap.exchange/",
+    "tags": [
+      "cryptocurrency",
+      "lp"
+    ],
+    "contracts": {
+      "token": {
+        "id": "bsc:0x2c001A059A0F2BD76293c755B3455163cC03A159",
+        "links": {
+          "self": "/tokens/bsc:0x2c001A059A0F2BD76293c755B3455163cC03A159.json"
+        },
+        "address": "0x2c001A059A0F2BD76293c755B3455163cC03A159",
+        "chain": "bsc"
+      },
+      "vault": {
+        "address": "0x2c001A059A0F2BD76293c755B3455163cC03A159",
+        "chain": "bsc",
+        "underlying-assets": [
+          {
+            "id": "bnb-binance-bsc",
+            "links": {
+              "self": "/assets/bnb-binance-bsc.json"
+            }
+          },
+          {
+            "id": "fuk-bsc",
+            "links": {
+              "self": "/assets/fuk-bsc.json"
+            }
+          }
+        ]
+      }
+    },
+    "price": [
+      {
+        "timestamp": "2023-02-06T19:47:39.672Z",
+        "usd": 0,
+        "source": "No price recorded in bcked."
+      }
+    ],
+    "supply": [
+      {
+        "timestamp": "2023-02-06T18:30:54.987Z",
+        "total": 187882.85105510824,
+        "source": "https://bsc-dataseed3.binance.org/"
+      }
+    ],
+    "backing": [
+      {
+        "timestamp": "2023-02-06T18:30:55.060Z",
+        "assets": {
+          "bnb-binance-bsc": 7.437775012057053,
+          "fuk-bsc": 90075882597.33905
+        },
+        "source": "https://bsc-dataseed3.binance.org/",
+        "backing-assets": 0,
+        "backing-usd": 0,
+        "ratio": 0,
+        "uniformity": 0
+      }
+    ],
+    "mcap": 0
+  },
+  "lp-bnb-gal-toad.network-bsc": {
+    "id": "lp-bnb-gal-toad.network-bsc",
+    "links": {
+      "self": "/assets/lp-bnb-gal-toad.network-bsc.json",
+      "ui": "/assets/lp-bnb-gal-toad.network-bsc"
+    },
+    "icon": "assets/lp-bnb-gal-toad.network-bsc/icon.png",
+    "name": "BNB-GAL LPs",
+    "symbol": "LP-BNB-GAL",
+    "issuer": "toad.network",
+    "reference": "https://dapps.padswap.exchange/",
+    "tags": [
+      "cryptocurrency",
+      "lp"
+    ],
+    "contracts": {
+      "token": {
+        "id": "bsc:0x1afE79f5eB36798b92106885507Ba1A9cDA954f6",
+        "links": {
+          "self": "/tokens/bsc:0x1afE79f5eB36798b92106885507Ba1A9cDA954f6.json"
+        },
+        "address": "0x1afE79f5eB36798b92106885507Ba1A9cDA954f6",
+        "chain": "bsc"
+      },
+      "vault": {
+        "address": "0x1afE79f5eB36798b92106885507Ba1A9cDA954f6",
+        "chain": "bsc",
+        "underlying-assets": [
+          {
+            "id": "bnb-binance-bsc",
+            "links": {
+              "self": "/assets/bnb-binance-bsc.json"
+            }
+          },
+          {
+            "id": "gal-bsc",
+            "links": {
+              "self": "/assets/gal-bsc.json"
+            }
+          }
+        ]
+      }
+    },
+    "price": [
+      {
+        "timestamp": "2023-02-06T19:47:39.672Z",
+        "usd": 0,
+        "source": "No price recorded in bcked."
+      }
+    ],
+    "supply": [
+      {
+        "timestamp": "2023-02-06T18:30:54.987Z",
+        "total": 318.5318433049515,
+        "source": "https://bsc-dataseed3.binance.org/"
+      }
+    ],
+    "backing": [
+      {
+        "timestamp": "2023-02-06T18:30:55.060Z",
+        "assets": {
+          "bnb-binance-bsc": 14.49508093514898,
+          "gal-bsc": 7496786756702.138
+        },
+        "source": "https://bsc-dataseed3.binance.org/",
+        "backing-assets": 0,
+        "backing-usd": 0,
+        "ratio": 0,
+        "uniformity": 0
+      }
+    ],
+    "mcap": 0
+  },
+  "lp-bnb-pxbsc-toad.network-bsc": {
+    "id": "lp-bnb-pxbsc-toad.network-bsc",
+    "links": {
+      "self": "/assets/lp-bnb-pxbsc-toad.network-bsc.json",
+      "ui": "/assets/lp-bnb-pxbsc-toad.network-bsc"
+    },
+    "icon": "assets/lp-bnb-pxbsc-toad.network-bsc/icon.png",
+    "name": "BNB-PXBSC LPs",
+    "symbol": "LP-BNB-PXBSC",
+    "issuer": "toad.network",
+    "reference": "https://dapps.padswap.exchange/",
+    "tags": [
+      "cryptocurrency",
+      "lp"
+    ],
+    "contracts": {
+      "token": {
+        "id": "bsc:0x6F547381e6594C177A4C56Bc818b599cc78A8c16",
+        "links": {
+          "self": "/tokens/bsc:0x6F547381e6594C177A4C56Bc818b599cc78A8c16.json"
+        },
+        "address": "0x6F547381e6594C177A4C56Bc818b599cc78A8c16",
+        "chain": "bsc"
+      },
+      "vault": {
+        "address": "0x6F547381e6594C177A4C56Bc818b599cc78A8c16",
+        "chain": "bsc",
+        "underlying-assets": [
+          {
+            "id": "bnb-binance-bsc",
+            "links": {
+              "self": "/assets/bnb-binance-bsc.json"
+            }
+          },
+          {
+            "id": "pxbsc-bsc",
+            "links": {
+              "self": "/assets/pxbsc-bsc.json"
+            }
+          }
+        ]
+      }
+    },
+    "price": [
+      {
+        "timestamp": "2023-02-06T19:47:39.672Z",
+        "usd": 0,
+        "source": "No price recorded in bcked."
+      }
+    ],
+    "supply": [
+      {
+        "timestamp": "2023-02-06T18:30:54.987Z",
+        "total": 3454438.9139434453,
+        "source": "https://bsc-dataseed3.binance.org/"
+      }
+    ],
+    "backing": [
+      {
+        "timestamp": "2023-02-06T18:30:55.060Z",
+        "assets": {
+          "bnb-binance-bsc": 46.78320551403026,
+          "pxbsc-bsc": 263538598668.14597
+        },
+        "source": "https://bsc-dataseed3.binance.org/",
+        "backing-assets": 0,
+        "backing-usd": 0,
+        "ratio": 0,
+        "uniformity": 0
+      }
+    ],
+    "mcap": 0
+  },
+  "lp-bnb-toad-toad.network-bsc": {
+    "id": "lp-bnb-toad-toad.network-bsc",
+    "links": {
+      "self": "/assets/lp-bnb-toad-toad.network-bsc.json",
+      "ui": "/assets/lp-bnb-toad-toad.network-bsc"
+    },
+    "icon": "assets/lp-bnb-toad-toad.network-bsc/icon.png",
+    "name": "BNB-TOAD LPs",
+    "symbol": "LP-BNB-TOAD",
+    "issuer": "toad.network",
+    "reference": "https://dapps.padswap.exchange/",
+    "tags": [
+      "cryptocurrency",
+      "lp"
+    ],
+    "contracts": {
+      "token": {
+        "id": "bsc:0xEF6421325F7eD6ebeeAa2B092F9Cc64EE2aA3B3B",
+        "links": {
+          "self": "/tokens/bsc:0xEF6421325F7eD6ebeeAa2B092F9Cc64EE2aA3B3B.json"
+        },
+        "address": "0xEF6421325F7eD6ebeeAa2B092F9Cc64EE2aA3B3B",
+        "chain": "bsc"
+      },
+      "vault": {
+        "address": "0xEF6421325F7eD6ebeeAa2B092F9Cc64EE2aA3B3B",
+        "chain": "bsc",
+        "underlying-assets": [
+          {
+            "id": "bnb-binance-bsc",
+            "links": {
+              "self": "/assets/bnb-binance-bsc.json"
+            }
+          },
+          {
+            "id": "toad-toad.network-bsc",
+            "links": {
+              "self": "/assets/toad-toad.network-bsc.json"
+            }
+          }
+        ]
+      }
+    },
+    "price": [
+      {
+        "timestamp": "2023-02-06T18:30:55.412Z",
+        "usd": 56.24480765771568,
+        "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: bnb-binance-bsc,toad-toad.network-bsc"
+      }
+    ],
+    "supply": [
+      {
+        "timestamp": "2023-02-06T18:30:54.987Z",
+        "total": 481.4770002439648,
+        "source": "https://bsc-dataseed3.binance.org/"
+      }
+    ],
+    "backing": [
+      {
+        "timestamp": "2023-02-06T18:30:55.060Z",
+        "assets": {
+          "bnb-binance-bsc": 41.358640458809894,
+          "toad-toad.network-bsc": 7118.379053950819
+        },
+        "source": "https://bsc-dataseed3.binance.org/",
+        "backing-assets": 2,
+        "backing-usd": 27089.73,
+        "ratio": 1.0003,
+        "uniformity": 1
+      }
+    ],
+    "mcap": 27080.58
+  },
+  "lp-busd-bnb-toad.network-bsc": {
+    "id": "lp-busd-bnb-toad.network-bsc",
+    "links": {
+      "self": "/assets/lp-busd-bnb-toad.network-bsc.json",
+      "ui": "/assets/lp-busd-bnb-toad.network-bsc"
+    },
+    "icon": "assets/lp-busd-bnb-toad.network-bsc/icon.png",
+    "name": "BUSD-BNB LPs",
+    "symbol": "LP-BUSD-BNB",
+    "issuer": "toad.network",
+    "reference": "https://dapps.padswap.exchange/",
+    "tags": [
+      "cryptocurrency",
+      "lp"
+    ],
+    "contracts": {
+      "token": {
+        "id": "bsc:0x1Ed31DB9078FaFA28ba8a2c09C0fa421943cb383",
+        "links": {
+          "self": "/tokens/bsc:0x1Ed31DB9078FaFA28ba8a2c09C0fa421943cb383.json"
+        },
+        "address": "0x1Ed31DB9078FaFA28ba8a2c09C0fa421943cb383",
+        "chain": "bsc"
+      },
+      "vault": {
+        "address": "0x1Ed31DB9078FaFA28ba8a2c09C0fa421943cb383",
+        "chain": "bsc",
+        "underlying-assets": [
+          {
+            "id": "busd-binance-bsc",
+            "links": {
+              "self": "/assets/busd-binance-bsc.json"
+            }
+          },
+          {
+            "id": "bnb-binance-bsc",
+            "links": {
+              "self": "/assets/bnb-binance-bsc.json"
+            }
+          }
+        ]
+      }
+    },
+    "price": [
+      {
+        "timestamp": "2023-02-06T18:30:55.412Z",
+        "usd": 38.58985611737485,
+        "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: busd-binance-bsc,bnb-binance-bsc"
+      }
+    ],
+    "supply": [
+      {
+        "timestamp": "2023-02-06T18:30:54.987Z",
+        "total": 455.09438821987135,
+        "source": "https://bsc-dataseed3.binance.org/"
+      }
+    ],
+    "backing": [
+      {
+        "timestamp": "2023-02-06T18:30:55.060Z",
+        "assets": {
+          "busd-binance-bsc": 8779.968446792867,
+          "bnb-binance-bsc": 26.707928172351323
+        },
+        "source": "https://bsc-dataseed3.binance.org/",
+        "backing-assets": 2,
+        "backing-usd": 17504.67,
+        "ratio": 0.9967,
+        "uniformity": 1
+      }
+    ],
+    "mcap": 17562.03
+  },
+  "lp-busd-toad-toad.network-bsc": {
+    "id": "lp-busd-toad-toad.network-bsc",
+    "links": {
+      "self": "/assets/lp-busd-toad-toad.network-bsc.json",
+      "ui": "/assets/lp-busd-toad-toad.network-bsc"
+    },
+    "icon": "assets/lp-busd-toad-toad.network-bsc/icon.png",
+    "name": "BUSD-TOAD LPs",
+    "symbol": "LP-BUSD-TOAD",
+    "issuer": "toad.network",
+    "reference": "https://dapps.padswap.exchange/",
+    "tags": [
+      "cryptocurrency",
+      "lp"
+    ],
+    "contracts": {
+      "token": {
+        "id": "bsc:0x71D40923e39aC8D93471477c677018d0223b3da9",
+        "links": {
+          "self": "/tokens/bsc:0x71D40923e39aC8D93471477c677018d0223b3da9.json"
+        },
+        "address": "0x71D40923e39aC8D93471477c677018d0223b3da9",
+        "chain": "bsc"
+      },
+      "vault": {
+        "address": "0x71D40923e39aC8D93471477c677018d0223b3da9",
+        "chain": "bsc",
+        "underlying-assets": [
+          {
+            "id": "busd-binance-bsc",
+            "links": {
+              "self": "/assets/busd-binance-bsc.json"
+            }
+          },
+          {
+            "id": "toad-toad.network-bsc",
+            "links": {
+              "self": "/assets/toad-toad.network-bsc.json"
+            }
+          }
+        ]
+      }
+    },
+    "price": [
+      {
+        "timestamp": "2023-02-06T18:30:55.412Z",
+        "usd": 2.9316783274746774,
+        "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: busd-binance-bsc,toad-toad.network-bsc"
+      }
+    ],
+    "supply": [
+      {
+        "timestamp": "2023-02-06T18:30:54.671Z",
+        "total": 3373.107227265612,
+        "source": "https://bsc-dataseed3.binance.org/"
+      }
+    ],
+    "backing": [
+      {
+        "timestamp": "2023-02-06T18:30:55.060Z",
+        "assets": {
+          "busd-binance-bsc": 4969.810713001655,
+          "toad-toad.network-bsc": 2607.966333525073
+        },
+        "source": "https://bsc-dataseed3.binance.org/",
+        "backing-assets": 2,
+        "backing-usd": 9905.15,
+        "ratio": 1.0016,
+        "uniformity": 1
+      }
+    ],
+    "mcap": 9888.87
   },
   "lp-busd-usdc-toad.network-moonbeam": {
     "id": "lp-busd-usdc-toad.network-moonbeam",
@@ -3684,6 +4268,371 @@
     ],
     "mcap": 23867.52
   },
+  "lp-hoge-toad-toad.network-bsc": {
+    "id": "lp-hoge-toad-toad.network-bsc",
+    "links": {
+      "self": "/assets/lp-hoge-toad-toad.network-bsc.json",
+      "ui": "/assets/lp-hoge-toad-toad.network-bsc"
+    },
+    "icon": "assets/lp-hoge-toad-toad.network-bsc/icon.png",
+    "name": "HOGE-TOAD LPs",
+    "symbol": "LP-HOGE-TOAD",
+    "issuer": "toad.network",
+    "reference": "https://dapps.padswap.exchange/",
+    "tags": [
+      "cryptocurrency",
+      "lp"
+    ],
+    "contracts": {
+      "token": {
+        "id": "bsc:0xc8B8568E7963054a00f107805f8156A7b283A6C2",
+        "links": {
+          "self": "/tokens/bsc:0xc8B8568E7963054a00f107805f8156A7b283A6C2.json"
+        },
+        "address": "0xc8B8568E7963054a00f107805f8156A7b283A6C2",
+        "chain": "bsc"
+      },
+      "vault": {
+        "address": "0xc8B8568E7963054a00f107805f8156A7b283A6C2",
+        "chain": "bsc",
+        "underlying-assets": [
+          {
+            "id": "hoge-multichain-bsc",
+            "links": {
+              "self": "/assets/hoge-multichain-bsc.json"
+            }
+          },
+          {
+            "id": "toad-toad.network-bsc",
+            "links": {
+              "self": "/assets/toad-toad.network-bsc.json"
+            }
+          }
+        ]
+      }
+    },
+    "price": [
+      {
+        "timestamp": "2023-02-06T18:30:55.412Z",
+        "usd": 604.2204300745035,
+        "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: hoge-multichain-bsc,toad-toad.network-bsc"
+      }
+    ],
+    "supply": [
+      {
+        "timestamp": "2023-02-06T18:30:54.671Z",
+        "total": 35.2095310212955,
+        "source": "https://bsc-dataseed3.binance.org/"
+      }
+    ],
+    "backing": [
+      {
+        "timestamp": "2023-02-06T18:30:55.060Z",
+        "assets": {
+          "hoge-multichain-bsc": 288354808.4826097,
+          "toad-toad.network-bsc": 5844.641756365382
+        },
+        "source": "https://bsc-dataseed3.binance.org/",
+        "backing-assets": 2,
+        "backing-usd": 21373.13,
+        "ratio": 1.0046,
+        "uniformity": 0.9992
+      }
+    ],
+    "mcap": 21274.32
+  },
+  "lp-pad-bnb-toad.network-bsc": {
+    "id": "lp-pad-bnb-toad.network-bsc",
+    "links": {
+      "self": "/assets/lp-pad-bnb-toad.network-bsc.json",
+      "ui": "/assets/lp-pad-bnb-toad.network-bsc"
+    },
+    "icon": "assets/lp-pad-bnb-toad.network-bsc/icon.png",
+    "name": "PAD-BNB LPs",
+    "symbol": "LP-PAD-BNB",
+    "issuer": "toad.network",
+    "reference": "https://dapps.padswap.exchange/",
+    "tags": [
+      "cryptocurrency",
+      "lp"
+    ],
+    "contracts": {
+      "token": {
+        "id": "bsc:0xf199cB43149132eb2D6Cf03AFCBa0cF074Dc806b",
+        "links": {
+          "self": "/tokens/bsc:0xf199cB43149132eb2D6Cf03AFCBa0cF074Dc806b.json"
+        },
+        "address": "0xf199cB43149132eb2D6Cf03AFCBa0cF074Dc806b",
+        "chain": "bsc"
+      },
+      "vault": {
+        "address": "0xf199cB43149132eb2D6Cf03AFCBa0cF074Dc806b",
+        "chain": "bsc",
+        "underlying-assets": [
+          {
+            "id": "pad-toad.network-bsc",
+            "links": {
+              "self": "/assets/pad-toad.network-bsc.json"
+            }
+          },
+          {
+            "id": "bnb-binance-bsc",
+            "links": {
+              "self": "/assets/bnb-binance-bsc.json"
+            }
+          }
+        ]
+      }
+    },
+    "price": [
+      {
+        "timestamp": "2023-02-06T19:04:09.587Z",
+        "usd": 0.02757786952884685,
+        "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: pad-toad.network-bsc,bnb-binance-bsc"
+      }
+    ],
+    "supply": [
+      {
+        "timestamp": "2023-02-06T18:30:54.671Z",
+        "total": 360705.0522968363,
+        "source": "https://bsc-dataseed3.binance.org/"
+      }
+    ],
+    "backing": [
+      {
+        "timestamp": "2023-02-06T18:30:55.060Z",
+        "assets": {
+          "pad-toad.network-bsc": 10559483578.872883,
+          "bnb-binance-bsc": 15.150193734546317
+        },
+        "source": "https://bsc-dataseed3.binance.org/",
+        "backing-assets": 23,
+        "backing-usd": 41465.77,
+        "ratio": 4.1685,
+        "uniformity": -0.4206
+      }
+    ],
+    "mcap": 9947.48
+  },
+  "lp-pad-btc-toad.network-bsc": {
+    "id": "lp-pad-btc-toad.network-bsc",
+    "links": {
+      "self": "/assets/lp-pad-btc-toad.network-bsc.json",
+      "ui": "/assets/lp-pad-btc-toad.network-bsc"
+    },
+    "icon": "assets/lp-pad-btc-toad.network-bsc/icon.png",
+    "name": "PAD-BTC LPs",
+    "symbol": "LP-PAD-BTC",
+    "issuer": "toad.network",
+    "reference": "https://dapps.padswap.exchange/",
+    "tags": [
+      "cryptocurrency",
+      "lp"
+    ],
+    "contracts": {
+      "token": {
+        "id": "bsc:0x8DB3E34F642AA4B404956557a681BC8973529356",
+        "links": {
+          "self": "/tokens/bsc:0x8DB3E34F642AA4B404956557a681BC8973529356.json"
+        },
+        "address": "0x8DB3E34F642AA4B404956557a681BC8973529356",
+        "chain": "bsc"
+      },
+      "vault": {
+        "address": "0x8DB3E34F642AA4B404956557a681BC8973529356",
+        "chain": "bsc",
+        "underlying-assets": [
+          {
+            "id": "pad-toad.network-bsc",
+            "links": {
+              "self": "/assets/pad-toad.network-bsc.json"
+            }
+          },
+          {
+            "id": "btc-binance-bsc",
+            "links": {
+              "self": "/assets/btc-binance-bsc.json"
+            }
+          }
+        ]
+      }
+    },
+    "price": [
+      {
+        "timestamp": "2023-02-06T19:04:09.587Z",
+        "usd": 0.21299715669415145,
+        "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: pad-toad.network-bsc,btc-binance-bsc"
+      }
+    ],
+    "supply": [
+      {
+        "timestamp": "2023-02-06T18:30:54.671Z",
+        "total": 8569.832229625888,
+        "source": "https://bsc-dataseed3.binance.org/"
+      }
+    ],
+    "backing": [
+      {
+        "timestamp": "2023-02-06T18:30:55.060Z",
+        "assets": {
+          "pad-toad.network-bsc": 1926188736.7115655,
+          "btc-binance-bsc": 0.03990589834681041
+        },
+        "source": "https://bsc-dataseed3.binance.org/",
+        "backing-assets": 23,
+        "backing-usd": 15535.86,
+        "ratio": 8.5112,
+        "uniformity": 0.0063
+      }
+    ],
+    "mcap": 1825.35
+  },
+  "lp-pad-busd-toad.network-bsc": {
+    "id": "lp-pad-busd-toad.network-bsc",
+    "links": {
+      "self": "/assets/lp-pad-busd-toad.network-bsc.json",
+      "ui": "/assets/lp-pad-busd-toad.network-bsc"
+    },
+    "icon": "assets/lp-pad-busd-toad.network-bsc/icon.png",
+    "name": "PAD-BUSD LPs",
+    "symbol": "LP-PAD-BUSD",
+    "issuer": "toad.network",
+    "reference": "https://dapps.padswap.exchange/",
+    "tags": [
+      "cryptocurrency",
+      "lp"
+    ],
+    "contracts": {
+      "token": {
+        "id": "bsc:0x2856aDD546E729425383173D4f65Bb3e23E796A4",
+        "links": {
+          "self": "/tokens/bsc:0x2856aDD546E729425383173D4f65Bb3e23E796A4.json"
+        },
+        "address": "0x2856aDD546E729425383173D4f65Bb3e23E796A4",
+        "chain": "bsc"
+      },
+      "vault": {
+        "address": "0x2856aDD546E729425383173D4f65Bb3e23E796A4",
+        "chain": "bsc",
+        "underlying-assets": [
+          {
+            "id": "pad-toad.network-bsc",
+            "links": {
+              "self": "/assets/pad-toad.network-bsc.json"
+            }
+          },
+          {
+            "id": "busd-binance-bsc",
+            "links": {
+              "self": "/assets/busd-binance-bsc.json"
+            }
+          }
+        ]
+      }
+    },
+    "price": [
+      {
+        "timestamp": "2023-02-06T19:04:09.587Z",
+        "usd": 0.0014290994135604275,
+        "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: pad-toad.network-bsc,busd-binance-bsc"
+      }
+    ],
+    "supply": [
+      {
+        "timestamp": "2023-02-06T18:30:54.671Z",
+        "total": 3386847.505488824,
+        "source": "https://bsc-dataseed3.binance.org/"
+      }
+    ],
+    "backing": [
+      {
+        "timestamp": "2023-02-06T18:30:55.060Z",
+        "assets": {
+          "pad-toad.network-bsc": 5132660241.767268,
+          "busd-binance-bsc": 2426.614761269388
+        },
+        "source": "https://bsc-dataseed3.binance.org/",
+        "backing-assets": 23,
+        "backing-usd": 30371.22,
+        "ratio": 6.2749,
+        "uniformity": -0.2619
+      }
+    ],
+    "mcap": 4840.14
+  },
+  "lp-pad-eth-toad.network-bsc": {
+    "id": "lp-pad-eth-toad.network-bsc",
+    "links": {
+      "self": "/assets/lp-pad-eth-toad.network-bsc.json",
+      "ui": "/assets/lp-pad-eth-toad.network-bsc"
+    },
+    "icon": "assets/lp-pad-eth-toad.network-bsc/icon.png",
+    "name": "PAD-ETH LPs",
+    "symbol": "LP-PAD-ETH",
+    "issuer": "toad.network",
+    "reference": "https://dapps.padswap.exchange/",
+    "tags": [
+      "cryptocurrency",
+      "lp"
+    ],
+    "contracts": {
+      "token": {
+        "id": "bsc:0x4BdDDa73F0a83ccada25107830e29de594E8F7C2",
+        "links": {
+          "self": "/tokens/bsc:0x4BdDDa73F0a83ccada25107830e29de594E8F7C2.json"
+        },
+        "address": "0x4BdDDa73F0a83ccada25107830e29de594E8F7C2",
+        "chain": "bsc"
+      },
+      "vault": {
+        "address": "0x4BdDDa73F0a83ccada25107830e29de594E8F7C2",
+        "chain": "bsc",
+        "underlying-assets": [
+          {
+            "id": "pad-toad.network-bsc",
+            "links": {
+              "self": "/assets/pad-toad.network-bsc.json"
+            }
+          },
+          {
+            "id": "eth-binance-bsc",
+            "links": {
+              "self": "/assets/eth-binance-bsc.json"
+            }
+          }
+        ]
+      }
+    },
+    "price": [
+      {
+        "timestamp": "2023-02-06T19:04:09.587Z",
+        "usd": 0.057117334865152275,
+        "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: pad-toad.network-bsc,eth-binance-bsc"
+      }
+    ],
+    "supply": [
+      {
+        "timestamp": "2023-02-06T18:30:54.671Z",
+        "total": 26659.237701343704,
+        "source": "https://bsc-dataseed3.binance.org/"
+      }
+    ],
+    "backing": [
+      {
+        "timestamp": "2023-02-06T18:30:55.060Z",
+        "assets": {
+          "pad-toad.network-bsc": 1608269800.0951376,
+          "eth-binance-bsc": 0.46494402828548315
+        },
+        "source": "https://bsc-dataseed3.binance.org/",
+        "backing-assets": 23,
+        "backing-usd": 13628.19,
+        "ratio": 8.95,
+        "uniformity": 0.034
+      }
+    ],
+    "mcap": 1522.7
+  },
   "lp-pad-glmr-toad.network-moonbeam": {
     "id": "lp-pad-glmr-toad.network-moonbeam",
     "links": {
@@ -3759,10 +4708,10 @@
           "glmr.w-toad.network-moonbeam": 8706.512158808377
         },
         "source": "https://moonbeam.public.blastapi.io",
-        "backing-assets": 3,
-        "backing-usd": 11658.07,
-        "ratio": 1.452,
-        "uniformity": 0.8987
+        "backing-assets": 4,
+        "backing-usd": 14902.06,
+        "ratio": 1.8561,
+        "uniformity": 0.9178
       },
       {
         "timestamp": "2023-02-05T12:18:56.199Z",
@@ -3771,13 +4720,86 @@
           "glmr.w-toad.network-moonbeam": 8645.648918197563
         },
         "source": "https://moonbeam.public.blastapi.io",
-        "backing-assets": 4,
-        "backing-usd": 12104.43,
-        "ratio": 1.5076,
-        "uniformity": 0.6054
+        "backing-assets": 5,
+        "backing-usd": 15490.49,
+        "ratio": 1.9294,
+        "uniformity": 0.6906
       }
     ],
     "mcap": 8028.74
+  },
+  "lp-pad-hoge-toad.network-bsc": {
+    "id": "lp-pad-hoge-toad.network-bsc",
+    "links": {
+      "self": "/assets/lp-pad-hoge-toad.network-bsc.json",
+      "ui": "/assets/lp-pad-hoge-toad.network-bsc"
+    },
+    "icon": "assets/lp-pad-hoge-toad.network-bsc/icon.png",
+    "name": "PAD-HOGE LPs",
+    "symbol": "LP-PAD-HOGE",
+    "issuer": "toad.network",
+    "reference": "https://dapps.padswap.exchange/",
+    "tags": [
+      "cryptocurrency",
+      "lp"
+    ],
+    "contracts": {
+      "token": {
+        "id": "bsc:0xB7073b6082e8B77ab667fAc3AB02e88b2C3937D3",
+        "links": {
+          "self": "/tokens/bsc:0xB7073b6082e8B77ab667fAc3AB02e88b2C3937D3.json"
+        },
+        "address": "0xB7073b6082e8B77ab667fAc3AB02e88b2C3937D3",
+        "chain": "bsc"
+      },
+      "vault": {
+        "address": "0xB7073b6082e8B77ab667fAc3AB02e88b2C3937D3",
+        "chain": "bsc",
+        "underlying-assets": [
+          {
+            "id": "pad-toad.network-bsc",
+            "links": {
+              "self": "/assets/pad-toad.network-bsc.json"
+            }
+          },
+          {
+            "id": "hoge-multichain-bsc",
+            "links": {
+              "self": "/assets/hoge-multichain-bsc.json"
+            }
+          }
+        ]
+      }
+    },
+    "price": [
+      {
+        "timestamp": "2023-02-06T19:04:09.587Z",
+        "usd": 0.2807309485575037,
+        "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: pad-toad.network-bsc,hoge-multichain-bsc"
+      }
+    ],
+    "supply": [
+      {
+        "timestamp": "2023-02-06T18:30:54.671Z",
+        "total": 2599.178516175041,
+        "source": "https://bsc-dataseed3.binance.org/"
+      }
+    ],
+    "backing": [
+      {
+        "timestamp": "2023-02-06T18:30:55.060Z",
+        "assets": {
+          "pad-toad.network-bsc": 811372223.7413864,
+          "hoge-multichain-bsc": 9764358.891090505
+        },
+        "source": "https://bsc-dataseed3.binance.org/",
+        "backing-assets": 23,
+        "backing-usd": 7774.59,
+        "ratio": 10.6549,
+        "uniformity": 0.1148
+      }
+    ],
+    "mcap": 729.67
   },
   "lp-pad-movr-toad.network-moonriver": {
     "id": "lp-pad-movr-toad.network-moonriver",
@@ -3854,10 +4876,10 @@
           "movr.w-moonbeam-moonriver": 238.9137477236323
         },
         "source": "https://rpc.api.moonriver.moonbeam.network",
-        "backing-assets": 3,
-        "backing-usd": 9131.43,
-        "ratio": 2.1297,
-        "uniformity": 0.9328
+        "backing-assets": 4,
+        "backing-usd": 11268.83,
+        "ratio": 2.6282,
+        "uniformity": 0.9352
       },
       {
         "timestamp": "2023-02-05T15:24:53.919Z",
@@ -3866,13 +4888,86 @@
           "movr.w-moonbeam-moonriver": 238.37469893805488
         },
         "source": "https://rpc.api.moonriver.moonbeam.network",
-        "backing-assets": 3,
-        "backing-usd": 9299.09,
-        "ratio": 2.1688,
-        "uniformity": 0.9323
+        "backing-assets": 4,
+        "backing-usd": 11447.51,
+        "ratio": 2.6699,
+        "uniformity": 0.9339
       }
     ],
     "mcap": 4287.62
+  },
+  "lp-pad-toad-toad.network-bsc": {
+    "id": "lp-pad-toad-toad.network-bsc",
+    "links": {
+      "self": "/assets/lp-pad-toad-toad.network-bsc.json",
+      "ui": "/assets/lp-pad-toad-toad.network-bsc"
+    },
+    "icon": "assets/lp-pad-toad-toad.network-bsc/icon.png",
+    "name": "PAD-TOAD LPs",
+    "symbol": "LP-PAD-TOAD",
+    "issuer": "toad.network",
+    "reference": "https://dapps.padswap.exchange/",
+    "tags": [
+      "cryptocurrency",
+      "lp"
+    ],
+    "contracts": {
+      "token": {
+        "id": "bsc:0x26234882C1D95fCaDA4553a655045c35cffC9dAD",
+        "links": {
+          "self": "/tokens/bsc:0x26234882C1D95fCaDA4553a655045c35cffC9dAD.json"
+        },
+        "address": "0x26234882C1D95fCaDA4553a655045c35cffC9dAD",
+        "chain": "bsc"
+      },
+      "vault": {
+        "address": "0x26234882C1D95fCaDA4553a655045c35cffC9dAD",
+        "chain": "bsc",
+        "underlying-assets": [
+          {
+            "id": "pad-toad.network-bsc",
+            "links": {
+              "self": "/assets/pad-toad.network-bsc.json"
+            }
+          },
+          {
+            "id": "toad-toad.network-bsc",
+            "links": {
+              "self": "/assets/toad-toad.network-bsc.json"
+            }
+          }
+        ]
+      }
+    },
+    "price": [
+      {
+        "timestamp": "2023-02-06T19:04:09.587Z",
+        "usd": 0.0019205032149869914,
+        "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: pad-toad.network-bsc,toad-toad.network-bsc"
+      }
+    ],
+    "supply": [
+      {
+        "timestamp": "2023-02-06T18:30:54.671Z",
+        "total": 14909977.718530158,
+        "source": "https://bsc-dataseed3.binance.org/"
+      }
+    ],
+    "backing": [
+      {
+        "timestamp": "2023-02-06T18:30:55.060Z",
+        "assets": {
+          "pad-toad.network-bsc": 30387886732.86725,
+          "toad-toad.network-bsc": 7577.759519915925
+        },
+        "source": "https://bsc-dataseed3.binance.org/",
+        "backing-assets": 23,
+        "backing-usd": 60522.89,
+        "ratio": 2.1136,
+        "uniformity": -0.6118
+      }
+    ],
+    "mcap": 28634.66
   },
   "lp-toad-glmr-toad.network-moonbeam": {
     "id": "lp-toad-glmr-toad.network-moonbeam",
@@ -4286,7 +5381,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-06T17:17:58.757Z",
+        "timestamp": "2023-02-06T19:47:39.690Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -4388,7 +5483,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-06T17:17:58.757Z",
+        "timestamp": "2023-02-06T19:47:39.690Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -4416,16 +5511,122 @@
     ],
     "contracts": {
       "token": {
-        "id": "bsc:0xc0888d80ee0abf84563168b3182650c0addeb6d5",
+        "id": "bsc:0xC0888d80EE0AbF84563168b3182650c0AdDEb6d5",
         "links": {
-          "self": "/tokens/bsc:0xc0888d80ee0abf84563168b3182650c0addeb6d5.json"
+          "self": "/tokens/bsc:0xC0888d80EE0AbF84563168b3182650c0AdDEb6d5.json"
         },
-        "address": "0xc0888d80ee0abf84563168b3182650c0addeb6d5",
+        "address": "0xC0888d80EE0AbF84563168b3182650c0AdDEb6d5",
         "chain": "bsc"
       },
-      "vault": null
+      "vault": {
+        "address": "0x6bEee53eFa847ec426707693c83836E359E92609",
+        "chain": "bsc",
+        "underlying-assets": [
+          {
+            "id": "lp-pad-toad-toad.network-bsc",
+            "links": {
+              "self": "/assets/lp-pad-toad-toad.network-bsc.json"
+            }
+          },
+          {
+            "id": "lp-bnb-toad-toad.network-bsc",
+            "links": {
+              "self": "/assets/lp-bnb-toad-toad.network-bsc.json"
+            }
+          },
+          {
+            "id": "lp-busd-toad-toad.network-bsc",
+            "links": {
+              "self": "/assets/lp-busd-toad-toad.network-bsc.json"
+            }
+          },
+          {
+            "id": "lp-pad-bnb-toad.network-bsc",
+            "links": {
+              "self": "/assets/lp-pad-bnb-toad.network-bsc.json"
+            }
+          },
+          {
+            "id": "lp-pad-busd-toad.network-bsc",
+            "links": {
+              "self": "/assets/lp-pad-busd-toad.network-bsc.json"
+            }
+          },
+          {
+            "id": "lp-busd-bnb-toad.network-bsc",
+            "links": {
+              "self": "/assets/lp-busd-bnb-toad.network-bsc.json"
+            }
+          },
+          {
+            "id": "lp-pad-eth-toad.network-bsc",
+            "links": {
+              "self": "/assets/lp-pad-eth-toad.network-bsc.json"
+            }
+          },
+          {
+            "id": "lp-pad-btc-toad.network-bsc",
+            "links": {
+              "self": "/assets/lp-pad-btc-toad.network-bsc.json"
+            }
+          },
+          {
+            "id": "lp-hoge-toad-toad.network-bsc",
+            "links": {
+              "self": "/assets/lp-hoge-toad-toad.network-bsc.json"
+            }
+          },
+          {
+            "id": "lp-bnb-bjt-toad.network-bsc",
+            "links": {
+              "self": "/assets/lp-bnb-bjt-toad.network-bsc.json"
+            }
+          },
+          {
+            "id": "lp-bnb-pxbsc-toad.network-bsc",
+            "links": {
+              "self": "/assets/lp-bnb-pxbsc-toad.network-bsc.json"
+            }
+          },
+          {
+            "id": "lp-bnb-fuk-toad.network-bsc",
+            "links": {
+              "self": "/assets/lp-bnb-fuk-toad.network-bsc.json"
+            }
+          },
+          {
+            "id": "lp-bnb-gal-toad.network-bsc",
+            "links": {
+              "self": "/assets/lp-bnb-gal-toad.network-bsc.json"
+            }
+          },
+          {
+            "id": "lp-pad-hoge-toad.network-bsc",
+            "links": {
+              "self": "/assets/lp-pad-hoge-toad.network-bsc.json"
+            }
+          },
+          {
+            "id": "lp-bnb-cats-toad.network-bsc",
+            "links": {
+              "self": "/assets/lp-bnb-cats-toad.network-bsc.json"
+            }
+          },
+          {
+            "id": "toad-toad.network-bsc",
+            "links": {
+              "self": "/assets/toad-toad.network-bsc.json"
+            }
+          }
+        ]
+      }
     },
     "price": [
+      {
+        "timestamp": "2023-02-06T19:04:09.142Z",
+        "usd": 4.71e-7,
+        "source": "https://api.dexscreener.com/latest/dex/tokens/0x663a07a2648296f1A3C02EE86A126fE1407888E5,0xC0888d80EE0AbF84563168b3182650c0AdDEb6d5,0x59193512877E2EC3bB27C178A8888Cfac62FB32D,0x45488C50184Ce2092756ba7CdF85731fD17e6f3d,0x7950865a9140cB519342433146Ed5b40c6F210f7,0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,0x463E737D8F740395ABf44f7aac2D9531D8D539E9,0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,0x165DBb08de0476271714952C3C1F068693bd60D7"
+      },
       {
         "timestamp": "2023-01-02T18:10:00.000Z",
         "usd": 4.348e-7,
@@ -4486,6 +5687,32 @@
     ],
     "backing": [
       {
+        "timestamp": "2023-02-06T18:30:55.060Z",
+        "assets": {
+          "lp-pad-toad-toad.network-bsc": 1085924.299512347,
+          "lp-bnb-toad-toad.network-bsc": 60.74289343108128,
+          "lp-busd-toad-toad.network-bsc": 604.0206397838391,
+          "lp-pad-bnb-toad.network-bsc": 69329.69768388703,
+          "lp-pad-busd-toad.network-bsc": 551679.8614446452,
+          "lp-busd-bnb-toad.network-bsc": 250.23765306458967,
+          "lp-pad-eth-toad.network-bsc": 9190.323622145615,
+          "lp-pad-btc-toad.network-bsc": 2247.5049145406047,
+          "lp-hoge-toad-toad.network-bsc": 0.9954425267297946,
+          "lp-bnb-bjt-toad.network-bsc": 164448.37218250643,
+          "lp-bnb-pxbsc-toad.network-bsc": 392571.08343060757,
+          "lp-bnb-fuk-toad.network-bsc": 17199.105625178407,
+          "lp-bnb-gal-toad.network-bsc": 25.09109985628594,
+          "lp-pad-hoge-toad.network-bsc": 590.754197213391,
+          "lp-bnb-cats-toad.network-bsc": 303.05070353658874,
+          "toad-toad.network-bsc": 3798.832049247964
+        },
+        "source": "https://bsc-dataseed3.binance.org/",
+        "backing-assets": 23,
+        "backing-usd": 48210.67,
+        "ratio": 0.9051,
+        "uniformity": -0.4658
+      },
+      {
         "timestamp": "2023-01-03T18:40:00.000Z",
         "assets": {
           "toad-toad.network-bsc": 5781.8576492905595,
@@ -4505,7 +5732,7 @@
         "source": "./scripts",
         "backing-assets": 11,
         "backing-usd": 29407.68,
-        "ratio": 0.598,
+        "ratio": 0.5521,
         "uniformity": 0.1624
       },
       {
@@ -4527,7 +5754,7 @@
         "source": "https://toadlytics.com/#/vault-explorer",
         "backing-assets": 11,
         "backing-usd": 29807.78,
-        "ratio": 0.6062,
+        "ratio": 0.5596,
         "uniformity": 0.1157
       },
       {
@@ -4543,11 +5770,11 @@
         "source": "https://v2.padswap.exchange/vault/",
         "backing-assets": 5,
         "backing-usd": 24328.49,
-        "ratio": 0.4947,
+        "ratio": 0.4567,
         "uniformity": 0.7165
       }
     ],
-    "mcap": 49173.44
+    "mcap": 53267.46
   },
   "pad-toad.network-moonbeam": {
     "id": "pad-toad.network-moonbeam",
@@ -4705,10 +5932,10 @@
           "toad-toad.network-moonbeam": 607
         },
         "source": "https://moonbeam.public.blastapi.io",
-        "backing-assets": 3,
-        "backing-usd": 10888.79,
-        "ratio": 0.8953,
-        "uniformity": 0.9248
+        "backing-assets": 4,
+        "backing-usd": 14132.78,
+        "ratio": 1.162,
+        "uniformity": 0.9409
       },
       {
         "timestamp": "2023-02-05T12:18:56.202Z",
@@ -4720,10 +5947,10 @@
           "toad-toad.network-moonbeam": 607
         },
         "source": "https://moonbeam.public.blastapi.io",
-        "backing-assets": 4,
-        "backing-usd": 11251.96,
-        "ratio": 0.9252,
-        "uniformity": 0.6336
+        "backing-assets": 5,
+        "backing-usd": 14638.02,
+        "ratio": 1.2036,
+        "uniformity": 0.7154
       },
       {
         "timestamp": "2023-01-03T20:05:00.000Z",
@@ -4879,10 +6106,10 @@
           "toad-toad.network-moonriver": 0.001516176345179241
         },
         "source": "https://rpc.api.moonriver.moonbeam.network",
-        "backing-assets": 3,
-        "backing-usd": 9131.43,
-        "ratio": 0.9593,
-        "uniformity": 0.9328
+        "backing-assets": 4,
+        "backing-usd": 11268.83,
+        "ratio": 1.1838,
+        "uniformity": 0.9352
       },
       {
         "timestamp": "2023-02-05T15:24:52.907Z",
@@ -4894,10 +6121,10 @@
           "toad-toad.network-moonriver": 0.001516176345179241
         },
         "source": "https://rpc.api.moonriver.moonbeam.network",
-        "backing-assets": 3,
-        "backing-usd": 9299.09,
-        "ratio": 0.9769,
-        "uniformity": 0.9323
+        "backing-assets": 4,
+        "backing-usd": 11447.51,
+        "ratio": 1.2026,
+        "uniformity": 0.9339
       },
       {
         "timestamp": "2023-01-03T18:40:00.000Z",
@@ -4956,7 +6183,7 @@
     },
     "price": [
       {
-        "timestamp": "2023-02-06T17:17:58.739Z",
+        "timestamp": "2023-02-06T19:47:39.672Z",
         "usd": 0,
         "source": "No price recorded in bcked."
       }
@@ -6026,7 +7253,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-06T17:17:58.757Z",
+        "timestamp": "2023-02-06T19:47:39.690Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -6148,7 +7375,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-06T17:17:58.757Z",
+        "timestamp": "2023-02-06T19:47:39.690Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -6532,7 +7759,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-06T17:17:58.757Z",
+        "timestamp": "2023-02-06T19:47:39.690Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,
@@ -7711,7 +8938,7 @@
     ],
     "backing": [
       {
-        "timestamp": "2023-02-06T17:17:58.757Z",
+        "timestamp": "2023-02-06T19:47:39.690Z",
         "assets": {},
         "source": "No supply recorded in bcked.",
         "backing-assets": 0,

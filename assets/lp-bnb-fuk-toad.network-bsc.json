@@ -1,0 +1,73 @@
+{
+  "id": "lp-bnb-fuk-toad.network-bsc",
+  "links": {
+    "self": "/assets/lp-bnb-fuk-toad.network-bsc.json",
+    "ui": "/assets/lp-bnb-fuk-toad.network-bsc"
+  },
+  "icon": "assets/lp-bnb-fuk-toad.network-bsc/icon.png",
+  "name": "BNB-FUK LPs",
+  "symbol": "LP-BNB-FUK",
+  "issuer": "toad.network",
+  "reference": "https://dapps.padswap.exchange/",
+  "tags": [
+    "cryptocurrency",
+    "lp"
+  ],
+  "contracts": {
+    "token": {
+      "id": "bsc:0x2c001A059A0F2BD76293c755B3455163cC03A159",
+      "links": {
+        "self": "/tokens/bsc:0x2c001A059A0F2BD76293c755B3455163cC03A159.json"
+      },
+      "address": "0x2c001A059A0F2BD76293c755B3455163cC03A159",
+      "chain": "bsc"
+    },
+    "vault": {
+      "address": "0x2c001A059A0F2BD76293c755B3455163cC03A159",
+      "chain": "bsc",
+      "underlying-assets": [
+        {
+          "id": "bnb-binance-bsc",
+          "links": {
+            "self": "/assets/bnb-binance-bsc.json"
+          }
+        },
+        {
+          "id": "fuk-bsc",
+          "links": {
+            "self": "/assets/fuk-bsc.json"
+          }
+        }
+      ]
+    }
+  },
+  "price": [
+    {
+      "timestamp": "2023-02-06T19:47:39.672Z",
+      "usd": 0,
+      "source": "No price recorded in bcked."
+    }
+  ],
+  "supply": [
+    {
+      "timestamp": "2023-02-06T18:30:54.987Z",
+      "total": 187882.85105510824,
+      "source": "https://bsc-dataseed3.binance.org/"
+    }
+  ],
+  "backing": [
+    {
+      "timestamp": "2023-02-06T18:30:55.060Z",
+      "assets": {
+        "bnb-binance-bsc": 7.437775012057053,
+        "fuk-bsc": 90075882597.33905
+      },
+      "source": "https://bsc-dataseed3.binance.org/",
+      "backing-assets": 0,
+      "backing-usd": 0,
+      "ratio": 0,
+      "uniformity": 0
+    }
+  ],
+  "mcap": 0
+}

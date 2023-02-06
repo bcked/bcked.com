@@ -1,0 +1,73 @@
+{
+  "id": "lp-bnb-pxbsc-toad.network-bsc",
+  "links": {
+    "self": "/assets/lp-bnb-pxbsc-toad.network-bsc.json",
+    "ui": "/assets/lp-bnb-pxbsc-toad.network-bsc"
+  },
+  "icon": "assets/lp-bnb-pxbsc-toad.network-bsc/icon.png",
+  "name": "BNB-PXBSC LPs",
+  "symbol": "LP-BNB-PXBSC",
+  "issuer": "toad.network",
+  "reference": "https://dapps.padswap.exchange/",
+  "tags": [
+    "cryptocurrency",
+    "lp"
+  ],
+  "contracts": {
+    "token": {
+      "id": "bsc:0x6F547381e6594C177A4C56Bc818b599cc78A8c16",
+      "links": {
+        "self": "/tokens/bsc:0x6F547381e6594C177A4C56Bc818b599cc78A8c16.json"
+      },
+      "address": "0x6F547381e6594C177A4C56Bc818b599cc78A8c16",
+      "chain": "bsc"
+    },
+    "vault": {
+      "address": "0x6F547381e6594C177A4C56Bc818b599cc78A8c16",
+      "chain": "bsc",
+      "underlying-assets": [
+        {
+          "id": "bnb-binance-bsc",
+          "links": {
+            "self": "/assets/bnb-binance-bsc.json"
+          }
+        },
+        {
+          "id": "pxbsc-bsc",
+          "links": {
+            "self": "/assets/pxbsc-bsc.json"
+          }
+        }
+      ]
+    }
+  },
+  "price": [
+    {
+      "timestamp": "2023-02-06T19:47:39.672Z",
+      "usd": 0,
+      "source": "No price recorded in bcked."
+    }
+  ],
+  "supply": [
+    {
+      "timestamp": "2023-02-06T18:30:54.987Z",
+      "total": 3454438.9139434453,
+      "source": "https://bsc-dataseed3.binance.org/"
+    }
+  ],
+  "backing": [
+    {
+      "timestamp": "2023-02-06T18:30:55.060Z",
+      "assets": {
+        "bnb-binance-bsc": 46.78320551403026,
+        "pxbsc-bsc": 263538598668.14597
+      },
+      "source": "https://bsc-dataseed3.binance.org/",
+      "backing-assets": 0,
+      "backing-usd": 0,
+      "ratio": 0,
+      "uniformity": 0
+    }
+  ],
+  "mcap": 0
+}

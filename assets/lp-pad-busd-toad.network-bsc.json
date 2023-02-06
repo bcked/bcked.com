@@ -1,0 +1,73 @@
+{
+  "id": "lp-pad-busd-toad.network-bsc",
+  "links": {
+    "self": "/assets/lp-pad-busd-toad.network-bsc.json",
+    "ui": "/assets/lp-pad-busd-toad.network-bsc"
+  },
+  "icon": "assets/lp-pad-busd-toad.network-bsc/icon.png",
+  "name": "PAD-BUSD LPs",
+  "symbol": "LP-PAD-BUSD",
+  "issuer": "toad.network",
+  "reference": "https://dapps.padswap.exchange/",
+  "tags": [
+    "cryptocurrency",
+    "lp"
+  ],
+  "contracts": {
+    "token": {
+      "id": "bsc:0x2856aDD546E729425383173D4f65Bb3e23E796A4",
+      "links": {
+        "self": "/tokens/bsc:0x2856aDD546E729425383173D4f65Bb3e23E796A4.json"
+      },
+      "address": "0x2856aDD546E729425383173D4f65Bb3e23E796A4",
+      "chain": "bsc"
+    },
+    "vault": {
+      "address": "0x2856aDD546E729425383173D4f65Bb3e23E796A4",
+      "chain": "bsc",
+      "underlying-assets": [
+        {
+          "id": "pad-toad.network-bsc",
+          "links": {
+            "self": "/assets/pad-toad.network-bsc.json"
+          }
+        },
+        {
+          "id": "busd-binance-bsc",
+          "links": {
+            "self": "/assets/busd-binance-bsc.json"
+          }
+        }
+      ]
+    }
+  },
+  "price": [
+    {
+      "timestamp": "2023-02-06T19:04:09.587Z",
+      "usd": 0.0014290994135604275,
+      "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: pad-toad.network-bsc,busd-binance-bsc"
+    }
+  ],
+  "supply": [
+    {
+      "timestamp": "2023-02-06T18:30:54.671Z",
+      "total": 3386847.505488824,
+      "source": "https://bsc-dataseed3.binance.org/"
+    }
+  ],
+  "backing": [
+    {
+      "timestamp": "2023-02-06T18:30:55.060Z",
+      "assets": {
+        "pad-toad.network-bsc": 5132660241.767268,
+        "busd-binance-bsc": 2426.614761269388
+      },
+      "source": "https://bsc-dataseed3.binance.org/",
+      "backing-assets": 23,
+      "backing-usd": 30371.22,
+      "ratio": 6.2749,
+      "uniformity": -0.2619
+    }
+  ],
+  "mcap": 4840.14
+}
