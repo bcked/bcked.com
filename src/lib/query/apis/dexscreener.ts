@@ -3,10 +3,13 @@
  * API documentation: https://docs.dexscreener.com/api/reference
  */
 
-import { urlLengthGrouping } from '$lib/utils/requests';
+import { groupWhile } from '$lib/utils/array';
 import * as d3 from 'd3';
 import _ from 'lodash';
 import { JsonApi } from '../../utils/jsonApi';
+
+const URL_MAX_LENGTH = 2048;
+const FETCH_MAX_COUNT = 30;
 
 type Pair = {
 	chainId: string;
@@ -56,8 +59,11 @@ export class Dexscreener implements query.ApiModule {
 	}
 
 	async getPrices(tokens: cache.TokenContract[]): Promise<{ [key: string]: query.Price }> {
-		const groups = urlLengthGrouping(tokens, this.api.baseURL, (group) =>
-			this.getPriceRoute(_.map(group, 'address').join(','))
+		const groups = groupWhile(
+			tokens,
+			(group) =>
+				(this.api.baseURL + this.getPriceRoute(_.map(group, 'address').join(','))).length <=
+					URL_MAX_LENGTH && group.length <= FETCH_MAX_COUNT
 		);
 
 		const prices = await Promise.all(groups.map((group) => this._getPrices(group)));
