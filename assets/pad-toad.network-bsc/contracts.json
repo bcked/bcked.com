@@ -1,6 +1,28 @@
 {
-    "token": {
-        "address": "0xc0888d80ee0abf84563168b3182650c0addeb6d5",
-        "chain": "bsc"
-    }
+	"token": {
+		"address": "0xC0888d80EE0AbF84563168b3182650c0AdDEb6d5",
+		"chain": "bsc"
+	},
+	"vault": {
+		"address": "0x6bEee53eFa847ec426707693c83836E359E92609",
+		"chain": "bsc",
+		"underlying-assets": [
+			"lp-pad-toad-toad.network-bsc",
+			"lp-bnb-toad-toad.network-bsc",
+			"lp-busd-toad-toad.network-bsc",
+			"lp-pad-bnb-toad.network-bsc",
+			"lp-pad-busd-toad.network-bsc",
+			"lp-busd-bnb-toad.network-bsc",
+			"lp-pad-eth-toad.network-bsc",
+			"lp-pad-btc-toad.network-bsc",
+			"lp-hoge-toad-toad.network-bsc",
+			"lp-bnb-bjt-toad.network-bsc",
+			"lp-bnb-pxbsc-toad.network-bsc",
+			"lp-bnb-fuk-toad.network-bsc",
+			"lp-bnb-gal-toad.network-bsc",
+			"lp-pad-hoge-toad.network-bsc",
+			"lp-bnb-cats-toad.network-bsc",
+			"toad-toad.network-bsc"
+		]
+	}
 }

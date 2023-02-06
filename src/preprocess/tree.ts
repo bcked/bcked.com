@@ -51,13 +51,17 @@ async function followBackingTree(
 	let links = [
 		...(unbacked > 0 ? [{ source: id, target: 'unbacked', value: unbacked, level }] : []),
 		...(assetValue == 0 && unbacked == 0
-			? [{ source: id, target: 'unbacked', value: 1, level }]
+			? [{ source: id, target: 'unbacked', value: 0, level }]
 			: [])
 	];
 
 	for (const { key, value, backingUsd, backedSubAsset } of backedAssets) {
-		if (visited.includes(key)) continue;
 		const cappedBackingUsd = backingUsd > assetValue ? assetValue : backingUsd;
+		if (visited.includes(key)) {
+			// If there is a cyclic connection, count backing as unbacked
+			links = [...links, { source: id, target: 'unbacked', value: cappedBackingUsd, level }];
+			continue;
+		}
 		const backingData = await followBackingTree(
 			key,
 			backedSubAsset,
