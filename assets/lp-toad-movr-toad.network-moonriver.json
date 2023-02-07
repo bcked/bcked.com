@@ -43,6 +43,11 @@
   },
   "price": [
     {
+      "timestamp": "2023-02-07T22:10:54.877Z",
+      "usd": 8.962530179385958,
+      "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: toad-toad.network-moonriver,movr.w-moonbeam-moonriver"
+    },
+    {
       "timestamp": "2023-02-06T17:03:49.367Z",
       "usd": 8.648360366278043,
       "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: toad-toad.network-moonriver,movr.w-moonbeam-moonriver"
@@ -54,6 +59,11 @@
     }
   ],
   "supply": [
+    {
+      "timestamp": "2023-02-07T22:10:54.106Z",
+      "total": 413.09952634577866,
+      "source": "https://rpc.api.moonriver.moonbeam.network"
+    },
     {
       "timestamp": "2023-02-06T17:03:48.287Z",
       "total": 413.09952634577866,
@@ -67,6 +77,18 @@
   ],
   "backing": [
     {
+      "timestamp": "2023-02-07T22:10:54.102Z",
+      "assets": {
+        "toad-toad.network-moonriver": 900.1004889925817,
+        "movr.w-moonbeam-moonriver": 197.9391524662746
+      },
+      "source": "https://rpc.api.moonriver.moonbeam.network",
+      "backing-assets": 2,
+      "backing-usd": 3702.42,
+      "ratio": 1,
+      "uniformity": 1
+    },
+    {
       "timestamp": "2023-02-06T17:03:48.283Z",
       "assets": {
         "toad-toad.network-moonriver": 893.623432639574,
@@ -75,7 +97,7 @@
       "source": "https://rpc.api.moonriver.moonbeam.network",
       "backing-assets": 2,
       "backing-usd": 3572.63,
-      "ratio": 1,
+      "ratio": 0.9649,
       "uniformity": 1
     },
     {
@@ -87,9 +109,9 @@
       "source": "https://rpc.api.moonriver.moonbeam.network",
       "backing-assets": 2,
       "backing-usd": 3666.54,
-      "ratio": 1.0263,
+      "ratio": 0.9903,
       "uniformity": 1
     }
   ],
-  "mcap": 3572.63
+  "mcap": 3702.42
 }

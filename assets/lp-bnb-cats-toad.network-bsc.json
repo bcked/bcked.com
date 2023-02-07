@@ -43,12 +43,17 @@
   },
   "price": [
     {
-      "timestamp": "2023-02-06T22:10:08.114Z",
-      "usd": 0,
-      "source": "No price recorded in bcked."
+      "timestamp": "2023-02-07T22:10:54.876Z",
+      "usd": 7.549234150803312,
+      "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: bnb-binance-bsc,cats-catoshi-bsc"
     }
   ],
   "supply": [
+    {
+      "timestamp": "2023-02-07T22:10:54.190Z",
+      "total": 3627.7410472147026,
+      "source": "https://bsc-dataseed3.binance.org/"
+    },
     {
       "timestamp": "2023-02-06T18:30:54.987Z",
       "total": 3627.7410472147026,
@@ -57,17 +62,29 @@
   ],
   "backing": [
     {
+      "timestamp": "2023-02-07T22:10:54.228Z",
+      "assets": {
+        "bnb-binance-bsc": 41.536112330452234,
+        "cats-catoshi-bsc": 334935.10386057757
+      },
+      "source": "https://bsc-dataseed3.binance.org/",
+      "backing-assets": 2,
+      "backing-usd": 27386.67,
+      "ratio": 1,
+      "uniformity": 1
+    },
+    {
       "timestamp": "2023-02-06T18:30:55.060Z",
       "assets": {
         "bnb-binance-bsc": 41.536112330452234,
         "cats-catoshi-bsc": 334935.10386057757
       },
       "source": "https://bsc-dataseed3.binance.org/",
-      "backing-assets": 0,
-      "backing-usd": 0,
-      "ratio": 0,
-      "uniformity": 0
+      "backing-assets": 2,
+      "backing-usd": 27020.41,
+      "ratio": 0.9866,
+      "uniformity": 1
     }
   ],
-  "mcap": 0
+  "mcap": 27386.67
 }
