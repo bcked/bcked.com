@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-02-07T22:10:54.832Z",
+  "timestamp": "2023-02-08T22:11:03.712Z",
   "nodes": [
     {
       "id": "unbacked",
@@ -8,25 +8,25 @@
     {
       "id": "lp-toad-glmr-toad.network-moonbeam",
       "name": "TOAD-GLMR LPs",
-      "value": 11311.12,
+      "value": 12132.22,
       "level": 0
     },
     {
       "id": "toad-toad.network-moonbeam",
       "name": "Wrapped Toad",
-      "value": 5652.03,
+      "value": 6061.61,
       "level": 1
     },
     {
       "id": "toad-toad.network-bsc",
       "name": "Toad Network",
-      "value": 5652.03,
+      "value": 6061.61,
       "level": 2
     },
     {
       "id": "glmr.w-toad.network-moonbeam",
       "name": "Wrapped GLMR",
-      "value": 5659.09,
+      "value": 6070.61,
       "level": 1
     }
   ],
@@ -40,35 +40,35 @@
     {
       "source": "lp-toad-glmr-toad.network-moonbeam",
       "target": "toad-toad.network-moonbeam",
-      "value": 5652.03,
+      "value": 6061.61,
       "level": 0
     },
     {
       "source": "toad-toad.network-moonbeam",
       "target": "toad-toad.network-bsc",
-      "value": 5652.03,
+      "value": 6061.61,
       "level": 1
     },
     {
       "source": "toad-toad.network-bsc",
       "target": "unbacked",
-      "value": 5652.03,
+      "value": 6061.61,
       "level": 2
     },
     {
       "source": "lp-toad-glmr-toad.network-moonbeam",
       "target": "glmr.w-toad.network-moonbeam",
-      "value": 5659.09,
+      "value": 6070.61,
       "level": 0
     },
     {
       "source": "glmr.w-toad.network-moonbeam",
       "target": "unbacked",
-      "value": 5659.09,
+      "value": 6070.61,
       "level": 1
     }
   ],
-  "value": 11311.12,
+  "value": 12132.22,
   "unbacked": 0,
-  "backed": 11311.12
+  "backed": 12132.22
 }

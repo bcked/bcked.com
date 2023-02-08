@@ -43,6 +43,11 @@
   },
   "price": [
     {
+      "timestamp": "2023-02-08T22:11:03.724Z",
+      "usd": 9.015196049819984,
+      "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: toad-toad.network-moonriver,movr.w-moonbeam-moonriver"
+    },
+    {
       "timestamp": "2023-02-07T22:10:54.877Z",
       "usd": 8.962530179385958,
       "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: toad-toad.network-moonriver,movr.w-moonbeam-moonriver"
@@ -59,6 +64,11 @@
     }
   ],
   "supply": [
+    {
+      "timestamp": "2023-02-08T22:11:02.965Z",
+      "total": 413.09952634577866,
+      "source": "https://rpc.api.moonriver.moonbeam.network"
+    },
     {
       "timestamp": "2023-02-07T22:10:54.106Z",
       "total": 413.09952634577866,
@@ -77,6 +87,18 @@
   ],
   "backing": [
     {
+      "timestamp": "2023-02-08T22:11:02.990Z",
+      "assets": {
+        "toad-toad.network-moonriver": 902.1304921500438,
+        "movr.w-moonbeam-moonriver": 197.4968380915132
+      },
+      "source": "https://rpc.api.moonriver.moonbeam.network",
+      "backing-assets": 2,
+      "backing-usd": 3724.18,
+      "ratio": 1,
+      "uniformity": 1
+    },
+    {
       "timestamp": "2023-02-07T22:10:54.102Z",
       "assets": {
         "toad-toad.network-moonriver": 900.1004889925817,
@@ -85,7 +107,7 @@
       "source": "https://rpc.api.moonriver.moonbeam.network",
       "backing-assets": 2,
       "backing-usd": 3702.42,
-      "ratio": 1,
+      "ratio": 0.9942,
       "uniformity": 1
     },
     {
@@ -97,7 +119,7 @@
       "source": "https://rpc.api.moonriver.moonbeam.network",
       "backing-assets": 2,
       "backing-usd": 3572.63,
-      "ratio": 0.9649,
+      "ratio": 0.9593,
       "uniformity": 1
     },
     {
@@ -109,9 +131,9 @@
       "source": "https://rpc.api.moonriver.moonbeam.network",
       "backing-assets": 2,
       "backing-usd": 3666.54,
-      "ratio": 0.9903,
+      "ratio": 0.9845,
       "uniformity": 1
     }
   ],
-  "mcap": 3702.42
+  "mcap": 3724.17
 }

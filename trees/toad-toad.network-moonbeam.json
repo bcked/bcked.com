@@ -1,20 +1,20 @@
 {
-  "timestamp": "2023-02-07T22:10:54.228Z",
+  "timestamp": "2023-02-08T22:11:03.212Z",
   "nodes": [
     {
       "id": "unbacked",
-      "value": 1524.78
+      "value": 2805.66
     },
     {
       "id": "toad-toad.network-moonbeam",
       "name": "Wrapped Toad",
-      "value": 46947.36,
+      "value": 49807.1,
       "level": 0
     },
     {
       "id": "toad-toad.network-bsc",
       "name": "Toad Network",
-      "value": 45422.58,
+      "value": 47001.44,
       "level": 1
     }
   ],
@@ -22,23 +22,23 @@
     {
       "source": "toad-toad.network-moonbeam",
       "target": "unbacked",
-      "value": 1524.78,
+      "value": 2805.66,
       "level": 0
     },
     {
       "source": "toad-toad.network-moonbeam",
       "target": "toad-toad.network-bsc",
-      "value": 45422.58,
+      "value": 47001.44,
       "level": 0
     },
     {
       "source": "toad-toad.network-bsc",
       "target": "unbacked",
-      "value": 45422.58,
+      "value": 47001.44,
       "level": 1
     }
   ],
-  "value": 46947.36,
-  "unbacked": 1524.78,
-  "backed": 45422.58
+  "value": 49807.1,
+  "unbacked": 2805.66,
+  "backed": 47001.44
 }

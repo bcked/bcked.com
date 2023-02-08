@@ -1,80 +1,86 @@
 {
-  "timestamp": "2023-02-07T22:10:54.834Z",
+  "timestamp": "2023-02-08T22:11:03.721Z",
   "nodes": [
-    {
-      "id": "lp-usdc-glmr-toad.network-moonbeam",
-      "name": "USDC-GLMR LPs",
-      "value": 1249.75,
-      "level": 0
-    },
     {
       "id": "unbacked",
       "value": 0
     },
     {
+      "id": "lp-usdc-glmr-toad.network-moonbeam",
+      "name": "USDC-GLMR LPs",
+      "value": 1302.05,
+      "level": 0
+    },
+    {
       "id": "usdc-multichain-moonbeam",
       "name": "USD Coin",
-      "value": 623.98,
+      "value": 651.54,
       "level": 1
     },
     {
       "id": "usdc-circle-ethereum",
       "name": "USD Coin",
-      "value": 623.98,
+      "value": 651.54,
       "level": 2
     },
     {
       "id": "usd-fed",
       "name": "U.S. dollar",
-      "value": 623.98,
+      "value": 651.54,
       "level": 3
     },
     {
       "id": "glmr.w-toad.network-moonbeam",
       "name": "Wrapped GLMR",
-      "value": 625.77,
+      "value": 650.51,
       "level": 1
     }
   ],
   "links": [
     {
       "source": "lp-usdc-glmr-toad.network-moonbeam",
+      "target": "unbacked",
+      "value": 0,
+      "level": 0
+    },
+    {
+      "source": "lp-usdc-glmr-toad.network-moonbeam",
       "target": "usdc-multichain-moonbeam",
-      "value": 623.98,
+      "value": 651.54,
       "level": 0
     },
     {
       "source": "usdc-multichain-moonbeam",
       "target": "usdc-circle-ethereum",
-      "value": 623.98,
+      "value": 651.54,
       "level": 1
     },
     {
       "source": "usdc-circle-ethereum",
       "target": "usd-fed",
-      "value": 623.98,
+      "value": 651.54,
       "level": 2
     },
     {
       "source": "usd-fed",
       "target": "unbacked",
-      "value": 623.98,
+      "value": 651.54,
       "level": 3
     },
     {
       "source": "lp-usdc-glmr-toad.network-moonbeam",
       "target": "glmr.w-toad.network-moonbeam",
-      "value": 625.77,
+      "value": 650.51,
       "level": 0
     },
     {
       "source": "glmr.w-toad.network-moonbeam",
       "target": "unbacked",
-      "value": 625.77,
+      "value": 650.51,
       "level": 1
     }
   ],
-  "value": 1249.75,
+  "value": 1302.05,
   "unbacked": 0,
-  "backed": 1249.75
+  "backed": 1302.05
 }
