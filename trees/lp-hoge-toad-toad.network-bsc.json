@@ -1,68 +1,74 @@
 {
-  "timestamp": "2023-02-08T22:11:03.212Z",
+  "timestamp": "2023-02-12T22:10:21.226Z",
   "nodes": [
-    {
-      "id": "lp-hoge-toad-toad.network-bsc",
-      "name": "HOGE-TOAD LPs",
-      "value": 20115.3,
-      "level": 0
-    },
     {
       "id": "unbacked",
       "value": 0
     },
     {
+      "id": "lp-hoge-toad-toad.network-bsc",
+      "name": "HOGE-TOAD LPs",
+      "value": 18723.72,
+      "level": 0
+    },
+    {
       "id": "hoge-multichain-bsc",
       "name": "Hoge Finance",
-      "value": 9874.94,
+      "value": 9131.15,
       "level": 1
     },
     {
       "id": "hoge-ethereum",
       "name": "Hoge Finance",
-      "value": 9874.94,
+      "value": 9131.15,
       "level": 2
     },
     {
       "id": "toad-toad.network-bsc",
       "name": "Toad Network",
-      "value": 10240.36,
+      "value": 9592.57,
       "level": 1
     }
   ],
   "links": [
     {
       "source": "lp-hoge-toad-toad.network-bsc",
+      "target": "unbacked",
+      "value": 0,
+      "level": 0
+    },
+    {
+      "source": "lp-hoge-toad-toad.network-bsc",
       "target": "hoge-multichain-bsc",
-      "value": 9874.94,
+      "value": 9131.15,
       "level": 0
     },
     {
       "source": "hoge-multichain-bsc",
       "target": "hoge-ethereum",
-      "value": 9874.94,
+      "value": 9131.15,
       "level": 1
     },
     {
       "source": "hoge-ethereum",
       "target": "unbacked",
-      "value": 9874.94,
+      "value": 9131.15,
       "level": 2
     },
     {
       "source": "lp-hoge-toad-toad.network-bsc",
       "target": "toad-toad.network-bsc",
-      "value": 10240.36,
+      "value": 9592.57,
       "level": 0
     },
     {
       "source": "toad-toad.network-bsc",
       "target": "unbacked",
-      "value": 10240.36,
+      "value": 9592.57,
       "level": 1
     }
   ],
-  "value": 20115.3,
+  "value": 18723.72,
   "unbacked": 0,
-  "backed": 20115.3
+  "backed": 18723.72
 }

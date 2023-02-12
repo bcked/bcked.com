@@ -50,6 +50,11 @@
   ],
   "supply": [
     {
+      "timestamp": "2023-02-12T22:10:20.827Z",
+      "total": 187882.85105510824,
+      "source": "https://bsc-dataseed3.binance.org/"
+    },
+    {
       "timestamp": "2023-02-08T22:11:02.880Z",
       "total": 187882.85105510824,
       "source": "https://bsc-dataseed3.binance.org/"
@@ -66,6 +71,18 @@
     }
   ],
   "backing": [
+    {
+      "timestamp": "2023-02-12T22:10:21.226Z",
+      "assets": {
+        "bnb-binance-bsc": 7.437473577214526,
+        "fuk-bsc": 90080032567.44646
+      },
+      "source": "https://bsc-dataseed3.binance.org/",
+      "backing-assets": 2,
+      "backing-usd": 4763.65,
+      "ratio": 0.9753,
+      "uniformity": 0.9999
+    },
     {
       "timestamp": "2023-02-08T22:11:03.212Z",
       "assets": {

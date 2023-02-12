@@ -43,6 +43,11 @@
   },
   "price": [
     {
+      "timestamp": "2023-02-12T22:10:21.548Z",
+      "usd": 0.026543153284019204,
+      "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: pad-toad.network-bsc,bnb-binance-bsc"
+    },
+    {
       "timestamp": "2023-02-08T22:11:03.723Z",
       "usd": 0.02786807016890491,
       "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: pad-toad.network-bsc,bnb-binance-bsc"
@@ -59,6 +64,11 @@
     }
   ],
   "supply": [
+    {
+      "timestamp": "2023-02-12T22:10:20.885Z",
+      "total": 360705.0522968363,
+      "source": "https://bsc-dataseed3.binance.org/"
+    },
     {
       "timestamp": "2023-02-08T22:11:03.147Z",
       "total": 360705.0522968363,
@@ -77,6 +87,18 @@
   ],
   "backing": [
     {
+      "timestamp": "2023-02-12T22:10:21.226Z",
+      "assets": {
+        "pad-toad.network-bsc": 10582304859.55271,
+        "bnb-binance-bsc": 15.1223165847071
+      },
+      "source": "https://bsc-dataseed3.binance.org/",
+      "backing-assets": 2,
+      "backing-usd": 9574.25,
+      "ratio": 1,
+      "uniformity": 1
+    },
+    {
       "timestamp": "2023-02-08T22:11:03.212Z",
       "assets": {
         "pad-toad.network-bsc": 10475751200.934721,
@@ -85,7 +107,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 2,
       "backing-usd": 10052.15,
-      "ratio": 1,
+      "ratio": 1.0499,
       "uniformity": 1
     },
     {
@@ -97,7 +119,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 2,
       "backing-usd": 9955.7,
-      "ratio": 0.9904,
+      "ratio": 1.0398,
       "uniformity": 1
     },
     {
@@ -109,9 +131,9 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 2,
       "backing-usd": 9942.48,
-      "ratio": 0.9891,
+      "ratio": 1.0385,
       "uniformity": 1
     }
   ],
-  "mcap": 10052.15
+  "mcap": 9574.25
 }

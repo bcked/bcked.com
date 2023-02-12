@@ -43,6 +43,11 @@
   },
   "price": [
     {
+      "timestamp": "2023-02-12T22:10:21.548Z",
+      "usd": 2076788.999653982,
+      "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: busd-multichain-moonbeam,usdc-multichain-moonbeam"
+    },
+    {
       "timestamp": "2023-02-08T22:11:03.723Z",
       "usd": 2079630.0905084752,
       "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: busd-multichain-moonbeam,usdc-multichain-moonbeam"
@@ -64,6 +69,11 @@
     }
   ],
   "supply": [
+    {
+      "timestamp": "2023-02-12T22:10:21.421Z",
+      "total": 0.000816384213270556,
+      "source": "https://moonbeam.public.blastapi.io"
+    },
     {
       "timestamp": "2023-02-08T22:11:03.719Z",
       "total": 0.000816384213270556,
@@ -87,6 +97,18 @@
   ],
   "backing": [
     {
+      "timestamp": "2023-02-12T22:10:21.427Z",
+      "assets": {
+        "busd-multichain-moonbeam": 850.157182709285,
+        "usdc-multichain-moonbeam": 847.740319
+      },
+      "source": "https://moonbeam.public.blastapi.io",
+      "backing-assets": 2,
+      "backing-usd": 1695.46,
+      "ratio": 1,
+      "uniformity": 1
+    },
+    {
       "timestamp": "2023-02-08T22:11:03.713Z",
       "assets": {
         "busd-multichain-moonbeam": 850.1811773335367,
@@ -95,7 +117,7 @@
       "source": "https://moonbeam.public.blastapi.io",
       "backing-assets": 2,
       "backing-usd": 1697.78,
-      "ratio": 1,
+      "ratio": 1.0014,
       "uniformity": 1
     },
     {
@@ -107,7 +129,7 @@
       "source": "https://moonbeam.public.blastapi.io",
       "backing-assets": 2,
       "backing-usd": 1697.77,
-      "ratio": 1,
+      "ratio": 1.0014,
       "uniformity": 1
     },
     {
@@ -119,7 +141,7 @@
       "source": "https://moonbeam.public.blastapi.io",
       "backing-assets": 2,
       "backing-usd": 1695.11,
-      "ratio": 0.9984,
+      "ratio": 0.9998,
       "uniformity": 1
     },
     {
@@ -131,9 +153,9 @@
       "source": "https://moonbeam.public.blastapi.io",
       "backing-assets": 2,
       "backing-usd": 1697.76,
-      "ratio": 1,
+      "ratio": 1.0014,
       "uniformity": 1
     }
   ],
-  "mcap": 1697.78
+  "mcap": 1695.46
 }
