@@ -43,6 +43,11 @@
   },
   "price": [
     {
+      "timestamp": "2023-02-14T22:10:39.140Z",
+      "usd": 0.05418968168676983,
+      "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: pad-toad.network-bsc,eth-binance-bsc"
+    },
+    {
       "timestamp": "2023-02-12T22:10:21.548Z",
       "usd": 0.05370235918268548,
       "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: pad-toad.network-bsc,eth-binance-bsc"
@@ -64,6 +69,11 @@
     }
   ],
   "supply": [
+    {
+      "timestamp": "2023-02-14T22:10:39.077Z",
+      "total": 26659.237701343704,
+      "source": "https://bsc-dataseed3.binance.org/"
+    },
     {
       "timestamp": "2023-02-12T22:10:20.885Z",
       "total": 26659.237701343704,
@@ -87,6 +97,18 @@
   ],
   "backing": [
     {
+      "timestamp": "2023-02-14T22:10:39.095Z",
+      "assets": {
+        "pad-toad.network-bsc": 1605974015.6623344,
+        "eth-binance-bsc": 0.46571383977894054
+      },
+      "source": "https://bsc-dataseed3.binance.org/",
+      "backing-assets": 2,
+      "backing-usd": 1444.66,
+      "ratio": 1,
+      "uniformity": 1
+    },
+    {
       "timestamp": "2023-02-12T22:10:21.226Z",
       "assets": {
         "pad-toad.network-bsc": 1591743775.8197763,
@@ -95,7 +117,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 2,
       "backing-usd": 1431.67,
-      "ratio": 1,
+      "ratio": 0.991,
       "uniformity": 1
     },
     {
@@ -107,7 +129,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 2,
       "backing-usd": 1542.47,
-      "ratio": 1.0774,
+      "ratio": 1.0677,
       "uniformity": 1
     },
     {
@@ -119,7 +141,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 2,
       "backing-usd": 1524.98,
-      "ratio": 1.0652,
+      "ratio": 1.0556,
       "uniformity": 1
     },
     {
@@ -131,9 +153,9 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 2,
       "backing-usd": 1521.22,
-      "ratio": 1.0626,
+      "ratio": 1.053,
       "uniformity": 1
     }
   ],
-  "mcap": 1431.66
+  "mcap": 1444.66
 }

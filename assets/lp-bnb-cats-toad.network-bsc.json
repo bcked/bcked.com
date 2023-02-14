@@ -43,6 +43,11 @@
   },
   "price": [
     {
+      "timestamp": "2023-02-14T22:10:39.139Z",
+      "usd": 6.111370572721763,
+      "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: bnb-binance-bsc,cats-catoshi-bsc"
+    },
+    {
       "timestamp": "2023-02-12T22:10:21.547Z",
       "usd": 7.048666483869968,
       "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: bnb-binance-bsc,cats-catoshi-bsc"
@@ -59,6 +64,11 @@
     }
   ],
   "supply": [
+    {
+      "timestamp": "2023-02-14T22:10:39.086Z",
+      "total": 3619.768891366671,
+      "source": "https://bsc-dataseed3.binance.org/"
+    },
     {
       "timestamp": "2023-02-12T22:10:20.827Z",
       "total": 3619.768891366671,
@@ -82,6 +92,18 @@
   ],
   "backing": [
     {
+      "timestamp": "2023-02-14T22:10:39.095Z",
+      "assets": {
+        "bnb-binance-bsc": 37.20806071723065,
+        "cats-catoshi-bsc": 372446.04555486207
+      },
+      "source": "https://bsc-dataseed3.binance.org/",
+      "backing-assets": 2,
+      "backing-usd": 22121.74,
+      "ratio": 1,
+      "uniformity": 1
+    },
+    {
       "timestamp": "2023-02-12T22:10:21.226Z",
       "assets": {
         "bnb-binance-bsc": 40.49024876738252,
@@ -90,7 +112,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 2,
       "backing-usd": 25514.54,
-      "ratio": 1,
+      "ratio": 1.1534,
       "uniformity": 1
     },
     {
@@ -102,7 +124,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 2,
       "backing-usd": 26933.53,
-      "ratio": 1.0556,
+      "ratio": 1.2175,
       "uniformity": 1
     },
     {
@@ -114,7 +136,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 2,
       "backing-usd": 27386.67,
-      "ratio": 1.0734,
+      "ratio": 1.238,
       "uniformity": 1
     },
     {
@@ -126,9 +148,9 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 2,
       "backing-usd": 27020.41,
-      "ratio": 1.059,
+      "ratio": 1.2214,
       "uniformity": 1
     }
   ],
-  "mcap": 25514.54
+  "mcap": 22121.75
 }

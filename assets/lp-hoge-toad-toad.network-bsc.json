@@ -43,6 +43,11 @@
   },
   "price": [
     {
+      "timestamp": "2023-02-14T22:10:39.140Z",
+      "usd": 548.2390256642417,
+      "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: hoge-multichain-bsc,toad-toad.network-bsc"
+    },
+    {
       "timestamp": "2023-02-12T22:10:21.548Z",
       "usd": 531.7797427276755,
       "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: hoge-multichain-bsc,toad-toad.network-bsc"
@@ -64,6 +69,11 @@
     }
   ],
   "supply": [
+    {
+      "timestamp": "2023-02-14T22:10:39.077Z",
+      "total": 35.2095310212955,
+      "source": "https://bsc-dataseed3.binance.org/"
+    },
     {
       "timestamp": "2023-02-12T22:10:20.884Z",
       "total": 35.2095310212955,
@@ -87,6 +97,18 @@
   ],
   "backing": [
     {
+      "timestamp": "2023-02-14T22:10:39.095Z",
+      "assets": {
+        "hoge-multichain-bsc": 337355794.46618426,
+        "toad-toad.network-bsc": 5011.748809199679
+      },
+      "source": "https://bsc-dataseed3.binance.org/",
+      "backing-assets": 2,
+      "backing-usd": 19303.24,
+      "ratio": 1,
+      "uniformity": 0.9997
+    },
+    {
       "timestamp": "2023-02-12T22:10:21.226Z",
       "assets": {
         "hoge-multichain-bsc": 319717981.8059624,
@@ -95,7 +117,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 2,
       "backing-usd": 18723.72,
-      "ratio": 1,
+      "ratio": 0.97,
       "uniformity": 0.9997
     },
     {
@@ -107,7 +129,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 2,
       "backing-usd": 20115.3,
-      "ratio": 1.0743,
+      "ratio": 1.0421,
       "uniformity": 0.9998
     },
     {
@@ -119,7 +141,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 2,
       "backing-usd": 20614.41,
-      "ratio": 1.101,
+      "ratio": 1.0679,
       "uniformity": 0.9999
     },
     {
@@ -131,9 +153,9 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 2,
       "backing-usd": 21373.13,
-      "ratio": 1.1415,
+      "ratio": 1.1072,
       "uniformity": 0.9992
     }
   ],
-  "mcap": 18723.72
+  "mcap": 19303.24
 }
