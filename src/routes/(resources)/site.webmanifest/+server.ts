@@ -1,12 +1,10 @@
-import { dev } from '$app/environment';
+import { PUBLIC_DOMAIN } from '$env/static/public';
 import { jsonResponse } from '$lib/utils/response';
 import type { RequestHandler } from './$types';
 
 export const prerender = true;
 
 export const GET: RequestHandler = async ({ params }) => {
-	const domain = dev ? 'http://localhost:5173' : 'https://bcked.com';
-
 	return jsonResponse({
 		name: 'bcked',
 		short_name: 'bcked',
@@ -24,7 +22,7 @@ export const GET: RequestHandler = async ({ params }) => {
 		],
 		theme_color: '#ffffff',
 		background_color: '#ffffff',
-		start_url: domain,
+		start_url: PUBLIC_DOMAIN,
 		display: 'standalone'
 	});
 };

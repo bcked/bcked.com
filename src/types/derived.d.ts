@@ -6,4 +6,6 @@ declare namespace derived {
 
 	// TODO Load from .cache when chains are preprocessed
 	type ChainId = string;
+
+	type IssuerId = string;
 }

@@ -1,0 +1,993 @@
+{
+    "nodes": [
+        {
+            "id": "bjt-bsc",
+            "data": {
+                "mcap": 1527
+            }
+        },
+        {
+            "id": "bnb-binance-bsc",
+            "data": {
+                "mcap": 1240979480.0367632
+            }
+        },
+        {
+            "id": "bnb-wormhole-ethereum",
+            "data": {
+                "mcap": 1206600.5582343044
+            }
+        },
+        {
+            "id": "bnb-wormhole-solana",
+            "data": {
+                "mcap": 3373674.340215637
+            }
+        },
+        {
+            "id": "btc-binance-bsc",
+            "data": {
+                "mcap": 1390494482.9999998
+            }
+        },
+        {
+            "id": "btc-bitcoin",
+            "data": {
+                "mcap": 321863415432.00006
+            }
+        },
+        {
+            "id": "busd-allbridge-solana",
+            "data": {
+                "mcap": 100360.683152058
+            }
+        },
+        {
+            "id": "busd-binance-bsc",
+            "data": {
+                "mcap": 4847003955.901568
+            }
+        },
+        {
+            "id": "busd-multichain-moonbeam",
+            "data": {
+                "mcap": 586890.1839770413
+            }
+        },
+        {
+            "id": "busd-multichain-moonriver",
+            "data": {
+                "mcap": 954649.366087257
+            }
+        },
+        {
+            "id": "busd-paxos-ethereum",
+            "data": {
+                "mcap": 16176805382.3
+            }
+        },
+        {
+            "id": "cats-catoshi-bsc",
+            "data": {
+                "mcap": 438405
+            }
+        },
+        {
+            "id": "cats-catoshi-ethereum",
+            "data": {
+                "mcap": 244304.6712277277
+            }
+        },
+        {
+            "id": "eth-binance-bsc",
+            "data": {
+                "mcap": 1000319099.9848688
+            }
+        },
+        {
+            "id": "eth-ethereum",
+            "data": {
+                "mcap": 149030565230.78
+            }
+        },
+        {
+            "id": "eth.w-ethereum",
+            "data": {
+                "mcap": 6465555566.853257
+            }
+        },
+        {
+            "id": "fuk-bsc",
+            "data": {
+                "mcap": 26805
+            }
+        },
+        {
+            "id": "gal-bsc",
+            "data": {
+                "mcap": 41860
+            }
+        },
+        {
+            "id": "glmr-moonbeam-moonbeam",
+            "data": {
+                "mcap": 338207251.1382
+            }
+        },
+        {
+            "id": "glmr.w-moonbeam-moonbeam",
+            "data": {
+                "mcap": 10959823.746092314
+            }
+        },
+        {
+            "id": "glmr.w-toad.network-moonbeam",
+            "data": {
+                "mcap": 20366.918160021356
+            }
+        },
+        {
+            "id": "gold",
+            "data": {
+                "mcap": 15678748388103.848
+            }
+        },
+        {
+            "id": "hoge-ethereum",
+            "data": {
+                "mcap": 30960000
+            }
+        },
+        {
+            "id": "hoge-multichain-bsc",
+            "data": {
+                "mcap": 481086.3774916102
+            }
+        },
+        {
+            "id": "lp-bnb-cats-toad.network-bsc",
+            "data": {
+                "mcap": 26933.531760306585
+            }
+        },
+        {
+            "id": "lp-bnb-fuk-toad.network-bsc",
+            "data": {
+                "mcap": 4884.1044160911315
+            }
+        },
+        {
+            "id": "lp-bnb-toad-toad.network-bsc",
+            "data": {
+                "mcap": 27299.466361564686
+            }
+        },
+        {
+            "id": "lp-busd-bnb-toad.network-bsc",
+            "data": {
+                "mcap": 17539.770222826985
+            }
+        },
+        {
+            "id": "lp-busd-toad-toad.network-bsc",
+            "data": {
+                "mcap": 10013.355201653292
+            }
+        },
+        {
+            "id": "lp-busd-usdc-toad.network-moonbeam",
+            "data": {
+                "mcap": 1697.7771753335367
+            }
+        },
+        {
+            "id": "lp-busd-usdc-toad.network-moonriver",
+            "data": {
+                "mcap": 23904.931780076473
+            }
+        },
+        {
+            "id": "lp-hoge-toad-toad.network-bsc",
+            "data": {
+                "mcap": 20115.302522142374
+            }
+        },
+        {
+            "id": "lp-pad-bnb-toad.network-bsc",
+            "data": {
+                "mcap": 10052.153707686748
+            }
+        },
+        {
+            "id": "lp-pad-btc-toad.network-bsc",
+            "data": {
+                "mcap": 1843.820613797499
+            }
+        },
+        {
+            "id": "lp-pad-busd-toad.network-bsc",
+            "data": {
+                "mcap": 4893.7809212288075
+            }
+        },
+        {
+            "id": "lp-pad-eth-toad.network-bsc",
+            "data": {
+                "mcap": 1542.4746063181003
+            }
+        },
+        {
+            "id": "lp-pad-glmr-toad.network-moonbeam",
+            "data": {
+                "mcap": 8772.27560109204
+            }
+        },
+        {
+            "id": "lp-pad-hoge-toad.network-bsc",
+            "data": {
+                "mcap": 687.8769083282269
+            }
+        },
+        {
+            "id": "lp-pad-movr-toad.network-moonriver",
+            "data": {
+                "mcap": 4473.369900899615
+            }
+        },
+        {
+            "id": "lp-pad-toad-toad.network-bsc",
+            "data": {
+                "mcap": 29281.805293512505
+            }
+        },
+        {
+            "id": "lp-toad-glmr-toad.network-moonbeam",
+            "data": {
+                "mcap": 12132.219710366207
+            }
+        },
+        {
+            "id": "lp-toad-movr-toad.network-moonriver",
+            "data": {
+                "mcap": 3724.1732180949703
+            }
+        },
+        {
+            "id": "lp-usdc-glmr-toad.network-moonbeam",
+            "data": {
+                "mcap": 1302.0466834159754
+            }
+        },
+        {
+            "id": "lp-usdc-movr-toad.network-moonriver",
+            "data": {
+                "mcap": 1915.7512298390402
+            }
+        },
+        {
+            "id": "movr-moonbeam-moonriver",
+            "data": {
+                "mcap": 65059933.58
+            }
+        },
+        {
+            "id": "movr.w-moonbeam-moonriver",
+            "data": {
+                "mcap": 5450.39526308805
+            }
+        },
+        {
+            "id": "pad-toad.network-bsc",
+            "data": {
+                "mcap": 54441.46375961942
+            }
+        },
+        {
+            "id": "pad-toad.network-moonbeam",
+            "data": {
+                "mcap": 13125.01754275649
+            }
+        },
+        {
+            "id": "pad-toad.network-moonriver",
+            "data": {
+                "mcap": 9847.109743132973
+            }
+        },
+        {
+            "id": "paxg-paxos-ethereum",
+            "data": {
+                "mcap": 500339375.404
+            }
+        },
+        {
+            "id": "paxg-wormhole-solana",
+            "data": {
+                "mcap": 819175.6245410801
+            }
+        },
+        {
+            "id": "pxbsc-bsc",
+            "data": {
+                "mcap": 20493.673047855038
+            }
+        },
+        {
+            "id": "toad-toad.network-bsc",
+            "data": {
+                "mcap": 387000
+            }
+        },
+        {
+            "id": "toad-toad.network-moonbeam",
+            "data": {
+                "mcap": 49807.09869856592
+            }
+        },
+        {
+            "id": "toad-toad.network-moonriver",
+            "data": {
+                "mcap": 9636.51944056347
+            }
+        },
+        {
+            "id": "usd-fed",
+            "data": {
+                "mcap": 21728000000000
+            }
+        },
+        {
+            "id": "usdc-binance-bsc",
+            "data": {
+                "mcap": 878999999.8499041
+            }
+        },
+        {
+            "id": "usdc-circle-ethereum",
+            "data": {
+                "mcap": 38491612304.29955
+            }
+        },
+        {
+            "id": "usdc-circle-solana",
+            "data": {
+                "mcap": 5034954021.966025
+            }
+        },
+        {
+            "id": "usdc-multichain-moonbeam",
+            "data": {
+                "mcap": 14303412.640675
+            }
+        },
+        {
+            "id": "usdc-multichain-moonriver",
+            "data": {
+                "mcap": 13362470.833635
+            }
+        },
+        {
+            "id": "lp-bnb-bjt-toad.network-bsc"
+        },
+        {
+            "id": "lp-bnb-gal-toad.network-bsc"
+        },
+        {
+            "id": "lp-bnb-pxbsc-toad.network-bsc"
+        },
+        {
+            "id": "paxg-binance-bsc"
+        }
+    ],
+    "links": [
+        {
+            "fromId": "bnb-wormhole-ethereum",
+            "toId": "bnb-binance-bsc",
+            "data": {
+                "backing": 5085763.478492404
+            }
+        },
+        {
+            "fromId": "bnb-wormhole-solana",
+            "toId": "bnb-binance-bsc",
+            "data": {
+                "backing": 5085763.478492404
+            }
+        },
+        {
+            "fromId": "busd-allbridge-solana",
+            "toId": "busd-binance-bsc",
+            "data": {
+                "backing": 202133.11856836663
+            }
+        },
+        {
+            "fromId": "busd-binance-bsc",
+            "toId": "busd-paxos-ethereum",
+            "data": {
+                "backing": 5435500000
+            }
+        },
+        {
+            "fromId": "busd-multichain-moonbeam",
+            "toId": "busd-binance-bsc",
+            "data": {
+                "backing": 688679.4693004176
+            }
+        },
+        {
+            "fromId": "busd-multichain-moonriver",
+            "toId": "busd-binance-bsc",
+            "data": {
+                "backing": 991312.1455883444
+            }
+        },
+        {
+            "fromId": "busd-paxos-ethereum",
+            "toId": "usd-fed",
+            "data": {
+                "backing": 22262030911.99
+            }
+        },
+        {
+            "fromId": "cats-catoshi-bsc",
+            "toId": "cats-catoshi-ethereum",
+            "data": {
+                "backing": 115519.40746303019
+            }
+        },
+        {
+            "fromId": "hoge-multichain-bsc",
+            "toId": "hoge-ethereum",
+            "data": {
+                "backing": 430768.11957007187
+            }
+        },
+        {
+            "fromId": "lp-bnb-bjt-toad.network-bsc",
+            "toId": "bnb-binance-bsc",
+            "data": {
+                "backing": 541.969698850907
+            }
+        },
+        {
+            "fromId": "lp-bnb-bjt-toad.network-bsc",
+            "toId": "bjt-bsc",
+            "data": {
+                "backing": 470.6298997211711
+            }
+        },
+        {
+            "fromId": "lp-bnb-cats-toad.network-bsc",
+            "toId": "bnb-binance-bsc",
+            "data": {
+                "backing": 13468.753751478578
+            }
+        },
+        {
+            "fromId": "lp-bnb-cats-toad.network-bsc",
+            "toId": "cats-catoshi-bsc",
+            "data": {
+                "backing": 13464.778008828009
+            }
+        },
+        {
+            "fromId": "lp-bnb-fuk-toad.network-bsc",
+            "toId": "bnb-binance-bsc",
+            "data": {
+                "backing": 2439.596900287756
+            }
+        },
+        {
+            "fromId": "lp-bnb-fuk-toad.network-bsc",
+            "toId": "fuk-bsc",
+            "data": {
+                "backing": 2415.8133722385305
+            }
+        },
+        {
+            "fromId": "lp-bnb-gal-toad.network-bsc",
+            "toId": "bnb-binance-bsc",
+            "data": {
+                "backing": 4756.995661297193
+            }
+        },
+        {
+            "fromId": "lp-bnb-gal-toad.network-bsc",
+            "toId": "gal-bsc",
+            "data": {
+                "backing": 3138.1549363555146
+            }
+        },
+        {
+            "fromId": "lp-bnb-pxbsc-toad.network-bsc",
+            "toId": "bnb-binance-bsc",
+            "data": {
+                "backing": 15353.31238559445
+            }
+        },
+        {
+            "fromId": "lp-bnb-pxbsc-toad.network-bsc",
+            "toId": "pxbsc-bsc",
+            "data": {
+                "backing": 11108.151933862351
+            }
+        },
+        {
+            "fromId": "lp-bnb-toad-toad.network-bsc",
+            "toId": "bnb-binance-bsc",
+            "data": {
+                "backing": 13672.83004700415
+            }
+        },
+        {
+            "fromId": "lp-bnb-toad-toad.network-bsc",
+            "toId": "toad-toad.network-bsc",
+            "data": {
+                "backing": 13626.636314560536
+            }
+        },
+        {
+            "fromId": "lp-busd-bnb-toad.network-bsc",
+            "toId": "busd-binance-bsc",
+            "data": {
+                "backing": 8743.746022320067
+            }
+        },
+        {
+            "fromId": "lp-busd-bnb-toad.network-bsc",
+            "toId": "bnb-binance-bsc",
+            "data": {
+                "backing": 8796.02420050692
+            }
+        },
+        {
+            "fromId": "lp-busd-toad-toad.network-bsc",
+            "toId": "busd-binance-bsc",
+            "data": {
+                "backing": 5008.9299488126135
+            }
+        },
+        {
+            "fromId": "lp-busd-toad-toad.network-bsc",
+            "toId": "toad-toad.network-bsc",
+            "data": {
+                "backing": 5004.425252840678
+            }
+        },
+        {
+            "fromId": "lp-busd-usdc-toad.network-moonbeam",
+            "toId": "busd-multichain-moonbeam",
+            "data": {
+                "backing": 850.1811773335367
+            }
+        },
+        {
+            "fromId": "lp-busd-usdc-toad.network-moonbeam",
+            "toId": "usdc-multichain-moonbeam",
+            "data": {
+                "backing": 847.595998
+            }
+        },
+        {
+            "fromId": "lp-busd-usdc-toad.network-moonriver",
+            "toId": "busd-multichain-moonriver",
+            "data": {
+                "backing": 11957.637443076474
+            }
+        },
+        {
+            "fromId": "lp-busd-usdc-toad.network-moonriver",
+            "toId": "usdc-multichain-moonriver",
+            "data": {
+                "backing": 11947.294337
+            }
+        },
+        {
+            "fromId": "lp-hoge-toad-toad.network-bsc",
+            "toId": "hoge-multichain-bsc",
+            "data": {
+                "backing": 9874.938932941574
+            }
+        },
+        {
+            "fromId": "lp-hoge-toad-toad.network-bsc",
+            "toId": "toad-toad.network-bsc",
+            "data": {
+                "backing": 10240.363589200799
+            }
+        },
+        {
+            "fromId": "lp-pad-bnb-toad.network-bsc",
+            "toId": "pad-toad.network-bsc",
+            "data": {
+                "backing": 5039.360115209648
+            }
+        },
+        {
+            "fromId": "lp-pad-bnb-toad.network-bsc",
+            "toId": "bnb-binance-bsc",
+            "data": {
+                "backing": 5012.7935924771
+            }
+        },
+        {
+            "fromId": "lp-pad-btc-toad.network-bsc",
+            "toId": "pad-toad.network-bsc",
+            "data": {
+                "backing": 923.870981674352
+            }
+        },
+        {
+            "fromId": "lp-pad-btc-toad.network-bsc",
+            "toId": "btc-binance-bsc",
+            "data": {
+                "backing": 919.9496321231469
+            }
+        },
+        {
+            "fromId": "lp-pad-busd-toad.network-bsc",
+            "toId": "pad-toad.network-bsc",
+            "data": {
+                "backing": 2449.7205686085667
+            }
+        },
+        {
+            "fromId": "lp-pad-busd-toad.network-bsc",
+            "toId": "busd-binance-bsc",
+            "data": {
+                "backing": 2444.060352620241
+            }
+        },
+        {
+            "fromId": "lp-pad-eth-toad.network-bsc",
+            "toId": "pad-toad.network-bsc",
+            "data": {
+                "backing": 777.0903487925106
+            }
+        },
+        {
+            "fromId": "lp-pad-eth-toad.network-bsc",
+            "toId": "eth-binance-bsc",
+            "data": {
+                "backing": 765.3842575255898
+            }
+        },
+        {
+            "fromId": "lp-pad-glmr-toad.network-moonbeam",
+            "toId": "pad-toad.network-moonbeam",
+            "data": {
+                "backing": 4390.951098244639
+            }
+        },
+        {
+            "fromId": "lp-pad-glmr-toad.network-moonbeam",
+            "toId": "glmr.w-toad.network-moonbeam",
+            "data": {
+                "backing": 4381.324502847401
+            }
+        },
+        {
+            "fromId": "lp-pad-hoge-toad.network-bsc",
+            "toId": "pad-toad.network-bsc",
+            "data": {
+                "backing": 354.7438983861653
+            }
+        },
+        {
+            "fromId": "lp-pad-hoge-toad.network-bsc",
+            "toId": "hoge-multichain-bsc",
+            "data": {
+                "backing": 333.1330099420616
+            }
+        },
+        {
+            "fromId": "lp-pad-movr-toad.network-moonriver",
+            "toId": "pad-toad.network-moonriver",
+            "data": {
+                "backing": 2229.1300711978815
+            }
+        },
+        {
+            "fromId": "lp-pad-movr-toad.network-moonriver",
+            "toId": "movr.w-moonbeam-moonriver",
+            "data": {
+                "backing": 2244.239829701733
+            }
+        },
+        {
+            "fromId": "lp-pad-toad-toad.network-bsc",
+            "toId": "pad-toad.network-bsc",
+            "data": {
+                "backing": 14695.226769261631
+            }
+        },
+        {
+            "fromId": "lp-pad-toad-toad.network-bsc",
+            "toId": "toad-toad.network-bsc",
+            "data": {
+                "backing": 14586.578524250872
+            }
+        },
+        {
+            "fromId": "lp-toad-glmr-toad.network-moonbeam",
+            "toId": "toad-toad.network-moonbeam",
+            "data": {
+                "backing": 6061.613557347354
+            }
+        },
+        {
+            "fromId": "lp-toad-glmr-toad.network-moonbeam",
+            "toId": "glmr.w-toad.network-moonbeam",
+            "data": {
+                "backing": 6070.606153018853
+            }
+        },
+        {
+            "fromId": "lp-toad-movr-toad.network-moonriver",
+            "toId": "toad-toad.network-moonriver",
+            "data": {
+                "backing": 1853.8781613683398
+            }
+        },
+        {
+            "fromId": "lp-toad-movr-toad.network-moonriver",
+            "toId": "movr.w-moonbeam-moonriver",
+            "data": {
+                "backing": 1870.2950567266303
+            }
+        },
+        {
+            "fromId": "lp-usdc-glmr-toad.network-moonbeam",
+            "toId": "usdc-multichain-moonbeam",
+            "data": {
+                "backing": 651.54112
+            }
+        },
+        {
+            "fromId": "lp-usdc-glmr-toad.network-moonbeam",
+            "toId": "glmr.w-toad.network-moonbeam",
+            "data": {
+                "backing": 650.5055634159754
+            }
+        },
+        {
+            "fromId": "lp-usdc-movr-toad.network-moonriver",
+            "toId": "usdc-multichain-moonriver",
+            "data": {
+                "backing": 957.962883
+            }
+        },
+        {
+            "fromId": "lp-usdc-movr-toad.network-moonriver",
+            "toId": "movr.w-moonbeam-moonriver",
+            "data": {
+                "backing": 957.7883468390402
+            }
+        },
+        {
+            "fromId": "pad-toad.network-bsc",
+            "toId": "lp-pad-toad-toad.network-bsc",
+            "data": {
+                "backing": 2132.6540188115832
+            }
+        },
+        {
+            "fromId": "pad-toad.network-bsc",
+            "toId": "lp-bnb-toad-toad.network-bsc",
+            "data": {
+                "backing": 3449.489497385338
+            }
+        },
+        {
+            "fromId": "pad-toad.network-bsc",
+            "toId": "lp-busd-toad-toad.network-bsc",
+            "data": {
+                "backing": 1793.086554259483
+            }
+        },
+        {
+            "fromId": "pad-toad.network-bsc",
+            "toId": "lp-pad-bnb-toad.network-bsc",
+            "data": {
+                "backing": 1932.084879843528
+            }
+        },
+        {
+            "fromId": "pad-toad.network-bsc",
+            "toId": "lp-pad-busd-toad.network-bsc",
+            "data": {
+                "backing": 797.1425864874582
+            }
+        },
+        {
+            "fromId": "pad-toad.network-bsc",
+            "toId": "lp-busd-bnb-toad.network-bsc",
+            "data": {
+                "backing": 9644.396963497324
+            }
+        },
+        {
+            "fromId": "pad-toad.network-bsc",
+            "toId": "lp-pad-eth-toad.network-bsc",
+            "data": {
+                "backing": 531.7421664420094
+            }
+        },
+        {
+            "fromId": "pad-toad.network-bsc",
+            "toId": "lp-pad-btc-toad.network-bsc",
+            "data": {
+                "backing": 483.55624474366834
+            }
+        },
+        {
+            "fromId": "pad-toad.network-bsc",
+            "toId": "lp-hoge-toad-toad.network-bsc",
+            "data": {
+                "backing": 568.6990706142858
+            }
+        },
+        {
+            "fromId": "pad-toad.network-bsc",
+            "toId": "lp-bnb-fuk-toad.network-bsc",
+            "data": {
+                "backing": 447.09896227896195
+            }
+        },
+        {
+            "fromId": "pad-toad.network-bsc",
+            "toId": "lp-pad-hoge-toad.network-bsc",
+            "data": {
+                "backing": 156.34407880497594
+            }
+        },
+        {
+            "fromId": "pad-toad.network-bsc",
+            "toId": "lp-bnb-cats-toad.network-bsc",
+            "data": {
+                "backing": 2253.7306099838133
+            }
+        },
+        {
+            "fromId": "pad-toad.network-bsc",
+            "toId": "toad-toad.network-bsc",
+            "data": {
+                "backing": 7350.74001529481
+            }
+        },
+        {
+            "fromId": "pad-toad.network-moonbeam",
+            "toId": "lp-pad-glmr-toad.network-moonbeam",
+            "data": {
+                "backing": 3544.411211537176
+            }
+        },
+        {
+            "fromId": "pad-toad.network-moonbeam",
+            "toId": "lp-busd-usdc-toad.network-moonbeam",
+            "data": {
+                "backing": 1697.7771753314569
+            }
+        },
+        {
+            "fromId": "pad-toad.network-moonbeam",
+            "toId": "lp-toad-glmr-toad.network-moonbeam",
+            "data": {
+                "backing": 1954.608132993995
+            }
+        },
+        {
+            "fromId": "pad-toad.network-moonbeam",
+            "toId": "lp-usdc-glmr-toad.network-moonbeam",
+            "data": {
+                "backing": 953.9540921469545
+            }
+        },
+        {
+            "fromId": "pad-toad.network-moonbeam",
+            "toId": "toad-toad.network-moonbeam",
+            "data": {
+                "backing": 1268.6299999999999
+            }
+        },
+        {
+            "fromId": "pad-toad.network-moonriver",
+            "toId": "lp-pad-movr-toad.network-moonriver",
+            "data": {
+                "backing": 2834.1546021169293
+            }
+        },
+        {
+            "fromId": "pad-toad.network-moonriver",
+            "toId": "lp-busd-usdc-toad.network-moonriver",
+            "data": {
+                "backing": 1161.6342997426677
+            }
+        },
+        {
+            "fromId": "pad-toad.network-moonriver",
+            "toId": "lp-usdc-movr-toad.network-moonriver",
+            "data": {
+                "backing": 558.990658283736
+            }
+        },
+        {
+            "fromId": "pad-toad.network-moonriver",
+            "toId": "lp-toad-movr-toad.network-moonriver",
+            "data": {
+                "backing": 2146.3260775857802
+            }
+        },
+        {
+            "fromId": "pad-toad.network-moonriver",
+            "toId": "toad-toad.network-moonriver",
+            "data": {
+                "backing": 0.00311574238934334
+            }
+        },
+        {
+            "fromId": "paxg-binance-bsc",
+            "toId": "paxg-paxos-ethereum",
+            "data": {
+                "backing": 560319.81362
+            }
+        },
+        {
+            "fromId": "paxg-paxos-ethereum",
+            "toId": "gold",
+            "data": {
+                "backing": 494150251.78026
+            }
+        },
+        {
+            "fromId": "paxg-wormhole-solana",
+            "toId": "paxg-paxos-ethereum",
+            "data": {
+                "backing": 819180.7351024802
+            }
+        },
+        {
+            "fromId": "toad-toad.network-moonbeam",
+            "toId": "toad-toad.network-bsc",
+            "data": {
+                "backing": 47001.436047667106
+            }
+        },
+        {
+            "fromId": "toad-toad.network-moonriver",
+            "toId": "toad-toad.network-bsc",
+            "data": {
+                "backing": 9118.864241877802
+            }
+        },
+        {
+            "fromId": "usdc-binance-bsc",
+            "toId": "usdc-circle-ethereum",
+            "data": {
+                "backing": 882999971.84
+            }
+        },
+        {
+            "fromId": "usdc-circle-ethereum",
+            "toId": "usd-fed",
+            "data": {
+                "backing": 43404329767
+            }
+        },
+        {
+            "fromId": "usdc-multichain-moonbeam",
+            "toId": "usdc-circle-ethereum",
+            "data": {
+                "backing": 14522080.96905
+            }
+        },
+        {
+            "fromId": "usdc-multichain-moonriver",
+            "toId": "usdc-circle-ethereum",
+            "data": {
+                "backing": 13671060.232896
+            }
+        }
+    ]
+}

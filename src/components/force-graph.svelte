@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { base } from '$app/paths';
-	import _ from 'lodash-es';
 	import * as d3 from 'd3';
 	import forceBoundary from 'd3-force-boundary';
 	import { onMount } from 'svelte';
@@ -37,7 +36,8 @@
 		const factor = (Math.max(Math.min(l['z-score'], 1), -1) + 1) * 0.5;
 		return Math.max(5 * factor, 1.5);
 	}; // given d in links, returns a stroke width in pixels
-	export let linkStrokeLinecap = 'round'; // link stroke linecap
+	export let linkStrokeLinecap: 'round' | 'inherit' | 'butt' | 'square' | null | undefined =
+		'round'; // link stroke linecap
 	export let linkStrength: number | undefined = undefined;
 	export let invalidation = new Promise(() => ({})); // when this promise resolves, stop the simulation
 

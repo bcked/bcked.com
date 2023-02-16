@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { page } from '$app/stores';
-	import { onMount } from 'svelte';
 	import { base } from '$app/paths';
-	import { Listbox, ListboxOptions, ListboxOption } from '@rgossiaux/svelte-headlessui';
-	import { SearchIcon, XCircleIcon } from '@rgossiaux/svelte-heroicons/solid';
+	import { page } from '$app/stores';
+	import { Listbox, ListboxOption, ListboxOptions } from '@rgossiaux/svelte-headlessui';
 	import { CashIcon, EmojiSadIcon } from '@rgossiaux/svelte-heroicons/outline';
+	import { SearchIcon, XCircleIcon } from '@rgossiaux/svelte-heroicons/solid';
+	import { onMount } from 'svelte';
 	import Typewriter from 'svelte-typewriter';
 
 	let clazz: string = '';
@@ -23,20 +23,21 @@
 	let data: SearchItems = [];
 
 	onMount(async function () {
-		const assets: api.Assets = await (await fetch(`${base}/assets.json`)).json();
-		data = Object.entries(assets).map(([id, asset]) => ({
-			name: asset.name,
-			symbol: asset.symbol,
-			category: 'Asset',
-			path: asset.links.ui,
-			icon: asset.icon,
-			indices: [
-				id,
-				asset.symbol,
-				asset.name,
-				...(asset.contracts ? Object.keys(asset.contracts) : [])
-			]
-		}));
+		// TODO
+		// const assets: api.Assets = await (await fetch(`${base}/assets.json`)).json();
+		// data = Object.entries(assets).map(([id, asset]) => ({
+		// 	name: asset.name,
+		// 	symbol: asset.symbol,
+		// 	category: 'Asset',
+		// 	path: asset.links.ui,
+		// 	icon: asset.icon,
+		// 	indices: [
+		// 		id,
+		// 		asset.symbol,
+		// 		asset.name,
+		// 		...(asset.contracts ? Object.keys(asset.contracts) : [])
+		// 	]
+		// }));
 	});
 
 	let query: string = '';

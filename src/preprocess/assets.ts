@@ -4,7 +4,7 @@ import { round } from '$lib/utils/math';
 import fs from 'fs';
 import path from 'path';
 
-async function loadHistoricalData<Type>(
+export async function loadHistoricalData<Type>(
 	dirPath: string
 ): Promise<({ timestamp: string } & Type)[] | undefined> {
 	if (!fs.existsSync(dirPath)) {

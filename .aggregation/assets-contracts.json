@@ -1,0 +1,1345 @@
+{
+    "bjt-bsc": {
+        "id": "bjt-bsc",
+        "token": {
+            "address": "0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658",
+            "chain": "bsc"
+        },
+        "git": {
+            "updated": {
+                "hash": "582a44205d2389f913b46607a06868928a502c0d",
+                "date": "2023-01-31T21:59:44.000Z"
+            },
+            "created": {
+                "hash": "582a44205d2389f913b46607a06868928a502c0d",
+                "date": "2023-01-31T21:59:44.000Z"
+            }
+        }
+    },
+    "bnb-binance-bsc": {
+        "id": "bnb-binance-bsc",
+        "token": {
+            "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+            "chain": "bsc"
+        },
+        "git": {
+            "updated": {
+                "hash": "582a44205d2389f913b46607a06868928a502c0d",
+                "date": "2023-01-31T21:59:44.000Z"
+            },
+            "created": {
+                "hash": "582a44205d2389f913b46607a06868928a502c0d",
+                "date": "2023-01-31T21:59:44.000Z"
+            }
+        }
+    },
+    "bnb-wormhole-ethereum": {
+        "id": "bnb-wormhole-ethereum",
+        "token": {
+            "address": "0x418D75f65a02b3D53B2418FB8E1fe493759c7605",
+            "chain": "ethereum"
+        },
+        "vault": {
+            "address": "0xB6F6D86a8f9879A9c87f643768d9efc38c1Da6E7",
+            "chain": "bsc",
+            "underlying-assets": [
+                "bnb-binance-bsc"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
+                "date": "2023-02-01T21:31:00.000Z"
+            },
+            "created": {
+                "hash": "582a44205d2389f913b46607a06868928a502c0d",
+                "date": "2023-01-31T21:59:44.000Z"
+            }
+        }
+    },
+    "bnb-wormhole-solana": {
+        "id": "bnb-wormhole-solana",
+        "token": {
+            "address": "9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa",
+            "chain": "solana"
+        },
+        "vault": {
+            "address": "0xB6F6D86a8f9879A9c87f643768d9efc38c1Da6E7",
+            "chain": "bsc",
+            "underlying-assets": [
+                "bnb-binance-bsc"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
+                "date": "2023-02-01T21:31:00.000Z"
+            },
+            "created": {
+                "hash": "582a44205d2389f913b46607a06868928a502c0d",
+                "date": "2023-01-31T21:59:44.000Z"
+            }
+        }
+    },
+    "btc-binance-bsc": {
+        "id": "btc-binance-bsc",
+        "token": {
+            "address": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+            "chain": "bsc"
+        },
+        "git": {
+            "updated": {
+                "hash": "582a44205d2389f913b46607a06868928a502c0d",
+                "date": "2023-01-31T21:59:44.000Z"
+            },
+            "created": {
+                "hash": "582a44205d2389f913b46607a06868928a502c0d",
+                "date": "2023-01-31T21:59:44.000Z"
+            }
+        }
+    },
+    "busd-allbridge-solana": {
+        "id": "busd-allbridge-solana",
+        "token": {
+            "address": "6nuaX3ogrr2CaoAPjtaKHAoBNWok32BMcRozuf32s2QF",
+            "chain": "solana"
+        },
+        "vault": {
+            "address": "0xBBbD1BbB4f9b936C3604906D7592A644071dE884",
+            "chain": "bsc",
+            "underlying-assets": [
+                "busd-binance-bsc"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
+                "date": "2023-02-01T21:31:00.000Z"
+            },
+            "created": {
+                "hash": "582a44205d2389f913b46607a06868928a502c0d",
+                "date": "2023-01-31T21:59:44.000Z"
+            }
+        }
+    },
+    "busd-binance-bsc": {
+        "id": "busd-binance-bsc",
+        "token": {
+            "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+            "chain": "bsc"
+        },
+        "vault": {
+            "address": "0x47ac0Fb4F2D84898e4D9E7b4DaB3C24507a6D503",
+            "chain": "ethereum",
+            "underlying-assets": [
+                "busd-paxos-ethereum"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
+                "date": "2023-02-01T21:31:00.000Z"
+            },
+            "created": {
+                "hash": "582a44205d2389f913b46607a06868928a502c0d",
+                "date": "2023-01-31T21:59:44.000Z"
+            }
+        }
+    },
+    "busd-multichain-moonbeam": {
+        "id": "busd-multichain-moonbeam",
+        "token": {
+            "address": "0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F",
+            "chain": "moonbeam"
+        },
+        "vault": {
+            "address": "0xd9B4aE62721d6311d67566A32E75f9002447922e",
+            "chain": "bsc",
+            "underlying-assets": [
+                "busd-binance-bsc"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
+                "date": "2023-02-01T21:31:00.000Z"
+            },
+            "created": {
+                "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
+                "date": "2023-02-01T21:31:00.000Z"
+            }
+        }
+    },
+    "busd-multichain-moonriver": {
+        "id": "busd-multichain-moonriver",
+        "token": {
+            "address": "0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818",
+            "chain": "moonriver"
+        },
+        "vault": {
+            "address": "0xd6faf697504075a358524996b132b532cc5D0F14",
+            "chain": "bsc",
+            "underlying-assets": [
+                "busd-binance-bsc"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
+                "date": "2023-02-01T21:31:00.000Z"
+            },
+            "created": {
+                "hash": "582a44205d2389f913b46607a06868928a502c0d",
+                "date": "2023-01-31T21:59:44.000Z"
+            }
+        }
+    },
+    "busd-paxos-ethereum": {
+        "id": "busd-paxos-ethereum",
+        "token": {
+            "address": "0x4Fabb145d64652a948d72533023f6E7A623C7C53",
+            "chain": "ethereum"
+        },
+        "git": {
+            "updated": {
+                "hash": "582a44205d2389f913b46607a06868928a502c0d",
+                "date": "2023-01-31T21:59:44.000Z"
+            },
+            "created": {
+                "hash": "582a44205d2389f913b46607a06868928a502c0d",
+                "date": "2023-01-31T21:59:44.000Z"
+            }
+        }
+    },
+    "cats-catoshi-bsc": {
+        "id": "cats-catoshi-bsc",
+        "token": {
+            "address": "0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56",
+            "chain": "bsc"
+        },
+        "vault": {
+            "address": "0xd4721caA7aB7d2C8A7d461A546717375Dc42e9c1",
+            "chain": "ethereum",
+            "underlying-assets": [
+                "cats-catoshi-ethereum"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "31a13f2cfc7886cce993e2a9363c6af4e6447cab",
+                "date": "2023-02-03T19:58:11.000Z"
+            },
+            "created": {
+                "hash": "582a44205d2389f913b46607a06868928a502c0d",
+                "date": "2023-01-31T21:59:44.000Z"
+            }
+        }
+    },
+    "cats-catoshi-ethereum": {
+        "id": "cats-catoshi-ethereum",
+        "token": {
+            "address": "0xA10989335F3ba92bd43e60fBE8D42FE739412ac4",
+            "chain": "ethereum"
+        },
+        "git": {
+            "updated": {
+                "hash": "31a13f2cfc7886cce993e2a9363c6af4e6447cab",
+                "date": "2023-02-03T19:58:11.000Z"
+            },
+            "created": {
+                "hash": "582a44205d2389f913b46607a06868928a502c0d",
+                "date": "2023-01-31T21:59:44.000Z"
+            }
+        }
+    },
+    "eth-binance-bsc": {
+        "id": "eth-binance-bsc",
+        "token": {
+            "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+            "chain": "bsc"
+        },
+        "vault": {
+            "address": "0x47ac0Fb4F2D84898e4D9E7b4DaB3C24507a6D503",
+            "chain": "ethereum",
+            "underlying-assets": [
+                "eth-ethereum"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
+                "date": "2023-02-01T21:31:00.000Z"
+            },
+            "created": {
+                "hash": "582a44205d2389f913b46607a06868928a502c0d",
+                "date": "2023-01-31T21:59:44.000Z"
+            }
+        }
+    },
+    "eth.w-ethereum": {
+        "id": "eth.w-ethereum",
+        "token": {
+            "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+            "chain": "ethereum"
+        },
+        "git": {
+            "updated": {
+                "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
+                "date": "2023-02-05T14:56:52.000Z"
+            },
+            "created": {
+                "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
+                "date": "2023-02-01T21:31:00.000Z"
+            }
+        }
+    },
+    "fuk-bsc": {
+        "id": "fuk-bsc",
+        "token": {
+            "address": "0xA898bbb508C04BE26af3d319b7775927AFCB02AF",
+            "chain": "bsc"
+        },
+        "git": {
+            "updated": {
+                "hash": "582a44205d2389f913b46607a06868928a502c0d",
+                "date": "2023-01-31T21:59:44.000Z"
+            },
+            "created": {
+                "hash": "582a44205d2389f913b46607a06868928a502c0d",
+                "date": "2023-01-31T21:59:44.000Z"
+            }
+        }
+    },
+    "gal-bsc": {
+        "id": "gal-bsc",
+        "token": {
+            "address": "0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78",
+            "chain": "bsc"
+        },
+        "git": {
+            "updated": {
+                "hash": "582a44205d2389f913b46607a06868928a502c0d",
+                "date": "2023-01-31T21:59:44.000Z"
+            },
+            "created": {
+                "hash": "582a44205d2389f913b46607a06868928a502c0d",
+                "date": "2023-01-31T21:59:44.000Z"
+            }
+        }
+    },
+    "glmr.w-moonbeam-moonbeam": {
+        "id": "glmr.w-moonbeam-moonbeam",
+        "token": {
+            "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
+            "chain": "moonbeam"
+        },
+        "git": {
+            "updated": {
+                "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
+                "date": "2023-02-05T14:56:52.000Z"
+            },
+            "created": {
+                "hash": "582a44205d2389f913b46607a06868928a502c0d",
+                "date": "2023-01-31T21:59:44.000Z"
+            }
+        }
+    },
+    "glmr.w-toad.network-moonbeam": {
+        "id": "glmr.w-toad.network-moonbeam",
+        "token": {
+            "address": "0xe3DB50049C74De2F7d7269823af3178Cf22fd5E3",
+            "chain": "moonbeam"
+        },
+        "git": {
+            "updated": {
+                "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
+                "date": "2023-02-05T14:56:52.000Z"
+            },
+            "created": {
+                "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
+                "date": "2023-02-05T14:56:52.000Z"
+            }
+        }
+    },
+    "hoge-ethereum": {
+        "id": "hoge-ethereum",
+        "token": {
+            "address": "0xfAd45E47083e4607302aa43c65fB3106F1cd7607",
+            "chain": "ethereum"
+        },
+        "git": {
+            "updated": {
+                "hash": "582a44205d2389f913b46607a06868928a502c0d",
+                "date": "2023-01-31T21:59:44.000Z"
+            },
+            "created": {
+                "hash": "582a44205d2389f913b46607a06868928a502c0d",
+                "date": "2023-01-31T21:59:44.000Z"
+            }
+        }
+    },
+    "hoge-multichain-bsc": {
+        "id": "hoge-multichain-bsc",
+        "token": {
+            "address": "0xa4FFfc757e8c4F24E7b209C033c123D20983Ad40",
+            "chain": "bsc"
+        },
+        "vault": {
+            "address": "0x533e3c0e6b48010873B947bddC4721b1bDFF9648",
+            "chain": "ethereum",
+            "underlying-assets": [
+                "hoge-ethereum"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "582a44205d2389f913b46607a06868928a502c0d",
+                "date": "2023-01-31T21:59:44.000Z"
+            },
+            "created": {
+                "hash": "582a44205d2389f913b46607a06868928a502c0d",
+                "date": "2023-01-31T21:59:44.000Z"
+            }
+        }
+    },
+    "lp-bnb-bjt-toad.network-bsc": {
+        "id": "lp-bnb-bjt-toad.network-bsc",
+        "token": {
+            "address": "0xeB22EbB99D5E6B16ae35b77Cf136c60cd077B8Cb",
+            "chain": "bsc"
+        },
+        "vault": {
+            "address": "0xeB22EbB99D5E6B16ae35b77Cf136c60cd077B8Cb",
+            "chain": "bsc",
+            "underlying-assets": [
+                "bnb-binance-bsc",
+                "bjt-bsc"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
+                "date": "2023-02-06T19:45:54.000Z"
+            },
+            "created": {
+                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
+                "date": "2023-02-06T19:45:54.000Z"
+            }
+        }
+    },
+    "lp-bnb-cats-toad.network-bsc": {
+        "id": "lp-bnb-cats-toad.network-bsc",
+        "token": {
+            "address": "0xD91636511cDc2B9F2Af58CC8fcacbB0F0127f37f",
+            "chain": "bsc"
+        },
+        "vault": {
+            "address": "0xD91636511cDc2B9F2Af58CC8fcacbB0F0127f37f",
+            "chain": "bsc",
+            "underlying-assets": [
+                "bnb-binance-bsc",
+                "cats-catoshi-bsc"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
+                "date": "2023-02-06T19:45:54.000Z"
+            },
+            "created": {
+                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
+                "date": "2023-02-06T19:45:54.000Z"
+            }
+        }
+    },
+    "lp-bnb-fuk-toad.network-bsc": {
+        "id": "lp-bnb-fuk-toad.network-bsc",
+        "token": {
+            "address": "0x2c001A059A0F2BD76293c755B3455163cC03A159",
+            "chain": "bsc"
+        },
+        "vault": {
+            "address": "0x2c001A059A0F2BD76293c755B3455163cC03A159",
+            "chain": "bsc",
+            "underlying-assets": [
+                "bnb-binance-bsc",
+                "fuk-bsc"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
+                "date": "2023-02-06T19:45:54.000Z"
+            },
+            "created": {
+                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
+                "date": "2023-02-06T19:45:54.000Z"
+            }
+        }
+    },
+    "lp-bnb-gal-toad.network-bsc": {
+        "id": "lp-bnb-gal-toad.network-bsc",
+        "token": {
+            "address": "0x1afE79f5eB36798b92106885507Ba1A9cDA954f6",
+            "chain": "bsc"
+        },
+        "vault": {
+            "address": "0x1afE79f5eB36798b92106885507Ba1A9cDA954f6",
+            "chain": "bsc",
+            "underlying-assets": [
+                "bnb-binance-bsc",
+                "gal-bsc"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
+                "date": "2023-02-06T19:45:54.000Z"
+            },
+            "created": {
+                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
+                "date": "2023-02-06T19:45:54.000Z"
+            }
+        }
+    },
+    "lp-bnb-pxbsc-toad.network-bsc": {
+        "id": "lp-bnb-pxbsc-toad.network-bsc",
+        "token": {
+            "address": "0x6F547381e6594C177A4C56Bc818b599cc78A8c16",
+            "chain": "bsc"
+        },
+        "vault": {
+            "address": "0x6F547381e6594C177A4C56Bc818b599cc78A8c16",
+            "chain": "bsc",
+            "underlying-assets": [
+                "bnb-binance-bsc",
+                "pxbsc-bsc"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
+                "date": "2023-02-06T19:45:54.000Z"
+            },
+            "created": {
+                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
+                "date": "2023-02-06T19:45:54.000Z"
+            }
+        }
+    },
+    "lp-bnb-toad-toad.network-bsc": {
+        "id": "lp-bnb-toad-toad.network-bsc",
+        "token": {
+            "address": "0xEF6421325F7eD6ebeeAa2B092F9Cc64EE2aA3B3B",
+            "chain": "bsc"
+        },
+        "vault": {
+            "address": "0xEF6421325F7eD6ebeeAa2B092F9Cc64EE2aA3B3B",
+            "chain": "bsc",
+            "underlying-assets": [
+                "bnb-binance-bsc",
+                "toad-toad.network-bsc"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
+                "date": "2023-02-06T19:45:54.000Z"
+            },
+            "created": {
+                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
+                "date": "2023-02-06T19:45:54.000Z"
+            }
+        }
+    },
+    "lp-busd-bnb-toad.network-bsc": {
+        "id": "lp-busd-bnb-toad.network-bsc",
+        "token": {
+            "address": "0x1Ed31DB9078FaFA28ba8a2c09C0fa421943cb383",
+            "chain": "bsc"
+        },
+        "vault": {
+            "address": "0x1Ed31DB9078FaFA28ba8a2c09C0fa421943cb383",
+            "chain": "bsc",
+            "underlying-assets": [
+                "busd-binance-bsc",
+                "bnb-binance-bsc"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
+                "date": "2023-02-06T19:45:54.000Z"
+            },
+            "created": {
+                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
+                "date": "2023-02-06T19:45:54.000Z"
+            }
+        }
+    },
+    "lp-busd-toad-toad.network-bsc": {
+        "id": "lp-busd-toad-toad.network-bsc",
+        "token": {
+            "address": "0x71D40923e39aC8D93471477c677018d0223b3da9",
+            "chain": "bsc"
+        },
+        "vault": {
+            "address": "0x71D40923e39aC8D93471477c677018d0223b3da9",
+            "chain": "bsc",
+            "underlying-assets": [
+                "busd-binance-bsc",
+                "toad-toad.network-bsc"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
+                "date": "2023-02-06T19:45:54.000Z"
+            },
+            "created": {
+                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
+                "date": "2023-02-06T19:45:54.000Z"
+            }
+        }
+    },
+    "lp-busd-usdc-toad.network-moonbeam": {
+        "id": "lp-busd-usdc-toad.network-moonbeam",
+        "token": {
+            "address": "0x079095D0AA760Dd88964b24267Ef7d9e3DC32944",
+            "chain": "moonbeam"
+        },
+        "vault": {
+            "address": "0x079095D0AA760Dd88964b24267Ef7d9e3DC32944",
+            "chain": "moonbeam",
+            "underlying-assets": [
+                "busd-multichain-moonbeam",
+                "usdc-multichain-moonbeam"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
+                "date": "2023-02-05T14:56:52.000Z"
+            },
+            "created": {
+                "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
+                "date": "2023-02-05T14:56:52.000Z"
+            }
+        }
+    },
+    "lp-busd-usdc-toad.network-moonriver": {
+        "id": "lp-busd-usdc-toad.network-moonriver",
+        "token": {
+            "address": "0x21D6DbcA8aACdAa739e40180b1C8C828B46Ae376",
+            "chain": "moonriver"
+        },
+        "vault": {
+            "address": "0x21D6DbcA8aACdAa739e40180b1C8C828B46Ae376",
+            "chain": "moonriver",
+            "underlying-assets": [
+                "busd-multichain-moonriver",
+                "usdc-multichain-moonriver"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "071073b0990eb78a574b0c35e5f73800bd93f11e",
+                "date": "2023-02-05T15:33:41.000Z"
+            },
+            "created": {
+                "hash": "071073b0990eb78a574b0c35e5f73800bd93f11e",
+                "date": "2023-02-05T15:33:41.000Z"
+            }
+        }
+    },
+    "lp-hoge-toad-toad.network-bsc": {
+        "id": "lp-hoge-toad-toad.network-bsc",
+        "token": {
+            "address": "0xc8B8568E7963054a00f107805f8156A7b283A6C2",
+            "chain": "bsc"
+        },
+        "vault": {
+            "address": "0xc8B8568E7963054a00f107805f8156A7b283A6C2",
+            "chain": "bsc",
+            "underlying-assets": [
+                "hoge-multichain-bsc",
+                "toad-toad.network-bsc"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
+                "date": "2023-02-06T19:45:54.000Z"
+            },
+            "created": {
+                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
+                "date": "2023-02-06T19:45:54.000Z"
+            }
+        }
+    },
+    "lp-pad-bnb-toad.network-bsc": {
+        "id": "lp-pad-bnb-toad.network-bsc",
+        "token": {
+            "address": "0xf199cB43149132eb2D6Cf03AFCBa0cF074Dc806b",
+            "chain": "bsc"
+        },
+        "vault": {
+            "address": "0xf199cB43149132eb2D6Cf03AFCBa0cF074Dc806b",
+            "chain": "bsc",
+            "underlying-assets": [
+                "pad-toad.network-bsc",
+                "bnb-binance-bsc"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
+                "date": "2023-02-06T19:45:54.000Z"
+            },
+            "created": {
+                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
+                "date": "2023-02-06T19:45:54.000Z"
+            }
+        }
+    },
+    "lp-pad-btc-toad.network-bsc": {
+        "id": "lp-pad-btc-toad.network-bsc",
+        "token": {
+            "address": "0x8DB3E34F642AA4B404956557a681BC8973529356",
+            "chain": "bsc"
+        },
+        "vault": {
+            "address": "0x8DB3E34F642AA4B404956557a681BC8973529356",
+            "chain": "bsc",
+            "underlying-assets": [
+                "pad-toad.network-bsc",
+                "btc-binance-bsc"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
+                "date": "2023-02-06T19:45:54.000Z"
+            },
+            "created": {
+                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
+                "date": "2023-02-06T19:45:54.000Z"
+            }
+        }
+    },
+    "lp-pad-busd-toad.network-bsc": {
+        "id": "lp-pad-busd-toad.network-bsc",
+        "token": {
+            "address": "0x2856aDD546E729425383173D4f65Bb3e23E796A4",
+            "chain": "bsc"
+        },
+        "vault": {
+            "address": "0x2856aDD546E729425383173D4f65Bb3e23E796A4",
+            "chain": "bsc",
+            "underlying-assets": [
+                "pad-toad.network-bsc",
+                "busd-binance-bsc"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
+                "date": "2023-02-06T19:45:54.000Z"
+            },
+            "created": {
+                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
+                "date": "2023-02-06T19:45:54.000Z"
+            }
+        }
+    },
+    "lp-pad-eth-toad.network-bsc": {
+        "id": "lp-pad-eth-toad.network-bsc",
+        "token": {
+            "address": "0x4BdDDa73F0a83ccada25107830e29de594E8F7C2",
+            "chain": "bsc"
+        },
+        "vault": {
+            "address": "0x4BdDDa73F0a83ccada25107830e29de594E8F7C2",
+            "chain": "bsc",
+            "underlying-assets": [
+                "pad-toad.network-bsc",
+                "eth-binance-bsc"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
+                "date": "2023-02-06T19:45:54.000Z"
+            },
+            "created": {
+                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
+                "date": "2023-02-06T19:45:54.000Z"
+            }
+        }
+    },
+    "lp-pad-glmr-toad.network-moonbeam": {
+        "id": "lp-pad-glmr-toad.network-moonbeam",
+        "token": {
+            "address": "0x7C33896Ce19831dc170d99330878688a5f6DF614",
+            "chain": "moonbeam"
+        },
+        "vault": {
+            "address": "0x7C33896Ce19831dc170d99330878688a5f6DF614",
+            "chain": "moonbeam",
+            "underlying-assets": [
+                "pad-toad.network-moonbeam",
+                "glmr.w-toad.network-moonbeam"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "071073b0990eb78a574b0c35e5f73800bd93f11e",
+                "date": "2023-02-05T15:33:41.000Z"
+            },
+            "created": {
+                "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
+                "date": "2023-02-05T14:56:52.000Z"
+            }
+        }
+    },
+    "lp-pad-hoge-toad.network-bsc": {
+        "id": "lp-pad-hoge-toad.network-bsc",
+        "token": {
+            "address": "0xB7073b6082e8B77ab667fAc3AB02e88b2C3937D3",
+            "chain": "bsc"
+        },
+        "vault": {
+            "address": "0xB7073b6082e8B77ab667fAc3AB02e88b2C3937D3",
+            "chain": "bsc",
+            "underlying-assets": [
+                "pad-toad.network-bsc",
+                "hoge-multichain-bsc"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
+                "date": "2023-02-06T19:45:54.000Z"
+            },
+            "created": {
+                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
+                "date": "2023-02-06T19:45:54.000Z"
+            }
+        }
+    },
+    "lp-pad-movr-toad.network-moonriver": {
+        "id": "lp-pad-movr-toad.network-moonriver",
+        "token": {
+            "address": "0xfDFaB6B6A5982F627F70f392207bfA536f66327b",
+            "chain": "moonriver"
+        },
+        "vault": {
+            "address": "0xfDFaB6B6A5982F627F70f392207bfA536f66327b",
+            "chain": "moonriver",
+            "underlying-assets": [
+                "pad-toad.network-moonriver",
+                "movr.w-moonbeam-moonriver"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "071073b0990eb78a574b0c35e5f73800bd93f11e",
+                "date": "2023-02-05T15:33:41.000Z"
+            },
+            "created": {
+                "hash": "071073b0990eb78a574b0c35e5f73800bd93f11e",
+                "date": "2023-02-05T15:33:41.000Z"
+            }
+        }
+    },
+    "lp-pad-toad-toad.network-bsc": {
+        "id": "lp-pad-toad-toad.network-bsc",
+        "token": {
+            "address": "0x26234882C1D95fCaDA4553a655045c35cffC9dAD",
+            "chain": "bsc"
+        },
+        "vault": {
+            "address": "0x26234882C1D95fCaDA4553a655045c35cffC9dAD",
+            "chain": "bsc",
+            "underlying-assets": [
+                "pad-toad.network-bsc",
+                "toad-toad.network-bsc"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
+                "date": "2023-02-06T19:45:54.000Z"
+            },
+            "created": {
+                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
+                "date": "2023-02-06T19:45:54.000Z"
+            }
+        }
+    },
+    "lp-toad-glmr-toad.network-moonbeam": {
+        "id": "lp-toad-glmr-toad.network-moonbeam",
+        "token": {
+            "address": "0xed048a21361fff12fb10335655b273c396994AA0",
+            "chain": "moonbeam"
+        },
+        "vault": {
+            "address": "0xed048a21361fff12fb10335655b273c396994AA0",
+            "chain": "moonbeam",
+            "underlying-assets": [
+                "toad-toad.network-moonbeam",
+                "glmr.w-toad.network-moonbeam"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
+                "date": "2023-02-05T14:56:52.000Z"
+            },
+            "created": {
+                "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
+                "date": "2023-02-05T14:56:52.000Z"
+            }
+        }
+    },
+    "lp-toad-movr-toad.network-moonriver": {
+        "id": "lp-toad-movr-toad.network-moonriver",
+        "token": {
+            "address": "0x3D44494656370126E50Fe6488606165Bc0f2fd80",
+            "chain": "moonriver"
+        },
+        "vault": {
+            "address": "0x3D44494656370126E50Fe6488606165Bc0f2fd80",
+            "chain": "moonriver",
+            "underlying-assets": [
+                "toad-toad.network-moonriver",
+                "movr.w-moonbeam-moonriver"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "071073b0990eb78a574b0c35e5f73800bd93f11e",
+                "date": "2023-02-05T15:33:41.000Z"
+            },
+            "created": {
+                "hash": "071073b0990eb78a574b0c35e5f73800bd93f11e",
+                "date": "2023-02-05T15:33:41.000Z"
+            }
+        }
+    },
+    "lp-usdc-glmr-toad.network-moonbeam": {
+        "id": "lp-usdc-glmr-toad.network-moonbeam",
+        "token": {
+            "address": "0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD",
+            "chain": "moonbeam"
+        },
+        "vault": {
+            "address": "0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD",
+            "chain": "moonbeam",
+            "underlying-assets": [
+                "usdc-multichain-moonbeam",
+                "glmr.w-toad.network-moonbeam"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
+                "date": "2023-02-05T14:56:52.000Z"
+            },
+            "created": {
+                "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
+                "date": "2023-02-05T14:56:52.000Z"
+            }
+        }
+    },
+    "lp-usdc-movr-toad.network-moonriver": {
+        "id": "lp-usdc-movr-toad.network-moonriver",
+        "token": {
+            "address": "0x38185BF42E4D6d0b51Db5F6C2B83064008549087",
+            "chain": "moonriver"
+        },
+        "vault": {
+            "address": "0x38185BF42E4D6d0b51Db5F6C2B83064008549087",
+            "chain": "moonriver",
+            "underlying-assets": [
+                "usdc-multichain-moonriver",
+                "movr.w-moonbeam-moonriver"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "071073b0990eb78a574b0c35e5f73800bd93f11e",
+                "date": "2023-02-05T15:33:41.000Z"
+            },
+            "created": {
+                "hash": "071073b0990eb78a574b0c35e5f73800bd93f11e",
+                "date": "2023-02-05T15:33:41.000Z"
+            }
+        }
+    },
+    "movr.w-moonbeam-moonriver": {
+        "id": "movr.w-moonbeam-moonriver",
+        "token": {
+            "address": "0x663a07a2648296f1A3C02EE86A126fE1407888E5",
+            "chain": "moonriver"
+        },
+        "git": {
+            "updated": {
+                "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
+                "date": "2023-02-05T14:56:52.000Z"
+            },
+            "created": {
+                "hash": "582a44205d2389f913b46607a06868928a502c0d",
+                "date": "2023-01-31T21:59:44.000Z"
+            }
+        }
+    },
+    "pad-toad.network-bsc": {
+        "id": "pad-toad.network-bsc",
+        "token": {
+            "address": "0xC0888d80EE0AbF84563168b3182650c0AdDEb6d5",
+            "chain": "bsc"
+        },
+        "vault": {
+            "address": "0x6bEee53eFa847ec426707693c83836E359E92609",
+            "chain": "bsc",
+            "underlying-assets": [
+                "lp-pad-toad-toad.network-bsc",
+                "lp-bnb-toad-toad.network-bsc",
+                "lp-busd-toad-toad.network-bsc",
+                "lp-pad-bnb-toad.network-bsc",
+                "lp-pad-busd-toad.network-bsc",
+                "lp-busd-bnb-toad.network-bsc",
+                "lp-pad-eth-toad.network-bsc",
+                "lp-pad-btc-toad.network-bsc",
+                "lp-hoge-toad-toad.network-bsc",
+                "lp-bnb-bjt-toad.network-bsc",
+                "lp-bnb-pxbsc-toad.network-bsc",
+                "lp-bnb-fuk-toad.network-bsc",
+                "lp-bnb-gal-toad.network-bsc",
+                "lp-pad-hoge-toad.network-bsc",
+                "lp-bnb-cats-toad.network-bsc",
+                "toad-toad.network-bsc"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
+                "date": "2023-02-06T19:45:54.000Z"
+            },
+            "created": {
+                "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
+                "date": "2023-02-01T21:31:00.000Z"
+            }
+        }
+    },
+    "pad-toad.network-moonbeam": {
+        "id": "pad-toad.network-moonbeam",
+        "token": {
+            "address": "0x59193512877E2EC3bB27C178A8888Cfac62FB32D",
+            "chain": "moonbeam"
+        },
+        "vault": {
+            "address": "0xdBD1BBCa71B2589504DE48a000D2E6386a277118",
+            "chain": "moonbeam",
+            "underlying-assets": [
+                "lp-pad-glmr-toad.network-moonbeam",
+                "lp-busd-usdc-toad.network-moonbeam",
+                "lp-toad-glmr-toad.network-moonbeam",
+                "lp-usdc-glmr-toad.network-moonbeam",
+                "toad-toad.network-moonbeam"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "071073b0990eb78a574b0c35e5f73800bd93f11e",
+                "date": "2023-02-05T15:33:41.000Z"
+            },
+            "created": {
+                "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
+                "date": "2023-02-01T21:31:00.000Z"
+            }
+        }
+    },
+    "pad-toad.network-moonriver": {
+        "id": "pad-toad.network-moonriver",
+        "token": {
+            "address": "0x45488C50184Ce2092756ba7CdF85731fD17e6f3d",
+            "chain": "moonriver"
+        },
+        "vault": {
+            "address": "0x7a06dbaE8666e7DbdCf26A37be020dfedC782176",
+            "chain": "moonriver",
+            "underlying-assets": [
+                "lp-pad-movr-toad.network-moonriver",
+                "lp-busd-usdc-toad.network-moonriver",
+                "lp-usdc-movr-toad.network-moonriver",
+                "lp-toad-movr-toad.network-moonriver",
+                "toad-toad.network-moonriver"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "071073b0990eb78a574b0c35e5f73800bd93f11e",
+                "date": "2023-02-05T15:33:41.000Z"
+            },
+            "created": {
+                "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
+                "date": "2023-02-01T21:31:00.000Z"
+            }
+        }
+    },
+    "paxg-binance-bsc": {
+        "id": "paxg-binance-bsc",
+        "token": {
+            "address": "0x7950865a9140cB519342433146Ed5b40c6F210f7",
+            "chain": "bsc"
+        },
+        "vault": {
+            "address": "0x47ac0Fb4F2D84898e4D9E7b4DaB3C24507a6D503",
+            "chain": "ethereum",
+            "underlying-assets": [
+                "paxg-paxos-ethereum"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "582a44205d2389f913b46607a06868928a502c0d",
+                "date": "2023-01-31T21:59:44.000Z"
+            },
+            "created": {
+                "hash": "582a44205d2389f913b46607a06868928a502c0d",
+                "date": "2023-01-31T21:59:44.000Z"
+            }
+        }
+    },
+    "paxg-paxos-ethereum": {
+        "id": "paxg-paxos-ethereum",
+        "token": {
+            "address": "0x45804880De22913dAFE09f4980848ECE6EcbAf78",
+            "chain": "ethereum"
+        },
+        "git": {
+            "updated": {
+                "hash": "582a44205d2389f913b46607a06868928a502c0d",
+                "date": "2023-01-31T21:59:44.000Z"
+            },
+            "created": {
+                "hash": "582a44205d2389f913b46607a06868928a502c0d",
+                "date": "2023-01-31T21:59:44.000Z"
+            }
+        }
+    },
+    "paxg-wormhole-solana": {
+        "id": "paxg-wormhole-solana",
+        "token": {
+            "address": "C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe",
+            "chain": "solana"
+        },
+        "vault": {
+            "address": "0x3ee18B2214AFF97000D974cf647E7C347E8fa585",
+            "chain": "ethereum",
+            "underlying-assets": [
+                "paxg-paxos-ethereum"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "582a44205d2389f913b46607a06868928a502c0d",
+                "date": "2023-01-31T21:59:44.000Z"
+            },
+            "created": {
+                "hash": "582a44205d2389f913b46607a06868928a502c0d",
+                "date": "2023-01-31T21:59:44.000Z"
+            }
+        }
+    },
+    "pxbsc-bsc": {
+        "id": "pxbsc-bsc",
+        "token": {
+            "address": "0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80",
+            "chain": "bsc"
+        },
+        "git": {
+            "updated": {
+                "hash": "582a44205d2389f913b46607a06868928a502c0d",
+                "date": "2023-01-31T21:59:44.000Z"
+            },
+            "created": {
+                "hash": "582a44205d2389f913b46607a06868928a502c0d",
+                "date": "2023-01-31T21:59:44.000Z"
+            }
+        }
+    },
+    "toad-toad.network-bsc": {
+        "id": "toad-toad.network-bsc",
+        "token": {
+            "address": "0x463E737D8F740395ABf44f7aac2D9531D8D539E9",
+            "chain": "bsc"
+        },
+        "git": {
+            "updated": {
+                "hash": "582a44205d2389f913b46607a06868928a502c0d",
+                "date": "2023-01-31T21:59:44.000Z"
+            },
+            "created": {
+                "hash": "582a44205d2389f913b46607a06868928a502c0d",
+                "date": "2023-01-31T21:59:44.000Z"
+            }
+        }
+    },
+    "toad-toad.network-moonbeam": {
+        "id": "toad-toad.network-moonbeam",
+        "token": {
+            "address": "0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA",
+            "chain": "moonbeam"
+        },
+        "vault": {
+            "address": "0xadfc9a631157B59A65EB337FEd810DaB8879A5Fd",
+            "chain": "bsc",
+            "underlying-assets": [
+                "toad-toad.network-bsc"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
+                "date": "2023-02-01T21:31:00.000Z"
+            },
+            "created": {
+                "hash": "582a44205d2389f913b46607a06868928a502c0d",
+                "date": "2023-01-31T21:59:44.000Z"
+            }
+        }
+    },
+    "toad-toad.network-moonriver": {
+        "id": "toad-toad.network-moonriver",
+        "token": {
+            "address": "0x165DBb08de0476271714952C3C1F068693bd60D7",
+            "chain": "moonriver"
+        },
+        "vault": {
+            "address": "0xd6faf697504075a358524996b132b532cc5D0F14",
+            "chain": "bsc",
+            "underlying-assets": [
+                "toad-toad.network-bsc"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
+                "date": "2023-02-01T21:31:00.000Z"
+            },
+            "created": {
+                "hash": "582a44205d2389f913b46607a06868928a502c0d",
+                "date": "2023-01-31T21:59:44.000Z"
+            }
+        }
+    },
+    "usdc-binance-bsc": {
+        "id": "usdc-binance-bsc",
+        "token": {
+            "address": "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d",
+            "chain": "bsc"
+        },
+        "vault": {
+            "address": "0x47ac0Fb4F2D84898e4D9E7b4DaB3C24507a6D503",
+            "chain": "ethereum",
+            "underlying-assets": [
+                "usdc-circle-ethereum"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
+                "date": "2023-02-01T21:31:00.000Z"
+            },
+            "created": {
+                "hash": "582a44205d2389f913b46607a06868928a502c0d",
+                "date": "2023-01-31T21:59:44.000Z"
+            }
+        }
+    },
+    "usdc-circle-ethereum": {
+        "id": "usdc-circle-ethereum",
+        "token": {
+            "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "chain": "ethereum"
+        },
+        "git": {
+            "updated": {
+                "hash": "582a44205d2389f913b46607a06868928a502c0d",
+                "date": "2023-01-31T21:59:44.000Z"
+            },
+            "created": {
+                "hash": "582a44205d2389f913b46607a06868928a502c0d",
+                "date": "2023-01-31T21:59:44.000Z"
+            }
+        }
+    },
+    "usdc-circle-solana": {
+        "id": "usdc-circle-solana",
+        "token": {
+            "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+            "chain": "solana"
+        },
+        "git": {
+            "updated": {
+                "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
+                "date": "2023-02-01T21:31:00.000Z"
+            },
+            "created": {
+                "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
+                "date": "2023-02-01T21:31:00.000Z"
+            }
+        }
+    },
+    "usdc-multichain-moonbeam": {
+        "id": "usdc-multichain-moonbeam",
+        "token": {
+            "address": "0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b",
+            "chain": "moonbeam"
+        },
+        "vault": {
+            "address": "0xEC4486a90371c9b66f499Ff3936F29f0D5AF8b7E",
+            "chain": "ethereum",
+            "underlying-assets": [
+                "usdc-circle-ethereum"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "582a44205d2389f913b46607a06868928a502c0d",
+                "date": "2023-01-31T21:59:44.000Z"
+            },
+            "created": {
+                "hash": "582a44205d2389f913b46607a06868928a502c0d",
+                "date": "2023-01-31T21:59:44.000Z"
+            }
+        }
+    },
+    "usdc-multichain-moonriver": {
+        "id": "usdc-multichain-moonriver",
+        "token": {
+            "address": "0xe3f5a90f9cb311505cd691a46596599aa1a0ad7d",
+            "chain": "moonriver"
+        },
+        "vault": {
+            "address": "0x10c6b61DbF44a083Aec3780aCF769C77BE747E23",
+            "chain": "ethereum",
+            "underlying-assets": [
+                "usdc-circle-ethereum"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
+                "date": "2023-02-01T21:31:00.000Z"
+            },
+            "created": {
+                "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
+                "date": "2023-02-01T21:31:00.000Z"
+            }
+        }
+    }
+}

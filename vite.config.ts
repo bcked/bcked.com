@@ -1,7 +1,7 @@
 import { sveltekit } from '@sveltejs/kit/vite';
 import type { UserConfigExport } from 'vite';
 import { configDefaults, defineConfig } from 'vitest/config';
-import copyIcons from './src/preprocess/copy-icons';
+import { copyIcons } from './src/preprocess/copy-icons';
 
 // Workaround for https://github.com/sveltejs/kit/issues/8795#issuecomment-1416265649
 copyIcons('./assets/**/icon.png', 'assets');
