@@ -1,26 +1,36 @@
 <script lang="ts">
-	import AssetList from '$components/asset-list.svelte';
 	import Glow from '$components/glow.svelte';
 	import SectionHeader from '$components/section-header.svelte';
 	import Section from '$components/section.svelte';
-	import { formatCurrency } from '$lib/utils/string-formatting';
-	import { ChartBarIcon, ClockIcon, HashtagIcon } from '@rgossiaux/svelte-heroicons/outline';
+	import type { PageData } from '../$types';
 
 	export let theme: ui.Theme;
 
-	export let assets: api.Assets;
+	export let data: PageData;
 
-	export let stats: api.Stats;
+	$: ({
+		assetsDetails,
+		assetsContracts,
+		assetsPrice,
+		assetsSupply,
+		assetsBacking,
+		chainsDetails,
+		issuersDetails,
+		icons,
+		graphData
+	} = data);
+
+	// "Of the {stats['assets']} assets recorded in bcked, {stats[
+	// 		'backed-assets'
+	// 	]} are backed with a total backing of {formatCurrency(
+	// 		stats['backing-usd']
+	// 	)} and an average backing of {formatCurrency(stats['backing-usd-avg'])}."
 </script>
 
 <Section id="discover" label="Discover backed cryptocurrencies">
 	<SectionHeader
 		title="Discover"
-		description="Of the {stats['assets']} assets recorded in bcked, {stats[
-			'backed-assets'
-		]} are backed with a total backing of {formatCurrency(
-			stats['backing-usd']
-		)} and an average backing of {formatCurrency(stats['backing-usd-avg'])}."
+		description="Assets recorded on bcked."
 		theme={{ title: theme.text }}
 	/>
 	<div class="mt-10 w-full mx-auto lg:mx-0">
@@ -28,7 +38,7 @@
 			<dl
 				class="sm:rounded-lg overflow-hidden grid grid-cols-1 bg-gray-50 divide-y divide-gray-200 xl:divide-x xl:divide-y-0 xl:gap-px xl:grid-cols-3"
 			>
-				<AssetList
+				<!-- <AssetList
 					{assets}
 					icon={ChartBarIcon}
 					title="Backing in USD"
@@ -58,7 +68,7 @@
 					}}
 					size={3}
 					select={(asset) => new Date(asset.backing[0]['timestamp']).toLocaleDateString()}
-				/>
+				/> -->
 			</dl>
 		</Glow>
 	</div>

@@ -1,10 +1,21 @@
 <script lang="ts">
+	import type { PageData } from '$routes/$types';
 	import type { ComponentType } from 'svelte';
-	import { base } from '$app/paths';
-	import { ChevronRightIcon } from '@rgossiaux/svelte-heroicons/solid';
-	import { CashIcon } from '@rgossiaux/svelte-heroicons/outline';
 
-	export let assets: api.Assets;
+	export let data: PageData;
+
+	$: ({
+		assetsDetails,
+		assetsContracts,
+		assetsPrice,
+		assetsSupply,
+		assetsBacking,
+		chainsDetails,
+		issuersDetails,
+		icons,
+		graphData
+	} = data);
+
 	export let icon: ComponentType;
 	export let title: string;
 	export let compare: (a: api.Asset, b: api.Asset) => number;
@@ -22,7 +33,7 @@
 	</dt>
 	<dd>
 		<ul class="mt-2 space-y-2">
-			{#each Object.values(assets).filter(filter).sort(compare).slice(0, size) as asset, i}
+			<!-- {#each Object.values(assets).filter(filter).sort(compare).slice(0, size) as asset, i}
 				<li>
 					<a href={asset.links.ui} class="rounded-md block">
 						<div class="flex items-center min-w-0 flex-1 justify-between">
@@ -61,7 +72,7 @@
 						</div>
 					</a>
 				</li>
-			{/each}
+			{/each} -->
 		</ul>
 	</dd>
 </div>

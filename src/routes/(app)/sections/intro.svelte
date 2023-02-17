@@ -8,16 +8,13 @@
 	import { CubeIcon } from '@rgossiaux/svelte-heroicons/outline';
 	import { onMount } from 'svelte';
 	import * as Three from 'three';
+	import type { PageData } from '../$types';
 
 	export let theme: ui.Theme;
 
-	export let assetsDetails: agg.AssetsDetails;
-	export let assetsContracts: agg.AssetsContracts;
-	export let chainsDetails: agg.ChainsDetails;
-	export let issuersDetails: agg.IssuersDetails;
-	export let icons: agg.Icons;
+	export let data: PageData;
 
-	export let graphData: agg.Graph;
+	$: ({ icons, graphData } = data);
 
 	let graphDom: HTMLDivElement;
 

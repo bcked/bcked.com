@@ -2,9 +2,9 @@
 	import type { PageData } from './$types';
 	// import { PUBLIC_DOMAIN } from '$env/static/public';
 	// import SvelteSeo from 'svelte-seo';
+	import DiscoverSection from './sections/discover.svelte';
 	import IntroSection from './sections/intro.svelte';
-	// import DiscoverSection from './sections/discover.svelte';
-	// import RankingSection from './sections/ranking.svelte';
+	import RankingSection from './sections/ranking.svelte';
 	// import { formatCurrency } from '$lib/utils/string-formatting';
 
 	export let data: PageData;
@@ -77,15 +77,7 @@
 /> -->
 
 <main>
-	<IntroSection
-		{assetsDetails}
-		{assetsContracts}
-		{chainsDetails}
-		{issuersDetails}
-		{icons}
-		{graphData}
-		theme={themes.blue}
-	/>
-	<!-- <DiscoverSection {assets} {stats} theme={themes.yellow} />
-	<RankingSection {assets} {trees} theme={themes.pink} /> -->
+	<IntroSection {data} theme={themes.blue} />
+	<DiscoverSection {data} theme={themes.yellow} />
+	<RankingSection {data} theme={themes.pink} />
 </main>

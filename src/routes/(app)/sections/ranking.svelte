@@ -1,14 +1,24 @@
 <script lang="ts">
-	import Section from '$components/section.svelte';
-	import SectionHeader from '$components/section-header.svelte';
 	import Glow from '$components/glow.svelte';
-	import Table from '$components/table.svelte';
-	import { formatCurrency, formatPercentage } from '$lib/utils/string-formatting';
+	import SectionHeader from '$components/section-header.svelte';
+	import Section from '$components/section.svelte';
+	import type { PageData } from '../$types';
 
 	export let theme: ui.Theme;
 
-	export let assets: api.Assets;
-	export let trees: api.Trees;
+	export let data: PageData;
+
+	$: ({
+		assetsDetails,
+		assetsContracts,
+		assetsPrice,
+		assetsSupply,
+		assetsBacking,
+		chainsDetails,
+		issuersDetails,
+		icons,
+		graphData
+	} = data);
 </script>
 
 <Section id="ranking" label="Ranking of backed cryptocurrencies">
@@ -19,7 +29,7 @@
 	/>
 	<div class="mt-10 w-full mx-auto lg:mx-0">
 		<Glow {theme} class="-inset-x-4 sm:-inset-x-0">
-			<Table
+			<!-- <Table
 				columns={[
 					{ id: 'rank', title: '#', class: '' },
 					{ id: 'name', title: 'Name', class: 'font-medium', link: true },
@@ -60,7 +70,7 @@
 					}))}
 				sort={[{ by: 'mcap' }, { by: 'backing-usd' }]}
 				class="overflow-hidden sm:rounded-lg"
-			/>
+			/> -->
 		</Glow>
 	</div>
 </Section>
