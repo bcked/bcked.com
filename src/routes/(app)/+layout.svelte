@@ -71,12 +71,11 @@
 	}}
 />
 
-<div class="flex flex-col h-screen justify-between">
-	<Header navigation={mainNavigation} />
+<Header navigation={mainNavigation} />
 
+<div class="flex flex-col h-screen justify-between">
 	<div class="flex-grow mx-auto w-full flex flex-col">
 		<slot />
 	</div>
-
 	<Footer {copyRight} navigation={bottomNavigation} {socials} />
 </div>

@@ -63,7 +63,10 @@
 </script>
 
 <div class="relative" bind:offsetWidth={width} bind:offsetHeight={height}>
-	<Section label="Introduction to bcked" class="relative lg:flex lg:justify-between items-center">
+	<Section
+		label="Introduction to bcked"
+		class="relative h-screen flex justify-between items-center"
+	>
 		<div id="3d-graph" class="absolute top-0 left-0 h-full w-full -z-10" bind:this={graphDom} />
 
 		<SectionHeader

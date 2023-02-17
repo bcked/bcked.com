@@ -1,14 +1,14 @@
 <script lang="ts">
-	import { page } from '$app/stores';
 	import { base } from '$app/paths';
-	import { Disclosure, DisclosurePanel, DisclosureButton } from '@rgossiaux/svelte-headlessui';
-	import { MenuIcon, XIcon } from '@rgossiaux/svelte-heroicons/outline';
+	import { page } from '$app/stores';
 	import Search from '$components/search.svelte';
+	import { Disclosure, DisclosureButton, DisclosurePanel } from '@rgossiaux/svelte-headlessui';
+	import { MenuIcon, XIcon } from '@rgossiaux/svelte-heroicons/outline';
 
 	export let navigation: ui.Navigation = [];
 </script>
 
-<Disclosure as="nav" let:open>
+<Disclosure as="nav" class="fixed w-full top-0 z-10 backdrop-blur-sm" let:open>
 	<div class="mx-auto px-2 sm:px-4 lg:px-8">
 		<div class="flex justify-between h-16">
 			<div class="flex px-2 lg:px-0">
