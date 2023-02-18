@@ -16,7 +16,7 @@
 
 	$: ({ icons, graphData } = data);
 
-	let graphDom: HTMLDivElement;
+	let htmlElement: HTMLDivElement;
 
 	let width: number;
 	let height: number;
@@ -25,7 +25,7 @@
 	const distance = 800;
 
 	onMount(() => {
-		graph = ForceNGraph3D(graphDom)
+		graph = ForceNGraph3D(htmlElement)
 			.enableNodeDrag(false)
 			.enableNavigationControls(false)
 			.showNavInfo(false)
@@ -65,9 +65,9 @@
 <div class="relative" bind:offsetWidth={width} bind:offsetHeight={height}>
 	<Section
 		label="Introduction to bcked"
-		class="relative h-screen flex justify-between items-center"
+		class="relative min-h-screen flex justify-between items-center"
 	>
-		<div id="3d-graph" class="absolute top-0 left-0 h-full w-full -z-10" bind:this={graphDom} />
+		<div id="3d-graph" class="absolute w-full h-full -z-10" bind:this={htmlElement} />
 
 		<SectionHeader
 			title="Reduce your exposure to unbacked assets."
@@ -76,7 +76,7 @@
 			theme={{ title: theme.text }}
 			class=""
 		>
-			<div class="mt-10 inline-flex items-center lg:mx-0">
+			<div class="mt-16 inline-flex items-center lg:mx-0">
 				<Glow {theme}>
 					<a
 						href="{base}/graph"

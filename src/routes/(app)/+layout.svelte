@@ -10,8 +10,8 @@
 	import SvelteSeo from 'svelte-seo';
 
 	const mainNavigation: ui.Navigation = [
-		{ name: 'Discover', path: `${base}/#discover` },
-		{ name: 'Ranking', path: `${base}/#ranking` }
+		{ name: 'Discover', path: `#discover` },
+		{ name: 'Ranking', path: `#ranking` }
 	];
 
 	const bottomNavigation: ui.Navigation = [
@@ -71,10 +71,9 @@
 	}}
 />
 
-<Header navigation={mainNavigation} />
-
-<div class="flex flex-col h-screen justify-between">
-	<div class="flex-grow mx-auto w-full flex flex-col">
+<Header {mainNavigation} {bottomNavigation} {socials} />
+<div class="relative -top-16 sm:-top-[104px]">
+	<div class="flex flex-col flex-grow mx-auto w-full">
 		<slot />
 	</div>
 	<Footer {copyRight} navigation={bottomNavigation} {socials} />
