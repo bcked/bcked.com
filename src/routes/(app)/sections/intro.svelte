@@ -39,10 +39,7 @@
 				return sprite;
 			})
 			.linkColor(() => '#000000')
-			.linkDirectionalArrowLength(3.5)
-			.linkDirectionalArrowRelPos(1)
-			// .linkWidth(1)
-			.linkCurvature(0.25)
+			.linkCurvature(0.0)
 			.graphData(graphData);
 	});
 
@@ -62,19 +59,17 @@
 	// https://github.com/vasturiano/3d-force-graph
 </script>
 
-<div class="relative" bind:offsetWidth={width} bind:offsetHeight={height}>
+<div class="w-full -mt-16 sm:-mt-[104px]" bind:offsetWidth={width} bind:offsetHeight={height}>
 	<Section
 		label="Introduction to bcked"
-		class="relative min-h-screen flex justify-between items-center"
+		class="w-full min-h-screen flex justify-between items-center"
 	>
-		<div id="3d-graph" class="absolute w-full h-full -z-10" bind:this={htmlElement} />
-
+		<div id="3d-graph" class="absolute inset-0 -z-10" bind:this={htmlElement} />
 		<SectionHeader
 			title="Reduce your exposure to unbacked assets."
 			description="Leverage insights from our community driven open source knowledge base to find cryptocurrencies backed
 		by various asset classes."
 			theme={{ title: theme.text }}
-			class=""
 		>
 			<div class="mt-16 inline-flex items-center lg:mx-0">
 				<Glow {theme}>

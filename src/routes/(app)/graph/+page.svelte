@@ -54,7 +54,7 @@
 				const imgTexture = new Three.TextureLoader().load(href);
 				const material = new Three.SpriteMaterial({ map: imgTexture });
 				const sprite = new Three.Sprite(material);
-				sprite.scale.set(12, 12, 12);
+				sprite.scale.set(18, 18, 18);
 				return sprite;
 			})
 			.onNodeClick((n) => {
@@ -79,17 +79,17 @@
 				const link = l as Link;
 				return formatCurrency(link.data.backing);
 			})
-			.linkDirectionalArrowLength(3.5)
-			.linkDirectionalArrowRelPos(1)
+			.linkDirectionalArrowLength(9)
+			.linkDirectionalArrowRelPos(0.5)
 			.linkCurvature((l) => {
 				const link = l as Link;
-				return link.fromId == link.toId ? 0.75 : 0;
+				return link.fromId == link.toId ? 0.75 : 0.25;
 			})
 			.graphData(graphData);
 
 		const resolution = new Vector2(innerWidth, innerHeight);
-		const strength = 0.5;
-		const radius = 2;
+		const strength = 0.3;
+		const radius = 4;
 		const threshold = 0.0;
 		const bloomPass = new UnrealBloomPass(resolution, strength, radius, threshold);
 		graph.postProcessingComposer().addPass(bloomPass);

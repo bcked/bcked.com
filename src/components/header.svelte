@@ -4,6 +4,21 @@
 	import Search from '$components/search.svelte';
 	import { Disclosure, DisclosureButton, DisclosurePanel } from '@rgossiaux/svelte-headlessui';
 	import { MenuIcon, XIcon } from '@rgossiaux/svelte-heroicons/outline';
+	import type { LayoutData } from '../routes/(app)/$types';
+
+	export let data: LayoutData;
+
+	$: ({
+		assetsDetails,
+		assetsContracts,
+		assetsPrice,
+		assetsSupply,
+		assetsBacking,
+		chainsDetails,
+		issuersDetails,
+		icons,
+		graphData
+	} = data);
 
 	export let mainNavigation: ui.Navigation = [];
 	export let bottomNavigation: ui.Navigation = [];
@@ -60,7 +75,7 @@
 			</div>
 			<div class="flex-1 flex items-center justify-center sm:ml-6 sm:justify-end">
 				<div class="max-w-lg w-full sm:max-w-xs">
-					<Search />
+					<Search {data} />
 				</div>
 			</div>
 			<div class="flex items-center sm:hidden">

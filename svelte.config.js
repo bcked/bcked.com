@@ -27,7 +27,6 @@ const config = {
 	kit: {
 		alias: {
 			$components: 'src/components',
-			$routes: 'src/routes',
 			$api: 'src/routes/(api)',
 			$pre: 'src/preprocess',
 		},

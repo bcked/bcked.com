@@ -76,8 +76,6 @@
 	}}
 /> -->
 
-<main>
-	<IntroSection {data} theme={themes.blue} />
-	<DiscoverSection {data} theme={themes.yellow} />
-	<RankingSection {data} theme={themes.pink} />
-</main>
+<IntroSection {data} theme={themes.blue} />
+<DiscoverSection {data} theme={themes.yellow} />
+<RankingSection {data} theme={themes.pink} />

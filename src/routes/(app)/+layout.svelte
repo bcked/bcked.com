@@ -8,6 +8,9 @@
 	import TelegramIcon from '$lib/icons/telegram.svelte';
 	import TwitterIcon from '$lib/icons/twitter.svelte';
 	import SvelteSeo from 'svelte-seo';
+	import type { LayoutData } from './$types';
+
+	export let data: LayoutData;
 
 	const mainNavigation: ui.Navigation = [
 		{ name: 'Discover', path: `#discover` },
@@ -71,10 +74,10 @@
 	}}
 />
 
-<Header {mainNavigation} {bottomNavigation} {socials} />
-<div class="relative -top-16 sm:-top-[104px]">
-	<div class="flex flex-col flex-grow mx-auto w-full">
-		<slot />
-	</div>
-	<Footer {copyRight} navigation={bottomNavigation} {socials} />
-</div>
+<Header {data} {mainNavigation} {bottomNavigation} {socials} />
+
+<main class="flex flex-col flex-grow items-center justify-start mx-auto w-full">
+	<slot />
+</main>
+
+<Footer {copyRight} navigation={bottomNavigation} {socials} />
