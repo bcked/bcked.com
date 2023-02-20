@@ -37,12 +37,17 @@
   },
   "price": [
     {
-      "timestamp": "2023-02-19T22:09:08.813Z",
+      "timestamp": "2023-02-20T22:09:35.056Z",
       "usd": 0,
       "source": "No price recorded in bcked."
     }
   ],
   "supply": [
+    {
+      "timestamp": "2023-02-20T22:09:33.594Z",
+      "total": 300,
+      "source": "https://bsc-dataseed3.binance.org/"
+    },
     {
       "timestamp": "2023-02-19T11:47:02.173Z",
       "total": 300,
@@ -100,6 +105,17 @@
     }
   ],
   "backing": [
+    {
+      "timestamp": "2023-02-20T22:09:33.461Z",
+      "assets": {
+        "paxg-paxos-ethereum": 300.9398
+      },
+      "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
+      "backing-assets": 0,
+      "backing-usd": 0,
+      "ratio": 0,
+      "uniformity": 0
+    },
     {
       "timestamp": "2023-02-19T11:47:01.339Z",
       "assets": {

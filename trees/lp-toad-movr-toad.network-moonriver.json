@@ -1,74 +1,68 @@
 {
-  "timestamp": "2023-02-19T11:47:01.961Z",
+  "timestamp": "2023-02-20T22:09:33.865Z",
   "nodes": [
+    {
+      "id": "lp-toad-movr-toad.network-moonriver",
+      "name": "PAD-MOVR LPs",
+      "value": 4130.73,
+      "level": 0
+    },
     {
       "id": "unbacked",
       "value": 0
     },
     {
-      "id": "lp-toad-movr-toad.network-moonriver",
-      "name": "PAD-MOVR LPs",
-      "value": 4100.2,
-      "level": 0
-    },
-    {
       "id": "toad-toad.network-moonriver",
       "name": "Wrapped Toad",
-      "value": 2023.36,
+      "value": 2043.26,
       "level": 1
     },
     {
       "id": "toad-toad.network-bsc",
       "name": "Toad Network",
-      "value": 2023.36,
+      "value": 2043.26,
       "level": 2
     },
     {
       "id": "movr.w-moonbeam-moonriver",
       "name": "Wrapped MOVR",
-      "value": 2076.84,
+      "value": 2087.48,
       "level": 1
     }
   ],
   "links": [
     {
       "source": "lp-toad-movr-toad.network-moonriver",
-      "target": "unbacked",
-      "value": 0,
-      "level": 0
-    },
-    {
-      "source": "lp-toad-movr-toad.network-moonriver",
       "target": "toad-toad.network-moonriver",
-      "value": 2023.36,
+      "value": 2043.26,
       "level": 0
     },
     {
       "source": "toad-toad.network-moonriver",
       "target": "toad-toad.network-bsc",
-      "value": 2023.36,
+      "value": 2043.26,
       "level": 1
     },
     {
       "source": "toad-toad.network-bsc",
       "target": "unbacked",
-      "value": 2023.36,
+      "value": 2043.26,
       "level": 2
     },
     {
       "source": "lp-toad-movr-toad.network-moonriver",
       "target": "movr.w-moonbeam-moonriver",
-      "value": 2076.84,
+      "value": 2087.48,
       "level": 0
     },
     {
       "source": "movr.w-moonbeam-moonriver",
       "target": "unbacked",
-      "value": 2076.84,
+      "value": 2087.48,
       "level": 1
     }
   ],
-  "value": 4100.2,
+  "value": 4130.73,
   "unbacked": 0,
-  "backed": 4100.2
+  "backed": 4130.73
 }

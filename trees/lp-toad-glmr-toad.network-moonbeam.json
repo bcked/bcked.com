@@ -1,74 +1,68 @@
 {
-  "timestamp": "2023-02-19T11:47:02.543Z",
+  "timestamp": "2023-02-20T22:09:33.767Z",
   "nodes": [
+    {
+      "id": "lp-toad-glmr-toad.network-moonbeam",
+      "name": "TOAD-GLMR LPs",
+      "value": 12484.47,
+      "level": 0
+    },
     {
       "id": "unbacked",
       "value": 0
     },
     {
-      "id": "lp-toad-glmr-toad.network-moonbeam",
-      "name": "TOAD-GLMR LPs",
-      "value": 12120.48,
-      "level": 0
-    },
-    {
       "id": "toad-toad.network-moonbeam",
       "name": "Wrapped Toad",
-      "value": 6042.71,
+      "value": 6257.51,
       "level": 1
     },
     {
       "id": "toad-toad.network-bsc",
       "name": "Toad Network",
-      "value": 6042.71,
+      "value": 6257.51,
       "level": 2
     },
     {
       "id": "glmr.w-toad.network-moonbeam",
       "name": "Wrapped GLMR",
-      "value": 6077.76,
+      "value": 6226.97,
       "level": 1
     }
   ],
   "links": [
     {
       "source": "lp-toad-glmr-toad.network-moonbeam",
-      "target": "unbacked",
-      "value": 0,
-      "level": 0
-    },
-    {
-      "source": "lp-toad-glmr-toad.network-moonbeam",
       "target": "toad-toad.network-moonbeam",
-      "value": 6042.71,
+      "value": 6257.51,
       "level": 0
     },
     {
       "source": "toad-toad.network-moonbeam",
       "target": "toad-toad.network-bsc",
-      "value": 6042.71,
+      "value": 6257.51,
       "level": 1
     },
     {
       "source": "toad-toad.network-bsc",
       "target": "unbacked",
-      "value": 6042.71,
+      "value": 6257.51,
       "level": 2
     },
     {
       "source": "lp-toad-glmr-toad.network-moonbeam",
       "target": "glmr.w-toad.network-moonbeam",
-      "value": 6077.76,
+      "value": 6226.97,
       "level": 0
     },
     {
       "source": "glmr.w-toad.network-moonbeam",
       "target": "unbacked",
-      "value": 6077.76,
+      "value": 6226.97,
       "level": 1
     }
   ],
-  "value": 12120.48,
+  "value": 12484.47,
   "unbacked": 0,
-  "backed": 12120.48
+  "backed": 12484.47
 }
