@@ -43,12 +43,17 @@
   },
   "price": [
     {
-      "timestamp": "2023-02-20T22:09:35.055Z",
+      "timestamp": "2023-02-21T22:09:53.098Z",
       "usd": 0,
       "source": "No price recorded in bcked."
     }
   ],
   "supply": [
+    {
+      "timestamp": "2023-02-21T22:09:51.722Z",
+      "total": 318.5318433049515,
+      "source": "https://bsc-dataseed3.binance.org/"
+    },
     {
       "timestamp": "2023-02-20T22:09:33.485Z",
       "total": 318.5318433049515,
@@ -86,6 +91,18 @@
     }
   ],
   "backing": [
+    {
+      "timestamp": "2023-02-21T22:09:51.821Z",
+      "assets": {
+        "bnb-binance-bsc": 14.49508093514898,
+        "gal-bsc": 7496786756702.138
+      },
+      "source": "https://bsc-dataseed3.binance.org/",
+      "backing-assets": 0,
+      "backing-usd": 0,
+      "ratio": 0,
+      "uniformity": 0
+    },
     {
       "timestamp": "2023-02-20T22:09:33.596Z",
       "assets": {

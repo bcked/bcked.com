@@ -1,10 +1,10 @@
 {
-  "timestamp": "2023-02-20T22:09:33.461Z",
+  "timestamp": "2023-02-21T22:09:51.165Z",
   "nodes": [
     {
       "id": "busd-binance-bsc",
       "name": "Binance-Peg BUSD",
-      "value": 4840918436.2,
+      "value": 4862757395.41,
       "level": 0
     },
     {
@@ -14,13 +14,13 @@
     {
       "id": "busd-paxos-ethereum",
       "name": "Binance USD",
-      "value": 4840918436.2,
+      "value": 4862757395.41,
       "level": 1
     },
     {
       "id": "usd-fed",
       "name": "U.S. dollar",
-      "value": 4840918436.2,
+      "value": 4862757395.41,
       "level": 2
     }
   ],
@@ -28,23 +28,23 @@
     {
       "source": "busd-binance-bsc",
       "target": "busd-paxos-ethereum",
-      "value": 4840918436.2,
+      "value": 4862757395.41,
       "level": 0
     },
     {
       "source": "busd-paxos-ethereum",
       "target": "usd-fed",
-      "value": 4840918436.2,
+      "value": 4862757395.41,
       "level": 1
     },
     {
       "source": "usd-fed",
       "target": "unbacked",
-      "value": 4840918436.2,
+      "value": 4862757395.41,
       "level": 2
     }
   ],
-  "value": 4840918436.2,
+  "value": 4862757395.41,
   "unbacked": 0,
-  "backed": 4840918436.2
+  "backed": 4862757395.41
 }
