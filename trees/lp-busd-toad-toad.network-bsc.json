@@ -1,86 +1,80 @@
 {
-  "timestamp": "2023-02-21T22:09:52.032Z",
+  "timestamp": "2023-02-22T22:08:52.371Z",
   "nodes": [
+    {
+      "id": "lp-busd-toad-toad.network-bsc",
+      "name": "BUSD-TOAD LPs",
+      "value": 6421.81,
+      "level": 0
+    },
     {
       "id": "unbacked",
       "value": 0
     },
     {
-      "id": "lp-busd-toad-toad.network-bsc",
-      "name": "BUSD-TOAD LPs",
-      "value": 6504.8,
-      "level": 0
-    },
-    {
       "id": "busd-binance-bsc",
       "name": "Binance-Peg BUSD",
-      "value": 3261.06,
+      "value": 3192.66,
       "level": 1
     },
     {
       "id": "busd-paxos-ethereum",
       "name": "Binance USD",
-      "value": 3261.06,
+      "value": 3192.66,
       "level": 2
     },
     {
       "id": "usd-fed",
       "name": "U.S. dollar",
-      "value": 3261.06,
+      "value": 3192.66,
       "level": 3
     },
     {
       "id": "toad-toad.network-bsc",
       "name": "Toad Network",
-      "value": 3243.74,
+      "value": 3229.15,
       "level": 1
     }
   ],
   "links": [
     {
       "source": "lp-busd-toad-toad.network-bsc",
-      "target": "unbacked",
-      "value": 0,
-      "level": 0
-    },
-    {
-      "source": "lp-busd-toad-toad.network-bsc",
       "target": "busd-binance-bsc",
-      "value": 3261.06,
+      "value": 3192.66,
       "level": 0
     },
     {
       "source": "busd-binance-bsc",
       "target": "busd-paxos-ethereum",
-      "value": 3261.06,
+      "value": 3192.66,
       "level": 1
     },
     {
       "source": "busd-paxos-ethereum",
       "target": "usd-fed",
-      "value": 3261.06,
+      "value": 3192.66,
       "level": 2
     },
     {
       "source": "usd-fed",
       "target": "unbacked",
-      "value": 3261.06,
+      "value": 3192.66,
       "level": 3
     },
     {
       "source": "lp-busd-toad-toad.network-bsc",
       "target": "toad-toad.network-bsc",
-      "value": 3243.74,
+      "value": 3229.15,
       "level": 0
     },
     {
       "source": "toad-toad.network-bsc",
       "target": "unbacked",
-      "value": 3243.74,
+      "value": 3229.15,
       "level": 1
     }
   ],
-  "value": 6504.8,
+  "value": 6421.81,
   "unbacked": 0,
-  "backed": 6504.8
+  "backed": 6421.81
 }

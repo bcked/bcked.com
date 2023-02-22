@@ -43,6 +43,11 @@
   },
   "price": [
     {
+      "timestamp": "2023-02-22T22:08:52.971Z",
+      "usd": 0.0024159968346597668,
+      "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: pad-toad.network-moonriver,movr.w-moonbeam-moonriver"
+    },
+    {
       "timestamp": "2023-02-21T22:09:52.758Z",
       "usd": 0.0024555938263336823,
       "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: pad-toad.network-moonriver,movr.w-moonbeam-moonriver"
@@ -89,6 +94,11 @@
     }
   ],
   "supply": [
+    {
+      "timestamp": "2023-02-22T22:08:52.210Z",
+      "total": 2073472.5706367572,
+      "source": "https://rpc.api.moonriver.moonbeam.network"
+    },
     {
       "timestamp": "2023-02-21T22:09:51.526Z",
       "total": 2073472.5706367572,
@@ -137,6 +147,18 @@
   ],
   "backing": [
     {
+      "timestamp": "2023-02-22T22:08:52.224Z",
+      "assets": {
+        "pad-toad.network-moonriver": 19224594265.716766,
+        "movr.w-moonbeam-moonriver": 243.14804948957618
+      },
+      "source": "https://rpc.api.moonriver.moonbeam.network",
+      "backing-assets": 2,
+      "backing-usd": 5009.5,
+      "ratio": 1,
+      "uniformity": 1
+    },
+    {
       "timestamp": "2023-02-21T22:09:51.539Z",
       "assets": {
         "pad-toad.network-moonriver": 19315986045.208275,
@@ -145,7 +167,7 @@
       "source": "https://rpc.api.moonriver.moonbeam.network",
       "backing-assets": 2,
       "backing-usd": 5091.6,
-      "ratio": 1,
+      "ratio": 1.0164,
       "uniformity": 1
     },
     {
@@ -157,7 +179,7 @@
       "source": "https://rpc.api.moonriver.moonbeam.network",
       "backing-assets": 2,
       "backing-usd": 5440.11,
-      "ratio": 1.0684,
+      "ratio": 1.086,
       "uniformity": 1
     },
     {
@@ -169,7 +191,7 @@
       "source": "https://rpc.api.moonriver.moonbeam.network",
       "backing-assets": 2,
       "backing-usd": 5408.09,
-      "ratio": 1.0622,
+      "ratio": 1.0796,
       "uniformity": 1
     },
     {
@@ -181,7 +203,7 @@
       "source": "https://rpc.api.moonriver.moonbeam.network",
       "backing-assets": 2,
       "backing-usd": 4265.19,
-      "ratio": 0.8377,
+      "ratio": 0.8514,
       "uniformity": 1
     },
     {
@@ -193,7 +215,7 @@
       "source": "https://rpc.api.moonriver.moonbeam.network",
       "backing-assets": 2,
       "backing-usd": 4306.19,
-      "ratio": 0.8457,
+      "ratio": 0.8596,
       "uniformity": 1
     },
     {
@@ -205,7 +227,7 @@
       "source": "https://rpc.api.moonriver.moonbeam.network",
       "backing-assets": 2,
       "backing-usd": 4473.37,
-      "ratio": 0.8786,
+      "ratio": 0.893,
       "uniformity": 1
     },
     {
@@ -217,7 +239,7 @@
       "source": "https://rpc.api.moonriver.moonbeam.network",
       "backing-assets": 2,
       "backing-usd": 4434.73,
-      "ratio": 0.871,
+      "ratio": 0.8853,
       "uniformity": 1
     },
     {
@@ -229,7 +251,7 @@
       "source": "https://rpc.api.moonriver.moonbeam.network",
       "backing-assets": 2,
       "backing-usd": 4287.62,
-      "ratio": 0.8421,
+      "ratio": 0.8559,
       "uniformity": 1
     },
     {
@@ -241,9 +263,9 @@
       "source": "https://rpc.api.moonriver.moonbeam.network",
       "backing-assets": 2,
       "backing-usd": 4358.15,
-      "ratio": 0.8559,
+      "ratio": 0.87,
       "uniformity": 0.9999
     }
   ],
-  "mcap": 5091.61
+  "mcap": 5009.5
 }

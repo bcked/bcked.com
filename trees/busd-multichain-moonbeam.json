@@ -1,10 +1,10 @@
 {
-  "timestamp": "2023-02-21T22:09:51.821Z",
+  "timestamp": "2023-02-22T22:08:52.371Z",
   "nodes": [
     {
       "id": "busd-multichain-moonbeam",
       "name": "Binance-Peg BUSD",
-      "value": 522406.69,
+      "value": 509909.33,
       "level": 0
     },
     {
@@ -14,19 +14,19 @@
     {
       "id": "busd-binance-bsc",
       "name": "Binance-Peg BUSD",
-      "value": 522406.69,
+      "value": 509909.33,
       "level": 1
     },
     {
       "id": "busd-paxos-ethereum",
       "name": "Binance USD",
-      "value": 522406.69,
+      "value": 509909.33,
       "level": 2
     },
     {
       "id": "usd-fed",
       "name": "U.S. dollar",
-      "value": 522406.69,
+      "value": 509909.33,
       "level": 3
     }
   ],
@@ -34,29 +34,29 @@
     {
       "source": "busd-multichain-moonbeam",
       "target": "busd-binance-bsc",
-      "value": 522406.69,
+      "value": 509909.33,
       "level": 0
     },
     {
       "source": "busd-binance-bsc",
       "target": "busd-paxos-ethereum",
-      "value": 522406.69,
+      "value": 509909.33,
       "level": 1
     },
     {
       "source": "busd-paxos-ethereum",
       "target": "usd-fed",
-      "value": 522406.69,
+      "value": 509909.33,
       "level": 2
     },
     {
       "source": "usd-fed",
       "target": "unbacked",
-      "value": 522406.69,
+      "value": 509909.33,
       "level": 3
     }
   ],
-  "value": 522406.69,
+  "value": 509909.33,
   "unbacked": 0,
-  "backed": 522406.69
+  "backed": 509909.33
 }

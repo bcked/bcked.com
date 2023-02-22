@@ -1,80 +1,86 @@
 {
-  "timestamp": "2023-02-21T22:09:52.032Z",
+  "timestamp": "2023-02-22T22:08:52.371Z",
   "nodes": [
-    {
-      "id": "lp-busd-bnb-toad.network-bsc",
-      "name": "BUSD-BNB LPs",
-      "value": 17091.88,
-      "level": 0
-    },
     {
       "id": "unbacked",
       "value": 0
     },
     {
+      "id": "lp-busd-bnb-toad.network-bsc",
+      "name": "BUSD-BNB LPs",
+      "value": 13837.57,
+      "level": 0
+    },
+    {
       "id": "busd-binance-bsc",
       "name": "Binance-Peg BUSD",
-      "value": 8578.54,
+      "value": 6893.8,
       "level": 1
     },
     {
       "id": "busd-paxos-ethereum",
       "name": "Binance USD",
-      "value": 8578.54,
+      "value": 6893.8,
       "level": 2
     },
     {
       "id": "usd-fed",
       "name": "U.S. dollar",
-      "value": 8578.54,
+      "value": 6893.8,
       "level": 3
     },
     {
       "id": "bnb-binance-bsc",
       "name": "Wrapped BNB",
-      "value": 8513.34,
+      "value": 6943.76,
       "level": 1
     }
   ],
   "links": [
     {
       "source": "lp-busd-bnb-toad.network-bsc",
+      "target": "unbacked",
+      "value": 0,
+      "level": 0
+    },
+    {
+      "source": "lp-busd-bnb-toad.network-bsc",
       "target": "busd-binance-bsc",
-      "value": 8578.54,
+      "value": 6893.8,
       "level": 0
     },
     {
       "source": "busd-binance-bsc",
       "target": "busd-paxos-ethereum",
-      "value": 8578.54,
+      "value": 6893.8,
       "level": 1
     },
     {
       "source": "busd-paxos-ethereum",
       "target": "usd-fed",
-      "value": 8578.54,
+      "value": 6893.8,
       "level": 2
     },
     {
       "source": "usd-fed",
       "target": "unbacked",
-      "value": 8578.54,
+      "value": 6893.8,
       "level": 3
     },
     {
       "source": "lp-busd-bnb-toad.network-bsc",
       "target": "bnb-binance-bsc",
-      "value": 8513.34,
+      "value": 6943.76,
       "level": 0
     },
     {
       "source": "bnb-binance-bsc",
       "target": "unbacked",
-      "value": 8513.34,
+      "value": 6943.76,
       "level": 1
     }
   ],
-  "value": 17091.88,
+  "value": 13837.57,
   "unbacked": 0,
-  "backed": 17091.88
+  "backed": 13837.57
 }

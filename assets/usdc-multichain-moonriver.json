@@ -38,6 +38,11 @@
   },
   "price": [
     {
+      "timestamp": "2023-02-22T22:08:52.102Z",
+      "usd": 0.999068,
+      "source": "https://coins.llama.fi/prices/current/moonriver:0x3D44494656370126E50Fe6488606165Bc0f2fd80,moonbeam:0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD,moonriver:0x38185BF42E4D6d0b51Db5F6C2B83064008549087,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xC0888d80EE0AbF84563168b3182650c0AdDEb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488C50184Ce2092756ba7CdF85731fD17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b,moonriver:0xe3f5a90f9cb311505cd691a46596599aa1a0ad7d?searchWidth=4h"
+    },
+    {
       "timestamp": "2023-02-21T22:09:51.875Z",
       "usd": 1.002,
       "source": "https://coins.llama.fi/prices/current/moonriver:0x3D44494656370126E50Fe6488606165Bc0f2fd80,moonbeam:0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD,moonriver:0x38185BF42E4D6d0b51Db5F6C2B83064008549087,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xC0888d80EE0AbF84563168b3182650c0AdDEb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488C50184Ce2092756ba7CdF85731fD17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b,moonriver:0xe3f5a90f9cb311505cd691a46596599aa1a0ad7d?searchWidth=4h"
@@ -104,6 +109,11 @@
     }
   ],
   "supply": [
+    {
+      "timestamp": "2023-02-22T22:08:52.207Z",
+      "total": 12121833.470745,
+      "source": "https://rpc.api.moonriver.moonbeam.network"
+    },
     {
       "timestamp": "2023-02-21T22:09:51.527Z",
       "total": 12042969.470745,
@@ -172,6 +182,17 @@
   ],
   "backing": [
     {
+      "timestamp": "2023-02-22T22:08:52.250Z",
+      "assets": {
+        "usdc-circle-ethereum": 12433810.266006
+      },
+      "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
+      "backing-assets": 1,
+      "backing-usd": 12110535.92,
+      "ratio": 1,
+      "uniformity": 1
+    },
+    {
       "timestamp": "2023-02-21T22:09:51.165Z",
       "assets": {
         "usdc-circle-ethereum": 12355449.766006
@@ -179,7 +200,7 @@
       "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
       "backing-assets": 1,
       "backing-usd": 12067055.41,
-      "ratio": 1,
+      "ratio": 0.9964,
       "uniformity": 1
     },
     {
@@ -190,7 +211,7 @@
       "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
       "backing-assets": 1,
       "backing-usd": 12083621.99,
-      "ratio": 1.0014,
+      "ratio": 0.9978,
       "uniformity": 1
     },
     {
@@ -201,7 +222,7 @@
       "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
       "backing-assets": 1,
       "backing-usd": 12125802.67,
-      "ratio": 1.0049,
+      "ratio": 1.0013,
       "uniformity": 1
     },
     {
@@ -212,7 +233,7 @@
       "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
       "backing-assets": 1,
       "backing-usd": 12009881.55,
-      "ratio": 0.9953,
+      "ratio": 0.9917,
       "uniformity": 1
     },
     {
@@ -223,7 +244,7 @@
       "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
       "backing-assets": 1,
       "backing-usd": 13141781.22,
-      "ratio": 1.0891,
+      "ratio": 1.0852,
       "uniformity": 1
     },
     {
@@ -234,7 +255,7 @@
       "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
       "backing-assets": 1,
       "backing-usd": 13362470.83,
-      "ratio": 1.1074,
+      "ratio": 1.1034,
       "uniformity": 1
     },
     {
@@ -245,7 +266,7 @@
       "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
       "backing-assets": 1,
       "backing-usd": 13436741.09,
-      "ratio": 1.1135,
+      "ratio": 1.1095,
       "uniformity": 1
     },
     {
@@ -256,7 +277,7 @@
       "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
       "backing-assets": 1,
       "backing-usd": 13556869.69,
-      "ratio": 1.1235,
+      "ratio": 1.1194,
       "uniformity": 1
     },
     {
@@ -267,7 +288,7 @@
       "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
       "backing-assets": 1,
       "backing-usd": 13937357.04,
-      "ratio": 1.155,
+      "ratio": 1.1508,
       "uniformity": 1
     },
     {
@@ -278,7 +299,7 @@
       "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
       "backing-assets": 1,
       "backing-usd": 13942798.14,
-      "ratio": 1.1554,
+      "ratio": 1.1513,
       "uniformity": 1
     },
     {
@@ -289,7 +310,7 @@
       "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
       "backing-assets": 1,
       "backing-usd": 13718652.14,
-      "ratio": 1.1369,
+      "ratio": 1.1328,
       "uniformity": 1
     },
     {
@@ -300,7 +321,7 @@
       "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
       "backing-assets": 1,
       "backing-usd": 13801519.14,
-      "ratio": 1.1437,
+      "ratio": 1.1396,
       "uniformity": 1
     },
     {
@@ -311,9 +332,9 @@
       "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
       "backing-assets": 1,
       "backing-usd": 13978766.96,
-      "ratio": 1.1584,
+      "ratio": 1.1543,
       "uniformity": 1
     }
   ],
-  "mcap": 12067055.41
+  "mcap": 12110535.92
 }
