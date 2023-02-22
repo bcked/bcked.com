@@ -9,7 +9,7 @@ declare namespace graph {
 		supply: agg.AssetSupplyData;
 		backing: agg.AssetBackingData;
 
-		mcap: number; // TODO Compute live
+		mcap: number | undefined; // TODO Compute live
 	};
 
 	type Node = {
@@ -20,7 +20,7 @@ declare namespace graph {
 	type LinkData = {
 		backing: number;
 
-		backingUsd: number; // TODO Compute live
+		backingUsd: number | undefined; // TODO Compute live
 	};
 
 	type Link = {

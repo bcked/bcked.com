@@ -23,25 +23,19 @@
 
 	let innerWidth = 0;
 	let innerHeight = 0;
-	let graph: ForceGraph3DInstance;
+	let forceGraph: ForceGraph3DInstance;
 
-	let selectedNode: string | undefined = undefined;
-	$: selectedName = selectedNode ? assetsDetails[selectedNode]!.name : undefined;
-	$: selectedIssuer = selectedNode
-		? issuersDetails[assetsDetails[selectedNode]?.issuer ?? '']?.name
-		: undefined;
-	$: selectedChain = selectedNode
-		? chainsDetails[assetsContracts[selectedNode]?.token?.chain ?? '']?.name
-		: undefined;
+	let selectedNode: Node | undefined = undefined;
 
 	onMount(() => {
-		graph = ForceNGraph3D(htmlElement)
+		forceGraph = ForceNGraph3D(htmlElement)
 			.enableNodeDrag(false)
 			.nodeLabel((n) => {
 				const node = n as Node;
-				const name = assetsDetails[node.id]!.name;
-				const issuer = issuersDetails[assetsDetails[node.id]?.issuer ?? '']?.name;
-				const chain = chainsDetails[assetsContracts[node.id]?.token?.chain ?? '']?.name;
+				const data = node.data;
+				const name = data.details.name;
+				const issuer = data.issuer?.name;
+				const chain = data.chain?.name;
 
 				if (name && issuer && chain) return `${name} - ${issuer} (${chain})`;
 				if (name && issuer) return `${name} - ${issuer}`;
@@ -50,7 +44,9 @@
 			})
 			.nodeThreeObject((n) => {
 				const node = n as Node;
-				const href = icons[node.id]!.href;
+				const data = node.data;
+				const href = data?.icon?.href;
+
 				const imgTexture = new Three.TextureLoader().load(href);
 				const material = new Three.SpriteMaterial({ map: imgTexture });
 				const sprite = new Three.Sprite(material);
@@ -59,7 +55,7 @@
 			})
 			.onNodeClick((n) => {
 				const node = n as Node;
-				selectedNode = node.id;
+				selectedNode = node;
 				// Aim at node from outside it
 				const distance = 150;
 				const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
@@ -69,7 +65,7 @@
 					newPos = { x: node.x * distRatio, y: node.y * distRatio, z: node.z * distRatio };
 				}
 
-				graph.cameraPosition(
+				forceGraph.cameraPosition(
 					newPos, // new position
 					node, // lookAt
 					1000 // ms transition duration
@@ -77,7 +73,8 @@
 			})
 			.linkLabel((l) => {
 				const link = l as Link;
-				return formatCurrency(link.data.backing);
+				const data = link.data;
+				return formatCurrency(data.backing);
 			})
 			.linkDirectionalArrowLength(9)
 			.linkDirectionalArrowRelPos(0.5)
@@ -92,11 +89,11 @@
 		const radius = 4;
 		const threshold = 0.0;
 		const bloomPass = new UnrealBloomPass(resolution, strength, radius, threshold);
-		graph.postProcessingComposer().addPass(bloomPass);
+		forceGraph.postProcessingComposer().addPass(bloomPass);
 	});
 
-	$: graph = graph?.width(innerWidth);
-	$: graph = graph?.height(innerHeight);
+	$: forceGraph = forceGraph?.width(innerWidth);
+	$: forceGraph = forceGraph?.height(innerHeight);
 </script>
 
 <svelte:window bind:innerWidth bind:innerHeight />
@@ -110,18 +107,31 @@
 			: 'translate-y-0 opacity-100'} transition-all motion-reduce:transition-none duration-1000"
 	>
 		<div class="px-4 py-2 sm:px-6 transition-all motion-reduce:transition-none duration-1000">
-			<h2 class="text-lg font-medium leading-6 text-neon-pink">
-				<a href="{base}/assets/{selectedNode}">{selectedName}</a>
-			</h2>
-			{#if selectedIssuer && selectedChain}
-				<p class="mt-1 max-w-2xl text-sm text-gray-500">
-					Issuer: {selectedIssuer} | Chain: {selectedChain}
-				</p>
-			{:else if selectedIssuer}
-				<p class="mt-1 max-w-2xl text-sm text-gray-500">Issuer: {selectedIssuer}</p>
-			{:else if selectedChain}
-				<p class="mt-1 max-w-2xl text-sm text-gray-500">Chain: {selectedChain}</p>
-			{/if}
+			<div class="flex items-center justify-start space-x-4">
+				<img
+					class="h-10 w-10 flex-shrink-1"
+					src={selectedNode?.data?.icon?.href}
+					alt="Icon of {selectedNode?.data?.details?.name}"
+				/>
+				<div>
+					<h2 class="text-lg font-medium leading-6 text-neon-pink">
+						<a href="{base}/assets/{selectedNode?.id}">{selectedNode?.data?.details?.name}</a>
+					</h2>
+					{#if selectedNode?.data?.issuer?.name && selectedNode?.data?.chain?.name}
+						<p class="mt-1 max-w-2xl text-sm text-gray-500">
+							Issuer: {selectedNode?.data?.issuer?.name} | Chain: {selectedNode?.data?.chain?.name}
+						</p>
+					{:else if selectedNode?.data?.issuer?.name}
+						<p class="mt-1 max-w-2xl text-sm text-gray-500">
+							Issuer: {selectedNode?.data?.issuer?.name}
+						</p>
+					{:else if selectedNode?.data?.chain?.name}
+						<p class="mt-1 max-w-2xl text-sm text-gray-500">
+							Chain: {selectedNode?.data?.chain?.name}
+						</p>
+					{/if}
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

@@ -67,19 +67,16 @@ export function createFromAggregations(
 	assetsBacking: agg.AssetsBacking
 ): Graph<graph.NodeData, graph.LinkData> {
 	let graph = createGraph<graph.NodeData, graph.LinkData>();
-	for (const { id, history } of Object.values(assetsSupply)) {
-		// TODO add node also if supply can not be determined
-		if (!history || !history.length) continue;
-
-		const supply = history.at(-1)!;
-
+	for (const [id, details] of Object.entries(assetsDetails)) {
+		const supply = assetsSupply[id]?.history?.at(-1);
 		const priceHistory = assetsPrice[id]?.history;
-		// TODO add node also if price can not be determined
-		if (!priceHistory || !priceHistory.length) continue;
 
-		const price = closest(priceHistory, supply.timestamp);
+		let mcap: number | undefined = undefined;
+		if (supply && priceHistory && priceHistory.length) {
+			const price = closest(priceHistory, supply.timestamp);
+			mcap = price.usd * supply.total;
+		}
 
-		const details = assetsDetails[id]!;
 		const contracts = assetsContracts[id];
 
 		graph.addNode(id, {
@@ -92,26 +89,27 @@ export function createFromAggregations(
 			supply: assetsSupply[id]!,
 			backing: assetsBacking[id]!,
 
-			mcap: price.usd * supply.total
+			mcap
 		});
 	}
 
-	for (const { id, history } of Object.values(assetsBacking)) {
-		if (!history) continue;
-		const backing = history.at(-1);
+	for (const [id, assetBacking] of Object.entries(assetsBacking)) {
+		const backing = assetBacking.history?.at(-1);
 		if (!backing) continue;
 
 		for (const [underlying, amount] of Object.entries(backing.assets)) {
 			const priceHistory = assetsPrice[underlying]?.history;
-			// TODO add link also if price can not be determined
-			if (!priceHistory || !priceHistory.length) continue;
 
-			const price = closest(priceHistory, backing.timestamp);
+			let backingUsd: number | undefined = undefined;
+			if (priceHistory && priceHistory.length) {
+				const price = closest(priceHistory, backing.timestamp);
+				backingUsd = price.usd * amount;
+			}
 
 			graph.addLink(id, underlying, {
 				backing: amount,
 
-				backingUsd: price.usd * amount
+				backingUsd
 			});
 		}
 	}

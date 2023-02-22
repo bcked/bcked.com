@@ -57,11 +57,11 @@ async function preprocessData() {
 	// );
 
 	// TODO remove temp code
-	// const issuersDetails = await readAggregation<agg.IssuersDetails>('issuers-details');
-	// const chainsDetails = await readAggregation<agg.ChainsDetails>('chains-details');
-	// const assetsDetails = await readAggregation<agg.AssetsDetails>('assets-details');
-	// const assetsContracts = await readAggregation<agg.AssetsContracts>('assets-contracts');
-	// const icons = await readAggregation<agg.Icons>('icons');
+	const issuersDetails = await readAggregation<agg.IssuersDetails>('issuers-details');
+	const chainsDetails = await readAggregation<agg.ChainsDetails>('chains-details');
+	const assetsDetails = await readAggregation<agg.AssetsDetails>('assets-details');
+	const assetsContracts = await readAggregation<agg.AssetsContracts>('assets-contracts');
+	const icons = await readAggregation<agg.Icons>('icons');
 
 	// migrateHistoryData(assetsDetails, 'price');
 	// migrateHistoryData(assetsDetails, 'supply');
@@ -79,6 +79,11 @@ async function preprocessData() {
 	// 	'assets',
 	// 	'backing'
 	// );
+
+	// TODO remove temp code
+	const assetsPrice = await readAggregation<agg.AssetsPrice>('assets-price');
+	const assetsSupply = await readAggregation<agg.AssetsSupply>('assets-supply');
+	const assetsBacking = await readAggregation<agg.AssetsBacking>('assets-backing');
 
 	// const graph = createFromAggregations(
 	// 	assetsDetails,
@@ -110,7 +115,7 @@ if (!update || Date.now() - new Date(update.timestamp).getTime() > 60 * 1000) {
 
 	// await updateData();
 
-	await preprocessData();
+	// await preprocessData();
 
 	// throw new Error('Not implemented.');
 

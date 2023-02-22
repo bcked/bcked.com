@@ -1,6 +1,6 @@
-import type { DefaultLogFields, ListLogLine } from 'simple-git';
-
 declare namespace git {
+	import type { DefaultLogFields, ListLogLine } from 'simple-git';
+
 	type FileChangeLog = {
 		hash: string | null;
 		date: string;
