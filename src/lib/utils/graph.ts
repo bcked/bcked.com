@@ -1,3 +1,4 @@
+import { closest } from '$lib/utils/array';
 import { writeAggregation } from '$lib/utils/files';
 import type { ForceGraph3DInstance } from '3d-force-graph';
 import ForceGraph3D from '3d-force-graph';
@@ -48,9 +49,72 @@ export function writeGraph(name: string, graph: Graph) {
 }
 
 export function ForceNGraph3D(htmlElement: HTMLElement) {
-	const createGraph: ForceGraph3DInstance = ForceGraph3D();
-	return createGraph(htmlElement)
+	const createForceGraph: ForceGraph3DInstance = ForceGraph3D();
+	return createForceGraph(htmlElement)
 		.linkSource('fromId')
 		.linkTarget('toId')
 		.backgroundColor('#00000000');
+}
+
+export function createFromAggregations(
+	assetsDetails: agg.AssetsDetails,
+	issuersDetails: agg.IssuersDetails,
+	chainsDetails: agg.ChainsDetails,
+	icons: agg.Icons,
+	assetsContracts: agg.AssetsContracts,
+	assetsPrice: agg.AssetsPrice,
+	assetsSupply: agg.AssetsSupply,
+	assetsBacking: agg.AssetsBacking
+): Graph<graph.NodeData, graph.LinkData> {
+	let graph = createGraph<graph.NodeData, graph.LinkData>();
+	for (const { id, history } of Object.values(assetsSupply)) {
+		// TODO add node also if supply can not be determined
+		if (!history || !history.length) continue;
+
+		const supply = history.at(-1)!;
+
+		const priceHistory = assetsPrice[id]?.history;
+		// TODO add node also if price can not be determined
+		if (!priceHistory || !priceHistory.length) continue;
+
+		const price = closest(priceHistory, supply.timestamp);
+
+		const details = assetsDetails[id]!;
+		const contracts = assetsContracts[id];
+
+		graph.addNode(id, {
+			details,
+			issuer: issuersDetails[details.issuer ?? ''] ?? undefined,
+			chain: chainsDetails[contracts?.token?.chain ?? ''] ?? undefined,
+			icon: icons[id]!,
+			contracts: contracts,
+			price: assetsPrice[id]!,
+			supply: assetsSupply[id]!,
+			backing: assetsBacking[id]!,
+
+			mcap: price.usd * supply.total
+		});
+	}
+
+	for (const { id, history } of Object.values(assetsBacking)) {
+		if (!history) continue;
+		const backing = history.at(-1);
+		if (!backing) continue;
+
+		for (const [underlying, amount] of Object.entries(backing.assets)) {
+			const priceHistory = assetsPrice[underlying]?.history;
+			// TODO add link also if price can not be determined
+			if (!priceHistory || !priceHistory.length) continue;
+
+			const price = closest(priceHistory, backing.timestamp);
+
+			graph.addLink(id, underlying, {
+				backing: amount,
+
+				backingUsd: price.usd * amount
+			});
+		}
+	}
+
+	return graph;
 }

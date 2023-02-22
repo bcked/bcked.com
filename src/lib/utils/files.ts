@@ -5,17 +5,19 @@ export async function readJson<Type>(filepath: string): Promise<Type | undefined
 	return JSON.parse(fs.readFileSync(filepath, 'utf-8'));
 }
 
-export function writeJson<Type>(filepath: string, obj: Type) {
+export function writeJson(filepath: string, obj: Object) {
 	fs.writeFileSync(filepath, JSON.stringify(obj, null, 4));
 }
 
 export async function readAggregation<Type>(
 	name: string,
 	target: string = './.aggregation'
-): Promise<Type | undefined> {
-	return await readJson<Type>(`${target}/${name}.json`);
+): Promise<Type> {
+	const agg = await readJson<Type>(`${target}/${name}.json`);
+	if (!agg) throw Error(`Aggregation file ${target}/${name}.json not found.`);
+	return agg;
 }
 
-export function writeAggregation<Type>(name: string, obj: Type) {
+export function writeAggregation(name: string, obj: Object) {
 	writeJson(`./.aggregation/${name}.json`, obj);
 }

@@ -31,7 +31,7 @@
 			.showNavInfo(false)
 			.cameraPosition({ z: distance })
 			.nodeThreeObject((node) => {
-				const href = icons[(node as agg.GraphNode).id]!.href;
+				const href = icons[(node as graph.Node).id]!.href;
 				const imgTexture = new Three.TextureLoader().load(href);
 				const material = new Three.SpriteMaterial({ map: imgTexture });
 				const sprite = new Three.Sprite(material);

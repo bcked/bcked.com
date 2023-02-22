@@ -1,11 +1,10 @@
 <script lang="ts">
+	import { PUBLIC_DOMAIN } from '$env/static/public';
+	import SvelteSeo from 'svelte-seo';
 	import type { PageData } from './$types';
-	// import { PUBLIC_DOMAIN } from '$env/static/public';
-	// import SvelteSeo from 'svelte-seo';
 	import DiscoverSection from './sections/discover.svelte';
 	import IntroSection from './sections/intro.svelte';
 	import RankingSection from './sections/ranking.svelte';
-	// import { formatCurrency } from '$lib/utils/string-formatting';
 
 	export let data: PageData;
 
@@ -42,22 +41,20 @@
 		}
 	};
 
-	// $: backingUsd = formatCurrency(stats['backing-usd']);
-	// $: backingUsdAvg = formatCurrency(stats['backing-usd-avg']);
-	// $: seo = {
-	// 	title: 'bcked: Cryptocurrency Backing, Ranking, History, Stats, ...',
-	// 	description: `The cryptocurrencies recorded in bcked are backed by ${backingUsd} with an average backing of ${backingUsdAvg}. Read more on bcked, which is an open source community project that provides and visualizes data about cryptocurrency backing.`,
-	// 	url: `${PUBLIC_DOMAIN}`,
-	// 	image: {
-	// 		url: `${PUBLIC_DOMAIN}/previews/landing.jpg`,
-	// 		width: 1200,
-	// 		height: 630,
-	// 		alt: `Preview of bcked's landing page.`
-	// 	}
-	// };
+	$: seo = {
+		title: 'bcked: Cryptocurrency Backing, Ranking, History, Stats, ...',
+		description: `Read more on bcked, which is an open source community project that provides and visualizes data about cryptocurrency backing.`,
+		url: `${PUBLIC_DOMAIN}`,
+		image: {
+			url: `${PUBLIC_DOMAIN}/previews/landing.jpg`,
+			width: 1200,
+			height: 630,
+			alt: `Preview of bcked's landing page.`
+		}
+	};
 </script>
 
-<!-- <SvelteSeo
+<SvelteSeo
 	title={seo.title}
 	description={seo.description}
 	openGraph={{
@@ -74,7 +71,7 @@
 		image: seo.image.url,
 		imageAlt: seo.image.alt
 	}}
-/> -->
+/>
 
 <IntroSection {data} theme={themes.blue} />
 <DiscoverSection {data} theme={themes.yellow} />

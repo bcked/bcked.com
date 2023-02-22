@@ -10,13 +10,9 @@ export const GET: RequestHandler = async () => {
 	const assetsBacking = await readAggregation<agg.AssetsBacking>('assets-backing');
 	const assetsContracts = await readAggregation<agg.AssetsContracts>('assets-contracts');
 
-	if (!assetsBacking || !assetsContracts) {
-		throw new Error('Aggregation files could not be loaded.');
-	}
-
 	// const assets = await _readAssets();
 	const sortedAssets = Object.values(assetsBacking)
-		.filter((asset) => Object.keys(asset.history.at(-1)!['assets']).length > 0)
+		.filter(({ history }) => Object.keys(history.at(-1)!.assets).length > 0)
 		.map((asset) => ({
 			loc: `${PUBLIC_DOMAIN}/assets/${asset.id}`,
 			lastmod: asset.git.updated.date,

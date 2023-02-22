@@ -10,21 +10,7 @@ export const load: LayoutServerLoad = async () => {
 	const chainsDetails = await readAggregation<agg.ChainsDetails>('chains-details');
 	const issuersDetails = await readAggregation<agg.IssuersDetails>('issuers-details');
 	const icons = await readAggregation<agg.Icons>('icons');
-	const graphData = await readAggregation<agg.Graph>('graph');
-
-	if (
-		!assetsDetails ||
-		!assetsContracts ||
-		!assetsPrice ||
-		!assetsSupply ||
-		!assetsBacking ||
-		!chainsDetails ||
-		!issuersDetails ||
-		!icons ||
-		!graphData
-	) {
-		throw new Error('Could not load all aggregations.');
-	}
+	const graphData = await readAggregation<graph.Graph>('graph');
 
 	return {
 		assetsDetails,

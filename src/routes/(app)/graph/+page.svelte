@@ -14,8 +14,8 @@
 
 	export let data: PageData;
 
-	type Node = agg.GraphNode & { x: number; y: number; z: number };
-	type Link = agg.GraphLink;
+	type Node = graph.Node & { x: number; y: number; z: number };
+	type Link = graph.Link;
 
 	$: ({ assetsDetails, assetsContracts, chainsDetails, issuersDetails, icons, graphData } = data);
 

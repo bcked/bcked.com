@@ -5,19 +5,6 @@ declare namespace agg {
 
 	type Address = string;
 
-	type GitMeta = {
-		git: {
-			updated: {
-				hash: string;
-				date: Timestamp;
-			};
-			created: {
-				hash: string;
-				date: Timestamp;
-			};
-		};
-	};
-
 	type AssetDetails = {
 		id: derived.AssetId;
 		name: string;
@@ -25,7 +12,7 @@ declare namespace agg {
 		issuer: derived.IssuerId | null;
 		reference: string | null;
 		tags: string[];
-	} & GitMeta;
+	} & git.Meta;
 
 	type AssetsDetails = { [Property in derived.AssetId]: AssetDetails };
 
@@ -40,7 +27,7 @@ declare namespace agg {
 			chain: derived.ChainId;
 			'underlying-assets': derived.AssetId[];
 		};
-	} & GitMeta;
+	} & git.Meta;
 
 	type AssetsContracts = { [Property in derived.AssetId]: AssetContracts };
 
@@ -50,12 +37,12 @@ declare namespace agg {
 		source: string;
 	};
 
-	type AssetsPrice = {
-		[Property in derived.AssetId]: {
-			id: derived.AssetId;
-			history: AssetPrice[];
-		} & GitMeta;
-	};
+	type AssetPriceData = {
+		id: derived.AssetId;
+		history: AssetPrice[];
+	} & git.Meta;
+
+	type AssetsPrice = { [Property in derived.AssetId]: AssetPriceData };
 
 	type AssetSupply = {
 		timestamp: Timestamp;
@@ -63,12 +50,12 @@ declare namespace agg {
 		source: string;
 	};
 
-	type AssetsSupply = {
-		[Property in derived.AssetId]: {
-			id: derived.AssetId;
-			history: AssetSupply[];
-		} & GitMeta;
-	};
+	type AssetSupplyData = {
+		id: derived.AssetId;
+		history: AssetSupply[];
+	} & git.Meta;
+
+	type AssetsSupply = { [Property in derived.AssetId]: AssetSupplyData };
 
 	type AssetBacking = {
 		timestamp: Timestamp;
@@ -76,18 +63,18 @@ declare namespace agg {
 		source: string;
 	};
 
-	type AssetsBacking = {
-		[Property in derived.AssetId]: {
-			id: derived.AssetId;
-			history: AssetBacking[];
-		} & GitMeta;
-	};
+	type AssetBackingData = {
+		id: derived.AssetId;
+		history: AssetBacking[];
+	} & git.Meta;
+
+	type AssetsBacking = { [Property in derived.AssetId]: AssetBackingData };
 
 	type ChainDetails = {
 		id: derived.ChainId;
 		name: string;
 		explorer: string;
-	} & GitMeta;
+	} & git.Meta;
 
 	type ChainsDetails = { [Property in derived.ChainId]: ChainDetails };
 
@@ -96,7 +83,7 @@ declare namespace agg {
 		name: string;
 		reference: string;
 		tags: string[];
-	} & GitMeta;
+	} & git.Meta;
 
 	type IssuersDetails = { [Property in derived.IssuerId]: IssuerDetails };
 

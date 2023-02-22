@@ -1,7 +1,6 @@
 <script lang="ts">
-	import type { PageData } from './$types';
 	import SvelteSeo from 'svelte-seo';
-	import _ from 'lodash-es';
+	import type { PageData } from './$types';
 
 	import Milestones from '$components/roadmap-milestones.svelte';
 

@@ -17,10 +17,18 @@ export const load: PageServerLoad = async () => {
 		})
 	)
 		.filter((issue) => issue.milestone && issue.milestone.due_on)
-		.filter((issue) => issue.labels.some((label) => label.name == 'enhancement'))
+		.filter((issue) =>
+			issue.labels.some(
+				(label) => (typeof label === 'string' ? label : label.name) == 'enhancement'
+			)
+		)
 		.sort((a, b) => compareDates(a.updated_at, b.updated_at))
 		.sort((a, b) => -compareDates(a.milestone!.due_on!, b.milestone!.due_on!))
-		.map((issue) => ({ ...issue, body: marked(issue.body!) }));
+		.map((issue) => ({
+			...issue,
+			body: marked(issue.body!),
+			milestone: { ...issue.milestone!, due_on: issue.milestone!.due_on! }
+		}));
 
 	return {
 		content: marked(fs.readFileSync(`ABOUT.md`, 'utf-8')),

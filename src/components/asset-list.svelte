@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { base } from '$app/paths';
+	import { CashIcon, ChevronRightIcon } from '@rgossiaux/svelte-heroicons/solid';
 	import type { ComponentType } from 'svelte';
 	import type { PageData } from '../routes/(app)/$types';
 
@@ -18,10 +20,10 @@
 
 	export let icon: ComponentType;
 	export let title: string;
-	export let compare: (a: api.Asset, b: api.Asset) => number;
+	export let compare: (a: agg.AssetDetails, b: agg.AssetDetails) => number;
 	export let size: number;
-	export let select: (asset: api.Asset) => string;
-	export let filter: (asset: api.Asset) => boolean;
+	export let select: (asset: agg.AssetDetails) => string;
+	export let filter: (asset: agg.AssetDetails) => boolean;
 </script>
 
 <div class="px-4 py-5 overflow-hidden sm:p-6 text-gray-900">
@@ -33,19 +35,20 @@
 	</dt>
 	<dd>
 		<ul class="mt-2 space-y-2">
-			<!-- {#each Object.values(assets).filter(filter).sort(compare).slice(0, size) as asset, i}
+			{#each Object.values(assetsDetails).filter(filter).sort(compare).slice(0, size) as asset, i}
 				<li>
-					<a href={asset.links.ui} class="rounded-md block">
+					<a href="{base}/assets/{asset.id}" class="rounded-md block">
 						<div class="flex items-center min-w-0 flex-1 justify-between">
 							<div class="flex items-center">
 								<div class="text-gray-500 text-sm">
 									{i + 1}
 								</div>
 								<div class="flex items-center space-x-1 px-4 sm:px-6">
-									{#if asset.icon}
+									{#if asset.id in icons}
+										{@const assetIcon = icons[asset.id]}
 										<img
 											class="h-5 w-5 object-contain"
-											src="{base}/{asset.icon}"
+											src="{base}/{assetIcon.href}"
 											alt="Icon of {asset.name}"
 										/>
 									{:else}
@@ -72,7 +75,7 @@
 						</div>
 					</a>
 				</li>
-			{/each} -->
+			{/each}
 		</ul>
 	</dd>
 </div>
