@@ -1,10 +1,10 @@
 {
-  "timestamp": "2023-02-22T22:08:52.371Z",
+  "timestamp": "2023-02-23T22:10:13.121Z",
   "nodes": [
     {
       "id": "lp-bnb-toad-toad.network-bsc",
       "name": "BNB-TOAD LPs",
-      "value": 26152.71,
+      "value": 26177.49,
       "level": 0
     },
     {
@@ -14,13 +14,13 @@
     {
       "id": "bnb-binance-bsc",
       "name": "Wrapped BNB",
-      "value": 13111.32,
+      "value": 13145.72,
       "level": 1
     },
     {
       "id": "toad-toad.network-bsc",
       "name": "Toad Network",
-      "value": 13041.39,
+      "value": 13031.77,
       "level": 1
     }
   ],
@@ -28,29 +28,29 @@
     {
       "source": "lp-bnb-toad-toad.network-bsc",
       "target": "bnb-binance-bsc",
-      "value": 13111.32,
+      "value": 13145.72,
       "level": 0
     },
     {
       "source": "bnb-binance-bsc",
       "target": "unbacked",
-      "value": 13111.32,
+      "value": 13145.72,
       "level": 1
     },
     {
       "source": "lp-bnb-toad-toad.network-bsc",
       "target": "toad-toad.network-bsc",
-      "value": 13041.39,
+      "value": 13031.77,
       "level": 0
     },
     {
       "source": "toad-toad.network-bsc",
       "target": "unbacked",
-      "value": 13041.39,
+      "value": 13031.77,
       "level": 1
     }
   ],
-  "value": 26152.71,
+  "value": 26177.49,
   "unbacked": 0,
-  "backed": 26152.71
+  "backed": 26177.49
 }

@@ -43,6 +43,11 @@
   },
   "price": [
     {
+      "timestamp": "2023-02-23T22:10:13.526Z",
+      "usd": 1601535.0979165782,
+      "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: usdc-multichain-moonbeam,glmr.w-toad.network-moonbeam"
+    },
+    {
       "timestamp": "2023-02-22T22:08:52.971Z",
       "usd": 1590151.2941357857,
       "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: usdc-multichain-moonbeam,glmr.w-toad.network-moonbeam"
@@ -94,6 +99,11 @@
     }
   ],
   "supply": [
+    {
+      "timestamp": "2023-02-23T22:10:12.980Z",
+      "total": 0.000798260065700403,
+      "source": "https://moonbeam.public.blastapi.io"
+    },
     {
       "timestamp": "2023-02-22T22:08:52.187Z",
       "total": 0.000798260065700403,
@@ -147,6 +157,18 @@
   ],
   "backing": [
     {
+      "timestamp": "2023-02-23T22:10:13.002Z",
+      "assets": {
+        "usdc-multichain-moonbeam": 639.235063,
+        "glmr.w-toad.network-moonbeam": 1305.357027539163
+      },
+      "source": "https://moonbeam.public.blastapi.io",
+      "backing-assets": 2,
+      "backing-usd": 1278.44,
+      "ratio": 1,
+      "uniformity": 1
+    },
+    {
       "timestamp": "2023-02-22T22:08:52.189Z",
       "assets": {
         "usdc-multichain-moonbeam": 635.242403,
@@ -155,7 +177,7 @@
       "source": "https://moonbeam.public.blastapi.io",
       "backing-assets": 2,
       "backing-usd": 1269.35,
-      "ratio": 1,
+      "ratio": 0.9929,
       "uniformity": 1
     },
     {
@@ -167,7 +189,7 @@
       "source": "https://moonbeam.public.blastapi.io",
       "backing-assets": 2,
       "backing-usd": 1297.15,
-      "ratio": 1.0219,
+      "ratio": 1.0146,
       "uniformity": 1
     },
     {
@@ -179,7 +201,7 @@
       "source": "https://moonbeam.public.blastapi.io",
       "backing-assets": 2,
       "backing-usd": 1352.59,
-      "ratio": 1.0656,
+      "ratio": 1.058,
       "uniformity": 1
     },
     {
@@ -191,7 +213,7 @@
       "source": "https://moonbeam.public.blastapi.io",
       "backing-assets": 2,
       "backing-usd": 1305.74,
-      "ratio": 1.0287,
+      "ratio": 1.0214,
       "uniformity": 1
     },
     {
@@ -203,7 +225,7 @@
       "source": "https://moonbeam.public.blastapi.io",
       "backing-assets": 2,
       "backing-usd": 1217.27,
-      "ratio": 0.959,
+      "ratio": 0.9522,
       "uniformity": 1
     },
     {
@@ -215,7 +237,7 @@
       "source": "https://moonbeam.public.blastapi.io",
       "backing-assets": 2,
       "backing-usd": 1219.25,
-      "ratio": 0.9605,
+      "ratio": 0.9537,
       "uniformity": 0.9999
     },
     {
@@ -227,7 +249,7 @@
       "source": "https://moonbeam.public.blastapi.io",
       "backing-assets": 2,
       "backing-usd": 1302.05,
-      "ratio": 1.0258,
+      "ratio": 1.0185,
       "uniformity": 1
     },
     {
@@ -239,7 +261,7 @@
       "source": "https://moonbeam.public.blastapi.io",
       "backing-assets": 2,
       "backing-usd": 1249.75,
-      "ratio": 0.9846,
+      "ratio": 0.9776,
       "uniformity": 1
     },
     {
@@ -251,7 +273,7 @@
       "source": "https://moonbeam.public.blastapi.io",
       "backing-assets": 2,
       "backing-usd": 1232.71,
-      "ratio": 0.9711,
+      "ratio": 0.9642,
       "uniformity": 1
     },
     {
@@ -263,9 +285,9 @@
       "source": "https://moonbeam.public.blastapi.io",
       "backing-assets": 2,
       "backing-usd": 1271.29,
-      "ratio": 1.0015,
+      "ratio": 0.9944,
       "uniformity": 1
     }
   ],
-  "mcap": 1269.35
+  "mcap": 1278.44
 }

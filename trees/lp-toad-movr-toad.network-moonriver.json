@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-02-22T22:08:52.225Z",
+  "timestamp": "2023-02-23T22:10:12.863Z",
   "nodes": [
     {
       "id": "unbacked",
@@ -8,25 +8,25 @@
     {
       "id": "lp-toad-movr-toad.network-moonriver",
       "name": "PAD-MOVR LPs",
-      "value": 3821.01,
+      "value": 4041.97,
       "level": 0
     },
     {
       "id": "toad-toad.network-moonriver",
       "name": "Wrapped Toad",
-      "value": 1908.49,
+      "value": 2003,
       "level": 1
     },
     {
       "id": "toad-toad.network-bsc",
       "name": "Toad Network",
-      "value": 1908.49,
+      "value": 2003,
       "level": 2
     },
     {
       "id": "movr.w-moonbeam-moonriver",
       "name": "Wrapped MOVR",
-      "value": 1912.52,
+      "value": 2038.96,
       "level": 1
     }
   ],
@@ -40,35 +40,35 @@
     {
       "source": "lp-toad-movr-toad.network-moonriver",
       "target": "toad-toad.network-moonriver",
-      "value": 1908.49,
+      "value": 2003,
       "level": 0
     },
     {
       "source": "toad-toad.network-moonriver",
       "target": "toad-toad.network-bsc",
-      "value": 1908.49,
+      "value": 2003,
       "level": 1
     },
     {
       "source": "toad-toad.network-bsc",
       "target": "unbacked",
-      "value": 1908.49,
+      "value": 2003,
       "level": 2
     },
     {
       "source": "lp-toad-movr-toad.network-moonriver",
       "target": "movr.w-moonbeam-moonriver",
-      "value": 1912.52,
+      "value": 2038.96,
       "level": 0
     },
     {
       "source": "movr.w-moonbeam-moonriver",
       "target": "unbacked",
-      "value": 1912.52,
+      "value": 2038.96,
       "level": 1
     }
   ],
-  "value": 3821.01,
+  "value": 4041.97,
   "unbacked": 0,
-  "backed": 3821.01
+  "backed": 4041.97
 }

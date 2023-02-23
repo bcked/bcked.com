@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-02-22T22:08:52.231Z",
+  "timestamp": "2023-02-23T22:10:12.914Z",
   "nodes": [
     {
       "id": "unbacked",
@@ -8,31 +8,31 @@
     {
       "id": "lp-usdc-movr-toad.network-moonriver",
       "name": "PAD-MOVR LPs",
-      "value": 2007.89,
+      "value": 2085.77,
       "level": 0
     },
     {
       "id": "usdc-multichain-moonriver",
       "name": "USD Coin",
-      "value": 1003.65,
+      "value": 1044.01,
       "level": 1
     },
     {
       "id": "usdc-circle-ethereum",
       "name": "USD Coin",
-      "value": 1003.65,
+      "value": 1044.01,
       "level": 2
     },
     {
       "id": "usd-fed",
       "name": "U.S. dollar",
-      "value": 1003.65,
+      "value": 1044.01,
       "level": 3
     },
     {
       "id": "movr.w-moonbeam-moonriver",
       "name": "Wrapped MOVR",
-      "value": 1004.24,
+      "value": 1041.76,
       "level": 1
     }
   ],
@@ -46,41 +46,41 @@
     {
       "source": "lp-usdc-movr-toad.network-moonriver",
       "target": "usdc-multichain-moonriver",
-      "value": 1003.65,
+      "value": 1044.01,
       "level": 0
     },
     {
       "source": "usdc-multichain-moonriver",
       "target": "usdc-circle-ethereum",
-      "value": 1003.65,
+      "value": 1044.01,
       "level": 1
     },
     {
       "source": "usdc-circle-ethereum",
       "target": "usd-fed",
-      "value": 1003.65,
+      "value": 1044.01,
       "level": 2
     },
     {
       "source": "usd-fed",
       "target": "unbacked",
-      "value": 1003.65,
+      "value": 1044.01,
       "level": 3
     },
     {
       "source": "lp-usdc-movr-toad.network-moonriver",
       "target": "movr.w-moonbeam-moonriver",
-      "value": 1004.24,
+      "value": 1041.76,
       "level": 0
     },
     {
       "source": "movr.w-moonbeam-moonriver",
       "target": "unbacked",
-      "value": 1004.24,
+      "value": 1041.76,
       "level": 1
     }
   ],
-  "value": 2007.89,
+  "value": 2085.77,
   "unbacked": 0,
-  "backed": 2007.89
+  "backed": 2085.77
 }

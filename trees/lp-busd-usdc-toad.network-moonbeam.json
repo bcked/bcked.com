@@ -1,104 +1,110 @@
 {
-  "timestamp": "2023-02-22T22:08:52.195Z",
+  "timestamp": "2023-02-23T22:10:13.000Z",
   "nodes": [
-    {
-      "id": "lp-busd-usdc-toad.network-moonbeam",
-      "name": "BUSD-USDC LPs",
-      "value": 1696.4,
-      "level": 0
-    },
     {
       "id": "unbacked",
       "value": 0
     },
     {
+      "id": "lp-busd-usdc-toad.network-moonbeam",
+      "name": "BUSD-USDC LPs",
+      "value": 1699.91,
+      "level": 0
+    },
+    {
       "id": "busd-multichain-moonbeam",
       "name": "Binance-Peg BUSD",
-      "value": 847,
+      "value": 849.56,
       "level": 1
     },
     {
       "id": "busd-binance-bsc",
       "name": "Binance-Peg BUSD",
-      "value": 847,
+      "value": 849.56,
       "level": 2
     },
     {
       "id": "busd-paxos-ethereum",
       "name": "Binance USD",
-      "value": 847,
+      "value": 849.56,
       "level": 3
     },
     {
       "id": "usd-fed",
       "name": "U.S. dollar",
-      "value": 1696.4,
+      "value": 1699.9,
       "level": 4
     },
     {
       "id": "usdc-multichain-moonbeam",
       "name": "USD Coin",
-      "value": 849.4,
+      "value": 850.34,
       "level": 1
     },
     {
       "id": "usdc-circle-ethereum",
       "name": "USD Coin",
-      "value": 849.4,
+      "value": 850.34,
       "level": 2
     }
   ],
   "links": [
     {
       "source": "lp-busd-usdc-toad.network-moonbeam",
+      "target": "unbacked",
+      "value": 0,
+      "level": 0
+    },
+    {
+      "source": "lp-busd-usdc-toad.network-moonbeam",
       "target": "busd-multichain-moonbeam",
-      "value": 847,
+      "value": 849.56,
       "level": 0
     },
     {
       "source": "busd-multichain-moonbeam",
       "target": "busd-binance-bsc",
-      "value": 847,
+      "value": 849.56,
       "level": 1
     },
     {
       "source": "busd-binance-bsc",
       "target": "busd-paxos-ethereum",
-      "value": 847,
+      "value": 849.56,
       "level": 2
     },
     {
       "source": "busd-paxos-ethereum",
       "target": "usd-fed",
-      "value": 847,
+      "value": 849.56,
       "level": 3
     },
     {
       "source": "usd-fed",
       "target": "unbacked",
-      "value": 1696.4,
+      "value": 1699.9,
       "level": 4
     },
     {
       "source": "lp-busd-usdc-toad.network-moonbeam",
       "target": "usdc-multichain-moonbeam",
-      "value": 849.4,
+      "value": 850.34,
       "level": 0
     },
     {
       "source": "usdc-multichain-moonbeam",
       "target": "usdc-circle-ethereum",
-      "value": 849.4,
+      "value": 850.34,
       "level": 1
     },
     {
       "source": "usdc-circle-ethereum",
       "target": "usd-fed",
-      "value": 849.4,
+      "value": 850.34,
       "level": 2
     }
   ],
-  "value": 1696.4,
+  "value": 1699.91,
   "unbacked": 0,
-  "backed": 1696.4
+  "backed": 1699.91
 }
