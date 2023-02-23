@@ -74,7 +74,8 @@
 			.linkLabel((l) => {
 				const link = l as Link;
 				const data = link.data;
-				return formatCurrency(data.backing);
+				if (!data.backingUsd) return '';
+				return formatCurrency(data.backingUsd);
 			})
 			.linkDirectionalArrowLength(9)
 			.linkDirectionalArrowRelPos(0.5)
