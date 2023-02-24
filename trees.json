@@ -1,7 +1,7 @@
 {
   "bjt-bsc": [
     {
-      "timestamp": "2023-02-23T22:10:13.997Z",
+      "timestamp": "2023-02-24T22:09:47.940Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -29,16 +29,16 @@
   ],
   "bnb-binance-bsc": [
     {
-      "timestamp": "2023-02-23T22:10:13.997Z",
+      "timestamp": "2023-02-24T22:09:47.940Z",
       "nodes": [
         {
           "id": "unbacked",
-          "value": 1173286276.39
+          "value": 1143919914
         },
         {
           "id": "bnb-binance-bsc",
           "name": "Wrapped BNB",
-          "value": 1173286276.39,
+          "value": 1143919914,
           "level": 0
         }
       ],
@@ -46,16 +46,54 @@
         {
           "source": "bnb-binance-bsc",
           "target": "unbacked",
-          "value": 1173286276.39,
+          "value": 1143919914,
           "level": 0
         }
       ],
-      "value": 1173286276.39,
-      "unbacked": 1173286276.39,
+      "value": 1143919914,
+      "unbacked": 1143919914,
       "backed": 0
     }
   ],
   "bnb-wormhole-ethereum": [
+    {
+      "timestamp": "2023-02-24T22:09:47.389Z",
+      "nodes": [
+        {
+          "id": "bnb-wormhole-ethereum",
+          "name": "Wrapped BNB",
+          "value": 1198065.83,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "bnb-binance-bsc",
+          "name": "Wrapped BNB",
+          "value": 1198065.83,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "bnb-wormhole-ethereum",
+          "target": "bnb-binance-bsc",
+          "value": 1198065.83,
+          "level": 0
+        },
+        {
+          "source": "bnb-binance-bsc",
+          "target": "unbacked",
+          "value": 1198065.83,
+          "level": 1
+        }
+      ],
+      "value": 1198065.83,
+      "unbacked": 0,
+      "backed": 1198065.83
+    },
     {
       "timestamp": "2023-02-23T22:10:13.121Z",
       "nodes": [
@@ -629,6 +667,44 @@
   ],
   "bnb-wormhole-solana": [
     {
+      "timestamp": "2023-02-24T22:09:47.389Z",
+      "nodes": [
+        {
+          "id": "bnb-wormhole-solana",
+          "name": "Wrapped BNB",
+          "value": 3073278.15,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "bnb-binance-bsc",
+          "name": "Wrapped BNB",
+          "value": 3073278.15,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "bnb-wormhole-solana",
+          "target": "bnb-binance-bsc",
+          "value": 3073278.15,
+          "level": 0
+        },
+        {
+          "source": "bnb-binance-bsc",
+          "target": "unbacked",
+          "value": 3073278.15,
+          "level": 1
+        }
+      ],
+      "value": 3073278.15,
+      "unbacked": 0,
+      "backed": 3073278.15
+    },
+    {
       "timestamp": "2023-02-23T22:10:13.121Z",
       "nodes": [
         {
@@ -1201,16 +1277,16 @@
   ],
   "btc-binance-bsc": [
     {
-      "timestamp": "2023-02-23T22:10:13.997Z",
+      "timestamp": "2023-02-24T22:09:47.940Z",
       "nodes": [
         {
           "id": "unbacked",
-          "value": 1448514942
+          "value": 1395516066
         },
         {
           "id": "btc-binance-bsc",
           "name": "Binance-Peg Bitcoin",
-          "value": 1448514942,
+          "value": 1395516066,
           "level": 0
         }
       ],
@@ -1218,18 +1294,18 @@
         {
           "source": "btc-binance-bsc",
           "target": "unbacked",
-          "value": 1448514942,
+          "value": 1395516066,
           "level": 0
         }
       ],
-      "value": 1448514942,
-      "unbacked": 1448514942,
+      "value": 1395516066,
+      "unbacked": 1395516066,
       "backed": 0
     }
   ],
   "btc-bitcoin": [
     {
-      "timestamp": "2023-02-23T22:10:13.997Z",
+      "timestamp": "2023-02-24T22:09:47.940Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -1256,6 +1332,68 @@
     }
   ],
   "busd-allbridge-solana": [
+    {
+      "timestamp": "2023-02-24T22:09:47.389Z",
+      "nodes": [
+        {
+          "id": "busd-allbridge-solana",
+          "name": "Wrapped BUSD",
+          "value": 72295.45,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "busd-binance-bsc",
+          "name": "Binance-Peg BUSD",
+          "value": 72295.45,
+          "level": 1
+        },
+        {
+          "id": "busd-paxos-ethereum",
+          "name": "Binance USD",
+          "value": 72295.45,
+          "level": 2
+        },
+        {
+          "id": "usd-fed",
+          "name": "U.S. dollar",
+          "value": 72295.45,
+          "level": 3
+        }
+      ],
+      "links": [
+        {
+          "source": "busd-allbridge-solana",
+          "target": "busd-binance-bsc",
+          "value": 72295.45,
+          "level": 0
+        },
+        {
+          "source": "busd-binance-bsc",
+          "target": "busd-paxos-ethereum",
+          "value": 72295.45,
+          "level": 1
+        },
+        {
+          "source": "busd-paxos-ethereum",
+          "target": "usd-fed",
+          "value": 72295.45,
+          "level": 2
+        },
+        {
+          "source": "usd-fed",
+          "target": "unbacked",
+          "value": 72295.45,
+          "level": 3
+        }
+      ],
+      "value": 72295.45,
+      "unbacked": 0,
+      "backed": 72295.45
+    },
     {
       "timestamp": "2023-02-23T22:10:13.121Z",
       "nodes": [
@@ -2189,6 +2327,56 @@
   ],
   "busd-binance-bsc": [
     {
+      "timestamp": "2023-02-24T22:09:46.566Z",
+      "nodes": [
+        {
+          "id": "busd-binance-bsc",
+          "name": "Binance-Peg BUSD",
+          "value": 2843171476.51,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "busd-paxos-ethereum",
+          "name": "Binance USD",
+          "value": 2843171476.51,
+          "level": 1
+        },
+        {
+          "id": "usd-fed",
+          "name": "U.S. dollar",
+          "value": 2843171476.51,
+          "level": 2
+        }
+      ],
+      "links": [
+        {
+          "source": "busd-binance-bsc",
+          "target": "busd-paxos-ethereum",
+          "value": 2843171476.51,
+          "level": 0
+        },
+        {
+          "source": "busd-paxos-ethereum",
+          "target": "usd-fed",
+          "value": 2843171476.51,
+          "level": 1
+        },
+        {
+          "source": "usd-fed",
+          "target": "unbacked",
+          "value": 2843171476.51,
+          "level": 2
+        }
+      ],
+      "value": 2843171476.51,
+      "unbacked": 0,
+      "backed": 2843171476.51
+    },
+    {
       "timestamp": "2023-02-23T22:10:12.317Z",
       "nodes": [
         {
@@ -2940,6 +3128,68 @@
     }
   ],
   "busd-multichain-moonbeam": [
+    {
+      "timestamp": "2023-02-24T22:09:47.389Z",
+      "nodes": [
+        {
+          "id": "busd-multichain-moonbeam",
+          "name": "Binance-Peg BUSD",
+          "value": 510449.27,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "busd-binance-bsc",
+          "name": "Binance-Peg BUSD",
+          "value": 510449.27,
+          "level": 1
+        },
+        {
+          "id": "busd-paxos-ethereum",
+          "name": "Binance USD",
+          "value": 510449.27,
+          "level": 2
+        },
+        {
+          "id": "usd-fed",
+          "name": "U.S. dollar",
+          "value": 510449.27,
+          "level": 3
+        }
+      ],
+      "links": [
+        {
+          "source": "busd-multichain-moonbeam",
+          "target": "busd-binance-bsc",
+          "value": 510449.27,
+          "level": 0
+        },
+        {
+          "source": "busd-binance-bsc",
+          "target": "busd-paxos-ethereum",
+          "value": 510449.27,
+          "level": 1
+        },
+        {
+          "source": "busd-paxos-ethereum",
+          "target": "usd-fed",
+          "value": 510449.27,
+          "level": 2
+        },
+        {
+          "source": "usd-fed",
+          "target": "unbacked",
+          "value": 510449.27,
+          "level": 3
+        }
+      ],
+      "value": 510449.27,
+      "unbacked": 0,
+      "backed": 510449.27
+    },
     {
       "timestamp": "2023-02-23T22:10:13.121Z",
       "nodes": [
@@ -3872,6 +4122,68 @@
     }
   ],
   "busd-multichain-moonriver": [
+    {
+      "timestamp": "2023-02-24T22:09:47.389Z",
+      "nodes": [
+        {
+          "id": "busd-multichain-moonriver",
+          "name": "Binance-Peg BUSD",
+          "value": 577608.93,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "busd-binance-bsc",
+          "name": "Binance-Peg BUSD",
+          "value": 577608.93,
+          "level": 1
+        },
+        {
+          "id": "busd-paxos-ethereum",
+          "name": "Binance USD",
+          "value": 577608.93,
+          "level": 2
+        },
+        {
+          "id": "usd-fed",
+          "name": "U.S. dollar",
+          "value": 577608.93,
+          "level": 3
+        }
+      ],
+      "links": [
+        {
+          "source": "busd-multichain-moonriver",
+          "target": "busd-binance-bsc",
+          "value": 577608.93,
+          "level": 0
+        },
+        {
+          "source": "busd-binance-bsc",
+          "target": "busd-paxos-ethereum",
+          "value": 577608.93,
+          "level": 1
+        },
+        {
+          "source": "busd-paxos-ethereum",
+          "target": "usd-fed",
+          "value": 577608.93,
+          "level": 2
+        },
+        {
+          "source": "usd-fed",
+          "target": "unbacked",
+          "value": 577608.93,
+          "level": 3
+        }
+      ],
+      "value": 577608.93,
+      "unbacked": 0,
+      "backed": 577608.93
+    },
     {
       "timestamp": "2023-02-23T22:10:13.121Z",
       "nodes": [
@@ -6441,6 +6753,50 @@
   ],
   "cats-catoshi-bsc": [
     {
+      "timestamp": "2023-02-24T22:09:46.566Z",
+      "nodes": [
+        {
+          "id": "unbacked",
+          "value": 242595.65
+        },
+        {
+          "id": "cats-catoshi-bsc",
+          "name": "Catoshi",
+          "value": 331870,
+          "level": 0
+        },
+        {
+          "id": "cats-catoshi-ethereum",
+          "name": "Catoshi",
+          "value": 89274.35,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "cats-catoshi-bsc",
+          "target": "unbacked",
+          "value": 242595.65,
+          "level": 0
+        },
+        {
+          "source": "cats-catoshi-bsc",
+          "target": "cats-catoshi-ethereum",
+          "value": 89274.35,
+          "level": 0
+        },
+        {
+          "source": "cats-catoshi-ethereum",
+          "target": "unbacked",
+          "value": 89274.35,
+          "level": 1
+        }
+      ],
+      "value": 331870,
+      "unbacked": 242595.65,
+      "backed": 89274.35
+    },
+    {
       "timestamp": "2023-02-23T22:10:12.317Z",
       "nodes": [
         {
@@ -7059,7 +7415,7 @@
   ],
   "cats-catoshi-ethereum": [
     {
-      "timestamp": "2023-02-23T22:10:13.998Z",
+      "timestamp": "2023-02-24T22:09:47.940Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -7086,6 +7442,32 @@
     }
   ],
   "eth-binance-bsc": [
+    {
+      "timestamp": "2023-02-24T22:09:46.215Z",
+      "nodes": [
+        {
+          "id": "unbacked",
+          "value": 969040599.99
+        },
+        {
+          "id": "eth-binance-bsc",
+          "name": "Binance-Peg Ethereum",
+          "value": 969040599.99,
+          "level": 0
+        }
+      ],
+      "links": [
+        {
+          "source": "eth-binance-bsc",
+          "target": "unbacked",
+          "value": 969040599.99,
+          "level": 0
+        }
+      ],
+      "value": 969040599.99,
+      "unbacked": 969040599.99,
+      "backed": 0
+    },
     {
       "timestamp": "2023-02-23T22:10:11.781Z",
       "nodes": [
@@ -7479,7 +7861,7 @@
   ],
   "eth-ethereum": [
     {
-      "timestamp": "2023-02-23T22:10:13.998Z",
+      "timestamp": "2023-02-24T22:09:47.940Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -7507,16 +7889,16 @@
   ],
   "eth.w-ethereum": [
     {
-      "timestamp": "2023-02-23T22:10:13.998Z",
+      "timestamp": "2023-02-24T22:09:47.940Z",
       "nodes": [
         {
           "id": "unbacked",
-          "value": 6603115852.71
+          "value": 6409951629.07
         },
         {
           "id": "eth.w-ethereum",
           "name": "Wrapped Ether",
-          "value": 6603115852.71,
+          "value": 6409951629.07,
           "level": 0
         }
       ],
@@ -7524,18 +7906,18 @@
         {
           "source": "eth.w-ethereum",
           "target": "unbacked",
-          "value": 6603115852.71,
+          "value": 6409951629.07,
           "level": 0
         }
       ],
-      "value": 6603115852.71,
-      "unbacked": 6603115852.71,
+      "value": 6409951629.07,
+      "unbacked": 6409951629.07,
       "backed": 0
     }
   ],
   "fuk-bsc": [
     {
-      "timestamp": "2023-02-23T22:10:13.998Z",
+      "timestamp": "2023-02-24T22:09:47.940Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -7563,7 +7945,7 @@
   ],
   "gal-bsc": [
     {
-      "timestamp": "2023-02-23T22:10:13.998Z",
+      "timestamp": "2023-02-24T22:09:47.940Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -7591,7 +7973,7 @@
   ],
   "glmr-moonbeam-moonbeam": [
     {
-      "timestamp": "2023-02-23T22:10:13.998Z",
+      "timestamp": "2023-02-24T22:09:47.940Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -7619,16 +8001,16 @@
   ],
   "glmr.w-moonbeam-moonbeam": [
     {
-      "timestamp": "2023-02-23T22:10:13.998Z",
+      "timestamp": "2023-02-24T22:09:47.941Z",
       "nodes": [
         {
           "id": "unbacked",
-          "value": 11114182.59
+          "value": 10376963.5
         },
         {
           "id": "glmr.w-moonbeam-moonbeam",
           "name": "Wrapped GLMR",
-          "value": 11114182.59,
+          "value": 10376963.5,
           "level": 0
         }
       ],
@@ -7636,27 +8018,27 @@
         {
           "source": "glmr.w-moonbeam-moonbeam",
           "target": "unbacked",
-          "value": 11114182.59,
+          "value": 10376963.5,
           "level": 0
         }
       ],
-      "value": 11114182.59,
-      "unbacked": 11114182.59,
+      "value": 10376963.5,
+      "unbacked": 10376963.5,
       "backed": 0
     }
   ],
   "glmr.w-toad.network-moonbeam": [
     {
-      "timestamp": "2023-02-23T22:10:13.998Z",
+      "timestamp": "2023-02-24T22:09:47.941Z",
       "nodes": [
         {
           "id": "unbacked",
-          "value": 18918.95
+          "value": 17996.45
         },
         {
           "id": "glmr.w-toad.network-moonbeam",
           "name": "Wrapped GLMR",
-          "value": 18918.95,
+          "value": 17996.45,
           "level": 0
         }
       ],
@@ -7664,18 +8046,18 @@
         {
           "source": "glmr.w-toad.network-moonbeam",
           "target": "unbacked",
-          "value": 18918.95,
+          "value": 17996.45,
           "level": 0
         }
       ],
-      "value": 18918.95,
-      "unbacked": 18918.95,
+      "value": 17996.45,
+      "unbacked": 17996.45,
       "backed": 0
     }
   ],
   "gold": [
     {
-      "timestamp": "2023-02-23T22:10:13.998Z",
+      "timestamp": "2023-02-24T22:09:47.941Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -7703,16 +8085,16 @@
   ],
   "hoge-ethereum": [
     {
-      "timestamp": "2023-02-23T22:10:13.998Z",
+      "timestamp": "2023-02-24T22:09:47.941Z",
       "nodes": [
         {
           "id": "unbacked",
-          "value": 32130000
+          "value": 33930000
         },
         {
           "id": "hoge-ethereum",
           "name": "Hoge Finance",
-          "value": 32130000,
+          "value": 33930000,
           "level": 0
         }
       ],
@@ -7720,16 +8102,60 @@
         {
           "source": "hoge-ethereum",
           "target": "unbacked",
-          "value": 32130000,
+          "value": 33930000,
           "level": 0
         }
       ],
-      "value": 32130000,
-      "unbacked": 32130000,
+      "value": 33930000,
+      "unbacked": 33930000,
       "backed": 0
     }
   ],
   "hoge-multichain-bsc": [
+    {
+      "timestamp": "2023-02-24T22:09:46.566Z",
+      "nodes": [
+        {
+          "id": "unbacked",
+          "value": 57180.45
+        },
+        {
+          "id": "hoge-multichain-bsc",
+          "name": "Hoge Finance",
+          "value": 528580.22,
+          "level": 0
+        },
+        {
+          "id": "hoge-ethereum",
+          "name": "Hoge Finance",
+          "value": 471399.77,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "hoge-multichain-bsc",
+          "target": "unbacked",
+          "value": 57180.45,
+          "level": 0
+        },
+        {
+          "source": "hoge-multichain-bsc",
+          "target": "hoge-ethereum",
+          "value": 471399.77,
+          "level": 0
+        },
+        {
+          "source": "hoge-ethereum",
+          "target": "unbacked",
+          "value": 471399.77,
+          "level": 1
+        }
+      ],
+      "value": 528580.22,
+      "unbacked": 57180.45,
+      "backed": 471399.77
+    },
     {
       "timestamp": "2023-02-23T22:10:12.317Z",
       "nodes": [
@@ -8393,6 +8819,68 @@
   ],
   "lp-bnb-bjt-toad.network-bsc": [
     {
+      "timestamp": "2023-02-24T22:09:47.389Z",
+      "nodes": [
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "lp-bnb-bjt-toad.network-bsc",
+          "name": "BNB-BJT LPs",
+          "value": 0,
+          "level": 0
+        },
+        {
+          "id": "bnb-binance-bsc",
+          "name": "Wrapped BNB",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "id": "bjt-bsc",
+          "name": "Bullish Jackpot",
+          "value": 0,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "lp-bnb-bjt-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 0
+        },
+        {
+          "source": "lp-bnb-bjt-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 0,
+          "level": 0
+        },
+        {
+          "source": "bnb-binance-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-bjt-toad.network-bsc",
+          "target": "bjt-bsc",
+          "value": 0,
+          "level": 0
+        },
+        {
+          "source": "bjt-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 1
+        }
+      ],
+      "value": 0,
+      "unbacked": 0,
+      "backed": 0
+    },
+    {
       "timestamp": "2023-02-23T22:10:13.121Z",
       "nodes": [
         {
@@ -9014,6 +9502,80 @@
     }
   ],
   "lp-bnb-cats-toad.network-bsc": [
+    {
+      "timestamp": "2023-02-24T22:09:47.389Z",
+      "nodes": [
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "lp-bnb-cats-toad.network-bsc",
+          "name": "BNB-CZATS LPs",
+          "value": 22400.34,
+          "level": 0
+        },
+        {
+          "id": "bnb-binance-bsc",
+          "name": "Wrapped BNB",
+          "value": 11246.12,
+          "level": 1
+        },
+        {
+          "id": "cats-catoshi-bsc",
+          "name": "Catoshi",
+          "value": 11154.22,
+          "level": 1
+        },
+        {
+          "id": "cats-catoshi-ethereum",
+          "name": "Catoshi",
+          "value": 11154.22,
+          "level": 2
+        }
+      ],
+      "links": [
+        {
+          "source": "lp-bnb-cats-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 0
+        },
+        {
+          "source": "lp-bnb-cats-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 11246.12,
+          "level": 0
+        },
+        {
+          "source": "bnb-binance-bsc",
+          "target": "unbacked",
+          "value": 11246.12,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-cats-toad.network-bsc",
+          "target": "cats-catoshi-bsc",
+          "value": 11154.22,
+          "level": 0
+        },
+        {
+          "source": "cats-catoshi-bsc",
+          "target": "cats-catoshi-ethereum",
+          "value": 11154.22,
+          "level": 1
+        },
+        {
+          "source": "cats-catoshi-ethereum",
+          "target": "unbacked",
+          "value": 11154.22,
+          "level": 2
+        }
+      ],
+      "value": 22400.34,
+      "unbacked": 0,
+      "backed": 22400.34
+    },
     {
       "timestamp": "2023-02-23T22:10:13.121Z",
       "nodes": [
@@ -9733,6 +10295,68 @@
   ],
   "lp-bnb-fuk-toad.network-bsc": [
     {
+      "timestamp": "2023-02-24T22:09:47.389Z",
+      "nodes": [
+        {
+          "id": "unbacked",
+          "value": 58.24
+        },
+        {
+          "id": "lp-bnb-fuk-toad.network-bsc",
+          "name": "BNB-FUK LPs",
+          "value": 4559.96,
+          "level": 0
+        },
+        {
+          "id": "bnb-binance-bsc",
+          "name": "Wrapped BNB",
+          "value": 2228.98,
+          "level": 1
+        },
+        {
+          "id": "fuk-bsc",
+          "name": "FuckYouKarens",
+          "value": 2272.74,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "lp-bnb-fuk-toad.network-bsc",
+          "target": "unbacked",
+          "value": 58.24,
+          "level": 0
+        },
+        {
+          "source": "lp-bnb-fuk-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 2228.98,
+          "level": 0
+        },
+        {
+          "source": "bnb-binance-bsc",
+          "target": "unbacked",
+          "value": 2228.98,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-fuk-toad.network-bsc",
+          "target": "fuk-bsc",
+          "value": 2272.74,
+          "level": 0
+        },
+        {
+          "source": "fuk-bsc",
+          "target": "unbacked",
+          "value": 2272.74,
+          "level": 1
+        }
+      ],
+      "value": 4559.96,
+      "unbacked": 58.24,
+      "backed": 4501.72
+    },
+    {
       "timestamp": "2023-02-23T22:10:13.121Z",
       "nodes": [
         {
@@ -10318,6 +10942,68 @@
     }
   ],
   "lp-bnb-gal-toad.network-bsc": [
+    {
+      "timestamp": "2023-02-24T22:09:47.389Z",
+      "nodes": [
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "lp-bnb-gal-toad.network-bsc",
+          "name": "BNB-GAL LPs",
+          "value": 0,
+          "level": 0
+        },
+        {
+          "id": "bnb-binance-bsc",
+          "name": "Wrapped BNB",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "id": "gal-bsc",
+          "name": "Gallant",
+          "value": 0,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "lp-bnb-gal-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 0
+        },
+        {
+          "source": "lp-bnb-gal-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 0,
+          "level": 0
+        },
+        {
+          "source": "bnb-binance-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-gal-toad.network-bsc",
+          "target": "gal-bsc",
+          "value": 0,
+          "level": 0
+        },
+        {
+          "source": "gal-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 1
+        }
+      ],
+      "value": 0,
+      "unbacked": 0,
+      "backed": 0
+    },
     {
       "timestamp": "2023-02-23T22:10:13.121Z",
       "nodes": [
@@ -10941,6 +11627,68 @@
   ],
   "lp-bnb-pxbsc-toad.network-bsc": [
     {
+      "timestamp": "2023-02-24T22:09:47.389Z",
+      "nodes": [
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "lp-bnb-pxbsc-toad.network-bsc",
+          "name": "BNB-PXBSC LPs",
+          "value": 0,
+          "level": 0
+        },
+        {
+          "id": "bnb-binance-bsc",
+          "name": "Wrapped BNB",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "id": "pxbsc-bsc",
+          "name": "Paradox NFT",
+          "value": 0,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "lp-bnb-pxbsc-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 0
+        },
+        {
+          "source": "lp-bnb-pxbsc-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 0,
+          "level": 0
+        },
+        {
+          "source": "bnb-binance-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-pxbsc-toad.network-bsc",
+          "target": "pxbsc-bsc",
+          "value": 0,
+          "level": 0
+        },
+        {
+          "source": "pxbsc-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 1
+        }
+      ],
+      "value": 0,
+      "unbacked": 0,
+      "backed": 0
+    },
+    {
       "timestamp": "2023-02-23T22:10:13.121Z",
       "nodes": [
         {
@@ -11563,6 +12311,62 @@
   ],
   "lp-bnb-toad-toad.network-bsc": [
     {
+      "timestamp": "2023-02-24T22:09:47.389Z",
+      "nodes": [
+        {
+          "id": "lp-bnb-toad-toad.network-bsc",
+          "name": "BNB-TOAD LPs",
+          "value": 25636.36,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "bnb-binance-bsc",
+          "name": "Wrapped BNB",
+          "value": 12827.2,
+          "level": 1
+        },
+        {
+          "id": "toad-toad.network-bsc",
+          "name": "Toad Network",
+          "value": 12809.16,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "lp-bnb-toad-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 12827.2,
+          "level": 0
+        },
+        {
+          "source": "bnb-binance-bsc",
+          "target": "unbacked",
+          "value": 12827.2,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-toad-toad.network-bsc",
+          "target": "toad-toad.network-bsc",
+          "value": 12809.16,
+          "level": 0
+        },
+        {
+          "source": "toad-toad.network-bsc",
+          "target": "unbacked",
+          "value": 12809.16,
+          "level": 1
+        }
+      ],
+      "value": 25636.36,
+      "unbacked": 0,
+      "backed": 25636.36
+    },
+    {
       "timestamp": "2023-02-23T22:10:13.121Z",
       "nodes": [
         {
@@ -12148,6 +12952,92 @@
     }
   ],
   "lp-busd-bnb-toad.network-bsc": [
+    {
+      "timestamp": "2023-02-24T22:09:47.389Z",
+      "nodes": [
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "lp-busd-bnb-toad.network-bsc",
+          "name": "BUSD-BNB LPs",
+          "value": 13706.36,
+          "level": 0
+        },
+        {
+          "id": "busd-binance-bsc",
+          "name": "Binance-Peg BUSD",
+          "value": 6861.47,
+          "level": 1
+        },
+        {
+          "id": "busd-paxos-ethereum",
+          "name": "Binance USD",
+          "value": 6861.47,
+          "level": 2
+        },
+        {
+          "id": "usd-fed",
+          "name": "U.S. dollar",
+          "value": 6861.47,
+          "level": 3
+        },
+        {
+          "id": "bnb-binance-bsc",
+          "name": "Wrapped BNB",
+          "value": 6844.89,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "lp-busd-bnb-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 0
+        },
+        {
+          "source": "lp-busd-bnb-toad.network-bsc",
+          "target": "busd-binance-bsc",
+          "value": 6861.47,
+          "level": 0
+        },
+        {
+          "source": "busd-binance-bsc",
+          "target": "busd-paxos-ethereum",
+          "value": 6861.47,
+          "level": 1
+        },
+        {
+          "source": "busd-paxos-ethereum",
+          "target": "usd-fed",
+          "value": 6861.47,
+          "level": 2
+        },
+        {
+          "source": "usd-fed",
+          "target": "unbacked",
+          "value": 6861.47,
+          "level": 3
+        },
+        {
+          "source": "lp-busd-bnb-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 6844.89,
+          "level": 0
+        },
+        {
+          "source": "bnb-binance-bsc",
+          "target": "unbacked",
+          "value": 6844.89,
+          "level": 1
+        }
+      ],
+      "value": 13706.36,
+      "unbacked": 0,
+      "backed": 13706.36
+    },
     {
       "timestamp": "2023-02-23T22:10:13.121Z",
       "nodes": [
@@ -12981,6 +13871,86 @@
   ],
   "lp-busd-toad-toad.network-bsc": [
     {
+      "timestamp": "2023-02-24T22:09:47.389Z",
+      "nodes": [
+        {
+          "id": "lp-busd-toad-toad.network-bsc",
+          "name": "BUSD-TOAD LPs",
+          "value": 6369.97,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "busd-binance-bsc",
+          "name": "Binance-Peg BUSD",
+          "value": 3191.84,
+          "level": 1
+        },
+        {
+          "id": "busd-paxos-ethereum",
+          "name": "Binance USD",
+          "value": 3191.84,
+          "level": 2
+        },
+        {
+          "id": "usd-fed",
+          "name": "U.S. dollar",
+          "value": 3191.84,
+          "level": 3
+        },
+        {
+          "id": "toad-toad.network-bsc",
+          "name": "Toad Network",
+          "value": 3178.14,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "lp-busd-toad-toad.network-bsc",
+          "target": "busd-binance-bsc",
+          "value": 3191.84,
+          "level": 0
+        },
+        {
+          "source": "busd-binance-bsc",
+          "target": "busd-paxos-ethereum",
+          "value": 3191.84,
+          "level": 1
+        },
+        {
+          "source": "busd-paxos-ethereum",
+          "target": "usd-fed",
+          "value": 3191.84,
+          "level": 2
+        },
+        {
+          "source": "usd-fed",
+          "target": "unbacked",
+          "value": 3191.84,
+          "level": 3
+        },
+        {
+          "source": "lp-busd-toad-toad.network-bsc",
+          "target": "toad-toad.network-bsc",
+          "value": 3178.14,
+          "level": 0
+        },
+        {
+          "source": "toad-toad.network-bsc",
+          "target": "unbacked",
+          "value": 3178.14,
+          "level": 1
+        }
+      ],
+      "value": 6369.97,
+      "unbacked": 0,
+      "backed": 6369.97
+    },
+    {
       "timestamp": "2023-02-23T22:10:13.121Z",
       "nodes": [
         {
@@ -13812,6 +14782,110 @@
     }
   ],
   "lp-busd-usdc-toad.network-moonbeam": [
+    {
+      "timestamp": "2023-02-24T22:09:46.879Z",
+      "nodes": [
+        {
+          "id": "lp-busd-usdc-toad.network-moonbeam",
+          "name": "BUSD-USDC LPs",
+          "value": 1697.34,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "busd-multichain-moonbeam",
+          "name": "Binance-Peg BUSD",
+          "value": 849.29,
+          "level": 1
+        },
+        {
+          "id": "busd-binance-bsc",
+          "name": "Binance-Peg BUSD",
+          "value": 849.29,
+          "level": 2
+        },
+        {
+          "id": "busd-paxos-ethereum",
+          "name": "Binance USD",
+          "value": 849.29,
+          "level": 3
+        },
+        {
+          "id": "usd-fed",
+          "name": "U.S. dollar",
+          "value": 1697.34,
+          "level": 4
+        },
+        {
+          "id": "usdc-multichain-moonbeam",
+          "name": "USD Coin",
+          "value": 848.05,
+          "level": 1
+        },
+        {
+          "id": "usdc-circle-ethereum",
+          "name": "USD Coin",
+          "value": 848.05,
+          "level": 2
+        }
+      ],
+      "links": [
+        {
+          "source": "lp-busd-usdc-toad.network-moonbeam",
+          "target": "busd-multichain-moonbeam",
+          "value": 849.29,
+          "level": 0
+        },
+        {
+          "source": "busd-multichain-moonbeam",
+          "target": "busd-binance-bsc",
+          "value": 849.29,
+          "level": 1
+        },
+        {
+          "source": "busd-binance-bsc",
+          "target": "busd-paxos-ethereum",
+          "value": 849.29,
+          "level": 2
+        },
+        {
+          "source": "busd-paxos-ethereum",
+          "target": "usd-fed",
+          "value": 849.29,
+          "level": 3
+        },
+        {
+          "source": "usd-fed",
+          "target": "unbacked",
+          "value": 1697.34,
+          "level": 4
+        },
+        {
+          "source": "lp-busd-usdc-toad.network-moonbeam",
+          "target": "usdc-multichain-moonbeam",
+          "value": 848.05,
+          "level": 0
+        },
+        {
+          "source": "usdc-multichain-moonbeam",
+          "target": "usdc-circle-ethereum",
+          "value": 848.05,
+          "level": 1
+        },
+        {
+          "source": "usdc-circle-ethereum",
+          "target": "usd-fed",
+          "value": 848.05,
+          "level": 2
+        }
+      ],
+      "value": 1697.34,
+      "unbacked": 0,
+      "backed": 1697.34
+    },
     {
       "timestamp": "2023-02-23T22:10:13.000Z",
       "nodes": [
@@ -15001,6 +16075,110 @@
   ],
   "lp-busd-usdc-toad.network-moonriver": [
     {
+      "timestamp": "2023-02-24T22:09:47.067Z",
+      "nodes": [
+        {
+          "id": "lp-busd-usdc-toad.network-moonriver",
+          "name": "BUSD-USDC LPs",
+          "value": 23889.42,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "busd-multichain-moonriver",
+          "name": "Binance-Peg BUSD",
+          "value": 11952.94,
+          "level": 1
+        },
+        {
+          "id": "busd-binance-bsc",
+          "name": "Binance-Peg BUSD",
+          "value": 11952.94,
+          "level": 2
+        },
+        {
+          "id": "busd-paxos-ethereum",
+          "name": "Binance USD",
+          "value": 11952.94,
+          "level": 3
+        },
+        {
+          "id": "usd-fed",
+          "name": "U.S. dollar",
+          "value": 23889.42,
+          "level": 4
+        },
+        {
+          "id": "usdc-multichain-moonriver",
+          "name": "USD Coin",
+          "value": 11936.48,
+          "level": 1
+        },
+        {
+          "id": "usdc-circle-ethereum",
+          "name": "USD Coin",
+          "value": 11936.48,
+          "level": 2
+        }
+      ],
+      "links": [
+        {
+          "source": "lp-busd-usdc-toad.network-moonriver",
+          "target": "busd-multichain-moonriver",
+          "value": 11952.94,
+          "level": 0
+        },
+        {
+          "source": "busd-multichain-moonriver",
+          "target": "busd-binance-bsc",
+          "value": 11952.94,
+          "level": 1
+        },
+        {
+          "source": "busd-binance-bsc",
+          "target": "busd-paxos-ethereum",
+          "value": 11952.94,
+          "level": 2
+        },
+        {
+          "source": "busd-paxos-ethereum",
+          "target": "usd-fed",
+          "value": 11952.94,
+          "level": 3
+        },
+        {
+          "source": "usd-fed",
+          "target": "unbacked",
+          "value": 23889.42,
+          "level": 4
+        },
+        {
+          "source": "lp-busd-usdc-toad.network-moonriver",
+          "target": "usdc-multichain-moonriver",
+          "value": 11936.48,
+          "level": 0
+        },
+        {
+          "source": "usdc-multichain-moonriver",
+          "target": "usdc-circle-ethereum",
+          "value": 11936.48,
+          "level": 1
+        },
+        {
+          "source": "usdc-circle-ethereum",
+          "target": "usd-fed",
+          "value": 11936.48,
+          "level": 2
+        }
+      ],
+      "value": 23889.42,
+      "unbacked": 0,
+      "backed": 23889.42
+    },
+    {
       "timestamp": "2023-02-23T22:10:12.838Z",
       "nodes": [
         {
@@ -16171,6 +17349,80 @@
   ],
   "lp-hoge-toad-toad.network-bsc": [
     {
+      "timestamp": "2023-02-24T22:09:47.389Z",
+      "nodes": [
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "lp-hoge-toad-toad.network-bsc",
+          "name": "HOGE-TOAD LPs",
+          "value": 20707.96,
+          "level": 0
+        },
+        {
+          "id": "hoge-multichain-bsc",
+          "name": "Hoge Finance",
+          "value": 10637.36,
+          "level": 1
+        },
+        {
+          "id": "hoge-ethereum",
+          "name": "Hoge Finance",
+          "value": 10637.36,
+          "level": 2
+        },
+        {
+          "id": "toad-toad.network-bsc",
+          "name": "Toad Network",
+          "value": 10070.6,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "lp-hoge-toad-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 0
+        },
+        {
+          "source": "lp-hoge-toad-toad.network-bsc",
+          "target": "hoge-multichain-bsc",
+          "value": 10637.36,
+          "level": 0
+        },
+        {
+          "source": "hoge-multichain-bsc",
+          "target": "hoge-ethereum",
+          "value": 10637.36,
+          "level": 1
+        },
+        {
+          "source": "hoge-ethereum",
+          "target": "unbacked",
+          "value": 10637.36,
+          "level": 2
+        },
+        {
+          "source": "lp-hoge-toad-toad.network-bsc",
+          "target": "toad-toad.network-bsc",
+          "value": 10070.6,
+          "level": 0
+        },
+        {
+          "source": "toad-toad.network-bsc",
+          "target": "unbacked",
+          "value": 10070.6,
+          "level": 1
+        }
+      ],
+      "value": 20707.96,
+      "unbacked": 0,
+      "backed": 20707.96
+    },
+    {
       "timestamp": "2023-02-23T22:10:13.121Z",
       "nodes": [
         {
@@ -16882,6 +18134,596 @@
     }
   ],
   "lp-pad-bnb-toad.network-bsc": [
+    {
+      "timestamp": "2023-02-24T22:09:47.389Z",
+      "nodes": [
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "lp-pad-bnb-toad.network-bsc",
+          "name": "PAD-BNB LPs",
+          "value": 9295.38,
+          "level": 0
+        },
+        {
+          "id": "pad-toad.network-bsc",
+          "name": "Lily Pad",
+          "value": 4672.63,
+          "level": 1
+        },
+        {
+          "id": "lp-pad-toad-toad.network-bsc",
+          "name": "PAD-TOAD LPs",
+          "value": 2017.69,
+          "level": 2
+        },
+        {
+          "id": "toad-toad.network-bsc",
+          "name": "Toad Network",
+          "value": 12278.01,
+          "level": 3
+        },
+        {
+          "id": "lp-bnb-toad-toad.network-bsc",
+          "name": "BNB-TOAD LPs",
+          "value": 3245.24,
+          "level": 2
+        },
+        {
+          "id": "bnb-binance-bsc",
+          "name": "Wrapped BNB",
+          "value": 14837.38,
+          "level": 3
+        },
+        {
+          "id": "lp-busd-toad-toad.network-bsc",
+          "name": "BUSD-TOAD LPs",
+          "value": 1757,
+          "level": 2
+        },
+        {
+          "id": "busd-binance-bsc",
+          "name": "Binance-Peg BUSD",
+          "value": 7198.31,
+          "level": 3
+        },
+        {
+          "id": "busd-paxos-ethereum",
+          "name": "Binance USD",
+          "value": 7198.31,
+          "level": 4
+        },
+        {
+          "id": "usd-fed",
+          "name": "U.S. dollar",
+          "value": 7198.31,
+          "level": 5
+        },
+        {
+          "id": "lp-pad-busd-toad.network-bsc",
+          "name": "PAD-BUSD LPs",
+          "value": 768.68,
+          "level": 2
+        },
+        {
+          "id": "lp-busd-bnb-toad.network-bsc",
+          "name": "BUSD-BNB LPs",
+          "value": 4672.63,
+          "level": 2
+        },
+        {
+          "id": "lp-pad-eth-toad.network-bsc",
+          "name": "PAD-ETH LPs",
+          "value": 504.98,
+          "level": 2
+        },
+        {
+          "id": "eth-binance-bsc",
+          "name": "Binance-Peg Ethereum",
+          "value": 504.98,
+          "level": 3
+        },
+        {
+          "id": "lp-pad-btc-toad.network-bsc",
+          "name": "PAD-BTC LPs",
+          "value": 467.42,
+          "level": 2
+        },
+        {
+          "id": "btc-binance-bsc",
+          "name": "Binance-Peg Bitcoin",
+          "value": 467.42,
+          "level": 3
+        },
+        {
+          "id": "lp-hoge-toad-toad.network-bsc",
+          "name": "HOGE-TOAD LPs",
+          "value": 585.45,
+          "level": 2
+        },
+        {
+          "id": "hoge-multichain-bsc",
+          "name": "Hoge Finance",
+          "value": 743.6,
+          "level": 3
+        },
+        {
+          "id": "hoge-ethereum",
+          "name": "Hoge Finance",
+          "value": 743.6,
+          "level": 4
+        },
+        {
+          "id": "lp-bnb-bjt-toad.network-bsc",
+          "name": "BNB-BJT LPs",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "id": "bjt-bsc",
+          "name": "Bullish Jackpot",
+          "value": 0,
+          "level": 3
+        },
+        {
+          "id": "lp-bnb-pxbsc-toad.network-bsc",
+          "name": "BNB-PXBSC LPs",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "id": "pxbsc-bsc",
+          "name": "Paradox NFT",
+          "value": 0,
+          "level": 3
+        },
+        {
+          "id": "lp-bnb-fuk-toad.network-bsc",
+          "name": "BNB-FUK LPs",
+          "value": 417.43,
+          "level": 2
+        },
+        {
+          "id": "fuk-bsc",
+          "name": "FuckYouKarens",
+          "value": 417.43,
+          "level": 3
+        },
+        {
+          "id": "lp-bnb-gal-toad.network-bsc",
+          "name": "BNB-GAL LPs",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "id": "gal-bsc",
+          "name": "Gallant",
+          "value": 0,
+          "level": 3
+        },
+        {
+          "id": "lp-pad-hoge-toad.network-bsc",
+          "name": "PAD-HOGE LPs",
+          "value": 158.15,
+          "level": 2
+        },
+        {
+          "id": "lp-bnb-cats-toad.network-bsc",
+          "name": "BNB-CZATS LPs",
+          "value": 1879.33,
+          "level": 2
+        },
+        {
+          "id": "cats-catoshi-bsc",
+          "name": "Catoshi",
+          "value": 1879.33,
+          "level": 3
+        },
+        {
+          "id": "cats-catoshi-ethereum",
+          "name": "Catoshi",
+          "value": 1879.33,
+          "level": 4
+        }
+      ],
+      "links": [
+        {
+          "source": "lp-pad-bnb-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 0
+        },
+        {
+          "source": "lp-pad-bnb-toad.network-bsc",
+          "target": "pad-toad.network-bsc",
+          "value": 4672.63,
+          "level": 0
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-pad-toad-toad.network-bsc",
+          "value": 2017.69,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-toad-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-pad-toad-toad.network-bsc",
+          "target": "toad-toad.network-bsc",
+          "value": 2017.69,
+          "level": 2
+        },
+        {
+          "source": "toad-toad.network-bsc",
+          "target": "unbacked",
+          "value": 12278.01,
+          "level": 3
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-bnb-toad-toad.network-bsc",
+          "value": 3245.24,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-toad-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 3245.24,
+          "level": 2
+        },
+        {
+          "source": "bnb-binance-bsc",
+          "target": "unbacked",
+          "value": 14837.38,
+          "level": 3
+        },
+        {
+          "source": "lp-bnb-toad-toad.network-bsc",
+          "target": "toad-toad.network-bsc",
+          "value": 3245.24,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-busd-toad-toad.network-bsc",
+          "value": 1757,
+          "level": 1
+        },
+        {
+          "source": "lp-busd-toad-toad.network-bsc",
+          "target": "busd-binance-bsc",
+          "value": 1757,
+          "level": 2
+        },
+        {
+          "source": "busd-binance-bsc",
+          "target": "busd-paxos-ethereum",
+          "value": 7198.31,
+          "level": 3
+        },
+        {
+          "source": "busd-paxos-ethereum",
+          "target": "usd-fed",
+          "value": 7198.31,
+          "level": 4
+        },
+        {
+          "source": "usd-fed",
+          "target": "unbacked",
+          "value": 7198.31,
+          "level": 5
+        },
+        {
+          "source": "lp-busd-toad-toad.network-bsc",
+          "target": "toad-toad.network-bsc",
+          "value": 1757,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-pad-busd-toad.network-bsc",
+          "value": 768.68,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-busd-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-pad-busd-toad.network-bsc",
+          "target": "busd-binance-bsc",
+          "value": 768.68,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-busd-bnb-toad.network-bsc",
+          "value": 4672.63,
+          "level": 1
+        },
+        {
+          "source": "lp-busd-bnb-toad.network-bsc",
+          "target": "busd-binance-bsc",
+          "value": 4672.63,
+          "level": 2
+        },
+        {
+          "source": "lp-busd-bnb-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 4672.63,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-pad-eth-toad.network-bsc",
+          "value": 504.98,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-eth-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-pad-eth-toad.network-bsc",
+          "target": "eth-binance-bsc",
+          "value": 504.98,
+          "level": 2
+        },
+        {
+          "source": "eth-binance-bsc",
+          "target": "unbacked",
+          "value": 504.98,
+          "level": 3
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-pad-btc-toad.network-bsc",
+          "value": 467.42,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-btc-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-pad-btc-toad.network-bsc",
+          "target": "btc-binance-bsc",
+          "value": 467.42,
+          "level": 2
+        },
+        {
+          "source": "btc-binance-bsc",
+          "target": "unbacked",
+          "value": 467.42,
+          "level": 3
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-hoge-toad-toad.network-bsc",
+          "value": 585.45,
+          "level": 1
+        },
+        {
+          "source": "lp-hoge-toad-toad.network-bsc",
+          "target": "hoge-multichain-bsc",
+          "value": 585.45,
+          "level": 2
+        },
+        {
+          "source": "hoge-multichain-bsc",
+          "target": "hoge-ethereum",
+          "value": 743.6,
+          "level": 3
+        },
+        {
+          "source": "hoge-ethereum",
+          "target": "unbacked",
+          "value": 743.6,
+          "level": 4
+        },
+        {
+          "source": "lp-hoge-toad-toad.network-bsc",
+          "target": "toad-toad.network-bsc",
+          "value": 585.45,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-bnb-bjt-toad.network-bsc",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-bjt-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-bjt-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-bjt-toad.network-bsc",
+          "target": "bjt-bsc",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "bjt-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 3
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-bnb-pxbsc-toad.network-bsc",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-pxbsc-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-pxbsc-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-pxbsc-toad.network-bsc",
+          "target": "pxbsc-bsc",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "pxbsc-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 3
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-bnb-fuk-toad.network-bsc",
+          "value": 417.43,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-fuk-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 417.43,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-fuk-toad.network-bsc",
+          "target": "fuk-bsc",
+          "value": 417.43,
+          "level": 2
+        },
+        {
+          "source": "fuk-bsc",
+          "target": "unbacked",
+          "value": 417.43,
+          "level": 3
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-bnb-gal-toad.network-bsc",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-gal-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-gal-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-gal-toad.network-bsc",
+          "target": "gal-bsc",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "gal-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 3
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-pad-hoge-toad.network-bsc",
+          "value": 158.15,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-hoge-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-pad-hoge-toad.network-bsc",
+          "target": "hoge-multichain-bsc",
+          "value": 158.15,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-bnb-cats-toad.network-bsc",
+          "value": 1879.33,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-cats-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 1879.33,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-cats-toad.network-bsc",
+          "target": "cats-catoshi-bsc",
+          "value": 1879.33,
+          "level": 2
+        },
+        {
+          "source": "cats-catoshi-bsc",
+          "target": "cats-catoshi-ethereum",
+          "value": 1879.33,
+          "level": 3
+        },
+        {
+          "source": "cats-catoshi-ethereum",
+          "target": "unbacked",
+          "value": 1879.33,
+          "level": 4
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "toad-toad.network-bsc",
+          "value": 4672.63,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-bnb-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 4622.75,
+          "level": 0
+        }
+      ],
+      "value": 9295.38,
+      "unbacked": 0,
+      "backed": 9295.38
+    },
     {
       "timestamp": "2023-02-23T22:10:13.121Z",
       "nodes": [
@@ -22755,6 +24597,590 @@
   ],
   "lp-pad-btc-toad.network-bsc": [
     {
+      "timestamp": "2023-02-24T22:09:47.389Z",
+      "nodes": [
+        {
+          "id": "lp-pad-btc-toad.network-bsc",
+          "name": "PAD-BTC LPs",
+          "value": 1782.28,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "pad-toad.network-bsc",
+          "name": "Lily Pad",
+          "value": 897.93,
+          "level": 1
+        },
+        {
+          "id": "lp-pad-toad-toad.network-bsc",
+          "name": "PAD-TOAD LPs",
+          "value": 897.93,
+          "level": 2
+        },
+        {
+          "id": "toad-toad.network-bsc",
+          "name": "Toad Network",
+          "value": 4177.17,
+          "level": 3
+        },
+        {
+          "id": "lp-bnb-toad-toad.network-bsc",
+          "name": "BNB-TOAD LPs",
+          "value": 897.93,
+          "level": 2
+        },
+        {
+          "id": "bnb-binance-bsc",
+          "name": "Wrapped BNB",
+          "value": 4009.15,
+          "level": 3
+        },
+        {
+          "id": "lp-busd-toad-toad.network-bsc",
+          "name": "BUSD-TOAD LPs",
+          "value": 897.93,
+          "level": 2
+        },
+        {
+          "id": "busd-binance-bsc",
+          "name": "Binance-Peg BUSD",
+          "value": 2564.54,
+          "level": 3
+        },
+        {
+          "id": "busd-paxos-ethereum",
+          "name": "Binance USD",
+          "value": 2564.54,
+          "level": 4
+        },
+        {
+          "id": "usd-fed",
+          "name": "U.S. dollar",
+          "value": 2564.54,
+          "level": 5
+        },
+        {
+          "id": "lp-pad-bnb-toad.network-bsc",
+          "name": "PAD-BNB LPs",
+          "value": 897.93,
+          "level": 2
+        },
+        {
+          "id": "lp-pad-busd-toad.network-bsc",
+          "name": "PAD-BUSD LPs",
+          "value": 768.68,
+          "level": 2
+        },
+        {
+          "id": "lp-busd-bnb-toad.network-bsc",
+          "name": "BUSD-BNB LPs",
+          "value": 897.93,
+          "level": 2
+        },
+        {
+          "id": "lp-pad-eth-toad.network-bsc",
+          "name": "PAD-ETH LPs",
+          "value": 504.98,
+          "level": 2
+        },
+        {
+          "id": "eth-binance-bsc",
+          "name": "Binance-Peg Ethereum",
+          "value": 504.98,
+          "level": 3
+        },
+        {
+          "id": "lp-hoge-toad-toad.network-bsc",
+          "name": "HOGE-TOAD LPs",
+          "value": 585.45,
+          "level": 2
+        },
+        {
+          "id": "hoge-multichain-bsc",
+          "name": "Hoge Finance",
+          "value": 743.6,
+          "level": 3
+        },
+        {
+          "id": "hoge-ethereum",
+          "name": "Hoge Finance",
+          "value": 743.6,
+          "level": 4
+        },
+        {
+          "id": "lp-bnb-bjt-toad.network-bsc",
+          "name": "BNB-BJT LPs",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "id": "bjt-bsc",
+          "name": "Bullish Jackpot",
+          "value": 0,
+          "level": 3
+        },
+        {
+          "id": "lp-bnb-pxbsc-toad.network-bsc",
+          "name": "BNB-PXBSC LPs",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "id": "pxbsc-bsc",
+          "name": "Paradox NFT",
+          "value": 0,
+          "level": 3
+        },
+        {
+          "id": "lp-bnb-fuk-toad.network-bsc",
+          "name": "BNB-FUK LPs",
+          "value": 417.43,
+          "level": 2
+        },
+        {
+          "id": "fuk-bsc",
+          "name": "FuckYouKarens",
+          "value": 417.43,
+          "level": 3
+        },
+        {
+          "id": "lp-bnb-gal-toad.network-bsc",
+          "name": "BNB-GAL LPs",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "id": "gal-bsc",
+          "name": "Gallant",
+          "value": 0,
+          "level": 3
+        },
+        {
+          "id": "lp-pad-hoge-toad.network-bsc",
+          "name": "PAD-HOGE LPs",
+          "value": 158.15,
+          "level": 2
+        },
+        {
+          "id": "lp-bnb-cats-toad.network-bsc",
+          "name": "BNB-CZATS LPs",
+          "value": 897.93,
+          "level": 2
+        },
+        {
+          "id": "cats-catoshi-bsc",
+          "name": "Catoshi",
+          "value": 897.93,
+          "level": 3
+        },
+        {
+          "id": "cats-catoshi-ethereum",
+          "name": "Catoshi",
+          "value": 897.93,
+          "level": 4
+        },
+        {
+          "id": "btc-binance-bsc",
+          "name": "Binance-Peg Bitcoin",
+          "value": 884.36,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "lp-pad-btc-toad.network-bsc",
+          "target": "pad-toad.network-bsc",
+          "value": 897.93,
+          "level": 0
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-pad-toad-toad.network-bsc",
+          "value": 897.93,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-toad-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-pad-toad-toad.network-bsc",
+          "target": "toad-toad.network-bsc",
+          "value": 897.93,
+          "level": 2
+        },
+        {
+          "source": "toad-toad.network-bsc",
+          "target": "unbacked",
+          "value": 4177.17,
+          "level": 3
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-bnb-toad-toad.network-bsc",
+          "value": 897.93,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-toad-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 897.93,
+          "level": 2
+        },
+        {
+          "source": "bnb-binance-bsc",
+          "target": "unbacked",
+          "value": 4009.15,
+          "level": 3
+        },
+        {
+          "source": "lp-bnb-toad-toad.network-bsc",
+          "target": "toad-toad.network-bsc",
+          "value": 897.93,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-busd-toad-toad.network-bsc",
+          "value": 897.93,
+          "level": 1
+        },
+        {
+          "source": "lp-busd-toad-toad.network-bsc",
+          "target": "busd-binance-bsc",
+          "value": 897.93,
+          "level": 2
+        },
+        {
+          "source": "busd-binance-bsc",
+          "target": "busd-paxos-ethereum",
+          "value": 2564.54,
+          "level": 3
+        },
+        {
+          "source": "busd-paxos-ethereum",
+          "target": "usd-fed",
+          "value": 2564.54,
+          "level": 4
+        },
+        {
+          "source": "usd-fed",
+          "target": "unbacked",
+          "value": 2564.54,
+          "level": 5
+        },
+        {
+          "source": "lp-busd-toad-toad.network-bsc",
+          "target": "toad-toad.network-bsc",
+          "value": 897.93,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-pad-bnb-toad.network-bsc",
+          "value": 897.93,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-bnb-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-pad-bnb-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 897.93,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-pad-busd-toad.network-bsc",
+          "value": 768.68,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-busd-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-pad-busd-toad.network-bsc",
+          "target": "busd-binance-bsc",
+          "value": 768.68,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-busd-bnb-toad.network-bsc",
+          "value": 897.93,
+          "level": 1
+        },
+        {
+          "source": "lp-busd-bnb-toad.network-bsc",
+          "target": "busd-binance-bsc",
+          "value": 897.93,
+          "level": 2
+        },
+        {
+          "source": "lp-busd-bnb-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 897.93,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-pad-eth-toad.network-bsc",
+          "value": 504.98,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-eth-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-pad-eth-toad.network-bsc",
+          "target": "eth-binance-bsc",
+          "value": 504.98,
+          "level": 2
+        },
+        {
+          "source": "eth-binance-bsc",
+          "target": "unbacked",
+          "value": 504.98,
+          "level": 3
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-hoge-toad-toad.network-bsc",
+          "value": 585.45,
+          "level": 1
+        },
+        {
+          "source": "lp-hoge-toad-toad.network-bsc",
+          "target": "hoge-multichain-bsc",
+          "value": 585.45,
+          "level": 2
+        },
+        {
+          "source": "hoge-multichain-bsc",
+          "target": "hoge-ethereum",
+          "value": 743.6,
+          "level": 3
+        },
+        {
+          "source": "hoge-ethereum",
+          "target": "unbacked",
+          "value": 743.6,
+          "level": 4
+        },
+        {
+          "source": "lp-hoge-toad-toad.network-bsc",
+          "target": "toad-toad.network-bsc",
+          "value": 585.45,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-bnb-bjt-toad.network-bsc",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-bjt-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-bjt-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-bjt-toad.network-bsc",
+          "target": "bjt-bsc",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "bjt-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 3
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-bnb-pxbsc-toad.network-bsc",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-pxbsc-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-pxbsc-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-pxbsc-toad.network-bsc",
+          "target": "pxbsc-bsc",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "pxbsc-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 3
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-bnb-fuk-toad.network-bsc",
+          "value": 417.43,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-fuk-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 417.43,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-fuk-toad.network-bsc",
+          "target": "fuk-bsc",
+          "value": 417.43,
+          "level": 2
+        },
+        {
+          "source": "fuk-bsc",
+          "target": "unbacked",
+          "value": 417.43,
+          "level": 3
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-bnb-gal-toad.network-bsc",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-gal-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-gal-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-gal-toad.network-bsc",
+          "target": "gal-bsc",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "gal-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 3
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-pad-hoge-toad.network-bsc",
+          "value": 158.15,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-hoge-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-pad-hoge-toad.network-bsc",
+          "target": "hoge-multichain-bsc",
+          "value": 158.15,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-bnb-cats-toad.network-bsc",
+          "value": 897.93,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-cats-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 897.93,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-cats-toad.network-bsc",
+          "target": "cats-catoshi-bsc",
+          "value": 897.93,
+          "level": 2
+        },
+        {
+          "source": "cats-catoshi-bsc",
+          "target": "cats-catoshi-ethereum",
+          "value": 897.93,
+          "level": 3
+        },
+        {
+          "source": "cats-catoshi-ethereum",
+          "target": "unbacked",
+          "value": 897.93,
+          "level": 4
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "toad-toad.network-bsc",
+          "value": 897.93,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-btc-toad.network-bsc",
+          "target": "btc-binance-bsc",
+          "value": 884.36,
+          "level": 0
+        },
+        {
+          "source": "btc-binance-bsc",
+          "target": "unbacked",
+          "value": 884.36,
+          "level": 1
+        }
+      ],
+      "value": 1782.28,
+      "unbacked": 0,
+      "backed": 1782.28
+    },
+    {
       "timestamp": "2023-02-23T22:10:13.121Z",
       "nodes": [
         {
@@ -28614,6 +31040,590 @@
     }
   ],
   "lp-pad-busd-toad.network-bsc": [
+    {
+      "timestamp": "2023-02-24T22:09:47.389Z",
+      "nodes": [
+        {
+          "id": "lp-pad-busd-toad.network-bsc",
+          "name": "PAD-BUSD LPs",
+          "value": 4422.04,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "pad-toad.network-bsc",
+          "name": "Lily Pad",
+          "value": 2219.15,
+          "level": 1
+        },
+        {
+          "id": "lp-pad-toad-toad.network-bsc",
+          "name": "PAD-TOAD LPs",
+          "value": 2017.69,
+          "level": 2
+        },
+        {
+          "id": "toad-toad.network-bsc",
+          "name": "Toad Network",
+          "value": 8798.44,
+          "level": 3
+        },
+        {
+          "id": "lp-bnb-toad-toad.network-bsc",
+          "name": "BNB-TOAD LPs",
+          "value": 2219.15,
+          "level": 2
+        },
+        {
+          "id": "bnb-binance-bsc",
+          "name": "Wrapped BNB",
+          "value": 8521.69,
+          "level": 3
+        },
+        {
+          "id": "lp-busd-toad-toad.network-bsc",
+          "name": "BUSD-TOAD LPs",
+          "value": 1757,
+          "level": 2
+        },
+        {
+          "id": "busd-binance-bsc",
+          "name": "Binance-Peg BUSD",
+          "value": 6179.04,
+          "level": 3
+        },
+        {
+          "id": "busd-paxos-ethereum",
+          "name": "Binance USD",
+          "value": 6179.04,
+          "level": 4
+        },
+        {
+          "id": "usd-fed",
+          "name": "U.S. dollar",
+          "value": 6179.04,
+          "level": 5
+        },
+        {
+          "id": "lp-pad-bnb-toad.network-bsc",
+          "name": "PAD-BNB LPs",
+          "value": 1786.63,
+          "level": 2
+        },
+        {
+          "id": "lp-busd-bnb-toad.network-bsc",
+          "name": "BUSD-BNB LPs",
+          "value": 2219.15,
+          "level": 2
+        },
+        {
+          "id": "lp-pad-eth-toad.network-bsc",
+          "name": "PAD-ETH LPs",
+          "value": 504.98,
+          "level": 2
+        },
+        {
+          "id": "eth-binance-bsc",
+          "name": "Binance-Peg Ethereum",
+          "value": 504.98,
+          "level": 3
+        },
+        {
+          "id": "lp-pad-btc-toad.network-bsc",
+          "name": "PAD-BTC LPs",
+          "value": 467.42,
+          "level": 2
+        },
+        {
+          "id": "btc-binance-bsc",
+          "name": "Binance-Peg Bitcoin",
+          "value": 467.42,
+          "level": 3
+        },
+        {
+          "id": "lp-hoge-toad-toad.network-bsc",
+          "name": "HOGE-TOAD LPs",
+          "value": 585.45,
+          "level": 2
+        },
+        {
+          "id": "hoge-multichain-bsc",
+          "name": "Hoge Finance",
+          "value": 743.6,
+          "level": 3
+        },
+        {
+          "id": "hoge-ethereum",
+          "name": "Hoge Finance",
+          "value": 743.6,
+          "level": 4
+        },
+        {
+          "id": "lp-bnb-bjt-toad.network-bsc",
+          "name": "BNB-BJT LPs",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "id": "bjt-bsc",
+          "name": "Bullish Jackpot",
+          "value": 0,
+          "level": 3
+        },
+        {
+          "id": "lp-bnb-pxbsc-toad.network-bsc",
+          "name": "BNB-PXBSC LPs",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "id": "pxbsc-bsc",
+          "name": "Paradox NFT",
+          "value": 0,
+          "level": 3
+        },
+        {
+          "id": "lp-bnb-fuk-toad.network-bsc",
+          "name": "BNB-FUK LPs",
+          "value": 417.43,
+          "level": 2
+        },
+        {
+          "id": "fuk-bsc",
+          "name": "FuckYouKarens",
+          "value": 417.43,
+          "level": 3
+        },
+        {
+          "id": "lp-bnb-gal-toad.network-bsc",
+          "name": "BNB-GAL LPs",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "id": "gal-bsc",
+          "name": "Gallant",
+          "value": 0,
+          "level": 3
+        },
+        {
+          "id": "lp-pad-hoge-toad.network-bsc",
+          "name": "PAD-HOGE LPs",
+          "value": 158.15,
+          "level": 2
+        },
+        {
+          "id": "lp-bnb-cats-toad.network-bsc",
+          "name": "BNB-CZATS LPs",
+          "value": 1879.33,
+          "level": 2
+        },
+        {
+          "id": "cats-catoshi-bsc",
+          "name": "Catoshi",
+          "value": 1879.33,
+          "level": 3
+        },
+        {
+          "id": "cats-catoshi-ethereum",
+          "name": "Catoshi",
+          "value": 1879.33,
+          "level": 4
+        }
+      ],
+      "links": [
+        {
+          "source": "lp-pad-busd-toad.network-bsc",
+          "target": "pad-toad.network-bsc",
+          "value": 2219.15,
+          "level": 0
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-pad-toad-toad.network-bsc",
+          "value": 2017.69,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-toad-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-pad-toad-toad.network-bsc",
+          "target": "toad-toad.network-bsc",
+          "value": 2017.69,
+          "level": 2
+        },
+        {
+          "source": "toad-toad.network-bsc",
+          "target": "unbacked",
+          "value": 8798.44,
+          "level": 3
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-bnb-toad-toad.network-bsc",
+          "value": 2219.15,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-toad-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 2219.15,
+          "level": 2
+        },
+        {
+          "source": "bnb-binance-bsc",
+          "target": "unbacked",
+          "value": 8521.69,
+          "level": 3
+        },
+        {
+          "source": "lp-bnb-toad-toad.network-bsc",
+          "target": "toad-toad.network-bsc",
+          "value": 2219.15,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-busd-toad-toad.network-bsc",
+          "value": 1757,
+          "level": 1
+        },
+        {
+          "source": "lp-busd-toad-toad.network-bsc",
+          "target": "busd-binance-bsc",
+          "value": 1757,
+          "level": 2
+        },
+        {
+          "source": "busd-binance-bsc",
+          "target": "busd-paxos-ethereum",
+          "value": 6179.04,
+          "level": 3
+        },
+        {
+          "source": "busd-paxos-ethereum",
+          "target": "usd-fed",
+          "value": 6179.04,
+          "level": 4
+        },
+        {
+          "source": "usd-fed",
+          "target": "unbacked",
+          "value": 6179.04,
+          "level": 5
+        },
+        {
+          "source": "lp-busd-toad-toad.network-bsc",
+          "target": "toad-toad.network-bsc",
+          "value": 1757,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-pad-bnb-toad.network-bsc",
+          "value": 1786.63,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-bnb-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-pad-bnb-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 1786.63,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-busd-bnb-toad.network-bsc",
+          "value": 2219.15,
+          "level": 1
+        },
+        {
+          "source": "lp-busd-bnb-toad.network-bsc",
+          "target": "busd-binance-bsc",
+          "value": 2219.15,
+          "level": 2
+        },
+        {
+          "source": "lp-busd-bnb-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 2219.15,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-pad-eth-toad.network-bsc",
+          "value": 504.98,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-eth-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-pad-eth-toad.network-bsc",
+          "target": "eth-binance-bsc",
+          "value": 504.98,
+          "level": 2
+        },
+        {
+          "source": "eth-binance-bsc",
+          "target": "unbacked",
+          "value": 504.98,
+          "level": 3
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-pad-btc-toad.network-bsc",
+          "value": 467.42,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-btc-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-pad-btc-toad.network-bsc",
+          "target": "btc-binance-bsc",
+          "value": 467.42,
+          "level": 2
+        },
+        {
+          "source": "btc-binance-bsc",
+          "target": "unbacked",
+          "value": 467.42,
+          "level": 3
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-hoge-toad-toad.network-bsc",
+          "value": 585.45,
+          "level": 1
+        },
+        {
+          "source": "lp-hoge-toad-toad.network-bsc",
+          "target": "hoge-multichain-bsc",
+          "value": 585.45,
+          "level": 2
+        },
+        {
+          "source": "hoge-multichain-bsc",
+          "target": "hoge-ethereum",
+          "value": 743.6,
+          "level": 3
+        },
+        {
+          "source": "hoge-ethereum",
+          "target": "unbacked",
+          "value": 743.6,
+          "level": 4
+        },
+        {
+          "source": "lp-hoge-toad-toad.network-bsc",
+          "target": "toad-toad.network-bsc",
+          "value": 585.45,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-bnb-bjt-toad.network-bsc",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-bjt-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-bjt-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-bjt-toad.network-bsc",
+          "target": "bjt-bsc",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "bjt-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 3
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-bnb-pxbsc-toad.network-bsc",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-pxbsc-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-pxbsc-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-pxbsc-toad.network-bsc",
+          "target": "pxbsc-bsc",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "pxbsc-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 3
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-bnb-fuk-toad.network-bsc",
+          "value": 417.43,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-fuk-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 417.43,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-fuk-toad.network-bsc",
+          "target": "fuk-bsc",
+          "value": 417.43,
+          "level": 2
+        },
+        {
+          "source": "fuk-bsc",
+          "target": "unbacked",
+          "value": 417.43,
+          "level": 3
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-bnb-gal-toad.network-bsc",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-gal-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-gal-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-gal-toad.network-bsc",
+          "target": "gal-bsc",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "gal-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 3
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-pad-hoge-toad.network-bsc",
+          "value": 158.15,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-hoge-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-pad-hoge-toad.network-bsc",
+          "target": "hoge-multichain-bsc",
+          "value": 158.15,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-bnb-cats-toad.network-bsc",
+          "value": 1879.33,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-cats-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 1879.33,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-cats-toad.network-bsc",
+          "target": "cats-catoshi-bsc",
+          "value": 1879.33,
+          "level": 2
+        },
+        {
+          "source": "cats-catoshi-bsc",
+          "target": "cats-catoshi-ethereum",
+          "value": 1879.33,
+          "level": 3
+        },
+        {
+          "source": "cats-catoshi-ethereum",
+          "target": "unbacked",
+          "value": 1879.33,
+          "level": 4
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "toad-toad.network-bsc",
+          "value": 2219.15,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-busd-toad.network-bsc",
+          "target": "busd-binance-bsc",
+          "value": 2202.89,
+          "level": 0
+        }
+      ],
+      "value": 4422.04,
+      "unbacked": 0,
+      "backed": 4422.04
+    },
     {
       "timestamp": "2023-02-23T22:10:13.121Z",
       "nodes": [
@@ -34486,6 +37496,590 @@
     }
   ],
   "lp-pad-eth-toad.network-bsc": [
+    {
+      "timestamp": "2023-02-24T22:09:47.389Z",
+      "nodes": [
+        {
+          "id": "lp-pad-eth-toad.network-bsc",
+          "name": "PAD-ETH LPs",
+          "value": 1464.83,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "pad-toad.network-bsc",
+          "name": "Lily Pad",
+          "value": 738.33,
+          "level": 1
+        },
+        {
+          "id": "lp-pad-toad-toad.network-bsc",
+          "name": "PAD-TOAD LPs",
+          "value": 738.33,
+          "level": 2
+        },
+        {
+          "id": "toad-toad.network-bsc",
+          "name": "Toad Network",
+          "value": 3538.77,
+          "level": 3
+        },
+        {
+          "id": "lp-bnb-toad-toad.network-bsc",
+          "name": "BNB-TOAD LPs",
+          "value": 738.33,
+          "level": 2
+        },
+        {
+          "id": "bnb-binance-bsc",
+          "name": "Wrapped BNB",
+          "value": 3370.75,
+          "level": 3
+        },
+        {
+          "id": "lp-busd-toad-toad.network-bsc",
+          "name": "BUSD-TOAD LPs",
+          "value": 738.33,
+          "level": 2
+        },
+        {
+          "id": "busd-binance-bsc",
+          "name": "Binance-Peg BUSD",
+          "value": 2214.99,
+          "level": 3
+        },
+        {
+          "id": "busd-paxos-ethereum",
+          "name": "Binance USD",
+          "value": 2214.99,
+          "level": 4
+        },
+        {
+          "id": "usd-fed",
+          "name": "U.S. dollar",
+          "value": 2214.99,
+          "level": 5
+        },
+        {
+          "id": "lp-pad-bnb-toad.network-bsc",
+          "name": "PAD-BNB LPs",
+          "value": 738.33,
+          "level": 2
+        },
+        {
+          "id": "lp-pad-busd-toad.network-bsc",
+          "name": "PAD-BUSD LPs",
+          "value": 738.33,
+          "level": 2
+        },
+        {
+          "id": "lp-busd-bnb-toad.network-bsc",
+          "name": "BUSD-BNB LPs",
+          "value": 738.33,
+          "level": 2
+        },
+        {
+          "id": "lp-pad-btc-toad.network-bsc",
+          "name": "PAD-BTC LPs",
+          "value": 467.42,
+          "level": 2
+        },
+        {
+          "id": "btc-binance-bsc",
+          "name": "Binance-Peg Bitcoin",
+          "value": 467.42,
+          "level": 3
+        },
+        {
+          "id": "lp-hoge-toad-toad.network-bsc",
+          "name": "HOGE-TOAD LPs",
+          "value": 585.45,
+          "level": 2
+        },
+        {
+          "id": "hoge-multichain-bsc",
+          "name": "Hoge Finance",
+          "value": 743.6,
+          "level": 3
+        },
+        {
+          "id": "hoge-ethereum",
+          "name": "Hoge Finance",
+          "value": 743.6,
+          "level": 4
+        },
+        {
+          "id": "lp-bnb-bjt-toad.network-bsc",
+          "name": "BNB-BJT LPs",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "id": "bjt-bsc",
+          "name": "Bullish Jackpot",
+          "value": 0,
+          "level": 3
+        },
+        {
+          "id": "lp-bnb-pxbsc-toad.network-bsc",
+          "name": "BNB-PXBSC LPs",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "id": "pxbsc-bsc",
+          "name": "Paradox NFT",
+          "value": 0,
+          "level": 3
+        },
+        {
+          "id": "lp-bnb-fuk-toad.network-bsc",
+          "name": "BNB-FUK LPs",
+          "value": 417.43,
+          "level": 2
+        },
+        {
+          "id": "fuk-bsc",
+          "name": "FuckYouKarens",
+          "value": 417.43,
+          "level": 3
+        },
+        {
+          "id": "lp-bnb-gal-toad.network-bsc",
+          "name": "BNB-GAL LPs",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "id": "gal-bsc",
+          "name": "Gallant",
+          "value": 0,
+          "level": 3
+        },
+        {
+          "id": "lp-pad-hoge-toad.network-bsc",
+          "name": "PAD-HOGE LPs",
+          "value": 158.15,
+          "level": 2
+        },
+        {
+          "id": "lp-bnb-cats-toad.network-bsc",
+          "name": "BNB-CZATS LPs",
+          "value": 738.33,
+          "level": 2
+        },
+        {
+          "id": "cats-catoshi-bsc",
+          "name": "Catoshi",
+          "value": 738.33,
+          "level": 3
+        },
+        {
+          "id": "cats-catoshi-ethereum",
+          "name": "Catoshi",
+          "value": 738.33,
+          "level": 4
+        },
+        {
+          "id": "eth-binance-bsc",
+          "name": "Binance-Peg Ethereum",
+          "value": 726.51,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "lp-pad-eth-toad.network-bsc",
+          "target": "pad-toad.network-bsc",
+          "value": 738.33,
+          "level": 0
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-pad-toad-toad.network-bsc",
+          "value": 738.33,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-toad-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-pad-toad-toad.network-bsc",
+          "target": "toad-toad.network-bsc",
+          "value": 738.33,
+          "level": 2
+        },
+        {
+          "source": "toad-toad.network-bsc",
+          "target": "unbacked",
+          "value": 3538.77,
+          "level": 3
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-bnb-toad-toad.network-bsc",
+          "value": 738.33,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-toad-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 738.33,
+          "level": 2
+        },
+        {
+          "source": "bnb-binance-bsc",
+          "target": "unbacked",
+          "value": 3370.75,
+          "level": 3
+        },
+        {
+          "source": "lp-bnb-toad-toad.network-bsc",
+          "target": "toad-toad.network-bsc",
+          "value": 738.33,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-busd-toad-toad.network-bsc",
+          "value": 738.33,
+          "level": 1
+        },
+        {
+          "source": "lp-busd-toad-toad.network-bsc",
+          "target": "busd-binance-bsc",
+          "value": 738.33,
+          "level": 2
+        },
+        {
+          "source": "busd-binance-bsc",
+          "target": "busd-paxos-ethereum",
+          "value": 2214.99,
+          "level": 3
+        },
+        {
+          "source": "busd-paxos-ethereum",
+          "target": "usd-fed",
+          "value": 2214.99,
+          "level": 4
+        },
+        {
+          "source": "usd-fed",
+          "target": "unbacked",
+          "value": 2214.99,
+          "level": 5
+        },
+        {
+          "source": "lp-busd-toad-toad.network-bsc",
+          "target": "toad-toad.network-bsc",
+          "value": 738.33,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-pad-bnb-toad.network-bsc",
+          "value": 738.33,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-bnb-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-pad-bnb-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 738.33,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-pad-busd-toad.network-bsc",
+          "value": 738.33,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-busd-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-pad-busd-toad.network-bsc",
+          "target": "busd-binance-bsc",
+          "value": 738.33,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-busd-bnb-toad.network-bsc",
+          "value": 738.33,
+          "level": 1
+        },
+        {
+          "source": "lp-busd-bnb-toad.network-bsc",
+          "target": "busd-binance-bsc",
+          "value": 738.33,
+          "level": 2
+        },
+        {
+          "source": "lp-busd-bnb-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 738.33,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-pad-btc-toad.network-bsc",
+          "value": 467.42,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-btc-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-pad-btc-toad.network-bsc",
+          "target": "btc-binance-bsc",
+          "value": 467.42,
+          "level": 2
+        },
+        {
+          "source": "btc-binance-bsc",
+          "target": "unbacked",
+          "value": 467.42,
+          "level": 3
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-hoge-toad-toad.network-bsc",
+          "value": 585.45,
+          "level": 1
+        },
+        {
+          "source": "lp-hoge-toad-toad.network-bsc",
+          "target": "hoge-multichain-bsc",
+          "value": 585.45,
+          "level": 2
+        },
+        {
+          "source": "hoge-multichain-bsc",
+          "target": "hoge-ethereum",
+          "value": 743.6,
+          "level": 3
+        },
+        {
+          "source": "hoge-ethereum",
+          "target": "unbacked",
+          "value": 743.6,
+          "level": 4
+        },
+        {
+          "source": "lp-hoge-toad-toad.network-bsc",
+          "target": "toad-toad.network-bsc",
+          "value": 585.45,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-bnb-bjt-toad.network-bsc",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-bjt-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-bjt-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-bjt-toad.network-bsc",
+          "target": "bjt-bsc",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "bjt-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 3
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-bnb-pxbsc-toad.network-bsc",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-pxbsc-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-pxbsc-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-pxbsc-toad.network-bsc",
+          "target": "pxbsc-bsc",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "pxbsc-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 3
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-bnb-fuk-toad.network-bsc",
+          "value": 417.43,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-fuk-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 417.43,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-fuk-toad.network-bsc",
+          "target": "fuk-bsc",
+          "value": 417.43,
+          "level": 2
+        },
+        {
+          "source": "fuk-bsc",
+          "target": "unbacked",
+          "value": 417.43,
+          "level": 3
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-bnb-gal-toad.network-bsc",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-gal-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-gal-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-gal-toad.network-bsc",
+          "target": "gal-bsc",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "gal-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 3
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-pad-hoge-toad.network-bsc",
+          "value": 158.15,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-hoge-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-pad-hoge-toad.network-bsc",
+          "target": "hoge-multichain-bsc",
+          "value": 158.15,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-bnb-cats-toad.network-bsc",
+          "value": 738.33,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-cats-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 738.33,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-cats-toad.network-bsc",
+          "target": "cats-catoshi-bsc",
+          "value": 738.33,
+          "level": 2
+        },
+        {
+          "source": "cats-catoshi-bsc",
+          "target": "cats-catoshi-ethereum",
+          "value": 738.33,
+          "level": 3
+        },
+        {
+          "source": "cats-catoshi-ethereum",
+          "target": "unbacked",
+          "value": 738.33,
+          "level": 4
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "toad-toad.network-bsc",
+          "value": 738.33,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-eth-toad.network-bsc",
+          "target": "eth-binance-bsc",
+          "value": 726.51,
+          "level": 0
+        },
+        {
+          "source": "eth-binance-bsc",
+          "target": "unbacked",
+          "value": 726.51,
+          "level": 1
+        }
+      ],
+      "value": 1464.83,
+      "unbacked": 0,
+      "backed": 1464.83
+    },
     {
       "timestamp": "2023-02-23T22:10:13.121Z",
       "nodes": [
@@ -40365,6 +43959,236 @@
   ],
   "lp-pad-glmr-toad.network-moonbeam": [
     {
+      "timestamp": "2023-02-24T22:09:46.886Z",
+      "nodes": [
+        {
+          "id": "lp-pad-glmr-toad.network-moonbeam",
+          "name": "PAD-GLMR LPs",
+          "value": 6944.2,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "pad-toad.network-moonbeam",
+          "name": "Glmr Pad",
+          "value": 3492.01,
+          "level": 1
+        },
+        {
+          "id": "lp-busd-usdc-toad.network-moonbeam",
+          "name": "BUSD-USDC LPs",
+          "value": 1697.34,
+          "level": 2
+        },
+        {
+          "id": "busd-multichain-moonbeam",
+          "name": "Binance-Peg BUSD",
+          "value": 849.29,
+          "level": 3
+        },
+        {
+          "id": "busd-binance-bsc",
+          "name": "Binance-Peg BUSD",
+          "value": 849.29,
+          "level": 4
+        },
+        {
+          "id": "busd-paxos-ethereum",
+          "name": "Binance USD",
+          "value": 849.29,
+          "level": 5
+        },
+        {
+          "id": "usd-fed",
+          "name": "U.S. dollar",
+          "value": 2317.29,
+          "level": 6
+        },
+        {
+          "id": "usdc-multichain-moonbeam",
+          "name": "USD Coin",
+          "value": 1468,
+          "level": 3
+        },
+        {
+          "id": "usdc-circle-ethereum",
+          "name": "USD Coin",
+          "value": 1468,
+          "level": 4
+        },
+        {
+          "id": "lp-toad-glmr-toad.network-moonbeam",
+          "name": "TOAD-GLMR LPs",
+          "value": 1719.94,
+          "level": 2
+        },
+        {
+          "id": "toad-toad.network-moonbeam",
+          "name": "Wrapped Toad",
+          "value": 2812.54,
+          "level": 3
+        },
+        {
+          "id": "toad-toad.network-bsc",
+          "name": "Toad Network",
+          "value": 2812.54,
+          "level": 4
+        },
+        {
+          "id": "glmr.w-toad.network-moonbeam",
+          "name": "Wrapped GLMR",
+          "value": 5792.48,
+          "level": 3
+        },
+        {
+          "id": "lp-usdc-glmr-toad.network-moonbeam",
+          "name": "USDC-GLMR LPs",
+          "value": 908.71,
+          "level": 2
+        }
+      ],
+      "links": [
+        {
+          "source": "lp-pad-glmr-toad.network-moonbeam",
+          "target": "pad-toad.network-moonbeam",
+          "value": 3492.01,
+          "level": 0
+        },
+        {
+          "source": "pad-toad.network-moonbeam",
+          "target": "unbacked",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "pad-toad.network-moonbeam",
+          "target": "lp-busd-usdc-toad.network-moonbeam",
+          "value": 1697.34,
+          "level": 1
+        },
+        {
+          "source": "lp-busd-usdc-toad.network-moonbeam",
+          "target": "busd-multichain-moonbeam",
+          "value": 849.29,
+          "level": 2
+        },
+        {
+          "source": "busd-multichain-moonbeam",
+          "target": "busd-binance-bsc",
+          "value": 849.29,
+          "level": 3
+        },
+        {
+          "source": "busd-binance-bsc",
+          "target": "busd-paxos-ethereum",
+          "value": 849.29,
+          "level": 4
+        },
+        {
+          "source": "busd-paxos-ethereum",
+          "target": "usd-fed",
+          "value": 849.29,
+          "level": 5
+        },
+        {
+          "source": "usd-fed",
+          "target": "unbacked",
+          "value": 2317.29,
+          "level": 6
+        },
+        {
+          "source": "lp-busd-usdc-toad.network-moonbeam",
+          "target": "usdc-multichain-moonbeam",
+          "value": 848.05,
+          "level": 2
+        },
+        {
+          "source": "usdc-multichain-moonbeam",
+          "target": "usdc-circle-ethereum",
+          "value": 1468,
+          "level": 3
+        },
+        {
+          "source": "usdc-circle-ethereum",
+          "target": "usd-fed",
+          "value": 1468,
+          "level": 4
+        },
+        {
+          "source": "pad-toad.network-moonbeam",
+          "target": "lp-toad-glmr-toad.network-moonbeam",
+          "value": 1719.94,
+          "level": 1
+        },
+        {
+          "source": "lp-toad-glmr-toad.network-moonbeam",
+          "target": "toad-toad.network-moonbeam",
+          "value": 1719.94,
+          "level": 2
+        },
+        {
+          "source": "toad-toad.network-moonbeam",
+          "target": "toad-toad.network-bsc",
+          "value": 2812.54,
+          "level": 3
+        },
+        {
+          "source": "toad-toad.network-bsc",
+          "target": "unbacked",
+          "value": 2812.54,
+          "level": 4
+        },
+        {
+          "source": "lp-toad-glmr-toad.network-moonbeam",
+          "target": "glmr.w-toad.network-moonbeam",
+          "value": 1719.94,
+          "level": 2
+        },
+        {
+          "source": "glmr.w-toad.network-moonbeam",
+          "target": "unbacked",
+          "value": 5792.48,
+          "level": 3
+        },
+        {
+          "source": "pad-toad.network-moonbeam",
+          "target": "lp-usdc-glmr-toad.network-moonbeam",
+          "value": 908.71,
+          "level": 1
+        },
+        {
+          "source": "lp-usdc-glmr-toad.network-moonbeam",
+          "target": "usdc-multichain-moonbeam",
+          "value": 619.95,
+          "level": 2
+        },
+        {
+          "source": "lp-usdc-glmr-toad.network-moonbeam",
+          "target": "glmr.w-toad.network-moonbeam",
+          "value": 620.35,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-moonbeam",
+          "target": "toad-toad.network-moonbeam",
+          "value": 1092.6,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-glmr-toad.network-moonbeam",
+          "target": "glmr.w-toad.network-moonbeam",
+          "value": 3452.19,
+          "level": 0
+        }
+      ],
+      "value": 6944.2,
+      "unbacked": 0,
+      "backed": 6944.2
+    },
+    {
       "timestamp": "2023-02-23T22:10:12.997Z",
       "nodes": [
         {
@@ -42944,6 +46768,590 @@
     }
   ],
   "lp-pad-hoge-toad.network-bsc": [
+    {
+      "timestamp": "2023-02-24T22:09:47.389Z",
+      "nodes": [
+        {
+          "id": "lp-pad-hoge-toad.network-bsc",
+          "name": "PAD-HOGE LPs",
+          "value": 695.81,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "pad-toad.network-bsc",
+          "name": "Lily Pad",
+          "value": 341.88,
+          "level": 1
+        },
+        {
+          "id": "lp-pad-toad-toad.network-bsc",
+          "name": "PAD-TOAD LPs",
+          "value": 341.88,
+          "level": 2
+        },
+        {
+          "id": "toad-toad.network-bsc",
+          "name": "Toad Network",
+          "value": 1709.4,
+          "level": 3
+        },
+        {
+          "id": "lp-bnb-toad-toad.network-bsc",
+          "name": "BNB-TOAD LPs",
+          "value": 341.88,
+          "level": 2
+        },
+        {
+          "id": "bnb-binance-bsc",
+          "name": "Wrapped BNB",
+          "value": 1709.4,
+          "level": 3
+        },
+        {
+          "id": "lp-busd-toad-toad.network-bsc",
+          "name": "BUSD-TOAD LPs",
+          "value": 341.88,
+          "level": 2
+        },
+        {
+          "id": "busd-binance-bsc",
+          "name": "Binance-Peg BUSD",
+          "value": 1025.64,
+          "level": 3
+        },
+        {
+          "id": "busd-paxos-ethereum",
+          "name": "Binance USD",
+          "value": 1025.64,
+          "level": 4
+        },
+        {
+          "id": "usd-fed",
+          "name": "U.S. dollar",
+          "value": 1025.64,
+          "level": 5
+        },
+        {
+          "id": "lp-pad-bnb-toad.network-bsc",
+          "name": "PAD-BNB LPs",
+          "value": 341.88,
+          "level": 2
+        },
+        {
+          "id": "lp-pad-busd-toad.network-bsc",
+          "name": "PAD-BUSD LPs",
+          "value": 341.88,
+          "level": 2
+        },
+        {
+          "id": "lp-busd-bnb-toad.network-bsc",
+          "name": "BUSD-BNB LPs",
+          "value": 341.88,
+          "level": 2
+        },
+        {
+          "id": "lp-pad-eth-toad.network-bsc",
+          "name": "PAD-ETH LPs",
+          "value": 341.88,
+          "level": 2
+        },
+        {
+          "id": "eth-binance-bsc",
+          "name": "Binance-Peg Ethereum",
+          "value": 341.88,
+          "level": 3
+        },
+        {
+          "id": "lp-pad-btc-toad.network-bsc",
+          "name": "PAD-BTC LPs",
+          "value": 341.88,
+          "level": 2
+        },
+        {
+          "id": "btc-binance-bsc",
+          "name": "Binance-Peg Bitcoin",
+          "value": 341.88,
+          "level": 3
+        },
+        {
+          "id": "lp-hoge-toad-toad.network-bsc",
+          "name": "HOGE-TOAD LPs",
+          "value": 341.88,
+          "level": 2
+        },
+        {
+          "id": "hoge-multichain-bsc",
+          "name": "Hoge Finance",
+          "value": 695.82,
+          "level": 3
+        },
+        {
+          "id": "hoge-ethereum",
+          "name": "Hoge Finance",
+          "value": 695.82,
+          "level": 4
+        },
+        {
+          "id": "lp-bnb-bjt-toad.network-bsc",
+          "name": "BNB-BJT LPs",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "id": "bjt-bsc",
+          "name": "Bullish Jackpot",
+          "value": 0,
+          "level": 3
+        },
+        {
+          "id": "lp-bnb-pxbsc-toad.network-bsc",
+          "name": "BNB-PXBSC LPs",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "id": "pxbsc-bsc",
+          "name": "Paradox NFT",
+          "value": 0,
+          "level": 3
+        },
+        {
+          "id": "lp-bnb-fuk-toad.network-bsc",
+          "name": "BNB-FUK LPs",
+          "value": 341.88,
+          "level": 2
+        },
+        {
+          "id": "fuk-bsc",
+          "name": "FuckYouKarens",
+          "value": 341.88,
+          "level": 3
+        },
+        {
+          "id": "lp-bnb-gal-toad.network-bsc",
+          "name": "BNB-GAL LPs",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "id": "gal-bsc",
+          "name": "Gallant",
+          "value": 0,
+          "level": 3
+        },
+        {
+          "id": "lp-bnb-cats-toad.network-bsc",
+          "name": "BNB-CZATS LPs",
+          "value": 341.88,
+          "level": 2
+        },
+        {
+          "id": "cats-catoshi-bsc",
+          "name": "Catoshi",
+          "value": 341.88,
+          "level": 3
+        },
+        {
+          "id": "cats-catoshi-ethereum",
+          "name": "Catoshi",
+          "value": 341.88,
+          "level": 4
+        }
+      ],
+      "links": [
+        {
+          "source": "lp-pad-hoge-toad.network-bsc",
+          "target": "pad-toad.network-bsc",
+          "value": 341.88,
+          "level": 0
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-pad-toad-toad.network-bsc",
+          "value": 341.88,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-toad-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-pad-toad-toad.network-bsc",
+          "target": "toad-toad.network-bsc",
+          "value": 341.88,
+          "level": 2
+        },
+        {
+          "source": "toad-toad.network-bsc",
+          "target": "unbacked",
+          "value": 1709.4,
+          "level": 3
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-bnb-toad-toad.network-bsc",
+          "value": 341.88,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-toad-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 341.88,
+          "level": 2
+        },
+        {
+          "source": "bnb-binance-bsc",
+          "target": "unbacked",
+          "value": 1709.4,
+          "level": 3
+        },
+        {
+          "source": "lp-bnb-toad-toad.network-bsc",
+          "target": "toad-toad.network-bsc",
+          "value": 341.88,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-busd-toad-toad.network-bsc",
+          "value": 341.88,
+          "level": 1
+        },
+        {
+          "source": "lp-busd-toad-toad.network-bsc",
+          "target": "busd-binance-bsc",
+          "value": 341.88,
+          "level": 2
+        },
+        {
+          "source": "busd-binance-bsc",
+          "target": "busd-paxos-ethereum",
+          "value": 1025.64,
+          "level": 3
+        },
+        {
+          "source": "busd-paxos-ethereum",
+          "target": "usd-fed",
+          "value": 1025.64,
+          "level": 4
+        },
+        {
+          "source": "usd-fed",
+          "target": "unbacked",
+          "value": 1025.64,
+          "level": 5
+        },
+        {
+          "source": "lp-busd-toad-toad.network-bsc",
+          "target": "toad-toad.network-bsc",
+          "value": 341.88,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-pad-bnb-toad.network-bsc",
+          "value": 341.88,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-bnb-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-pad-bnb-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 341.88,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-pad-busd-toad.network-bsc",
+          "value": 341.88,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-busd-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-pad-busd-toad.network-bsc",
+          "target": "busd-binance-bsc",
+          "value": 341.88,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-busd-bnb-toad.network-bsc",
+          "value": 341.88,
+          "level": 1
+        },
+        {
+          "source": "lp-busd-bnb-toad.network-bsc",
+          "target": "busd-binance-bsc",
+          "value": 341.88,
+          "level": 2
+        },
+        {
+          "source": "lp-busd-bnb-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 341.88,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-pad-eth-toad.network-bsc",
+          "value": 341.88,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-eth-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-pad-eth-toad.network-bsc",
+          "target": "eth-binance-bsc",
+          "value": 341.88,
+          "level": 2
+        },
+        {
+          "source": "eth-binance-bsc",
+          "target": "unbacked",
+          "value": 341.88,
+          "level": 3
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-pad-btc-toad.network-bsc",
+          "value": 341.88,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-btc-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-pad-btc-toad.network-bsc",
+          "target": "btc-binance-bsc",
+          "value": 341.88,
+          "level": 2
+        },
+        {
+          "source": "btc-binance-bsc",
+          "target": "unbacked",
+          "value": 341.88,
+          "level": 3
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-hoge-toad-toad.network-bsc",
+          "value": 341.88,
+          "level": 1
+        },
+        {
+          "source": "lp-hoge-toad-toad.network-bsc",
+          "target": "hoge-multichain-bsc",
+          "value": 341.88,
+          "level": 2
+        },
+        {
+          "source": "hoge-multichain-bsc",
+          "target": "hoge-ethereum",
+          "value": 695.82,
+          "level": 3
+        },
+        {
+          "source": "hoge-ethereum",
+          "target": "unbacked",
+          "value": 695.82,
+          "level": 4
+        },
+        {
+          "source": "lp-hoge-toad-toad.network-bsc",
+          "target": "toad-toad.network-bsc",
+          "value": 341.88,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-bnb-bjt-toad.network-bsc",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-bjt-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-bjt-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-bjt-toad.network-bsc",
+          "target": "bjt-bsc",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "bjt-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 3
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-bnb-pxbsc-toad.network-bsc",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-pxbsc-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-pxbsc-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-pxbsc-toad.network-bsc",
+          "target": "pxbsc-bsc",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "pxbsc-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 3
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-bnb-fuk-toad.network-bsc",
+          "value": 341.88,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-fuk-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 341.88,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-fuk-toad.network-bsc",
+          "target": "fuk-bsc",
+          "value": 341.88,
+          "level": 2
+        },
+        {
+          "source": "fuk-bsc",
+          "target": "unbacked",
+          "value": 341.88,
+          "level": 3
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-bnb-gal-toad.network-bsc",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-gal-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-gal-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-gal-toad.network-bsc",
+          "target": "gal-bsc",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "gal-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 3
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-bnb-cats-toad.network-bsc",
+          "value": 341.88,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-cats-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 341.88,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-cats-toad.network-bsc",
+          "target": "cats-catoshi-bsc",
+          "value": 341.88,
+          "level": 2
+        },
+        {
+          "source": "cats-catoshi-bsc",
+          "target": "cats-catoshi-ethereum",
+          "value": 341.88,
+          "level": 3
+        },
+        {
+          "source": "cats-catoshi-ethereum",
+          "target": "unbacked",
+          "value": 341.88,
+          "level": 4
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "toad-toad.network-bsc",
+          "value": 341.88,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-hoge-toad.network-bsc",
+          "target": "hoge-multichain-bsc",
+          "value": 353.94,
+          "level": 0
+        }
+      ],
+      "value": 695.81,
+      "unbacked": 0,
+      "backed": 695.81
+    },
     {
       "timestamp": "2023-02-23T22:10:13.121Z",
       "nodes": [
@@ -48823,6 +53231,242 @@
   ],
   "lp-pad-movr-toad.network-moonriver": [
     {
+      "timestamp": "2023-02-24T22:09:47.054Z",
+      "nodes": [
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "lp-pad-movr-toad.network-moonriver",
+          "name": "PAD-MOVR LPs",
+          "value": 4978.06,
+          "level": 0
+        },
+        {
+          "id": "pad-toad.network-moonriver",
+          "name": "Movr Pad",
+          "value": 2496.18,
+          "level": 1
+        },
+        {
+          "id": "lp-busd-usdc-toad.network-moonriver",
+          "name": "BUSD-USDC LPs",
+          "value": 1161.27,
+          "level": 2
+        },
+        {
+          "id": "busd-multichain-moonriver",
+          "name": "Binance-Peg BUSD",
+          "value": 1161.27,
+          "level": 3
+        },
+        {
+          "id": "busd-binance-bsc",
+          "name": "Binance-Peg BUSD",
+          "value": 1161.27,
+          "level": 4
+        },
+        {
+          "id": "busd-paxos-ethereum",
+          "name": "Binance USD",
+          "value": 1161.27,
+          "level": 5
+        },
+        {
+          "id": "usd-fed",
+          "name": "U.S. dollar",
+          "value": 2905.21,
+          "level": 6
+        },
+        {
+          "id": "usdc-multichain-moonriver",
+          "name": "USD Coin",
+          "value": 1743.94,
+          "level": 3
+        },
+        {
+          "id": "usdc-circle-ethereum",
+          "name": "USD Coin",
+          "value": 1743.94,
+          "level": 4
+        },
+        {
+          "id": "lp-usdc-movr-toad.network-moonriver",
+          "name": "PAD-MOVR LPs",
+          "value": 582.67,
+          "level": 2
+        },
+        {
+          "id": "movr.w-moonbeam-moonriver",
+          "name": "Wrapped MOVR",
+          "value": 4951.28,
+          "level": 3
+        },
+        {
+          "id": "lp-toad-movr-toad.network-moonriver",
+          "name": "PAD-MOVR LPs",
+          "value": 2202.23,
+          "level": 2
+        },
+        {
+          "id": "toad-toad.network-moonriver",
+          "name": "Wrapped Toad",
+          "value": 1934.45,
+          "level": 3
+        },
+        {
+          "id": "toad-toad.network-bsc",
+          "name": "Toad Network",
+          "value": 1934.45,
+          "level": 4
+        }
+      ],
+      "links": [
+        {
+          "source": "lp-pad-movr-toad.network-moonriver",
+          "target": "unbacked",
+          "value": 0,
+          "level": 0
+        },
+        {
+          "source": "lp-pad-movr-toad.network-moonriver",
+          "target": "pad-toad.network-moonriver",
+          "value": 2496.18,
+          "level": 0
+        },
+        {
+          "source": "pad-toad.network-moonriver",
+          "target": "unbacked",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "pad-toad.network-moonriver",
+          "target": "lp-busd-usdc-toad.network-moonriver",
+          "value": 1161.27,
+          "level": 1
+        },
+        {
+          "source": "lp-busd-usdc-toad.network-moonriver",
+          "target": "busd-multichain-moonriver",
+          "value": 1161.27,
+          "level": 2
+        },
+        {
+          "source": "busd-multichain-moonriver",
+          "target": "busd-binance-bsc",
+          "value": 1161.27,
+          "level": 3
+        },
+        {
+          "source": "busd-binance-bsc",
+          "target": "busd-paxos-ethereum",
+          "value": 1161.27,
+          "level": 4
+        },
+        {
+          "source": "busd-paxos-ethereum",
+          "target": "usd-fed",
+          "value": 1161.27,
+          "level": 5
+        },
+        {
+          "source": "usd-fed",
+          "target": "unbacked",
+          "value": 2905.21,
+          "level": 6
+        },
+        {
+          "source": "lp-busd-usdc-toad.network-moonriver",
+          "target": "usdc-multichain-moonriver",
+          "value": 1161.27,
+          "level": 2
+        },
+        {
+          "source": "usdc-multichain-moonriver",
+          "target": "usdc-circle-ethereum",
+          "value": 1743.94,
+          "level": 3
+        },
+        {
+          "source": "usdc-circle-ethereum",
+          "target": "usd-fed",
+          "value": 1743.94,
+          "level": 4
+        },
+        {
+          "source": "pad-toad.network-moonriver",
+          "target": "lp-usdc-movr-toad.network-moonriver",
+          "value": 582.67,
+          "level": 1
+        },
+        {
+          "source": "lp-usdc-movr-toad.network-moonriver",
+          "target": "usdc-multichain-moonriver",
+          "value": 582.67,
+          "level": 2
+        },
+        {
+          "source": "lp-usdc-movr-toad.network-moonriver",
+          "target": "movr.w-moonbeam-moonriver",
+          "value": 582.67,
+          "level": 2
+        },
+        {
+          "source": "movr.w-moonbeam-moonriver",
+          "target": "unbacked",
+          "value": 4951.28,
+          "level": 3
+        },
+        {
+          "source": "pad-toad.network-moonriver",
+          "target": "lp-toad-movr-toad.network-moonriver",
+          "value": 2202.23,
+          "level": 1
+        },
+        {
+          "source": "lp-toad-movr-toad.network-moonriver",
+          "target": "toad-toad.network-moonriver",
+          "value": 1934.45,
+          "level": 2
+        },
+        {
+          "source": "toad-toad.network-moonriver",
+          "target": "toad-toad.network-bsc",
+          "value": 1934.45,
+          "level": 3
+        },
+        {
+          "source": "toad-toad.network-bsc",
+          "target": "unbacked",
+          "value": 1934.45,
+          "level": 4
+        },
+        {
+          "source": "lp-toad-movr-toad.network-moonriver",
+          "target": "movr.w-moonbeam-moonriver",
+          "value": 1886.73,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-moonriver",
+          "target": "toad-toad.network-moonriver",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-movr-toad.network-moonriver",
+          "target": "movr.w-moonbeam-moonriver",
+          "value": 2481.88,
+          "level": 0
+        }
+      ],
+      "value": 4978.06,
+      "unbacked": 0,
+      "backed": 4978.06
+    },
+    {
       "timestamp": "2023-02-23T22:10:12.853Z",
       "nodes": [
         {
@@ -51378,6 +56022,590 @@
     }
   ],
   "lp-pad-toad-toad.network-bsc": [
+    {
+      "timestamp": "2023-02-24T22:09:47.389Z",
+      "nodes": [
+        {
+          "id": "lp-pad-toad-toad.network-bsc",
+          "name": "PAD-TOAD LPs",
+          "value": 27688.58,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "pad-toad.network-bsc",
+          "name": "Lily Pad",
+          "value": 13914.88,
+          "level": 1
+        },
+        {
+          "id": "lp-bnb-toad-toad.network-bsc",
+          "name": "BNB-TOAD LPs",
+          "value": 3245.24,
+          "level": 2
+        },
+        {
+          "id": "bnb-binance-bsc",
+          "name": "Wrapped BNB",
+          "value": 14173.52,
+          "level": 3
+        },
+        {
+          "id": "toad-toad.network-bsc",
+          "name": "Toad Network",
+          "value": 26427.22,
+          "level": 3
+        },
+        {
+          "id": "lp-busd-toad-toad.network-bsc",
+          "name": "BUSD-TOAD LPs",
+          "value": 1757,
+          "level": 2
+        },
+        {
+          "id": "busd-binance-bsc",
+          "name": "Binance-Peg BUSD",
+          "value": 9387.15,
+          "level": 3
+        },
+        {
+          "id": "busd-paxos-ethereum",
+          "name": "Binance USD",
+          "value": 9387.15,
+          "level": 4
+        },
+        {
+          "id": "usd-fed",
+          "name": "U.S. dollar",
+          "value": 9387.15,
+          "level": 5
+        },
+        {
+          "id": "lp-pad-bnb-toad.network-bsc",
+          "name": "PAD-BNB LPs",
+          "value": 1786.63,
+          "level": 2
+        },
+        {
+          "id": "lp-pad-busd-toad.network-bsc",
+          "name": "PAD-BUSD LPs",
+          "value": 768.68,
+          "level": 2
+        },
+        {
+          "id": "lp-busd-bnb-toad.network-bsc",
+          "name": "BUSD-BNB LPs",
+          "value": 9229.45,
+          "level": 2
+        },
+        {
+          "id": "lp-pad-eth-toad.network-bsc",
+          "name": "PAD-ETH LPs",
+          "value": 504.98,
+          "level": 2
+        },
+        {
+          "id": "eth-binance-bsc",
+          "name": "Binance-Peg Ethereum",
+          "value": 504.98,
+          "level": 3
+        },
+        {
+          "id": "lp-pad-btc-toad.network-bsc",
+          "name": "PAD-BTC LPs",
+          "value": 467.42,
+          "level": 2
+        },
+        {
+          "id": "btc-binance-bsc",
+          "name": "Binance-Peg Bitcoin",
+          "value": 467.42,
+          "level": 3
+        },
+        {
+          "id": "lp-hoge-toad-toad.network-bsc",
+          "name": "HOGE-TOAD LPs",
+          "value": 585.45,
+          "level": 2
+        },
+        {
+          "id": "hoge-multichain-bsc",
+          "name": "Hoge Finance",
+          "value": 743.6,
+          "level": 3
+        },
+        {
+          "id": "hoge-ethereum",
+          "name": "Hoge Finance",
+          "value": 743.6,
+          "level": 4
+        },
+        {
+          "id": "lp-bnb-bjt-toad.network-bsc",
+          "name": "BNB-BJT LPs",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "id": "bjt-bsc",
+          "name": "Bullish Jackpot",
+          "value": 0,
+          "level": 3
+        },
+        {
+          "id": "lp-bnb-pxbsc-toad.network-bsc",
+          "name": "BNB-PXBSC LPs",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "id": "pxbsc-bsc",
+          "name": "Paradox NFT",
+          "value": 0,
+          "level": 3
+        },
+        {
+          "id": "lp-bnb-fuk-toad.network-bsc",
+          "name": "BNB-FUK LPs",
+          "value": 417.43,
+          "level": 2
+        },
+        {
+          "id": "fuk-bsc",
+          "name": "FuckYouKarens",
+          "value": 417.43,
+          "level": 3
+        },
+        {
+          "id": "lp-bnb-gal-toad.network-bsc",
+          "name": "BNB-GAL LPs",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "id": "gal-bsc",
+          "name": "Gallant",
+          "value": 0,
+          "level": 3
+        },
+        {
+          "id": "lp-pad-hoge-toad.network-bsc",
+          "name": "PAD-HOGE LPs",
+          "value": 158.15,
+          "level": 2
+        },
+        {
+          "id": "lp-bnb-cats-toad.network-bsc",
+          "name": "BNB-CZATS LPs",
+          "value": 1879.33,
+          "level": 2
+        },
+        {
+          "id": "cats-catoshi-bsc",
+          "name": "Catoshi",
+          "value": 1879.33,
+          "level": 3
+        },
+        {
+          "id": "cats-catoshi-ethereum",
+          "name": "Catoshi",
+          "value": 1879.33,
+          "level": 4
+        }
+      ],
+      "links": [
+        {
+          "source": "lp-pad-toad-toad.network-bsc",
+          "target": "pad-toad.network-bsc",
+          "value": 13914.88,
+          "level": 0
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-bnb-toad-toad.network-bsc",
+          "value": 3245.24,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-toad-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 3245.24,
+          "level": 2
+        },
+        {
+          "source": "bnb-binance-bsc",
+          "target": "unbacked",
+          "value": 14173.52,
+          "level": 3
+        },
+        {
+          "source": "lp-bnb-toad-toad.network-bsc",
+          "target": "toad-toad.network-bsc",
+          "value": 3245.24,
+          "level": 2
+        },
+        {
+          "source": "toad-toad.network-bsc",
+          "target": "unbacked",
+          "value": 26427.22,
+          "level": 3
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-busd-toad-toad.network-bsc",
+          "value": 1757,
+          "level": 1
+        },
+        {
+          "source": "lp-busd-toad-toad.network-bsc",
+          "target": "busd-binance-bsc",
+          "value": 1757,
+          "level": 2
+        },
+        {
+          "source": "busd-binance-bsc",
+          "target": "busd-paxos-ethereum",
+          "value": 9387.15,
+          "level": 3
+        },
+        {
+          "source": "busd-paxos-ethereum",
+          "target": "usd-fed",
+          "value": 9387.15,
+          "level": 4
+        },
+        {
+          "source": "usd-fed",
+          "target": "unbacked",
+          "value": 9387.15,
+          "level": 5
+        },
+        {
+          "source": "lp-busd-toad-toad.network-bsc",
+          "target": "toad-toad.network-bsc",
+          "value": 1757,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-pad-bnb-toad.network-bsc",
+          "value": 1786.63,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-bnb-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-pad-bnb-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 1786.63,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-pad-busd-toad.network-bsc",
+          "value": 768.68,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-busd-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-pad-busd-toad.network-bsc",
+          "target": "busd-binance-bsc",
+          "value": 768.68,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-busd-bnb-toad.network-bsc",
+          "value": 9229.45,
+          "level": 1
+        },
+        {
+          "source": "lp-busd-bnb-toad.network-bsc",
+          "target": "busd-binance-bsc",
+          "value": 6861.47,
+          "level": 2
+        },
+        {
+          "source": "lp-busd-bnb-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 6844.89,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-pad-eth-toad.network-bsc",
+          "value": 504.98,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-eth-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-pad-eth-toad.network-bsc",
+          "target": "eth-binance-bsc",
+          "value": 504.98,
+          "level": 2
+        },
+        {
+          "source": "eth-binance-bsc",
+          "target": "unbacked",
+          "value": 504.98,
+          "level": 3
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-pad-btc-toad.network-bsc",
+          "value": 467.42,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-btc-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-pad-btc-toad.network-bsc",
+          "target": "btc-binance-bsc",
+          "value": 467.42,
+          "level": 2
+        },
+        {
+          "source": "btc-binance-bsc",
+          "target": "unbacked",
+          "value": 467.42,
+          "level": 3
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-hoge-toad-toad.network-bsc",
+          "value": 585.45,
+          "level": 1
+        },
+        {
+          "source": "lp-hoge-toad-toad.network-bsc",
+          "target": "hoge-multichain-bsc",
+          "value": 585.45,
+          "level": 2
+        },
+        {
+          "source": "hoge-multichain-bsc",
+          "target": "hoge-ethereum",
+          "value": 743.6,
+          "level": 3
+        },
+        {
+          "source": "hoge-ethereum",
+          "target": "unbacked",
+          "value": 743.6,
+          "level": 4
+        },
+        {
+          "source": "lp-hoge-toad-toad.network-bsc",
+          "target": "toad-toad.network-bsc",
+          "value": 585.45,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-bnb-bjt-toad.network-bsc",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-bjt-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-bjt-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-bjt-toad.network-bsc",
+          "target": "bjt-bsc",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "bjt-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 3
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-bnb-pxbsc-toad.network-bsc",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-pxbsc-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-pxbsc-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-pxbsc-toad.network-bsc",
+          "target": "pxbsc-bsc",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "pxbsc-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 3
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-bnb-fuk-toad.network-bsc",
+          "value": 417.43,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-fuk-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 417.43,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-fuk-toad.network-bsc",
+          "target": "fuk-bsc",
+          "value": 417.43,
+          "level": 2
+        },
+        {
+          "source": "fuk-bsc",
+          "target": "unbacked",
+          "value": 417.43,
+          "level": 3
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-bnb-gal-toad.network-bsc",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-gal-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-gal-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-gal-toad.network-bsc",
+          "target": "gal-bsc",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "gal-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 3
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-pad-hoge-toad.network-bsc",
+          "value": 158.15,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-hoge-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "lp-pad-hoge-toad.network-bsc",
+          "target": "hoge-multichain-bsc",
+          "value": 158.15,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-bnb-cats-toad.network-bsc",
+          "value": 1879.33,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-cats-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 1879.33,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-cats-toad.network-bsc",
+          "target": "cats-catoshi-bsc",
+          "value": 1879.33,
+          "level": 2
+        },
+        {
+          "source": "cats-catoshi-bsc",
+          "target": "cats-catoshi-ethereum",
+          "value": 1879.33,
+          "level": 3
+        },
+        {
+          "source": "cats-catoshi-ethereum",
+          "target": "unbacked",
+          "value": 1879.33,
+          "level": 4
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "toad-toad.network-bsc",
+          "value": 7065.83,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-toad-toad.network-bsc",
+          "target": "toad-toad.network-bsc",
+          "value": 13773.7,
+          "level": 0
+        }
+      ],
+      "value": 27688.58,
+      "unbacked": 0,
+      "backed": 27688.58
+    },
     {
       "timestamp": "2023-02-23T22:10:13.121Z",
       "nodes": [
@@ -57245,6 +62473,80 @@
   ],
   "lp-toad-glmr-toad.network-moonbeam": [
     {
+      "timestamp": "2023-02-24T22:09:46.874Z",
+      "nodes": [
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "lp-toad-glmr-toad.network-moonbeam",
+          "name": "TOAD-GLMR LPs",
+          "value": 10675.64,
+          "level": 0
+        },
+        {
+          "id": "toad-toad.network-moonbeam",
+          "name": "Wrapped Toad",
+          "value": 5336.17,
+          "level": 1
+        },
+        {
+          "id": "toad-toad.network-bsc",
+          "name": "Toad Network",
+          "value": 5336.17,
+          "level": 2
+        },
+        {
+          "id": "glmr.w-toad.network-moonbeam",
+          "name": "Wrapped GLMR",
+          "value": 5339.47,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "lp-toad-glmr-toad.network-moonbeam",
+          "target": "unbacked",
+          "value": 0,
+          "level": 0
+        },
+        {
+          "source": "lp-toad-glmr-toad.network-moonbeam",
+          "target": "toad-toad.network-moonbeam",
+          "value": 5336.17,
+          "level": 0
+        },
+        {
+          "source": "toad-toad.network-moonbeam",
+          "target": "toad-toad.network-bsc",
+          "value": 5336.17,
+          "level": 1
+        },
+        {
+          "source": "toad-toad.network-bsc",
+          "target": "unbacked",
+          "value": 5336.17,
+          "level": 2
+        },
+        {
+          "source": "lp-toad-glmr-toad.network-moonbeam",
+          "target": "glmr.w-toad.network-moonbeam",
+          "value": 5339.47,
+          "level": 0
+        },
+        {
+          "source": "glmr.w-toad.network-moonbeam",
+          "target": "unbacked",
+          "value": 5339.47,
+          "level": 1
+        }
+      ],
+      "value": 10675.64,
+      "unbacked": 0,
+      "backed": 10675.64
+    },
+    {
       "timestamp": "2023-02-23T22:10:12.998Z",
       "nodes": [
         {
@@ -58031,6 +63333,74 @@
   ],
   "lp-toad-movr-toad.network-moonriver": [
     {
+      "timestamp": "2023-02-24T22:09:47.095Z",
+      "nodes": [
+        {
+          "id": "lp-toad-movr-toad.network-moonriver",
+          "name": "PAD-MOVR LPs",
+          "value": 3821.18,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "toad-toad.network-moonriver",
+          "name": "Wrapped Toad",
+          "value": 1934.45,
+          "level": 1
+        },
+        {
+          "id": "toad-toad.network-bsc",
+          "name": "Toad Network",
+          "value": 1934.45,
+          "level": 2
+        },
+        {
+          "id": "movr.w-moonbeam-moonriver",
+          "name": "Wrapped MOVR",
+          "value": 1886.73,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "lp-toad-movr-toad.network-moonriver",
+          "target": "toad-toad.network-moonriver",
+          "value": 1934.45,
+          "level": 0
+        },
+        {
+          "source": "toad-toad.network-moonriver",
+          "target": "toad-toad.network-bsc",
+          "value": 1934.45,
+          "level": 1
+        },
+        {
+          "source": "toad-toad.network-bsc",
+          "target": "unbacked",
+          "value": 1934.45,
+          "level": 2
+        },
+        {
+          "source": "lp-toad-movr-toad.network-moonriver",
+          "target": "movr.w-moonbeam-moonriver",
+          "value": 1886.73,
+          "level": 0
+        },
+        {
+          "source": "movr.w-moonbeam-moonriver",
+          "target": "unbacked",
+          "value": 1886.73,
+          "level": 1
+        }
+      ],
+      "value": 3821.18,
+      "unbacked": 0,
+      "backed": 3821.18
+    },
+    {
       "timestamp": "2023-02-23T22:10:12.863Z",
       "nodes": [
         {
@@ -58804,6 +64174,92 @@
     }
   ],
   "lp-usdc-glmr-toad.network-moonbeam": [
+    {
+      "timestamp": "2023-02-24T22:09:46.848Z",
+      "nodes": [
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "lp-usdc-glmr-toad.network-moonbeam",
+          "name": "USDC-GLMR LPs",
+          "value": 1240.3,
+          "level": 0
+        },
+        {
+          "id": "usdc-multichain-moonbeam",
+          "name": "USD Coin",
+          "value": 619.95,
+          "level": 1
+        },
+        {
+          "id": "usdc-circle-ethereum",
+          "name": "USD Coin",
+          "value": 619.95,
+          "level": 2
+        },
+        {
+          "id": "usd-fed",
+          "name": "U.S. dollar",
+          "value": 619.95,
+          "level": 3
+        },
+        {
+          "id": "glmr.w-toad.network-moonbeam",
+          "name": "Wrapped GLMR",
+          "value": 620.35,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "lp-usdc-glmr-toad.network-moonbeam",
+          "target": "unbacked",
+          "value": 0,
+          "level": 0
+        },
+        {
+          "source": "lp-usdc-glmr-toad.network-moonbeam",
+          "target": "usdc-multichain-moonbeam",
+          "value": 619.95,
+          "level": 0
+        },
+        {
+          "source": "usdc-multichain-moonbeam",
+          "target": "usdc-circle-ethereum",
+          "value": 619.95,
+          "level": 1
+        },
+        {
+          "source": "usdc-circle-ethereum",
+          "target": "usd-fed",
+          "value": 619.95,
+          "level": 2
+        },
+        {
+          "source": "usd-fed",
+          "target": "unbacked",
+          "value": 619.95,
+          "level": 3
+        },
+        {
+          "source": "lp-usdc-glmr-toad.network-moonbeam",
+          "target": "glmr.w-toad.network-moonbeam",
+          "value": 620.35,
+          "level": 0
+        },
+        {
+          "source": "glmr.w-toad.network-moonbeam",
+          "target": "unbacked",
+          "value": 620.35,
+          "level": 1
+        }
+      ],
+      "value": 1240.3,
+      "unbacked": 0,
+      "backed": 1240.3
+    },
     {
       "timestamp": "2023-02-23T22:10:13.002Z",
       "nodes": [
@@ -59717,6 +65173,86 @@
   ],
   "lp-usdc-movr-toad.network-moonriver": [
     {
+      "timestamp": "2023-02-24T22:09:47.046Z",
+      "nodes": [
+        {
+          "id": "lp-usdc-movr-toad.network-moonriver",
+          "name": "PAD-MOVR LPs",
+          "value": 1996.89,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usdc-multichain-moonriver",
+          "name": "USD Coin",
+          "value": 998.72,
+          "level": 1
+        },
+        {
+          "id": "usdc-circle-ethereum",
+          "name": "USD Coin",
+          "value": 998.72,
+          "level": 2
+        },
+        {
+          "id": "usd-fed",
+          "name": "U.S. dollar",
+          "value": 998.72,
+          "level": 3
+        },
+        {
+          "id": "movr.w-moonbeam-moonriver",
+          "name": "Wrapped MOVR",
+          "value": 998.17,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "lp-usdc-movr-toad.network-moonriver",
+          "target": "usdc-multichain-moonriver",
+          "value": 998.72,
+          "level": 0
+        },
+        {
+          "source": "usdc-multichain-moonriver",
+          "target": "usdc-circle-ethereum",
+          "value": 998.72,
+          "level": 1
+        },
+        {
+          "source": "usdc-circle-ethereum",
+          "target": "usd-fed",
+          "value": 998.72,
+          "level": 2
+        },
+        {
+          "source": "usd-fed",
+          "target": "unbacked",
+          "value": 998.72,
+          "level": 3
+        },
+        {
+          "source": "lp-usdc-movr-toad.network-moonriver",
+          "target": "movr.w-moonbeam-moonriver",
+          "value": 998.17,
+          "level": 0
+        },
+        {
+          "source": "movr.w-moonbeam-moonriver",
+          "target": "unbacked",
+          "value": 998.17,
+          "level": 1
+        }
+      ],
+      "value": 1996.89,
+      "unbacked": 0,
+      "backed": 1996.89
+    },
+    {
       "timestamp": "2023-02-23T22:10:12.914Z",
       "nodes": [
         {
@@ -60623,7 +66159,7 @@
   ],
   "movr-moonbeam-moonriver": [
     {
-      "timestamp": "2023-02-23T22:10:13.998Z",
+      "timestamp": "2023-02-24T22:09:47.941Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -60651,16 +66187,16 @@
   ],
   "movr.w-moonbeam-moonriver": [
     {
-      "timestamp": "2023-02-23T22:10:13.998Z",
+      "timestamp": "2023-02-24T22:09:47.941Z",
       "nodes": [
         {
           "id": "unbacked",
-          "value": 6193.86
+          "value": 5758.04
         },
         {
           "id": "movr.w-moonbeam-moonriver",
           "name": "Wrapped MOVR",
-          "value": 6193.86,
+          "value": 5758.04,
           "level": 0
         }
       ],
@@ -60668,16 +66204,606 @@
         {
           "source": "movr.w-moonbeam-moonriver",
           "target": "unbacked",
-          "value": 6193.86,
+          "value": 5758.04,
           "level": 0
         }
       ],
-      "value": 6193.86,
-      "unbacked": 6193.86,
+      "value": 5758.04,
+      "unbacked": 5758.04,
       "backed": 0
     }
   ],
   "pad-toad.network-bsc": [
+    {
+      "timestamp": "2023-02-24T22:09:47.389Z",
+      "nodes": [
+        {
+          "id": "unbacked",
+          "value": 21270.67
+        },
+        {
+          "id": "pad-toad.network-bsc",
+          "name": "Lily Pad",
+          "value": 51153.95,
+          "level": 0
+        },
+        {
+          "id": "lp-pad-toad-toad.network-bsc",
+          "name": "PAD-TOAD LPs",
+          "value": 2017.69,
+          "level": 1
+        },
+        {
+          "id": "toad-toad.network-bsc",
+          "name": "Toad Network",
+          "value": 14671.21,
+          "level": 2
+        },
+        {
+          "id": "lp-bnb-toad-toad.network-bsc",
+          "name": "BNB-TOAD LPs",
+          "value": 3245.24,
+          "level": 1
+        },
+        {
+          "id": "bnb-binance-bsc",
+          "name": "Wrapped BNB",
+          "value": 14173.52,
+          "level": 2
+        },
+        {
+          "id": "lp-busd-toad-toad.network-bsc",
+          "name": "BUSD-TOAD LPs",
+          "value": 1757,
+          "level": 1
+        },
+        {
+          "id": "busd-binance-bsc",
+          "name": "Binance-Peg BUSD",
+          "value": 9387.15,
+          "level": 2
+        },
+        {
+          "id": "busd-paxos-ethereum",
+          "name": "Binance USD",
+          "value": 9387.15,
+          "level": 3
+        },
+        {
+          "id": "usd-fed",
+          "name": "U.S. dollar",
+          "value": 9387.15,
+          "level": 4
+        },
+        {
+          "id": "lp-pad-bnb-toad.network-bsc",
+          "name": "PAD-BNB LPs",
+          "value": 1786.63,
+          "level": 1
+        },
+        {
+          "id": "lp-pad-busd-toad.network-bsc",
+          "name": "PAD-BUSD LPs",
+          "value": 768.68,
+          "level": 1
+        },
+        {
+          "id": "lp-busd-bnb-toad.network-bsc",
+          "name": "BUSD-BNB LPs",
+          "value": 9229.45,
+          "level": 1
+        },
+        {
+          "id": "lp-pad-eth-toad.network-bsc",
+          "name": "PAD-ETH LPs",
+          "value": 504.98,
+          "level": 1
+        },
+        {
+          "id": "eth-binance-bsc",
+          "name": "Binance-Peg Ethereum",
+          "value": 504.98,
+          "level": 2
+        },
+        {
+          "id": "lp-pad-btc-toad.network-bsc",
+          "name": "PAD-BTC LPs",
+          "value": 467.42,
+          "level": 1
+        },
+        {
+          "id": "btc-binance-bsc",
+          "name": "Binance-Peg Bitcoin",
+          "value": 467.42,
+          "level": 2
+        },
+        {
+          "id": "lp-hoge-toad-toad.network-bsc",
+          "name": "HOGE-TOAD LPs",
+          "value": 585.45,
+          "level": 1
+        },
+        {
+          "id": "hoge-multichain-bsc",
+          "name": "Hoge Finance",
+          "value": 743.6,
+          "level": 2
+        },
+        {
+          "id": "hoge-ethereum",
+          "name": "Hoge Finance",
+          "value": 743.6,
+          "level": 3
+        },
+        {
+          "id": "lp-bnb-bjt-toad.network-bsc",
+          "name": "BNB-BJT LPs",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "id": "bjt-bsc",
+          "name": "Bullish Jackpot",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "id": "lp-bnb-pxbsc-toad.network-bsc",
+          "name": "BNB-PXBSC LPs",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "id": "pxbsc-bsc",
+          "name": "Paradox NFT",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "id": "lp-bnb-fuk-toad.network-bsc",
+          "name": "BNB-FUK LPs",
+          "value": 417.43,
+          "level": 1
+        },
+        {
+          "id": "fuk-bsc",
+          "name": "FuckYouKarens",
+          "value": 417.43,
+          "level": 2
+        },
+        {
+          "id": "lp-bnb-gal-toad.network-bsc",
+          "name": "BNB-GAL LPs",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "id": "gal-bsc",
+          "name": "Gallant",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "id": "lp-pad-hoge-toad.network-bsc",
+          "name": "PAD-HOGE LPs",
+          "value": 158.15,
+          "level": 1
+        },
+        {
+          "id": "lp-bnb-cats-toad.network-bsc",
+          "name": "BNB-CZATS LPs",
+          "value": 1879.33,
+          "level": 1
+        },
+        {
+          "id": "cats-catoshi-bsc",
+          "name": "Catoshi",
+          "value": 1879.33,
+          "level": 2
+        },
+        {
+          "id": "cats-catoshi-ethereum",
+          "name": "Catoshi",
+          "value": 1879.33,
+          "level": 3
+        }
+      ],
+      "links": [
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "unbacked",
+          "value": 21270.67,
+          "level": 0
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-pad-toad-toad.network-bsc",
+          "value": 2017.69,
+          "level": 0
+        },
+        {
+          "source": "lp-pad-toad-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-toad-toad.network-bsc",
+          "target": "toad-toad.network-bsc",
+          "value": 2017.69,
+          "level": 1
+        },
+        {
+          "source": "toad-toad.network-bsc",
+          "target": "unbacked",
+          "value": 14671.21,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-bnb-toad-toad.network-bsc",
+          "value": 3245.24,
+          "level": 0
+        },
+        {
+          "source": "lp-bnb-toad-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 3245.24,
+          "level": 1
+        },
+        {
+          "source": "bnb-binance-bsc",
+          "target": "unbacked",
+          "value": 14173.52,
+          "level": 2
+        },
+        {
+          "source": "lp-bnb-toad-toad.network-bsc",
+          "target": "toad-toad.network-bsc",
+          "value": 3245.24,
+          "level": 1
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-busd-toad-toad.network-bsc",
+          "value": 1757,
+          "level": 0
+        },
+        {
+          "source": "lp-busd-toad-toad.network-bsc",
+          "target": "busd-binance-bsc",
+          "value": 1757,
+          "level": 1
+        },
+        {
+          "source": "busd-binance-bsc",
+          "target": "busd-paxos-ethereum",
+          "value": 9387.15,
+          "level": 2
+        },
+        {
+          "source": "busd-paxos-ethereum",
+          "target": "usd-fed",
+          "value": 9387.15,
+          "level": 3
+        },
+        {
+          "source": "usd-fed",
+          "target": "unbacked",
+          "value": 9387.15,
+          "level": 4
+        },
+        {
+          "source": "lp-busd-toad-toad.network-bsc",
+          "target": "toad-toad.network-bsc",
+          "value": 1757,
+          "level": 1
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-pad-bnb-toad.network-bsc",
+          "value": 1786.63,
+          "level": 0
+        },
+        {
+          "source": "lp-pad-bnb-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-bnb-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 1786.63,
+          "level": 1
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-pad-busd-toad.network-bsc",
+          "value": 768.68,
+          "level": 0
+        },
+        {
+          "source": "lp-pad-busd-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-busd-toad.network-bsc",
+          "target": "busd-binance-bsc",
+          "value": 768.68,
+          "level": 1
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-busd-bnb-toad.network-bsc",
+          "value": 9229.45,
+          "level": 0
+        },
+        {
+          "source": "lp-busd-bnb-toad.network-bsc",
+          "target": "busd-binance-bsc",
+          "value": 6861.47,
+          "level": 1
+        },
+        {
+          "source": "lp-busd-bnb-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 6844.89,
+          "level": 1
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-pad-eth-toad.network-bsc",
+          "value": 504.98,
+          "level": 0
+        },
+        {
+          "source": "lp-pad-eth-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-eth-toad.network-bsc",
+          "target": "eth-binance-bsc",
+          "value": 504.98,
+          "level": 1
+        },
+        {
+          "source": "eth-binance-bsc",
+          "target": "unbacked",
+          "value": 504.98,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-pad-btc-toad.network-bsc",
+          "value": 467.42,
+          "level": 0
+        },
+        {
+          "source": "lp-pad-btc-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-btc-toad.network-bsc",
+          "target": "btc-binance-bsc",
+          "value": 467.42,
+          "level": 1
+        },
+        {
+          "source": "btc-binance-bsc",
+          "target": "unbacked",
+          "value": 467.42,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-hoge-toad-toad.network-bsc",
+          "value": 585.45,
+          "level": 0
+        },
+        {
+          "source": "lp-hoge-toad-toad.network-bsc",
+          "target": "hoge-multichain-bsc",
+          "value": 585.45,
+          "level": 1
+        },
+        {
+          "source": "hoge-multichain-bsc",
+          "target": "hoge-ethereum",
+          "value": 743.6,
+          "level": 2
+        },
+        {
+          "source": "hoge-ethereum",
+          "target": "unbacked",
+          "value": 743.6,
+          "level": 3
+        },
+        {
+          "source": "lp-hoge-toad-toad.network-bsc",
+          "target": "toad-toad.network-bsc",
+          "value": 585.45,
+          "level": 1
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-bnb-bjt-toad.network-bsc",
+          "value": 0,
+          "level": 0
+        },
+        {
+          "source": "lp-bnb-bjt-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-bjt-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-bjt-toad.network-bsc",
+          "target": "bjt-bsc",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "bjt-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-bnb-pxbsc-toad.network-bsc",
+          "value": 0,
+          "level": 0
+        },
+        {
+          "source": "lp-bnb-pxbsc-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-pxbsc-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-pxbsc-toad.network-bsc",
+          "target": "pxbsc-bsc",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "pxbsc-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-bnb-fuk-toad.network-bsc",
+          "value": 417.43,
+          "level": 0
+        },
+        {
+          "source": "lp-bnb-fuk-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 417.43,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-fuk-toad.network-bsc",
+          "target": "fuk-bsc",
+          "value": 417.43,
+          "level": 1
+        },
+        {
+          "source": "fuk-bsc",
+          "target": "unbacked",
+          "value": 417.43,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-bnb-gal-toad.network-bsc",
+          "value": 0,
+          "level": 0
+        },
+        {
+          "source": "lp-bnb-gal-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-gal-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-gal-toad.network-bsc",
+          "target": "gal-bsc",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "gal-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-pad-hoge-toad.network-bsc",
+          "value": 158.15,
+          "level": 0
+        },
+        {
+          "source": "lp-pad-hoge-toad.network-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-hoge-toad.network-bsc",
+          "target": "hoge-multichain-bsc",
+          "value": 158.15,
+          "level": 1
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "lp-bnb-cats-toad.network-bsc",
+          "value": 1879.33,
+          "level": 0
+        },
+        {
+          "source": "lp-bnb-cats-toad.network-bsc",
+          "target": "bnb-binance-bsc",
+          "value": 1879.33,
+          "level": 1
+        },
+        {
+          "source": "lp-bnb-cats-toad.network-bsc",
+          "target": "cats-catoshi-bsc",
+          "value": 1879.33,
+          "level": 1
+        },
+        {
+          "source": "cats-catoshi-bsc",
+          "target": "cats-catoshi-ethereum",
+          "value": 1879.33,
+          "level": 2
+        },
+        {
+          "source": "cats-catoshi-ethereum",
+          "target": "unbacked",
+          "value": 1879.33,
+          "level": 3
+        },
+        {
+          "source": "pad-toad.network-bsc",
+          "target": "toad-toad.network-bsc",
+          "value": 7065.83,
+          "level": 0
+        }
+      ],
+      "value": 51153.95,
+      "unbacked": 21270.67,
+      "backed": 29883.28
+    },
     {
       "timestamp": "2023-02-23T22:10:13.121Z",
       "nodes": [
@@ -67307,6 +73433,242 @@
   ],
   "pad-toad.network-moonbeam": [
     {
+      "timestamp": "2023-02-24T22:09:46.880Z",
+      "nodes": [
+        {
+          "id": "unbacked",
+          "value": 2471.24
+        },
+        {
+          "id": "pad-toad.network-moonbeam",
+          "name": "Glmr Pad",
+          "value": 10933.44,
+          "level": 0
+        },
+        {
+          "id": "lp-pad-glmr-toad.network-moonbeam",
+          "name": "PAD-GLMR LPs",
+          "value": 3043.6,
+          "level": 1
+        },
+        {
+          "id": "glmr.w-toad.network-moonbeam",
+          "name": "Wrapped GLMR",
+          "value": 5383.89,
+          "level": 2
+        },
+        {
+          "id": "lp-busd-usdc-toad.network-moonbeam",
+          "name": "BUSD-USDC LPs",
+          "value": 1697.34,
+          "level": 1
+        },
+        {
+          "id": "busd-multichain-moonbeam",
+          "name": "Binance-Peg BUSD",
+          "value": 849.29,
+          "level": 2
+        },
+        {
+          "id": "busd-binance-bsc",
+          "name": "Binance-Peg BUSD",
+          "value": 849.29,
+          "level": 3
+        },
+        {
+          "id": "busd-paxos-ethereum",
+          "name": "Binance USD",
+          "value": 849.29,
+          "level": 4
+        },
+        {
+          "id": "usd-fed",
+          "name": "U.S. dollar",
+          "value": 2317.29,
+          "level": 5
+        },
+        {
+          "id": "usdc-multichain-moonbeam",
+          "name": "USD Coin",
+          "value": 1468,
+          "level": 2
+        },
+        {
+          "id": "usdc-circle-ethereum",
+          "name": "USD Coin",
+          "value": 1468,
+          "level": 3
+        },
+        {
+          "id": "lp-toad-glmr-toad.network-moonbeam",
+          "name": "TOAD-GLMR LPs",
+          "value": 1719.94,
+          "level": 1
+        },
+        {
+          "id": "toad-toad.network-moonbeam",
+          "name": "Wrapped Toad",
+          "value": 2812.54,
+          "level": 2
+        },
+        {
+          "id": "toad-toad.network-bsc",
+          "name": "Toad Network",
+          "value": 2812.54,
+          "level": 3
+        },
+        {
+          "id": "lp-usdc-glmr-toad.network-moonbeam",
+          "name": "USDC-GLMR LPs",
+          "value": 908.71,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "pad-toad.network-moonbeam",
+          "target": "unbacked",
+          "value": 2471.24,
+          "level": 0
+        },
+        {
+          "source": "pad-toad.network-moonbeam",
+          "target": "lp-pad-glmr-toad.network-moonbeam",
+          "value": 3043.6,
+          "level": 0
+        },
+        {
+          "source": "lp-pad-glmr-toad.network-moonbeam",
+          "target": "unbacked",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-glmr-toad.network-moonbeam",
+          "target": "glmr.w-toad.network-moonbeam",
+          "value": 3043.6,
+          "level": 1
+        },
+        {
+          "source": "glmr.w-toad.network-moonbeam",
+          "target": "unbacked",
+          "value": 5383.89,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-moonbeam",
+          "target": "lp-busd-usdc-toad.network-moonbeam",
+          "value": 1697.34,
+          "level": 0
+        },
+        {
+          "source": "lp-busd-usdc-toad.network-moonbeam",
+          "target": "busd-multichain-moonbeam",
+          "value": 849.29,
+          "level": 1
+        },
+        {
+          "source": "busd-multichain-moonbeam",
+          "target": "busd-binance-bsc",
+          "value": 849.29,
+          "level": 2
+        },
+        {
+          "source": "busd-binance-bsc",
+          "target": "busd-paxos-ethereum",
+          "value": 849.29,
+          "level": 3
+        },
+        {
+          "source": "busd-paxos-ethereum",
+          "target": "usd-fed",
+          "value": 849.29,
+          "level": 4
+        },
+        {
+          "source": "usd-fed",
+          "target": "unbacked",
+          "value": 2317.29,
+          "level": 5
+        },
+        {
+          "source": "lp-busd-usdc-toad.network-moonbeam",
+          "target": "usdc-multichain-moonbeam",
+          "value": 848.05,
+          "level": 1
+        },
+        {
+          "source": "usdc-multichain-moonbeam",
+          "target": "usdc-circle-ethereum",
+          "value": 1468,
+          "level": 2
+        },
+        {
+          "source": "usdc-circle-ethereum",
+          "target": "usd-fed",
+          "value": 1468,
+          "level": 3
+        },
+        {
+          "source": "pad-toad.network-moonbeam",
+          "target": "lp-toad-glmr-toad.network-moonbeam",
+          "value": 1719.94,
+          "level": 0
+        },
+        {
+          "source": "lp-toad-glmr-toad.network-moonbeam",
+          "target": "toad-toad.network-moonbeam",
+          "value": 1719.94,
+          "level": 1
+        },
+        {
+          "source": "toad-toad.network-moonbeam",
+          "target": "toad-toad.network-bsc",
+          "value": 2812.54,
+          "level": 2
+        },
+        {
+          "source": "toad-toad.network-bsc",
+          "target": "unbacked",
+          "value": 2812.54,
+          "level": 3
+        },
+        {
+          "source": "lp-toad-glmr-toad.network-moonbeam",
+          "target": "glmr.w-toad.network-moonbeam",
+          "value": 1719.94,
+          "level": 1
+        },
+        {
+          "source": "pad-toad.network-moonbeam",
+          "target": "lp-usdc-glmr-toad.network-moonbeam",
+          "value": 908.71,
+          "level": 0
+        },
+        {
+          "source": "lp-usdc-glmr-toad.network-moonbeam",
+          "target": "usdc-multichain-moonbeam",
+          "value": 619.95,
+          "level": 1
+        },
+        {
+          "source": "lp-usdc-glmr-toad.network-moonbeam",
+          "target": "glmr.w-toad.network-moonbeam",
+          "value": 620.35,
+          "level": 1
+        },
+        {
+          "source": "pad-toad.network-moonbeam",
+          "target": "toad-toad.network-moonbeam",
+          "value": 1092.6,
+          "level": 0
+        }
+      ],
+      "value": 10933.44,
+      "unbacked": 2471.24,
+      "backed": 8462.2
+    },
+    {
       "timestamp": "2023-02-23T22:10:13.006Z",
       "nodes": [
         {
@@ -69826,6 +76188,242 @@
     }
   ],
   "pad-toad.network-moonriver": [
+    {
+      "timestamp": "2023-02-24T22:09:47.053Z",
+      "nodes": [
+        {
+          "id": "unbacked",
+          "value": 3382.1
+        },
+        {
+          "id": "pad-toad.network-moonriver",
+          "name": "Movr Pad",
+          "value": 10332.85,
+          "level": 0
+        },
+        {
+          "id": "lp-pad-movr-toad.network-moonriver",
+          "name": "PAD-MOVR LPs",
+          "value": 3004.58,
+          "level": 1
+        },
+        {
+          "id": "movr.w-moonbeam-moonriver",
+          "name": "Wrapped MOVR",
+          "value": 4951.28,
+          "level": 2
+        },
+        {
+          "id": "lp-busd-usdc-toad.network-moonriver",
+          "name": "BUSD-USDC LPs",
+          "value": 1161.27,
+          "level": 1
+        },
+        {
+          "id": "busd-multichain-moonriver",
+          "name": "Binance-Peg BUSD",
+          "value": 1161.27,
+          "level": 2
+        },
+        {
+          "id": "busd-binance-bsc",
+          "name": "Binance-Peg BUSD",
+          "value": 1161.27,
+          "level": 3
+        },
+        {
+          "id": "busd-paxos-ethereum",
+          "name": "Binance USD",
+          "value": 1161.27,
+          "level": 4
+        },
+        {
+          "id": "usd-fed",
+          "name": "U.S. dollar",
+          "value": 2905.21,
+          "level": 5
+        },
+        {
+          "id": "usdc-multichain-moonriver",
+          "name": "USD Coin",
+          "value": 1743.94,
+          "level": 2
+        },
+        {
+          "id": "usdc-circle-ethereum",
+          "name": "USD Coin",
+          "value": 1743.94,
+          "level": 3
+        },
+        {
+          "id": "lp-usdc-movr-toad.network-moonriver",
+          "name": "PAD-MOVR LPs",
+          "value": 582.67,
+          "level": 1
+        },
+        {
+          "id": "lp-toad-movr-toad.network-moonriver",
+          "name": "PAD-MOVR LPs",
+          "value": 2202.23,
+          "level": 1
+        },
+        {
+          "id": "toad-toad.network-moonriver",
+          "name": "Wrapped Toad",
+          "value": 1934.45,
+          "level": 2
+        },
+        {
+          "id": "toad-toad.network-bsc",
+          "name": "Toad Network",
+          "value": 1934.45,
+          "level": 3
+        }
+      ],
+      "links": [
+        {
+          "source": "pad-toad.network-moonriver",
+          "target": "unbacked",
+          "value": 3382.1,
+          "level": 0
+        },
+        {
+          "source": "pad-toad.network-moonriver",
+          "target": "lp-pad-movr-toad.network-moonriver",
+          "value": 3004.58,
+          "level": 0
+        },
+        {
+          "source": "lp-pad-movr-toad.network-moonriver",
+          "target": "unbacked",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "lp-pad-movr-toad.network-moonriver",
+          "target": "movr.w-moonbeam-moonriver",
+          "value": 2481.88,
+          "level": 1
+        },
+        {
+          "source": "movr.w-moonbeam-moonriver",
+          "target": "unbacked",
+          "value": 4951.28,
+          "level": 2
+        },
+        {
+          "source": "pad-toad.network-moonriver",
+          "target": "lp-busd-usdc-toad.network-moonriver",
+          "value": 1161.27,
+          "level": 0
+        },
+        {
+          "source": "lp-busd-usdc-toad.network-moonriver",
+          "target": "busd-multichain-moonriver",
+          "value": 1161.27,
+          "level": 1
+        },
+        {
+          "source": "busd-multichain-moonriver",
+          "target": "busd-binance-bsc",
+          "value": 1161.27,
+          "level": 2
+        },
+        {
+          "source": "busd-binance-bsc",
+          "target": "busd-paxos-ethereum",
+          "value": 1161.27,
+          "level": 3
+        },
+        {
+          "source": "busd-paxos-ethereum",
+          "target": "usd-fed",
+          "value": 1161.27,
+          "level": 4
+        },
+        {
+          "source": "usd-fed",
+          "target": "unbacked",
+          "value": 2905.21,
+          "level": 5
+        },
+        {
+          "source": "lp-busd-usdc-toad.network-moonriver",
+          "target": "usdc-multichain-moonriver",
+          "value": 1161.27,
+          "level": 1
+        },
+        {
+          "source": "usdc-multichain-moonriver",
+          "target": "usdc-circle-ethereum",
+          "value": 1743.94,
+          "level": 2
+        },
+        {
+          "source": "usdc-circle-ethereum",
+          "target": "usd-fed",
+          "value": 1743.94,
+          "level": 3
+        },
+        {
+          "source": "pad-toad.network-moonriver",
+          "target": "lp-usdc-movr-toad.network-moonriver",
+          "value": 582.67,
+          "level": 0
+        },
+        {
+          "source": "lp-usdc-movr-toad.network-moonriver",
+          "target": "usdc-multichain-moonriver",
+          "value": 582.67,
+          "level": 1
+        },
+        {
+          "source": "lp-usdc-movr-toad.network-moonriver",
+          "target": "movr.w-moonbeam-moonriver",
+          "value": 582.67,
+          "level": 1
+        },
+        {
+          "source": "pad-toad.network-moonriver",
+          "target": "lp-toad-movr-toad.network-moonriver",
+          "value": 2202.23,
+          "level": 0
+        },
+        {
+          "source": "lp-toad-movr-toad.network-moonriver",
+          "target": "toad-toad.network-moonriver",
+          "value": 1934.45,
+          "level": 1
+        },
+        {
+          "source": "toad-toad.network-moonriver",
+          "target": "toad-toad.network-bsc",
+          "value": 1934.45,
+          "level": 2
+        },
+        {
+          "source": "toad-toad.network-bsc",
+          "target": "unbacked",
+          "value": 1934.45,
+          "level": 3
+        },
+        {
+          "source": "lp-toad-movr-toad.network-moonriver",
+          "target": "movr.w-moonbeam-moonriver",
+          "value": 1886.73,
+          "level": 1
+        },
+        {
+          "source": "pad-toad.network-moonriver",
+          "target": "toad-toad.network-moonriver",
+          "value": 0,
+          "level": 0
+        }
+      ],
+      "value": 10332.85,
+      "unbacked": 3382.1,
+      "backed": 6950.75
+    },
     {
       "timestamp": "2023-02-23T22:10:12.876Z",
       "nodes": [
@@ -72347,6 +78945,68 @@
   ],
   "paxg-binance-bsc": [
     {
+      "timestamp": "2023-02-24T22:09:46.566Z",
+      "nodes": [
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "paxg-binance-bsc",
+          "name": "Binance-Peg PAX Gold",
+          "value": 0,
+          "level": 0
+        },
+        {
+          "id": "paxg-paxos-ethereum",
+          "name": "PAX Gold",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "id": "gold",
+          "name": "Gold",
+          "value": 0,
+          "level": 2
+        }
+      ],
+      "links": [
+        {
+          "source": "paxg-binance-bsc",
+          "target": "unbacked",
+          "value": 0,
+          "level": 0
+        },
+        {
+          "source": "paxg-binance-bsc",
+          "target": "paxg-paxos-ethereum",
+          "value": 0,
+          "level": 0
+        },
+        {
+          "source": "paxg-paxos-ethereum",
+          "target": "unbacked",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "paxg-paxos-ethereum",
+          "target": "gold",
+          "value": 0,
+          "level": 1
+        },
+        {
+          "source": "gold",
+          "target": "unbacked",
+          "value": 0,
+          "level": 2
+        }
+      ],
+      "value": 0,
+      "unbacked": 0,
+      "backed": 0
+    },
+    {
       "timestamp": "2023-02-23T22:10:12.317Z",
       "nodes": [
         {
@@ -74839,6 +81499,56 @@
   ],
   "paxg-wormhole-solana": [
     {
+      "timestamp": "2023-02-24T22:09:46.566Z",
+      "nodes": [
+        {
+          "id": "paxg-wormhole-solana",
+          "name": "Paxos Gold",
+          "value": 787546.62,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "paxg-paxos-ethereum",
+          "name": "PAX Gold",
+          "value": 787546.62,
+          "level": 1
+        },
+        {
+          "id": "gold",
+          "name": "Gold",
+          "value": 787546.62,
+          "level": 2
+        }
+      ],
+      "links": [
+        {
+          "source": "paxg-wormhole-solana",
+          "target": "paxg-paxos-ethereum",
+          "value": 787546.62,
+          "level": 0
+        },
+        {
+          "source": "paxg-paxos-ethereum",
+          "target": "gold",
+          "value": 787546.62,
+          "level": 1
+        },
+        {
+          "source": "gold",
+          "target": "unbacked",
+          "value": 787546.62,
+          "level": 2
+        }
+      ],
+      "value": 787546.62,
+      "unbacked": 0,
+      "backed": 787546.62
+    },
+    {
       "timestamp": "2023-02-23T22:10:12.317Z",
       "nodes": [
         {
@@ -75591,7 +82301,7 @@
   ],
   "pxbsc-bsc": [
     {
-      "timestamp": "2023-02-23T22:10:13.998Z",
+      "timestamp": "2023-02-24T22:09:47.941Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -75619,16 +82329,16 @@
   ],
   "toad-toad.network-bsc": [
     {
-      "timestamp": "2023-02-23T22:10:13.998Z",
+      "timestamp": "2023-02-24T22:09:47.941Z",
       "nodes": [
         {
           "id": "unbacked",
-          "value": 378000
+          "value": 372000
         },
         {
           "id": "toad-toad.network-bsc",
           "name": "Toad Network",
-          "value": 378000,
+          "value": 372000,
           "level": 0
         }
       ],
@@ -75636,16 +82346,54 @@
         {
           "source": "toad-toad.network-bsc",
           "target": "unbacked",
-          "value": 378000,
+          "value": 372000,
           "level": 0
         }
       ],
-      "value": 378000,
-      "unbacked": 378000,
+      "value": 372000,
+      "unbacked": 372000,
       "backed": 0
     }
   ],
   "toad-toad.network-moonbeam": [
+    {
+      "timestamp": "2023-02-24T22:09:47.389Z",
+      "nodes": [
+        {
+          "id": "toad-toad.network-moonbeam",
+          "name": "Wrapped Toad",
+          "value": 46445.7,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "toad-toad.network-bsc",
+          "name": "Toad Network",
+          "value": 46445.7,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "toad-toad.network-moonbeam",
+          "target": "toad-toad.network-bsc",
+          "value": 46445.7,
+          "level": 0
+        },
+        {
+          "source": "toad-toad.network-bsc",
+          "target": "unbacked",
+          "value": 46445.7,
+          "level": 1
+        }
+      ],
+      "value": 46445.7,
+      "unbacked": 0,
+      "backed": 46445.7
+    },
     {
       "timestamp": "2023-02-23T22:10:13.121Z",
       "nodes": [
@@ -76266,6 +83014,50 @@
     }
   ],
   "toad-toad.network-moonriver": [
+    {
+      "timestamp": "2023-02-24T22:09:47.389Z",
+      "nodes": [
+        {
+          "id": "unbacked",
+          "value": 649.94
+        },
+        {
+          "id": "toad-toad.network-moonriver",
+          "name": "Wrapped Toad",
+          "value": 9586.05,
+          "level": 0
+        },
+        {
+          "id": "toad-toad.network-bsc",
+          "name": "Toad Network",
+          "value": 8936.11,
+          "level": 1
+        }
+      ],
+      "links": [
+        {
+          "source": "toad-toad.network-moonriver",
+          "target": "unbacked",
+          "value": 649.94,
+          "level": 0
+        },
+        {
+          "source": "toad-toad.network-moonriver",
+          "target": "toad-toad.network-bsc",
+          "value": 8936.11,
+          "level": 0
+        },
+        {
+          "source": "toad-toad.network-bsc",
+          "target": "unbacked",
+          "value": 8936.11,
+          "level": 1
+        }
+      ],
+      "value": 9586.05,
+      "unbacked": 649.94,
+      "backed": 8936.11
+    },
     {
       "timestamp": "2023-02-23T22:10:13.121Z",
       "nodes": [
@@ -76923,7 +83715,7 @@
   ],
   "usd-fed": [
     {
-      "timestamp": "2023-02-23T22:10:13.998Z",
+      "timestamp": "2023-02-24T22:09:47.941Z",
       "nodes": [
         {
           "id": "unbacked",
@@ -76950,6 +83742,56 @@
     }
   ],
   "usdc-binance-bsc": [
+    {
+      "timestamp": "2023-02-24T22:09:46.566Z",
+      "nodes": [
+        {
+          "id": "usdc-binance-bsc",
+          "name": "USD Coin",
+          "value": 778999999.85,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usdc-circle-ethereum",
+          "name": "USD Coin",
+          "value": 778999999.85,
+          "level": 1
+        },
+        {
+          "id": "usd-fed",
+          "name": "U.S. dollar",
+          "value": 778999999.85,
+          "level": 2
+        }
+      ],
+      "links": [
+        {
+          "source": "usdc-binance-bsc",
+          "target": "usdc-circle-ethereum",
+          "value": 778999999.85,
+          "level": 0
+        },
+        {
+          "source": "usdc-circle-ethereum",
+          "target": "usd-fed",
+          "value": 778999999.85,
+          "level": 1
+        },
+        {
+          "source": "usd-fed",
+          "target": "unbacked",
+          "value": 778999999.85,
+          "level": 2
+        }
+      ],
+      "value": 778999999.85,
+      "unbacked": 0,
+      "backed": 778999999.85
+    },
     {
       "timestamp": "2023-02-23T22:10:12.317Z",
       "nodes": [
@@ -79623,16 +86465,16 @@
   ],
   "usdc-circle-solana": [
     {
-      "timestamp": "2023-02-23T22:10:13.998Z",
+      "timestamp": "2023-02-24T22:09:47.941Z",
       "nodes": [
         {
           "id": "unbacked",
-          "value": 5045023927.95
+          "value": 5034954019.91
         },
         {
           "id": "usdc-circle-solana",
           "name": "USD Coin",
-          "value": 5045023927.95,
+          "value": 5034954019.91,
           "level": 0
         }
       ],
@@ -79640,16 +86482,66 @@
         {
           "source": "usdc-circle-solana",
           "target": "unbacked",
-          "value": 5045023927.95,
+          "value": 5034954019.91,
           "level": 0
         }
       ],
-      "value": 5045023927.95,
-      "unbacked": 5045023927.95,
+      "value": 5034954019.91,
+      "unbacked": 5034954019.91,
       "backed": 0
     }
   ],
   "usdc-multichain-moonbeam": [
+    {
+      "timestamp": "2023-02-24T22:09:46.566Z",
+      "nodes": [
+        {
+          "id": "usdc-multichain-moonbeam",
+          "name": "USD Coin",
+          "value": 2299742.5,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usdc-circle-ethereum",
+          "name": "USD Coin",
+          "value": 2299742.5,
+          "level": 1
+        },
+        {
+          "id": "usd-fed",
+          "name": "U.S. dollar",
+          "value": 2299742.5,
+          "level": 2
+        }
+      ],
+      "links": [
+        {
+          "source": "usdc-multichain-moonbeam",
+          "target": "usdc-circle-ethereum",
+          "value": 2299742.5,
+          "level": 0
+        },
+        {
+          "source": "usdc-circle-ethereum",
+          "target": "usd-fed",
+          "value": 2299742.5,
+          "level": 1
+        },
+        {
+          "source": "usd-fed",
+          "target": "unbacked",
+          "value": 2299742.5,
+          "level": 2
+        }
+      ],
+      "value": 2299742.5,
+      "unbacked": 0,
+      "backed": 2299742.5
+    },
     {
       "timestamp": "2023-02-23T22:10:12.317Z",
       "nodes": [
@@ -80402,6 +87294,56 @@
     }
   ],
   "usdc-multichain-moonriver": [
+    {
+      "timestamp": "2023-02-24T22:09:46.566Z",
+      "nodes": [
+        {
+          "id": "usdc-multichain-moonriver",
+          "name": "USD Coin",
+          "value": 11789497.23,
+          "level": 0
+        },
+        {
+          "id": "unbacked",
+          "value": 0
+        },
+        {
+          "id": "usdc-circle-ethereum",
+          "name": "USD Coin",
+          "value": 11789497.23,
+          "level": 1
+        },
+        {
+          "id": "usd-fed",
+          "name": "U.S. dollar",
+          "value": 11789497.23,
+          "level": 2
+        }
+      ],
+      "links": [
+        {
+          "source": "usdc-multichain-moonriver",
+          "target": "usdc-circle-ethereum",
+          "value": 11789497.23,
+          "level": 0
+        },
+        {
+          "source": "usdc-circle-ethereum",
+          "target": "usd-fed",
+          "value": 11789497.23,
+          "level": 1
+        },
+        {
+          "source": "usd-fed",
+          "target": "unbacked",
+          "value": 11789497.23,
+          "level": 2
+        }
+      ],
+      "value": 11789497.23,
+      "unbacked": 0,
+      "backed": 11789497.23
+    },
     {
       "timestamp": "2023-02-23T22:10:12.317Z",
       "nodes": [

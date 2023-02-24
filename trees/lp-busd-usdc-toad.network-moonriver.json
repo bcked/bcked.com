@@ -1,10 +1,10 @@
 {
-  "timestamp": "2023-02-23T22:10:12.838Z",
+  "timestamp": "2023-02-24T22:09:47.067Z",
   "nodes": [
     {
       "id": "lp-busd-usdc-toad.network-moonriver",
       "name": "BUSD-USDC LPs",
-      "value": 23925.92,
+      "value": 23889.42,
       "level": 0
     },
     {
@@ -14,37 +14,37 @@
     {
       "id": "busd-multichain-moonriver",
       "name": "Binance-Peg BUSD",
-      "value": 11946.52,
+      "value": 11952.94,
       "level": 1
     },
     {
       "id": "busd-binance-bsc",
       "name": "Binance-Peg BUSD",
-      "value": 11946.52,
+      "value": 11952.94,
       "level": 2
     },
     {
       "id": "busd-paxos-ethereum",
       "name": "Binance USD",
-      "value": 11946.52,
+      "value": 11952.94,
       "level": 3
     },
     {
       "id": "usd-fed",
       "name": "U.S. dollar",
-      "value": 23925.92,
+      "value": 23889.42,
       "level": 4
     },
     {
       "id": "usdc-multichain-moonriver",
       "name": "USD Coin",
-      "value": 11979.4,
+      "value": 11936.48,
       "level": 1
     },
     {
       "id": "usdc-circle-ethereum",
       "name": "USD Coin",
-      "value": 11979.4,
+      "value": 11936.48,
       "level": 2
     }
   ],
@@ -52,53 +52,53 @@
     {
       "source": "lp-busd-usdc-toad.network-moonriver",
       "target": "busd-multichain-moonriver",
-      "value": 11946.52,
+      "value": 11952.94,
       "level": 0
     },
     {
       "source": "busd-multichain-moonriver",
       "target": "busd-binance-bsc",
-      "value": 11946.52,
+      "value": 11952.94,
       "level": 1
     },
     {
       "source": "busd-binance-bsc",
       "target": "busd-paxos-ethereum",
-      "value": 11946.52,
+      "value": 11952.94,
       "level": 2
     },
     {
       "source": "busd-paxos-ethereum",
       "target": "usd-fed",
-      "value": 11946.52,
+      "value": 11952.94,
       "level": 3
     },
     {
       "source": "usd-fed",
       "target": "unbacked",
-      "value": 23925.92,
+      "value": 23889.42,
       "level": 4
     },
     {
       "source": "lp-busd-usdc-toad.network-moonriver",
       "target": "usdc-multichain-moonriver",
-      "value": 11979.4,
+      "value": 11936.48,
       "level": 0
     },
     {
       "source": "usdc-multichain-moonriver",
       "target": "usdc-circle-ethereum",
-      "value": 11979.4,
+      "value": 11936.48,
       "level": 1
     },
     {
       "source": "usdc-circle-ethereum",
       "target": "usd-fed",
-      "value": 11979.4,
+      "value": 11936.48,
       "level": 2
     }
   ],
-  "value": 23925.92,
+  "value": 23889.42,
   "unbacked": 0,
-  "backed": 23925.92
+  "backed": 23889.42
 }
