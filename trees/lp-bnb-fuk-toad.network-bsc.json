@@ -1,26 +1,26 @@
 {
-  "timestamp": "2023-02-24T22:09:47.389Z",
+  "timestamp": "2023-02-25T22:09:26.504Z",
   "nodes": [
     {
       "id": "unbacked",
-      "value": 58.24
+      "value": 75.22
     },
     {
       "id": "lp-bnb-fuk-toad.network-bsc",
       "name": "BNB-FUK LPs",
-      "value": 4559.96,
+      "value": 4552.61,
       "level": 0
     },
     {
       "id": "bnb-binance-bsc",
       "name": "Wrapped BNB",
-      "value": 2228.98,
+      "value": 2208.35,
       "level": 1
     },
     {
       "id": "fuk-bsc",
       "name": "FuckYouKarens",
-      "value": 2272.74,
+      "value": 2269.03,
       "level": 1
     }
   ],
@@ -28,35 +28,35 @@
     {
       "source": "lp-bnb-fuk-toad.network-bsc",
       "target": "unbacked",
-      "value": 58.24,
+      "value": 75.22,
       "level": 0
     },
     {
       "source": "lp-bnb-fuk-toad.network-bsc",
       "target": "bnb-binance-bsc",
-      "value": 2228.98,
+      "value": 2208.35,
       "level": 0
     },
     {
       "source": "bnb-binance-bsc",
       "target": "unbacked",
-      "value": 2228.98,
+      "value": 2208.35,
       "level": 1
     },
     {
       "source": "lp-bnb-fuk-toad.network-bsc",
       "target": "fuk-bsc",
-      "value": 2272.74,
+      "value": 2269.03,
       "level": 0
     },
     {
       "source": "fuk-bsc",
       "target": "unbacked",
-      "value": 2272.74,
+      "value": 2269.03,
       "level": 1
     }
   ],
-  "value": 4559.96,
-  "unbacked": 58.24,
-  "backed": 4501.72
+  "value": 4552.61,
+  "unbacked": 75.22,
+  "backed": 4477.39
 }

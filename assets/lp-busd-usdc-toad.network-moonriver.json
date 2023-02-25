@@ -43,6 +43,11 @@
   },
   "price": [
     {
+      "timestamp": "2023-02-25T22:09:34.776Z",
+      "usd": 2030741.7115787175,
+      "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: busd-multichain-moonriver,usdc-multichain-moonriver"
+    },
+    {
       "timestamp": "2023-02-24T22:09:47.519Z",
       "usd": 2027583.8732862847,
       "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: busd-multichain-moonriver,usdc-multichain-moonriver"
@@ -104,6 +109,11 @@
     }
   ],
   "supply": [
+    {
+      "timestamp": "2023-02-25T22:09:26.719Z",
+      "total": 0.011782210780844111,
+      "source": "https://rpc.api.moonriver.moonbeam.network"
+    },
     {
       "timestamp": "2023-02-24T22:09:47.042Z",
       "total": 0.011782210780844111,
@@ -167,6 +177,18 @@
   ],
   "backing": [
     {
+      "timestamp": "2023-02-25T22:09:26.731Z",
+      "assets": {
+        "busd-multichain-moonriver": 11966.982521109481,
+        "usdc-multichain-moonriver": 11935.741642
+      },
+      "source": "https://rpc.api.moonriver.moonbeam.network",
+      "backing-assets": 2,
+      "backing-usd": 23926.63,
+      "ratio": 1,
+      "uniformity": 1
+    },
+    {
       "timestamp": "2023-02-24T22:09:47.067Z",
       "assets": {
         "busd-multichain-moonriver": 11965.861693528332,
@@ -175,7 +197,7 @@
       "source": "https://rpc.api.moonriver.moonbeam.network",
       "backing-assets": 2,
       "backing-usd": 23889.42,
-      "ratio": 1,
+      "ratio": 0.9984,
       "uniformity": 1
     },
     {
@@ -187,7 +209,7 @@
       "source": "https://rpc.api.moonriver.moonbeam.network",
       "backing-assets": 2,
       "backing-usd": 23925.92,
-      "ratio": 1.0015,
+      "ratio": 1,
       "uniformity": 1
     },
     {
@@ -199,7 +221,7 @@
       "source": "https://rpc.api.moonriver.moonbeam.network",
       "backing-assets": 2,
       "backing-usd": 23876.32,
-      "ratio": 0.9995,
+      "ratio": 0.9979,
       "uniformity": 1
     },
     {
@@ -211,7 +233,7 @@
       "source": "https://rpc.api.moonriver.moonbeam.network",
       "backing-assets": 2,
       "backing-usd": 23921.05,
-      "ratio": 1.0013,
+      "ratio": 0.9998,
       "uniformity": 1
     },
     {
@@ -223,7 +245,7 @@
       "source": "https://rpc.api.moonriver.moonbeam.network",
       "backing-assets": 2,
       "backing-usd": 23925.13,
-      "ratio": 1.0015,
+      "ratio": 0.9999,
       "uniformity": 1
     },
     {
@@ -235,7 +257,7 @@
       "source": "https://rpc.api.moonriver.moonbeam.network",
       "backing-assets": 2,
       "backing-usd": 23893.43,
-      "ratio": 1.0002,
+      "ratio": 0.9986,
       "uniformity": 1
     },
     {
@@ -247,7 +269,7 @@
       "source": "https://rpc.api.moonriver.moonbeam.network",
       "backing-assets": 2,
       "backing-usd": 23897.95,
-      "ratio": 1.0004,
+      "ratio": 0.9988,
       "uniformity": 1
     },
     {
@@ -259,7 +281,7 @@
       "source": "https://rpc.api.moonriver.moonbeam.network",
       "backing-assets": 2,
       "backing-usd": 23863.46,
-      "ratio": 0.9989,
+      "ratio": 0.9974,
       "uniformity": 1
     },
     {
@@ -271,7 +293,7 @@
       "source": "https://rpc.api.moonriver.moonbeam.network",
       "backing-assets": 2,
       "backing-usd": 23904.93,
-      "ratio": 1.0006,
+      "ratio": 0.9991,
       "uniformity": 1
     },
     {
@@ -283,7 +305,7 @@
       "source": "https://rpc.api.moonriver.moonbeam.network",
       "backing-assets": 2,
       "backing-usd": 23904.83,
-      "ratio": 1.0006,
+      "ratio": 0.9991,
       "uniformity": 1
     },
     {
@@ -295,7 +317,7 @@
       "source": "https://rpc.api.moonriver.moonbeam.network",
       "backing-assets": 2,
       "backing-usd": 23867.52,
-      "ratio": 0.9991,
+      "ratio": 0.9975,
       "uniformity": 1
     },
     {
@@ -307,9 +329,9 @@
       "source": "https://rpc.api.moonriver.moonbeam.network",
       "backing-assets": 2,
       "backing-usd": 23904.5,
-      "ratio": 1.0006,
+      "ratio": 0.9991,
       "uniformity": 1
     }
   ],
-  "mcap": 23889.42
+  "mcap": 23926.63
 }

@@ -43,6 +43,11 @@
   },
   "price": [
     {
+      "timestamp": "2023-02-25T22:09:34.777Z",
+      "usd": 6701622.720114073,
+      "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: usdc-multichain-moonriver,movr.w-moonbeam-moonriver"
+    },
+    {
       "timestamp": "2023-02-24T22:09:47.519Z",
       "usd": 6896101.679875796,
       "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: usdc-multichain-moonriver,movr.w-moonbeam-moonriver"
@@ -104,6 +109,11 @@
     }
   ],
   "supply": [
+    {
+      "timestamp": "2023-02-25T22:09:26.724Z",
+      "total": 0.000289568153103044,
+      "source": "https://rpc.api.moonriver.moonbeam.network"
+    },
     {
       "timestamp": "2023-02-24T22:09:47.053Z",
       "total": 0.000289568153103044,
@@ -167,6 +177,18 @@
   ],
   "backing": [
     {
+      "timestamp": "2023-02-25T22:09:26.782Z",
+      "assets": {
+        "usdc-multichain-moonriver": 970.037066,
+        "movr.w-moonbeam-moonriver": 100.68218180590134
+      },
+      "source": "https://rpc.api.moonriver.moonbeam.network",
+      "backing-assets": 2,
+      "backing-usd": 1940.58,
+      "ratio": 1,
+      "uniformity": 1
+    },
+    {
       "timestamp": "2023-02-24T22:09:47.046Z",
       "assets": {
         "usdc-multichain-moonriver": 998.723488,
@@ -175,7 +197,7 @@
       "source": "https://rpc.api.moonriver.moonbeam.network",
       "backing-assets": 2,
       "backing-usd": 1996.89,
-      "ratio": 1,
+      "ratio": 1.029,
       "uniformity": 1
     },
     {
@@ -187,7 +209,7 @@
       "source": "https://rpc.api.moonriver.moonbeam.network",
       "backing-assets": 2,
       "backing-usd": 2085.77,
-      "ratio": 1.0445,
+      "ratio": 1.0748,
       "uniformity": 1
     },
     {
@@ -199,7 +221,7 @@
       "source": "https://rpc.api.moonriver.moonbeam.network",
       "backing-assets": 2,
       "backing-usd": 2007.89,
-      "ratio": 1.0055,
+      "ratio": 1.0347,
       "uniformity": 1
     },
     {
@@ -211,7 +233,7 @@
       "source": "https://rpc.api.moonriver.moonbeam.network",
       "backing-assets": 2,
       "backing-usd": 2024.16,
-      "ratio": 1.0137,
+      "ratio": 1.0431,
       "uniformity": 1
     },
     {
@@ -223,7 +245,7 @@
       "source": "https://rpc.api.moonriver.moonbeam.network",
       "backing-assets": 2,
       "backing-usd": 2111.35,
-      "ratio": 1.0573,
+      "ratio": 1.088,
       "uniformity": 1
     },
     {
@@ -235,7 +257,7 @@
       "source": "https://rpc.api.moonriver.moonbeam.network",
       "backing-assets": 2,
       "backing-usd": 2103.67,
-      "ratio": 1.0535,
+      "ratio": 1.084,
       "uniformity": 1
     },
     {
@@ -247,7 +269,7 @@
       "source": "https://rpc.api.moonriver.moonbeam.network",
       "backing-assets": 2,
       "backing-usd": 1807.98,
-      "ratio": 0.9054,
+      "ratio": 0.9317,
       "uniformity": 1
     },
     {
@@ -259,7 +281,7 @@
       "source": "https://rpc.api.moonriver.moonbeam.network",
       "backing-assets": 2,
       "backing-usd": 1814.06,
-      "ratio": 0.9084,
+      "ratio": 0.9348,
       "uniformity": 1
     },
     {
@@ -271,7 +293,7 @@
       "source": "https://rpc.api.moonriver.moonbeam.network",
       "backing-assets": 2,
       "backing-usd": 1915.75,
-      "ratio": 0.9594,
+      "ratio": 0.9872,
       "uniformity": 1
     },
     {
@@ -283,7 +305,7 @@
       "source": "https://rpc.api.moonriver.moonbeam.network",
       "backing-assets": 2,
       "backing-usd": 1904.35,
-      "ratio": 0.9537,
+      "ratio": 0.9813,
       "uniformity": 1
     },
     {
@@ -295,7 +317,7 @@
       "source": "https://rpc.api.moonriver.moonbeam.network",
       "backing-assets": 2,
       "backing-usd": 1865.99,
-      "ratio": 0.9344,
+      "ratio": 0.9616,
       "uniformity": 1
     },
     {
@@ -307,9 +329,9 @@
       "source": "https://rpc.api.moonriver.moonbeam.network",
       "backing-assets": 2,
       "backing-usd": 1894.77,
-      "ratio": 0.9489,
+      "ratio": 0.9764,
       "uniformity": 1
     }
   ],
-  "mcap": 1996.89
+  "mcap": 1940.58
 }

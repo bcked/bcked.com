@@ -25,6 +25,11 @@
   },
   "price": [
     {
+      "timestamp": "2023-02-25T22:09:26.886Z",
+      "usd": 1794.04,
+      "source": "https://coins.llama.fi/prices/current/moonriver:0x3D44494656370126E50Fe6488606165Bc0f2fd80,moonbeam:0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD,moonriver:0x38185BF42E4D6d0b51Db5F6C2B83064008549087,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xC0888d80EE0AbF84563168b3182650c0AdDEb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488C50184Ce2092756ba7CdF85731fD17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b,moonriver:0xe3f5a90f9cb311505cd691a46596599aa1a0ad7d?searchWidth=4h"
+    },
+    {
       "timestamp": "2023-02-24T22:09:46.899Z",
       "usd": 1800.24,
       "source": "https://coins.llama.fi/prices/current/moonriver:0x3D44494656370126E50Fe6488606165Bc0f2fd80,moonbeam:0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD,moonriver:0x38185BF42E4D6d0b51Db5F6C2B83064008549087,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xC0888d80EE0AbF84563168b3182650c0AdDEb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488C50184Ce2092756ba7CdF85731fD17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b,moonriver:0xe3f5a90f9cb311505cd691a46596599aa1a0ad7d?searchWidth=4h"
@@ -116,6 +121,11 @@
     }
   ],
   "supply": [
+    {
+      "timestamp": "2023-02-25T22:09:26.386Z",
+      "total": 251816.736,
+      "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}"
+    },
     {
       "timestamp": "2023-02-24T22:09:46.565Z",
       "total": 251816.736,
@@ -396,7 +406,7 @@
       "source": "https://paxos.com/paxg-transparency/",
       "backing-assets": 1,
       "backing-usd": 494125838.05,
-      "ratio": 1.09,
+      "ratio": 1.0938,
       "uniformity": 1
     },
     {
@@ -407,7 +417,7 @@
       "source": "https://paxos.com/paxg-transparency/",
       "backing-assets": 1,
       "backing-usd": 548480160.74,
-      "ratio": 1.2099,
+      "ratio": 1.2141,
       "uniformity": 1
     },
     {
@@ -418,7 +428,7 @@
       "source": "https://paxos.com/paxg-transparency/",
       "backing-assets": 1,
       "backing-usd": 559725153.17,
-      "ratio": 1.2347,
+      "ratio": 1.239,
       "uniformity": 1
     },
     {
@@ -429,7 +439,7 @@
       "source": "https://paxos.com/paxg-transparency/",
       "backing-assets": 1,
       "backing-usd": 626754424.01,
-      "ratio": 1.3826,
+      "ratio": 1.3873,
       "uniformity": 1
     },
     {
@@ -440,7 +450,7 @@
       "source": "https://paxos.com/paxg-transparency/",
       "backing-assets": 1,
       "backing-usd": 638098942.58,
-      "ratio": 1.4076,
+      "ratio": 1.4124,
       "uniformity": 1
     },
     {
@@ -451,7 +461,7 @@
       "source": "https://paxos.com/paxg-transparency/",
       "backing-assets": 1,
       "backing-usd": 626778066.68,
-      "ratio": 1.3826,
+      "ratio": 1.3874,
       "uniformity": 1
     },
     {
@@ -462,7 +472,7 @@
       "source": "https://paxos.com/paxg-transparency/",
       "backing-assets": 1,
       "backing-usd": 613215423.36,
-      "ratio": 1.3527,
+      "ratio": 1.3574,
       "uniformity": 1
     },
     {
@@ -473,7 +483,7 @@
       "source": "https://paxos.com/paxg-transparency/",
       "backing-assets": 1,
       "backing-usd": 598271714.19,
-      "ratio": 1.3197,
+      "ratio": 1.3243,
       "uniformity": 1
     },
     {
@@ -484,7 +494,7 @@
       "source": "https://paxos.com/paxg-transparency/",
       "backing-assets": 1,
       "backing-usd": 520679245.81,
-      "ratio": 1.1486,
+      "ratio": 1.1525,
       "uniformity": 1
     },
     {
@@ -495,7 +505,7 @@
       "source": "https://paxos.com/paxg-transparency/",
       "backing-assets": 1,
       "backing-usd": 368740416.8,
-      "ratio": 0.8134,
+      "ratio": 0.8162,
       "uniformity": 1
     },
     {
@@ -506,7 +516,7 @@
       "source": "https://paxos.com/paxg-transparency/",
       "backing-assets": 1,
       "backing-usd": 334288867,
-      "ratio": 0.7374,
+      "ratio": 0.74,
       "uniformity": 1
     },
     {
@@ -517,7 +527,7 @@
       "source": "https://paxos.com/paxg-transparency/",
       "backing-assets": 1,
       "backing-usd": 336515375.45,
-      "ratio": 0.7423,
+      "ratio": 0.7449,
       "uniformity": 1
     },
     {
@@ -528,7 +538,7 @@
       "source": "https://paxos.com/paxg-transparency/",
       "backing-assets": 1,
       "backing-usd": 335260269.87,
-      "ratio": 0.7395,
+      "ratio": 0.7421,
       "uniformity": 1
     },
     {
@@ -539,7 +549,7 @@
       "source": "https://paxos.com/paxg-transparency/",
       "backing-assets": 1,
       "backing-usd": 334542667.9,
-      "ratio": 0.738,
+      "ratio": 0.7405,
       "uniformity": 1
     },
     {
@@ -550,7 +560,7 @@
       "source": "https://paxos.com/paxg-transparency/",
       "backing-assets": 1,
       "backing-usd": 339068382.37,
-      "ratio": 0.7479,
+      "ratio": 0.7505,
       "uniformity": 1
     },
     {
@@ -561,7 +571,7 @@
       "source": "https://paxos.com/paxg-transparency/",
       "backing-assets": 1,
       "backing-usd": 315250164.21,
-      "ratio": 0.6954,
+      "ratio": 0.6978,
       "uniformity": 1
     },
     {
@@ -572,7 +582,7 @@
       "source": "https://paxos.com/paxg-transparency/",
       "backing-assets": 1,
       "backing-usd": 300823248.31,
-      "ratio": 0.6636,
+      "ratio": 0.6659,
       "uniformity": 1
     },
     {
@@ -583,7 +593,7 @@
       "source": "https://paxos.com/paxg-transparency/",
       "backing-assets": 1,
       "backing-usd": 249063973.53,
-      "ratio": 0.5494,
+      "ratio": 0.5513,
       "uniformity": 1
     },
     {
@@ -594,7 +604,7 @@
       "source": "https://paxos.com/paxg-transparency/",
       "backing-assets": 1,
       "backing-usd": 188587051.21,
-      "ratio": 0.416,
+      "ratio": 0.4174,
       "uniformity": 1
     },
     {
@@ -605,7 +615,7 @@
       "source": "https://paxos.com/paxg-transparency/",
       "backing-assets": 1,
       "backing-usd": 163974105.93,
-      "ratio": 0.3617,
+      "ratio": 0.363,
       "uniformity": 1
     },
     {
@@ -616,7 +626,7 @@
       "source": "https://paxos.com/paxg-transparency/",
       "backing-assets": 1,
       "backing-usd": 133228535.12,
-      "ratio": 0.2939,
+      "ratio": 0.2949,
       "uniformity": 1
     },
     {
@@ -627,7 +637,7 @@
       "source": "https://paxos.com/paxg-transparency/",
       "backing-assets": 1,
       "backing-usd": 113012103.64,
-      "ratio": 0.2493,
+      "ratio": 0.2502,
       "uniformity": 1
     },
     {
@@ -638,7 +648,7 @@
       "source": "https://paxos.com/paxg-transparency/",
       "backing-assets": 1,
       "backing-usd": 73996963.37,
-      "ratio": 0.1632,
+      "ratio": 0.1638,
       "uniformity": 1
     },
     {
@@ -649,7 +659,7 @@
       "source": "https://paxos.com/paxg-transparency/",
       "backing-assets": 1,
       "backing-usd": 77747173.3,
-      "ratio": 0.1715,
+      "ratio": 0.1721,
       "uniformity": 1
     },
     {
@@ -660,7 +670,7 @@
       "source": "https://paxos.com/paxg-transparency/",
       "backing-assets": 1,
       "backing-usd": 70362855.4,
-      "ratio": 0.1552,
+      "ratio": 0.1557,
       "uniformity": 1
     },
     {
@@ -671,7 +681,7 @@
       "source": "https://paxos.com/paxg-transparency/",
       "backing-assets": 1,
       "backing-usd": 61331137.47,
-      "ratio": 0.1353,
+      "ratio": 0.1358,
       "uniformity": 1
     },
     {
@@ -682,7 +692,7 @@
       "source": "https://paxos.com/paxg-transparency/",
       "backing-assets": 1,
       "backing-usd": 56929835.4,
-      "ratio": 0.1256,
+      "ratio": 0.126,
       "uniformity": 1
     },
     {
@@ -693,7 +703,7 @@
       "source": "https://paxos.com/paxg-transparency/",
       "backing-assets": 1,
       "backing-usd": 48632515.02,
-      "ratio": 0.1073,
+      "ratio": 0.1076,
       "uniformity": 1
     },
     {
@@ -704,7 +714,7 @@
       "source": "https://paxos.com/paxg-transparency/",
       "backing-assets": 1,
       "backing-usd": 41863387.57,
-      "ratio": 0.0923,
+      "ratio": 0.0927,
       "uniformity": 1
     },
     {
@@ -715,7 +725,7 @@
       "source": "https://paxos.com/paxg-transparency/",
       "backing-assets": 1,
       "backing-usd": 51663156.2,
-      "ratio": 0.114,
+      "ratio": 0.1144,
       "uniformity": 1
     },
     {
@@ -726,7 +736,7 @@
       "source": "https://paxos.com/paxg-transparency/",
       "backing-assets": 1,
       "backing-usd": 47896039.87,
-      "ratio": 0.1057,
+      "ratio": 0.106,
       "uniformity": 1
     },
     {
@@ -737,7 +747,7 @@
       "source": "https://paxos.com/paxg-transparency/",
       "backing-assets": 1,
       "backing-usd": 32109114.1,
-      "ratio": 0.0708,
+      "ratio": 0.0711,
       "uniformity": 1
     },
     {
@@ -748,7 +758,7 @@
       "source": "https://paxos.com/paxg-transparency/",
       "backing-assets": 1,
       "backing-usd": 21013570.59,
-      "ratio": 0.0464,
+      "ratio": 0.0465,
       "uniformity": 1
     },
     {
@@ -759,7 +769,7 @@
       "source": "https://paxos.com/paxg-transparency/",
       "backing-assets": 1,
       "backing-usd": 18019629.47,
-      "ratio": 0.0397,
+      "ratio": 0.0399,
       "uniformity": 1
     },
     {
@@ -770,7 +780,7 @@
       "source": "https://paxos.com/paxg-transparency/",
       "backing-assets": 1,
       "backing-usd": 15788122.36,
-      "ratio": 0.0348,
+      "ratio": 0.0349,
       "uniformity": 1
     },
     {
@@ -781,7 +791,7 @@
       "source": "https://paxos.com/paxg-transparency/",
       "backing-assets": 1,
       "backing-usd": 14242250.95,
-      "ratio": 0.0314,
+      "ratio": 0.0315,
       "uniformity": 1
     },
     {
@@ -792,7 +802,7 @@
       "source": "https://paxos.com/paxg-transparency/",
       "backing-assets": 1,
       "backing-usd": 6034213.32,
-      "ratio": 0.0133,
+      "ratio": 0.0134,
       "uniformity": 1
     },
     {
@@ -803,9 +813,9 @@
       "source": "https://paxos.com/paxg-transparency/",
       "backing-assets": 1,
       "backing-usd": 5275688.45,
-      "ratio": 0.0116,
+      "ratio": 0.0117,
       "uniformity": 1
     }
   ],
-  "mcap": 453330560.82
+  "mcap": 451769297.05
 }
