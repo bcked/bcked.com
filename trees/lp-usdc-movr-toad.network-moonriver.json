@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-02-25T22:09:26.782Z",
+  "timestamp": "2023-02-26T22:09:12.190Z",
   "nodes": [
     {
       "id": "unbacked",
@@ -8,31 +8,31 @@
     {
       "id": "lp-usdc-movr-toad.network-moonriver",
       "name": "PAD-MOVR LPs",
-      "value": 1940.58,
+      "value": 2021.68,
       "level": 0
     },
     {
       "id": "usdc-multichain-moonriver",
       "name": "USD Coin",
-      "value": 971.01,
+      "value": 1011.58,
       "level": 1
     },
     {
       "id": "usdc-circle-ethereum",
       "name": "USD Coin",
-      "value": 971.01,
+      "value": 1011.58,
       "level": 2
     },
     {
       "id": "usd-fed",
       "name": "U.S. dollar",
-      "value": 971.01,
+      "value": 1011.58,
       "level": 3
     },
     {
       "id": "movr.w-moonbeam-moonriver",
       "name": "Wrapped MOVR",
-      "value": 969.57,
+      "value": 1010.1,
       "level": 1
     }
   ],
@@ -46,41 +46,41 @@
     {
       "source": "lp-usdc-movr-toad.network-moonriver",
       "target": "usdc-multichain-moonriver",
-      "value": 971.01,
+      "value": 1011.58,
       "level": 0
     },
     {
       "source": "usdc-multichain-moonriver",
       "target": "usdc-circle-ethereum",
-      "value": 971.01,
+      "value": 1011.58,
       "level": 1
     },
     {
       "source": "usdc-circle-ethereum",
       "target": "usd-fed",
-      "value": 971.01,
+      "value": 1011.58,
       "level": 2
     },
     {
       "source": "usd-fed",
       "target": "unbacked",
-      "value": 971.01,
+      "value": 1011.58,
       "level": 3
     },
     {
       "source": "lp-usdc-movr-toad.network-moonriver",
       "target": "movr.w-moonbeam-moonriver",
-      "value": 969.57,
+      "value": 1010.1,
       "level": 0
     },
     {
       "source": "movr.w-moonbeam-moonriver",
       "target": "unbacked",
-      "value": 969.57,
+      "value": 1010.1,
       "level": 1
     }
   ],
-  "value": 1940.58,
+  "value": 2021.68,
   "unbacked": 0,
-  "backed": 1940.58
+  "backed": 2021.68
 }

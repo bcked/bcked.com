@@ -1,10 +1,10 @@
 {
-  "timestamp": "2023-02-25T22:09:26.504Z",
+  "timestamp": "2023-02-26T22:09:12.410Z",
   "nodes": [
     {
       "id": "busd-allbridge-solana",
       "name": "Wrapped BUSD",
-      "value": 72394.44,
+      "value": 72322.12,
       "level": 0
     },
     {
@@ -14,19 +14,19 @@
     {
       "id": "busd-binance-bsc",
       "name": "Binance-Peg BUSD",
-      "value": 72394.44,
+      "value": 72322.12,
       "level": 1
     },
     {
       "id": "busd-paxos-ethereum",
       "name": "Binance USD",
-      "value": 72394.44,
+      "value": 72322.12,
       "level": 2
     },
     {
       "id": "usd-fed",
       "name": "U.S. dollar",
-      "value": 72394.44,
+      "value": 72322.12,
       "level": 3
     }
   ],
@@ -34,29 +34,29 @@
     {
       "source": "busd-allbridge-solana",
       "target": "busd-binance-bsc",
-      "value": 72394.44,
+      "value": 72322.12,
       "level": 0
     },
     {
       "source": "busd-binance-bsc",
       "target": "busd-paxos-ethereum",
-      "value": 72394.44,
+      "value": 72322.12,
       "level": 1
     },
     {
       "source": "busd-paxos-ethereum",
       "target": "usd-fed",
-      "value": 72394.44,
+      "value": 72322.12,
       "level": 2
     },
     {
       "source": "usd-fed",
       "target": "unbacked",
-      "value": 72394.44,
+      "value": 72322.12,
       "level": 3
     }
   ],
-  "value": 72394.44,
+  "value": 72322.12,
   "unbacked": 0,
-  "backed": 72394.44
+  "backed": 72322.12
 }

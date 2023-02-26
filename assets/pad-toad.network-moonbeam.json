@@ -61,6 +61,11 @@
   },
   "price": [
     {
+      "timestamp": "2023-02-26T22:09:13.480Z",
+      "usd": 1.716e-7,
+      "source": "https://api.dexscreener.com/latest/dex/tokens/0x663a07a2648296f1A3C02EE86A126fE1407888E5,0xC0888d80EE0AbF84563168b3182650c0AdDEb6d5,0x59193512877E2EC3bB27C178A8888Cfac62FB32D,0x45488C50184Ce2092756ba7CdF85731fD17e6f3d,0x7950865a9140cB519342433146Ed5b40c6F210f7,0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,0x463E737D8F740395ABf44f7aac2D9531D8D539E9,0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,0x165DBb08de0476271714952C3C1F068693bd60D7"
+    },
+    {
       "timestamp": "2023-02-25T22:09:27.583Z",
       "usd": 1.701e-7,
       "source": "https://api.dexscreener.com/latest/dex/tokens/0x663a07a2648296f1A3C02EE86A126fE1407888E5,0xC0888d80EE0AbF84563168b3182650c0AdDEb6d5,0x59193512877E2EC3bB27C178A8888Cfac62FB32D,0x45488C50184Ce2092756ba7CdF85731fD17e6f3d,0x7950865a9140cB519342433146Ed5b40c6F210f7,0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,0x463E737D8F740395ABf44f7aac2D9531D8D539E9,0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,0x165DBb08de0476271714952C3C1F068693bd60D7"
@@ -157,6 +162,11 @@
     }
   ],
   "supply": [
+    {
+      "timestamp": "2023-02-26T22:09:12.188Z",
+      "total": 61481340195.02359,
+      "source": "https://moonbeam.public.blastapi.io"
+    },
     {
       "timestamp": "2023-02-25T22:09:26.649Z",
       "total": 60199021501.54256,
@@ -255,6 +265,21 @@
   ],
   "backing": [
     {
+      "timestamp": "2023-02-26T22:09:12.191Z",
+      "assets": {
+        "lp-pad-glmr-toad.network-moonbeam": 5023874.107928641,
+        "lp-busd-usdc-toad.network-moonbeam": 0.000816384213269556,
+        "lp-toad-glmr-toad.network-moonbeam": 920.3548326005991,
+        "lp-usdc-glmr-toad.network-moonbeam": 0.000584851116301421,
+        "toad-toad.network-moonbeam": 607
+      },
+      "source": "https://moonbeam.public.blastapi.io",
+      "backing-assets": 5,
+      "backing-usd": 8333.71,
+      "ratio": 0.7899,
+      "uniformity": 0.9124
+    },
+    {
       "timestamp": "2023-02-25T22:09:26.667Z",
       "assets": {
         "lp-pad-glmr-toad.network-moonbeam": 5023874.107928641,
@@ -266,7 +291,7 @@
       "source": "https://moonbeam.public.blastapi.io",
       "backing-assets": 5,
       "backing-usd": 8026.3,
-      "ratio": 0.7838,
+      "ratio": 0.7608,
       "uniformity": 0.9129
     },
     {
@@ -281,7 +306,7 @@
       "source": "https://moonbeam.public.blastapi.io",
       "backing-assets": 5,
       "backing-usd": 8462.19,
-      "ratio": 0.8264,
+      "ratio": 0.8021,
       "uniformity": 0.9083
     },
     {
@@ -296,7 +321,7 @@
       "source": "https://moonbeam.public.blastapi.io",
       "backing-assets": 5,
       "backing-usd": 8786.75,
-      "ratio": 0.8581,
+      "ratio": 0.8329,
       "uniformity": 0.9054
     },
     {
@@ -311,7 +336,7 @@
       "source": "https://moonbeam.public.blastapi.io",
       "backing-assets": 5,
       "backing-usd": 8900.89,
-      "ratio": 0.8692,
+      "ratio": 0.8437,
       "uniformity": 0.8969
     },
     {
@@ -326,7 +351,7 @@
       "source": "https://moonbeam.public.blastapi.io",
       "backing-assets": 5,
       "backing-usd": 9150.5,
-      "ratio": 0.8936,
+      "ratio": 0.8673,
       "uniformity": 0.8933
     },
     {
@@ -341,7 +366,7 @@
       "source": "https://moonbeam.public.blastapi.io",
       "backing-assets": 5,
       "backing-usd": 9651.5,
-      "ratio": 0.9425,
+      "ratio": 0.9148,
       "uniformity": 0.89
     },
     {
@@ -356,7 +381,7 @@
       "source": "https://moonbeam.public.blastapi.io",
       "backing-assets": 5,
       "backing-usd": 9383.69,
-      "ratio": 0.9164,
+      "ratio": 0.8894,
       "uniformity": 0.8977
     },
     {
@@ -371,7 +396,7 @@
       "source": "https://moonbeam.public.blastapi.io",
       "backing-assets": 5,
       "backing-usd": 8448.61,
-      "ratio": 0.8251,
+      "ratio": 0.8008,
       "uniformity": 0.9079
     },
     {
@@ -386,7 +411,7 @@
       "source": "https://moonbeam.public.blastapi.io",
       "backing-assets": 5,
       "backing-usd": 8499.94,
-      "ratio": 0.8301,
+      "ratio": 0.8057,
       "uniformity": 0.9035
     },
     {
@@ -401,7 +426,7 @@
       "source": "https://moonbeam.public.blastapi.io",
       "backing-assets": 5,
       "backing-usd": 9419.38,
-      "ratio": 0.9199,
+      "ratio": 0.8928,
       "uniformity": 0.8954
     },
     {
@@ -416,7 +441,7 @@
       "source": "https://moonbeam.public.blastapi.io",
       "backing-assets": 5,
       "backing-usd": 8935.07,
-      "ratio": 0.8726,
+      "ratio": 0.8469,
       "uniformity": 0.9009
     },
     {
@@ -431,7 +456,7 @@
       "source": "https://moonbeam.public.blastapi.io",
       "backing-assets": 5,
       "backing-usd": 8783.46,
-      "ratio": 0.8578,
+      "ratio": 0.8325,
       "uniformity": 0.901
     },
     {
@@ -446,9 +471,9 @@
       "source": "../lily-pad/scripts",
       "backing-assets": 4,
       "backing-usd": 7495.45,
-      "ratio": 0.732,
+      "ratio": 0.7105,
       "uniformity": 0.8589
     }
   ],
-  "mcap": 10239.85
+  "mcap": 10550.2
 }
