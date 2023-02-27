@@ -26,6 +26,11 @@
   },
   "price": [
     {
+      "timestamp": "2023-02-27T22:10:30.252Z",
+      "usd": 1,
+      "source": "https://coins.llama.fi/prices/current/moonriver:0x3D44494656370126E50Fe6488606165Bc0f2fd80,moonbeam:0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD,moonriver:0x38185BF42E4D6d0b51Db5F6C2B83064008549087,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xC0888d80EE0AbF84563168b3182650c0AdDEb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488C50184Ce2092756ba7CdF85731fD17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b,moonriver:0xe3f5a90f9cb311505cd691a46596599aa1a0ad7d?searchWidth=4h"
+    },
+    {
       "timestamp": "2023-02-26T22:09:12.247Z",
       "usd": 1.001,
       "source": "https://coins.llama.fi/prices/current/moonriver:0x3D44494656370126E50Fe6488606165Bc0f2fd80,moonbeam:0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD,moonriver:0x38185BF42E4D6d0b51Db5F6C2B83064008549087,moonriver:0x663a07a2648296f1A3C02EE86A126fE1407888E5,bsc:0xC0888d80EE0AbF84563168b3182650c0AdDEb6d5,moonbeam:0x59193512877E2EC3bB27C178A8888Cfac62FB32D,moonriver:0x45488C50184Ce2092756ba7CdF85731fD17e6f3d,bsc:0x7950865a9140cB519342433146Ed5b40c6F210f7,ethereum:0x45804880De22913dAFE09f4980848ECE6EcbAf78,solana:C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe,bsc:0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,bsc:0x463E737D8F740395ABf44f7aac2D9531D8D539E9,moonbeam:0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,moonriver:0x165DBb08de0476271714952C3C1F068693bd60D7,bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d,ethereum:0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,solana:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,moonbeam:0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b,moonriver:0xe3f5a90f9cb311505cd691a46596599aa1a0ad7d?searchWidth=4h"
@@ -127,6 +132,11 @@
     }
   ],
   "supply": [
+    {
+      "timestamp": "2023-02-27T22:10:29.633Z",
+      "total": 39752658581.25955,
+      "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}"
+    },
     {
       "timestamp": "2023-02-26T22:09:11.887Z",
       "total": 39755548876.73955,
@@ -477,7 +487,7 @@
       "source": "https://www.centre.io/usdc-transparency",
       "backing-assets": 1,
       "backing-usd": 43238943390,
-      "ratio": 1.0865,
+      "ratio": 1.0877,
       "uniformity": 1
     },
     {
@@ -488,7 +498,7 @@
       "source": "https://www.centre.io/usdc-transparency",
       "backing-assets": 1,
       "backing-usd": 43507961021,
-      "ratio": 1.0933,
+      "ratio": 1.0945,
       "uniformity": 1
     },
     {
@@ -499,7 +509,7 @@
       "source": "https://www.centre.io/usdc-transparency",
       "backing-assets": 1,
       "backing-usd": 47261819834,
-      "ratio": 1.1876,
+      "ratio": 1.1889,
       "uniformity": 1
     },
     {
@@ -510,7 +520,7 @@
       "source": "https://www.centre.io/usdc-transparency",
       "backing-assets": 1,
       "backing-usd": 52258056105,
-      "ratio": 1.3132,
+      "ratio": 1.3146,
       "uniformity": 1
     },
     {
@@ -521,7 +531,7 @@
       "source": "https://www.centre.io/usdc-transparency",
       "backing-assets": 1,
       "backing-usd": 54488837404,
-      "ratio": 1.3692,
+      "ratio": 1.3707,
       "uniformity": 1
     },
     {
@@ -532,7 +542,7 @@
       "source": "https://www.centre.io/usdc-transparency",
       "backing-assets": 1,
       "backing-usd": 55569660586,
-      "ratio": 1.3964,
+      "ratio": 1.3979,
       "uniformity": 1
     },
     {
@@ -543,7 +553,7 @@
       "source": "https://www.centre.io/usdc-transparency",
       "backing-assets": 1,
       "backing-usd": 54005995420,
-      "ratio": 1.3571,
+      "ratio": 1.3586,
       "uniformity": 1
     },
     {
@@ -554,7 +564,7 @@
       "source": "https://www.centre.io/usdc-transparency",
       "backing-assets": 1,
       "backing-usd": 49260105739,
-      "ratio": 1.2378,
+      "ratio": 1.2392,
       "uniformity": 1
     },
     {
@@ -565,7 +575,7 @@
       "source": "https://www.centre.io/usdc-transparency",
       "backing-assets": 1,
       "backing-usd": 51388555903,
-      "ratio": 1.2913,
+      "ratio": 1.2927,
       "uniformity": 1
     },
     {
@@ -576,7 +586,7 @@
       "source": "https://www.centre.io/usdc-transparency",
       "backing-assets": 1,
       "backing-usd": 53496850808,
-      "ratio": 1.3443,
+      "ratio": 1.3457,
       "uniformity": 1
     },
     {
@@ -587,7 +597,7 @@
       "source": "https://www.centre.io/usdc-transparency",
       "backing-assets": 1,
       "backing-usd": 50031478777,
-      "ratio": 1.2572,
+      "ratio": 1.2586,
       "uniformity": 1
     },
     {
@@ -598,7 +608,7 @@
       "source": "https://www.centre.io/usdc-transparency",
       "backing-assets": 1,
       "backing-usd": 42416160651,
-      "ratio": 1.0659,
+      "ratio": 1.067,
       "uniformity": 1
     },
     {
@@ -609,7 +619,7 @@
       "source": "https://www.centre.io/usdc-transparency",
       "backing-assets": 1,
       "backing-usd": 38744141217,
-      "ratio": 0.9736,
+      "ratio": 0.9746,
       "uniformity": 1
     },
     {
@@ -620,7 +630,7 @@
       "source": "https://www.centre.io/usdc-transparency",
       "backing-assets": 1,
       "backing-usd": 32976946989,
-      "ratio": 0.8287,
+      "ratio": 0.8296,
       "uniformity": 1
     },
     {
@@ -631,7 +641,7 @@
       "source": "https://www.centre.io/usdc-transparency",
       "backing-assets": 1,
       "backing-usd": 31652676021,
-      "ratio": 0.7954,
+      "ratio": 0.7962,
       "uniformity": 1
     },
     {
@@ -642,7 +652,7 @@
       "source": "https://www.centre.io/usdc-transparency",
       "backing-assets": 1,
       "backing-usd": 27415446969,
-      "ratio": 0.6889,
+      "ratio": 0.6897,
       "uniformity": 1
     },
     {
@@ -653,7 +663,7 @@
       "source": "https://www.centre.io/usdc-transparency",
       "backing-assets": 1,
       "backing-usd": 27312456821,
-      "ratio": 0.6863,
+      "ratio": 0.6871,
       "uniformity": 1
     },
     {
@@ -664,7 +674,7 @@
       "source": "https://www.centre.io/usdc-transparency",
       "backing-assets": 1,
       "backing-usd": 25158531650,
-      "ratio": 0.6322,
+      "ratio": 0.6329,
       "uniformity": 1
     },
     {
@@ -675,7 +685,7 @@
       "source": "https://www.centre.io/usdc-transparency",
       "backing-assets": 1,
       "backing-usd": 22176182251,
-      "ratio": 0.5573,
+      "ratio": 0.5579,
       "uniformity": 1
     },
     {
@@ -686,7 +696,7 @@
       "source": "https://www.centre.io/usdc-transparency",
       "backing-assets": 1,
       "backing-usd": 14697267257,
-      "ratio": 0.3693,
+      "ratio": 0.3697,
       "uniformity": 1
     },
     {
@@ -697,7 +707,7 @@
       "source": "https://www.centre.io/usdc-transparency",
       "backing-assets": 1,
       "backing-usd": 11141404000,
-      "ratio": 0.28,
+      "ratio": 0.2803,
       "uniformity": 1
     },
     {
@@ -708,7 +718,7 @@
       "source": "https://www.centre.io/usdc-transparency",
       "backing-assets": 1,
       "backing-usd": 9382986657,
-      "ratio": 0.2358,
+      "ratio": 0.236,
       "uniformity": 1
     },
     {
@@ -719,7 +729,7 @@
       "source": "https://www.centre.io/usdc-transparency",
       "backing-assets": 1,
       "backing-usd": 5997307895,
-      "ratio": 0.1507,
+      "ratio": 0.1509,
       "uniformity": 1
     },
     {
@@ -730,7 +740,7 @@
       "source": "https://www.centre.io/usdc-transparency",
       "backing-assets": 1,
       "backing-usd": 4011270692,
-      "ratio": 0.1008,
+      "ratio": 0.1009,
       "uniformity": 1
     },
     {
@@ -741,7 +751,7 @@
       "source": "https://www.centre.io/usdc-transparency",
       "backing-assets": 1,
       "backing-usd": 3002021340,
-      "ratio": 0.0754,
+      "ratio": 0.0755,
       "uniformity": 1
     },
     {
@@ -1020,5 +1030,5 @@
       "uniformity": 1
     }
   ],
-  "mcap": 39795304425.62
+  "mcap": 39752658581.26
 }

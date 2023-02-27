@@ -138,6 +138,11 @@
   ],
   "supply": [
     {
+      "timestamp": "2023-02-27T22:10:30.467Z",
+      "total": 11000000,
+      "source": "https://bsc-dataseed3.binance.org/"
+    },
+    {
       "timestamp": "2023-02-26T22:09:12.158Z",
       "total": 11000000,
       "source": "https://bsc-dataseed3.binance.org/"
@@ -234,6 +239,17 @@
     }
   ],
   "backing": [
+    {
+      "timestamp": "2023-02-27T22:10:29.634Z",
+      "assets": {
+        "cats-catoshi-ethereum": 2773356.6096623526
+      },
+      "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}",
+      "backing-assets": 1,
+      "backing-usd": 89274.35,
+      "ratio": 0.2476,
+      "uniformity": 1
+    },
     {
       "timestamp": "2023-02-26T22:09:11.888Z",
       "assets": {

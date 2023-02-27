@@ -1,20 +1,20 @@
 {
-  "timestamp": "2023-02-26T22:09:11.888Z",
+  "timestamp": "2023-02-27T22:10:29.634Z",
   "nodes": [
     {
       "id": "unbacked",
-      "value": 53944.53
+      "value": 53806.66
     },
     {
       "id": "hoge-multichain-bsc",
       "name": "Hoge Finance",
-      "value": 498825.19,
+      "value": 497578.9,
       "level": 0
     },
     {
       "id": "hoge-ethereum",
       "name": "Hoge Finance",
-      "value": 444880.66,
+      "value": 443772.24,
       "level": 1
     }
   ],
@@ -22,23 +22,23 @@
     {
       "source": "hoge-multichain-bsc",
       "target": "unbacked",
-      "value": 53944.53,
+      "value": 53806.66,
       "level": 0
     },
     {
       "source": "hoge-multichain-bsc",
       "target": "hoge-ethereum",
-      "value": 444880.66,
+      "value": 443772.24,
       "level": 0
     },
     {
       "source": "hoge-ethereum",
       "target": "unbacked",
-      "value": 444880.66,
+      "value": 443772.24,
       "level": 1
     }
   ],
-  "value": 498825.19,
-  "unbacked": 53944.53,
-  "backed": 444880.66
+  "value": 497578.9,
+  "unbacked": 53806.66,
+  "backed": 443772.24
 }

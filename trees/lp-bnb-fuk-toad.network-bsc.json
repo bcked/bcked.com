@@ -1,9 +1,9 @@
 {
-  "timestamp": "2023-02-26T22:09:12.410Z",
+  "timestamp": "2023-02-27T22:10:30.548Z",
   "nodes": [
     {
       "id": "unbacked",
-      "value": 0
+      "value": 33.49
     },
     {
       "id": "lp-bnb-fuk-toad.network-bsc",
@@ -14,7 +14,7 @@
     {
       "id": "bnb-binance-bsc",
       "name": "Wrapped BNB",
-      "value": 2283.97,
+      "value": 2250.48,
       "level": 1
     },
     {
@@ -28,19 +28,19 @@
     {
       "source": "lp-bnb-fuk-toad.network-bsc",
       "target": "unbacked",
-      "value": 0,
+      "value": 33.49,
       "level": 0
     },
     {
       "source": "lp-bnb-fuk-toad.network-bsc",
       "target": "bnb-binance-bsc",
-      "value": 2283.97,
+      "value": 2250.48,
       "level": 0
     },
     {
       "source": "bnb-binance-bsc",
       "target": "unbacked",
-      "value": 2283.97,
+      "value": 2250.48,
       "level": 1
     },
     {
@@ -57,6 +57,6 @@
     }
   ],
   "value": 4532.53,
-  "unbacked": 0,
-  "backed": 4532.53
+  "unbacked": 33.49,
+  "backed": 4499.04
 }

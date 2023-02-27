@@ -1,10 +1,10 @@
 {
-  "timestamp": "2023-02-26T22:09:12.410Z",
+  "timestamp": "2023-02-27T22:10:30.548Z",
   "nodes": [
     {
       "id": "bnb-wormhole-solana",
       "name": "Wrapped BNB",
-      "value": 3142585.39,
+      "value": 3099238.54,
       "level": 0
     },
     {
@@ -14,7 +14,7 @@
     {
       "id": "bnb-binance-bsc",
       "name": "Wrapped BNB",
-      "value": 3142585.39,
+      "value": 3099238.54,
       "level": 1
     }
   ],
@@ -22,17 +22,17 @@
     {
       "source": "bnb-wormhole-solana",
       "target": "bnb-binance-bsc",
-      "value": 3142585.39,
+      "value": 3099238.54,
       "level": 0
     },
     {
       "source": "bnb-binance-bsc",
       "target": "unbacked",
-      "value": 3142585.39,
+      "value": 3099238.54,
       "level": 1
     }
   ],
-  "value": 3142585.39,
+  "value": 3099238.54,
   "unbacked": 0,
-  "backed": 3142585.39
+  "backed": 3099238.54
 }
