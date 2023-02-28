@@ -1,68 +1,74 @@
 {
-  "timestamp": "2023-02-27T22:10:31.069Z",
+  "timestamp": "2023-02-28T22:10:13.934Z",
   "nodes": [
-    {
-      "id": "lp-toad-glmr-toad.network-moonbeam",
-      "name": "TOAD-GLMR LPs",
-      "value": 10414.56,
-      "level": 0
-    },
     {
       "id": "unbacked",
       "value": 0
     },
     {
+      "id": "lp-toad-glmr-toad.network-moonbeam",
+      "name": "TOAD-GLMR LPs",
+      "value": 10097,
+      "level": 0
+    },
+    {
       "id": "toad-toad.network-moonbeam",
       "name": "Wrapped Toad",
-      "value": 5213.95,
+      "value": 5048.31,
       "level": 1
     },
     {
       "id": "toad-toad.network-bsc",
       "name": "Toad Network",
-      "value": 5213.95,
+      "value": 5048.31,
       "level": 2
     },
     {
       "id": "glmr.w-toad.network-moonbeam",
       "name": "Wrapped GLMR",
-      "value": 5200.61,
+      "value": 5048.68,
       "level": 1
     }
   ],
   "links": [
     {
       "source": "lp-toad-glmr-toad.network-moonbeam",
+      "target": "unbacked",
+      "value": 0,
+      "level": 0
+    },
+    {
+      "source": "lp-toad-glmr-toad.network-moonbeam",
       "target": "toad-toad.network-moonbeam",
-      "value": 5213.95,
+      "value": 5048.31,
       "level": 0
     },
     {
       "source": "toad-toad.network-moonbeam",
       "target": "toad-toad.network-bsc",
-      "value": 5213.95,
+      "value": 5048.31,
       "level": 1
     },
     {
       "source": "toad-toad.network-bsc",
       "target": "unbacked",
-      "value": 5213.95,
+      "value": 5048.31,
       "level": 2
     },
     {
       "source": "lp-toad-glmr-toad.network-moonbeam",
       "target": "glmr.w-toad.network-moonbeam",
-      "value": 5200.61,
+      "value": 5048.68,
       "level": 0
     },
     {
       "source": "glmr.w-toad.network-moonbeam",
       "target": "unbacked",
-      "value": 5200.61,
+      "value": 5048.68,
       "level": 1
     }
   ],
-  "value": 10414.56,
+  "value": 10097,
   "unbacked": 0,
-  "backed": 10414.56
+  "backed": 10097
 }

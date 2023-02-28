@@ -1,20 +1,20 @@
 {
-  "timestamp": "2023-02-27T22:10:29.634Z",
+  "timestamp": "2023-02-28T22:10:13.411Z",
   "nodes": [
     {
       "id": "unbacked",
-      "value": 271305.65
+      "value": 254209.18
     },
     {
       "id": "cats-catoshi-bsc",
       "name": "Catoshi",
-      "value": 360580,
+      "value": 335940,
       "level": 0
     },
     {
       "id": "cats-catoshi-ethereum",
       "name": "Catoshi",
-      "value": 89274.35,
+      "value": 81730.82,
       "level": 1
     }
   ],
@@ -22,23 +22,23 @@
     {
       "source": "cats-catoshi-bsc",
       "target": "unbacked",
-      "value": 271305.65,
+      "value": 254209.18,
       "level": 0
     },
     {
       "source": "cats-catoshi-bsc",
       "target": "cats-catoshi-ethereum",
-      "value": 89274.35,
+      "value": 81730.82,
       "level": 0
     },
     {
       "source": "cats-catoshi-ethereum",
       "target": "unbacked",
-      "value": 89274.35,
+      "value": 81730.82,
       "level": 1
     }
   ],
-  "value": 360580,
-  "unbacked": 271305.65,
-  "backed": 89274.35
+  "value": 335940,
+  "unbacked": 254209.18,
+  "backed": 81730.82
 }
