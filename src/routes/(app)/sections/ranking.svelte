@@ -54,7 +54,9 @@
 						rank: { text: i + 1, value: i },
 						name: { text: details.name, value: details.name, icon: icons[id]?.href },
 						price: {
-							text: formatCurrency(price?.history?.at(-1)?.usd ?? 0),
+							text: price?.history?.at(-1)?.usd
+								? formatCurrency(price?.history?.at(-1)?.usd ?? 0)
+								: 'UNK',
 							value: price?.history?.at(-1)?.usd
 						},
 						'backing-assets': {
@@ -66,10 +68,12 @@
 							value: assetsStats[id].underlying.ratio
 						},
 						'backing-usd': {
-							text: formatCurrency(assetsStats[id].underlying.usd),
+							text: assetsStats[id].underlying.usd
+								? formatCurrency(assetsStats[id].underlying.usd)
+								: 'UNK',
 							value: assetsStats[id].underlying.usd
 						},
-						mcap: { text: formatCurrency(mcap), value: mcap },
+						mcap: { text: mcap ? formatCurrency(mcap) : 'UNK', value: mcap },
 						'backing-uniformity': {
 							text:
 								assetsStats[id].underlying.ratio > 0
