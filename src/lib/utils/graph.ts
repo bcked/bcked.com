@@ -7,6 +7,7 @@ import fromJson from 'ngraph.fromjson';
 import type { Graph, NodeId } from 'ngraph.graph';
 import createGraph from 'ngraph.graph';
 import toJson from 'ngraph.tojson';
+import { round } from './math';
 
 export function getSubGraph<NodeData, LinkData>(
 	graph: Graph<NodeData, LinkData>,
@@ -74,7 +75,7 @@ export function createFromAggregations(
 		let mcap: number | undefined = undefined;
 		if (supply && priceHistory && priceHistory.length) {
 			const price = closest(priceHistory, supply.timestamp);
-			mcap = price.usd * supply.total;
+			mcap = round(price.usd * supply.total, 2);
 		}
 
 		const contracts = assetsContracts[id];
@@ -88,7 +89,6 @@ export function createFromAggregations(
 			price: assetsPrice[id]!,
 			supply: assetsSupply[id]!,
 			backing: assetsBacking[id]!,
-
 			mcap
 		});
 	}
@@ -103,12 +103,11 @@ export function createFromAggregations(
 			let backingUsd: number | undefined = undefined;
 			if (priceHistory && priceHistory.length) {
 				const price = closest(priceHistory, backing.timestamp);
-				backingUsd = price.usd * amount;
+				backingUsd = round(price.usd * amount, 2);
 			}
 
 			graph.addLink(id, underlying, {
 				backing: amount,
-
 				backingUsd
 			});
 		}
