@@ -1,10 +1,10 @@
 {
-  "timestamp": "2023-02-28T22:10:14.767Z",
+  "timestamp": "2023-03-01T22:09:43.346Z",
   "nodes": [
     {
       "id": "bnb-wormhole-ethereum",
       "name": "Wrapped BNB",
-      "value": 1065548.53,
+      "value": 651509.75,
       "level": 0
     },
     {
@@ -14,7 +14,7 @@
     {
       "id": "bnb-binance-bsc",
       "name": "Wrapped BNB",
-      "value": 1065548.53,
+      "value": 651509.75,
       "level": 1
     }
   ],
@@ -22,17 +22,17 @@
     {
       "source": "bnb-wormhole-ethereum",
       "target": "bnb-binance-bsc",
-      "value": 1065548.53,
+      "value": 651509.75,
       "level": 0
     },
     {
       "source": "bnb-binance-bsc",
       "target": "unbacked",
-      "value": 1065548.53,
+      "value": 651509.75,
       "level": 1
     }
   ],
-  "value": 1065548.53,
+  "value": 651509.75,
   "unbacked": 0,
-  "backed": 1065548.53
+  "backed": 651509.75
 }

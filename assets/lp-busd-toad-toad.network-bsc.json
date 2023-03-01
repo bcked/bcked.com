@@ -43,6 +43,11 @@
   },
   "price": [
     {
+      "timestamp": "2023-03-01T22:09:43.996Z",
+      "usd": 2.911629292014095,
+      "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: busd-binance-bsc,toad-toad.network-bsc"
+    },
+    {
       "timestamp": "2023-02-28T22:10:16.989Z",
       "usd": 2.9232582750238456,
       "source": "Calculated Net Asset Value (NAV) based on the LPs underlying assets: busd-binance-bsc,toad-toad.network-bsc"
@@ -119,6 +124,11 @@
     }
   ],
   "supply": [
+    {
+      "timestamp": "2023-03-01T22:09:43.700Z",
+      "total": 2189.8717729890377,
+      "source": "https://bsc-dataseed3.binance.org/"
+    },
     {
       "timestamp": "2023-02-28T22:10:13.917Z",
       "total": 2189.8717729890377,
@@ -197,6 +207,18 @@
   ],
   "backing": [
     {
+      "timestamp": "2023-03-01T22:09:43.701Z",
+      "assets": {
+        "busd-binance-bsc": 3190.1964200469865,
+        "toad-toad.network-bsc": 1714.305408093144
+      },
+      "source": "https://bsc-dataseed3.binance.org/",
+      "backing-assets": 2,
+      "backing-usd": 6376.1,
+      "ratio": 1,
+      "uniformity": 1
+    },
+    {
       "timestamp": "2023-02-28T22:10:14.767Z",
       "assets": {
         "busd-binance-bsc": 3201.7526867155048,
@@ -205,7 +227,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 2,
       "backing-usd": 6401.56,
-      "ratio": 1,
+      "ratio": 1.004,
       "uniformity": 1
     },
     {
@@ -217,7 +239,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 2,
       "backing-usd": 6390,
-      "ratio": 0.9982,
+      "ratio": 1.0022,
       "uniformity": 1
     },
     {
@@ -229,7 +251,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 2,
       "backing-usd": 6419.08,
-      "ratio": 1.0027,
+      "ratio": 1.0067,
       "uniformity": 1
     },
     {
@@ -241,7 +263,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 2,
       "backing-usd": 6354.48,
-      "ratio": 0.9926,
+      "ratio": 0.9966,
       "uniformity": 1
     },
     {
@@ -253,7 +275,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 2,
       "backing-usd": 6369.98,
-      "ratio": 0.9951,
+      "ratio": 0.999,
       "uniformity": 1
     },
     {
@@ -265,7 +287,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 2,
       "backing-usd": 6421.96,
-      "ratio": 1.0032,
+      "ratio": 1.0072,
       "uniformity": 1
     },
     {
@@ -277,7 +299,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 2,
       "backing-usd": 6421.81,
-      "ratio": 1.0032,
+      "ratio": 1.0072,
       "uniformity": 1
     },
     {
@@ -289,7 +311,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 2,
       "backing-usd": 6504.8,
-      "ratio": 1.0161,
+      "ratio": 1.0202,
       "uniformity": 1
     },
     {
@@ -301,7 +323,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 2,
       "backing-usd": 6464.78,
-      "ratio": 1.0099,
+      "ratio": 1.0139,
       "uniformity": 1
     },
     {
@@ -313,7 +335,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 2,
       "backing-usd": 6469.85,
-      "ratio": 1.0107,
+      "ratio": 1.0147,
       "uniformity": 1
     },
     {
@@ -325,7 +347,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 2,
       "backing-usd": 6405.37,
-      "ratio": 1.0006,
+      "ratio": 1.0046,
       "uniformity": 1
     },
     {
@@ -337,7 +359,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 2,
       "backing-usd": 9685.72,
-      "ratio": 1.513,
+      "ratio": 1.5191,
       "uniformity": 1
     },
     {
@@ -349,7 +371,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 2,
       "backing-usd": 10013.36,
-      "ratio": 1.5642,
+      "ratio": 1.5705,
       "uniformity": 1
     },
     {
@@ -361,7 +383,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 2,
       "backing-usd": 9844.69,
-      "ratio": 1.5379,
+      "ratio": 1.544,
       "uniformity": 1
     },
     {
@@ -373,9 +395,9 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 2,
       "backing-usd": 9905.15,
-      "ratio": 1.5473,
+      "ratio": 1.5535,
       "uniformity": 1
     }
   ],
-  "mcap": 6401.56
+  "mcap": 6376.09
 }

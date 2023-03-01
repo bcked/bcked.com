@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-02-28T22:10:14.767Z",
+  "timestamp": "2023-03-01T22:09:43.346Z",
   "nodes": [
     {
       "id": "unbacked",
@@ -8,25 +8,25 @@
     {
       "id": "lp-bnb-cats-toad.network-bsc",
       "name": "BNB-CZATS LPs",
-      "value": 22508.67,
+      "value": 22411.02,
       "level": 0
     },
     {
       "id": "bnb-binance-bsc",
       "name": "Wrapped BNB",
-      "value": 11192.7,
+      "value": 11243.81,
       "level": 1
     },
     {
       "id": "cats-catoshi-bsc",
       "name": "Catoshi",
-      "value": 11315.97,
+      "value": 11167.21,
       "level": 1
     },
     {
       "id": "cats-catoshi-ethereum",
       "name": "Catoshi",
-      "value": 11315.97,
+      "value": 11167.21,
       "level": 2
     }
   ],
@@ -40,35 +40,35 @@
     {
       "source": "lp-bnb-cats-toad.network-bsc",
       "target": "bnb-binance-bsc",
-      "value": 11192.7,
+      "value": 11243.81,
       "level": 0
     },
     {
       "source": "bnb-binance-bsc",
       "target": "unbacked",
-      "value": 11192.7,
+      "value": 11243.81,
       "level": 1
     },
     {
       "source": "lp-bnb-cats-toad.network-bsc",
       "target": "cats-catoshi-bsc",
-      "value": 11315.97,
+      "value": 11167.21,
       "level": 0
     },
     {
       "source": "cats-catoshi-bsc",
       "target": "cats-catoshi-ethereum",
-      "value": 11315.97,
+      "value": 11167.21,
       "level": 1
     },
     {
       "source": "cats-catoshi-ethereum",
       "target": "unbacked",
-      "value": 11315.97,
+      "value": 11167.21,
       "level": 2
     }
   ],
-  "value": 22508.67,
+  "value": 22411.02,
   "unbacked": 0,
-  "backed": 22508.67
+  "backed": 22411.02
 }

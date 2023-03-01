@@ -1,10 +1,10 @@
 {
-  "timestamp": "2023-02-28T22:10:14.767Z",
+  "timestamp": "2023-03-01T22:09:43.701Z",
   "nodes": [
     {
       "id": "lp-busd-toad-toad.network-bsc",
       "name": "BUSD-TOAD LPs",
-      "value": 6401.56,
+      "value": 6376.09,
       "level": 0
     },
     {
@@ -14,25 +14,25 @@
     {
       "id": "busd-binance-bsc",
       "name": "Binance-Peg BUSD",
-      "value": 3207.4,
+      "value": 3187.49,
       "level": 1
     },
     {
       "id": "busd-paxos-ethereum",
       "name": "Binance USD",
-      "value": 3207.4,
+      "value": 3187.49,
       "level": 2
     },
     {
       "id": "usd-fed",
       "name": "U.S. dollar",
-      "value": 3207.4,
+      "value": 3187.49,
       "level": 3
     },
     {
       "id": "toad-toad.network-bsc",
       "name": "Toad Network",
-      "value": 3194.16,
+      "value": 3188.61,
       "level": 1
     }
   ],
@@ -40,41 +40,41 @@
     {
       "source": "lp-busd-toad-toad.network-bsc",
       "target": "busd-binance-bsc",
-      "value": 3207.4,
+      "value": 3187.49,
       "level": 0
     },
     {
       "source": "busd-binance-bsc",
       "target": "busd-paxos-ethereum",
-      "value": 3207.4,
+      "value": 3187.49,
       "level": 1
     },
     {
       "source": "busd-paxos-ethereum",
       "target": "usd-fed",
-      "value": 3207.4,
+      "value": 3187.49,
       "level": 2
     },
     {
       "source": "usd-fed",
       "target": "unbacked",
-      "value": 3207.4,
+      "value": 3187.49,
       "level": 3
     },
     {
       "source": "lp-busd-toad-toad.network-bsc",
       "target": "toad-toad.network-bsc",
-      "value": 3194.16,
+      "value": 3188.61,
       "level": 0
     },
     {
       "source": "toad-toad.network-bsc",
       "target": "unbacked",
-      "value": 3194.16,
+      "value": 3188.61,
       "level": 1
     }
   ],
-  "value": 6401.56,
+  "value": 6376.09,
   "unbacked": 0,
-  "backed": 6401.56
+  "backed": 6376.09
 }
