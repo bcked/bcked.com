@@ -29,22 +29,21 @@
 <Section id="discover" label="Discover backed cryptocurrencies">
 	<SectionHeader
 		title="Discover"
-		description="There are {Object.keys(assetsBacking).length} assets recorded on bcked."
+		description="There are {graph.getNodesCount()} assets recorded on bcked."
 		theme={{ title: theme.text }}
 	/>
 	<div class="mt-10 w-full max-w-7xl mx-auto px-0 sm:px-4 lg:px-8">
 		<Glow {theme} class="-inset-x-4 sm:-inset-x-0">
 			{#if graph}
 				<dl
-					class="sm:rounded-lg overflow-hidden grid grid-cols-1 bg-gray-50 divide-y divide-gray-200 lg:divide-x lg:divide-y-0 lg:gap-px lg:grid-cols-3"
+					class="sm:rounded-lg overflow-clip grid grid-cols-1 bg-gray-50 divide-y divide-gray-200 lg:divide-x lg:divide-y-0 lg:gap-px lg:grid-cols-3"
 				>
 					<AssetList
 						{data}
 						headerIcon={ClockIcon}
 						title="New Listings"
 						filter={(asset) =>
-							(graph.getNode(asset.id).links ?? []).filter((link) => link.toId != asset.id).length >
-							0}
+							(graph.getLinks(asset.id) ?? []).filter((link) => link.toId != asset.id).length > 0}
 						compare={(a, b) => {
 							const aTime = new Date(a.git.created.date).getTime();
 							const bTime = new Date(b.git.created.date).getTime();
@@ -59,7 +58,7 @@
 						title="Underlying Assets"
 						map={(asset) => ({
 							...asset,
-							numUnderlying: (graph.getNode(asset.id).links ?? []).filter(
+							numUnderlying: (graph.getLinks(asset.id) ?? []).filter(
 								(link) => link.fromId == asset.id
 							).length
 						})}
@@ -74,7 +73,7 @@
 						title="Derivative Assets"
 						map={(asset) => ({
 							...asset,
-							numDerivatives: (graph.getNode(asset.id).links ?? []).filter(
+							numDerivatives: (graph.getLinks(asset.id) ?? []).filter(
 								(link) => link.fromId != asset.id
 							).length
 						})}

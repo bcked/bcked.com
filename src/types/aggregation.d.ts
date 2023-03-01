@@ -125,6 +125,38 @@ declare namespace agg {
 		links: GraphLink[];
 	};
 
+	type LinksStats = {
+		count: number;
+		usd: number;
+		ratio: number | null;
+		uniformity: number;
+	};
+
+	type NodeStats = {
+		underlying: LinksStats;
+		derivative: LinksStats;
+	};
+
+	type AssetsStats = { [Property in derived.AssetId]: NodeStats };
+
+	type SubStats = {
+		total: {
+			count: number;
+			usd: number;
+		};
+		avg: {
+			usd: number;
+			ratio: number;
+			uniformity: number;
+		};
+	};
+
+	type GlobalStats = {
+		underlying: SubStats;
+		derivative: SubStats;
+		count: number;
+	};
+
 	type Update = {
 		timestamp: Timestamp;
 	};

@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { ComponentType } from 'svelte';
 	import { base } from '$app/paths';
-	import { compare, combine } from '$lib/utils/string-formatting';
-	import { ChevronDownIcon, ChevronUpIcon } from '@rgossiaux/svelte-heroicons/solid';
+	import { combine, compare } from '$lib/utils/string-formatting';
 	import { CashIcon } from '@rgossiaux/svelte-heroicons/outline';
+	import { ChevronDownIcon, ChevronUpIcon } from '@rgossiaux/svelte-heroicons/solid';
+	import type { ComponentType } from 'svelte';
 
 	let clazz: string = '';
 	export { clazz as class };
@@ -24,14 +24,14 @@
 	export let length: number | undefined = undefined;
 </script>
 
-<div class={clazz}>
+<div class="overflow-clip {clazz}">
 	<table class="min-w-full divide-y divide-gray-300">
 		<thead class="bg-gray-100">
 			<tr>
 				{#each columns as column}
 					<th
 						scope="col"
-						class="group-column cursor-pointer py-3.5 pl-4 sm:pl-6 lg:pl-8 pr-1 text-left text-sm font-semibold text-gray-900 transition-all motion-reduce:transition-none duration-500 {column.class}"
+						class="sticky top-16 z-10 bg-gray-100 bg-opacity-75 backdrop-blur backdrop-filter group-column cursor-pointer py-3.5 pl-4 sm:pl-6 lg:pl-8 pr-1 text-left text-sm font-semibold text-gray-900 transition-all motion-reduce:transition-none duration-500 {column.class}"
 						on:click={(e) => {
 							if (sortBy == column.id) {
 								sortAsc = !sortAsc;

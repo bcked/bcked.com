@@ -1,7 +1,9 @@
 import { readAggregation, writeAggregation, writeJson } from '$lib/utils/files';
+import { readGraph } from '$lib/utils/graph';
 import { loadAssets, loadHistoricalData } from '$pre/assets';
 import { queryAssets } from '$pre/query';
 import { writeTimestampFile } from '$pre/record-file';
+import { calcAssetsStats, calcGlobalStats } from '$pre/stats';
 import fs from 'fs';
 
 console.log(`Hooks loading.`);
@@ -97,14 +99,14 @@ async function preprocessData() {
 	// );
 	// writeGraph('graph', graph);
 
-	// const graph = readGraph<graph.NodeData, graph.LinkData>('graph');
+	const graph = readGraph<graph.NodeData, graph.LinkData>('graph');
 
+	// TODO this was just a PoC:
 	// const subgraph = getSubGraph(graph, 'pad-toad.network-moonbeam');
-
 	// console.log(JSON.stringify(JSON.parse(toJson(subgraph)), null, 4));
 
-	// TODO Adapt calcStats
-	// const stats = calcStats(assets);
+	const assetsStats = calcAssetsStats(graph);
+	const globalStats = calcGlobalStats(graph, assetsStats);
 }
 
 const update = await readAggregation<agg.Update>('update');
