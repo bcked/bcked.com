@@ -44,7 +44,7 @@
 		{/each}
 	</div>
 </div>
-<Disclosure as="nav" class="sticky w-full top-0 z-10" let:open>
+<Disclosure as="nav" class="sticky w-full top-0 z-20" let:open>
 	<div class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 backdrop-blur-sm">
 		<div class="flex justify-between h-16">
 			<div class="flex px-2 lg:px-0">
