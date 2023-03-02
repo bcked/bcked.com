@@ -6,9 +6,10 @@
 	import { base } from '$app/paths';
 	import * as d3 from 'd3';
 	import * as Sankey from 'd3-sankey';
+	import type { Graph } from 'ngraph.graph';
 	import { getContext } from 'svelte';
 
-	export let assets: api.Assets;
+	export let graph: Graph<graph.NodeData, graph.LinkData>;
 
 	type LayerCakeContext = {
 		data: SvelteStore<api.Tree>;
@@ -120,7 +121,7 @@
 	</g>
 	<g class="sankey-nodes">
 		{#each sankeyData.nodes as d, i}
-			{@const asset = assets[d.id]}
+			{@const asset = graph.getNode(d.id)?.data}
 			{@const nodeWidth = d.y1 - d.y0}
 			{@const iconSize = nodeHeight * 0.8}
 			<g class="sankey-node group">
@@ -145,7 +146,7 @@
 						fill={colorNodes(d)}
 						><title
 							>{#if asset}
-								{asset.name}
+								{asset.details.name}
 							{:else}
 								Unknown Name
 							{/if}</title
@@ -209,13 +210,15 @@
 						y={d.x0}
 						height={nodeHeight}
 						width={nodeWidth}
+						rx="5"
+						ry="5"
 						fill={colorNodes(d)}
 					/>
 					{#if asset?.icon}
 						<image
 							x={d.y0 + nodeWidth / 2 - iconSize / 2}
 							y={d.x0 + nodeHeight / 2 - iconSize / 2}
-							href="{base}/{asset.icon}"
+							href="{base}/{asset.icon.href}"
 							height={iconSize}
 							width={iconSize}
 							dominant-baseline="central"
@@ -233,15 +236,15 @@
 				font-size: {fontSize}px;
 				"
 						>
-							{#if asset?.name}
-								{asset.name}
+							{#if asset?.details?.name}
+								{asset.details.name}
 							{:else}
 								Unknown Name
 							{/if}
 						</text>
 					{/if}
 				{:else}
-					<a href={asset?.links.ui}>
+					<a href="{base}/assets/{d.id}">
 						<rect
 							class="opacity-50 group-hover:opacity-80"
 							x={d.y0}
@@ -256,7 +259,7 @@
 							<image
 								x={d.y0 + nodeWidth / 2 - iconSize / 2}
 								y={d.x0 + nodeHeight / 2 - iconSize / 2}
-								href="{base}/{asset.icon}"
+								href="{base}/{asset.icon.href}"
 								height={iconSize}
 								width={iconSize}
 								dominant-baseline="central"
@@ -274,8 +277,8 @@
 					font-size: {fontSize}px;
 					"
 							>
-								{#if asset?.name}
-									{asset.name}
+								{#if asset?.details?.name}
+									{asset.details.name}
 								{:else}
 									Unknown Name
 								{/if}

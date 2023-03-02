@@ -3,12 +3,14 @@ import { writeAggregation } from '$lib/utils/files';
 import type { ForceGraph3DInstance } from '3d-force-graph';
 import ForceGraph3D from '3d-force-graph';
 import fs from 'fs';
+import _ from 'lodash';
 import fromJson from 'ngraph.fromjson';
 import type { Graph, NodeId } from 'ngraph.graph';
 import createGraph from 'ngraph.graph';
 import toJson from 'ngraph.tojson';
 import { round } from './math';
 
+// TODO this method is no longer generic. Adjust typing and maybe move method to appropriate place
 export function getSubGraph<NodeData, LinkData>(
 	graph: Graph<NodeData, LinkData>,
 	start: NodeId
@@ -27,8 +29,18 @@ export function getSubGraph<NodeData, LinkData>(
 		for (const link of currentNode.links) {
 			const visitedNode = graph.getNode(link.toId)!;
 			if (!subgraph.hasNode(visitedNode.id)) {
-				subgraph.addNode(visitedNode.id, visitedNode.data);
-				subgraph.addLink(link.fromId, link.toId, link.data);
+				const linkUsd = _.min([
+					(link.data.backingUsd / currentNode.data.mcap) * subgraph.getNode(link.fromId)?.data.mcap,
+					subgraph.getNode(link.fromId)?.data.mcap
+				]);
+				subgraph.addNode(visitedNode.id, {
+					...visitedNode.data,
+					mcap: _.min([linkUsd, visitedNode.data.mcap, currentNode.data.mcap])
+				});
+				subgraph.addLink(link.fromId, link.toId, {
+					...link.data,
+					backingUsd: linkUsd
+				});
 				queue.push(visitedNode);
 			}
 		}

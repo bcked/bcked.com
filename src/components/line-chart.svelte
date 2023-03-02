@@ -43,8 +43,8 @@
 	// Curve shapes: https://github.com/d3/d3-shape#curves
 	// const curveShape = d3.curveCatmullRom;
 	// const curveShape = d3.curveLinear;
-	const curveShape = d3.curveBumpX;
-	// const curveShape = d3.curveStep; // Looks less smooth but more true to the data
+	// const curveShape = d3.curveBumpX;
+	const curveShape = d3.curveStep; // Looks less smooth but more true to the data
 
 	// line function mapping the date and value in the svg
 	$: line = d3
