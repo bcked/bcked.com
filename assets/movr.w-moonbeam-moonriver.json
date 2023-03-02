@@ -25,6 +25,11 @@
   },
   "price": [
     {
+      "timestamp": "2023-03-02T22:09:02.709Z",
+      "usd": 9.74,
+      "source": "https://api.dexscreener.com/latest/dex/tokens/0x663a07a2648296f1A3C02EE86A126fE1407888E5,0xC0888d80EE0AbF84563168b3182650c0AdDEb6d5,0x59193512877E2EC3bB27C178A8888Cfac62FB32D,0x45488C50184Ce2092756ba7CdF85731fD17e6f3d,0x7950865a9140cB519342433146Ed5b40c6F210f7,0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,0x463E737D8F740395ABf44f7aac2D9531D8D539E9,0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,0x165DBb08de0476271714952C3C1F068693bd60D7"
+    },
+    {
       "timestamp": "2023-03-01T22:09:43.717Z",
       "usd": 9.99,
       "source": "https://api.dexscreener.com/latest/dex/tokens/0x663a07a2648296f1A3C02EE86A126fE1407888E5,0xC0888d80EE0AbF84563168b3182650c0AdDEb6d5,0x59193512877E2EC3bB27C178A8888Cfac62FB32D,0x45488C50184Ce2092756ba7CdF85731fD17e6f3d,0x7950865a9140cB519342433146Ed5b40c6F210f7,0xA4cFE5EA184A9a8BB2bb8377a378606A36DDEA80,0x463E737D8F740395ABf44f7aac2D9531D8D539E9,0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA,0x165DBb08de0476271714952C3C1F068693bd60D7"
@@ -131,6 +136,11 @@
     }
   ],
   "supply": [
+    {
+      "timestamp": "2023-03-02T22:09:02.155Z",
+      "total": 579.4086456833984,
+      "source": "https://rpc.api.moonriver.moonbeam.network"
+    },
     {
       "timestamp": "2023-03-01T22:09:43.313Z",
       "total": 577.2653503458063,
@@ -239,7 +249,7 @@
   ],
   "backing": [
     {
-      "timestamp": "2023-03-01T22:09:44.506Z",
+      "timestamp": "2023-03-02T22:09:03.454Z",
       "assets": {},
       "source": "No supply recorded in bcked.",
       "backing-assets": 0,
@@ -248,5 +258,5 @@
       "uniformity": 1
     }
   ],
-  "mcap": 5766.88
+  "mcap": 5643.44
 }

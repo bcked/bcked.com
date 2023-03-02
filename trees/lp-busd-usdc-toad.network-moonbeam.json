@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-03-01T22:09:43.584Z",
+  "timestamp": "2023-03-02T22:09:02.332Z",
   "nodes": [
     {
       "id": "lp-busd-usdc-toad.network-moonbeam",
@@ -14,19 +14,19 @@
     {
       "id": "busd-multichain-moonbeam",
       "name": "Binance-Peg BUSD",
-      "value": 851.98,
+      "value": 850.49,
       "level": 1
     },
     {
       "id": "busd-binance-bsc",
       "name": "Binance-Peg BUSD",
-      "value": 851.98,
+      "value": 850.49,
       "level": 2
     },
     {
       "id": "busd-paxos-ethereum",
       "name": "Binance USD",
-      "value": 851.98,
+      "value": 850.49,
       "level": 3
     },
     {
@@ -38,13 +38,13 @@
     {
       "id": "usdc-multichain-moonbeam",
       "name": "USD Coin",
-      "value": 848.05,
+      "value": 849.54,
       "level": 1
     },
     {
       "id": "usdc-circle-ethereum",
       "name": "USD Coin",
-      "value": 848.05,
+      "value": 849.54,
       "level": 2
     }
   ],
@@ -52,25 +52,25 @@
     {
       "source": "lp-busd-usdc-toad.network-moonbeam",
       "target": "busd-multichain-moonbeam",
-      "value": 851.98,
+      "value": 850.49,
       "level": 0
     },
     {
       "source": "busd-multichain-moonbeam",
       "target": "busd-binance-bsc",
-      "value": 851.98,
+      "value": 850.49,
       "level": 1
     },
     {
       "source": "busd-binance-bsc",
       "target": "busd-paxos-ethereum",
-      "value": 851.98,
+      "value": 850.49,
       "level": 2
     },
     {
       "source": "busd-paxos-ethereum",
       "target": "usd-fed",
-      "value": 851.98,
+      "value": 850.49,
       "level": 3
     },
     {
@@ -82,19 +82,19 @@
     {
       "source": "lp-busd-usdc-toad.network-moonbeam",
       "target": "usdc-multichain-moonbeam",
-      "value": 848.05,
+      "value": 849.54,
       "level": 0
     },
     {
       "source": "usdc-multichain-moonbeam",
       "target": "usdc-circle-ethereum",
-      "value": 848.05,
+      "value": 849.54,
       "level": 1
     },
     {
       "source": "usdc-circle-ethereum",
       "target": "usd-fed",
-      "value": 848.05,
+      "value": 849.54,
       "level": 2
     }
   ],

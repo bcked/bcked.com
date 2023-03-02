@@ -1,10 +1,10 @@
 {
-  "timestamp": "2023-03-01T22:09:42.811Z",
+  "timestamp": "2023-03-02T22:09:01.787Z",
   "nodes": [
     {
       "id": "usdc-multichain-moonriver",
       "name": "USD Coin",
-      "value": 11684516.34,
+      "value": 11663751.05,
       "level": 0
     },
     {
@@ -14,13 +14,13 @@
     {
       "id": "usdc-circle-ethereum",
       "name": "USD Coin",
-      "value": 11684516.34,
+      "value": 11663751.05,
       "level": 1
     },
     {
       "id": "usd-fed",
       "name": "U.S. dollar",
-      "value": 11684516.34,
+      "value": 11663751.05,
       "level": 2
     }
   ],
@@ -28,23 +28,23 @@
     {
       "source": "usdc-multichain-moonriver",
       "target": "usdc-circle-ethereum",
-      "value": 11684516.34,
+      "value": 11663751.05,
       "level": 0
     },
     {
       "source": "usdc-circle-ethereum",
       "target": "usd-fed",
-      "value": 11684516.34,
+      "value": 11663751.05,
       "level": 1
     },
     {
       "source": "usd-fed",
       "target": "unbacked",
-      "value": 11684516.34,
+      "value": 11663751.05,
       "level": 2
     }
   ],
-  "value": 11684516.34,
+  "value": 11663751.05,
   "unbacked": 0,
-  "backed": 11684516.34
+  "backed": 11663751.05
 }
