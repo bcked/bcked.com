@@ -109,29 +109,32 @@
 	>
 		<div class="px-4 py-2 sm:px-6 transition-all motion-reduce:transition-none duration-1000">
 			<div class="flex items-center justify-start space-x-4">
-				<img
-					class="h-10 w-10 flex-shrink-1"
-					src={selectedNode?.data?.icon?.href}
-					alt="Icon of {selectedNode?.data?.details?.name}"
-				/>
-				<div>
-					<h2 class="text-lg font-medium leading-6 text-neon-pink">
-						<a href="{base}/assets/{selectedNode?.id}">{selectedNode?.data?.details?.name}</a>
-					</h2>
-					{#if selectedNode?.data?.issuer?.name && selectedNode?.data?.chain?.name}
-						<p class="mt-1 max-w-2xl text-sm text-gray-500">
-							Issuer: {selectedNode?.data?.issuer?.name} | Chain: {selectedNode?.data?.chain?.name}
-						</p>
-					{:else if selectedNode?.data?.issuer?.name}
-						<p class="mt-1 max-w-2xl text-sm text-gray-500">
-							Issuer: {selectedNode?.data?.issuer?.name}
-						</p>
-					{:else if selectedNode?.data?.chain?.name}
-						<p class="mt-1 max-w-2xl text-sm text-gray-500">
-							Chain: {selectedNode?.data?.chain?.name}
-						</p>
-					{/if}
-				</div>
+				{#if selectedNode}
+					<img
+						class="h-10 w-10 flex-shrink-1"
+						src={selectedNode?.data?.icon?.href}
+						alt="Icon of {selectedNode?.data?.details?.name}"
+					/>
+					<div>
+						<h2 class="text-lg font-medium leading-6 text-neon-pink">
+							<a href="{base}/assets/{selectedNode?.id}">{selectedNode?.data?.details?.name}</a>
+						</h2>
+						{#if selectedNode?.data?.issuer?.name && selectedNode?.data?.chain?.name}
+							<p class="mt-1 max-w-2xl text-sm text-gray-500">
+								Issuer: {selectedNode?.data?.issuer?.name} | Chain: {selectedNode?.data?.chain
+									?.name}
+							</p>
+						{:else if selectedNode?.data?.issuer?.name}
+							<p class="mt-1 max-w-2xl text-sm text-gray-500">
+								Issuer: {selectedNode?.data?.issuer?.name}
+							</p>
+						{:else if selectedNode?.data?.chain?.name}
+							<p class="mt-1 max-w-2xl text-sm text-gray-500">
+								Chain: {selectedNode?.data?.chain?.name}
+							</p>
+						{/if}
+					</div>
+				{/if}
 			</div>
 		</div>
 	</div>

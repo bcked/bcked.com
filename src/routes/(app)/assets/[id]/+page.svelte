@@ -58,7 +58,7 @@
 			// const currentPrice = await api.getPrice(asset.contracts.token) as agg.AssetPrice | undefined
 			const currentPrice = undefined;
 			if (!currentPrice) return;
-			price.history.push(currentPrice);
+			price?.history?.push(currentPrice);
 		}
 	}
 
@@ -75,7 +75,7 @@
 
 	let stats: api.Stat[] = [];
 	$: stats = [
-		price.history.at(-1)?.usd
+		price?.history?.at(-1)?.usd
 			? {
 					name: 'Price',
 					value: price.history.at(-1)!.usd,
