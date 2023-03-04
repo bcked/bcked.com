@@ -1,92 +1,92 @@
 {
-  "timestamp": "2023-03-03T22:09:57.066Z",
+  "timestamp": "2023-03-04T22:09:14.893Z",
   "nodes": [
     {
       "id": "unbacked",
-      "value": 2310.87
+      "value": 2317.45
     },
     {
       "id": "pad-toad.network-moonbeam",
       "name": "Glmr Pad",
-      "value": 10180.74,
+      "value": 10142.94,
       "level": 0
     },
     {
       "id": "lp-pad-glmr-toad.network-moonbeam",
       "name": "PAD-GLMR LPs",
-      "value": 2740.83,
+      "value": 2694.33,
       "level": 1
     },
     {
       "id": "glmr.w-toad.network-moonbeam",
       "name": "Wrapped GLMR",
-      "value": 4889.3,
+      "value": 4832.49,
       "level": 2
     },
     {
       "id": "lp-busd-usdc-toad.network-moonbeam",
       "name": "BUSD-USDC LPs",
-      "value": 1700.05,
+      "value": 1698.17,
       "level": 1
     },
     {
       "id": "busd-multichain-moonbeam",
       "name": "Binance-Peg BUSD",
-      "value": 851.35,
+      "value": 847.98,
       "level": 2
     },
     {
       "id": "busd-binance-bsc",
       "name": "Binance-Peg BUSD",
-      "value": 851.35,
+      "value": 847.98,
       "level": 3
     },
     {
       "id": "busd-paxos-ethereum",
       "name": "Binance USD",
-      "value": 851.35,
+      "value": 847.98,
       "level": 4
     },
     {
       "id": "usd-fed",
       "name": "U.S. dollar",
-      "value": 2286.77,
+      "value": 2277.23,
       "level": 5
     },
     {
       "id": "usdc-multichain-moonbeam",
       "name": "USD Coin",
-      "value": 1435.42,
+      "value": 1429.25,
       "level": 2
     },
     {
       "id": "usdc-circle-ethereum",
       "name": "USD Coin",
-      "value": 1435.42,
+      "value": 1429.25,
       "level": 3
     },
     {
       "id": "lp-toad-glmr-toad.network-moonbeam",
       "name": "TOAD-GLMR LPs",
-      "value": 1561.33,
+      "value": 1557.39,
       "level": 1
     },
     {
       "id": "toad-toad.network-moonbeam",
       "name": "Wrapped Toad",
-      "value": 2568.95,
+      "value": 2583.22,
       "level": 2
     },
     {
       "id": "toad-toad.network-bsc",
       "name": "Toad Network",
-      "value": 2568.95,
+      "value": 2583.22,
       "level": 3
     },
     {
       "id": "lp-usdc-glmr-toad.network-moonbeam",
       "name": "USDC-GLMR LPs",
-      "value": 860.04,
+      "value": 849.76,
       "level": 1
     }
   ],
@@ -94,13 +94,13 @@
     {
       "source": "pad-toad.network-moonbeam",
       "target": "unbacked",
-      "value": 2310.87,
+      "value": 2317.45,
       "level": 0
     },
     {
       "source": "pad-toad.network-moonbeam",
       "target": "lp-pad-glmr-toad.network-moonbeam",
-      "value": 2740.83,
+      "value": 2694.33,
       "level": 0
     },
     {
@@ -112,125 +112,125 @@
     {
       "source": "lp-pad-glmr-toad.network-moonbeam",
       "target": "glmr.w-toad.network-moonbeam",
-      "value": 2740.83,
+      "value": 2694.33,
       "level": 1
     },
     {
       "source": "glmr.w-toad.network-moonbeam",
       "target": "unbacked",
-      "value": 4889.3,
+      "value": 4832.49,
       "level": 2
     },
     {
       "source": "pad-toad.network-moonbeam",
       "target": "lp-busd-usdc-toad.network-moonbeam",
-      "value": 1700.05,
+      "value": 1698.17,
       "level": 0
     },
     {
       "source": "lp-busd-usdc-toad.network-moonbeam",
       "target": "busd-multichain-moonbeam",
-      "value": 851.35,
+      "value": 847.98,
       "level": 1
     },
     {
       "source": "busd-multichain-moonbeam",
       "target": "busd-binance-bsc",
-      "value": 851.35,
+      "value": 847.98,
       "level": 2
     },
     {
       "source": "busd-binance-bsc",
       "target": "busd-paxos-ethereum",
-      "value": 851.35,
+      "value": 847.98,
       "level": 3
     },
     {
       "source": "busd-paxos-ethereum",
       "target": "usd-fed",
-      "value": 851.35,
+      "value": 847.98,
       "level": 4
     },
     {
       "source": "usd-fed",
       "target": "unbacked",
-      "value": 2286.77,
+      "value": 2277.23,
       "level": 5
     },
     {
       "source": "lp-busd-usdc-toad.network-moonbeam",
       "target": "usdc-multichain-moonbeam",
-      "value": 848.7,
+      "value": 850.19,
       "level": 1
     },
     {
       "source": "usdc-multichain-moonbeam",
       "target": "usdc-circle-ethereum",
-      "value": 1435.42,
+      "value": 1429.25,
       "level": 2
     },
     {
       "source": "usdc-circle-ethereum",
       "target": "usd-fed",
-      "value": 1435.42,
+      "value": 1429.25,
       "level": 3
     },
     {
       "source": "pad-toad.network-moonbeam",
       "target": "lp-toad-glmr-toad.network-moonbeam",
-      "value": 1561.33,
+      "value": 1557.39,
       "level": 0
     },
     {
       "source": "lp-toad-glmr-toad.network-moonbeam",
       "target": "toad-toad.network-moonbeam",
-      "value": 1561.33,
+      "value": 1557.39,
       "level": 1
     },
     {
       "source": "toad-toad.network-moonbeam",
       "target": "toad-toad.network-bsc",
-      "value": 2568.95,
+      "value": 2583.22,
       "level": 2
     },
     {
       "source": "toad-toad.network-bsc",
       "target": "unbacked",
-      "value": 2568.95,
+      "value": 2583.22,
       "level": 3
     },
     {
       "source": "lp-toad-glmr-toad.network-moonbeam",
       "target": "glmr.w-toad.network-moonbeam",
-      "value": 1561.33,
+      "value": 1557.39,
       "level": 1
     },
     {
       "source": "pad-toad.network-moonbeam",
       "target": "lp-usdc-glmr-toad.network-moonbeam",
-      "value": 860.04,
+      "value": 849.76,
       "level": 0
     },
     {
       "source": "lp-usdc-glmr-toad.network-moonbeam",
       "target": "usdc-multichain-moonbeam",
-      "value": 586.72,
+      "value": 579.06,
       "level": 1
     },
     {
       "source": "lp-usdc-glmr-toad.network-moonbeam",
       "target": "glmr.w-toad.network-moonbeam",
-      "value": 587.14,
+      "value": 580.77,
       "level": 1
     },
     {
       "source": "pad-toad.network-moonbeam",
       "target": "toad-toad.network-moonbeam",
-      "value": 1007.62,
+      "value": 1025.83,
       "level": 0
     }
   ],
-  "value": 10180.74,
-  "unbacked": 2310.87,
-  "backed": 7869.87
+  "value": 10142.94,
+  "unbacked": 2317.45,
+  "backed": 7825.49
 }

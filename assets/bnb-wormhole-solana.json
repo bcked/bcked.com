@@ -37,6 +37,11 @@
   },
   "price": [
     {
+      "timestamp": "2023-03-04T22:09:14.770Z",
+      "usd": 287.1,
+      "source": "https://api.dexscreener.com/latest/dex/tokens/0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,0xA898bbb508C04BE26af3d319b7775927AFCB02AF,0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,0xe3DB50049C74De2F7d7269823af3178Cf22fd5E3,0xeB22EbB99D5E6B16ae35b77Cf136c60cd077B8Cb,0xD91636511cDc2B9F2Af58CC8fcacbB0F0127f37f,0x2c001A059A0F2BD76293c755B3455163cC03A159,0x1afE79f5eB36798b92106885507Ba1A9cDA954f6,0x6F547381e6594C177A4C56Bc818b599cc78A8c16,0xEF6421325F7eD6ebeeAa2B092F9Cc64EE2aA3B3B,0x1Ed31DB9078FaFA28ba8a2c09C0fa421943cb383,0x71D40923e39aC8D93471477c677018d0223b3da9,0x079095D0AA760Dd88964b24267Ef7d9e3DC32944,0x21D6DbcA8aACdAa739e40180b1C8C828B46Ae376,0xc8B8568E7963054a00f107805f8156A7b283A6C2,0xf199cB43149132eb2D6Cf03AFCBa0cF074Dc806b,0x8DB3E34F642AA4B404956557a681BC8973529356,0x2856aDD546E729425383173D4f65Bb3e23E796A4,0x4BdDDa73F0a83ccada25107830e29de594E8F7C2,0x7C33896Ce19831dc170d99330878688a5f6DF614,0xB7073b6082e8B77ab667fAc3AB02e88b2C3937D3,0xfDFaB6B6A5982F627F70f392207bfA536f66327b,0x26234882C1D95fCaDA4553a655045c35cffC9dAD,0xed048a21361fff12fb10335655b273c396994AA0,0x3D44494656370126E50Fe6488606165Bc0f2fd80,0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD,0x38185BF42E4D6d0b51Db5F6C2B83064008549087"
+    },
+    {
       "timestamp": "2023-03-03T22:09:57.019Z",
       "usd": 285.61,
       "source": "https://api.dexscreener.com/latest/dex/tokens/0x37f3Ef4E065f3415D1B6f9284389CC9D9439F658,9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa,0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56,0xA10989335F3ba92bd43e60fBE8D42FE739412ac4,0xA898bbb508C04BE26af3d319b7775927AFCB02AF,0x580655E2C6D4fC125C0B2D37B2a3e56219bF9f78,0xe3DB50049C74De2F7d7269823af3178Cf22fd5E3,0xeB22EbB99D5E6B16ae35b77Cf136c60cd077B8Cb,0xD91636511cDc2B9F2Af58CC8fcacbB0F0127f37f,0x2c001A059A0F2BD76293c755B3455163cC03A159,0x1afE79f5eB36798b92106885507Ba1A9cDA954f6,0x6F547381e6594C177A4C56Bc818b599cc78A8c16,0xEF6421325F7eD6ebeeAa2B092F9Cc64EE2aA3B3B,0x1Ed31DB9078FaFA28ba8a2c09C0fa421943cb383,0x71D40923e39aC8D93471477c677018d0223b3da9,0x079095D0AA760Dd88964b24267Ef7d9e3DC32944,0x21D6DbcA8aACdAa739e40180b1C8C828B46Ae376,0xc8B8568E7963054a00f107805f8156A7b283A6C2,0xf199cB43149132eb2D6Cf03AFCBa0cF074Dc806b,0x8DB3E34F642AA4B404956557a681BC8973529356,0x2856aDD546E729425383173D4f65Bb3e23E796A4,0x4BdDDa73F0a83ccada25107830e29de594E8F7C2,0x7C33896Ce19831dc170d99330878688a5f6DF614,0xB7073b6082e8B77ab667fAc3AB02e88b2C3937D3,0xfDFaB6B6A5982F627F70f392207bfA536f66327b,0x26234882C1D95fCaDA4553a655045c35cffC9dAD,0xed048a21361fff12fb10335655b273c396994AA0,0x3D44494656370126E50Fe6488606165Bc0f2fd80,0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD,0x38185BF42E4D6d0b51Db5F6C2B83064008549087"
@@ -153,6 +158,11 @@
     }
   ],
   "supply": [
+    {
+      "timestamp": "2023-03-04T22:09:13.681Z",
+      "total": 10233.10845863,
+      "source": "https://solana-mainnet.g.alchemy.com/v2/{ALCHEMY_SOLANA}"
+    },
     {
       "timestamp": "2023-03-03T22:09:55.664Z",
       "total": 10231.1180492,
@@ -271,6 +281,17 @@
   ],
   "backing": [
     {
+      "timestamp": "2023-03-04T22:09:14.604Z",
+      "assets": {
+        "bnb-binance-bsc": 13918.50199861
+      },
+      "source": "https://bsc-dataseed3.binance.org/",
+      "backing-assets": 1,
+      "backing-usd": 2937925.44,
+      "ratio": 1,
+      "uniformity": 1
+    },
+    {
       "timestamp": "2023-03-03T22:09:56.626Z",
       "assets": {
         "bnb-binance-bsc": 13915.91066033
@@ -278,7 +299,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 1,
       "backing-usd": 2922109.63,
-      "ratio": 1,
+      "ratio": 0.9946,
       "uniformity": 1
     },
     {
@@ -289,7 +310,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 1,
       "backing-usd": 3045150.02,
-      "ratio": 1.0421,
+      "ratio": 1.0365,
       "uniformity": 1
     },
     {
@@ -300,7 +321,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 1,
       "backing-usd": 3074041.78,
-      "ratio": 1.052,
+      "ratio": 1.0463,
       "uniformity": 1
     },
     {
@@ -311,7 +332,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 1,
       "backing-usd": 3100992.6,
-      "ratio": 1.0612,
+      "ratio": 1.0555,
       "uniformity": 1
     },
     {
@@ -322,7 +343,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 1,
       "backing-usd": 3099238.54,
-      "ratio": 1.0606,
+      "ratio": 1.0549,
       "uniformity": 1
     },
     {
@@ -333,7 +354,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 1,
       "backing-usd": 3142585.39,
-      "ratio": 1.0755,
+      "ratio": 1.0697,
       "uniformity": 1
     },
     {
@@ -344,7 +365,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 1,
       "backing-usd": 3081449.08,
-      "ratio": 1.0545,
+      "ratio": 1.0489,
       "uniformity": 1
     },
     {
@@ -355,7 +376,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 1,
       "backing-usd": 3073278.15,
-      "ratio": 1.0517,
+      "ratio": 1.0461,
       "uniformity": 1
     },
     {
@@ -366,7 +387,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 1,
       "backing-usd": 3144678.78,
-      "ratio": 1.0762,
+      "ratio": 1.0704,
       "uniformity": 1
     },
     {
@@ -377,7 +398,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 1,
       "backing-usd": 3143804.58,
-      "ratio": 1.0759,
+      "ratio": 1.0701,
       "uniformity": 1
     },
     {
@@ -388,7 +409,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 1,
       "backing-usd": 3176616.23,
-      "ratio": 1.0871,
+      "ratio": 1.0812,
       "uniformity": 1
     },
     {
@@ -399,7 +420,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 1,
       "backing-usd": 3202551.91,
-      "ratio": 1.096,
+      "ratio": 1.0901,
       "uniformity": 1
     },
     {
@@ -410,7 +431,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 1,
       "backing-usd": 3200193.13,
-      "ratio": 1.0952,
+      "ratio": 1.0893,
       "uniformity": 1
     },
     {
@@ -421,7 +442,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 1,
       "backing-usd": 3054208.72,
-      "ratio": 1.0452,
+      "ratio": 1.0396,
       "uniformity": 1
     },
     {
@@ -432,7 +453,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 1,
       "backing-usd": 3247185.93,
-      "ratio": 1.1112,
+      "ratio": 1.1053,
       "uniformity": 1
     },
     {
@@ -443,7 +464,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 1,
       "backing-usd": 3373674.34,
-      "ratio": 1.1545,
+      "ratio": 1.1483,
       "uniformity": 1
     },
     {
@@ -454,7 +475,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 1,
       "backing-usd": 3387220.88,
-      "ratio": 1.1592,
+      "ratio": 1.1529,
       "uniformity": 1
     },
     {
@@ -465,7 +486,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 1,
       "backing-usd": 3353679.98,
-      "ratio": 1.1477,
+      "ratio": 1.1415,
       "uniformity": 1
     },
     {
@@ -476,7 +497,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 1,
       "backing-usd": 3415503.01,
-      "ratio": 1.1688,
+      "ratio": 1.1626,
       "uniformity": 1
     },
     {
@@ -487,7 +508,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 1,
       "backing-usd": 3389604.26,
-      "ratio": 1.16,
+      "ratio": 1.1537,
       "uniformity": 1
     },
     {
@@ -498,7 +519,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 1,
       "backing-usd": 3372467.93,
-      "ratio": 1.1541,
+      "ratio": 1.1479,
       "uniformity": 1
     },
     {
@@ -509,7 +530,7 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 1,
       "backing-usd": 3392744.2,
-      "ratio": 1.1611,
+      "ratio": 1.1548,
       "uniformity": 1
     },
     {
@@ -520,9 +541,9 @@
       "source": "https://bsc-dataseed3.binance.org/",
       "backing-assets": 1,
       "backing-usd": 3356542.14,
-      "ratio": 1.1487,
+      "ratio": 1.1425,
       "uniformity": 1
     }
   ],
-  "mcap": 2922109.63
+  "mcap": 2937925.44
 }
