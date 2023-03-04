@@ -30,26 +30,35 @@ export class Dexscreener implements query.ApiModule {
 		return `/latest/dex/tokens/${tokens}`;
 	}
 
-	private async _getPrices(tokens: cache.TokenContract[]): Promise<{ [key: string]: query.Price }> {
-		const tokensByAddress = _.groupBy(tokens, 'address');
+	private async _getPrices(
+		contracts: agg.AssetContracts[]
+	): Promise<{ [id: derived.AssetId]: agg.AssetPrice }> {
+		const keyToContracts = Object.fromEntries(
+			contracts.map((c) => [`${c.token.chain}:${c.token.address}`, c])
+		);
 
-		const priceRoute = this.getPriceRoute(Object.keys(tokensByAddress).join(','));
+		const priceRoute = this.getPriceRoute(Object.keys(keyToContracts).join(','));
 		const response = await this.api.fetchJson<{ pairs: Pair[] }>(priceRoute);
 		const pairs = response.pairs ?? [];
 
-		const tokenPairs = pairs.filter((pair) => pair.baseToken.address in tokensByAddress);
+		const tokenPairs = pairs.filter((pair) => pair.baseToken.address in keyToContracts);
 		const pairsPerToken = _.groupBy(tokenPairs, 'baseToken.address');
 		const pricePerToken = Object.fromEntries(
 			Object.entries(pairsPerToken)
-				.map(([address, pairs]): [string, Pair[]] => [
-					address,
-					pairs.filter((pair) => pair.chainId == tokensByAddress[address]![0]!.chain)
+				.map(([address, pairs]): [derived.AssetId, string, Pair[]] => [
+					keyToContracts[address]!.id,
+					keyToContracts[address]!.token.chain,
+					pairs
 				])
-				.map(([address, pairs]) => [
-					tokensByAddress[address]![0]!.id,
+				.map(([id, chain, pairs]): [derived.AssetId, Pair[]] => [
+					id,
+					pairs.filter((pair) => pair.chainId == chain)
+				])
+				.map(([id, pairs]) => [
+					id,
 					{
 						usd: d3.median(_.map(pairs, 'priceUsd'))!,
-						timestamp: Date.now(),
+						timestamp: new Date().toISOString(),
 						source: this.api.baseURL + priceRoute
 					}
 				])
@@ -58,11 +67,11 @@ export class Dexscreener implements query.ApiModule {
 		return pricePerToken;
 	}
 
-	async getPrices(tokens: cache.TokenContract[]): Promise<{ [key: string]: query.Price }> {
+	async getPrices(contracts: agg.AssetContracts[]): Promise<{ [key: string]: agg.AssetPrice }> {
 		const groups = groupWhile(
-			tokens,
+			contracts,
 			(group) =>
-				(this.api.baseURL + this.getPriceRoute(_.map(group, 'address').join(','))).length <=
+				(this.api.baseURL + this.getPriceRoute(_.map(group, 'token.address').join(','))).length <=
 					URL_MAX_LENGTH && group.length <= FETCH_MAX_COUNT
 		);
 
@@ -71,7 +80,7 @@ export class Dexscreener implements query.ApiModule {
 		return _.merge({}, ...prices);
 	}
 
-	async getPrice(token: cache.TokenContract): Promise<query.Price | undefined> {
-		return (await this.getPrices([token]))[token.id];
+	async getPrice(contracts: agg.AssetContracts): Promise<agg.AssetPrice | undefined> {
+		return (await this.getPrices([contracts]))[contracts.id];
 	}
 }

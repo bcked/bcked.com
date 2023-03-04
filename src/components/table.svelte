@@ -12,10 +12,13 @@
 		id: string;
 		title: string;
 		class: string;
+		link?: boolean;
 	};
 	export let columns: Column[];
 
-	type Row = { [key: string]: { text: string; value: string | number; icon: ComponentType } };
+	type Row = {
+		[key: string]: { text: string; value: string | number | undefined; icon: ComponentType };
+	};
 	export let rows: Row[];
 
 	export let sort: { by: string; asc?: boolean }[];

@@ -10,11 +10,10 @@ import createGraph from 'ngraph.graph';
 import toJson from 'ngraph.tojson';
 import { round } from './math';
 
-// TODO this method is no longer generic. Adjust typing and maybe move method to appropriate place
-export function getSubGraph<NodeData, LinkData>(
-	graph: Graph<NodeData, LinkData>,
+export function getSubGraph(
+	graph: Graph<graph.NodeData, graph.LinkData>,
 	start: NodeId
-): Graph<NodeData, LinkData> {
+): Graph<graph.NodeData, graph.LinkData> {
 	let subgraph = createGraph();
 
 	if (!graph.hasNode(start)) return subgraph;
@@ -26,11 +25,15 @@ export function getSubGraph<NodeData, LinkData>(
 	while (queue.length > 0) {
 		let currentNode = queue.shift()!;
 
-		for (const link of currentNode.links) {
+		for (const link of currentNode.links ?? []) {
 			const visitedNode = graph.getNode(link.toId)!;
 			if (!subgraph.hasNode(visitedNode.id)) {
 				const linkUsd = _.min([
-					(link.data.backingUsd / currentNode.data.mcap) * subgraph.getNode(link.fromId)?.data.mcap,
+					link.data.backingUsd,
+					currentNode.data.mcap
+						? (link.data.backingUsd / currentNode.data.mcap) *
+						  subgraph.getNode(link.fromId)?.data.mcap
+						: undefined,
 					subgraph.getNode(link.fromId)?.data.mcap
 				]);
 				subgraph.addNode(visitedNode.id, {
@@ -69,7 +72,7 @@ export function ForceNGraph3D(htmlElement: HTMLElement) {
 		.backgroundColor('#00000000');
 }
 
-export function createFromAggregations(
+export function createBackingGraph(
 	assetsDetails: agg.AssetsDetails,
 	issuersDetails: agg.IssuersDetails,
 	chainsDetails: agg.ChainsDetails,

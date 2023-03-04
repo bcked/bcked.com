@@ -4,7 +4,7 @@ import _ from 'lodash';
 import path from 'path';
 
 export function queryIcons(source: string, target: string): agg.Icons {
-	const icons: cache.Icon[] = glob.sync(source).map((filepath) => {
+	const icons: agg.Icon[] = glob.sync(source).map((filepath) => {
 		const file = path.parse(filepath);
 		const basename = path.basename(file.dir);
 		return {

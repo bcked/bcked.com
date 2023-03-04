@@ -10,16 +10,19 @@ export class ApiProxy extends InstanceProxy<query.ApiModule> implements query.Ap
 		});
 	}
 
-	async getPrices(tokens: cache.TokenContract[]): Promise<{ [key: string]: query.Price }> {
-		let prices: { [key: string]: query.Price } = {};
+	async getPrices(contracts: agg.AssetContracts[]): Promise<{ [key: string]: agg.AssetPrice }> {
+		let prices: { [id: derived.AssetId]: agg.AssetPrice } = {};
 		for (const api of this.instances) {
-			prices = { ...prices, ...(await api.getPrices(tokens.filter((token) => !prices[token.id]))) };
-			if (tokens.every((token) => prices[token.id])) break; // Stop iterating if all prices are known
+			prices = {
+				...prices,
+				...(await api.getPrices(contracts.filter(({ id }) => !prices[id])))
+			};
+			if (contracts.every(({ id }) => prices[id])) break; // Stop iterating if all prices are known
 		}
 		return prices;
 	}
 
-	async getPrice(token: cache.TokenContract): Promise<query.Price | undefined> {
-		return (await this.getPrices([token]))[token.id];
+	async getPrice(contracts: agg.AssetContracts): Promise<agg.AssetPrice | undefined> {
+		return (await this.getPrices([contracts]))[contracts.id];
 	}
 }

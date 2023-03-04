@@ -17,9 +17,16 @@ function calcLinksStats(node: Node<graph.NodeData>, links: Link<graph.LinkData>[
 }
 
 function calcNodeStats(node: Node<graph.NodeData>): agg.NodeStats {
+	const links = (node.links ?? []) as Array<Link<graph.LinkData>>;
 	return {
-		underlying: calcLinksStats(node, node.links?.filter((link) => link.fromId == node.id) ?? []),
-		derivative: calcLinksStats(node, node.links?.filter((link) => link.fromId != node.id) ?? [])
+		underlying: calcLinksStats(
+			node,
+			links.filter((link) => link.fromId == node.id)
+		),
+		derivative: calcLinksStats(
+			node,
+			links.filter((link) => link.fromId != node.id)
+		)
 	};
 }
 

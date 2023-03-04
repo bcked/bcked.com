@@ -43,8 +43,9 @@
 
 	$: node = graph.getNode(id)!;
 	$: asset = node.data;
-	$: underlying = node.links?.filter((link) => link.fromId == id) ?? [];
-	$: derivative = node.links?.filter((link) => link.fromId != id) ?? [];
+	$: links = graph.getLinks(id) ?? [];
+	$: underlying = links.filter((link) => link.fromId == id);
+	$: derivative = links.filter((link) => link.fromId != id);
 
 	$: ({ details, issuer, chain, icon, contracts, price, supply, backing, mcap } = asset);
 
@@ -54,9 +55,7 @@
 
 	async function fetchCurrentPrice() {
 		if (asset.contracts) {
-			// TODO fix parameter and query method typing
-			// const currentPrice = await api.getPrice(asset.contracts.token) as agg.AssetPrice | undefined
-			const currentPrice = undefined;
+			const currentPrice = await api.getPrice(asset.contracts);
 			if (!currentPrice) return;
 			price?.history?.push(currentPrice);
 		}
@@ -73,7 +72,13 @@
 		};
 	});
 
-	let stats: api.Stat[] = [];
+	type Stat = {
+		name: string;
+		value: string | number;
+		type: string;
+	};
+
+	let stats: Stat[] = [];
 	$: stats = [
 		price?.history?.at(-1)?.usd
 			? {
@@ -311,53 +316,52 @@
 					]}
 					rows={underlying
 						.map((link) => ({
-							node: graph.getNode(link.toId),
-							data: link.data,
-							stats: assetsStats[link.toId]
+							linkedNode: graph.getNode(link.toId),
+							linkData: link.data
 						}))
-						.map((link) => ({
+						.map(({ linkedNode, linkData }) => ({
 							name: {
-								text: link.node?.data.details.name,
-								value: link.node?.data.details.name,
-								icon: link.node?.data.icon.href
+								text: linkedNode?.data.details.name,
+								value: linkedNode?.data.details.name,
+								icon: linkedNode?.data.icon.href
 							},
 							'name-path': {
-								text: `${base}/assets/${link.node?.id}`,
-								value: `${base}/assets/${link.node?.id}`
+								text: `${base}/assets/${linkedNode?.id}`,
+								value: `${base}/assets/${linkedNode?.id}`
 							},
 							price: {
-								text: link.node?.data.price?.history?.at(-1)?.usd
-									? formatCurrency(link.node?.data.price?.history?.at(-1)?.usd ?? 0)
+								text: linkedNode?.data.price?.history?.at(-1)?.usd
+									? formatCurrency(linkedNode?.data.price?.history?.at(-1)?.usd ?? 0)
 									: 'UNK',
-								value: link.node?.data.price?.history?.at(-1)?.usd
+								value: linkedNode?.data.price?.history?.at(-1)?.usd
 							},
 							amount: {
-								text: formatNum(link.data.backing),
-								value: link.data.backing
+								text: formatNum(linkData.backing),
+								value: linkData.backing
 							},
-							share: link.data.backingUsd
+							share: linkData.backingUsd
 								? {
-										text: formatPercentage(link.data.backingUsd / assetStats.underlying.usd),
-										value: link.data.backingUsd / assetStats.underlying.usd
+										text: formatPercentage(linkData.backingUsd / assetStats.underlying.usd),
+										value: linkData.backingUsd / assetStats.underlying.usd
 								  }
 								: {
 										text: 'UNK',
 										value: undefined
 								  },
-							'underlying-usd': link.data.backingUsd
+							'underlying-usd': linkData.backingUsd
 								? {
-										text: formatCurrency(link.data.backingUsd),
-										value: link.data.backingUsd
+										text: formatCurrency(linkData.backingUsd),
+										value: linkData.backingUsd
 								  }
 								: {
 										text: 'UNK',
 										value: undefined
 								  },
 							'underlying-ratio':
-								link.data.backingUsd && mcap
+								linkData.backingUsd && mcap
 									? {
-											text: formatPercentage(link.data.backingUsd / mcap),
-											value: link.data.backingUsd / mcap
+											text: formatPercentage(linkData.backingUsd / mcap),
+											value: linkData.backingUsd / mcap
 									  }
 									: {
 											text: 'UNK',
@@ -389,53 +393,52 @@
 					]}
 					rows={derivative
 						.map((link) => ({
-							node: graph.getNode(link.fromId),
-							data: link.data,
-							stats: assetsStats[link.fromId]
+							linkedNode: graph.getNode(link.fromId),
+							linkData: link.data
 						}))
-						.map((link) => ({
+						.map(({ linkedNode, linkData }) => ({
 							name: {
-								text: link.node?.data.details.name,
-								value: link.node?.data.details.name,
-								icon: link.node?.data.icon.href
+								text: linkedNode?.data.details.name,
+								value: linkedNode?.data.details.name,
+								icon: linkedNode?.data.icon.href
 							},
 							'name-path': {
-								text: `${base}/assets/${link.node?.id}`,
-								value: `${base}/assets/${link.node?.id}`
+								text: `${base}/assets/${linkedNode?.id}`,
+								value: `${base}/assets/${linkedNode?.id}`
 							},
 							price: {
-								text: link.node?.data.price?.history?.at(-1)?.usd
-									? formatCurrency(link.node?.data.price?.history?.at(-1)?.usd ?? 0)
+								text: linkedNode?.data.price?.history?.at(-1)?.usd
+									? formatCurrency(linkedNode?.data.price?.history?.at(-1)?.usd ?? 0)
 									: 'UNK',
-								value: link.node?.data.price?.history?.at(-1)?.usd
+								value: linkedNode?.data.price?.history?.at(-1)?.usd
 							},
 							amount: {
-								text: formatNum(link.data.backing),
-								value: link.data.backing
+								text: formatNum(linkData.backing),
+								value: linkData.backing
 							},
-							share: link.data.backingUsd
+							share: linkData.backingUsd
 								? {
-										text: formatPercentage(link.data.backingUsd / assetStats.derivative.usd),
-										value: link.data.backingUsd / assetStats.derivative.usd
+										text: formatPercentage(linkData.backingUsd / assetStats.derivative.usd),
+										value: linkData.backingUsd / assetStats.derivative.usd
 								  }
 								: {
 										text: 'UNK',
 										value: undefined
 								  },
-							'derivative-usd': link.data.backingUsd
+							'derivative-usd': linkData.backingUsd
 								? {
-										text: formatCurrency(link.data.backingUsd),
-										value: link.data.backingUsd
+										text: formatCurrency(linkData.backingUsd),
+										value: linkData.backingUsd
 								  }
 								: {
 										text: 'UNK',
 										value: undefined
 								  },
 							'derivative-ratio':
-								link.data.backingUsd && mcap
+								linkData.backingUsd && mcap
 									? {
-											text: formatPercentage(link.data.backingUsd / mcap),
-											value: link.data.backingUsd / mcap
+											text: formatPercentage(linkData.backingUsd / mcap),
+											value: linkData.backingUsd / mcap
 									  }
 									: {
 											text: 'UNK',

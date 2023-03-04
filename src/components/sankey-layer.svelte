@@ -5,21 +5,8 @@
 
 	export let graph: Graph<graph.NodeData, graph.LinkData>;
 
-	type D3Graph = {
-		nodes: {
-			id: string;
-			name: string;
-			value: number;
-		}[];
-		links: {
-			source: string;
-			target: string;
-			value: number;
-		}[];
-	};
-
-	function ngraph2d3(g: Graph<graph.NodeData, graph.LinkData>): D3Graph {
-		let d3graph: D3Graph = { nodes: [], links: [] };
+	function ngraph2d3(g: Graph<graph.NodeData, graph.LinkData>): d3.Graph {
+		let d3graph: d3.Graph = { nodes: [], links: [] };
 		g.forEachNode((node) => {
 			d3graph.nodes.push({
 				id: node.id as string,
@@ -28,7 +15,6 @@
 			});
 		});
 		g.forEachLink((link) => {
-			const fromNode = g.getNode(link.fromId)!;
 			d3graph.links.push({
 				source: link.fromId as string,
 				target: link.toId as string,

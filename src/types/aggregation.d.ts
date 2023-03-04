@@ -16,17 +16,21 @@ declare namespace agg {
 
 	type AssetsDetails = { [Property in derived.AssetId]: AssetDetails };
 
+	type TokenContract = {
+		address: Address;
+		chain: derived.ChainId;
+	};
+
+	type VaultContract = {
+		address: Address;
+		chain: derived.ChainId;
+		'underlying-assets': derived.AssetId[];
+	};
+
 	type AssetContracts = {
 		id: derived.AssetId;
-		token: {
-			address: Address;
-			chain: derived.ChainId;
-		};
-		vault: {
-			address: Address;
-			chain: derived.ChainId;
-			'underlying-assets': derived.AssetId[];
-		};
+		token: TokenContract;
+		vault: VaultContract;
 	} & git.Meta;
 
 	type AssetsContracts = { [Property in derived.AssetId]: AssetContracts };

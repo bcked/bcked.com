@@ -76,26 +76,26 @@ export class EVMChain implements query.ChainModule {
 				timestamp: Date.now()
 			};
 		} catch (error) {
-			console.log(
+			console.log(error);
+			throw Error(
 				`Error for query of balance of token ${token} on address ${address} on chain ${chain}.`
 			);
-			console.log(error);
 		}
 	}
 
-	async getSupply(token: string, chain: string): Promise<query.Supply> {
+	async getSupply(token: string, chain: string): Promise<agg.AssetSupply> {
 		try {
 			const contract = this.getTokenContract(token, chain);
 			const supply: Promise<BigNumber> = contract.totalSupply();
 			const decimals: Promise<BigNumber> = this._getDecimals(contract);
 			return {
 				total: parseFloat(utils.formatUnits(await supply, await decimals)),
-				timestamp: Date.now(),
+				timestamp: new Date().toISOString(),
 				source: this.getRpcUrl(chain)
 			};
 		} catch (error) {
-			console.log(`Error for query of supply of token ${token} on chain ${chain}.`);
 			console.log(error);
+			throw Error(`Error for query of supply of token ${token} on chain ${chain}.`);
 		}
 	}
 }

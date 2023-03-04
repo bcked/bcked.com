@@ -5,49 +5,42 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import * as d3 from 'd3';
+
 	import * as Sankey from 'd3-sankey';
 	import type { Graph } from 'ngraph.graph';
 	import { getContext } from 'svelte';
 
 	export let graph: Graph<graph.NodeData, graph.LinkData>;
 
-	type LayerCakeContext = {
-		data: SvelteStore<api.Tree>;
-		width: SvelteStore<number>;
-		height: SvelteStore<number>;
-	};
-	const { data, width, height } = getContext<LayerCakeContext>('LayerCake');
+	const { data, width, height } = getContext<d3.LayerCakeContext>('LayerCake');
 
 	$: sankeyWidth = $width;
 
-	/** [colorLinks=d => 'rgba(0, 0, 0, .2)'] - A function to return a color for the links. */
-	export let colorLinks = (d) => 'rgba(0, 0, 0, .2)';
-
 	/** [colorNodes=d => '#333'] - A function to return a color for each node. */
-	export let colorNodes = (d) => '#333';
+	export let colorNodes = (d: d3.SankeyNode) => '#333';
 
 	/** [colorText=d => '#263238'] - A function to return a color for each text label. */
-	export let colorText = (d) => '#263238';
+	export let colorText = (d: d3.SankeyNode) => '#263238';
 
 	/** [nodeHight=5] - The width of each node, in pixels, passed to [`sankey.nodeHight`](https://github.com/d3/d3-sankey#sankey_nodeWidth). */
 	export let nodeHeight: number = 40;
 
 	/** [linkWidth=d => '0.9'] - A function to return a float to scale the link width. */
-	export let linkWidth = (d) => 0.9;
+	export let linkWidth = (d: d3.SankeyLink) => 0.9;
 
 	/** [nodePadding=10] - The padding between nodes, passed to [`sankey.nodePadding`](https://github.com/d3/d3-sankey#sankey_nodePadding). */
 	export let nodePadding: number = 10;
 
 	/** [linkSort=(a, b) => a.value < b.value ? 1 : -1] - How to sort the links, passed to [`sankey.linkSort`](https://github.com/d3/d3-sankey#sankey_linkSort). */
-	export let linkSort = (a, b) => (a.value > b.value ? 1 : -1);
+	export let linkSort = (a: d3.SankeyLink, b: d3.SankeyLink) => (a.value > b.value ? 1 : -1);
 
 	/** [nodeId=d => d.id] - The ID field accessor, passed to [`sankey.nodeId`](https://github.com/d3/d3-sankey#sankey_nodeId). */
-	export let nodeId = (d) => d.id;
+	export let nodeId = (d: d3.SankeyNode) => d.id;
 
 	/** [nodeAlign=d3.sankeyLeft] - An alignment function to position the Sankey blocks. See the [d3-sankey documentation](https://github.com/d3/d3-sankey#alignments) for more. */
 	export let nodeAlign = Sankey.sankeyJustify;
 
-	$: sankey = Sankey.sankey()
+	$: sankey = Sankey.sankey<d3.SankeyNode, d3.SankeyLink>()
 		.nodeAlign(nodeAlign)
 		.nodeWidth(nodeHeight)
 		.nodePadding(nodePadding)
@@ -57,29 +50,11 @@
 
 	$: sankeyData = sankey($data);
 
-	type Link = {
-		/** y coordinate for the start of the link. */
-		y0: number;
-		/** y coordinate for the end of the link. */
-		y1: number;
-		/** Width of the link. */
-		width: number;
-		/** Source node object. */
-		source: {
-			/** x coordinate for the start of the link. */
-			x1: number;
-		};
-		/** Target node object. */
-		target: {
-			/** x coordinate for the end of the link. */
-			x0: number;
-		};
-	};
 	/**
 	 * This function is a drop in replacement for d3.sankeyLinkVertical().
 	 * Except any accessors/options.
 	 **/
-	function sankeyLinkPath(link: Link) {
+	function sankeyLinkPath(link: d3.SankeyLink) {
 		// Start and end of the link
 		let sy1 = link.source.x1;
 		let ty0 = link.target.x0;

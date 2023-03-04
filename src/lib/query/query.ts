@@ -6,11 +6,9 @@ const chain = new ChainProxy();
 const api = new ApiProxy();
 
 async function queryUnderlying(
-	asset: cache.Asset,
-	vault: cache.VaultContract
+	underlyingToken: agg.TokenContract,
+	vault: agg.VaultContract
 ): Promise<query.Balance> {
-	const underlyingToken = asset.contracts!.token;
-
 	if (vault.chain != underlyingToken.chain) {
 		throw new Error(
 			`Vault and underlying token on different chains: ${vault.chain} vs. ${underlyingToken.chain}`
@@ -23,25 +21,27 @@ async function queryUnderlying(
 }
 
 async function queryBacking(
-	vault: cache.VaultContract,
-	assets: cache.Assets
-): Promise<query.Backing> {
+	vault: agg.VaultContract,
+	assetsContracts: agg.AssetsContracts
+): Promise<agg.AssetBacking> {
 	return {
 		assets: Object.fromEntries(
 			await Promise.all(
 				vault['underlying-assets']
-					.filter((u) => assets[u.id]?.contracts)
-					.map(async (u) => [u.id, (await queryUnderlying(assets[u.id]!, vault)).balance])
+					.filter((u) => u in assetsContracts)
+					.map(async (u) => [u, (await queryUnderlying(assetsContracts[u]!.token, vault)).balance])
 			)
 		),
 		source: chain.getRpcUrl(vault.chain),
-		timestamp: Date.now()
+		timestamp: new Date().toISOString()
 	};
 }
 
-async function queryChainData(asset: cache.Asset, assets: cache.Assets) {
-	const contracts = asset.contracts!;
-	const token = contracts.token;
+async function queryChainData(
+	assetContracts: agg.AssetContracts,
+	assetsContracts: agg.AssetsContracts
+) {
+	const token = assetContracts.token;
 
 	let supply = null;
 	try {
@@ -51,46 +51,38 @@ async function queryChainData(asset: cache.Asset, assets: cache.Assets) {
 	}
 	let backing = null;
 	try {
-		backing = contracts.vault ? queryBacking(contracts.vault, assets) : null;
+		backing = assetContracts.vault ? queryBacking(assetContracts.vault, assetsContracts) : null;
 	} catch (error) {
 		console.log(error);
 	}
 
 	return {
-		id: asset.id,
-		token: token.id,
+		id: assetContracts.id,
 		supply: await supply,
 		backing: await backing
 	};
 }
 
-export type QueryResult = {
-	id: string;
-	token: string;
-	supply: query.Supply | null;
-	backing: query.Backing | null;
-	price: query.Price | null;
-};
-
-export type QueryResults = { [id: string]: QueryResult };
-
-export async function queryAssets(assets: cache.Assets): Promise<QueryResults> {
-	const assetsWithContract = Object.values(assets).filter((asset) => asset.contracts);
-
-	const pricePromise = api.getPrices(assetsWithContract.map((asset) => asset.contracts!.token));
+export async function queryAssets(
+	assetsDetails: agg.AssetsDetails,
+	assetsContracts: agg.AssetsContracts
+): Promise<query.Results> {
+	const pricePromise = api.getPrices(Object.values(assetsContracts));
 
 	const chainDataPromise = Promise.all(
-		assetsWithContract.map(async (asset) => queryChainData(asset, assets))
+		Object.values(assetsContracts).map(async (contracts) =>
+			queryChainData(contracts, assetsContracts)
+		)
 	);
 
 	const [price, chainData] = await Promise.all([pricePromise, chainDataPromise]);
 
 	let allData = Object.fromEntries(
-		chainData.map((data) => [data.id, { ...data, price: price[data.token] ?? null }])
+		chainData.map((data) => [data.id, { ...data, price: price[data.id] ?? null }])
 	);
 
 	Object.entries(allData).forEach(([id, data]) => {
-		if (!data.price && assets[id]!.tags.includes('lp') && data.supply && data.backing) {
+		if (!data.price && assetsDetails[id]!.tags.includes('lp') && data.supply && data.backing) {
 			// Calculate Net Asset Value (NAV) for LP tokens and take that as price.
 			try {
 				const totalBacking = _.sum(
@@ -104,7 +96,7 @@ export async function queryAssets(assets: cache.Assets): Promise<QueryResults> {
 					source: `Calculated Net Asset Value (NAV) based on the LPs underlying assets: ${Object.keys(
 						data.backing.assets
 					)}`,
-					timestamp: Date.now()
+					timestamp: new Date().toISOString()
 				};
 			} catch {
 				console.log(`Failed to pull LP prices for ${id}.`);
@@ -115,6 +107,11 @@ export async function queryAssets(assets: cache.Assets): Promise<QueryResults> {
 	return allData;
 }
 
-async function queryAsset(asset: cache.Asset) {
-	return (await queryAssets({ [asset.id]: asset }))[0];
+export async function queryAsset(
+	assetDetails: agg.AssetDetails,
+	assetContracts: agg.AssetContracts
+) {
+	return (
+		await queryAssets({ [assetDetails.id]: assetDetails }, { [assetContracts.id]: assetContracts })
+	)[0];
 }

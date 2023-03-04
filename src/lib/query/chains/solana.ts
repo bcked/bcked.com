@@ -56,17 +56,17 @@ export class SolanaChain implements query.ChainModule {
 		return this._getBalance(new PublicKey(address), new PublicKey(token));
 	}
 
-	private async _getSupply(token: PublicKey): Promise<query.Supply> {
+	private async _getSupply(token: PublicKey): Promise<agg.AssetSupply> {
 		const response = await this._connection.getTokenSupply(token);
 		const ta: TokenAmount = response.value;
 		return {
 			total: parseFloat(formatUnits(ta.amount, ta.decimals)),
-			timestamp: Date.now(),
+			timestamp: new Date().toISOString(),
 			source: this.getRpcUrl('solana')
 		};
 	}
 
-	async getSupply(token: string, chain: string): Promise<query.Supply> {
+	async getSupply(token: string, chain: string): Promise<agg.AssetSupply> {
 		return this._getSupply(new PublicKey(token));
 	}
 }

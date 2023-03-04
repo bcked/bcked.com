@@ -21,3 +21,15 @@ export async function readAggregation<Type>(
 export function writeAggregation(name: string, obj: Object) {
 	writeJson(`./.aggregation/${name}.json`, obj);
 }
+
+export function writeHistoryUpdate(
+	id: derived.AssetId,
+	queryResult: query.Result,
+	historyData: { [Property in derived.AssetId]: { history: object[] } },
+	t: 'price' | 'supply' | 'backing'
+) {
+	if (queryResult[t] && historyData[id]) {
+		historyData[id]!.history.push(queryResult[t]!);
+		writeJson(`./assets/${id}/${t}.json`, { history: historyData[id]!.history });
+	}
+}

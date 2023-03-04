@@ -1,16 +1,42 @@
+import { queryAssets } from '$lib/query/query';
 import { aggregateFolders } from '$lib/utils/aggregation';
-import { readAggregation, writeAggregation, writeJson } from '$lib/utils/files';
-import { createFromAggregations, writeGraph } from '$lib/utils/graph';
-import { loadHistoricalData } from '$pre/assets';
-import { queryIcons } from '$pre/copy-icons';
-import { queryAssets } from '$pre/query';
-import { calcAssetsStats, calcGlobalStats } from '$pre/stats';
+import { queryIcons } from '$lib/utils/copy-icons';
+import {
+	readAggregation,
+	readJson,
+	writeAggregation,
+	writeHistoryUpdate,
+	writeJson
+} from '$lib/utils/files';
+import { createBackingGraph, writeGraph } from '$lib/utils/graph';
+import { calcAssetsStats, calcGlobalStats } from '$lib/utils/stats';
 import fs from 'fs';
+import path from 'path';
 
 console.log(`Hooks loading.`);
 
+// TODO remove after migration
+async function loadHistoricalData<Type>(
+	dirPath: string
+): Promise<({ timestamp: string } & Type)[] | undefined> {
+	if (!fs.existsSync(dirPath)) {
+		return undefined;
+	}
+
+	const timepoints = fs.readdirSync(dirPath);
+	return Promise.all(
+		timepoints
+			.map((filename) => path.parse(filename).name)
+			.sort((a, b) => -a.localeCompare(b))
+			.map(async (timestamp) => ({
+				timestamp,
+				...(await readJson<Type>(`${dirPath}/${timestamp}.json`))!
+			}))
+	);
+}
+
+// TODO remove after migration
 async function migrateHistoryData(assets: agg.AssetsDetails, t: string) {
-	// TODO remove after migration
 	for (const asset of Object.values(assets)) {
 		const path = `./assets/${asset.id}/${t}`;
 		const history = await loadHistoricalData(path);
@@ -77,9 +103,9 @@ async function aggregateData() {
 		'backing'
 	);
 
-	await updateData(assetsDetails, assetsPrice, assetsSupply, assetsBacking);
+	await updateData(assetsDetails, assetsContracts, assetsPrice, assetsSupply, assetsBacking);
 
-	const graph = createFromAggregations(
+	const graph = createBackingGraph(
 		assetsDetails,
 		issuersDetails,
 		chainsDetails,
@@ -111,25 +137,17 @@ async function aggregateData() {
 
 async function updateData(
 	assetsDetails: agg.AssetsDetails,
+	assetsContracts: agg.AssetsContracts,
 	assetsPrice: agg.AssetsPrice,
 	assetsSupply: agg.AssetsSupply,
 	assetsBacking: agg.AssetsBacking
 ) {
 	console.log(`Data update started.`);
-	// Update Data
-	// TODO fix
-	const queryResults = await queryAssets(assets);
-
-	for (const [id, data] of Object.entries(queryResults)) {
-		// TODO Fix typing
-		// TODO fix timestamp as strings not numbers
-		if (data.price) assetsPrice[id]?.history?.push(data.price);
-		if (data.supply) assetsSupply[id]?.history?.push(data.supply);
-		if (data.backing) assetsBacking[id]?.history?.push(data.backing);
-		// TODO replace / reimplement writeTimestampFile to save updated history
-		// writeTimestampFile(id, 'price', data.price);
-		// writeTimestampFile(id, 'supply', data.supply);
-		// writeTimestampFile(id, 'backing', data.backing);
+	const queryResults = await queryAssets(assetsDetails, assetsContracts);
+	for (const [id, queryResult] of Object.entries(queryResults)) {
+		writeHistoryUpdate(id, queryResult, assetsPrice, 'price');
+		writeHistoryUpdate(id, queryResult, assetsSupply, 'supply');
+		writeHistoryUpdate(id, queryResult, assetsBacking, 'backing');
 	}
 	console.log(`Data update finished.`);
 }
