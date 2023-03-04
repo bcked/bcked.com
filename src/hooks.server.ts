@@ -27,7 +27,7 @@ async function loadHistoricalData<Type>(
 	return Promise.all(
 		timepoints
 			.map((filename) => path.parse(filename).name)
-			.sort((a, b) => -a.localeCompare(b))
+			.sort((a, b) => a.localeCompare(b))
 			.map(async (timestamp) => ({
 				timestamp,
 				...(await readJson<Type>(`${dirPath}/${timestamp}.json`))!
@@ -43,7 +43,7 @@ async function migrateHistoryData(assets: agg.AssetsDetails, t: string) {
 		if (!history) continue;
 		writeJson(path + '.json', { history });
 		// TODO readd
-		// fs.rmSync(path, { recursive: true, force: true });
+		fs.rmSync(path, { recursive: true, force: true });
 	}
 }
 
@@ -158,7 +158,7 @@ if (!update || Date.now() - new Date(update.timestamp).getTime() > 60 * 1000) {
 	console.log(`Preprocessing execution`);
 	fs.mkdirSync('./.cache', { recursive: true });
 
-	// await migrate()
+	// await migrate();
 
 	// const {
 	// 	assetsDetails,
