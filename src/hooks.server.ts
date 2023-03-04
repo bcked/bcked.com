@@ -160,19 +160,7 @@ if (!update || Date.now() - new Date(update.timestamp).getTime() > 60 * 1000) {
 
 	// await migrate();
 
-	// const {
-	// 	assetsDetails,
-	// 	assetsContracts,
-	// 	assetsPrice,
-	// 	assetsSupply,
-	// 	assetsBacking,
-	// 	assetsStats,
-	// 	chainsDetails,
-	// 	issuersDetails,
-	// 	icons,
-	// 	globalStats,
-	// 	graph
-	// } = await aggregateData();
+	await aggregateData();
 
 	// throw new Error('Not implemented.');
 

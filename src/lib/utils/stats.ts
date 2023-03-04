@@ -16,8 +16,7 @@ function calcLinksStats(node: Node<graph.NodeData>, links: Link<graph.LinkData>[
 	};
 }
 
-function calcNodeStats(node: Node<graph.NodeData>): agg.NodeStats {
-	const links = (node.links ?? []) as Array<Link<graph.LinkData>>;
+function calcNodeStats(node: Node<graph.NodeData>, links: Link<graph.LinkData>[]): agg.NodeStats {
 	return {
 		underlying: calcLinksStats(
 			node,
@@ -34,7 +33,7 @@ export function calcAssetsStats(graph: Graph<graph.NodeData, graph.LinkData>): a
 	let assetsStats: agg.AssetsStats = {};
 
 	graph.forEachNode((node) => {
-		assetsStats[node.id] = calcNodeStats(node);
+		assetsStats[node.id] = calcNodeStats(node, graph.getLinks(node.id) ?? []);
 	});
 
 	writeAggregation('assets-stats', assetsStats);
