@@ -142,19 +142,26 @@ async function updateData(
 	assetsSupply: agg.AssetsSupply,
 	assetsBacking: agg.AssetsBacking
 ) {
-	console.log(`Data update started.`);
-	const queryResults = await queryAssets(assetsDetails, assetsContracts);
-	for (const [id, queryResult] of Object.entries(queryResults)) {
-		writeHistoryUpdate(id, queryResult, assetsPrice, 'price');
-		writeHistoryUpdate(id, queryResult, assetsSupply, 'supply');
-		writeHistoryUpdate(id, queryResult, assetsBacking, 'backing');
+	// TODO adjust to 12h
+	if (!update.query || Date.now() - new Date(update.query).getTime() > 60 * 1000) {
+		console.log(`Data update started.`);
+		const queryResults = await queryAssets(assetsDetails, assetsContracts);
+		for (const [id, queryResult] of Object.entries(queryResults)) {
+			writeHistoryUpdate(id, queryResult, assetsPrice, 'price');
+			writeHistoryUpdate(id, queryResult, assetsSupply, 'supply');
+			writeHistoryUpdate(id, queryResult, assetsBacking, 'backing');
+		}
+		await aggregateFolders<derived.AssetId, agg.AssetPriceData>('assets', 'price');
+		await aggregateFolders<derived.AssetId, agg.AssetSupplyData>('assets', 'supply');
+		await aggregateFolders<derived.AssetId, agg.AssetBackingData>('assets', 'backing');
+		console.log(`Data update finished.`);
+		update.query = new Date().toISOString();
 	}
-	console.log(`Data update finished.`);
 }
 
-const update = await readAggregation<agg.Update>('update');
+const update = (await readAggregation<agg.Update>('update')) ?? {};
 
-if (!update || Date.now() - new Date(update.timestamp).getTime() > 60 * 1000) {
+if (!update.timestamp || Date.now() - new Date(update.timestamp).getTime() > 60 * 1000) {
 	console.log(`Preprocessing execution`);
 	fs.mkdirSync('./.cache', { recursive: true });
 
@@ -164,5 +171,5 @@ if (!update || Date.now() - new Date(update.timestamp).getTime() > 60 * 1000) {
 
 	// throw new Error('Not implemented.');
 
-	writeAggregation('update', { timestamp: new Date().toISOString() });
+	writeAggregation('update', { timestamp: new Date().toISOString(), query: update.query });
 }

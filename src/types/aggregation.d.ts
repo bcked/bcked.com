@@ -163,5 +163,6 @@ declare namespace agg {
 
 	type Update = {
 		timestamp: Timestamp;
+		query: Timestamp;
 	};
 }
