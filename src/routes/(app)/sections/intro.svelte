@@ -64,7 +64,7 @@
 		label="Introduction to bcked"
 		class="w-full min-h-screen flex justify-between items-center"
 	>
-		<div id="3d-graph" class="absolute inset-0 -z-10" bind:this={htmlElement} />
+		<div id="3d-graph" class="absolute inset-0 -z-10 pointer-events-none" bind:this={htmlElement} />
 		<SectionHeader
 			title="Reduce your exposure to unbacked assets."
 			description="Leverage insights from our community driven open source knowledge base to find cryptocurrencies backed

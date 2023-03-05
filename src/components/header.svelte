@@ -82,7 +82,7 @@
 		</div>
 	</div>
 
-	<DisclosurePanel class="fixed sm:hidden w-full backdrop-blur-sm">
+	<DisclosurePanel class="absolute sm:hidden w-full backdrop-blur-sm">
 		<div class="pt-2 pb-3 space-y-1">
 			{#each mainNavigation as item}
 				{@const current = $page.url.hash == item.path}
