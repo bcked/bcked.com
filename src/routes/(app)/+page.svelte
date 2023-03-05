@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { PUBLIC_DOMAIN } from '$env/static/public';
+	import { formatCurrency } from '$lib/utils/string-formatting';
 	import SvelteSeo from 'svelte-seo';
 	import type { PageData } from './$types';
 	import DiscoverSection from './sections/discover.svelte';
@@ -8,17 +9,7 @@
 
 	export let data: PageData;
 
-	$: ({
-		assetsDetails,
-		assetsContracts,
-		assetsPrice,
-		assetsSupply,
-		assetsBacking,
-		chainsDetails,
-		issuersDetails,
-		icons,
-		graphData
-	} = data);
+	$: ({ globalStats } = data);
 
 	const themes = {
 		blue: {
@@ -41,9 +32,11 @@
 		}
 	};
 
+	$: backingUsd = formatCurrency(globalStats.underlying.total.usd);
+	$: backingUsdAvg = formatCurrency(globalStats.underlying.avg.usd);
 	$: seo = {
 		title: 'bcked: Cryptocurrency Backing, Ranking, History, Stats, ...',
-		description: `Read more on bcked, which is an open source community project that provides and visualizes data about cryptocurrency backing.`,
+		description: `The cryptocurrencies recorded in bcked are backed by ${backingUsd} with an average backing of ${backingUsdAvg}. Read more on bcked, which is an open source community project that provides and visualizes data about cryptocurrency backing.`,
 		url: `${PUBLIC_DOMAIN}`,
 		image: {
 			url: `${PUBLIC_DOMAIN}/previews/landing.jpg`,

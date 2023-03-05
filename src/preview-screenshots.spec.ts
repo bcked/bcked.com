@@ -36,14 +36,18 @@ async function screenshot(page: Page, url: string, path: string, locator?: Locat
 }
 
 test('Screenshot of landing page', async ({ page }) => {
-	const navbarSuccessor = page.locator('nav + div').nth(0);
-	await screenshot(page, '/', `${TARGET_DIR}//landing.jpg`, navbarSuccessor);
+	const navbarSuccessor = page.locator('nav + main').nth(0);
+	await screenshot(page, '/', `${TARGET_DIR}/landing.jpg`, navbarSuccessor);
+});
+
+test('Screenshot of graph', async ({ page }) => {
+	await screenshot(page, '/graph', `${TARGET_DIR}/graph.jpg`);
 });
 
 test('Screenshots of asset pages', async ({ page }) => {
 	test.setTimeout(0);
 	const assets = fs.readdirSync('./assets');
-	const navbarSuccessor = page.locator('nav + div').nth(0);
+	const navbarSuccessor = page.locator('nav + main').nth(0);
 	for (const id of assets) {
 		await screenshot(page, `/assets/${id}`, `${TARGET_DIR}/assets/${id}.jpg`, navbarSuccessor);
 	}

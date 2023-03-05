@@ -7,10 +7,51 @@ import _ from 'lodash';
 import fromJson from 'ngraph.fromjson';
 import type { Graph, NodeId } from 'ngraph.graph';
 import createGraph from 'ngraph.graph';
+import path from 'ngraph.path';
 import toJson from 'ngraph.tojson';
 import { round } from './math';
 
-export function getSubGraph(
+export function getDAG(graph: Graph, start: NodeId): Graph {
+	let subgraph = createGraph();
+
+	let pathFinder = path.aStar(subgraph, {
+		oriented: true
+	});
+
+	if (!graph.hasNode(start)) return subgraph;
+	const startNode = graph.getNode(start)!;
+
+	let queue = [startNode];
+	subgraph.addNode(start, startNode.data);
+
+	while (queue.length > 0) {
+		let currentNode = queue.shift()!;
+		const underlyingLinks = [...(graph.getLinks(currentNode.id) ?? [])].filter(
+			(link) => link.fromId == currentNode.id
+		);
+
+		for (const link of underlyingLinks) {
+			if (
+				subgraph.hasLink(link.fromId, link.toId) ||
+				(subgraph.hasNode(link.toId) &&
+					subgraph.hasNode(link.fromId) &&
+					pathFinder.find(link.toId, link.fromId).length > 0)
+			) {
+				// Skip cyclic connections
+				continue;
+			}
+
+			const nextNode = graph.getNode(link.toId)!;
+			subgraph.addNode(nextNode.id, nextNode.data);
+			subgraph.addLink(link.fromId, link.toId, link.data);
+			queue.push(nextNode);
+		}
+	}
+
+	return subgraph;
+}
+
+export function limitValueByLinks(
 	graph: Graph<graph.NodeData, graph.LinkData>,
 	start: NodeId
 ): Graph<graph.NodeData, graph.LinkData> {
@@ -24,30 +65,60 @@ export function getSubGraph(
 
 	while (queue.length > 0) {
 		let currentNode = queue.shift()!;
+		const underlyingLinks = [...(graph.getLinks(currentNode.id) ?? [])].filter(
+			(link) => link.fromId == currentNode.id
+		);
 
-		for (const link of currentNode.links ?? []) {
-			const visitedNode = graph.getNode(link.toId)!;
-			if (!subgraph.hasNode(visitedNode.id)) {
-				const linkUsd = _.min([
-					link.data.backingUsd,
-					currentNode.data.mcap
-						? (link.data.backingUsd / currentNode.data.mcap) *
-						  subgraph.getNode(link.fromId)?.data.mcap
-						: undefined,
-					subgraph.getNode(link.fromId)?.data.mcap
-				]);
-				subgraph.addNode(visitedNode.id, {
-					...visitedNode.data,
-					mcap: _.min([linkUsd, visitedNode.data.mcap, currentNode.data.mcap])
-				});
-				subgraph.addLink(link.fromId, link.toId, {
-					...link.data,
-					backingUsd: linkUsd
-				});
-				queue.push(visitedNode);
+		for (const link of underlyingLinks) {
+			const nextNode = graph.getNode(link.toId)!;
+
+			let linkUsd = 1;
+			if (
+				link.data.backingUsd &&
+				currentNode.data.mcap &&
+				subgraph.getNode(link.fromId)?.data?.mcap
+			) {
+				// const linkRatio = link.data.backingUsd / currentNode.data.mcap;
+				const linkRatio = link.data.backingUsd / _.sumBy(underlyingLinks, 'data.backingUsd');
+				linkUsd = linkRatio * subgraph.getNode(link.fromId)?.data?.mcap;
 			}
+			linkUsd = 1;
+
+			// const linkRatio = (link.data.backingUsd ?? 0) / _.sumBy(underlyingLinks, 'data.backingUsd');
+
+			// _.min([
+			// 	link.data.backingUsd,
+			// 	currentNode.data.mcap,
+			// 	subgraph.getNode(link.fromId)?.data?.mcap
+			// ]);
+			// link.data.backingUsd && currentNode.data.mcap
+			// 	? (link.data.backingUsd / currentNode.data.mcap) *
+			// 	  subgraph.getNode(link.fromId)?.data.mcap
+			// 	: 1;
+			subgraph.addLink(link.fromId, link.toId, {
+				...link.data,
+				backingUsd: linkUsd
+			});
+			subgraph.addNode(nextNode.id, {
+				...nextNode.data,
+				mcap: 1 // linkUsd + (subgraph.getNode(nextNode.id)?.data?.mcap ?? 0)
+			});
+			queue.push(nextNode);
+			// if (!subgraph.hasNode(nextNode.id)) {
+			// subgraph.addNode(nextNode.id, {
+			// 	...nextNode.data,
+			// 	mcap: linkUsd
+			// });
+			// queue.push(nextNode);
+			// } else {
+			// subgraph.addNode(nextNode.id, {
+			// 	...nextNode.data,
+			// 	mcap: linkUsd + subgraph.getNode(nextNode.id)?.data.mcap
+			// });
+			// }
 		}
 	}
+
 	return subgraph;
 }
 

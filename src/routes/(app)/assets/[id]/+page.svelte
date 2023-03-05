@@ -8,7 +8,7 @@
 	import { PUBLIC_DOMAIN } from '$env/static/public';
 	import { ApiProxy } from '$lib/query/apis/proxy';
 	import { closest } from '$lib/utils/array';
-	import { getSubGraph } from '$lib/utils/graph';
+	import { getDAG, limitValueByLinks } from '$lib/utils/graph';
 	import { round } from '$lib/utils/math';
 	import { formatCurrency, formatNum, formatPercentage } from '$lib/utils/string-formatting';
 	import { ChatAltIcon, ThumbDownIcon, ThumbUpIcon } from '@rgossiaux/svelte-heroicons/outline';
@@ -21,20 +21,7 @@
 
 	export let data: PageData;
 
-	$: ({
-		assetsDetails,
-		assetsContracts,
-		assetsPrice,
-		assetsSupply,
-		assetsBacking,
-		assetsStats,
-		chainsDetails,
-		issuersDetails,
-		icons,
-		globalStats,
-		graphData,
-		comments
-	} = data);
+	$: ({ assetsPrice, assetsStats, graphData, comments } = data);
 
 	let graph: Graph<graph.NodeData, graph.LinkData>;
 	$: graph = fromJson(graphData);
@@ -262,7 +249,7 @@
 					</div>
 
 					<div class="flex mt-6 justify-center">
-						<Sankey graph={getSubGraph(graph, id)} />
+						<Sankey graph={limitValueByLinks(getDAG(graph, id), id)} />
 					</div>
 				</div>
 			</div>

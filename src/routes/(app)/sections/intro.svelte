@@ -70,6 +70,7 @@
 			description="Leverage insights from our community driven open source knowledge base to find cryptocurrencies backed
 		by various asset classes."
 			theme={{ title: theme.text }}
+			class="mt-10"
 		>
 			<div class="mt-16 inline-flex items-center lg:mx-0">
 				<Glow {theme}>

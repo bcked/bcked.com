@@ -8,18 +8,6 @@
 
 	export let data: LayoutData;
 
-	$: ({
-		assetsDetails,
-		assetsContracts,
-		assetsPrice,
-		assetsSupply,
-		assetsBacking,
-		chainsDetails,
-		issuersDetails,
-		icons,
-		graphData
-	} = data);
-
 	export let mainNavigation: ui.Navigation = [];
 	export let bottomNavigation: ui.Navigation = [];
 	export let socials: ui.Navigation = [];

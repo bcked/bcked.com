@@ -3,10 +3,12 @@
 	 * Documentation on 3D Force Graph: https://github.com/vasturiano/3d-force-graph
 	 */
 	import { base } from '$app/paths';
+	import { PUBLIC_DOMAIN } from '$env/static/public';
 	import { ForceNGraph3D } from '$lib/utils/graph';
 	import { formatCurrency } from '$lib/utils/string-formatting';
 	import type { ForceGraph3DInstance } from '3d-force-graph';
 	import { onMount } from 'svelte';
+	import SvelteSeo from 'svelte-seo';
 	import * as Three from 'three';
 	import { Vector2 } from 'three';
 	import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
@@ -17,7 +19,7 @@
 	type Node = graph.Node & { x: number; y: number; z: number };
 	type Link = graph.Link;
 
-	$: ({ assetsDetails, assetsContracts, chainsDetails, issuersDetails, icons, graphData } = data);
+	$: ({ graphData, globalStats } = data);
 
 	let htmlElement: HTMLDivElement;
 
@@ -95,7 +97,38 @@
 
 	$: forceGraph = forceGraph?.width(innerWidth);
 	$: forceGraph = forceGraph?.height(innerHeight);
+
+	$: seo = {
+		title: '3D Graph Visualizing Asset Backing',
+		description: `Take an interactive look at the ${globalStats.count} assets in the 3D graph.`,
+		url: `${PUBLIC_DOMAIN}`,
+		image: {
+			url: `${PUBLIC_DOMAIN}/previews/landing.jpg`,
+			width: 1200,
+			height: 630,
+			alt: `Preview of bcked's landing page.`
+		}
+	};
 </script>
+
+<SvelteSeo
+	title={seo.title}
+	description={seo.description}
+	openGraph={{
+		title: seo.title,
+		description: seo.description,
+		url: seo.url,
+		type: 'website',
+		images: [seo.image]
+	}}
+	twitter={{
+		site: '@bcked_com',
+		title: seo.title,
+		description: seo.description,
+		image: seo.image.url,
+		imageAlt: seo.image.alt
+	}}
+/>
 
 <svelte:window bind:innerWidth bind:innerHeight />
 

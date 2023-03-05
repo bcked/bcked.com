@@ -11,16 +11,17 @@
 			d3graph.nodes.push({
 				id: node.id as string,
 				name: node.id as string,
-				value: node.data.mcap ?? 0
+				value: 1 //node?.data?.mcap ?? 1
 			});
 		});
 		g.forEachLink((link) => {
 			d3graph.links.push({
 				source: link.fromId as string,
 				target: link.toId as string,
-				value: link.data.backingUsd ?? 0
+				value: link?.data?.backingUsd ?? 1
 			});
 		});
+		console.log(d3graph);
 		return d3graph;
 	}
 </script>

@@ -6,17 +6,7 @@
 
 	export let data: PageData;
 
-	$: ({
-		assetsDetails,
-		assetsContracts,
-		assetsPrice,
-		assetsSupply,
-		assetsBacking,
-		chainsDetails,
-		issuersDetails,
-		icons,
-		graphData
-	} = data);
+	$: ({ assetsDetails, icons } = data);
 
 	export let headerIcon: ComponentType;
 	export let title: string;

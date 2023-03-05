@@ -3,23 +3,14 @@
 	import Glow from '$components/glow.svelte';
 	import SectionHeader from '$components/section-header.svelte';
 	import Section from '$components/section.svelte';
+	import { formatCurrency } from '$lib/utils/string-formatting';
 	import { ClockIcon, HashtagIcon } from '@rgossiaux/svelte-heroicons/outline';
 	import fromJson from 'ngraph.fromjson';
 	import type { PageData } from '../$types';
 
 	export let data: PageData;
 
-	$: ({
-		assetsDetails,
-		assetsContracts,
-		assetsPrice,
-		assetsSupply,
-		assetsBacking,
-		chainsDetails,
-		issuersDetails,
-		icons,
-		graphData
-	} = data);
+	$: ({ graphData, globalStats } = data);
 
 	$: graph = fromJson(graphData);
 
@@ -29,7 +20,10 @@
 <Section id="discover" label="Discover backed cryptocurrencies">
 	<SectionHeader
 		title="Discover"
-		description="There are {graph.getNodesCount()} assets recorded on bcked."
+		description="Of the {globalStats.count} assets recorded in bcked, {globalStats.underlying.total
+			.count} are backed with a total backing of {formatCurrency(
+			globalStats.underlying.total.usd
+		)} and an average backing of {formatCurrency(globalStats.underlying.avg.usd)}."
 		theme={{ title: theme.text }}
 	/>
 	<div class="mt-10 w-full max-w-7xl mx-auto px-0 sm:px-4 lg:px-8">

@@ -12,17 +12,7 @@
 
 	export let data: LayoutData;
 
-	$: ({
-		assetsDetails,
-		assetsContracts,
-		assetsPrice,
-		assetsSupply,
-		assetsBacking,
-		chainsDetails,
-		issuersDetails,
-		icons,
-		graphData
-	} = data);
+	$: ({ assetsDetails, assetsContracts, chainsDetails, issuersDetails, icons } = data);
 
 	let clazz: string = '';
 	export { clazz as class };
