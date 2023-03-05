@@ -58,64 +58,41 @@ export function limitValueByLinks(
 	let subgraph = createGraph();
 
 	if (!graph.hasNode(start)) return subgraph;
-	const startNode = graph.getNode(start)!;
-
-	let queue = [startNode];
-	subgraph.addNode(start, startNode.data);
-
+	let queue = [graph.getNode(start)!];
 	while (queue.length > 0) {
 		let currentNode = queue.shift()!;
+
+		// Compute node value
+		const incomingLinks = [...(subgraph.getLinks(currentNode.id) ?? [])].filter(
+			(link) => link.toId == currentNode.id
+		);
+		const nodeValue =
+			(incomingLinks.length ? _.sumBy(incomingLinks, 'data.backingUsd') : currentNode.data.mcap) ??
+			0;
+		subgraph.addNode(currentNode.id, {
+			...currentNode.data,
+			mcap: nodeValue
+		});
+
+		// Compute link values
 		const underlyingLinks = [...(graph.getLinks(currentNode.id) ?? [])].filter(
 			(link) => link.fromId == currentNode.id
 		);
-
 		for (const link of underlyingLinks) {
 			const nextNode = graph.getNode(link.toId)!;
 
-			let linkUsd = 1;
-			if (
-				link.data.backingUsd &&
-				currentNode.data.mcap &&
-				subgraph.getNode(link.fromId)?.data?.mcap
-			) {
-				// const linkRatio = link.data.backingUsd / currentNode.data.mcap;
+			let linkValue = 0;
+			if (link.data.backingUsd) {
 				const linkRatio = link.data.backingUsd / _.sumBy(underlyingLinks, 'data.backingUsd');
-				linkUsd = linkRatio * subgraph.getNode(link.fromId)?.data?.mcap;
+				linkValue = linkRatio * nodeValue;
 			}
-			linkUsd = 1;
 
-			// const linkRatio = (link.data.backingUsd ?? 0) / _.sumBy(underlyingLinks, 'data.backingUsd');
-
-			// _.min([
-			// 	link.data.backingUsd,
-			// 	currentNode.data.mcap,
-			// 	subgraph.getNode(link.fromId)?.data?.mcap
-			// ]);
-			// link.data.backingUsd && currentNode.data.mcap
-			// 	? (link.data.backingUsd / currentNode.data.mcap) *
-			// 	  subgraph.getNode(link.fromId)?.data.mcap
-			// 	: 1;
 			subgraph.addLink(link.fromId, link.toId, {
 				...link.data,
-				backingUsd: linkUsd
+				backingUsd: linkValue
 			});
-			subgraph.addNode(nextNode.id, {
-				...nextNode.data,
-				mcap: 1 // linkUsd + (subgraph.getNode(nextNode.id)?.data?.mcap ?? 0)
-			});
+
 			queue.push(nextNode);
-			// if (!subgraph.hasNode(nextNode.id)) {
-			// subgraph.addNode(nextNode.id, {
-			// 	...nextNode.data,
-			// 	mcap: linkUsd
-			// });
-			// queue.push(nextNode);
-			// } else {
-			// subgraph.addNode(nextNode.id, {
-			// 	...nextNode.data,
-			// 	mcap: linkUsd + subgraph.getNode(nextNode.id)?.data.mcap
-			// });
-			// }
 		}
 	}
 

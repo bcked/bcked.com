@@ -14,14 +14,6 @@
 
 	const { data, width, height } = getContext<d3.LayerCakeContext>('LayerCake');
 
-	$: sankeyWidth = $width;
-
-	/** [colorNodes=d => '#333'] - A function to return a color for each node. */
-	export let colorNodes = (d: d3.SankeyNode) => '#333';
-
-	/** [colorText=d => '#263238'] - A function to return a color for each text label. */
-	export let colorText = (d: d3.SankeyNode) => '#263238';
-
 	/** [nodeHight=5] - The width of each node, in pixels, passed to [`sankey.nodeHight`](https://github.com/d3/d3-sankey#sankey_nodeWidth). */
 	export let nodeHeight: number = 40;
 
@@ -31,14 +23,14 @@
 	/** [nodePadding=10] - The padding between nodes, passed to [`sankey.nodePadding`](https://github.com/d3/d3-sankey#sankey_nodePadding). */
 	export let nodePadding: number = 10;
 
-	/** [linkSort=(a, b) => a.value < b.value ? 1 : -1] - How to sort the links, passed to [`sankey.linkSort`](https://github.com/d3/d3-sankey#sankey_linkSort). */
-	export let linkSort = (a: d3.SankeyLink, b: d3.SankeyLink) => (a.value > b.value ? 1 : -1);
-
 	/** [nodeId=d => d.id] - The ID field accessor, passed to [`sankey.nodeId`](https://github.com/d3/d3-sankey#sankey_nodeId). */
 	export let nodeId = (d: d3.SankeyNode) => d.id;
 
 	/** [nodeAlign=d3.sankeyLeft] - An alignment function to position the Sankey blocks. See the [d3-sankey documentation](https://github.com/d3/d3-sankey#alignments) for more. */
 	export let nodeAlign = Sankey.sankeyJustify;
+	// export let nodeAlign = (d: d3.SankeyNode) => d.depth;
+
+	export let iterations: number = 200;
 
 	$: sankey = Sankey.sankey<d3.SankeyNode, d3.SankeyLink>()
 		.nodeAlign(nodeAlign)
@@ -46,9 +38,11 @@
 		.nodePadding(nodePadding)
 		.nodeId(nodeId)
 		.size([$height, $width])
-		.linkSort(linkSort);
+		.iterations(iterations);
 
 	$: sankeyData = sankey($data);
+
+	$: sankeyWidth = $width;
 
 	/**
 	 * This function is a drop in replacement for d3.sankeyLinkVertical().
@@ -80,17 +74,41 @@
 	}
 
 	export let fontSize = 12;
+
+	// function showTooltip(evt, text) {
+	// 	let tooltip = document.getElementById("tooltip");
+	// 	tooltip.innerHTML = text;
+	// 	tooltip.style.display = "block";
+	// 	tooltip.style.left = evt.pageX + 10 + 'px';
+	// 	tooltip.style.top = evt.pageY + 10 + 'px';
+	// }
+
+	// function hideTooltip() {
+	// 	var tooltip = document.getElementById("tooltip");
+	// 	tooltip.style.display = "none";
+	// }
 </script>
+
+<div id="tooltip" class="hidden absolute" />
+<!-- 
+	TODO Add tooltip on mouse hover
+	Write mouse hover event which detect which node or link is hovered and get's the respective data
+	Fill data in tooltip and show tooltip
+	https://stackoverflow.com/questions/64209365/d3-sankey-link-scaling-issue
+	https://stackoverflow.com/questions/10643426/how-to-add-a-tooltip-to-an-svg-graphic
+
+	OR Instead of tooltip actually add div on top or bottom of the card.
+
+	Maybe also switch to this library for simplicity: 
+	https://ricklupton.github.io/d3-sankey-diagram/
+	https://github.com/ricklupton/d3-sankey-diagram
+ -->
 
 <g class="sankey-layer">
 	<g class="sankey-links">
 		{#each sankeyData.links as d, i}
 			<g class="sankey-link group">
-				<path
-					class="opacity-40 group-hover:opacity-80"
-					d={sankeyLinkPath(d)}
-					fill={colorNodes(d.target)}
-				/>
+				<path class="opacity-40 fill-neon-pink group-hover:fill-neon-blue" d={sankeyLinkPath(d)} />
 			</g>
 		{/each}
 	</g>
@@ -98,177 +116,52 @@
 		{#each sankeyData.nodes as d, i}
 			{@const asset = graph.getNode(d.id)?.data}
 			{@const nodeWidth = d.y1 - d.y0}
-			{@const iconSize = nodeHeight * 0.8}
+			{@const iconSize = Math.min(nodeHeight, nodeWidth) * 0.8}
+			{@const nodeIsXl = nodeWidth > 300}
+			{@const nodeIsLg = nodeWidth > 150}
+			{@const nodeIsSm = nodeWidth > 100}
+			{@const nodeIsXs = nodeWidth > 10}
 			<g class="sankey-node group">
-				{#if nodeWidth / sankeyWidth < 0.05}
-					<!-- {#if asset.icon}
+				<rect
+					class="fill-neon-pink group-hover:fill-neon-blue"
+					x={d.y0}
+					y={d.x0}
+					height={nodeHeight}
+					width={nodeWidth}
+					rx="5"
+					ry="5"
+				/>
+				{#if asset?.icon}
 					<image
-						x={d.y0 + nodeWidth / 2}
-						y={d.x0 + nodeHeight / 2}
-						href="{base}/{asset.icon}"
-						height={nodeHeight}
-						width={nodeHeight}
+						class="drop-shadow-md group-hover:drop-shadow-lg"
+						x={d.y0 + nodeWidth / 2 - iconSize / 2}
+						y={d.x0 + nodeHeight / 2 - iconSize / 2}
+						href="{base}/{asset.icon.href}"
+						height={iconSize}
+						width={iconSize}
 						dominant-baseline="central"
 						text-anchor="middle"
 					/>
-				{/if} -->
-					<rect
-						class="opacity-50 group-hover:opacity-80"
-						x={d.y0}
-						y={d.x0}
-						height={nodeHeight}
-						width={nodeWidth}
-						fill={colorNodes(d)}
-						><title
-							>{#if asset}
-								{asset.details.name}
-							{:else}
-								Unknown Name
-							{/if}</title
-						></rect
-					>
-				{:else if d.id == 'other'}
-					<rect
-						class="opacity-50 hover:opacity-80"
-						x={d.y0}
-						y={d.x0}
-						height={nodeHeight}
-						width={nodeWidth}
-						rx="5"
-						ry="5"
-						fill={colorNodes(d)}
-					/>
+				{:else if nodeIsXs}
 					<text
-						class="pointer-events-none"
+						class="pointer-events-none fill-black text-xs"
 						x={d.y0 + nodeWidth / 2}
 						y={d.x0 + nodeHeight / 2}
 						dominant-baseline="central"
 						text-anchor="middle"
-						style="
-				fill: {colorText(d)};
-                font-size: {fontSize}px;
-				"
 					>
-						{'<'}10%
-					</text>
-				{:else if d.id == 'unbacked'}
-					<a
-						style="fill: {colorText(d)};"
-						href="https://github.com/bcked/bcked.com/issues"
-						class="underline"
-						><rect
-							class="opacity-80"
-							x={d.y0}
-							y={d.x0}
-							height={nodeHeight}
-							width={nodeWidth}
-							fill={colorNodes(d)}
-						/>
-						<text
-							class="pointer-events-none"
-							x={d.y0 + nodeWidth / 2}
-							y={d.x0 + nodeHeight / 2}
-							dominant-baseline="central"
-							text-anchor="middle"
-							style="
-			fill: {colorText(d)};
-			font-size: {fontSize}px;
-			"
-						>
-							Unbacked or Unknown. Add here...
-						</text></a
-					>
-				{:else if d.id == sankeyData.links[0]?.source?.id}
-					<rect
-						class="opacity-80"
-						x={d.y0}
-						y={d.x0}
-						height={nodeHeight}
-						width={nodeWidth}
-						rx="5"
-						ry="5"
-						fill={colorNodes(d)}
-					/>
-					{#if asset?.icon}
-						<image
-							x={d.y0 + nodeWidth / 2 - iconSize / 2}
-							y={d.x0 + nodeHeight / 2 - iconSize / 2}
-							href="{base}/{asset.icon.href}"
-							height={iconSize}
-							width={iconSize}
-							dominant-baseline="central"
-							text-anchor="middle"
-						/>
-					{:else}
-						<text
-							class="pointer-events-none"
-							x={d.y0 + nodeWidth / 2}
-							y={d.x0 + nodeHeight / 2}
-							dominant-baseline="central"
-							text-anchor="middle"
-							style="
-				fill: {colorText(d)};
-				font-size: {fontSize}px;
-				"
-						>
-							{#if asset?.details?.name}
-								{asset.details.name}
-							{:else}
-								Unknown Name
-							{/if}
-						</text>
-					{/if}
-				{:else}
-					<a href="{base}/assets/{d.id}">
-						<rect
-							class="opacity-50 group-hover:opacity-80"
-							x={d.y0}
-							y={d.x0}
-							height={nodeHeight}
-							width={nodeWidth}
-							rx="5"
-							ry="5"
-							fill={colorNodes(d)}
-						/>
-						{#if asset?.icon}
-							<image
-								x={d.y0 + nodeWidth / 2 - iconSize / 2}
-								y={d.x0 + nodeHeight / 2 - iconSize / 2}
-								href="{base}/{asset.icon.href}"
-								height={iconSize}
-								width={iconSize}
-								dominant-baseline="central"
-								text-anchor="middle"
-							/>
-						{:else}
-							<text
-								class="pointer-events-none"
-								x={d.y0 + nodeWidth / 2}
-								y={d.x0 + nodeHeight / 2}
-								dominant-baseline="central"
-								text-anchor="middle"
-								style="
-					fill: {colorText(d)};
-					font-size: {fontSize}px;
-					"
-							>
-								{#if asset?.details?.name}
-									{asset.details.name}
-								{:else}
-									Unknown Name
-								{/if}
-							</text>
+						{#if nodeIsLg && asset?.details?.name}
+							{asset.details.name}
+						{:else if nodeIsLg}
+							Unknown Name
+						{:else if nodeIsSm && asset?.details?.symbol}
+							{asset.details.symbol}
+						{:else if nodeIsSm}
+							UNK
 						{/if}
-					</a>
+					</text>
 				{/if}
 			</g>
-			<!-- <foreignobject x={d.y0} y={d.x0} {height} {width}>
-				<xhtml:body xmlns="http://www.w3.org/1999/xhtml">
-					<div class="text-inherit text-white font-sans h-full w-full overflow-auto bg-green-200">
-						{d.id}
-					</div>
-				</xhtml:body>
-			</foreignobject> -->
 		{/each}
 	</g>
 </g>
