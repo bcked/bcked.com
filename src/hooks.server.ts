@@ -1,73 +1,12 @@
 import { queryAssets } from '$lib/query/query';
 import { aggregateFolders } from '$lib/utils/aggregation';
 import { queryIcons } from '$lib/utils/copy-icons';
-import {
-	readAggregation,
-	readJson,
-	writeAggregation,
-	writeHistoryUpdate,
-	writeJson
-} from '$lib/utils/files';
+import { readAggregation, writeAggregation, writeHistoryUpdate } from '$lib/utils/files';
 import { createBackingGraph, writeGraph } from '$lib/utils/graph';
 import { calcAssetsStats, calcGlobalStats } from '$lib/utils/stats';
 import fs from 'fs';
-import path from 'path';
 
 console.log(`Hooks loading.`);
-
-// TODO remove after migration
-async function loadHistoricalData<Type>(
-	dirPath: string
-): Promise<({ timestamp: string } & Type)[] | undefined> {
-	if (!fs.existsSync(dirPath)) {
-		return undefined;
-	}
-
-	const timepoints = fs.readdirSync(dirPath);
-	return Promise.all(
-		timepoints
-			.map((filename) => path.parse(filename).name)
-			.sort((a, b) => a.localeCompare(b))
-			.map(async (timestamp) => ({
-				timestamp,
-				...(await readJson<Type>(`${dirPath}/${timestamp}.json`))!
-			}))
-	);
-}
-
-// TODO remove after migration
-async function migrateHistoryData(assets: agg.AssetsDetails, t: string) {
-	for (const asset of Object.values(assets)) {
-		const path = `./assets/${asset.id}/${t}`;
-		const history = await loadHistoricalData(path);
-		if (!history) continue;
-		writeJson(path + '.json', { history });
-		// TODO readd
-		fs.rmSync(path, { recursive: true, force: true });
-	}
-}
-
-async function migrate() {
-	// TODO remove after migration
-	// const issuersDetails = await readAggregation<agg.IssuersDetails>('issuers-details');
-	// const chainsDetails = await readAggregation<agg.ChainsDetails>('chains-details');
-	const assetsDetails = await readAggregation<agg.AssetsDetails>('assets-details');
-	// const assetsContracts = await readAggregation<agg.AssetsContracts>('assets-contracts');
-	// const icons = await readAggregation<agg.Icons>('icons');
-
-	// const assetsPrice = await readAggregation<agg.AssetsPrice>('assets-price');
-	// const assetsSupply = await readAggregation<agg.AssetsSupply>('assets-supply');
-	// const assetsBacking = await readAggregation<agg.AssetsBacking>('assets-backing');
-
-	// const graph = readGraph<graph.NodeData, graph.LinkData>('graph');
-
-	// const assetsStats = await readAggregation<agg.AssetsStats>('assets-stats');
-	// const globalStats = await readAggregation<agg.GlobalStats>('global-stats');
-
-	await migrateHistoryData(assetsDetails, 'price');
-	await migrateHistoryData(assetsDetails, 'supply');
-	await migrateHistoryData(assetsDetails, 'backing');
-}
 
 async function aggregateData() {
 	console.log(`Data preprocessing started.`);
@@ -163,13 +102,9 @@ const update = (await readAggregation<agg.Update>('update')) ?? {};
 
 if (!update.timestamp || Date.now() - new Date(update.timestamp).getTime() > 60 * 1000) {
 	console.log(`Preprocessing execution`);
-	fs.mkdirSync('./.cache', { recursive: true });
-
-	// await migrate();
+	fs.mkdirSync('./.aggregation', { recursive: true });
 
 	await aggregateData();
-
-	// throw new Error('Not implemented.');
 
 	writeAggregation('update', { timestamp: new Date().toISOString(), query: update.query });
 }
