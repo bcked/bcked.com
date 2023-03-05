@@ -1,76 +1,110 @@
-import { aggregateFolders, readFromCache, writeAggregation } from '$lib/utils/files';
-import { loadAssets } from '$pre/assets';
-import copyIcons from '$pre/copy-icons';
-import { calcCurrentBacking } from '$pre/current-backing';
-import { buildGraph } from '$pre/graph';
-import { queryAssets } from '$pre/query';
-import { writeTimestampFile } from '$pre/record-file';
-import { calcStats } from '$pre/stats';
-import { loadTokens } from '$pre/tokens';
-import { loadTrees } from '$pre/tree';
+import { queryAssets } from '$lib/query/query';
+import { aggregateFolders } from '$lib/utils/aggregation';
+import { queryIcons } from '$lib/utils/copy-icons';
+import { readAggregation, writeAggregation, writeHistoryUpdate } from '$lib/utils/files';
+import { createBackingGraph, writeGraph } from '$lib/utils/graph';
+import { calcAssetsStats, calcGlobalStats } from '$lib/utils/stats';
 import fs from 'fs';
 
-console.log(`Hook execution`);
+console.log(`Hooks loading.`);
 
-// TODO
-// 1. Write migration script, which aggregates price, supply and backing history. Write it here in this file to also include the git history. Each should also get a "timestamp" field in iso time.
-// 2. Write migration to only keep latest price.json, supply.json and backing.json
-// 3. Write aggregation method to add a new entry to the history aggregation
-// 4. Add aggregation folder to git auto-commit
-// 5. Adapt load tokens
-// 6. Reimplement loadTrees to build a global graph of all assets first using ngraph.graph -> Trees/Sub graphs are then determined from that main graph
-// 7. Adapt calcCurrentBacking to make it store to an independent aggregation file
-// 8. Adapt calcStats
-// 9. Adapt buildGraph
-// 10. Adapt all APIs and typing, REST links, ...
-
-const update = await readFromCache<{ timestamp: number }>('update');
-
-if (!update || Date.now() - update.timestamp > 60 * 1000) {
-	console.log(`Preprocessing execution`);
-	fs.mkdirSync('./.cache', { recursive: true });
-
-	// Update Data
-	let assets = await loadAssets({});
-	const queryResults = await queryAssets(assets);
-
-	for (const [id, data] of Object.entries(queryResults)) {
-		writeTimestampFile(id, 'price', data.price);
-		writeTimestampFile(id, 'supply', data.supply);
-		writeTimestampFile(id, 'backing', data.backing);
-	}
-
+async function aggregateData() {
+	console.log(`Data preprocessing started.`);
 	// Copy static files
-	const icons = copyIcons('./assets/**/icon.png', 'assets');
+	const icons = queryIcons('./assets/**/icon.png', 'assets');
 	writeAggregation('icons', icons);
 
 	// Basic data aggregation
-	const issuers = await aggregateFolders<api.Issuer>('issuers', 'details');
-	const chains = await aggregateFolders<api.Issuer>('chains', 'details');
-	// const assets = await aggregateFolders<api.Issuer>('assets', 'details');
-	// const contracts = await aggregateFolders<api.Issuer>('assets', 'contracts');
+	const issuersDetails = await aggregateFolders<derived.IssuerId, agg.IssuerDetails>(
+		'issuers',
+		'details'
+	);
+	const chainsDetails = await aggregateFolders<derived.ChainId, agg.ChainDetails>(
+		'chains',
+		'details'
+	);
+	const assetsDetails = await aggregateFolders<derived.AssetId, agg.AssetDetails>(
+		'assets',
+		'details'
+	);
+	const assetsContracts = await aggregateFolders<derived.AssetId, agg.AssetContracts>(
+		'assets',
+		'contracts'
+	);
 
-	// TODO do the same for historical data
-	// One file with current (latest timestamp) mapping?
-	// And one with historical data
+	let assetsPrice = await aggregateFolders<derived.AssetId, agg.AssetPriceData>('assets', 'price');
+	let assetsSupply = await aggregateFolders<derived.AssetId, agg.AssetSupplyData>(
+		'assets',
+		'supply'
+	);
+	let assetsBacking = await aggregateFolders<derived.AssetId, agg.AssetBackingData>(
+		'assets',
+		'backing'
+	);
 
-	// Complicated data aggregation
-	assets = await loadAssets(icons);
-	const tokens = loadTokens(assets);
-	const trees = await loadTrees(assets);
+	await updateData(assetsDetails, assetsContracts, assetsPrice, assetsSupply, assetsBacking);
 
-	// Note: This modifies the assets object in-place.
-	// TODO get rid of this and store into an independent cache file
-	calcCurrentBacking(assets, trees);
+	const graph = createBackingGraph(
+		assetsDetails,
+		issuersDetails,
+		chainsDetails,
+		icons,
+		assetsContracts,
+		assetsPrice,
+		assetsSupply,
+		assetsBacking
+	);
+	writeGraph('graph', graph);
 
-	const stats = calcStats(assets);
+	const assetsStats = calcAssetsStats(graph);
+	const globalStats = calcGlobalStats(graph, assetsStats);
 
-	const graph = buildGraph(trees);
+	return {
+		assetsDetails,
+		assetsContracts,
+		assetsPrice,
+		assetsSupply,
+		assetsBacking,
+		assetsStats,
+		chainsDetails,
+		issuersDetails,
+		icons,
+		globalStats,
+		graph
+	};
+}
 
-	writeAggregation('tokens', tokens);
-	writeAggregation('trees', trees);
-	writeAggregation('assets', assets);
-	writeAggregation('stats', stats);
-	writeAggregation('graph', graph);
-	writeAggregation('update', { timestamp: Date.now() });
+async function updateData(
+	assetsDetails: agg.AssetsDetails,
+	assetsContracts: agg.AssetsContracts,
+	assetsPrice: agg.AssetsPrice,
+	assetsSupply: agg.AssetsSupply,
+	assetsBacking: agg.AssetsBacking
+) {
+	// Update only every 12h
+	if (!update.query || Date.now() - new Date(update.query).getTime() > 12 * 60 * 60 * 1000) {
+		console.log(`Data update started.`);
+		const queryResults = await queryAssets(assetsDetails, assetsContracts);
+		for (const [id, queryResult] of Object.entries(queryResults)) {
+			writeHistoryUpdate(id, queryResult, assetsPrice, 'price');
+			writeHistoryUpdate(id, queryResult, assetsSupply, 'supply');
+			writeHistoryUpdate(id, queryResult, assetsBacking, 'backing');
+		}
+		await aggregateFolders<derived.AssetId, agg.AssetPriceData>('assets', 'price');
+		await aggregateFolders<derived.AssetId, agg.AssetSupplyData>('assets', 'supply');
+		await aggregateFolders<derived.AssetId, agg.AssetBackingData>('assets', 'backing');
+		console.log(`Data update finished.`);
+		update.query = new Date().toISOString();
+	}
+}
+
+const update = (await readAggregation<agg.Update>('update')) ?? {};
+
+if (!update.timestamp || Date.now() - new Date(update.timestamp).getTime() > 60 * 1000) {
+	console.log(`Preprocessing execution`);
+	fs.mkdirSync('./.aggregation', { recursive: true });
+
+	await aggregateData();
+
+	writeAggregation('update', { timestamp: new Date().toISOString(), query: update.query });
 }

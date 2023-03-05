@@ -27,23 +27,27 @@ export class DefiLlama implements query.ApiModule {
 	}
 
 	private async _getPrices(
-		tokens: cache.TokenContract[]
-	): Promise<{ [key: string]: query.Price | null }> {
-		const tokenStrings = _.map(tokens, 'id');
+		contracts: agg.AssetContracts[]
+	): Promise<{ [id: derived.AssetId]: agg.AssetPrice | null }> {
+		const keyToId = Object.fromEntries(
+			contracts.map(({ id, token }) => [`${token.chain}:${token.address}`, id])
+		);
 
-		const priceRoute = this.getPriceRoute(tokenStrings.join(','));
+		const priceRoute = this.getPriceRoute(Object.keys(keyToId).join(','));
 		const response = await this.api.fetchJson<{ coins: { [key: string]: Coin } }>(priceRoute);
 		const coins = response.coins ?? {};
 
 		return Object.fromEntries(
-			tokenStrings
-				.map((id): [string, Coin | undefined] => [id, coins[id]])
+			Object.entries(keyToId)
+				.map(([key, id]): [string, Coin | undefined] => [id, coins[key]])
 				.map(([id, coin]) => [
 					id,
 					coin
 						? {
 								usd: coin.price,
-								timestamp: coin.timestamp > 1775369079 ? coin.timestamp : Date.now(),
+								timestamp: new Date(
+									coin.timestamp > 1775369079 ? coin.timestamp : Date.now()
+								).toISOString(),
 								source: this.api.baseURL + priceRoute
 						  }
 						: null
@@ -51,9 +55,11 @@ export class DefiLlama implements query.ApiModule {
 		);
 	}
 
-	async getPrices(tokens: cache.TokenContract[]): Promise<{ [key: string]: query.Price }> {
-		const groups = urlLengthGrouping(tokens, this.api.baseURL, (group) =>
-			this.getPriceRoute(_.map(group, 'id').join(','))
+	async getPrices(
+		contracts: agg.AssetContracts[]
+	): Promise<{ [id: derived.AssetId]: agg.AssetPrice }> {
+		const groups = urlLengthGrouping(contracts, this.api.baseURL, (group) =>
+			this.getPriceRoute(group.map(({ token }) => `${token.chain}:${token.address}`).join(','))
 		);
 
 		const prices = await Promise.all(groups.map((group) => this._getPrices(group)));
@@ -61,7 +67,7 @@ export class DefiLlama implements query.ApiModule {
 		return _.merge({}, ...prices);
 	}
 
-	async getPrice(token: cache.TokenContract): Promise<query.Price | undefined> {
-		return (await this.getPrices([token]))[token.id];
+	async getPrice(contracts: agg.AssetContracts): Promise<agg.AssetPrice | undefined> {
+		return (await this.getPrices([contracts]))[contracts.id];
 	}
 }

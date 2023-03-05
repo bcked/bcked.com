@@ -1,15 +1,35 @@
 <script lang="ts">
 	import Sankey from '$components/sankey.svelte';
 	import { LayerCake, Svg } from 'layercake';
+	import type { Graph } from 'ngraph.graph';
 
-	export let backing: api.Tree;
-	export let assets: api.Assets;
+	export let graph: Graph<graph.NodeData, graph.LinkData>;
+
+	function ngraph2d3(g: Graph<graph.NodeData, graph.LinkData>): d3.Graph {
+		let d3graph: d3.Graph = { nodes: [], links: [] };
+		g.forEachNode((node) => {
+			d3graph.nodes.push({
+				id: node.id as string,
+				name: node.id as string,
+				value: 1 //node?.data?.mcap ?? 1
+			});
+		});
+		g.forEachLink((link) => {
+			d3graph.links.push({
+				source: link.fromId as string,
+				target: link.toId as string,
+				value: link?.data?.backingUsd ?? 1
+			});
+		});
+		console.log(d3graph);
+		return d3graph;
+	}
 </script>
 
 <div class="w-full h-96">
-	<LayerCake data={backing}>
+	<LayerCake data={JSON.parse(JSON.stringify(ngraph2d3(graph)))}>
 		<Svg>
-			<Sankey {assets} colorNodes={(d) => '#ff3b76'} colorText={(d) => '#ffffff'} />
+			<Sankey {graph} colorNodes={(d) => '#ff3b76'} colorText={(d) => '#ffffff'} />
 		</Svg>
 	</LayerCake>
 </div>

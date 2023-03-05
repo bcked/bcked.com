@@ -27,19 +27,19 @@ export class ChainProxy extends InstanceProxy<query.ChainModule> implements quer
 		try {
 			return this.getInstance(chain).getBalance(address, token, chain);
 		} catch (error) {
-			console.log(
+			console.log(error);
+			throw Error(
 				`Error for query of balance of token ${token} on address ${address} on chain ${chain}.`
 			);
-			console.log(error);
 		}
 	}
 
-	async getSupply(token: string, chain: derived.ChainId): Promise<query.Supply> {
+	async getSupply(token: string, chain: derived.ChainId): Promise<agg.AssetSupply> {
 		try {
 			return this.getInstance(chain).getSupply(token, chain);
 		} catch (error) {
-			console.log(`Error for query of supply of token ${token} on chain ${chain}.`);
 			console.log(error);
+			throw Error(`Error for query of supply of token ${token} on chain ${chain}.`);
 		}
 	}
 }

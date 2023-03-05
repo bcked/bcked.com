@@ -1,18 +1,6 @@
-import { simpleGit, type DefaultLogFields, type ListLogLine, type SimpleGit } from 'simple-git';
+import { simpleGit, type SimpleGit } from 'simple-git';
 
-type FileChangeLog = {
-	hash: string | null;
-	date: string;
-};
-
-type FileHistory = {
-	updated: FileChangeLog;
-	created: FileChangeLog;
-};
-
-type Log = DefaultLogFields & ListLogLine;
-
-function formatFileChangeLog(fileChangeLog: Log | undefined): FileChangeLog {
+function formatFileChangeLog(fileChangeLog: git.Log | undefined): git.FileChangeLog {
 	if (!fileChangeLog) {
 		return {
 			hash: null,
@@ -26,7 +14,7 @@ function formatFileChangeLog(fileChangeLog: Log | undefined): FileChangeLog {
 	};
 }
 
-export async function fileHistory(filepath: string): Promise<FileHistory> {
+export async function fileHistory(filepath: string): Promise<git.FileHistory> {
 	const git: SimpleGit = simpleGit();
 
 	const fileLogs = await git.log({ file: filepath });
