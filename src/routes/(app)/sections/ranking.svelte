@@ -12,7 +12,7 @@
 
 	export let data: PageData;
 
-	$: ({ assetsStats, icons, graphData } = data);
+	$: ({ assetsDetails, assetsStats, icons, graphData } = data);
 
 	$: graph = fromJson(graphData);
 </script>
@@ -37,7 +37,9 @@
 					{ id: 'backing-uniformity', title: 'Backing Uniformity', class: 'hidden sm:table-cell' }
 				]}
 				rows={graphData.nodes
-					.filter((asset) => graph.getLinks(asset.id)?.length)
+					.filter(
+						({ id }) => graph.getLinks(id)?.length && !assetsDetails[id]?.tags?.includes('lp')
+					)
 					.map(({ id, data: { details, price, mcap } }, i) => ({
 						rank: { text: i + 1, value: i },
 						name: { text: details.name, value: details.name, icon: icons[id]?.href },
