@@ -37,7 +37,7 @@ jobs:
         with:
           commit_message: Update Asset Data
           branch: main
-          file_pattern: ":/assets/**/*.json"
+          file_pattern: ":/assets/**/*.json .aggregation/*.json"
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
