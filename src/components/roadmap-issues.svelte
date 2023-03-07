@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { StarIcon, SearchIcon, CalendarIcon } from '@rgossiaux/svelte-heroicons/solid';
+	import { CalendarIcon, SearchIcon, StarIcon } from '@rgossiaux/svelte-heroicons/solid';
 
 	export let issues: gh.Issues;
 </script>
@@ -11,9 +11,7 @@
 				<span class="absolute top-5 left-4 -ml-px h-full w-0.5 bg-gray-500" aria-hidden="true" />
 			{/if}
 			<div class="relative flex items-start space-x-3">
-				<div
-					class="flex h-8 w-8 items-center justify-center rounded-full bg-gray-300 ring-8 ring-gray-200"
-				>
+				<div class="flex h-8 w-8 items-center justify-center rounded-full bg-gray-300">
 					{#if issue.labels.some((label) => label.name == 'enhancement')}
 						<StarIcon class="h-5 w-5 text-gray-500" aria-hidden="true" />
 					{:else if issue.labels.some((label) => label.name == 'listing')}
