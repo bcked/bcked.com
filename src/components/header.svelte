@@ -83,20 +83,48 @@
 	</div>
 
 	<DisclosurePanel class="absolute sm:hidden w-full backdrop-blur-sm">
-		<div class="pt-2 pb-3 space-y-1">
-			{#each mainNavigation as item}
-				{@const current = $page.url.hash == item.path}
-				<DisclosureButton
-					as="a"
-					href={item.path}
-					class="block pl-3 pr-4 py-2 border-l-4 text-base font-medium {current
-						? 'bg-gray-100/20 border-neon-pink text-gray-900'
-						: 'border-transparent text-gray-500 hover:bg-gray-50/20 hover:border-gray-400 hover:text-gray-800'}"
-					aria-current={current ? 'page' : undefined}
-				>
-					{item.name}
-				</DisclosureButton>
-			{/each}
+		<div class="divide-y divide-gray-500/10">
+			<div class="pt-2 pb-3 space-y-1">
+				{#each mainNavigation as item}
+					{@const current = $page.url.hash == item.path}
+					<DisclosureButton
+						as="a"
+						href={item.path}
+						class="block pl-3 pr-4 py-2 border-l-4 text-base font-medium {current
+							? 'bg-gray-100/20 border-neon-pink text-gray-900'
+							: 'border-transparent text-gray-500 hover:bg-gray-50/20 hover:border-gray-400 hover:text-gray-800'}"
+						aria-current={current ? 'page' : undefined}
+					>
+						{item.name}
+					</DisclosureButton>
+				{/each}
+			</div>
+			<div class="pt-2 pb-3 space-y-1">
+				{#each bottomNavigation as item}
+					{@const current = $page.url.pathname == item.path}
+					<DisclosureButton
+						as="a"
+						href={item.path}
+						class="block pl-3 pr-4 py-2 border-l-4 text-base font-medium {current
+							? 'bg-gray-100/20 border-neon-pink text-gray-900'
+							: 'border-transparent text-gray-500 hover:bg-gray-50/20 hover:border-gray-400 hover:text-gray-800'}"
+						aria-current={current ? 'page' : undefined}
+					>
+						{item.name}
+					</DisclosureButton>
+				{/each}
+			</div>
+			<div class="flex pl-3 pr-4 pt-2 pb-3 space-x-1">
+				{#each socials as item}
+					<a
+						href={item.path}
+						class="p-2 text-gray-500 hover:bg-gray-50/20 hover:border-gray-400 hover:text-gray-800"
+					>
+						<span class="sr-only">{item.name}</span>
+						<svelte:component this={item.icon} class="h-6 w-6" aria-hidden="true" />
+					</a>
+				{/each}
+			</div>
 		</div>
 	</DisclosurePanel>
 </Disclosure>
