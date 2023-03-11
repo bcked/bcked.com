@@ -209,7 +209,7 @@
 							</dl>
 						</div>
 					</div>
-					<div class="mt-6 overflow-hidden">
+					<div class="mt-6  h-full overflow-hidden">
 						<FinancialChart
 							data={underlying.length
 								? [...new Set(underlying.flatMap((link) => _.map(link.data.history, 'timestamp')))]
@@ -339,7 +339,7 @@
 
 		{#if derivative.length > 0}
 			<div class="grid grid-cols-1 gap-4 lg:grid-cols-2 shadow-none">
-				<div class="relative bg-gray-50 shadow sm:rounded-lg overflow-hidden">
+				<div class="flex flex-col bg-gray-50 shadow sm:rounded-lg overflow-hidden">
 					<div class="px-4 pt-5 sm:px-6 sm:pt-6">
 						<div class="max-w-3xl mx-auto text-center">
 							<h2 class="text-3xl tracking-tight font-bold text-gray-900">
@@ -366,7 +366,7 @@
 							</dl>
 						</div>
 					</div>
-					<div class="mt-6 overflow-visible">
+					<div class="mt-6 h-full overflow-hidden">
 						<FinancialChart
 							data={derivative.length
 								? [

@@ -2,7 +2,6 @@
 	import {
 		ColorType,
 		createChart,
-		PriceScaleMode,
 		type HorzAlign,
 		type IChartApi,
 		type ISeriesApi,
@@ -10,7 +9,6 @@
 		type Time,
 		type VertAlign
 	} from 'lightweight-charts';
-	import { onMount } from 'svelte';
 
 	const chartOptions = {
 		layout: {
@@ -19,10 +17,7 @@
 		},
 		grid: { vertLines: { visible: false }, horzLines: { visible: false } },
 		timeScale: { borderVisible: false },
-		rightPriceScale: {
-			borderVisible: false,
-			mode: PriceScaleMode.Normal
-		},
+		rightPriceScale: { borderVisible: false },
 		watermark: {
 			visible: true,
 			fontSize: 24,
@@ -45,29 +40,40 @@
 	/** Data describes an array of objects structured to describe a date and a value. */
 	export let data: { date: string; value: number }[];
 
+	$: timeData = data.map(({ date, value }) => ({
+		time: (new Date(date).getTime() / 1000) as Time,
+		value
+	}));
+
 	let container: HTMLDivElement;
 
 	// width of the svg
 	$: containerWidth = 0;
 	$: containerHeight = 0;
 
-	$: dateData = data.map(({ date, value }) => ({
-		time: (new Date(date).getTime() / 1000) as Time,
-		value
-	}));
-
 	let chart: IChartApi;
 	let areaSeries: ISeriesApi<'Area'>;
 
-	onMount(() => {
+	function create(container: HTMLDivElement | undefined) {
+		if (!container) return;
 		chart = createChart(container, chartOptions);
-		chart.timeScale().fitContent();
-
 		areaSeries = chart.addAreaSeries(areaOptions);
-	});
+		setData(timeData);
+	}
 
-	$: areaSeries?.setData(dateData);
-	$: chart?.resize(containerWidth, containerHeight);
+	function setData(data: { time: Time; value: number }[]) {
+		areaSeries?.setData(data);
+		chart?.timeScale()?.fitContent();
+	}
+
+	function resize(width: number, height: number) {
+		chart?.resize(width, height);
+		chart?.timeScale()?.fitContent();
+	}
+
+	$: create(container);
+	$: setData(timeData);
+	$: resize(containerWidth, containerHeight);
 </script>
 
 <!-- <div class="absolute w-full px-2 text-center -mt-10">
