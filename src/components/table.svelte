@@ -34,7 +34,7 @@
 				{#each columns as column}
 					<th
 						scope="col"
-						class="sticky top-16 z-10 bg-gray-100 bg-opacity-75 backdrop-blur backdrop-filter group-column cursor-pointer py-3.5 pl-4 sm:pl-6 lg:pl-8 pr-1 text-left text-sm font-semibold text-gray-900 transition-all motion-reduce:transition-none duration-500 {column.class}"
+						class="sticky top-16 z-10 bg-opacity-75 backdrop-blur backdrop-filter group-column cursor-pointer py-3.5 pl-4 sm:pl-6 lg:pl-8 pr-1 text-left text-sm font-semibold text-gray-900 transition-all motion-reduce:transition-none duration-500 {column.class}"
 						on:click={(e) => {
 							if (sortBy == column.id) {
 								sortAsc = !sortAsc;
@@ -89,7 +89,7 @@
 										{:else}
 											<CashIcon class="h-5 w-5 text-gray-500" aria-hidden="true" />
 										{/if}
-										<span>
+										<span class="truncate">
 											{row[column.id].text}
 										</span>
 									</div>

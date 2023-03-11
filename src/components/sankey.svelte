@@ -28,6 +28,7 @@
 
 	/** [nodeAlign=d3.sankeyLeft] - An alignment function to position the Sankey blocks. See the [d3-sankey documentation](https://github.com/d3/d3-sankey#alignments) for more. */
 	export let nodeAlign = Sankey.sankeyJustify;
+	// export let nodeAlign = Sankey.sankeyLeft;
 	// export let nodeAlign = (d: d3.SankeyNode) => d.depth;
 
 	export let iterations: number = 200;

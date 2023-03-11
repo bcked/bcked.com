@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
-	import LineChart from '$components/line-chart-agg.svelte';
+	import FinancialChart from '$components/financial-chart.svelte';
 	import LiquidFill from '$components/liquid-fill.svelte';
 	import Sankey from '$components/sankey-layer.svelte';
 	import Table from '$components/table.svelte';
@@ -186,7 +186,7 @@
 
 		{#if underlying.length > 0}
 			<div class="grid grid-cols-1 gap-4 lg:grid-cols-2 shadow-none">
-				<div class="relative bg-gray-50 shadow sm:rounded-lg overflow-hidden">
+				<div class="flex flex-col bg-gray-50 shadow sm:rounded-lg overflow-hidden">
 					<div class="px-4 pt-5 sm:px-6 sm:pt-6">
 						<div class="max-w-3xl mx-auto text-center">
 							<h2 class="text-3xl tracking-tight font-bold text-gray-900">Backing History</h2>
@@ -209,9 +209,8 @@
 							</dl>
 						</div>
 					</div>
-					<div class="text-center mt-6 text-lg font-thin text-gray-500 overflow-visible">
-						<LineChart
-							id="{details.name.toLowerCase().split(' ').join('-')}-backing-history"
+					<div class="mt-6 overflow-hidden">
+						<FinancialChart
 							data={underlying.length
 								? [...new Set(underlying.flatMap((link) => _.map(link.data.history, 'timestamp')))]
 										.sort()
@@ -236,68 +235,7 @@
 											value: 0
 										}
 								  ]}
-							formatValue={(v) => formatPercentage(v)}
-							{interval}
-							{entries}
 						/>
-					</div>
-					<div class="absolute w-full px-2 text-center -mt-10">
-						<span class="isolate inline-flex rounded-md shadow-sm">
-							<button
-								type="button"
-								class="relative inline-flex items-center rounded-l-md {interval == 1
-									? 'bg-neon-pink'
-									: 'bg-white'} bg-opacity-50 px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:contrast-75 focus:z-10"
-								on:click={() => (interval = 1)}
-							>
-								1D
-							</button>
-							<button
-								type="button"
-								class="relative -ml-px inline-flex items-center {interval == 3
-									? 'bg-neon-pink'
-									: 'bg-white'} bg-opacity-50 px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:contrast-75 focus:z-10"
-								on:click={() => (interval = 3)}
-							>
-								3D
-							</button>
-							<button
-								type="button"
-								class="relative -ml-px inline-flex items-center {interval == 7
-									? 'bg-neon-pink'
-									: 'bg-white'} bg-opacity-50 px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:contrast-75 focus:z-10"
-								on:click={() => (interval = 7)}
-							>
-								1W
-							</button>
-							<button
-								type="button"
-								class="relative -ml-px inline-flex items-center {interval == 30
-									? 'bg-neon-pink'
-									: 'bg-white'} bg-opacity-50 px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:contrast-75 focus:z-10"
-								on:click={() => (interval = 30)}
-							>
-								1M
-							</button>
-							<button
-								type="button"
-								class="relative -ml-px inline-flex items-center {interval == 90
-									? 'bg-neon-pink'
-									: 'bg-white'} bg-opacity-50 px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:contrast-75 focus:z-10"
-								on:click={() => (interval = 90)}
-							>
-								3M
-							</button>
-							<button
-								type="button"
-								class="relative -ml-px inline-flex items-center rounded-r-md {interval == 365
-									? 'bg-neon-pink'
-									: 'bg-white'} bg-opacity-50 px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:contrast-75 focus:z-10"
-								on:click={() => (interval = 365)}
-							>
-								1Y
-							</button>
-						</span>
 					</div>
 				</div>
 
@@ -428,9 +366,8 @@
 							</dl>
 						</div>
 					</div>
-					<div class="text-center mt-6 text-lg font-thin text-gray-500 overflow-visible">
-						<LineChart
-							id="{details.name.toLowerCase().split(' ').join('-')}-backing-history"
+					<div class="mt-6 overflow-visible">
+						<FinancialChart
 							data={derivative.length
 								? [
 										...new Set(
@@ -461,68 +398,7 @@
 											value: 0
 										}
 								  ]}
-							formatValue={(v) => formatPercentage(v)}
-							{interval}
-							{entries}
 						/>
-					</div>
-					<div class="absolute w-full px-2 text-center -mt-10">
-						<span class="isolate inline-flex rounded-md shadow-sm">
-							<button
-								type="button"
-								class="relative inline-flex items-center rounded-l-md {interval == 1
-									? 'bg-neon-pink'
-									: 'bg-white'} bg-opacity-50 px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:contrast-75 focus:z-10"
-								on:click={() => (interval = 1)}
-							>
-								1D
-							</button>
-							<button
-								type="button"
-								class="relative -ml-px inline-flex items-center {interval == 3
-									? 'bg-neon-pink'
-									: 'bg-white'} bg-opacity-50 px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:contrast-75 focus:z-10"
-								on:click={() => (interval = 3)}
-							>
-								3D
-							</button>
-							<button
-								type="button"
-								class="relative -ml-px inline-flex items-center {interval == 7
-									? 'bg-neon-pink'
-									: 'bg-white'} bg-opacity-50 px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:contrast-75 focus:z-10"
-								on:click={() => (interval = 7)}
-							>
-								1W
-							</button>
-							<button
-								type="button"
-								class="relative -ml-px inline-flex items-center {interval == 30
-									? 'bg-neon-pink'
-									: 'bg-white'} bg-opacity-50 px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:contrast-75 focus:z-10"
-								on:click={() => (interval = 30)}
-							>
-								1M
-							</button>
-							<button
-								type="button"
-								class="relative -ml-px inline-flex items-center {interval == 90
-									? 'bg-neon-pink'
-									: 'bg-white'} bg-opacity-50 px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:contrast-75 focus:z-10"
-								on:click={() => (interval = 90)}
-							>
-								3M
-							</button>
-							<button
-								type="button"
-								class="relative -ml-px inline-flex items-center rounded-r-md {interval == 365
-									? 'bg-neon-pink'
-									: 'bg-white'} bg-opacity-50 px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:contrast-75 focus:z-10"
-								on:click={() => (interval = 365)}
-							>
-								1Y
-							</button>
-						</span>
 					</div>
 				</div>
 

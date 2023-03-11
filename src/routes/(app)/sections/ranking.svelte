@@ -30,11 +30,11 @@
 					{ id: 'rank', title: '#', class: '' },
 					{ id: 'name', title: 'Name', class: 'font-medium', link: true },
 					{ id: 'price', title: 'Price', class: 'hidden lg:table-cell' },
-					{ id: 'backing-assets', title: 'Backing Assets', class: '' },
-					{ id: 'backing-ratio', title: 'Backing Ratio', class: '' },
-					{ id: 'backing-usd', title: 'Backing in USD', class: 'hidden sm:table-cell' },
+					{ id: 'backing-assets', title: 'Backing Assets', class: 'hidden sm:table-cell' },
+					{ id: 'backing-ratio', title: 'Backing Ratio', class: 'hidden sm:table-cell' },
+					{ id: 'backing-usd', title: 'Backing in USD', class: '' },
 					{ id: 'mcap', title: 'Market Cap', class: 'hidden lg:table-cell' },
-					{ id: 'backing-uniformity', title: 'Backing Uniformity', class: 'hidden sm:table-cell' }
+					{ id: 'backing-uniformity', title: 'Backing Uniformity', class: 'hidden lg:table-cell' }
 				]}
 				rows={graphData.nodes
 					.filter(
