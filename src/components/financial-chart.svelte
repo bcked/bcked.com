@@ -31,8 +31,12 @@
 
 	onMount(() => {
 		const chartOptions = {
-			layout: { background: { type: ColorType.Solid, color: 'transparent' } },
+			layout: {
+				textColor: 'rgb(107 114 128)',
+				background: { type: ColorType.Solid, color: 'transparent' }
+			},
 			autoSize: true,
+			grid: { vertLines: { visible: false }, horzLines: { visible: false } },
 			timeScale: { borderVisible: false },
 			rightPriceScale: {
 				borderVisible: false,
