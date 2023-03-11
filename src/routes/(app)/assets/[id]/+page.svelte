@@ -226,7 +226,7 @@
 												: 0;
 											return {
 												date: timestamp,
-												value: ratio
+												value: ratio * 100
 											};
 										})
 								: [
@@ -389,7 +389,7 @@
 												: 0;
 											return {
 												date: timestamp,
-												value: ratio
+												value: ratio * 100
 											};
 										})
 								: [

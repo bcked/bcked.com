@@ -12,6 +12,36 @@
 	} from 'lightweight-charts';
 	import { onMount } from 'svelte';
 
+	const chartOptions = {
+		layout: {
+			textColor: 'rgb(107 114 128)',
+			background: { type: ColorType.Solid, color: 'transparent' }
+		},
+		grid: { vertLines: { visible: false }, horzLines: { visible: false } },
+		timeScale: { borderVisible: false },
+		rightPriceScale: {
+			borderVisible: false,
+			mode: PriceScaleMode.Normal
+		},
+		watermark: {
+			visible: true,
+			fontSize: 24,
+			horzAlign: 'center' as HorzAlign,
+			vertAlign: 'center' as VertAlign,
+			color: '#FF3B7688',
+			text: 'bcked.com'
+		}
+	};
+
+	export let priceFormat: PriceFormatBuiltIn = { type: 'percent', precision: 2, minMove: 0.01 };
+
+	const areaOptions = {
+		lineColor: '#FF3B76',
+		topColor: '#FF3B7688',
+		bottomColor: '#FF3B7600',
+		priceFormat
+	};
+
 	/** Data describes an array of objects structured to describe a date and a value. */
 	export let data: { date: string; value: number }[];
 
@@ -23,46 +53,20 @@
 
 	$: dateData = data.map(({ date, value }) => ({
 		time: (new Date(date).getTime() / 1000) as Time,
-		value: value * 100
+		value
 	}));
 
 	let chart: IChartApi;
 	let areaSeries: ISeriesApi<'Area'>;
 
 	onMount(() => {
-		const chartOptions = {
-			layout: {
-				textColor: 'rgb(107 114 128)',
-				background: { type: ColorType.Solid, color: 'transparent' }
-			},
-			autoSize: true,
-			grid: { vertLines: { visible: false }, horzLines: { visible: false } },
-			timeScale: { borderVisible: false },
-			rightPriceScale: {
-				borderVisible: false,
-				mode: PriceScaleMode.Normal
-			},
-			watermark: {
-				visible: true,
-				fontSize: 24,
-				horzAlign: 'center' as HorzAlign,
-				vertAlign: 'center' as VertAlign,
-				color: '#FF3B7688',
-				text: 'bcked.com'
-			}
-		};
 		chart = createChart(container, chartOptions);
 		chart.timeScale().fitContent();
-		const areaOptions = {
-			lineColor: '#FF3B76',
-			topColor: '#FF3B7688',
-			bottomColor: '#FF3B7600',
-			priceFormat: { type: 'percent', precision: 2, minMove: 0.01 } as PriceFormatBuiltIn
-		};
+
 		areaSeries = chart.addAreaSeries(areaOptions);
-		areaSeries.setData(dateData);
 	});
 
+	$: areaSeries?.setData(dateData);
 	$: chart?.resize(containerWidth, containerHeight);
 </script>
 
@@ -125,7 +129,7 @@
 </span>
 </div> -->
 <div
-	class="overflow-visible w-full h-full min-h-[300px]"
+	class="overflow-visible w-full h-full min-h-[200px] sm:min-h-[250px]"
 	bind:offsetWidth={containerWidth}
 	bind:offsetHeight={containerHeight}
 	bind:this={container}
