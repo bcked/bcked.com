@@ -209,7 +209,7 @@
 							</dl>
 						</div>
 					</div>
-					<div class="mt-6  h-full overflow-hidden">
+					<div class="mt-6 h-full overflow-hidden">
 						<FinancialChart
 							data={underlying.length
 								? [...new Set(underlying.flatMap((link) => _.map(link.data.history, 'timestamp')))]
@@ -239,7 +239,7 @@
 					</div>
 				</div>
 
-				<div class="bg-gray-50 shadow sm:rounded-lg overflow-hidden">
+				<div class="flex flex-col bg-gray-50 shadow sm:rounded-lg overflow-hidden">
 					<div class="px-4 pt-5 sm:px-6 sm:pt-6">
 						<div class="max-w-3xl mx-auto text-center">
 							<h2 class="text-3xl tracking-tight font-bold text-gray-900">Underlying Chain</h2>
@@ -249,7 +249,7 @@
 						</div>
 					</div>
 
-					<div class="flex mt-6 justify-center">
+					<div class="mt-6 h-full justify-center">
 						<Sankey graph={limitValueByLinks(getDAG(graph, id, 'down'), id)} />
 					</div>
 				</div>
@@ -402,7 +402,7 @@
 					</div>
 				</div>
 
-				<div class="bg-gray-50 shadow sm:rounded-lg overflow-hidden">
+				<div class="flex flex-col bg-gray-50 shadow sm:rounded-lg overflow-hidden">
 					<div class="px-4 pt-5 sm:px-6 sm:pt-6">
 						<div class="max-w-3xl mx-auto text-center">
 							<h2 class="text-3xl tracking-tight font-bold text-gray-900">Derivative Chain</h2>
@@ -412,7 +412,7 @@
 						</div>
 					</div>
 
-					<div class="flex mt-6 justify-center">
+					<div class="mt-6 h-full justify-center">
 						<Sankey graph={limitValueByLinks(getDAG(graph, id, 'up'), id)} />
 					</div>
 				</div>

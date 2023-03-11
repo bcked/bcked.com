@@ -23,7 +23,7 @@
 			fontSize: 24,
 			horzAlign: 'center' as HorzAlign,
 			vertAlign: 'center' as VertAlign,
-			color: '#FF3B7688',
+			color: '#FF3B7680',
 			text: 'bcked.com'
 		}
 	};

@@ -26,10 +26,15 @@
 	}
 </script>
 
-<div class="w-full h-96">
-	<LayerCake data={JSON.parse(JSON.stringify(ngraph2d3(graph)))}>
-		<Svg>
-			<Sankey {graph} />
-		</Svg>
-	</LayerCake>
+<div class="relative w-full h-full items-center">
+	<div class="absolute flex inset-0 text-2xl justify-center items-center text-neon-pink/50">
+		<span>bcked.com</span>
+	</div>
+	<div class="h-full w-full min-h-[300px] sm:min-h-[350px] lg:min-h-[300px]">
+		<LayerCake data={JSON.parse(JSON.stringify(ngraph2d3(graph)))}>
+			<Svg>
+				<Sankey {graph} />
+			</Svg>
+		</LayerCake>
+	</div>
 </div>
