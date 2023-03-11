@@ -52,9 +52,9 @@
 						title="Underlying Assets"
 						map={(asset) => ({
 							...asset,
-							numUnderlying: (graph.getLinks(asset.id) ?? []).filter(
-								(link) => link.fromId == asset.id
-							).length
+							numUnderlying: (graph.getLinks(asset.id) ?? [])
+								.filter((link) => link.fromId == asset.id)
+								.filter((link) => link.data.history?.at(-1)?.amount).length
 						})}
 						filter={(asset) => asset.numUnderlying > 0}
 						compare={(a, b) => b.numUnderlying - a.numUnderlying}
@@ -67,9 +67,9 @@
 						title="Derivative Assets"
 						map={(asset) => ({
 							...asset,
-							numDerivatives: (graph.getLinks(asset.id) ?? []).filter(
-								(link) => link.fromId != asset.id
-							).length
+							numDerivatives: (graph.getLinks(asset.id) ?? [])
+								.filter((link) => link.fromId != asset.id)
+								.filter((link) => link.data.history?.at(-1)?.amount).length
 						})}
 						filter={(asset) => asset.numDerivatives > 0}
 						compare={(a, b) => b.numDerivatives - a.numDerivatives}

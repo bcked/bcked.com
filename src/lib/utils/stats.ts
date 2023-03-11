@@ -38,7 +38,10 @@ export function calcAssetsStats(graph: Graph<graph.NodeData, graph.LinkData>): a
 	let assetsStats: agg.AssetsStats = {};
 
 	graph.forEachNode((node) => {
-		assetsStats[node.id] = calcNodeStats(node, [...(graph.getLinks(node.id) ?? [])]);
+		assetsStats[node.id] = calcNodeStats(
+			node,
+			[...(graph.getLinks(node.id) ?? [])].filter((link) => link.data.history?.at(-1)?.amount)
+		);
 	});
 
 	writeAggregation('assets-stats', assetsStats);
