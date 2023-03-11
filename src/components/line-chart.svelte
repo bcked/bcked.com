@@ -5,15 +5,15 @@
 	export let id: string;
 
 	/** Data describes an array of objects structured to describe a date and a value. */
-	export let data: { x: any; y: any }[];
+	export let data: { x: Date; y: number }[];
 
-	export let parseX: (v: any) => any = (v) => v;
+	export let parseX: (v: string) => Date = (v) => v;
 
-	export let formatX: (v: any) => string = (v) => v;
+	export let formatX: (v: Date) => string = (v) => v;
 
 	export let parseY: (v: any) => any = (v) => v;
 
-	export let formatY: (v: any) => string = (v) => v;
+	export let formatY: (v: number) => string = (v) => v;
 
 	export let heightRatio = 0.4;
 
@@ -28,11 +28,13 @@
 	$: width = 0;
 	$: height = width * heightRatio;
 
+	$: minX = d3.min(data, (d) => d.x)!;
+	$: maxX = d3.max(data, (d) => d.x)!;
+
+	// $: [minX, maxX] = d3.extent(data, (d) => parseX(d.x));
+
 	// horizontally create a scale based on the input dates
-	$: xScale = d3
-		.scaleTime()
-		.domain(d3.extent(data, (d) => parseX(d.x)))
-		.range([0, width]);
+	$: xScale = d3.scaleTime().domain([minX, maxX]).range([0, width]);
 
 	$: maxY = d3.max(data, (d) => parseY(d.y));
 	$: minY = d3.min(data, (d) => parseY(d.y));
@@ -43,8 +45,8 @@
 	// Curve shapes: https://github.com/d3/d3-shape#curves
 	// const curveShape = d3.curveCatmullRom;
 	// const curveShape = d3.curveLinear;
-	const curveShape = d3.curveBumpX;
-	// const curveShape = d3.curveStep; // Looks less smooth but more true to the data
+	// const curveShape = d3.curveBumpX;
+	const curveShape = d3.curveStep; // Looks less smooth but more true to the data
 
 	// line function mapping the date and value in the svg
 	$: line = d3
@@ -61,9 +63,11 @@
 		.y1((d) => yScale(parseY(d.y)))
 		.curve(curveShape);
 
+	$: dates = d3.timeDay.range(minX, maxX);
+
 	// "ticks", milestones marked on the x-axis
 	$: xAxis = generate(0.15, 0.85, width > sm ? 5 : 3).map((q) =>
-		d3.quantile(data, q, (d) => parseX(d.x))
+		d3.quantile(dates, q, (d) => d.getTime())
 	);
 
 	// "ticks" for the y-axis

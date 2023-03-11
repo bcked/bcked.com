@@ -11,17 +11,17 @@
 			d3graph.nodes.push({
 				id: node.id as string,
 				name: node.id as string,
-				value: 1 //node?.data?.mcap ?? 1
+				value: node?.data?.history?.at(-1)?.mcap ?? 1
 			});
 		});
 		g.forEachLink((link) => {
+			if (!link?.data?.history?.at(-1)?.amount) return;
 			d3graph.links.push({
 				source: link.fromId as string,
 				target: link.toId as string,
-				value: link?.data?.backingUsd ?? 1
+				value: link?.data?.history?.at(-1)?.value ?? 1
 			});
 		});
-		console.log(d3graph);
 		return d3graph;
 	}
 </script>
@@ -29,7 +29,7 @@
 <div class="w-full h-96">
 	<LayerCake data={JSON.parse(JSON.stringify(ngraph2d3(graph)))}>
 		<Svg>
-			<Sankey {graph} colorNodes={(d) => '#ff3b76'} colorText={(d) => '#ffffff'} />
+			<Sankey {graph} />
 		</Svg>
 	</LayerCake>
 </div>

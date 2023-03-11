@@ -5,9 +5,14 @@ import type { Graph, Link, Node } from 'ngraph.graph';
 
 function calcLinksStats(node: Node<graph.NodeData>, links: Link<graph.LinkData>[]): agg.LinksStats {
 	const count = links.length;
-	const usd = round(_.sumBy(links, 'data.backingUsd'), 2);
-	const ratio = node.data.mcap ? round(usd / node.data.mcap, 4) : null;
-	const uniformity = round(calcUniformity(_.map(links, 'data.backingUsd')), 4);
+	const usd = round(_.sum(links.map((link) => link.data.history.at(-1)?.value)), 2);
+	const ratio = node.data.history?.at(-1)?.mcap
+		? round(usd / node.data.history.at(-1)!.mcap!, 4)
+		: null;
+	const uniformity = round(
+		calcUniformity(_.compact(links.map((link) => link.data.history.at(-1)?.value))),
+		4
+	);
 	return {
 		count,
 		usd,

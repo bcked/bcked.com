@@ -40,14 +40,14 @@
 					.filter(
 						({ id }) => graph.getLinks(id)?.length && !assetsDetails[id]?.tags?.includes('lp')
 					)
-					.map(({ id, data: { details, price, mcap } }, i) => ({
+					.map(({ id, data: { details, history } }, i) => ({
 						rank: { text: i + 1, value: i },
 						name: { text: details.name, value: details.name, icon: icons[id]?.href },
 						price: {
-							text: price?.history?.at(-1)?.usd
-								? formatCurrency(price?.history?.at(-1)?.usd ?? 0)
+							text: history?.at(-1)?.price?.usd
+								? formatCurrency(history?.at(-1)?.price?.usd ?? 0)
 								: 'UNK',
-							value: price?.history?.at(-1)?.usd
+							value: history?.at(-1)?.price?.usd
 						},
 						'backing-assets': {
 							text: assetsStats[id].underlying.count,
@@ -63,7 +63,10 @@
 								: 'UNK',
 							value: assetsStats[id].underlying.usd
 						},
-						mcap: { text: mcap ? formatCurrency(mcap) : 'UNK', value: mcap },
+						mcap: {
+							text: history?.at(-1)?.mcap ? formatCurrency(history.at(-1).mcap) : 'UNK',
+							value: history?.at(-1)?.mcap
+						},
 						'backing-uniformity': {
 							text:
 								assetsStats[id].underlying.ratio > 0

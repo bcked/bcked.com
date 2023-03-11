@@ -75,9 +75,9 @@
 			})
 			.linkLabel((l) => {
 				const link = l as Link;
-				const data = link.data;
-				if (!data.backingUsd) return '';
-				return formatCurrency(data.backingUsd);
+				const value = link.data.history.at(-1)?.value;
+				if (!value) return '';
+				return formatCurrency(value);
 			})
 			.linkDirectionalArrowLength(9)
 			.linkDirectionalArrowRelPos(0.5)

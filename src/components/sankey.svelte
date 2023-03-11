@@ -73,8 +73,6 @@
 		return path.toString();
 	}
 
-	export let fontSize = 12;
-
 	// function showTooltip(evt, text) {
 	// 	let tooltip = document.getElementById("tooltip");
 	// 	tooltip.innerHTML = text;

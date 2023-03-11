@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
-	import LineChart from '$components/line-chart.svelte';
+	import LineChart from '$components/line-chart-agg.svelte';
 	import LiquidFill from '$components/liquid-fill.svelte';
 	import Sankey from '$components/sankey-layer.svelte';
 	import Table from '$components/table.svelte';
@@ -12,7 +12,7 @@
 	import { round } from '$lib/utils/math';
 	import { formatCurrency, formatNum, formatPercentage } from '$lib/utils/string-formatting';
 	import { ChatAltIcon, ThumbDownIcon, ThumbUpIcon } from '@rgossiaux/svelte-heroicons/outline';
-	import * as d3 from 'd3';
+	import _ from 'lodash-es';
 	import fromJson from 'ngraph.fromjson';
 	import type { Graph } from 'ngraph.graph';
 	import { onMount } from 'svelte';
@@ -21,7 +21,7 @@
 
 	export let data: PageData;
 
-	$: ({ assetsPrice, assetsStats, graphData, comments } = data);
+	$: ({ assetsPrice, assetsBacking, assetsStats, graphData, comments } = data);
 
 	let graph: Graph<graph.NodeData, graph.LinkData>;
 	$: graph = fromJson(graphData);
@@ -30,11 +30,11 @@
 
 	$: node = graph.getNode(id)!;
 	$: asset = node.data;
-	$: links = graph.getLinks(id) ?? [];
+	$: links = (graph.getLinks(id) ?? []).filter((link) => link.data.history.at(-1)?.amount);
 	$: underlying = links.filter((link) => link.fromId == id);
 	$: derivative = links.filter((link) => link.fromId != id);
 
-	$: ({ details, issuer, chain, icon, contracts, price, supply, backing, mcap } = asset);
+	$: ({ details, issuer, chain, icon, contracts } = asset);
 
 	$: assetStats = assetsStats[id]!;
 
@@ -44,7 +44,8 @@
 		if (asset.contracts) {
 			const currentPrice = await api.getPrice(asset.contracts);
 			if (!currentPrice) return;
-			price?.history?.push(currentPrice);
+			// TODO fix
+			// price?.history?.push(currentPrice);
 		}
 	}
 
@@ -67,10 +68,10 @@
 
 	let stats: Stat[] = [];
 	$: stats = [
-		price?.history?.at(-1)?.usd
+		asset?.history?.at(-1)?.price?.usd
 			? {
 					name: 'Price',
-					value: price.history.at(-1)!.usd,
+					value: asset.history.at(-1)!.price!.usd,
 					type: 'currency'
 			  }
 			: {
@@ -80,7 +81,7 @@
 			  },
 		{
 			name: 'Backing Assets',
-			value: assetStats.underlying.count,
+			value: underlying.length,
 			type: 'standard'
 		},
 		assetStats.underlying.ratio
@@ -124,18 +125,8 @@
 		}
 	};
 
-	function calcBackingUsd(backing: agg.AssetBacking, assetsPrice: agg.AssetsPrice): number {
-		let backingUsd: number = 0;
-		for (const [underlying, amount] of Object.entries(backing.assets)) {
-			const priceHistory = assetsPrice[underlying]?.history;
-
-			if (priceHistory && priceHistory.length) {
-				const price = closest(priceHistory, backing.timestamp);
-				backingUsd += round(price.usd * amount, 2);
-			}
-		}
-		return backingUsd;
-	}
+	let interval = 3;
+	let entries = 10;
 </script>
 
 <SvelteSeo
@@ -193,14 +184,14 @@
 			{/each}
 		</div>
 
-		{#if assetStats.underlying.count > 0}
+		{#if underlying.length > 0}
 			<div class="grid grid-cols-1 gap-4 lg:grid-cols-2 shadow-none">
-				<div class="bg-gray-50 shadow sm:rounded-lg overflow-hidden">
+				<div class="relative bg-gray-50 shadow sm:rounded-lg overflow-hidden">
 					<div class="px-4 pt-5 sm:px-6 sm:pt-6">
 						<div class="max-w-3xl mx-auto text-center">
 							<h2 class="text-3xl tracking-tight font-bold text-gray-900">Backing History</h2>
 							<p class="mt-4 text-lg text-gray-500">
-								View the backing history of {details.name}.
+								View {details.name}'s backing history of up to the last {entries * interval} days.
 							</p>
 						</div>
 						<div class="flex mt-6 items-center justify-between">
@@ -213,7 +204,7 @@
 							<dl class="text-right">
 								<dt class="text-sm font-medium text-gray-500 truncate">Current Market Cap</dt>
 								<dd class="mt-1 text-3xl font-semibold text-gray-900">
-									{mcap ? formatCurrency(mcap) : 'UNK'}
+									{asset?.history?.at(-1)?.mcap ? formatCurrency(asset.history.at(-1).mcap) : 'UNK'}
 								</dd>
 							</dl>
 						</div>
@@ -221,70 +212,111 @@
 					<div class="text-center mt-6 text-lg font-thin text-gray-500 overflow-visible">
 						<LineChart
 							id="{details.name.toLowerCase().split(' ').join('-')}-backing-history"
-							data={backing?.history?.map((b) => ({
-								x: b.timestamp,
-								y: calcBackingUsd(b, assetsPrice)
-							})) ?? [
-								{
-									x: new Date().toISOString(),
-									y: 0
-								}
-							]}
-							parseX={d3.timeParse('%Y-%m-%dT%H:%M:%S.%LZ')}
-							formatX={d3.timeFormat('%e %B %Y')}
-							formatY={(v) => formatCurrency(v)}
-							heightRatio={0.39}
+							data={underlying.length
+								? [...new Set(underlying.flatMap((link) => _.map(link.data.history, 'timestamp')))]
+										.sort()
+										.map((timestamp) => {
+											const mcap = closest(asset.history, timestamp)?.mcap;
+											const ratio = mcap
+												? round(
+														_.sum(
+															underlying.map((link) => closest(link.data.history, timestamp).value)
+														) / mcap,
+														4
+												  )
+												: 0;
+											return {
+												date: timestamp,
+												value: ratio
+											};
+										})
+								: [
+										{
+											date: new Date().toISOString(),
+											value: 0
+										}
+								  ]}
+							formatValue={(v) => formatPercentage(v)}
+							{interval}
+							{entries}
 						/>
+					</div>
+					<div class="absolute w-full px-2 text-center -mt-10">
+						<span class="isolate inline-flex rounded-md shadow-sm">
+							<button
+								type="button"
+								class="relative inline-flex items-center rounded-l-md {interval == 1
+									? 'bg-neon-pink'
+									: 'bg-white'} bg-opacity-50 px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:contrast-75 focus:z-10"
+								on:click={() => (interval = 1)}
+							>
+								1D
+							</button>
+							<button
+								type="button"
+								class="relative -ml-px inline-flex items-center {interval == 3
+									? 'bg-neon-pink'
+									: 'bg-white'} bg-opacity-50 px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:contrast-75 focus:z-10"
+								on:click={() => (interval = 3)}
+							>
+								3D
+							</button>
+							<button
+								type="button"
+								class="relative -ml-px inline-flex items-center {interval == 7
+									? 'bg-neon-pink'
+									: 'bg-white'} bg-opacity-50 px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:contrast-75 focus:z-10"
+								on:click={() => (interval = 7)}
+							>
+								1W
+							</button>
+							<button
+								type="button"
+								class="relative -ml-px inline-flex items-center {interval == 30
+									? 'bg-neon-pink'
+									: 'bg-white'} bg-opacity-50 px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:contrast-75 focus:z-10"
+								on:click={() => (interval = 30)}
+							>
+								1M
+							</button>
+							<button
+								type="button"
+								class="relative -ml-px inline-flex items-center {interval == 90
+									? 'bg-neon-pink'
+									: 'bg-white'} bg-opacity-50 px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:contrast-75 focus:z-10"
+								on:click={() => (interval = 90)}
+							>
+								3M
+							</button>
+							<button
+								type="button"
+								class="relative -ml-px inline-flex items-center rounded-r-md {interval == 365
+									? 'bg-neon-pink'
+									: 'bg-white'} bg-opacity-50 px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:contrast-75 focus:z-10"
+								on:click={() => (interval = 365)}
+							>
+								1Y
+							</button>
+						</span>
 					</div>
 				</div>
 
 				<div class="bg-gray-50 shadow sm:rounded-lg overflow-hidden">
 					<div class="px-4 pt-5 sm:px-6 sm:pt-6">
 						<div class="max-w-3xl mx-auto text-center">
-							<h2 class="text-3xl tracking-tight font-bold text-gray-900">Backing Chain</h2>
+							<h2 class="text-3xl tracking-tight font-bold text-gray-900">Underlying Chain</h2>
 							<p class="mt-4 text-lg text-gray-500">
-								View the full chain of assets backing {details.name}.
+								View the full chain of {details.name}'s underlying assets.
 							</p>
 						</div>
 					</div>
 
 					<div class="flex mt-6 justify-center">
-						<Sankey graph={limitValueByLinks(getDAG(graph, id), id)} />
+						<Sankey graph={limitValueByLinks(getDAG(graph, id, 'down'), id)} />
 					</div>
 				</div>
 			</div>
-		{/if}
 
-		<div class="px-4 py-5 bg-gray-50 shadow sm:rounded-lg overflow-hidden sm:p-6">
-			<div class="max-w-3xl mx-auto text-center">
-				<h2 class="text-3xl tracking-tight font-bold text-gray-900">Praise and Doubts</h2>
-				<p class="mt-4 text-lg text-gray-500">
-					Any praise and doubts the community has about {details.name}'s backing.
-				</p>
-			</div>
-			<div
-				class="mt-6 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-3 lg:gap-x-8"
-			>
-				{#each comments as comment}
-					<div class="relative flex">
-						<div class="flex-shrink-0 mr-4">
-							{#if comment.type == 'doubt'}
-								<ThumbDownIcon class="h-6 w-6 text-red-500" aria-hidden="true" />
-							{:else if comment.type == 'praise'}
-								<ThumbUpIcon class="h-6 w-6 text-green-500" aria-hidden="true" />
-							{:else if comment.type == 'addition'}
-								<ChatAltIcon class="h-6 w-6 text-blue-500" aria-hidden="true" />
-							{/if}
-						</div>
-						<dl class="flex-1">
-							{@html comment.html}
-						</dl>
-					</div>
-				{/each}
-			</div>
-		</div>
-
-		{#if assetStats.underlying.count > 0}
 			<div class="bg-gray-50 shadow sm:rounded-lg overflow-hidden sm:mx-0 divide-y divide-gray-200">
 				<div class="max-w-3xl mx-auto text-center px-4 py-5 sm:p-6">
 					<h2 class="text-3xl tracking-tight font-bold text-gray-900">Underlying Assets</h2>
@@ -317,38 +349,44 @@
 								value: `${base}/assets/${linkedNode?.id}`
 							},
 							price: {
-								text: linkedNode?.data.price?.history?.at(-1)?.usd
-									? formatCurrency(linkedNode?.data.price?.history?.at(-1)?.usd ?? 0)
+								text: linkedNode?.data.history?.at(-1)?.price?.usd
+									? formatCurrency(linkedNode?.data.history?.at(-1)?.price?.usd ?? 0)
 									: 'UNK',
-								value: linkedNode?.data.price?.history?.at(-1)?.usd
+								value: linkedNode?.data.history?.at(-1)?.price?.usd
 							},
 							amount: {
-								text: formatNum(linkData.backing),
-								value: linkData.backing
+								text: linkData.history?.at(-1)?.amount
+									? formatNum(linkData.history.at(-1).amount)
+									: 'UNK',
+								value: linkData.history?.at(-1)?.amount
 							},
-							share: linkData.backingUsd
+							share: linkData.history?.at(-1)?.value
 								? {
-										text: formatPercentage(linkData.backingUsd / assetStats.underlying.usd),
-										value: linkData.backingUsd / assetStats.underlying.usd
+										text: formatPercentage(
+											linkData.history.at(-1).value / assetStats.underlying.usd
+										),
+										value: linkData.history.at(-1).value / assetStats.underlying.usd
 								  }
 								: {
 										text: 'UNK',
 										value: undefined
 								  },
-							'underlying-usd': linkData.backingUsd
+							'underlying-usd': linkData.history?.at(-1)?.value
 								? {
-										text: formatCurrency(linkData.backingUsd),
-										value: linkData.backingUsd
+										text: formatCurrency(linkData.history.at(-1).value),
+										value: linkData.history.at(-1).value
 								  }
 								: {
 										text: 'UNK',
 										value: undefined
 								  },
 							'underlying-ratio':
-								linkData.backingUsd && mcap
+								linkData.history?.at(-1)?.value && asset?.history?.at(-1)?.mcap
 									? {
-											text: formatPercentage(linkData.backingUsd / mcap),
-											value: linkData.backingUsd / mcap
+											text: formatPercentage(
+												linkData.history.at(-1).value / asset?.history.at(-1).mcap
+											),
+											value: linkData.history.at(-1).value / asset?.history.at(-1).mcap
 									  }
 									: {
 											text: 'UNK',
@@ -361,7 +399,149 @@
 			</div>
 		{/if}
 
-		{#if assetStats.derivative.count > 0}
+		{#if derivative.length > 0}
+			<div class="grid grid-cols-1 gap-4 lg:grid-cols-2 shadow-none">
+				<div class="relative bg-gray-50 shadow sm:rounded-lg overflow-hidden">
+					<div class="px-4 pt-5 sm:px-6 sm:pt-6">
+						<div class="max-w-3xl mx-auto text-center">
+							<h2 class="text-3xl tracking-tight font-bold text-gray-900">
+								History of Derivative Mcap Ratio
+							</h2>
+							<p class="mt-4 text-lg text-gray-500">
+								View {details.name}'s derivative history of up to the last {entries * interval} days.
+							</p>
+						</div>
+						<div class="flex mt-6 items-center justify-between">
+							<dl>
+								<dt class="text-sm font-medium text-gray-500 truncate">
+									Current Derivative Mcap Ratio
+								</dt>
+								<dd class="mt-1 text-3xl font-semibold text-gray-900">
+									{formatCurrency(assetStats.derivative.usd)}
+								</dd>
+							</dl>
+							<dl class="text-right">
+								<dt class="text-sm font-medium text-gray-500 truncate">Current Market Cap</dt>
+								<dd class="mt-1 text-3xl font-semibold text-gray-900">
+									{asset?.history?.at(-1)?.mcap ? formatCurrency(asset.history.at(-1).mcap) : 'UNK'}
+								</dd>
+							</dl>
+						</div>
+					</div>
+					<div class="text-center mt-6 text-lg font-thin text-gray-500 overflow-visible">
+						<LineChart
+							id="{details.name.toLowerCase().split(' ').join('-')}-backing-history"
+							data={derivative.length
+								? [
+										...new Set(
+											derivative.flatMap((deriv) => _.map(deriv.data.history, 'timestamp'))
+										)
+								  ]
+										.sort()
+										.map((timestamp) => {
+											const mcap = closest(asset.history, timestamp)?.mcap;
+											const ratio = mcap
+												? round(
+														_.sum(
+															derivative.map(
+																(deriv) => closest(deriv.data.history, timestamp).value
+															)
+														) / mcap,
+														4
+												  )
+												: 0;
+											return {
+												date: timestamp,
+												value: ratio
+											};
+										})
+								: [
+										{
+											date: new Date().toISOString(),
+											value: 0
+										}
+								  ]}
+							formatValue={(v) => formatPercentage(v)}
+							{interval}
+							{entries}
+						/>
+					</div>
+					<div class="absolute w-full px-2 text-center -mt-10">
+						<span class="isolate inline-flex rounded-md shadow-sm">
+							<button
+								type="button"
+								class="relative inline-flex items-center rounded-l-md {interval == 1
+									? 'bg-neon-pink'
+									: 'bg-white'} bg-opacity-50 px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:contrast-75 focus:z-10"
+								on:click={() => (interval = 1)}
+							>
+								1D
+							</button>
+							<button
+								type="button"
+								class="relative -ml-px inline-flex items-center {interval == 3
+									? 'bg-neon-pink'
+									: 'bg-white'} bg-opacity-50 px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:contrast-75 focus:z-10"
+								on:click={() => (interval = 3)}
+							>
+								3D
+							</button>
+							<button
+								type="button"
+								class="relative -ml-px inline-flex items-center {interval == 7
+									? 'bg-neon-pink'
+									: 'bg-white'} bg-opacity-50 px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:contrast-75 focus:z-10"
+								on:click={() => (interval = 7)}
+							>
+								1W
+							</button>
+							<button
+								type="button"
+								class="relative -ml-px inline-flex items-center {interval == 30
+									? 'bg-neon-pink'
+									: 'bg-white'} bg-opacity-50 px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:contrast-75 focus:z-10"
+								on:click={() => (interval = 30)}
+							>
+								1M
+							</button>
+							<button
+								type="button"
+								class="relative -ml-px inline-flex items-center {interval == 90
+									? 'bg-neon-pink'
+									: 'bg-white'} bg-opacity-50 px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:contrast-75 focus:z-10"
+								on:click={() => (interval = 90)}
+							>
+								3M
+							</button>
+							<button
+								type="button"
+								class="relative -ml-px inline-flex items-center rounded-r-md {interval == 365
+									? 'bg-neon-pink'
+									: 'bg-white'} bg-opacity-50 px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:contrast-75 focus:z-10"
+								on:click={() => (interval = 365)}
+							>
+								1Y
+							</button>
+						</span>
+					</div>
+				</div>
+
+				<div class="bg-gray-50 shadow sm:rounded-lg overflow-hidden">
+					<div class="px-4 pt-5 sm:px-6 sm:pt-6">
+						<div class="max-w-3xl mx-auto text-center">
+							<h2 class="text-3xl tracking-tight font-bold text-gray-900">Derivative Chain</h2>
+							<p class="mt-4 text-lg text-gray-500">
+								View the full chain of {details.name}'s derivative assets.
+							</p>
+						</div>
+					</div>
+
+					<div class="flex mt-6 justify-center">
+						<Sankey graph={limitValueByLinks(getDAG(graph, id, 'up'), id)} />
+					</div>
+				</div>
+			</div>
+
 			<div class="bg-gray-50 shadow sm:rounded-lg overflow-hidden sm:mx-0 divide-y divide-gray-200">
 				<div class="max-w-3xl mx-auto text-center px-4 py-5 sm:p-6">
 					<h2 class="text-3xl tracking-tight font-bold text-gray-900">Derivative Assets</h2>
@@ -394,38 +574,44 @@
 								value: `${base}/assets/${linkedNode?.id}`
 							},
 							price: {
-								text: linkedNode?.data.price?.history?.at(-1)?.usd
-									? formatCurrency(linkedNode?.data.price?.history?.at(-1)?.usd ?? 0)
+								text: linkedNode?.data.history?.at(-1)?.price?.usd
+									? formatCurrency(linkedNode?.data.history.at(-1).price.usd)
 									: 'UNK',
-								value: linkedNode?.data.price?.history?.at(-1)?.usd
+								value: linkedNode?.data.history?.at(-1)?.price?.usd
 							},
 							amount: {
-								text: formatNum(linkData.backing),
-								value: linkData.backing
+								text: linkData.history?.at(-1)?.amount
+									? formatNum(linkData.history.at(-1).amount)
+									: 'UNK',
+								value: linkData.history?.at(-1)?.amount
 							},
-							share: linkData.backingUsd
+							share: linkData.history?.at(-1)?.value
 								? {
-										text: formatPercentage(linkData.backingUsd / assetStats.derivative.usd),
-										value: linkData.backingUsd / assetStats.derivative.usd
+										text: formatPercentage(
+											linkData.history.at(-1).value / assetStats.derivative.usd
+										),
+										value: linkData.history.at(-1).value / assetStats.derivative.usd
 								  }
 								: {
 										text: 'UNK',
 										value: undefined
 								  },
-							'derivative-usd': linkData.backingUsd
+							'derivative-usd': linkData.history?.at(-1)?.value
 								? {
-										text: formatCurrency(linkData.backingUsd),
-										value: linkData.backingUsd
+										text: formatCurrency(linkData.history.at(-1).value),
+										value: linkData.history.at(-1).value
 								  }
 								: {
 										text: 'UNK',
 										value: undefined
 								  },
 							'derivative-ratio':
-								linkData.backingUsd && mcap
+								linkData.history?.at(-1)?.value && asset?.history?.at(-1)?.mcap
 									? {
-											text: formatPercentage(linkData.backingUsd / mcap),
-											value: linkData.backingUsd / mcap
+											text: formatPercentage(
+												linkData.history.at(-1).value / asset.history.at(-1).mcap
+											),
+											value: linkData.history.at(-1).value / asset.history.at(-1).mcap
 									  }
 									: {
 											text: 'UNK',
@@ -437,5 +623,34 @@
 				/>
 			</div>
 		{/if}
+
+		<div class="px-4 py-5 bg-gray-50 shadow sm:rounded-lg overflow-hidden sm:p-6">
+			<div class="max-w-3xl mx-auto text-center">
+				<h2 class="text-3xl tracking-tight font-bold text-gray-900">Praise and Doubts</h2>
+				<p class="mt-4 text-lg text-gray-500">
+					Any praise and doubts the community has about {details.name}'s backing.
+				</p>
+			</div>
+			<div
+				class="mt-6 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-3 lg:gap-x-8"
+			>
+				{#each comments as comment}
+					<div class="relative flex">
+						<div class="flex-shrink-0 mr-4">
+							{#if comment.type == 'doubt'}
+								<ThumbDownIcon class="h-6 w-6 text-red-500" aria-hidden="true" />
+							{:else if comment.type == 'praise'}
+								<ThumbUpIcon class="h-6 w-6 text-green-500" aria-hidden="true" />
+							{:else if comment.type == 'addition'}
+								<ChatAltIcon class="h-6 w-6 text-blue-500" aria-hidden="true" />
+							{/if}
+						</div>
+						<dl class="flex-1">
+							{@html comment.html}
+						</dl>
+					</div>
+				{/each}
+			</div>
+		</div>
 	</div>
 </div>

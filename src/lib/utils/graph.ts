@@ -1,17 +1,20 @@
-import { closest } from '$lib/utils/array';
+import { closest, uniqueTimes } from '$lib/utils/array';
 import { writeAggregation } from '$lib/utils/files';
 import type { ForceGraph3DInstance } from '3d-force-graph';
 import ForceGraph3D from '3d-force-graph';
 import fs from 'fs';
 import _ from 'lodash';
 import fromJson from 'ngraph.fromjson';
-import type { Graph, NodeId } from 'ngraph.graph';
+import type { Graph, Link, NodeId } from 'ngraph.graph';
 import createGraph from 'ngraph.graph';
 import path from 'ngraph.path';
 import toJson from 'ngraph.tojson';
 import { round } from './math';
 
-export function getDAG(graph: Graph, start: NodeId): Graph {
+export function getDAG(graph: Graph, start: NodeId, direction: 'up' | 'down' = 'down'): Graph {
+	const from = (link: Link) => (direction == 'down' ? link.fromId : link.toId);
+	const to = (link: Link) => (direction == 'down' ? link.toId : link.fromId);
+
 	let subgraph = createGraph();
 
 	let pathFinder = path.aStar(subgraph, {
@@ -27,23 +30,23 @@ export function getDAG(graph: Graph, start: NodeId): Graph {
 	while (queue.length > 0) {
 		let currentNode = queue.shift()!;
 		const underlyingLinks = [...(graph.getLinks(currentNode.id) ?? [])].filter(
-			(link) => link.fromId == currentNode.id
+			(link) => from(link) == currentNode.id
 		);
 
 		for (const link of underlyingLinks) {
 			if (
-				subgraph.hasLink(link.fromId, link.toId) ||
-				(subgraph.hasNode(link.toId) &&
-					subgraph.hasNode(link.fromId) &&
-					pathFinder.find(link.toId, link.fromId).length > 0)
+				subgraph.hasLink(from(link), to(link)) ||
+				(subgraph.hasNode(to(link)) &&
+					subgraph.hasNode(from(link)) &&
+					pathFinder.find(to(link), from(link)).length > 0)
 			) {
 				// Skip cyclic connections
 				continue;
 			}
 
-			const nextNode = graph.getNode(link.toId)!;
+			const nextNode = graph.getNode(to(link))!;
 			subgraph.addNode(nextNode.id, nextNode.data);
-			subgraph.addLink(link.fromId, link.toId, link.data);
+			subgraph.addLink(from(link), to(link), link.data);
 			queue.push(nextNode);
 		}
 	}
@@ -55,7 +58,7 @@ export function limitValueByLinks(
 	graph: Graph<graph.NodeData, graph.LinkData>,
 	start: NodeId
 ): Graph<graph.NodeData, graph.LinkData> {
-	let subgraph = createGraph();
+	let subgraph = createGraph<graph.NodeData, graph.LinkData>();
 
 	if (!graph.hasNode(start)) return subgraph;
 	let queue = [graph.getNode(start)!];
@@ -63,15 +66,27 @@ export function limitValueByLinks(
 		let currentNode = queue.shift()!;
 
 		// Compute node value
-		const incomingLinks = [...(subgraph.getLinks(currentNode.id) ?? [])].filter(
-			(link) => link.toId == currentNode.id
-		);
-		const nodeValue =
-			(incomingLinks.length ? _.sumBy(incomingLinks, 'data.backingUsd') : currentNode.data.mcap) ??
-			0;
+		const nodeHistory = currentNode.data.history.map((nodeData) => {
+			const incomingLinks = [...(subgraph.getLinks(currentNode.id) ?? [])].filter(
+				(link) => link.toId == currentNode.id
+			);
+
+			const nodeValue = incomingLinks.length
+				? _.sumBy(
+						incomingLinks,
+						({ data }) => closest(data.history, nodeData.timestamp)?.value ?? 0
+				  )
+				: nodeData.mcap ?? 0;
+
+			return {
+				...nodeData,
+				mcap: nodeValue
+			};
+		});
+
 		subgraph.addNode(currentNode.id, {
 			...currentNode.data,
-			mcap: nodeValue
+			history: nodeHistory
 		});
 
 		// Compute link values
@@ -81,15 +96,26 @@ export function limitValueByLinks(
 		for (const link of underlyingLinks) {
 			const nextNode = graph.getNode(link.toId)!;
 
-			let linkValue = 0;
-			if (link.data.backingUsd) {
-				const linkRatio = link.data.backingUsd / _.sumBy(underlyingLinks, 'data.backingUsd');
-				linkValue = linkRatio * nodeValue;
-			}
+			const linkHistory = link.data.history.map((linkData, i) => {
+				let linkValue = 0;
+				if (linkData.amount && linkData.value) {
+					const linkValueTotal = _.sumBy(
+						underlyingLinks,
+						({ data }) => data.history[i]?.value ?? 0
+					);
+					const linkRatio = linkData.value / linkValueTotal;
+					linkValue = linkRatio * (closest(nodeHistory, linkData.timestamp)?.mcap ?? 0);
+				}
+
+				return {
+					...linkData,
+					value: linkValue
+				};
+			});
 
 			subgraph.addLink(link.fromId, link.toId, {
 				...link.data,
-				backingUsd: linkValue
+				history: linkHistory
 			});
 
 			queue.push(nextNode);
@@ -132,47 +158,77 @@ export function createBackingGraph(
 ): Graph<graph.NodeData, graph.LinkData> {
 	let graph = createGraph<graph.NodeData, graph.LinkData>();
 	for (const [id, details] of Object.entries(assetsDetails)) {
-		const supply = assetsSupply[id]?.history?.at(-1);
+		const supplyHistory = assetsSupply[id]?.history;
 		const priceHistory = assetsPrice[id]?.history;
+		const icon = icons[id]!;
+		const contracts = assetsContracts[id];
 
-		let mcap: number | undefined = undefined;
-		if (supply && priceHistory && priceHistory.length) {
-			const price = closest(priceHistory, supply.timestamp);
-			mcap = round(price.usd * supply.total, 2);
+		if (!supplyHistory?.length || !priceHistory?.length) {
+			graph.addNode(id, {
+				details,
+				issuer: issuersDetails[details.issuer ?? ''] ?? undefined,
+				chain: chainsDetails[contracts?.token?.chain ?? ''] ?? undefined,
+				icon,
+				contracts,
+				history: []
+			});
+			continue;
 		}
 
-		const contracts = assetsContracts[id];
+		const uniqueList = uniqueTimes(
+			_.concat(_.map(supplyHistory, 'timestamp'), _.map(priceHistory, 'timestamp')),
+			60 * 60 * 1000
+		); // unique within 1h
+
+		const history = uniqueList.map((timestamp) => {
+			const supply = closest(supplyHistory, timestamp);
+			const price = closest(priceHistory, timestamp);
+			const mcap = round(price.usd * supply.total, 2);
+			return {
+				timestamp,
+				price,
+				supply,
+				mcap
+			};
+		});
 
 		graph.addNode(id, {
 			details,
 			issuer: issuersDetails[details.issuer ?? ''] ?? undefined,
 			chain: chainsDetails[contracts?.token?.chain ?? ''] ?? undefined,
-			icon: icons[id]!,
-			contracts: contracts,
-			price: assetsPrice[id]!,
-			supply: assetsSupply[id]!,
-			backing: assetsBacking[id]!,
-			mcap
+			icon,
+			contracts,
+			history
 		});
 	}
 
 	for (const [id, assetBacking] of Object.entries(assetsBacking)) {
-		const backing = assetBacking.history?.at(-1);
-		if (!backing) continue;
+		if (!assetBacking.history?.length) continue;
 
-		for (const [underlying, amount] of Object.entries(backing.assets)) {
-			const priceHistory = assetsPrice[underlying]?.history;
+		let underlyingKeys = new Set(assetBacking.history.flatMap(({ assets }) => Object.keys(assets)));
+		for (const backing of assetBacking.history) {
+			for (const underlying of underlyingKeys) {
+				const amount = backing.assets[underlying] ?? 0;
+				const underlyingHistory = graph.getNode(underlying)?.data?.history;
 
-			let backingUsd: number | undefined = undefined;
-			if (priceHistory && priceHistory.length) {
-				const price = closest(priceHistory, backing.timestamp);
-				backingUsd = round(price.usd * amount, 2);
+				let value: number | undefined = undefined;
+				if (underlyingHistory?.length) {
+					const data = closest(underlyingHistory, backing.timestamp);
+					value = round(data.price.usd * amount, 2);
+				}
+
+				let history = graph.getLink(id, underlying)?.data?.history ?? [];
+				history.push({
+					timestamp: backing.timestamp,
+					source: backing.source,
+					amount,
+					value
+				});
+
+				graph.addLink(id, underlying, {
+					history
+				});
 			}
-
-			graph.addLink(id, underlying, {
-				backing: amount,
-				backingUsd
-			});
 		}
 	}
 
