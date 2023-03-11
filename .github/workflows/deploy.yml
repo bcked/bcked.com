@@ -17,8 +17,33 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: "npm"
 
-      - name: Install, Test and Build
+      - name: Get installed Playwright version
+        id: playwright-version
+        run: echo "PLAYWRIGHT_VERSION=$(node -e "console.log(require('./package-lock.json').dependencies['@playwright/test'].version)")" >> $GITHUB_ENV
+
+      - name: Cache playwright binaries
+        uses: actions/cache@v3
+        id: playwright-cache
+        with:
+          path: |
+            ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ env.PLAYWRIGHT_VERSION }}
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install playwright browsers
+        run: npx playwright install --with-deps
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+      - run: npx playwright install-deps
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+
+      - name: Build Application
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ALCHEMY_ETHEREUM: ${{ secrets.ALCHEMY_ETHEREUM }}
@@ -26,14 +51,13 @@ jobs:
           ALCHEMY_SOLANA: ${{ secrets.ALCHEMY_SOLANA }}
           ALCHEMY_ARBITRUM: ${{ secrets.ALCHEMY_ARBITRUM }}
           PUBLIC_DOMAIN: ${{ secrets.PUBLIC_DOMAIN }}
-        run: |
-          npm install
-          npm run build
-          npm run unit
-          npx playwright install --with-deps
-          npm run test
-          npm run gen:previews
-          touch build/.nojekyll
+        run: npm run build
+
+      - name: Run tests
+        run: npm run unit
+      - run: npm test
+      - run: npm run gen:previews
+      - run: touch build/.nojekyll
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
