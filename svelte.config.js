@@ -44,6 +44,9 @@ const config = {
 			entries: [
 				'*',
 				'/',
+				...assets.map((id) => `/assets/${id}/icon.svg`),
+				'/site.webmanifest',
+				'/sitemap.xml',
 				'/faq',
 				'/about',
 				'/legal-notice',
@@ -54,8 +57,6 @@ const config = {
 				// '/graph.json',
 				// ...assets.map((id) => `/trees/${id}.json`),
 				// ...tokens.map((id) => `/tokens/${id}.json`),
-				'/site.webmanifest',
-				'/sitemap.xml'
 			],
 		},
 	},

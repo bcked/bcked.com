@@ -1,12 +1,15 @@
 <script lang="ts">
 	import { base } from '$app/paths';
+	import Icon from '$components/icon.svelte';
 	import { combine, compare } from '$lib/utils/string-formatting';
-	import { CashIcon } from '@rgossiaux/svelte-heroicons/outline';
 	import { ChevronDownIcon, ChevronUpIcon } from '@rgossiaux/svelte-heroicons/solid';
 	import type { ComponentType } from 'svelte';
+	import type { PageData } from '../routes/(app)/$types';
 
 	let clazz: string = '';
 	export { clazz as class };
+
+	export let data: PageData;
 
 	type Column = {
 		id: string;
@@ -81,13 +84,7 @@
 								<a href={row[column.id + '-path'].text}>
 									<div class="flex items-center space-x-1">
 										{#if row[column.id].icon}
-											<img
-												class="h-5 w-5 object-contain"
-												src="{base}/{row[column.id].icon}"
-												alt="Icon of {row[column.id].text}"
-											/>
-										{:else}
-											<CashIcon class="h-5 w-5 text-gray-500" aria-hidden="true" />
+											<Icon id={row[column.id].icon} {data} size={20} class="object-contain" />
 										{/if}
 										<span class="truncate">
 											{row[column.id].text}

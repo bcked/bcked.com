@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { base } from '$app/paths';
-	import { CashIcon } from '@rgossiaux/svelte-heroicons/solid';
+	import Icon from '$components/icon.svelte';
 	import type { ComponentType } from 'svelte';
 	import type { PageData } from '../routes/(app)/$types';
 
@@ -39,16 +39,7 @@
 									{i + 1}
 								</div>
 								<div class="flex items-center space-x-1">
-									{#if asset.id in icons}
-										{@const assetIcon = icons[asset.id]}
-										<img
-											class="h-5 w-5 object-contain"
-											src="{base}/{assetIcon.href}"
-											alt="Icon of {asset.name}"
-										/>
-									{:else}
-										<CashIcon class="h-5 w-5 text-gray-500" aria-hidden="true" />
-									{/if}
+									<Icon id={asset.id} {data} size={20} class="object-contain" />
 									<span class="block font-semibold truncate">
 										{asset.name}
 									</span>

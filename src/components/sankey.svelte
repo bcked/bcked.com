@@ -3,14 +3,19 @@
   Generates an SVG Sankey chart using [d3-sankey](https://github.com/d3/d3-sankey).
  -->
 <script lang="ts">
-	import { base } from '$app/paths';
 	import * as d3 from 'd3';
 
+	import Icon from '$components/icon.svelte';
 	import * as Sankey from 'd3-sankey';
 	import type { Graph } from 'ngraph.graph';
 	import { getContext } from 'svelte';
 
 	export let graph: Graph<graph.NodeData, graph.LinkData>;
+
+	import type { PageData } from '../routes/(app)/$types';
+
+	let pageData: PageData;
+	export { pageData as data };
 
 	const { data, width, height } = getContext<d3.LayerCakeContext>('LayerCake');
 
@@ -74,25 +79,39 @@
 		return path.toString();
 	}
 
-	// function showTooltip(evt, text) {
-	// 	let tooltip = document.getElementById("tooltip");
-	// 	tooltip.innerHTML = text;
-	// 	tooltip.style.display = "block";
-	// 	tooltip.style.left = evt.pageX + 10 + 'px';
-	// 	tooltip.style.top = evt.pageY + 10 + 'px';
+	// let nodeInFocus: d3.SankeyNode | undefined = undefined;
+	// let linkInFocus: d3.SankeyLink | undefined = undefined;
+
+	// let tooltipPosition = { x: 0, y: 0 };
+
+	// function updateTooltipPosition(e) {
+	// 	tooltipPosition = { x: e.offsetX, y: e.offsetY };
 	// }
 
-	// function hideTooltip() {
-	// 	var tooltip = document.getElementById("tooltip");
-	// 	tooltip.style.display = "none";
+	// function showNodeTooltip(e, node: d3.SankeyNode) {
+	// 	updateTooltipPosition(e);
+	// 	nodeInFocus = node;
+	// }
+
+	// function showlinkTooltip(e, link: d3.SankeyLink) {
+	// 	updateTooltipPosition(e);
+	// 	linkInFocus = link;
+	// }
+
+	// function hideNodeTooltip(e) {
+	// 	nodeInFocus = undefined;
+	// }
+
+	// function hideLinkTooltip(e) {
+	// 	linkInFocus = undefined;
 	// }
 </script>
 
-<div id="tooltip" class="hidden absolute" />
 <!-- 
 	TODO Add tooltip on mouse hover
 	Write mouse hover event which detect which node or link is hovered and get's the respective data
 	Fill data in tooltip and show tooltip
+	https://d3-graph-gallery.com/graph/interactivity_tooltip.html
 	https://stackoverflow.com/questions/64209365/d3-sankey-link-scaling-issue
 	https://stackoverflow.com/questions/10643426/how-to-add-a-tooltip-to-an-svg-graphic
 
@@ -106,21 +125,39 @@
 <g class="sankey-layer">
 	<g class="sankey-links">
 		{#each sankeyData.links as d, i}
+			{@const source = graph.getNode(d.source.id)?.data}
+			{@const target = graph.getNode(d.target.id)?.data}
 			<g class="sankey-link group">
+				<title>
+					{source.details.name}
+					{' -> '}
+					{target.details.name}
+					<!-- TODO there is something wrong with the value here -->
+					<!-- {formatCurrency(d.value)} -->
+				</title>
 				<path class="opacity-40 fill-neon-pink group-hover:fill-neon-blue" d={sankeyLinkPath(d)} />
+				<!-- 
+					<text
+					class="hidden z-10 fill-gray-900 group-hover:inline text-xs"
+					y={d.source.x1 + (d.target.x0 - d.source.x1) / 2}
+					x={d.y1 + (d.y0 - d.y1) / 2}
+					dominant-baseline="central"
+					text-anchor="middle"
+				>
+					{formatCurrency(d.value)}
+				</text> -->
 			</g>
 		{/each}
 	</g>
 	<g class="sankey-nodes">
 		{#each sankeyData.nodes as d, i}
 			{@const asset = graph.getNode(d.id)?.data}
-			{@const nodeWidth = d.y1 - d.y0}
+			{@const nodeWidth = Math.max(d.y1 - d.y0, 1)}
 			{@const iconSize = Math.min(nodeHeight, nodeWidth) * 0.8}
-			{@const nodeIsXl = nodeWidth > 300}
-			{@const nodeIsLg = nodeWidth > 150}
-			{@const nodeIsSm = nodeWidth > 100}
-			{@const nodeIsXs = nodeWidth > 10}
 			<g class="sankey-node group">
+				<title>
+					{asset.details.name}
+				</title>
 				<rect
 					class="fill-neon-pink group-hover:fill-neon-blue"
 					x={d.y0}
@@ -130,37 +167,19 @@
 					rx="5"
 					ry="5"
 				/>
-				{#if asset?.icon}
-					<image
-						class="drop-shadow-md group-hover:drop-shadow-lg"
-						x={d.y0 + nodeWidth / 2 - iconSize / 2}
-						y={d.x0 + nodeHeight / 2 - iconSize / 2}
-						href="{base}/{asset.icon.href}"
-						height={iconSize}
-						width={iconSize}
-						dominant-baseline="central"
-						text-anchor="middle"
-					/>
-				{:else if nodeIsXs}
-					<text
-						class="pointer-events-none fill-black text-xs"
-						x={d.y0 + nodeWidth / 2}
-						y={d.x0 + nodeHeight / 2}
-						dominant-baseline="central"
-						text-anchor="middle"
-					>
-						{#if nodeIsLg && asset?.details?.name}
-							{asset.details.name}
-						{:else if nodeIsLg}
-							Unknown Name
-						{:else if nodeIsSm && asset?.details?.symbol}
-							{asset.details.symbol}
-						{:else if nodeIsSm}
-							UNK
-						{/if}
-					</text>
-				{/if}
+				<Icon
+					id={d.id}
+					data={pageData}
+					x={d.y0 + nodeWidth / 2 - iconSize / 2}
+					y={d.x0 + nodeHeight / 2 - iconSize / 2}
+					size={iconSize}
+					class="drop-shadow-md group-hover:drop-shadow-lg"
+				/>
 			</g>
 		{/each}
 	</g>
 </g>
+
+<!-- {#if nodeInFocus || linkInFocus}
+	<Tooltip position={tooltipPosition}>Test</Tooltip>
+{/if} -->

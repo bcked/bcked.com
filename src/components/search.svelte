@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
+	import Icon from '$components/icon.svelte';
 	import { Listbox, ListboxOption, ListboxOptions } from '@rgossiaux/svelte-headlessui';
-	import { CashIcon, EmojiSadIcon } from '@rgossiaux/svelte-heroicons/outline';
+	import { EmojiSadIcon } from '@rgossiaux/svelte-heroicons/outline';
 	import { SearchIcon, XCircleIcon } from '@rgossiaux/svelte-heroicons/solid';
 	import _ from 'lodash-es';
 	import { compareTwoStrings } from 'string-similarity';
@@ -18,6 +19,7 @@
 	export { clazz as class };
 
 	type SearchItem = {
+		id: derived.AssetId;
 		name: string;
 		symbol: string;
 		chain: string | undefined;
@@ -25,7 +27,6 @@
 		address: string | undefined;
 		category: string;
 		path: string;
-		icon: string | undefined;
 		terms: string[];
 	};
 	type SearchItems = SearchItem[];
@@ -35,14 +36,14 @@
 	onMount(async function () {
 		items = Object.values(assetsDetails)
 			.map((asset) => ({
+				id: asset.id,
 				name: asset.name,
 				symbol: asset.symbol,
 				chain: chainsDetails[assetsContracts[asset.id]?.token?.chain ?? '']?.name,
 				issuer: issuersDetails[asset.issuer ?? '']?.name,
 				address: assetsContracts[asset.id]?.token?.address,
 				category: 'Asset',
-				path: `${base}/assets/${asset.id}`,
-				icon: icons[asset.id]?.href
+				path: `${base}/assets/${asset.id}`
 			}))
 			.map((item) => ({
 				...item,
@@ -123,15 +124,7 @@
 			/>
 			<div class="absolute inset-y-0 left-0 pl-3 flex items-center space-x-2 pointer-events-none">
 				{#if selected && !query}
-					{#if selected.icon}
-						<img
-							class="h-5 w-5 object-contain"
-							src="{base}/{selected.icon}"
-							alt="Icon of {selected.name}"
-						/>
-					{:else}
-						<CashIcon class="h-5 w-5 text-gray-500" aria-hidden="true" />
-					{/if}
+					<Icon id={selected.id} {data} size={20} class="object-contain" />
 
 					<div class="flex items-center space-x-1">
 						<span class="block truncate font-medium">
@@ -193,15 +186,7 @@
 									class="cursor-default select-none relative py-2 pl-3 pr-3 text-gray-900 hover:text-white hover:bg-neon-pink group"
 								>
 									<div class="flex items-center space-x-2">
-										{#if item.icon}
-											<img
-												class="h-5 w-5 object-contain"
-												src="{base}/{item.icon}"
-												alt="Icon of {item.name}"
-											/>
-										{:else}
-											<CashIcon class="h-5 w-5 text-gray-500" aria-hidden="true" />
-										{/if}
+										<Icon id={item.id} {data} size={20} class="object-contain" />
 										<div class="flex flex-col flex-grow items-start justify-start truncate">
 											<div class="flex items-center space-x-1 truncate">
 												<span class="block truncate font-medium">

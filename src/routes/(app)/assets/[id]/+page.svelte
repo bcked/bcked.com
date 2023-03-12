@@ -250,7 +250,7 @@
 					</div>
 
 					<div class="mt-6 h-full justify-center">
-						<Sankey graph={limitValueByLinks(getDAG(graph, id, 'down'), id)} />
+						<Sankey graph={limitValueByLinks(getDAG(graph, id, 'down'), id)} {data} />
 					</div>
 				</div>
 			</div>
@@ -263,9 +263,10 @@
 					</p>
 				</div>
 				<Table
+					{data}
 					columns={[
-						{ id: 'share', title: '%', class: '' },
 						{ id: 'name', title: 'Name', class: 'font-medium', link: true },
+						{ id: 'share', title: '%', class: '' },
 						{ id: 'price', title: 'Price', class: 'hidden lg:table-cell' },
 						{ id: 'amount', title: 'Amount', class: 'hidden sm:table-cell' },
 						{ id: 'underlying-usd', title: 'Backing', class: '' },
@@ -280,7 +281,7 @@
 							name: {
 								text: linkedNode?.data.details.name,
 								value: linkedNode?.data.details.name,
-								icon: linkedNode?.data.icon.href
+								icon: linkedNode?.id
 							},
 							'name-path': {
 								text: `${base}/assets/${linkedNode?.id}`,
@@ -413,7 +414,7 @@
 					</div>
 
 					<div class="mt-6 h-full justify-center">
-						<Sankey graph={limitValueByLinks(getDAG(graph, id, 'up'), id)} />
+						<Sankey graph={limitValueByLinks(getDAG(graph, id, 'up'), id)} {data} />
 					</div>
 				</div>
 			</div>
@@ -426,9 +427,10 @@
 					</p>
 				</div>
 				<Table
+					{data}
 					columns={[
-						{ id: 'share', title: '%', class: '' },
 						{ id: 'name', title: 'Name', class: 'font-medium', link: true },
+						{ id: 'share', title: '%', class: '' },
 						{ id: 'price', title: 'Price', class: 'hidden lg:table-cell' },
 						{ id: 'amount', title: 'Amount', class: 'hidden sm:table-cell' },
 						{ id: 'derivative-usd', title: 'Backing', class: '' },
@@ -443,7 +445,7 @@
 							name: {
 								text: linkedNode?.data.details.name,
 								value: linkedNode?.data.details.name,
-								icon: linkedNode?.data.icon.href
+								icon: linkedNode?.id
 							},
 							'name-path': {
 								text: `${base}/assets/${linkedNode?.id}`,

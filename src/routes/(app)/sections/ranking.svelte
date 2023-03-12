@@ -26,6 +26,7 @@
 	<div class="mt-10 w-full max-w-7xl mx-auto px-0 sm:px-4 lg:px-8">
 		<Glow {theme} class="-inset-x-4 sm:-inset-x-0 animate-tilt-1">
 			<Table
+				{data}
 				columns={[
 					{ id: 'rank', title: '#', class: '' },
 					{ id: 'name', title: 'Name', class: 'font-medium', link: true },
@@ -38,11 +39,12 @@
 				]}
 				rows={graphData.nodes
 					.filter(
-						({ id }) => graph.getLinks(id)?.length && !assetsDetails[id]?.tags?.includes('lp')
+						({ id, data: { details, issuer } }) =>
+							graph.getLinks(id)?.length && !details?.tags?.includes('lp')
 					)
 					.map(({ id, data: { details, history } }, i) => ({
 						rank: { text: i + 1, value: i },
-						name: { text: details.name, value: details.name, icon: icons[id]?.href },
+						name: { text: details.name, value: details.name, icon: id },
 						price: {
 							text: history?.at(-1)?.price?.usd
 								? formatCurrency(history?.at(-1)?.price?.usd ?? 0)
