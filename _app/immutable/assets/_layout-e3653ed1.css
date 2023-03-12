@@ -1466,6 +1466,9 @@ select {
 .border-l-4 {
   border-left-width: 4px;
 }
+.border-solid {
+  border-style: solid;
+}
 .border-gray-300 {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
@@ -1571,6 +1574,9 @@ select {
 }
 .fill-black {
   fill: #000;
+}
+.fill-gray-900 {
+  fill: #111827;
 }
 .fill-neon-pink {
   fill: #FF3B76;
@@ -2061,6 +2067,10 @@ select {
 
 .focus\:ring-transparent:focus {
   --tw-ring-color: transparent;
+}
+
+.group:hover .group-hover\:inline {
+  display: inline;
 }
 
 .group:hover .group-hover\:fill-neon-blue {
