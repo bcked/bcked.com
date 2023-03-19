@@ -1,5 +1,131 @@
 {
-    "bjt-bsc": {
+    "usdc-multichain-moonriver": {
+        "underlying": {
+            "count": 1,
+            "usd": 10106348.4,
+            "ratio": 1.0327,
+            "uniformity": 1
+        },
+        "derivative": {
+            "count": 2,
+            "usd": 12969.9,
+            "ratio": 0.0013,
+            "uniformity": 0.6506
+        }
+    },
+    "usdc-multichain-moonbeam": {
+        "underlying": {
+            "count": 1,
+            "usd": 2435960.58,
+            "ratio": 1.1012,
+            "uniformity": 1
+        },
+        "derivative": {
+            "count": 2,
+            "usd": 1449.85,
+            "ratio": 0.0007,
+            "uniformity": 0.9376
+        }
+    },
+    "usdc-circle-solana": {
+        "underlying": {
+            "count": 0,
+            "usd": 0,
+            "ratio": 0,
+            "uniformity": 1
+        },
+        "derivative": {
+            "count": 0,
+            "usd": 0,
+            "ratio": 0,
+            "uniformity": 1
+        }
+    },
+    "usdc-circle-ethereum": {
+        "underlying": {
+            "count": 1,
+            "usd": 42335734074,
+            "ratio": 1.2203,
+            "uniformity": 1
+        },
+        "derivative": {
+            "count": 3,
+            "usd": 789407308.82,
+            "ratio": 0.0228,
+            "uniformity": 0.4667
+        }
+    },
+    "usdc-binance-bsc": {
+        "underlying": {
+            "count": 1,
+            "usd": 776864999.84,
+            "ratio": 0.9923,
+            "uniformity": 1
+        },
+        "derivative": {
+            "count": 0,
+            "usd": 0,
+            "ratio": 0,
+            "uniformity": 1
+        }
+    },
+    "usd-fed": {
+        "underlying": {
+            "count": 0,
+            "usd": 0,
+            "ratio": 0,
+            "uniformity": 1
+        },
+        "derivative": {
+            "count": 2,
+            "usd": 58430105264.4,
+            "ratio": 0.0027,
+            "uniformity": 0.8362
+        }
+    },
+    "toad-toad.network-moonriver": {
+        "underlying": {
+            "count": 1,
+            "usd": 8671.87,
+            "ratio": 0.9325,
+            "uniformity": 1
+        },
+        "derivative": {
+            "count": 2,
+            "usd": 1782.46,
+            "ratio": 0.1917,
+            "uniformity": 1
+        }
+    },
+    "toad-toad.network-moonbeam": {
+        "underlying": {
+            "count": 1,
+            "usd": 45372.84,
+            "ratio": 1.0883,
+            "uniformity": 1
+        },
+        "derivative": {
+            "count": 2,
+            "usd": 5462.81,
+            "ratio": 0.131,
+            "uniformity": 0.7644
+        }
+    },
+    "toad-toad.network-bsc": {
+        "underlying": {
+            "count": 0,
+            "usd": 0,
+            "ratio": 0,
+            "uniformity": 1
+        },
+        "derivative": {
+            "count": 7,
+            "usd": 97794.59,
+            "ratio": 0.2709,
+            "uniformity": 0.7208
+        }
+    },
+    "pxbsc-bsc": {
         "underlying": {
             "count": 0,
             "usd": 0,
@@ -8,30 +134,16 @@
         },
         "derivative": {
             "count": 1,
-            "usd": 470.63,
-            "ratio": 0.3082,
+            "usd": 11101.9,
+            "ratio": 0.5417,
             "uniformity": 1
         }
     },
-    "bnb-binance-bsc": {
-        "underlying": {
-            "count": 0,
-            "usd": 0,
-            "ratio": 0,
-            "uniformity": 1
-        },
-        "derivative": {
-            "count": 10,
-            "usd": 9442480.66,
-            "ratio": 0.0102,
-            "uniformity": 0.3633
-        }
-    },
-    "bnb-wormhole-ethereum": {
+    "paxg-wormhole-solana": {
         "underlying": {
             "count": 1,
-            "usd": 4690696.52,
-            "ratio": 6.5707,
+            "usd": 865696.89,
+            "ratio": 1,
             "uniformity": 1
         },
         "derivative": {
@@ -41,133 +153,441 @@
             "uniformity": 1
         }
     },
-    "bnb-wormhole-solana": {
+    "paxg-paxos-ethereum": {
         "underlying": {
             "count": 1,
-            "usd": 4690696.52,
-            "ratio": 1.5986,
+            "usd": 488873106.79,
+            "ratio": 0.9673,
+            "uniformity": 1
+        },
+        "derivative": {
+            "count": 2,
+            "usd": 1461217.63,
+            "ratio": 0.0029,
+            "uniformity": 0.9343
+        }
+    },
+    "paxg-binance-bsc": {
+        "underlying": {
+            "count": 1,
+            "usd": 595520.74,
+            "ratio": null,
             "uniformity": 1
         },
         "derivative": {
             "count": 0,
             "usd": 0,
-            "ratio": 0,
+            "ratio": null,
             "uniformity": 1
         }
     },
-    "btc-binance-bsc": {
+    "pad-toad.network-moonriver": {
         "underlying": {
-            "count": 0,
-            "usd": 0,
-            "ratio": 0,
-            "uniformity": 1
+            "count": 5,
+            "usd": 6505.29,
+            "ratio": 0.6598,
+            "uniformity": 0.8074
         },
         "derivative": {
             "count": 1,
-            "usd": 934.57,
-            "ratio": 0,
+            "usd": 2215.87,
+            "ratio": 0.2247,
             "uniformity": 1
         }
     },
-    "btc-bitcoin": {
+    "pad-toad.network-moonbeam": {
         "underlying": {
-            "count": 0,
-            "usd": 0,
-            "ratio": 0,
-            "uniformity": 1
+            "count": 5,
+            "usd": 7831.24,
+            "ratio": 0.7578,
+            "uniformity": 0.8574
         },
         "derivative": {
-            "count": 0,
-            "usd": 0,
-            "ratio": 0,
+            "count": 1,
+            "usd": 2948.11,
+            "ratio": 0.2853,
             "uniformity": 1
         }
     },
-    "busd-allbridge-solana": {
+    "pad-toad.network-bsc": {
         "underlying": {
-            "count": 1,
-            "usd": 95971.65,
-            "ratio": 1.3367,
-            "uniformity": 1
-        },
-        "derivative": {
-            "count": 0,
-            "usd": 0,
-            "ratio": 0,
-            "uniformity": 1
-        }
-    },
-    "busd-binance-bsc": {
-        "underlying": {
-            "count": 1,
-            "usd": 2447676448.77,
-            "ratio": 1.0874,
-            "uniformity": 1
+            "count": 16,
+            "usd": 29638.84,
+            "ratio": 0.6028,
+            "uniformity": 0.6305
         },
         "derivative": {
             "count": 6,
-            "usd": 1268869.34,
-            "ratio": 0.0006,
-            "uniformity": 0.5176
+            "usd": 22685.18,
+            "ratio": 0.4613,
+            "uniformity": 0.6028
         }
     },
-    "busd-multichain-moonbeam": {
+    "movr.w-moonbeam-moonriver": {
         "underlying": {
-            "count": 1,
-            "usd": 525958.96,
-            "ratio": 1.2366,
+            "count": 0,
+            "usd": 0,
+            "ratio": 0,
             "uniformity": 1
         },
         "derivative": {
-            "count": 1,
-            "usd": 855.11,
-            "ratio": 0.002,
-            "uniformity": 1
+            "count": 3,
+            "usd": 5051.92,
+            "ratio": 0.9192,
+            "uniformity": 0.8768
         }
     },
-    "busd-multichain-moonriver": {
+    "movr-moonbeam-moonriver": {
         "underlying": {
-            "count": 1,
-            "usd": 634464.52,
-            "ratio": 1.0596,
+            "count": 0,
+            "usd": 0,
+            "ratio": 0,
             "uniformity": 1
         },
         "derivative": {
-            "count": 1,
-            "usd": 12005.54,
-            "ratio": 0.02,
+            "count": 0,
+            "usd": 0,
+            "ratio": 0,
             "uniformity": 1
         }
     },
-    "busd-paxos-ethereum": {
+    "lp-usdc-movr-toad.network-moonriver": {
         "underlying": {
-            "count": 1,
-            "usd": 16094371190.4,
-            "ratio": 1.947,
-            "uniformity": 1
+            "count": 2,
+            "usd": 1898.07,
+            "ratio": 1.0046,
+            "uniformity": 0.9973
         },
         "derivative": {
             "count": 1,
-            "usd": 2447676448.77,
-            "ratio": 0.2961,
+            "usd": 551.28,
+            "ratio": 0.2918,
             "uniformity": 1
         }
     },
-    "cats-catoshi-bsc": {
+    "lp-usdc-glmr-toad.network-moonbeam": {
         "underlying": {
-            "count": 1,
-            "usd": 69455.15,
-            "ratio": 0.2471,
-            "uniformity": 1
+            "count": 2,
+            "usd": 1165.5,
+            "ratio": 1.0049,
+            "uniformity": 0.991
         },
         "derivative": {
             "count": 1,
-            "usd": 10118.97,
-            "ratio": 0.036,
+            "usd": 849.76,
+            "ratio": 0.7327,
             "uniformity": 1
         }
     },
-    "cats-catoshi-ethereum": {
+    "lp-toad-movr-toad.network-moonriver": {
+        "underlying": {
+            "count": 2,
+            "usd": 3559.55,
+            "ratio": 0.9995,
+            "uniformity": 0.9995
+        },
+        "derivative": {
+            "count": 1,
+            "usd": 2052.53,
+            "ratio": 0.5763,
+            "uniformity": 1
+        }
+    },
+    "lp-toad-glmr-toad.network-moonbeam": {
+        "underlying": {
+            "count": 2,
+            "usd": 9009.75,
+            "ratio": 1.0005,
+            "uniformity": 0.9947
+        },
+        "derivative": {
+            "count": 1,
+            "usd": 1557.39,
+            "ratio": 0.1729,
+            "uniformity": 1
+        }
+    },
+    "lp-pad-toad-toad.network-bsc": {
+        "underlying": {
+            "count": 2,
+            "usd": 26536.75,
+            "ratio": 1.0009,
+            "uniformity": 0.9859
+        },
+        "derivative": {
+            "count": 1,
+            "usd": 1932.08,
+            "ratio": 0.0729,
+            "uniformity": 1
+        }
+    },
+    "lp-pad-movr-toad.network-moonriver": {
+        "underlying": {
+            "count": 2,
+            "usd": 4534.44,
+            "ratio": 1.0005,
+            "uniformity": 0.992
+        },
+        "derivative": {
+            "count": 1,
+            "usd": 2735.47,
+            "ratio": 0.6036,
+            "uniformity": 1
+        }
+    },
+    "lp-pad-hoge-toad.network-bsc": {
+        "underlying": {
+            "count": 2,
+            "usd": 593.09,
+            "ratio": 0.9183,
+            "uniformity": 0.9926
+        },
+        "derivative": {
+            "count": 1,
+            "usd": 146.79,
+            "ratio": 0.2273,
+            "uniformity": 1
+        }
+    },
+    "lp-pad-glmr-toad.network-moonbeam": {
+        "underlying": {
+            "count": 2,
+            "usd": 6106.15,
+            "ratio": 1.0009,
+            "uniformity": 0.9878
+        },
+        "derivative": {
+            "count": 1,
+            "usd": 2694.33,
+            "ratio": 0.4416,
+            "uniformity": 1
+        }
+    },
+    "lp-pad-eth-toad.network-bsc": {
+        "underlying": {
+            "count": 2,
+            "usd": 1366.15,
+            "ratio": 1.0827,
+            "uniformity": 0.9966
+        },
+        "derivative": {
+            "count": 1,
+            "usd": 483.8,
+            "ratio": 0.3834,
+            "uniformity": 1
+        }
+    },
+    "lp-pad-busd-toad.network-bsc": {
+        "underlying": {
+            "count": 2,
+            "usd": 4147.3,
+            "ratio": 1.0016,
+            "uniformity": 0.9943
+        },
+        "derivative": {
+            "count": 1,
+            "usd": 747.72,
+            "ratio": 0.1806,
+            "uniformity": 1
+        }
+    },
+    "lp-pad-btc-toad.network-bsc": {
+        "underlying": {
+            "count": 2,
+            "usd": 1906.98,
+            "ratio": 1.1212,
+            "uniformity": 0.9951
+        },
+        "derivative": {
+            "count": 1,
+            "usd": 446.07,
+            "ratio": 0.2623,
+            "uniformity": 1
+        }
+    },
+    "lp-pad-bnb-toad.network-bsc": {
+        "underlying": {
+            "count": 2,
+            "usd": 9511.85,
+            "ratio": 1.0894,
+            "uniformity": 0.9951
+        },
+        "derivative": {
+            "count": 1,
+            "usd": 1696.16,
+            "ratio": 0.1943,
+            "uniformity": 1
+        }
+    },
+    "lp-hoge-toad-toad.network-bsc": {
+        "underlying": {
+            "count": 2,
+            "usd": 16139.17,
+            "ratio": 0.9183,
+            "uniformity": 0.9954
+        },
+        "derivative": {
+            "count": 1,
+            "usd": 549.2,
+            "ratio": 0.0312,
+            "uniformity": 1
+        }
+    },
+    "lp-busd-usdc-toad.network-moonriver": {
+        "underlying": {
+            "count": 2,
+            "usd": 23986.88,
+            "ratio": 1,
+            "uniformity": 0.999
+        },
+        "derivative": {
+            "count": 1,
+            "usd": 1166.01,
+            "ratio": 0.0486,
+            "uniformity": 1
+        }
+    },
+    "lp-busd-usdc-toad.network-moonbeam": {
+        "underlying": {
+            "count": 2,
+            "usd": 1703.92,
+            "ratio": 1,
+            "uniformity": 0.9999
+        },
+        "derivative": {
+            "count": 1,
+            "usd": 1703.93,
+            "ratio": 1,
+            "uniformity": 1
+        }
+    },
+    "lp-busd-toad-toad.network-bsc": {
+        "underlying": {
+            "count": 2,
+            "usd": 6290.24,
+            "ratio": 1.0017,
+            "uniformity": 0.9932
+        },
+        "derivative": {
+            "count": 1,
+            "usd": 1732.12,
+            "ratio": 0.2758,
+            "uniformity": 1
+        }
+    },
+    "lp-busd-bnb-toad.network-bsc": {
+        "underlying": {
+            "count": 2,
+            "usd": 14578.67,
+            "ratio": 1,
+            "uniformity": 0.9996
+        },
+        "derivative": {
+            "count": 1,
+            "usd": 9842.8,
+            "ratio": 0.6752,
+            "uniformity": 1
+        }
+    },
+    "lp-bnb-toad-toad.network-bsc": {
+        "underlying": {
+            "count": 2,
+            "usd": 26786.21,
+            "ratio": 1.0897,
+            "uniformity": 0.9924
+        },
+        "derivative": {
+            "count": 1,
+            "usd": 3122.11,
+            "ratio": 0.127,
+            "uniformity": 1
+        }
+    },
+    "lp-bnb-pxbsc-toad.network-bsc": {
+        "underlying": {
+            "count": 2,
+            "usd": 27034.3,
+            "ratio": null,
+            "uniformity": 0.9365
+        },
+        "derivative": {
+            "count": 1,
+            "usd": null,
+            "ratio": null,
+            "uniformity": 1
+        }
+    },
+    "lp-bnb-gal-toad.network-bsc": {
+        "underlying": {
+            "count": 2,
+            "usd": 8077.35,
+            "ratio": null,
+            "uniformity": 0.9206
+        },
+        "derivative": {
+            "count": 1,
+            "usd": null,
+            "ratio": null,
+            "uniformity": 1
+        }
+    },
+    "lp-bnb-fuk-toad.network-bsc": {
+        "underlying": {
+            "count": 2,
+            "usd": 4683.45,
+            "ratio": 1.0919,
+            "uniformity": 0.9753
+        },
+        "derivative": {
+            "count": 1,
+            "usd": 393.28,
+            "ratio": 0.0917,
+            "uniformity": 1
+        }
+    },
+    "lp-bnb-cats-toad.network-bsc": {
+        "underlying": {
+            "count": 2,
+            "usd": 21937.08,
+            "ratio": 1.0929,
+            "uniformity": 0.9726
+        },
+        "derivative": {
+            "count": 1,
+            "usd": 1689.82,
+            "ratio": 0.0842,
+            "uniformity": 1
+        }
+    },
+    "lp-bnb-bjt-toad.network-bsc": {
+        "underlying": {
+            "count": 2,
+            "usd": 1033.36,
+            "ratio": null,
+            "uniformity": 0.9685
+        },
+        "derivative": {
+            "count": 1,
+            "usd": null,
+            "ratio": null,
+            "uniformity": 1
+        }
+    },
+    "hoge-multichain-bsc": {
+        "underlying": {
+            "count": 1,
+            "usd": 354439.6,
+            "ratio": 0.886,
+            "uniformity": 1
+        },
+        "derivative": {
+            "count": 2,
+            "usd": 8464.58,
+            "ratio": 0.0212,
+            "uniformity": 0.6011
+        }
+    },
+    "hoge-ethereum": {
         "underlying": {
             "count": 0,
             "usd": 0,
@@ -176,12 +596,12 @@
         },
         "derivative": {
             "count": 1,
-            "usd": 69455.15,
-            "ratio": 0.4664,
+            "usd": 354439.6,
+            "ratio": 0.0136,
             "uniformity": 1
         }
     },
-    "eth-binance-bsc": {
+    "gold": {
         "underlying": {
             "count": 0,
             "usd": 0,
@@ -190,7 +610,91 @@
         },
         "derivative": {
             "count": 1,
-            "usd": 664.25,
+            "usd": 488873106.79,
+            "ratio": 0,
+            "uniformity": 1
+        }
+    },
+    "glmr.w-toad.network-moonbeam": {
+        "underlying": {
+            "count": 0,
+            "usd": 0,
+            "ratio": 0,
+            "uniformity": 1
+        },
+        "derivative": {
+            "count": 3,
+            "usd": 8298.68,
+            "ratio": 0.5205,
+            "uniformity": 0.7513
+        }
+    },
+    "glmr.w-moonbeam-moonbeam": {
+        "underlying": {
+            "count": 0,
+            "usd": 0,
+            "ratio": 0,
+            "uniformity": 1
+        },
+        "derivative": {
+            "count": 0,
+            "usd": 0,
+            "ratio": 0,
+            "uniformity": 1
+        }
+    },
+    "glmr-moonbeam-moonbeam": {
+        "underlying": {
+            "count": 0,
+            "usd": 0,
+            "ratio": 0,
+            "uniformity": 1
+        },
+        "derivative": {
+            "count": 0,
+            "usd": 0,
+            "ratio": 0,
+            "uniformity": 1
+        }
+    },
+    "gal-bsc": {
+        "underlying": {
+            "count": 0,
+            "usd": 0,
+            "ratio": 0,
+            "uniformity": 1
+        },
+        "derivative": {
+            "count": 1,
+            "usd": 3138.15,
+            "ratio": 0.075,
+            "uniformity": 1
+        }
+    },
+    "fuk-bsc": {
+        "underlying": {
+            "count": 0,
+            "usd": 0,
+            "ratio": 0,
+            "uniformity": 1
+        },
+        "derivative": {
+            "count": 1,
+            "usd": 2178.26,
+            "ratio": 0.0908,
+            "uniformity": 1
+        }
+    },
+    "eth.w-ethereum": {
+        "underlying": {
+            "count": 0,
+            "usd": 0,
+            "ratio": 0,
+            "uniformity": 1
+        },
+        "derivative": {
+            "count": 0,
+            "usd": 0,
             "ratio": 0,
             "uniformity": 1
         }
@@ -209,21 +713,7 @@
             "uniformity": 1
         }
     },
-    "eth.w-ethereum": {
-        "underlying": {
-            "count": 0,
-            "usd": 0,
-            "ratio": 0,
-            "uniformity": 1
-        },
-        "derivative": {
-            "count": 0,
-            "usd": 0,
-            "ratio": 0,
-            "uniformity": 1
-        }
-    },
-    "fuk-bsc": {
+    "eth-binance-bsc": {
         "underlying": {
             "count": 0,
             "usd": 0,
@@ -232,12 +722,12 @@
         },
         "derivative": {
             "count": 1,
-            "usd": 2178.26,
-            "ratio": 0.0908,
+            "usd": 676.53,
+            "ratio": 0,
             "uniformity": 1
         }
     },
-    "gal-bsc": {
+    "cats-catoshi-ethereum": {
         "underlying": {
             "count": 0,
             "usd": 0,
@@ -246,520 +736,86 @@
         },
         "derivative": {
             "count": 1,
-            "usd": 3138.15,
-            "ratio": 0.075,
+            "usd": 69455.15,
+            "ratio": 0.4664,
             "uniformity": 1
         }
     },
-    "glmr-moonbeam-moonbeam": {
+    "cats-catoshi-bsc": {
         "underlying": {
-            "count": 0,
-            "usd": 0,
-            "ratio": 0,
-            "uniformity": 1
-        },
-        "derivative": {
-            "count": 0,
-            "usd": 0,
-            "ratio": 0,
-            "uniformity": 1
-        }
-    },
-    "glmr.w-moonbeam-moonbeam": {
-        "underlying": {
-            "count": 0,
-            "usd": 0,
-            "ratio": 0,
-            "uniformity": 1
-        },
-        "derivative": {
-            "count": 0,
-            "usd": 0,
-            "ratio": 0,
-            "uniformity": 1
-        }
-    },
-    "glmr.w-toad.network-moonbeam": {
-        "underlying": {
-            "count": 0,
-            "usd": 0,
-            "ratio": 0,
-            "uniformity": 1
-        },
-        "derivative": {
-            "count": 3,
-            "usd": 8275,
-            "ratio": 0.5194,
-            "uniformity": 0.7508
-        }
-    },
-    "gold": {
-        "underlying": {
-            "count": 0,
-            "usd": 0,
-            "ratio": 0,
+            "count": 1,
+            "usd": 69455.15,
+            "ratio": 0.2471,
             "uniformity": 1
         },
         "derivative": {
             "count": 1,
-            "usd": 488873106.79,
-            "ratio": 0,
+            "usd": 10118.97,
+            "ratio": 0.036,
             "uniformity": 1
         }
     },
-    "hoge-ethereum": {
+    "busd-paxos-ethereum": {
         "underlying": {
-            "count": 0,
-            "usd": 0,
-            "ratio": 0,
+            "count": 1,
+            "usd": 16094371190.4,
+            "ratio": 1.9548,
             "uniformity": 1
         },
         "derivative": {
             "count": 1,
-            "usd": 414662.43,
-            "ratio": 0.0136,
+            "usd": 2437934452.95,
+            "ratio": 0.2961,
             "uniformity": 1
         }
     },
-    "hoge-multichain-bsc": {
+    "busd-multichain-moonriver": {
         "underlying": {
             "count": 1,
-            "usd": 414662.43,
-            "ratio": 0.8882,
+            "usd": 635369.5,
+            "ratio": 1.0648,
             "uniformity": 1
         },
         "derivative": {
-            "count": 2,
-            "usd": 9342.4,
+            "count": 1,
+            "usd": 11958.79,
             "ratio": 0.02,
-            "uniformity": 0.6008
-        }
-    },
-    "lp-bnb-bjt-toad.network-bsc": {
-        "underlying": {
-            "count": 2,
-            "usd": 1029.1,
-            "ratio": null,
-            "uniformity": 0.9698
-        },
-        "derivative": {
-            "count": 1,
-            "usd": null,
-            "ratio": null,
             "uniformity": 1
         }
     },
-    "lp-bnb-cats-toad.network-bsc": {
+    "busd-multichain-moonbeam": {
         "underlying": {
-            "count": 2,
-            "usd": 21847.6,
-            "ratio": 1.0884,
-            "uniformity": 0.9739
-        },
-        "derivative": {
             "count": 1,
-            "usd": 1689.82,
-            "ratio": 0.0842,
-            "uniformity": 1
-        }
-    },
-    "lp-bnb-fuk-toad.network-bsc": {
-        "underlying": {
-            "count": 2,
-            "usd": 4664.48,
-            "ratio": 1.0875,
-            "uniformity": 0.9766
-        },
-        "derivative": {
-            "count": 1,
-            "usd": 393.28,
-            "ratio": 0.0917,
-            "uniformity": 1
-        }
-    },
-    "lp-bnb-gal-toad.network-bsc": {
-        "underlying": {
-            "count": 2,
-            "usd": 8039.95,
-            "ratio": null,
-            "uniformity": 0.9219
-        },
-        "derivative": {
-            "count": 1,
-            "usd": null,
-            "ratio": null,
-            "uniformity": 1
-        }
-    },
-    "lp-bnb-pxbsc-toad.network-bsc": {
-        "underlying": {
-            "count": 2,
-            "usd": 26913.67,
-            "ratio": null,
-            "uniformity": 0.9378
-        },
-        "derivative": {
-            "count": 1,
-            "usd": null,
-            "ratio": null,
-            "uniformity": 1
-        }
-    },
-    "lp-bnb-toad-toad.network-bsc": {
-        "underlying": {
-            "count": 2,
-            "usd": 26685.19,
-            "ratio": 1.0856,
-            "uniformity": 0.9918
-        },
-        "derivative": {
-            "count": 1,
-            "usd": 3122.11,
-            "ratio": 0.127,
-            "uniformity": 1
-        }
-    },
-    "lp-busd-bnb-toad.network-bsc": {
-        "underlying": {
-            "count": 2,
-            "usd": 14516.24,
-            "ratio": 1,
-            "uniformity": 0.9992
-        },
-        "derivative": {
-            "count": 1,
-            "usd": 9800.65,
-            "ratio": 0.6752,
-            "uniformity": 1
-        }
-    },
-    "lp-busd-toad-toad.network-bsc": {
-        "underlying": {
-            "count": 2,
-            "usd": 6287.09,
-            "ratio": 1.0012,
-            "uniformity": 0.9933
-        },
-        "derivative": {
-            "count": 1,
-            "usd": 1732.12,
-            "ratio": 0.2758,
-            "uniformity": 1
-        }
-    },
-    "lp-busd-usdc-toad.network-moonbeam": {
-        "underlying": {
-            "count": 2,
-            "usd": 1705.64,
-            "ratio": 1,
-            "uniformity": 0.9991
-        },
-        "derivative": {
-            "count": 1,
-            "usd": 1705.64,
-            "ratio": 1,
-            "uniformity": 1
-        }
-    },
-    "lp-busd-usdc-toad.network-moonriver": {
-        "underlying": {
-            "count": 2,
-            "usd": 24010.69,
-            "ratio": 1,
+            "usd": 526463.18,
+            "ratio": 1.2428,
             "uniformity": 1
         },
         "derivative": {
             "count": 1,
-            "usd": 1167.17,
-            "ratio": 0.0486,
+            "usd": 851.7,
+            "ratio": 0.002,
             "uniformity": 1
         }
     },
-    "lp-hoge-toad-toad.network-bsc": {
+    "busd-binance-bsc": {
         "underlying": {
-            "count": 2,
-            "usd": 17463.28,
-            "ratio": 0.9936,
-            "uniformity": 0.9882
-        },
-        "derivative": {
             "count": 1,
-            "usd": 549.2,
-            "ratio": 0.0312,
+            "usd": 2437934452.95,
+            "ratio": 1.0821,
             "uniformity": 1
-        }
-    },
-    "lp-pad-bnb-toad.network-bsc": {
-        "underlying": {
-            "count": 2,
-            "usd": 9475.68,
-            "ratio": 1.0853,
-            "uniformity": 0.9952
-        },
-        "derivative": {
-            "count": 1,
-            "usd": 1696.16,
-            "ratio": 0.1943,
-            "uniformity": 1
-        }
-    },
-    "lp-pad-btc-toad.network-bsc": {
-        "underlying": {
-            "count": 2,
-            "usd": 1892.66,
-            "ratio": 1.1128,
-            "uniformity": 0.9956
-        },
-        "derivative": {
-            "count": 1,
-            "usd": 446.07,
-            "ratio": 0.2623,
-            "uniformity": 1
-        }
-    },
-    "lp-pad-busd-toad.network-bsc": {
-        "underlying": {
-            "count": 2,
-            "usd": 4145.63,
-            "ratio": 1.0012,
-            "uniformity": 0.9927
-        },
-        "derivative": {
-            "count": 1,
-            "usd": 747.72,
-            "ratio": 0.1806,
-            "uniformity": 1
-        }
-    },
-    "lp-pad-eth-toad.network-bsc": {
-        "underlying": {
-            "count": 2,
-            "usd": 1353.87,
-            "ratio": 1.073,
-            "uniformity": 0.9934
-        },
-        "derivative": {
-            "count": 1,
-            "usd": 483.8,
-            "ratio": 0.3834,
-            "uniformity": 1
-        }
-    },
-    "lp-pad-glmr-toad.network-moonbeam": {
-        "underlying": {
-            "count": 2,
-            "usd": 6105.51,
-            "ratio": 1.0008,
-            "uniformity": 0.9889
-        },
-        "derivative": {
-            "count": 1,
-            "usd": 2694.33,
-            "ratio": 0.4416,
-            "uniformity": 1
-        }
-    },
-    "lp-pad-hoge-toad.network-bsc": {
-        "underlying": {
-            "count": 2,
-            "usd": 641.33,
-            "ratio": 0.993,
-            "uniformity": 0.9977
-        },
-        "derivative": {
-            "count": 1,
-            "usd": 146.79,
-            "ratio": 0.2273,
-            "uniformity": 1
-        }
-    },
-    "lp-pad-movr-toad.network-moonriver": {
-        "underlying": {
-            "count": 2,
-            "usd": 4534.24,
-            "ratio": 1.0005,
-            "uniformity": 0.9926
-        },
-        "derivative": {
-            "count": 1,
-            "usd": 2735.47,
-            "ratio": 0.6036,
-            "uniformity": 1
-        }
-    },
-    "lp-pad-toad-toad.network-bsc": {
-        "underlying": {
-            "count": 2,
-            "usd": 26536.75,
-            "ratio": 1.0009,
-            "uniformity": 0.9859
-        },
-        "derivative": {
-            "count": 1,
-            "usd": 1932.08,
-            "ratio": 0.0729,
-            "uniformity": 1
-        }
-    },
-    "lp-toad-glmr-toad.network-moonbeam": {
-        "underlying": {
-            "count": 2,
-            "usd": 9009.44,
-            "ratio": 1.0005,
-            "uniformity": 0.9954
-        },
-        "derivative": {
-            "count": 1,
-            "usd": 1557.39,
-            "ratio": 0.1729,
-            "uniformity": 1
-        }
-    },
-    "lp-toad-movr-toad.network-moonriver": {
-        "underlying": {
-            "count": 2,
-            "usd": 3559.55,
-            "ratio": 0.9995,
-            "uniformity": 0.9993
-        },
-        "derivative": {
-            "count": 1,
-            "usd": 2052.53,
-            "ratio": 0.5763,
-            "uniformity": 1
-        }
-    },
-    "lp-usdc-glmr-toad.network-moonbeam": {
-        "underlying": {
-            "count": 2,
-            "usd": 1164.53,
-            "ratio": 1.0041,
-            "uniformity": 0.9886
-        },
-        "derivative": {
-            "count": 1,
-            "usd": 849.76,
-            "ratio": 0.7327,
-            "uniformity": 1
-        }
-    },
-    "lp-usdc-movr-toad.network-moonriver": {
-        "underlying": {
-            "count": 2,
-            "usd": 1896.09,
-            "ratio": 1.0036,
-            "uniformity": 0.9981
-        },
-        "derivative": {
-            "count": 1,
-            "usd": 551.28,
-            "ratio": 0.2918,
-            "uniformity": 1
-        }
-    },
-    "movr-moonbeam-moonriver": {
-        "underlying": {
-            "count": 0,
-            "usd": 0,
-            "ratio": 0,
-            "uniformity": 1
-        },
-        "derivative": {
-            "count": 0,
-            "usd": 0,
-            "ratio": 0,
-            "uniformity": 1
-        }
-    },
-    "movr.w-moonbeam-moonriver": {
-        "underlying": {
-            "count": 0,
-            "usd": 0,
-            "ratio": 0,
-            "uniformity": 1
-        },
-        "derivative": {
-            "count": 3,
-            "usd": 5043.82,
-            "ratio": 0.9191,
-            "uniformity": 0.8766
-        }
-    },
-    "pad-toad.network-bsc": {
-        "underlying": {
-            "count": 16,
-            "usd": 29596.69,
-            "ratio": 0.6019,
-            "uniformity": 0.6308
         },
         "derivative": {
             "count": 6,
-            "usd": 22685.17,
-            "ratio": 0.4613,
-            "uniformity": 0.6038
+            "usd": 1270605.65,
+            "ratio": 0.0006,
+            "uniformity": 0.5177
         }
     },
-    "pad-toad.network-moonbeam": {
-        "underlying": {
-            "count": 5,
-            "usd": 7832.95,
-            "ratio": 0.7579,
-            "uniformity": 0.8574
-        },
-        "derivative": {
-            "count": 1,
-            "usd": 2957.12,
-            "ratio": 0.2861,
-            "uniformity": 1
-        }
-    },
-    "pad-toad.network-moonriver": {
-        "underlying": {
-            "count": 5,
-            "usd": 6506.45,
-            "ratio": 0.6599,
-            "uniformity": 0.8074
-        },
-        "derivative": {
-            "count": 1,
-            "usd": 2219.97,
-            "ratio": 0.2252,
-            "uniformity": 1
-        }
-    },
-    "paxg-binance-bsc": {
+    "busd-allbridge-solana": {
         "underlying": {
             "count": 1,
-            "usd": 592102.07,
-            "ratio": null,
-            "uniformity": 1
-        },
-        "derivative": {
-            "count": 0,
-            "usd": 0,
-            "ratio": null,
-            "uniformity": 1
-        }
-    },
-    "paxg-paxos-ethereum": {
-        "underlying": {
-            "count": 1,
-            "usd": 488873106.79,
-            "ratio": 0.9729,
-            "uniformity": 1
-        },
-        "derivative": {
-            "count": 2,
-            "usd": 1452829.3,
-            "ratio": 0.0029,
-            "uniformity": 0.9343
-        }
-    },
-    "paxg-wormhole-solana": {
-        "underlying": {
-            "count": 1,
-            "usd": 860727.23,
-            "ratio": 1,
+            "usd": 96245.67,
+            "ratio": 1.3416,
             "uniformity": 1
         },
         "derivative": {
@@ -769,105 +825,7 @@
             "uniformity": 1
         }
     },
-    "pxbsc-bsc": {
-        "underlying": {
-            "count": 0,
-            "usd": 0,
-            "ratio": 0,
-            "uniformity": 1
-        },
-        "derivative": {
-            "count": 1,
-            "usd": 11101.9,
-            "ratio": 0.5417,
-            "uniformity": 1
-        }
-    },
-    "toad-toad.network-bsc": {
-        "underlying": {
-            "count": 0,
-            "usd": 0,
-            "ratio": 0,
-            "uniformity": 1
-        },
-        "derivative": {
-            "count": 7,
-            "usd": 98197.99,
-            "ratio": 0.272,
-            "uniformity": 0.7224
-        }
-    },
-    "toad-toad.network-moonbeam": {
-        "underlying": {
-            "count": 1,
-            "usd": 45372.84,
-            "ratio": 1.0883,
-            "uniformity": 1
-        },
-        "derivative": {
-            "count": 2,
-            "usd": 5472.14,
-            "ratio": 0.1313,
-            "uniformity": 0.7641
-        }
-    },
-    "toad-toad.network-moonriver": {
-        "underlying": {
-            "count": 1,
-            "usd": 8671.87,
-            "ratio": 0.9325,
-            "uniformity": 1
-        },
-        "derivative": {
-            "count": 2,
-            "usd": 1783.19,
-            "ratio": 0.1918,
-            "uniformity": 1
-        }
-    },
-    "usd-fed": {
-        "underlying": {
-            "count": 0,
-            "usd": 0,
-            "ratio": 0,
-            "uniformity": 1
-        },
-        "derivative": {
-            "count": 2,
-            "usd": 58430105264.4,
-            "ratio": 0.0027,
-            "uniformity": 0.8362
-        }
-    },
-    "usdc-binance-bsc": {
-        "underlying": {
-            "count": 1,
-            "usd": 775318999.84,
-            "ratio": 0.9923,
-            "uniformity": 1
-        },
-        "derivative": {
-            "count": 0,
-            "usd": 0,
-            "ratio": 0,
-            "uniformity": 1
-        }
-    },
-    "usdc-circle-ethereum": {
-        "underlying": {
-            "count": 1,
-            "usd": 42335734074,
-            "ratio": 1.2223,
-            "uniformity": 1
-        },
-        "derivative": {
-            "count": 3,
-            "usd": 787852158.43,
-            "ratio": 0.0227,
-            "uniformity": 0.4667
-        }
-    },
-    "usdc-circle-solana": {
+    "btc-bitcoin": {
         "underlying": {
             "count": 0,
             "usd": 0,
@@ -881,32 +839,74 @@
             "uniformity": 1
         }
     },
-    "usdc-multichain-moonbeam": {
+    "btc-binance-bsc": {
         "underlying": {
-            "count": 1,
-            "usd": 2434399.66,
-            "ratio": 1.101,
+            "count": 0,
+            "usd": 0,
+            "ratio": 0,
             "uniformity": 1
         },
         "derivative": {
-            "count": 2,
-            "usd": 1451.58,
-            "ratio": 0.0007,
-            "uniformity": 0.939
+            "count": 1,
+            "usd": 940.36,
+            "ratio": 0,
+            "uniformity": 1
         }
     },
-    "usdc-multichain-moonriver": {
+    "bnb-wormhole-solana": {
         "underlying": {
             "count": 1,
-            "usd": 10098758.93,
-            "ratio": 1.0327,
+            "usd": 4726203.24,
+            "ratio": 1.6106,
             "uniformity": 1
         },
         "derivative": {
-            "count": 2,
-            "usd": 12948.05,
-            "ratio": 0.0013,
-            "uniformity": 0.6509
+            "count": 0,
+            "usd": 0,
+            "ratio": 0,
+            "uniformity": 1
+        }
+    },
+    "bnb-wormhole-ethereum": {
+        "underlying": {
+            "count": 1,
+            "usd": 4726203.24,
+            "ratio": 6.4764,
+            "uniformity": 1
+        },
+        "derivative": {
+            "count": 0,
+            "usd": 0,
+            "ratio": 0,
+            "uniformity": 1
+        }
+    },
+    "bnb-binance-bsc": {
+        "underlying": {
+            "count": 0,
+            "usd": 0,
+            "ratio": 0,
+            "uniformity": 1
+        },
+        "derivative": {
+            "count": 10,
+            "usd": 9513833.58,
+            "ratio": 0.0103,
+            "uniformity": 0.3633
+        }
+    },
+    "bjt-bsc": {
+        "underlying": {
+            "count": 0,
+            "usd": 0,
+            "ratio": 0,
+            "uniformity": 1
+        },
+        "derivative": {
+            "count": 1,
+            "usd": 470.63,
+            "ratio": 0.3082,
+            "uniformity": 1
         }
     }
 }
