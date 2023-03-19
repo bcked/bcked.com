@@ -24,7 +24,7 @@
 <div
 	class="w-full odd:bg-gray-200 odd:text-gray-900 even:bg-neon-gray-light even:text-gray-50"
 	use:inview
-	on:enter={(event) => {
+	on:inview_enter={(event) => {
 		const { inView, entry, scrollDirection, observer, node } = event.detail;
 		show = inView;
 	}}
@@ -36,7 +36,7 @@
 			? '-translate-x-12 opacity-0 blur-sm'
 			: 'translate-x-0 opacity-100 blur-none'} transition-all motion-reduce:transition-none duration-1000 {clazz}"
 		use:inview={inViewOptions}
-		on:enter={(event) => {
+		on:inview_enter={(event) => {
 			const { inView, entry, scrollDirection, observer, node } = event.detail;
 			isInView = inView;
 			if (isInView) {

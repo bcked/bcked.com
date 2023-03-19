@@ -4,9 +4,9 @@
 	 */
 	import { base } from '$app/paths';
 	import { PUBLIC_DOMAIN } from '$env/static/public';
-	import { ForceNGraph3D } from '$lib/utils/graph';
 	import { formatCurrency } from '$lib/utils/string-formatting';
 	import type { ForceGraph3DInstance } from '3d-force-graph';
+	import ForceGraph3D from '3d-force-graph';
 	import { onMount } from 'svelte';
 	import SvelteSeo from 'svelte-seo';
 	import * as Three from 'three';
@@ -30,7 +30,11 @@
 	let selectedNode: Node | undefined = undefined;
 
 	onMount(() => {
-		forceGraph = ForceNGraph3D(htmlElement)
+		const createForceGraph: ForceGraph3DInstance = ForceGraph3D();
+		forceGraph = createForceGraph(htmlElement)
+			.linkSource('fromId')
+			.linkTarget('toId')
+			.backgroundColor('#00000000')
 			.enableNodeDrag(false)
 			.nodeLabel((n) => {
 				const node = n as Node;

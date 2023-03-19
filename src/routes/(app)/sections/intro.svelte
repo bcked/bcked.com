@@ -3,8 +3,8 @@
 	import Glow from '$components/glow.svelte';
 	import SectionHeader from '$components/section-header.svelte';
 	import Section from '$components/section.svelte';
-	import { ForceNGraph3D } from '$lib/utils/graph';
 	import type { ForceGraph3DInstance } from '3d-force-graph';
+	import ForceGraph3D from '3d-force-graph';
 	import { CubeIcon } from '@rgossiaux/svelte-heroicons/outline';
 	import { onMount } from 'svelte';
 	import * as Three from 'three';
@@ -25,7 +25,11 @@
 	const distance = 800;
 
 	onMount(() => {
-		graph = ForceNGraph3D(htmlElement)
+		const createForceGraph: ForceGraph3DInstance = ForceGraph3D();
+		graph = createForceGraph(htmlElement)
+			.linkSource('fromId')
+			.linkTarget('toId')
+			.backgroundColor('#00000000')
 			.enableNodeDrag(false)
 			.enableNavigationControls(false)
 			.showNavInfo(false)

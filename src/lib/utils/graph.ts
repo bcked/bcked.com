@@ -1,7 +1,5 @@
 import { closest, uniqueTimes } from '$lib/utils/array';
 import { writeAggregation } from '$lib/utils/files';
-import type { ForceGraph3DInstance } from '3d-force-graph';
-import ForceGraph3D from '3d-force-graph';
 import fs from 'fs';
 import _ from 'lodash';
 import fromJson from 'ngraph.fromjson';
@@ -136,14 +134,6 @@ export function readGraph<NodeData = any, LinkData = any>(
 
 export function writeGraph(name: string, graph: Graph) {
 	writeAggregation(name, JSON.parse(toJson(graph)));
-}
-
-export function ForceNGraph3D(htmlElement: HTMLElement) {
-	const createForceGraph: ForceGraph3DInstance = ForceGraph3D();
-	return createForceGraph(htmlElement)
-		.linkSource('fromId')
-		.linkTarget('toId')
-		.backgroundColor('#00000000');
 }
 
 export function createBackingGraph(
