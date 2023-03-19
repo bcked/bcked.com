@@ -12,23 +12,31 @@
 		<meta name="msapplication-TileColor" content="#3bc7ff" />
 		<meta name="theme-color" content="#ffffff" />
 		<meta http-equiv="content-security-policy" content="">
-		<link rel="modulepreload" href="/_app/immutable/start-0451ed9e.js">
-		<link rel="modulepreload" href="/_app/immutable/chunks/index-17510b9a.js">
-		<link rel="modulepreload" href="/_app/immutable/chunks/singletons-4789530f.js">
-		<link rel="modulepreload" href="/_app/immutable/chunks/paths-24bb4e9c.js">
-		<link rel="modulepreload" href="/_app/immutable/chunks/preload-helper-41c905a7.js">
+		<link rel="modulepreload" href="/_app/immutable/entry/start.aa4e7d3a.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/index.467a0851.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/singletons.a18d1e52.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/paths.db943442.js">
+		<link rel="modulepreload" href="/_app/immutable/entry/app.10cc5e7e.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/preload-helper.41c905a7.js">
 	</head>
 	<body class="h-full overflow-x-clip">
 		<div>
-		<script type="module" data-sveltekit-hydrate="45h">
-			import { start } from "/_app/immutable/start-0451ed9e.js";
+			<script>
+				{
+					__sveltekit_1uctt7h = {
+						env: {"PUBLIC_DOMAIN":""},
+						base: "",
+						element: document.currentScript.parentElement
+					};
 
-			start({
-				assets: "",
-				env: {"PUBLIC_DOMAIN":""},
-				target: document.querySelector('[data-sveltekit-hydrate="45h"]').parentNode,
-				version: "1679177340322"
-			});
-		</script></div>
+					Promise.all([
+						import("/_app/immutable/entry/start.aa4e7d3a.js"),
+						import("/_app/immutable/entry/app.10cc5e7e.js")
+					]).then(([kit, app]) => {
+						kit.start(app, __sveltekit_1uctt7h.element);
+					});
+				}
+			</script>
+		</div>
 	</body>
 </html>
