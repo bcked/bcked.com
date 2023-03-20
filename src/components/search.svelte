@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
-	import Icon from '$components/icon.svelte';
 	import { Listbox, ListboxOption, ListboxOptions } from '@rgossiaux/svelte-headlessui';
 	import { EmojiSadIcon } from '@rgossiaux/svelte-heroicons/outline';
 	import { SearchIcon, XCircleIcon } from '@rgossiaux/svelte-heroicons/solid';
@@ -13,7 +12,7 @@
 
 	export let data: LayoutData;
 
-	$: ({ assetsDetails, assetsContracts, chainsDetails, issuersDetails, icons } = data);
+	$: ({ assetsDetails, assetsContracts, chainsDetails, issuersDetails } = data);
 
 	let clazz: string = '';
 	export { clazz as class };
@@ -124,7 +123,12 @@
 			/>
 			<div class="absolute inset-y-0 left-0 pl-3 flex items-center space-x-2 pointer-events-none">
 				{#if selected && !query}
-					<Icon id={selected.id} {data} size={20} class="object-contain" />
+					<object
+						aria-label="Icon of {selected.name}"
+						class="h-5 w-5 object-contain"
+						data="{base}/assets/{selected.id}/icon.svg"
+						type="image/svg+xml"
+					/>
 
 					<div class="flex items-center space-x-1">
 						<span class="block truncate font-medium">
@@ -186,7 +190,12 @@
 									class="cursor-default select-none relative py-2 pl-3 pr-3 text-gray-900 hover:text-white hover:bg-neon-pink group"
 								>
 									<div class="flex items-center space-x-2">
-										<Icon id={item.id} {data} size={20} class="object-contain" />
+										<object
+											aria-label="Icon of {item.name}"
+											class="h-5 w-5 object-contain"
+											data="{base}/assets/{item.id}/icon.svg"
+											type="image/svg+xml"
+										/>
 										<div class="flex flex-col flex-grow items-start justify-start truncate">
 											<div class="flex items-center space-x-1 truncate">
 												<span class="block truncate font-medium">

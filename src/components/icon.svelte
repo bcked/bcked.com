@@ -5,13 +5,13 @@ Some resources:
 - https://www.w3schools.com/graphics/svg_intro.asp
  -->
 <script lang="ts">
-	import { base } from '$app/paths';
-	import type { PageData } from '../routes/(app)/$types';
+	import { PUBLIC_DOMAIN } from '$env/static/public';
+	// import { base } from '$app/paths';
 
 	let clazz: string = '';
 	export { clazz as class };
 
-	export let data: PageData;
+	export let data: { assetsDetails: agg.AssetsDetails; icons: agg.Icons };
 
 	export let id: derived.AssetId;
 
@@ -35,12 +35,21 @@ Some resources:
 </script>
 
 {#if asset && icon}
-	<svg {x} {y} height={size} width={size} viewBox="0 0 64 64" class={clazz}>
+	<svg
+		version="1.1"
+		{x}
+		{y}
+		height={size}
+		width={size}
+		viewBox="0 0 64 64"
+		class={clazz}
+		xmlns="http://www.w3.org/2000/svg"
+	>
 		<desc>Icon of {asset.name}</desc>
 		<image
 			x={0}
 			y={0}
-			href="{base}/{icon.href}"
+			href="{PUBLIC_DOMAIN}/{icon.href}"
 			height={64}
 			width={64}
 			dominant-baseline="central"
@@ -49,6 +58,7 @@ Some resources:
 	</svg>
 {:else}
 	<svg
+		version="1.1"
 		{x}
 		{y}
 		height={size}
@@ -58,6 +68,7 @@ Some resources:
 		stroke-width="1.5"
 		stroke="currentColor"
 		class={clazz}
+		xmlns="http://www.w3.org/2000/svg"
 	>
 		<desc>Default Icon</desc>
 		<path

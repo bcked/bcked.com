@@ -5,7 +5,6 @@
 <script lang="ts">
 	import * as d3 from 'd3';
 
-	import Icon from '$components/icon.svelte';
 	import * as Sankey from 'd3-sankey';
 	import type { Graph } from 'ngraph.graph';
 	import { getContext } from 'svelte';
@@ -13,6 +12,7 @@
 	export let graph: Graph<graph.NodeData, graph.LinkData>;
 
 	import type { PageData } from '../routes/(app)/$types';
+	import Icon from './icon.svelte';
 
 	let pageData: PageData;
 	export { pageData as data };
@@ -167,13 +167,34 @@
 					rx="5"
 					ry="5"
 				/>
+				<!-- <use
+					class="drop-shadow-md group-hover:drop-shadow-lg"
+					x={d.y0 + nodeWidth / 2 - iconSize / 2}
+					y={d.x0 + nodeHeight / 2 - iconSize / 2}
+					href="{base}/assets/{d.id}/icon.svg"
+					height={iconSize}
+					width={iconSize}
+					dominant-baseline="central"
+					text-anchor="middle"
+					type="image/svg+xml"
+				/> -->
+				<!-- <image
+					class="drop-shadow-md group-hover:drop-shadow-lg"
+					x={d.y0 + nodeWidth / 2 - iconSize / 2}
+					y={d.x0 + nodeHeight / 2 - iconSize / 2}
+					href="{base}/assets/{d.id}/icon.svg"
+					height={iconSize}
+					width={iconSize}
+					dominant-baseline="central"
+					text-anchor="middle"
+				/> -->
 				<Icon
+					class="drop-shadow-md group-hover:drop-shadow-lg"
 					id={d.id}
 					data={pageData}
 					x={d.y0 + nodeWidth / 2 - iconSize / 2}
 					y={d.x0 + nodeHeight / 2 - iconSize / 2}
 					size={iconSize}
-					class="drop-shadow-md group-hover:drop-shadow-lg"
 				/>
 			</g>
 		{/each}

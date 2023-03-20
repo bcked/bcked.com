@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Sankey from '$components/sankey.svelte';
-	import { LayerCake, Svg } from 'layercake';
+	import { LayerCake } from 'layercake';
 	import type { Graph } from 'ngraph.graph';
 
 	export let graph: Graph<graph.NodeData, graph.LinkData>;
@@ -37,9 +37,9 @@
 	</div>
 	<div class="h-full w-full min-h-[300px] sm:min-h-[350px] lg:min-h-[300px]">
 		<LayerCake data={JSON.parse(JSON.stringify(ngraph2d3(graph)))}>
-			<Svg>
+			<svg version="1.1" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
 				<Sankey {graph} {data} />
-			</Svg>
+			</svg>
 		</LayerCake>
 	</div>
 </div>

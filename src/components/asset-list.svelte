@@ -1,12 +1,11 @@
 <script lang="ts">
 	import { base } from '$app/paths';
-	import Icon from '$components/icon.svelte';
 	import type { ComponentType } from 'svelte';
 	import type { PageData } from '../routes/(app)/$types';
 
 	export let data: PageData;
 
-	$: ({ assetsDetails, icons } = data);
+	$: ({ assetsDetails } = data);
 
 	export let headerIcon: ComponentType;
 	export let title: string;
@@ -39,7 +38,12 @@
 									{i + 1}
 								</div>
 								<div class="flex items-center space-x-1">
-									<Icon id={asset.id} {data} size={20} class="object-contain" />
+									<object
+										aria-label="Icon of {asset.name}"
+										class="h-5 w-5 object-contain"
+										data="{base}/assets/{asset.id}/icon.svg"
+										type="image/svg+xml"
+									/>
 									<span class="block font-semibold truncate">
 										{asset.name}
 									</span>

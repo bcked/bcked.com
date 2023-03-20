@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { base } from '$app/paths';
-	import Icon from '$components/icon.svelte';
 	import { combine, compare } from '$lib/utils/string-formatting';
 	import { ChevronDownIcon, ChevronUpIcon } from '@rgossiaux/svelte-heroicons/solid';
 	import type { ComponentType } from 'svelte';
@@ -84,7 +83,12 @@
 								<a href={row[column.id + '-path'].text}>
 									<div class="flex items-center space-x-1">
 										{#if row[column.id].icon}
-											<Icon id={row[column.id].icon} {data} size={20} class="object-contain" />
+											<object
+												aria-label="Icon of {row[column.id].text}"
+												class="h-5 w-5 object-contain"
+												data="{base}/assets/{row[column.id].icon}/icon.svg"
+												type="image/svg+xml"
+											/>
 										{/if}
 										<span class="truncate">
 											{row[column.id].text}
@@ -94,10 +98,11 @@
 							{:else}
 								<div class="flex items-center space-x-1">
 									{#if row[column.id].icon}
-										<img
+										<object
+											aria-label="Icon of {row[column.id].text}"
 											class="h-5 w-5 object-contain"
-											src="{base}/{row[column.id].icon}"
-											alt="Icon of {row[column.id].text}"
+											data="{base}/assets/{row[column.id].icon}/icon.svg"
+											type="image/svg+xml"
 										/>
 									{/if}
 									<span>

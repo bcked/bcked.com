@@ -4,9 +4,9 @@
 	 */
 	import { base } from '$app/paths';
 	import { PUBLIC_DOMAIN } from '$env/static/public';
+
 	import { formatCurrency } from '$lib/utils/string-formatting';
 	import type { ForceGraph3DInstance } from '3d-force-graph';
-	import ForceGraph3D from '3d-force-graph';
 	import { onMount } from 'svelte';
 	import SvelteSeo from 'svelte-seo';
 	import * as Three from 'three';
@@ -29,12 +29,9 @@
 
 	let selectedNode: Node | undefined = undefined;
 
-	onMount(() => {
-		const createForceGraph: ForceGraph3DInstance = ForceGraph3D();
-		forceGraph = createForceGraph(htmlElement)
-			.linkSource('fromId')
-			.linkTarget('toId')
-			.backgroundColor('#00000000')
+	onMount(async () => {
+		const { createForceNGraph } = await import('$lib/utils/force-ngraph-3d');
+		forceGraph = createForceNGraph(htmlElement)
 			.enableNodeDrag(false)
 			.nodeLabel((n) => {
 				const node = n as Node;
@@ -147,10 +144,11 @@
 		<div class="px-4 py-2 sm:px-6 transition-all motion-reduce:transition-none duration-1000">
 			<div class="flex items-center justify-start space-x-4">
 				{#if selectedNode}
-					<img
-						class="h-10 w-10 flex-shrink-1"
-						src={selectedNode?.data?.icon?.href}
-						alt="Icon of {selectedNode?.data?.details?.name}"
+					<object
+						aria-label="Icon of {selectedNode?.data?.details?.name}"
+						class="h-10 w-10 flex-shrink-1 object-contain"
+						data="{base}/assets/{selectedNode?.id}/icon.svg"
+						type="image/svg+xml"
 					/>
 					<div>
 						<h2 class="text-lg font-medium leading-6 text-neon-pink">
