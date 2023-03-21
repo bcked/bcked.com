@@ -1304,6 +1304,9 @@ select {
 .cursor-default {
   cursor: default;
 }
+.cursor-grab {
+  cursor: grab;
+}
 .cursor-pointer {
   cursor: pointer;
 }
@@ -2067,6 +2070,10 @@ select {
 
 .focus\:ring-transparent:focus {
   --tw-ring-color: transparent;
+}
+
+.active\:cursor-grabbing:active {
+  cursor: grabbing;
 }
 
 .group:hover .group-hover\:inline {
