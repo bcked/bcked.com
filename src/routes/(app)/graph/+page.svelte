@@ -6,11 +6,11 @@
 	import { PUBLIC_DOMAIN } from '$env/static/public';
 
 	import { formatCurrency } from '$lib/utils/string-formatting';
+	import { loadSvg } from '$lib/utils/three';
 	import type { ForceGraph3DInstance } from '3d-force-graph';
 	import { onMount } from 'svelte';
 	import SvelteSeo from 'svelte-seo';
-	import * as Three from 'three';
-	import { Vector2 } from 'three';
+	import { Vector2, Vector3 } from 'three';
 	import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
 	import type { PageData } from './$types';
 
@@ -48,13 +48,16 @@
 			.nodeThreeObject((n) => {
 				const node = n as Node;
 				const data = node.data;
-				const href = data?.icon?.href;
+				const svg = loadSvg(`${base}/assets/${data.details.id}/icon.svg`, new Vector3(18, 18));
+				return svg;
 
-				const imgTexture = new Three.TextureLoader().load(href);
-				const material = new Three.SpriteMaterial({ map: imgTexture });
-				const sprite = new Three.Sprite(material);
-				sprite.scale.set(18, 18, 18);
-				return sprite;
+				// 	const href = data?.icon?.href;
+
+				// 	const imgTexture = new Three.TextureLoader().load(href);
+				// 	const material = new Three.SpriteMaterial({ map: imgTexture });
+				// 	const sprite = new Three.Sprite(material);
+				// 	sprite.scale.set(18, 18, 1);
+				// 	return sprite;
 			})
 			.onNodeClick((n) => {
 				const node = n as Node;
@@ -142,37 +145,39 @@
 			: 'translate-y-0 opacity-100'} transition-all motion-reduce:transition-none duration-1000"
 	>
 		<div class="px-4 py-2 sm:px-6 transition-all motion-reduce:transition-none duration-1000">
-			<div class="flex items-center justify-start space-x-4">
-				{#if selectedNode}
-					<object
-						aria-label="Icon of {selectedNode?.data?.details?.name}"
-						class="h-10 w-10 flex-shrink-1 object-contain"
-						data="{base}/assets/{selectedNode?.id}/icon.svg"
-						type="image/svg+xml"
-					/>
-					<div>
-						<h2 class="text-lg font-medium leading-6 text-neon-pink">
-							<a href="{base}/assets/{selectedNode?.id}">{selectedNode?.data?.details?.name}</a>
-						</h2>
-						{#if selectedNode?.data?.issuer?.name && selectedNode?.data?.chain?.name}
-							<p class="mt-1 max-w-2xl text-sm text-gray-500">
-								Issuer: {selectedNode?.data?.issuer?.name} | Chain: {selectedNode?.data?.chain
-									?.name}
-							</p>
-						{:else if selectedNode?.data?.issuer?.name}
-							<p class="mt-1 max-w-2xl text-sm text-gray-500">
-								Issuer: {selectedNode?.data?.issuer?.name}
-							</p>
-						{:else if selectedNode?.data?.chain?.name}
-							<p class="mt-1 max-w-2xl text-sm text-gray-500">
-								Chain: {selectedNode?.data?.chain?.name}
-							</p>
-						{/if}
+			{#if selectedNode}
+				<a href="{base}/assets/{selectedNode?.id}">
+					<div class="flex items-center justify-start space-x-4">
+						<object
+							aria-label="Icon of {selectedNode?.data?.details?.name}"
+							class="h-10 w-10 flex-shrink-1 object-contain pointer-events-none"
+							data="{base}/assets/{selectedNode?.id}/icon.svg"
+							type="image/svg+xml"
+						/>
+						<div>
+							<h2 class="text-lg font-medium leading-6 text-neon-pink">
+								{selectedNode?.data?.details?.name}
+							</h2>
+							{#if selectedNode?.data?.issuer?.name && selectedNode?.data?.chain?.name}
+								<p class="mt-1 max-w-2xl text-sm text-gray-500">
+									Issuer: {selectedNode?.data?.issuer?.name} | Chain: {selectedNode?.data?.chain
+										?.name}
+								</p>
+							{:else if selectedNode?.data?.issuer?.name}
+								<p class="mt-1 max-w-2xl text-sm text-gray-500">
+									Issuer: {selectedNode?.data?.issuer?.name}
+								</p>
+							{:else if selectedNode?.data?.chain?.name}
+								<p class="mt-1 max-w-2xl text-sm text-gray-500">
+									Chain: {selectedNode?.data?.chain?.name}
+								</p>
+							{/if}
+						</div>
 					</div>
-				{/if}
-			</div>
+				</a>
+			{/if}
 		</div>
 	</div>
 </div>
 
-<div id="3d-graph" bind:this={htmlElement} />
+<div id="3d-graph" bind:this={htmlElement} class="cursor-grab active:cursor-grabbing" />

@@ -125,7 +125,7 @@
 				{#if selected && !query}
 					<object
 						aria-label="Icon of {selected.name}"
-						class="h-5 w-5 object-contain"
+						class="h-5 w-5 object-contain pointer-events-none"
 						data="{base}/assets/{selected.id}/icon.svg"
 						type="image/svg+xml"
 					/>
@@ -192,7 +192,7 @@
 									<div class="flex items-center space-x-2">
 										<object
 											aria-label="Icon of {item.name}"
-											class="h-5 w-5 object-contain"
+											class="h-5 w-5 object-contain pointer-events-none"
 											data="{base}/assets/{item.id}/icon.svg"
 											type="image/svg+xml"
 										/>

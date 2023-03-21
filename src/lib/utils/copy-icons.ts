@@ -11,17 +11,17 @@ export function queryIcons(source: string, target: string): agg.Icons {
 			...file,
 			basename,
 			source: filepath,
-			target: path.resolve('./static', target, basename),
+			target: path.join('./static', target, basename),
 			href: path.join(target, basename, file.base)
 		};
 	});
 
 	// TODO This can be parallelized
-	for (const icon of icons) {
-		// Create folder if it does not exist
-		fs.mkdirSync(icon.target, { recursive: true });
-		fs.copyFileSync(path.resolve(icon.dir, icon.base), path.resolve(icon.target, icon.base));
-	}
+	// for (const icon of icons) {
+	// 	// Create folder if it does not exist
+	// 	fs.mkdirSync(icon.target, { recursive: true });
+	// 	fs.copyFileSync(path.resolve(icon.dir, icon.base), path.resolve(icon.target, icon.base));
+	// }
 
 	return _.keyBy(icons, 'basename');
 }

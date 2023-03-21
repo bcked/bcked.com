@@ -14,12 +14,11 @@ import type { RequestHandler } from './$types';
 export const prerender = true;
 
 export const GET: RequestHandler = async ({ params }) => {
-	const assetsDetails = await readAggregation<agg.AssetsDetails>('assets-details');
-	const icons = await readAggregation<agg.Icons>('icons');
+	const graphData = await readAggregation<graph.Graph>('graph');
 
 	return renderSvgResponse(Icon, {
 		id: params.id!,
-		data: { assetsDetails, icons },
+		data: { graphData },
 		size: 64,
 		class: 'object-contain'
 	});

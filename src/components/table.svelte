@@ -85,7 +85,7 @@
 										{#if row[column.id].icon}
 											<object
 												aria-label="Icon of {row[column.id].text}"
-												class="h-5 w-5 object-contain"
+												class="h-5 w-5 object-contain pointer-events-none"
 												data="{base}/assets/{row[column.id].icon}/icon.svg"
 												type="image/svg+xml"
 											/>
@@ -100,7 +100,7 @@
 									{#if row[column.id].icon}
 										<object
 											aria-label="Icon of {row[column.id].text}"
-											class="h-5 w-5 object-contain"
+											class="h-5 w-5 object-contain pointer-events-none"
 											data="{base}/assets/{row[column.id].icon}/icon.svg"
 											type="image/svg+xml"
 										/>

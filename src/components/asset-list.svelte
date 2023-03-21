@@ -40,7 +40,7 @@
 								<div class="flex items-center space-x-1">
 									<object
 										aria-label="Icon of {asset.name}"
-										class="h-5 w-5 object-contain"
+										class="h-5 w-5 object-contain pointer-events-none"
 										data="{base}/assets/{asset.id}/icon.svg"
 										type="image/svg+xml"
 									/>
