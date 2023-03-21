@@ -26,6 +26,7 @@ export async function aggregateFolders<
 	Type extends { id: Key; git: git.FileHistory }
 >(folder: string, filename: string, root: string = '.'): Promise<{ [id: string]: Type }> {
 	const data = await readFolders<Key, Type>(folder, filename, root);
-	writeAggregation(`${folder}-${filename}`, data);
+	const sortedData = Object.fromEntries(Object.entries(data).sort());
+	writeAggregation(`${folder}-${filename}`, sortedData);
 	return data;
 }
