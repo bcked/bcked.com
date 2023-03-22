@@ -1,38 +1,8 @@
 {
-    "solana": {
-        "id": "solana",
-        "name": "Solana",
-        "explorer": "https://solscan.io/token/",
-        "git": {
-            "updated": {
-                "hash": "b4982e018cdeadd3f534e9fa1ab1c170e115c262",
-                "date": "2023-01-28T14:51:24.000Z"
-            },
-            "created": {
-                "hash": "b4982e018cdeadd3f534e9fa1ab1c170e115c262",
-                "date": "2023-01-28T14:51:24.000Z"
-            }
-        }
-    },
-    "moonriver": {
-        "id": "moonriver",
-        "name": "Moonriver",
-        "explorer": "https://moonriver.moonscan.io/token/",
-        "git": {
-            "updated": {
-                "hash": "b4982e018cdeadd3f534e9fa1ab1c170e115c262",
-                "date": "2023-01-28T14:51:24.000Z"
-            },
-            "created": {
-                "hash": "b4982e018cdeadd3f534e9fa1ab1c170e115c262",
-                "date": "2023-01-28T14:51:24.000Z"
-            }
-        }
-    },
-    "moonbeam": {
-        "id": "moonbeam",
-        "name": "Moonbeam",
-        "explorer": "https://moonscan.io/token/",
+    "bsc": {
+        "id": "bsc",
+        "name": "Binance Smart Chain (BEP-20)",
+        "explorer": "https://bscscan.com/token/",
         "git": {
             "updated": {
                 "hash": "b4982e018cdeadd3f534e9fa1ab1c170e115c262",
@@ -59,10 +29,40 @@
             }
         }
     },
-    "bsc": {
-        "id": "bsc",
-        "name": "Binance Smart Chain (BEP-20)",
-        "explorer": "https://bscscan.com/token/",
+    "moonbeam": {
+        "id": "moonbeam",
+        "name": "Moonbeam",
+        "explorer": "https://moonscan.io/token/",
+        "git": {
+            "updated": {
+                "hash": "b4982e018cdeadd3f534e9fa1ab1c170e115c262",
+                "date": "2023-01-28T14:51:24.000Z"
+            },
+            "created": {
+                "hash": "b4982e018cdeadd3f534e9fa1ab1c170e115c262",
+                "date": "2023-01-28T14:51:24.000Z"
+            }
+        }
+    },
+    "moonriver": {
+        "id": "moonriver",
+        "name": "Moonriver",
+        "explorer": "https://moonriver.moonscan.io/token/",
+        "git": {
+            "updated": {
+                "hash": "b4982e018cdeadd3f534e9fa1ab1c170e115c262",
+                "date": "2023-01-28T14:51:24.000Z"
+            },
+            "created": {
+                "hash": "b4982e018cdeadd3f534e9fa1ab1c170e115c262",
+                "date": "2023-01-28T14:51:24.000Z"
+            }
+        }
+    },
+    "solana": {
+        "id": "solana",
+        "name": "Solana",
+        "explorer": "https://solscan.io/token/",
         "git": {
             "updated": {
                 "hash": "b4982e018cdeadd3f534e9fa1ab1c170e115c262",
