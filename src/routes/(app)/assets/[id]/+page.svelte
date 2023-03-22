@@ -270,7 +270,7 @@
 						{ id: 'price', title: 'Price', class: 'hidden lg:table-cell' },
 						{ id: 'amount', title: 'Amount', class: 'hidden sm:table-cell' },
 						{ id: 'underlying-usd', title: 'Backing', class: '' },
-						{ id: 'underlying-ratio', title: 'Mcap Ratio', class: '' }
+						{ id: 'underlying-ratio', title: 'Mcap Ratio', class: 'hidden sm:table-cell' }
 					]}
 					rows={underlying
 						.map((link) => ({
@@ -434,7 +434,7 @@
 						{ id: 'price', title: 'Price', class: 'hidden lg:table-cell' },
 						{ id: 'amount', title: 'Amount', class: 'hidden sm:table-cell' },
 						{ id: 'derivative-usd', title: 'Backing', class: '' },
-						{ id: 'derivative-ratio', title: 'Mcap Ratio', class: '' }
+						{ id: 'derivative-ratio', title: 'Mcap Ratio', class: 'hidden sm:table-cell' }
 					]}
 					rows={derivative
 						.map((link) => ({
