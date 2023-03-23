@@ -242,75 +242,77 @@
 	</div>
 
 	{#if underlying.length > 0}
-		<div class="grid grid-cols-1 gap-4 lg:grid-cols-2 shadow-none">
-			<div class="flex flex-col bg-gray-50 shadow sm:rounded-lg overflow-hidden">
-				<div class="px-4 pt-5 sm:px-6 sm:pt-6">
-					<div class="max-w-3xl mx-auto text-center">
-						<h2 class="text-3xl tracking-tight font-bold text-gray-900">Backing History</h2>
-						<p class="mt-4 text-lg text-gray-500">
-							View {details.name}'s backing history of up to the last {entries * interval} days.
-						</p>
+		{#if history.length > 0}
+			<div class="grid grid-cols-1 gap-4 lg:grid-cols-2 shadow-none">
+				<div class="flex flex-col bg-gray-50 shadow sm:rounded-lg overflow-hidden">
+					<div class="px-4 pt-5 sm:px-6 sm:pt-6">
+						<div class="max-w-3xl mx-auto text-center">
+							<h2 class="text-3xl tracking-tight font-bold text-gray-900">Backing History</h2>
+							<p class="mt-4 text-lg text-gray-500">
+								View {details.name}'s backing history of up to the last {entries * interval} days.
+							</p>
+						</div>
+						<div class="flex mt-6 items-center justify-between">
+							<dl>
+								<dt class="text-sm font-medium text-gray-500 truncate">Current Backing</dt>
+								<dd class="mt-1 text-3xl font-semibold text-gray-900">
+									{formatCurrency(assetStats.underlying.usd)}
+								</dd>
+							</dl>
+							<dl class="text-right">
+								<dt class="text-sm font-medium text-gray-500 truncate">Current Market Cap</dt>
+								<dd class="mt-1 text-3xl font-semibold text-gray-900">
+									{asset?.history?.at(-1)?.mcap ? formatCurrency(asset.history.at(-1).mcap) : 'UNK'}
+								</dd>
+							</dl>
+						</div>
 					</div>
-					<div class="flex mt-6 items-center justify-between">
-						<dl>
-							<dt class="text-sm font-medium text-gray-500 truncate">Current Backing</dt>
-							<dd class="mt-1 text-3xl font-semibold text-gray-900">
-								{formatCurrency(assetStats.underlying.usd)}
-							</dd>
-						</dl>
-						<dl class="text-right">
-							<dt class="text-sm font-medium text-gray-500 truncate">Current Market Cap</dt>
-							<dd class="mt-1 text-3xl font-semibold text-gray-900">
-								{asset?.history?.at(-1)?.mcap ? formatCurrency(asset.history.at(-1).mcap) : 'UNK'}
-							</dd>
-						</dl>
-					</div>
-				</div>
-				<div class="mt-6 h-full overflow-hidden">
-					<FinancialChart
-						data={underlying.length
-							? [...new Set(underlying.flatMap((link) => _.map(link.data.history, 'timestamp')))]
-									.sort()
-									.map((timestamp) => {
-										const mcap = closest(asset.history, timestamp)?.mcap;
-										const ratio = mcap
-											? round(
-													_.sum(
-														underlying.map((link) => closest(link.data.history, timestamp).value)
-													) / mcap,
-													4
-											  )
-											: 0;
-										return {
-											date: timestamp,
-											value: ratio * 100
-										};
-									})
-							: [
-									{
-										date: new Date().toISOString(),
-										value: 0
-									}
-							  ]}
-					/>
-				</div>
-			</div>
-
-			<div class="flex flex-col bg-gray-50 shadow sm:rounded-lg overflow-hidden">
-				<div class="px-4 pt-5 sm:px-6 sm:pt-6">
-					<div class="max-w-3xl mx-auto text-center">
-						<h2 class="text-3xl tracking-tight font-bold text-gray-900">Underlying Chain</h2>
-						<p class="mt-4 text-lg text-gray-500">
-							View the full chain of {details.name}'s underlying assets.
-						</p>
+					<div class="mt-6 h-full overflow-hidden">
+						<FinancialChart
+							data={underlying.length
+								? [...new Set(underlying.flatMap((link) => _.map(link.data.history, 'timestamp')))]
+										.sort()
+										.map((timestamp) => {
+											const mcap = closest(asset.history, timestamp)?.mcap;
+											const ratio = mcap
+												? round(
+														_.sum(
+															underlying.map((link) => closest(link.data.history, timestamp).value)
+														) / mcap,
+														4
+												  )
+												: 0;
+											return {
+												date: timestamp,
+												value: ratio * 100
+											};
+										})
+								: [
+										{
+											date: new Date().toISOString(),
+											value: 0
+										}
+								  ]}
+						/>
 					</div>
 				</div>
 
-				<div class="mt-6 h-full justify-center">
-					<Sankey graph={limitValueByLinks(getDAG(graph, id, 'down'), id)} {data} />
+				<div class="flex flex-col bg-gray-50 shadow sm:rounded-lg overflow-hidden">
+					<div class="px-4 pt-5 sm:px-6 sm:pt-6">
+						<div class="max-w-3xl mx-auto text-center">
+							<h2 class="text-3xl tracking-tight font-bold text-gray-900">Underlying Chain</h2>
+							<p class="mt-4 text-lg text-gray-500">
+								View the full chain of {details.name}'s underlying assets.
+							</p>
+						</div>
+					</div>
+
+					<div class="mt-6 h-full justify-center">
+						<Sankey graph={limitValueByLinks(getDAG(graph, id, 'down'), id)} {data} />
+					</div>
 				</div>
 			</div>
-		</div>
+		{/if}
 
 		<div class="bg-gray-50 shadow sm:rounded-lg overflow-hidden sm:mx-0 divide-y divide-gray-200">
 			<div class="max-w-3xl mx-auto text-center px-4 py-5 sm:p-6">
@@ -394,79 +396,87 @@
 	{/if}
 
 	{#if derivative.length > 0}
-		<div class="grid grid-cols-1 gap-4 lg:grid-cols-2 shadow-none">
-			<div class="flex flex-col bg-gray-50 shadow sm:rounded-lg overflow-hidden">
-				<div class="px-4 pt-5 sm:px-6 sm:pt-6">
-					<div class="max-w-3xl mx-auto text-center">
-						<h2 class="text-3xl tracking-tight font-bold text-gray-900">
-							History of Derivative Mcap Ratio
-						</h2>
-						<p class="mt-4 text-lg text-gray-500">
-							View {details.name}'s derivative history of up to the last {entries * interval} days.
-						</p>
+		{#if history.length > 0}
+			<div class="grid grid-cols-1 gap-4 lg:grid-cols-2 shadow-none">
+				<div class="flex flex-col bg-gray-50 shadow sm:rounded-lg overflow-hidden">
+					<div class="px-4 pt-5 sm:px-6 sm:pt-6">
+						<div class="max-w-3xl mx-auto text-center">
+							<h2 class="text-3xl tracking-tight font-bold text-gray-900">
+								History of Derivative Mcap Ratio
+							</h2>
+							<p class="mt-4 text-lg text-gray-500">
+								View {details.name}'s derivative history of up to the last {entries * interval} days.
+							</p>
+						</div>
+						<div class="flex mt-6 items-center justify-between">
+							<dl>
+								<dt class="text-sm font-medium text-gray-500 truncate">
+									Current Derivative Mcap Ratio
+								</dt>
+								<dd class="mt-1 text-3xl font-semibold text-gray-900">
+									{formatCurrency(assetStats.derivative.usd)}
+								</dd>
+							</dl>
+							<dl class="text-right">
+								<dt class="text-sm font-medium text-gray-500 truncate">Current Market Cap</dt>
+								<dd class="mt-1 text-3xl font-semibold text-gray-900">
+									{asset?.history?.at(-1)?.mcap ? formatCurrency(asset.history.at(-1).mcap) : 'UNK'}
+								</dd>
+							</dl>
+						</div>
 					</div>
-					<div class="flex mt-6 items-center justify-between">
-						<dl>
-							<dt class="text-sm font-medium text-gray-500 truncate">
-								Current Derivative Mcap Ratio
-							</dt>
-							<dd class="mt-1 text-3xl font-semibold text-gray-900">
-								{formatCurrency(assetStats.derivative.usd)}
-							</dd>
-						</dl>
-						<dl class="text-right">
-							<dt class="text-sm font-medium text-gray-500 truncate">Current Market Cap</dt>
-							<dd class="mt-1 text-3xl font-semibold text-gray-900">
-								{asset?.history?.at(-1)?.mcap ? formatCurrency(asset.history.at(-1).mcap) : 'UNK'}
-							</dd>
-						</dl>
-					</div>
-				</div>
-				<div class="mt-6 h-full overflow-hidden">
-					<FinancialChart
-						data={derivative.length
-							? [...new Set(derivative.flatMap((deriv) => _.map(deriv.data.history, 'timestamp')))]
-									.sort()
-									.map((timestamp) => {
-										const mcap = closest(asset.history, timestamp)?.mcap;
-										const ratio = mcap
-											? round(
-													_.sum(
-														derivative.map((deriv) => closest(deriv.data.history, timestamp).value)
-													) / mcap,
-													4
-											  )
-											: 0;
-										return {
-											date: timestamp,
-											value: ratio * 100
-										};
-									})
-							: [
-									{
-										date: new Date().toISOString(),
-										value: 0
-									}
-							  ]}
-					/>
-				</div>
-			</div>
-
-			<div class="flex flex-col bg-gray-50 shadow sm:rounded-lg overflow-hidden">
-				<div class="px-4 pt-5 sm:px-6 sm:pt-6">
-					<div class="max-w-3xl mx-auto text-center">
-						<h2 class="text-3xl tracking-tight font-bold text-gray-900">Derivative Chain</h2>
-						<p class="mt-4 text-lg text-gray-500">
-							View the full chain of {details.name}'s derivative assets.
-						</p>
+					<div class="mt-6 h-full overflow-hidden">
+						<FinancialChart
+							data={derivative.length
+								? [
+										...new Set(
+											derivative.flatMap((deriv) => _.map(deriv.data.history, 'timestamp'))
+										)
+								  ]
+										.sort()
+										.map((timestamp) => {
+											const mcap = closest(asset.history, timestamp)?.mcap;
+											const ratio = mcap
+												? round(
+														_.sum(
+															derivative.map(
+																(deriv) => closest(deriv.data.history, timestamp).value
+															)
+														) / mcap,
+														4
+												  )
+												: 0;
+											return {
+												date: timestamp,
+												value: ratio * 100
+											};
+										})
+								: [
+										{
+											date: new Date().toISOString(),
+											value: 0
+										}
+								  ]}
+						/>
 					</div>
 				</div>
 
-				<div class="mt-6 h-full justify-center">
-					<Sankey graph={limitValueByLinks(getDAG(graph, id, 'up'), id)} {data} />
+				<div class="flex flex-col bg-gray-50 shadow sm:rounded-lg overflow-hidden">
+					<div class="px-4 pt-5 sm:px-6 sm:pt-6">
+						<div class="max-w-3xl mx-auto text-center">
+							<h2 class="text-3xl tracking-tight font-bold text-gray-900">Derivative Chain</h2>
+							<p class="mt-4 text-lg text-gray-500">
+								View the full chain of {details.name}'s derivative assets.
+							</p>
+						</div>
+					</div>
+
+					<div class="mt-6 h-full justify-center">
+						<Sankey graph={limitValueByLinks(getDAG(graph, id, 'up'), id)} {data} />
+					</div>
 				</div>
 			</div>
-		</div>
+		{/if}
 
 		<div class="bg-gray-50 shadow sm:rounded-lg overflow-hidden sm:mx-0 divide-y divide-gray-200">
 			<div class="max-w-3xl mx-auto text-center px-4 py-5 sm:p-6">
@@ -479,11 +489,11 @@
 				{data}
 				columns={[
 					{ id: 'name', title: 'Name', class: 'font-medium', link: true },
-					{ id: 'share', title: '%', class: '' },
+					{ id: 'share', title: '%', class: 'hidden sm:table-cell' },
 					{ id: 'price', title: 'Price', class: 'hidden lg:table-cell' },
 					{ id: 'amount', title: 'Amount', class: 'hidden sm:table-cell' },
 					{ id: 'derivative-usd', title: 'Backing', class: '' },
-					{ id: 'derivative-ratio', title: 'Mcap Ratio', class: 'hidden sm:table-cell' }
+					{ id: 'derivative-ratio', title: 'Mcap Ratio', class: '' }
 				]}
 				rows={derivative
 					.map((link) => ({
@@ -543,7 +553,7 @@
 										value: undefined
 								  }
 					}))}
-				sort={[{ by: 'share' }]}
+				sort={[{ by: 'derivative-ratio' }]}
 				class=""
 			/>
 		</div>

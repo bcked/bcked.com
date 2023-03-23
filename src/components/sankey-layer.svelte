@@ -21,6 +21,8 @@
 		});
 		g.forEachLink((link) => {
 			if (!link?.data?.history?.at(-1)?.value) return;
+			if (!d3graph.nodes.some((node) => node.id == link.fromId)) return;
+			if (!d3graph.nodes.some((node) => node.id == link.toId)) return;
 			d3graph.links.push({
 				source: link.fromId as string,
 				target: link.toId as string,
