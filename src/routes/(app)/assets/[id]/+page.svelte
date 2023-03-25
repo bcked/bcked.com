@@ -2,6 +2,8 @@
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
 	import FinancialChart from '$components/financial-chart.svelte';
+	import CardHeader from '$components/layout/card/header.svelte';
+	import Card from '$components/layout/card/main.svelte';
 	import Page from '$components/layout/page.svelte';
 	import SubjectItem from '$components/layout/title/item.svelte';
 	import SubjectTitle from '$components/layout/title/main.svelte';
@@ -189,7 +191,7 @@
 	<div class="grid grid-cols-2 gap-[0.1rem] sm:gap-4 md:grid-cols-4 shadow sm:shadow-none">
 		<!-- {stats.length <= 4 ? stats.length : 4} -->
 		{#each stats as item}
-			<div class="relative px-4 py-5 bg-gray-50 sm:shadow sm:rounded-lg overflow-hidden sm:p-6">
+			<Card class="relative px-4 py-5 sm:p-6">
 				{#if item.type == 'percent' && typeof item.value == 'number'}
 					<div class="absolute top-0 left-0 h-full w-full">
 						<LiquidFill
@@ -216,37 +218,34 @@
 						{/if}
 					</dd>
 				</dl>
-			</div>
+			</Card>
 		{/each}
 	</div>
 
 	{#if underlying.length > 0}
 		{#if history.length > 0}
 			<div class="grid grid-cols-1 gap-4 lg:grid-cols-2 shadow-none">
-				<div class="flex flex-col bg-gray-50 shadow sm:rounded-lg overflow-hidden">
-					<div class="px-4 pt-5 sm:px-6 sm:pt-6">
-						<div class="max-w-3xl mx-auto text-center">
-							<h2 class="text-3xl tracking-tight font-bold text-gray-900">Backing History</h2>
-							<p class="mt-4 text-lg text-gray-500">
-								View {details.name}'s backing history of up to the last {entries * interval} days.
-							</p>
-						</div>
-						<div class="flex mt-6 items-center justify-between">
-							<dl>
-								<dt class="text-sm font-medium text-gray-500 truncate">Current Backing</dt>
-								<dd class="mt-1 text-3xl font-semibold text-gray-900">
-									{formatCurrency(assetStats.underlying.usd)}
-								</dd>
-							</dl>
-							<dl class="text-right">
-								<dt class="text-sm font-medium text-gray-500 truncate">Current Market Cap</dt>
-								<dd class="mt-1 text-3xl font-semibold text-gray-900">
-									{asset?.history?.at(-1)?.mcap ? formatCurrency(asset.history.at(-1).mcap) : 'UNK'}
-								</dd>
-							</dl>
-						</div>
+				<Card>
+					<CardHeader
+						title="Backing History"
+						subtitle="View {details.name}'s backing history of up to the last {entries *
+							interval} days."
+					/>
+					<div class="flex items-center justify-between mt-5 sm:mt-6 px-4 sm:px-6">
+						<dl>
+							<dt class="text-sm font-medium text-gray-500 truncate">Current Backing</dt>
+							<dd class="mt-1 text-3xl font-semibold text-gray-900">
+								{formatCurrency(assetStats.underlying.usd)}
+							</dd>
+						</dl>
+						<dl class="text-right">
+							<dt class="text-sm font-medium text-gray-500 truncate">Current Market Cap</dt>
+							<dd class="mt-1 text-3xl font-semibold text-gray-900">
+								{asset?.history?.at(-1)?.mcap ? formatCurrency(asset.history.at(-1).mcap) : 'UNK'}
+							</dd>
+						</dl>
 					</div>
-					<div class="mt-6 h-full overflow-hidden">
+					<div class="mt-5 sm:mt-6 h-full overflow-hidden">
 						<FinancialChart
 							data={underlying.length
 								? [...new Set(underlying.flatMap((link) => _.map(link.data.history, 'timestamp')))]
@@ -274,32 +273,25 @@
 								  ]}
 						/>
 					</div>
-				</div>
+				</Card>
 
-				<div class="flex flex-col bg-gray-50 shadow sm:rounded-lg overflow-hidden">
-					<div class="px-4 pt-5 sm:px-6 sm:pt-6">
-						<div class="max-w-3xl mx-auto text-center">
-							<h2 class="text-3xl tracking-tight font-bold text-gray-900">Underlying Chain</h2>
-							<p class="mt-4 text-lg text-gray-500">
-								View the full chain of {details.name}'s underlying assets.
-							</p>
-						</div>
-					</div>
-
-					<div class="mt-6 h-full justify-center">
+				<Card>
+					<CardHeader
+						title="Underlying Chain"
+						subtitle="View the full chain of {details.name}'s underlying assets."
+					/>
+					<div class="mt-5 sm:mt-6 h-full justify-center">
 						<Sankey graph={limitValueByLinks(getDAG(graph, id, 'down'), id)} {data} />
 					</div>
-				</div>
+				</Card>
 			</div>
 		{/if}
 
-		<div class="bg-gray-50 shadow sm:rounded-lg overflow-hidden sm:mx-0 divide-y divide-gray-200">
-			<div class="max-w-3xl mx-auto text-center px-4 py-5 sm:p-6">
-				<h2 class="text-3xl tracking-tight font-bold text-gray-900">Underlying Assets</h2>
-				<p class="mt-4 text-lg text-gray-500">
-					List of {details.name}'s underlying assets.
-				</p>
-			</div>
+		<Card class="sm:mx-0 divide-y divide-gray-200">
+			<CardHeader
+				title="Underlying Assets"
+				subtitle="List of {details.name}'s underlying assets."
+			/>
 			<Table
 				{data}
 				columns={[
@@ -369,42 +361,37 @@
 								  }
 					}))}
 				sort={[{ by: 'share' }]}
-				class=""
+				class="mt-5 sm:mt-6"
 			/>
-		</div>
+		</Card>
 	{/if}
 
 	{#if derivative.length > 0}
 		{#if history.length > 0}
 			<div class="grid grid-cols-1 gap-4 lg:grid-cols-2 shadow-none">
-				<div class="flex flex-col bg-gray-50 shadow sm:rounded-lg overflow-hidden">
-					<div class="px-4 pt-5 sm:px-6 sm:pt-6">
-						<div class="max-w-3xl mx-auto text-center">
-							<h2 class="text-3xl tracking-tight font-bold text-gray-900">
-								History of Derivative Market Cap Ratio
-							</h2>
-							<p class="mt-4 text-lg text-gray-500">
-								View {details.name}'s derivative history of up to the last {entries * interval} days.
-							</p>
-						</div>
-						<div class="flex mt-6 items-center justify-between">
-							<dl>
-								<dt class="text-sm font-medium text-gray-500 truncate">
-									Current Derivative Market Cap
-								</dt>
-								<dd class="mt-1 text-3xl font-semibold text-gray-900">
-									{formatCurrency(assetStats.derivative.usd)}
-								</dd>
-							</dl>
-							<dl class="text-right">
-								<dt class="text-sm font-medium text-gray-500 truncate">Current Market Cap</dt>
-								<dd class="mt-1 text-3xl font-semibold text-gray-900">
-									{asset?.history?.at(-1)?.mcap ? formatCurrency(asset.history.at(-1).mcap) : 'UNK'}
-								</dd>
-							</dl>
-						</div>
+				<Card>
+					<CardHeader
+						title="History of Derivative Market Cap Ratio"
+						subtitle="View {details.name}'s derivative history of up to the last {entries *
+							interval} days."
+					/>
+					<div class="flex items-center justify-between mt-5 sm:mt-6 px-4 sm:px-6">
+						<dl>
+							<dt class="text-sm font-medium text-gray-500 truncate">
+								Current Derivative Market Cap
+							</dt>
+							<dd class="mt-1 text-3xl font-semibold text-gray-900">
+								{formatCurrency(assetStats.derivative.usd)}
+							</dd>
+						</dl>
+						<dl class="text-right">
+							<dt class="text-sm font-medium text-gray-500 truncate">Current Market Cap</dt>
+							<dd class="mt-1 text-3xl font-semibold text-gray-900">
+								{asset?.history?.at(-1)?.mcap ? formatCurrency(asset.history.at(-1).mcap) : 'UNK'}
+							</dd>
+						</dl>
 					</div>
-					<div class="mt-6 h-full overflow-hidden">
+					<div class="mt-5 sm:mt-6 h-full overflow-hidden">
 						<FinancialChart
 							data={derivative.length
 								? [
@@ -438,32 +425,25 @@
 								  ]}
 						/>
 					</div>
-				</div>
+				</Card>
 
-				<div class="flex flex-col bg-gray-50 shadow sm:rounded-lg overflow-hidden">
-					<div class="px-4 pt-5 sm:px-6 sm:pt-6">
-						<div class="max-w-3xl mx-auto text-center">
-							<h2 class="text-3xl tracking-tight font-bold text-gray-900">Derivative Chain</h2>
-							<p class="mt-4 text-lg text-gray-500">
-								View the full chain of {details.name}'s derivative assets.
-							</p>
-						</div>
-					</div>
-
-					<div class="mt-6 h-full justify-center">
+				<Card>
+					<CardHeader
+						title="Derivative Chain"
+						subtitle="View the full chain of {details.name}'s derivative assets."
+					/>
+					<div class="mt-5 sm:mt-6 h-full justify-center">
 						<Sankey graph={limitValueByLinks(getDAG(graph, id, 'up'), id)} {data} />
 					</div>
-				</div>
+				</Card>
 			</div>
 		{/if}
 
-		<div class="bg-gray-50 shadow sm:rounded-lg overflow-hidden sm:mx-0 divide-y divide-gray-200">
-			<div class="max-w-3xl mx-auto text-center px-4 py-5 sm:p-6">
-				<h2 class="text-3xl tracking-tight font-bold text-gray-900">Derivative Assets</h2>
-				<p class="mt-4 text-lg text-gray-500">
-					List of {details.name}'s derivative assets.
-				</p>
-			</div>
+		<Card class="sm:mx-0 divide-y divide-gray-200">
+			<CardHeader
+				title="Derivative Assets"
+				subtitle="List of {details.name}'s derivative assets."
+			/>
 			<Table
 				{data}
 				columns={[
@@ -533,20 +513,18 @@
 								  }
 					}))}
 				sort={[{ by: 'derivative-ratio' }]}
-				class=""
+				class="mt-5 sm:mt-6"
 			/>
-		</div>
+		</Card>
 	{/if}
 
-	<div class="px-4 py-5 bg-gray-50 shadow sm:rounded-lg overflow-hidden sm:p-6">
-		<div class="max-w-3xl mx-auto text-center">
-			<h2 class="text-3xl tracking-tight font-bold text-gray-900">Praise and Doubts</h2>
-			<p class="mt-4 text-lg text-gray-500">
-				Any praise and doubts the community has about {details.name}'s backing.
-			</p>
-		</div>
+	<Card>
+		<CardHeader
+			title="Praise and Doubts"
+			subtitle="Any praise and doubts the community has about {details.name}'s backing."
+		/>
 		<div
-			class="mt-6 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-3 lg:gap-x-8"
+			class="p-5 sm:p-6 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-3 lg:gap-x-8"
 		>
 			{#each comments as comment}
 				<div class="relative flex">
@@ -565,5 +543,5 @@
 				</div>
 			{/each}
 		</div>
-	</div>
+	</Card>
 </Page>
