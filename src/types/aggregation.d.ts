@@ -77,6 +77,7 @@ declare namespace agg {
 	type ChainDetails = {
 		id: derived.ChainId;
 		name: string;
+		native: derived.AssetId;
 		explorer: string;
 	} & git.Meta;
 
