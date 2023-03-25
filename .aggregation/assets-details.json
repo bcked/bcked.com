@@ -292,11 +292,11 @@
             }
         }
     },
-    "eth-ethereum": {
-        "id": "eth-ethereum",
+    "eth-ethereumfoundation-ethereum": {
+        "id": "eth-ethereumfoundation-ethereum",
         "name": "Ether",
         "symbol": "ETH",
-        "issuer": null,
+        "issuer": "ethereumfoundation",
         "reference": "https://ethereum.org/en/",
         "tags": [
             "cryptocurrency",
@@ -304,8 +304,8 @@
         ],
         "git": {
             "updated": {
-                "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
-                "date": "2023-02-05T14:56:52.000Z"
+                "hash": "04fc04eb635cb3ad0be13567b30c2bb48d2b8574",
+                "date": "2023-03-25T22:23:10.000Z"
             },
             "created": {
                 "hash": "582a44205d2389f913b46607a06868928a502c0d",
@@ -313,11 +313,11 @@
             }
         }
     },
-    "eth.w-ethereum": {
-        "id": "eth.w-ethereum",
+    "ethw-ethereumfoundation-ethereum": {
+        "id": "ethw-ethereumfoundation-ethereum",
         "name": "Wrapped Ether",
         "symbol": "WETH",
-        "issuer": null,
+        "issuer": "ethereumfoundation",
         "reference": "https://ethereum.org/en/",
         "tags": [
             "cryptocurrency",
@@ -325,8 +325,8 @@
         ],
         "git": {
             "updated": {
-                "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
-                "date": "2023-02-05T14:56:52.000Z"
+                "hash": "04fc04eb635cb3ad0be13567b30c2bb48d2b8574",
+                "date": "2023-03-25T22:23:10.000Z"
             },
             "created": {
                 "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
@@ -374,11 +374,11 @@
             }
         }
     },
-    "glmr-moonbeam-moonbeam": {
-        "id": "glmr-moonbeam-moonbeam",
+    "glmr-moonbeamfoundation-moonbeam": {
+        "id": "glmr-moonbeamfoundation-moonbeam",
         "name": "GLMR",
         "symbol": "GLMR",
-        "issuer": "moonbeam",
+        "issuer": "moonbeamfoundation",
         "reference": "https://moonbeam.network/networks/moonbeam/",
         "tags": [
             "cryptocurrency",
@@ -386,8 +386,8 @@
         ],
         "git": {
             "updated": {
-                "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
-                "date": "2023-02-01T21:31:00.000Z"
+                "hash": "73cce3e3cc4a45681b2dd644feb6e4712bc24d61",
+                "date": "2023-03-25T22:43:37.000Z"
             },
             "created": {
                 "hash": "582a44205d2389f913b46607a06868928a502c0d",
@@ -395,11 +395,11 @@
             }
         }
     },
-    "glmr.w-moonbeam-moonbeam": {
-        "id": "glmr.w-moonbeam-moonbeam",
+    "glmrw-moonbeamfoundation-moonbeam": {
+        "id": "glmrw-moonbeamfoundation-moonbeam",
         "name": "Wrapped GLMR",
         "symbol": "WGLMR",
-        "issuer": "moonbeam",
+        "issuer": "moonbeamfoundation",
         "reference": "https://moonbeam.network/networks/moonbeam/",
         "tags": [
             "cryptocurrency",
@@ -407,8 +407,8 @@
         ],
         "git": {
             "updated": {
-                "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
-                "date": "2023-02-05T14:56:52.000Z"
+                "hash": "73cce3e3cc4a45681b2dd644feb6e4712bc24d61",
+                "date": "2023-03-25T22:43:37.000Z"
             },
             "created": {
                 "hash": "582a44205d2389f913b46607a06868928a502c0d",
@@ -416,11 +416,11 @@
             }
         }
     },
-    "glmr.w-toad.network-moonbeam": {
-        "id": "glmr.w-toad.network-moonbeam",
+    "glmrw-toadnetwork-moonbeam": {
+        "id": "glmrw-toadnetwork-moonbeam",
         "name": "Wrapped GLMR",
         "symbol": "WGLMR",
-        "issuer": "toad.network",
+        "issuer": "toadnetwork",
         "reference": "https://dapps.padswap.exchange/",
         "tags": [
             "cryptocurrency",
@@ -428,8 +428,8 @@
         ],
         "git": {
             "updated": {
-                "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
-                "date": "2023-02-05T14:56:52.000Z"
+                "hash": "04fc04eb635cb3ad0be13567b30c2bb48d2b8574",
+                "date": "2023-03-25T22:23:10.000Z"
             },
             "created": {
                 "hash": "582a44205d2389f913b46607a06868928a502c0d",
@@ -498,11 +498,11 @@
             }
         }
     },
-    "lp-bnb-bjt-toad.network-bsc": {
-        "id": "lp-bnb-bjt-toad.network-bsc",
+    "lp-bnb-bjt-toadnetwork-bsc": {
+        "id": "lp-bnb-bjt-toadnetwork-bsc",
         "name": "BNB-BJT LPs",
         "symbol": "LP-BNB-BJT",
-        "issuer": "toad.network",
+        "issuer": "toadnetwork",
         "reference": "https://dapps.padswap.exchange/",
         "tags": [
             "cryptocurrency",
@@ -510,8 +510,8 @@
         ],
         "git": {
             "updated": {
-                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
-                "date": "2023-02-06T19:45:54.000Z"
+                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
+                "date": "2023-03-25T22:02:37.000Z"
             },
             "created": {
                 "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
@@ -519,11 +519,11 @@
             }
         }
     },
-    "lp-bnb-cats-toad.network-bsc": {
-        "id": "lp-bnb-cats-toad.network-bsc",
+    "lp-bnb-cats-toadnetwork-bsc": {
+        "id": "lp-bnb-cats-toadnetwork-bsc",
         "name": "BNB-CZATS LPs",
         "symbol": "LP-BNB-CZATS",
-        "issuer": "toad.network",
+        "issuer": "toadnetwork",
         "reference": "https://dapps.padswap.exchange/",
         "tags": [
             "cryptocurrency",
@@ -531,8 +531,8 @@
         ],
         "git": {
             "updated": {
-                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
-                "date": "2023-02-06T19:45:54.000Z"
+                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
+                "date": "2023-03-25T22:02:37.000Z"
             },
             "created": {
                 "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
@@ -540,11 +540,11 @@
             }
         }
     },
-    "lp-bnb-fuk-toad.network-bsc": {
-        "id": "lp-bnb-fuk-toad.network-bsc",
+    "lp-bnb-fuk-toadnetwork-bsc": {
+        "id": "lp-bnb-fuk-toadnetwork-bsc",
         "name": "BNB-FUK LPs",
         "symbol": "LP-BNB-FUK",
-        "issuer": "toad.network",
+        "issuer": "toadnetwork",
         "reference": "https://dapps.padswap.exchange/",
         "tags": [
             "cryptocurrency",
@@ -552,8 +552,8 @@
         ],
         "git": {
             "updated": {
-                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
-                "date": "2023-02-06T19:45:54.000Z"
+                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
+                "date": "2023-03-25T22:02:37.000Z"
             },
             "created": {
                 "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
@@ -561,11 +561,11 @@
             }
         }
     },
-    "lp-bnb-gal-toad.network-bsc": {
-        "id": "lp-bnb-gal-toad.network-bsc",
+    "lp-bnb-gal-toadnetwork-bsc": {
+        "id": "lp-bnb-gal-toadnetwork-bsc",
         "name": "BNB-GAL LPs",
         "symbol": "LP-BNB-GAL",
-        "issuer": "toad.network",
+        "issuer": "toadnetwork",
         "reference": "https://dapps.padswap.exchange/",
         "tags": [
             "cryptocurrency",
@@ -573,8 +573,8 @@
         ],
         "git": {
             "updated": {
-                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
-                "date": "2023-02-06T19:45:54.000Z"
+                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
+                "date": "2023-03-25T22:02:37.000Z"
             },
             "created": {
                 "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
@@ -582,11 +582,11 @@
             }
         }
     },
-    "lp-bnb-pxbsc-toad.network-bsc": {
-        "id": "lp-bnb-pxbsc-toad.network-bsc",
+    "lp-bnb-pxbsc-toadnetwork-bsc": {
+        "id": "lp-bnb-pxbsc-toadnetwork-bsc",
         "name": "BNB-PXBSC LPs",
         "symbol": "LP-BNB-PXBSC",
-        "issuer": "toad.network",
+        "issuer": "toadnetwork",
         "reference": "https://dapps.padswap.exchange/",
         "tags": [
             "cryptocurrency",
@@ -594,8 +594,8 @@
         ],
         "git": {
             "updated": {
-                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
-                "date": "2023-02-06T19:45:54.000Z"
+                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
+                "date": "2023-03-25T22:02:37.000Z"
             },
             "created": {
                 "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
@@ -603,11 +603,11 @@
             }
         }
     },
-    "lp-bnb-toad-toad.network-bsc": {
-        "id": "lp-bnb-toad-toad.network-bsc",
+    "lp-bnb-toad-toadnetwork-bsc": {
+        "id": "lp-bnb-toad-toadnetwork-bsc",
         "name": "BNB-TOAD LPs",
         "symbol": "LP-BNB-TOAD",
-        "issuer": "toad.network",
+        "issuer": "toadnetwork",
         "reference": "https://dapps.padswap.exchange/",
         "tags": [
             "cryptocurrency",
@@ -615,8 +615,8 @@
         ],
         "git": {
             "updated": {
-                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
-                "date": "2023-02-06T19:45:54.000Z"
+                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
+                "date": "2023-03-25T22:02:37.000Z"
             },
             "created": {
                 "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
@@ -624,11 +624,11 @@
             }
         }
     },
-    "lp-busd-bnb-toad.network-bsc": {
-        "id": "lp-busd-bnb-toad.network-bsc",
+    "lp-busd-bnb-toadnetwork-bsc": {
+        "id": "lp-busd-bnb-toadnetwork-bsc",
         "name": "BUSD-BNB LPs",
         "symbol": "LP-BUSD-BNB",
-        "issuer": "toad.network",
+        "issuer": "toadnetwork",
         "reference": "https://dapps.padswap.exchange/",
         "tags": [
             "cryptocurrency",
@@ -636,8 +636,8 @@
         ],
         "git": {
             "updated": {
-                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
-                "date": "2023-02-06T19:45:54.000Z"
+                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
+                "date": "2023-03-25T22:02:37.000Z"
             },
             "created": {
                 "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
@@ -645,11 +645,11 @@
             }
         }
     },
-    "lp-busd-toad-toad.network-bsc": {
-        "id": "lp-busd-toad-toad.network-bsc",
+    "lp-busd-toad-toadnetwork-bsc": {
+        "id": "lp-busd-toad-toadnetwork-bsc",
         "name": "BUSD-TOAD LPs",
         "symbol": "LP-BUSD-TOAD",
-        "issuer": "toad.network",
+        "issuer": "toadnetwork",
         "reference": "https://dapps.padswap.exchange/",
         "tags": [
             "cryptocurrency",
@@ -657,8 +657,8 @@
         ],
         "git": {
             "updated": {
-                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
-                "date": "2023-02-06T19:45:54.000Z"
+                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
+                "date": "2023-03-25T22:02:37.000Z"
             },
             "created": {
                 "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
@@ -666,11 +666,11 @@
             }
         }
     },
-    "lp-busd-usdc-toad.network-moonbeam": {
-        "id": "lp-busd-usdc-toad.network-moonbeam",
+    "lp-busd-usdc-toadnetwork-moonbeam": {
+        "id": "lp-busd-usdc-toadnetwork-moonbeam",
         "name": "BUSD-USDC LPs",
         "symbol": "LP-BUSD-USDC",
-        "issuer": "toad.network",
+        "issuer": "toadnetwork",
         "reference": "https://dapps.padswap.exchange/",
         "tags": [
             "cryptocurrency",
@@ -678,8 +678,8 @@
         ],
         "git": {
             "updated": {
-                "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
-                "date": "2023-02-05T14:56:52.000Z"
+                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
+                "date": "2023-03-25T22:02:37.000Z"
             },
             "created": {
                 "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
@@ -687,11 +687,11 @@
             }
         }
     },
-    "lp-busd-usdc-toad.network-moonriver": {
-        "id": "lp-busd-usdc-toad.network-moonriver",
+    "lp-busd-usdc-toadnetwork-moonriver": {
+        "id": "lp-busd-usdc-toadnetwork-moonriver",
         "name": "BUSD-USDC LPs",
         "symbol": "LP-BUSD-USDC",
-        "issuer": "toad.network",
+        "issuer": "toadnetwork",
         "reference": "https://dapps.padswap.exchange/",
         "tags": [
             "cryptocurrency",
@@ -699,8 +699,8 @@
         ],
         "git": {
             "updated": {
-                "hash": "071073b0990eb78a574b0c35e5f73800bd93f11e",
-                "date": "2023-02-05T15:33:41.000Z"
+                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
+                "date": "2023-03-25T22:02:37.000Z"
             },
             "created": {
                 "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
@@ -708,11 +708,11 @@
             }
         }
     },
-    "lp-hoge-toad-toad.network-bsc": {
-        "id": "lp-hoge-toad-toad.network-bsc",
+    "lp-hoge-toad-toadnetwork-bsc": {
+        "id": "lp-hoge-toad-toadnetwork-bsc",
         "name": "HOGE-TOAD LPs",
         "symbol": "LP-HOGE-TOAD",
-        "issuer": "toad.network",
+        "issuer": "toadnetwork",
         "reference": "https://dapps.padswap.exchange/",
         "tags": [
             "cryptocurrency",
@@ -720,8 +720,8 @@
         ],
         "git": {
             "updated": {
-                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
-                "date": "2023-02-06T19:45:54.000Z"
+                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
+                "date": "2023-03-25T22:02:37.000Z"
             },
             "created": {
                 "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
@@ -729,11 +729,11 @@
             }
         }
     },
-    "lp-pad-bnb-toad.network-bsc": {
-        "id": "lp-pad-bnb-toad.network-bsc",
+    "lp-pad-bnb-toadnetwork-bsc": {
+        "id": "lp-pad-bnb-toadnetwork-bsc",
         "name": "PAD-BNB LPs",
         "symbol": "LP-PAD-BNB",
-        "issuer": "toad.network",
+        "issuer": "toadnetwork",
         "reference": "https://dapps.padswap.exchange/",
         "tags": [
             "cryptocurrency",
@@ -741,8 +741,8 @@
         ],
         "git": {
             "updated": {
-                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
-                "date": "2023-02-06T19:45:54.000Z"
+                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
+                "date": "2023-03-25T22:02:37.000Z"
             },
             "created": {
                 "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
@@ -750,11 +750,11 @@
             }
         }
     },
-    "lp-pad-btc-toad.network-bsc": {
-        "id": "lp-pad-btc-toad.network-bsc",
+    "lp-pad-btc-toadnetwork-bsc": {
+        "id": "lp-pad-btc-toadnetwork-bsc",
         "name": "PAD-BTC LPs",
         "symbol": "LP-PAD-BTC",
-        "issuer": "toad.network",
+        "issuer": "toadnetwork",
         "reference": "https://dapps.padswap.exchange/",
         "tags": [
             "cryptocurrency",
@@ -762,8 +762,8 @@
         ],
         "git": {
             "updated": {
-                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
-                "date": "2023-02-06T19:45:54.000Z"
+                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
+                "date": "2023-03-25T22:02:37.000Z"
             },
             "created": {
                 "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
@@ -771,11 +771,11 @@
             }
         }
     },
-    "lp-pad-busd-toad.network-bsc": {
-        "id": "lp-pad-busd-toad.network-bsc",
+    "lp-pad-busd-toadnetwork-bsc": {
+        "id": "lp-pad-busd-toadnetwork-bsc",
         "name": "PAD-BUSD LPs",
         "symbol": "LP-PAD-BUSD",
-        "issuer": "toad.network",
+        "issuer": "toadnetwork",
         "reference": "https://dapps.padswap.exchange/",
         "tags": [
             "cryptocurrency",
@@ -783,8 +783,8 @@
         ],
         "git": {
             "updated": {
-                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
-                "date": "2023-02-06T19:45:54.000Z"
+                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
+                "date": "2023-03-25T22:02:37.000Z"
             },
             "created": {
                 "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
@@ -792,11 +792,11 @@
             }
         }
     },
-    "lp-pad-eth-toad.network-bsc": {
-        "id": "lp-pad-eth-toad.network-bsc",
+    "lp-pad-eth-toadnetwork-bsc": {
+        "id": "lp-pad-eth-toadnetwork-bsc",
         "name": "PAD-ETH LPs",
         "symbol": "LP-PAD-ETH",
-        "issuer": "toad.network",
+        "issuer": "toadnetwork",
         "reference": "https://dapps.padswap.exchange/",
         "tags": [
             "cryptocurrency",
@@ -804,8 +804,8 @@
         ],
         "git": {
             "updated": {
-                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
-                "date": "2023-02-06T19:45:54.000Z"
+                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
+                "date": "2023-03-25T22:02:37.000Z"
             },
             "created": {
                 "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
@@ -813,11 +813,11 @@
             }
         }
     },
-    "lp-pad-glmr-toad.network-moonbeam": {
-        "id": "lp-pad-glmr-toad.network-moonbeam",
+    "lp-pad-glmr-toadnetwork-moonbeam": {
+        "id": "lp-pad-glmr-toadnetwork-moonbeam",
         "name": "PAD-GLMR LPs",
         "symbol": "LP-PAD-GLMR",
-        "issuer": "toad.network",
+        "issuer": "toadnetwork",
         "reference": "https://dapps.padswap.exchange/",
         "tags": [
             "cryptocurrency",
@@ -825,8 +825,8 @@
         ],
         "git": {
             "updated": {
-                "hash": "071073b0990eb78a574b0c35e5f73800bd93f11e",
-                "date": "2023-02-05T15:33:41.000Z"
+                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
+                "date": "2023-03-25T22:02:37.000Z"
             },
             "created": {
                 "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
@@ -834,11 +834,11 @@
             }
         }
     },
-    "lp-pad-hoge-toad.network-bsc": {
-        "id": "lp-pad-hoge-toad.network-bsc",
+    "lp-pad-hoge-toadnetwork-bsc": {
+        "id": "lp-pad-hoge-toadnetwork-bsc",
         "name": "PAD-HOGE LPs",
         "symbol": "LP-PAD-HOGE",
-        "issuer": "toad.network",
+        "issuer": "toadnetwork",
         "reference": "https://dapps.padswap.exchange/",
         "tags": [
             "cryptocurrency",
@@ -846,8 +846,8 @@
         ],
         "git": {
             "updated": {
-                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
-                "date": "2023-02-06T19:45:54.000Z"
+                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
+                "date": "2023-03-25T22:02:37.000Z"
             },
             "created": {
                 "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
@@ -855,11 +855,11 @@
             }
         }
     },
-    "lp-pad-movr-toad.network-moonriver": {
-        "id": "lp-pad-movr-toad.network-moonriver",
+    "lp-pad-movr-toadnetwork-moonriver": {
+        "id": "lp-pad-movr-toadnetwork-moonriver",
         "name": "PAD-MOVR LPs",
         "symbol": "LP-PAD-MOVR",
-        "issuer": "toad.network",
+        "issuer": "toadnetwork",
         "reference": "https://dapps.padswap.exchange/",
         "tags": [
             "cryptocurrency",
@@ -867,8 +867,8 @@
         ],
         "git": {
             "updated": {
-                "hash": "071073b0990eb78a574b0c35e5f73800bd93f11e",
-                "date": "2023-02-05T15:33:41.000Z"
+                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
+                "date": "2023-03-25T22:02:37.000Z"
             },
             "created": {
                 "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
@@ -876,11 +876,11 @@
             }
         }
     },
-    "lp-pad-toad-toad.network-bsc": {
-        "id": "lp-pad-toad-toad.network-bsc",
+    "lp-pad-toad-toadnetwork-bsc": {
+        "id": "lp-pad-toad-toadnetwork-bsc",
         "name": "PAD-TOAD LPs",
         "symbol": "LP-PAD-TOAD",
-        "issuer": "toad.network",
+        "issuer": "toadnetwork",
         "reference": "https://dapps.padswap.exchange/",
         "tags": [
             "cryptocurrency",
@@ -888,8 +888,8 @@
         ],
         "git": {
             "updated": {
-                "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
-                "date": "2023-02-06T19:45:54.000Z"
+                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
+                "date": "2023-03-25T22:02:37.000Z"
             },
             "created": {
                 "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
@@ -897,11 +897,11 @@
             }
         }
     },
-    "lp-toad-glmr-toad.network-moonbeam": {
-        "id": "lp-toad-glmr-toad.network-moonbeam",
+    "lp-toad-glmr-toadnetwork-moonbeam": {
+        "id": "lp-toad-glmr-toadnetwork-moonbeam",
         "name": "TOAD-GLMR LPs",
         "symbol": "LP-TOAD-GLMR",
-        "issuer": "toad.network",
+        "issuer": "toadnetwork",
         "reference": "https://dapps.padswap.exchange/",
         "tags": [
             "cryptocurrency",
@@ -909,8 +909,8 @@
         ],
         "git": {
             "updated": {
-                "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
-                "date": "2023-02-05T14:56:52.000Z"
+                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
+                "date": "2023-03-25T22:02:37.000Z"
             },
             "created": {
                 "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
@@ -918,11 +918,11 @@
             }
         }
     },
-    "lp-toad-movr-toad.network-moonriver": {
-        "id": "lp-toad-movr-toad.network-moonriver",
+    "lp-toad-movr-toadnetwork-moonriver": {
+        "id": "lp-toad-movr-toadnetwork-moonriver",
         "name": "PAD-MOVR LPs",
         "symbol": "LP-PAD-MOVR",
-        "issuer": "toad.network",
+        "issuer": "toadnetwork",
         "reference": "https://dapps.padswap.exchange/",
         "tags": [
             "cryptocurrency",
@@ -930,8 +930,8 @@
         ],
         "git": {
             "updated": {
-                "hash": "071073b0990eb78a574b0c35e5f73800bd93f11e",
-                "date": "2023-02-05T15:33:41.000Z"
+                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
+                "date": "2023-03-25T22:02:37.000Z"
             },
             "created": {
                 "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
@@ -939,11 +939,11 @@
             }
         }
     },
-    "lp-usdc-glmr-toad.network-moonbeam": {
-        "id": "lp-usdc-glmr-toad.network-moonbeam",
+    "lp-usdc-glmr-toadnetwork-moonbeam": {
+        "id": "lp-usdc-glmr-toadnetwork-moonbeam",
         "name": "USDC-GLMR LPs",
         "symbol": "LP-USDC-GLMR",
-        "issuer": "toad.network",
+        "issuer": "toadnetwork",
         "reference": "https://dapps.padswap.exchange/",
         "tags": [
             "cryptocurrency",
@@ -951,8 +951,8 @@
         ],
         "git": {
             "updated": {
-                "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
-                "date": "2023-02-05T14:56:52.000Z"
+                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
+                "date": "2023-03-25T22:02:37.000Z"
             },
             "created": {
                 "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
@@ -960,11 +960,11 @@
             }
         }
     },
-    "lp-usdc-movr-toad.network-moonriver": {
-        "id": "lp-usdc-movr-toad.network-moonriver",
+    "lp-usdc-movr-toadnetwork-moonriver": {
+        "id": "lp-usdc-movr-toadnetwork-moonriver",
         "name": "PAD-MOVR LPs",
         "symbol": "LP-PAD-MOVR",
-        "issuer": "toad.network",
+        "issuer": "toadnetwork",
         "reference": "https://dapps.padswap.exchange/",
         "tags": [
             "cryptocurrency",
@@ -972,8 +972,8 @@
         ],
         "git": {
             "updated": {
-                "hash": "071073b0990eb78a574b0c35e5f73800bd93f11e",
-                "date": "2023-02-05T15:33:41.000Z"
+                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
+                "date": "2023-03-25T22:02:37.000Z"
             },
             "created": {
                 "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
@@ -981,11 +981,11 @@
             }
         }
     },
-    "movr-moonbeam-moonriver": {
-        "id": "movr-moonbeam-moonriver",
+    "movr-moonbeamfoundation-moonriver": {
+        "id": "movr-moonbeamfoundation-moonriver",
         "name": "MOVR",
         "symbol": "MOVR",
-        "issuer": "moonbeam",
+        "issuer": "moonbeamfoundation",
         "reference": "https://moonbeam.network/networks/moonriver/",
         "tags": [
             "cryptocurrency",
@@ -993,8 +993,8 @@
         ],
         "git": {
             "updated": {
-                "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
-                "date": "2023-02-01T21:31:00.000Z"
+                "hash": "73cce3e3cc4a45681b2dd644feb6e4712bc24d61",
+                "date": "2023-03-25T22:43:37.000Z"
             },
             "created": {
                 "hash": "582a44205d2389f913b46607a06868928a502c0d",
@@ -1002,19 +1002,19 @@
             }
         }
     },
-    "movr.w-moonbeam-moonriver": {
-        "id": "movr.w-moonbeam-moonriver",
+    "movrw-moonbeamfoundation-moonriver": {
+        "id": "movrw-moonbeamfoundation-moonriver",
         "name": "Wrapped MOVR",
         "symbol": "WMOVR",
-        "issuer": "moonbeam",
+        "issuer": "moonbeamfoundation",
         "reference": "https://moonbeam.network/networks/moonriver/",
         "tags": [
             "cryptocurrency"
         ],
         "git": {
             "updated": {
-                "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
-                "date": "2023-02-05T14:56:52.000Z"
+                "hash": "73cce3e3cc4a45681b2dd644feb6e4712bc24d61",
+                "date": "2023-03-25T22:43:37.000Z"
             },
             "created": {
                 "hash": "582a44205d2389f913b46607a06868928a502c0d",
@@ -1022,11 +1022,11 @@
             }
         }
     },
-    "pad-toad.network-bsc": {
-        "id": "pad-toad.network-bsc",
+    "pad-toadnetwork-bsc": {
+        "id": "pad-toadnetwork-bsc",
         "name": "Lily Pad",
         "symbol": "PAD",
-        "issuer": "toad.network",
+        "issuer": "toadnetwork",
         "reference": "https://dapps.padswap.exchange/",
         "tags": [
             "cryptocurrency",
@@ -1034,8 +1034,8 @@
         ],
         "git": {
             "updated": {
-                "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
-                "date": "2023-02-01T21:31:00.000Z"
+                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
+                "date": "2023-03-25T22:02:37.000Z"
             },
             "created": {
                 "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
@@ -1043,11 +1043,11 @@
             }
         }
     },
-    "pad-toad.network-moonbeam": {
-        "id": "pad-toad.network-moonbeam",
+    "pad-toadnetwork-moonbeam": {
+        "id": "pad-toadnetwork-moonbeam",
         "name": "Glmr Pad",
         "symbol": "PAD",
-        "issuer": "toad.network",
+        "issuer": "toadnetwork",
         "reference": "https://dapps.padswap.exchange/",
         "tags": [
             "cryptocurrency",
@@ -1055,8 +1055,8 @@
         ],
         "git": {
             "updated": {
-                "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
-                "date": "2023-02-01T21:31:00.000Z"
+                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
+                "date": "2023-03-25T22:02:37.000Z"
             },
             "created": {
                 "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
@@ -1064,11 +1064,11 @@
             }
         }
     },
-    "pad-toad.network-moonriver": {
-        "id": "pad-toad.network-moonriver",
+    "pad-toadnetwork-moonriver": {
+        "id": "pad-toadnetwork-moonriver",
         "name": "Movr Pad",
         "symbol": "PAD",
-        "issuer": "toad.network",
+        "issuer": "toadnetwork",
         "reference": "https://dapps.padswap.exchange/",
         "tags": [
             "cryptocurrency",
@@ -1076,8 +1076,8 @@
         ],
         "git": {
             "updated": {
-                "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
-                "date": "2023-02-01T21:31:00.000Z"
+                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
+                "date": "2023-03-25T22:02:37.000Z"
             },
             "created": {
                 "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
@@ -1167,19 +1167,40 @@
             }
         }
     },
-    "toad-toad.network-bsc": {
-        "id": "toad-toad.network-bsc",
+    "sol-solanafoundation-solana": {
+        "id": "sol-solanafoundation-solana",
+        "name": "Solana",
+        "symbol": "SOL",
+        "issuer": "solanafoundation",
+        "reference": "https://solana.com/",
+        "tags": [
+            "cryptocurrency",
+            "native"
+        ],
+        "git": {
+            "updated": {
+                "hash": "be842b8ad7a0454dc31ed87ddab23b61b84279d2",
+                "date": "2023-03-25T21:49:36.000Z"
+            },
+            "created": {
+                "hash": "be842b8ad7a0454dc31ed87ddab23b61b84279d2",
+                "date": "2023-03-25T21:49:36.000Z"
+            }
+        }
+    },
+    "toad-toadnetwork-bsc": {
+        "id": "toad-toadnetwork-bsc",
         "name": "Toad Network",
         "symbol": "TOAD",
-        "issuer": "toad.network",
+        "issuer": "toadnetwork",
         "reference": "https://toad.network/",
         "tags": [
             "cryptocurrency"
         ],
         "git": {
             "updated": {
-                "hash": "582a44205d2389f913b46607a06868928a502c0d",
-                "date": "2023-01-31T21:59:44.000Z"
+                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
+                "date": "2023-03-25T22:02:37.000Z"
             },
             "created": {
                 "hash": "582a44205d2389f913b46607a06868928a502c0d",
@@ -1187,11 +1208,11 @@
             }
         }
     },
-    "toad-toad.network-moonbeam": {
-        "id": "toad-toad.network-moonbeam",
+    "toad-toadnetwork-moonbeam": {
+        "id": "toad-toadnetwork-moonbeam",
         "name": "Wrapped Toad",
         "symbol": "TOAD",
-        "issuer": "toad.network",
+        "issuer": "toadnetwork",
         "reference": "https://toad.network/",
         "tags": [
             "cryptocurrency",
@@ -1199,8 +1220,8 @@
         ],
         "git": {
             "updated": {
-                "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
-                "date": "2023-02-01T21:31:00.000Z"
+                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
+                "date": "2023-03-25T22:02:37.000Z"
             },
             "created": {
                 "hash": "582a44205d2389f913b46607a06868928a502c0d",
@@ -1208,11 +1229,11 @@
             }
         }
     },
-    "toad-toad.network-moonriver": {
-        "id": "toad-toad.network-moonriver",
+    "toad-toadnetwork-moonriver": {
+        "id": "toad-toadnetwork-moonriver",
         "name": "Wrapped Toad",
         "symbol": "TOAD",
-        "issuer": "toad.network",
+        "issuer": "toadnetwork",
         "reference": "https://toad.network/",
         "tags": [
             "cryptocurrency",
@@ -1220,8 +1241,8 @@
         ],
         "git": {
             "updated": {
-                "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
-                "date": "2023-02-01T21:31:00.000Z"
+                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
+                "date": "2023-03-25T22:02:37.000Z"
             },
             "created": {
                 "hash": "582a44205d2389f913b46607a06868928a502c0d",

@@ -69,6 +69,24 @@
             }
         }
     },
+    "ethereumfoundation": {
+        "id": "ethereumfoundation",
+        "name": "ethereum foundation",
+        "reference": "https://ethereum.foundation/",
+        "tags": [
+            "chain"
+        ],
+        "git": {
+            "updated": {
+                "hash": "04fc04eb635cb3ad0be13567b30c2bb48d2b8574",
+                "date": "2023-03-25T22:23:10.000Z"
+            },
+            "created": {
+                "hash": "04fc04eb635cb3ad0be13567b30c2bb48d2b8574",
+                "date": "2023-03-25T22:23:10.000Z"
+            }
+        }
+    },
     "fed": {
         "id": "fed",
         "name": "Federal Reserve",
@@ -87,21 +105,21 @@
             }
         }
     },
-    "moonbeam": {
-        "id": "moonbeam",
-        "name": "Moonbeam",
-        "reference": "https://moonbeam.network/",
+    "moonbeamfoundation": {
+        "id": "moonbeamfoundation",
+        "name": "Moonbeam Foundation",
+        "reference": "https://moonbeam.foundation/",
         "tags": [
             "chain"
         ],
         "git": {
             "updated": {
-                "hash": "582a44205d2389f913b46607a06868928a502c0d",
-                "date": "2023-01-31T21:59:44.000Z"
+                "hash": "73cce3e3cc4a45681b2dd644feb6e4712bc24d61",
+                "date": "2023-03-25T22:43:37.000Z"
             },
             "created": {
-                "hash": "582a44205d2389f913b46607a06868928a502c0d",
-                "date": "2023-01-31T21:59:44.000Z"
+                "hash": "73cce3e3cc4a45681b2dd644feb6e4712bc24d61",
+                "date": "2023-03-25T22:43:37.000Z"
             }
         }
     },
@@ -139,8 +157,26 @@
             }
         }
     },
-    "toad.network": {
-        "id": "toad.network",
+    "solanafoundation": {
+        "id": "solanafoundation",
+        "name": "Solana Foundation",
+        "reference": "https://solana.org/",
+        "tags": [
+            "chain"
+        ],
+        "git": {
+            "updated": {
+                "hash": "be842b8ad7a0454dc31ed87ddab23b61b84279d2",
+                "date": "2023-03-25T21:49:36.000Z"
+            },
+            "created": {
+                "hash": "be842b8ad7a0454dc31ed87ddab23b61b84279d2",
+                "date": "2023-03-25T21:49:36.000Z"
+            }
+        }
+    },
+    "toadnetwork": {
+        "id": "toadnetwork",
         "name": "Toad.Network",
         "reference": "https://toad.network/",
         "tags": [
@@ -148,8 +184,8 @@
         ],
         "git": {
             "updated": {
-                "hash": "582a44205d2389f913b46607a06868928a502c0d",
-                "date": "2023-01-31T21:59:44.000Z"
+                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
+                "date": "2023-03-25T22:02:37.000Z"
             },
             "created": {
                 "hash": "582a44205d2389f913b46607a06868928a502c0d",
