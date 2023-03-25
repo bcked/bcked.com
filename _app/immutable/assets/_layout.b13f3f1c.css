@@ -1615,6 +1615,9 @@ select {
 .p-2 {
   padding: 0.5rem;
 }
+.p-5 {
+  padding: 1.25rem;
+}
 .px-0 {
   padding-left: 0px;
   padding-right: 0px;
@@ -1642,10 +1645,6 @@ select {
 .py-1 {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
-}
-.py-10 {
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
 }
 .py-16 {
   padding-top: 4rem;
@@ -1711,8 +1710,8 @@ select {
 .pt-4 {
   padding-top: 1rem;
 }
-.pt-5 {
-  padding-top: 1.25rem;
+.pt-8 {
+  padding-top: 2rem;
 }
 .text-left {
   text-align: left;
@@ -2175,6 +2174,9 @@ select {
   .sm\:mt-16 {
     margin-top: 4rem;
   }
+  .sm\:mt-6 {
+    margin-top: 1.5rem;
+  }
   .sm\:block {
     display: block;
   }
@@ -2268,9 +2270,6 @@ select {
   .sm\:pt-1 {
     padding-top: 0.25rem;
   }
-  .sm\:pt-6 {
-    padding-top: 1.5rem;
-  }
   .sm\:text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
@@ -2286,11 +2285,6 @@ select {
   .sm\:text-sm {
     font-size: 0.875rem;
     line-height: 1.25rem;
-  }
-  .sm\:shadow {
-    --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-    --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
-    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
   .sm\:shadow-none {
     --tw-shadow: 0 0 #0000;
