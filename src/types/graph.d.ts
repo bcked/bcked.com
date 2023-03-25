@@ -8,9 +8,9 @@ declare namespace graph {
 
 	type NodeData = {
 		details: agg.AssetDetails;
-		issuer: agg.IssuerDetails | undefined;
-		chain: agg.ChainDetails | undefined;
-		icon: agg.Icon;
+		issuer: (agg.IssuerDetails & { icon: agg.Icon | undefined }) | undefined;
+		chain: (agg.ChainDetails & { icon: agg.Icon | undefined }) | undefined;
+		icon: agg.Icon | undefined;
 		contracts: agg.AssetContracts | undefined;
 		history: NodeDataPoint[];
 	};

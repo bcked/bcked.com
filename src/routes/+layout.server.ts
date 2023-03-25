@@ -10,7 +10,9 @@ export const load: LayoutServerLoad = async () => {
 	const assetsStats = await readAggregation<agg.AssetsStats>('assets-stats');
 	const chainsDetails = await readAggregation<agg.ChainsDetails>('chains-details');
 	const issuersDetails = await readAggregation<agg.IssuersDetails>('issuers-details');
-	const icons = await readAggregation<agg.Icons>('icons');
+	const assetsIcons = await readAggregation<agg.AssetsIcons>('assets-icons');
+	const chainsIcons = await readAggregation<agg.ChainsIcons>('chains-icons');
+	const issuersIcons = await readAggregation<agg.IssuersIcons>('issuers-icons');
 	const globalStats = await readAggregation<agg.GlobalStats>('global-stats');
 	const graphData = await readAggregation<graph.Graph>('graph');
 
@@ -21,9 +23,11 @@ export const load: LayoutServerLoad = async () => {
 		assetsSupply,
 		assetsBacking,
 		assetsStats,
+		assetsIcons,
 		chainsDetails,
+		chainsIcons,
 		issuersDetails,
-		icons,
+		issuersIcons,
 		globalStats,
 		graphData
 	};

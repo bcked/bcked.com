@@ -11,8 +11,14 @@ console.log(`Hooks loading.`);
 async function aggregateData() {
 	console.log(`Data preprocessing started.`);
 	// Copy static files
-	const icons = queryIcons('./assets/**/icon.png', 'assets');
-	writeAggregation('icons', icons);
+	const assetsIcons = queryIcons('./assets/**/icon.png', 'assets');
+	writeAggregation('assets-icons', assetsIcons);
+
+	const chainsIcons = queryIcons('./chains/**/icon.png', 'chains');
+	writeAggregation('chains-icons', chainsIcons);
+
+	const issuersIcons = queryIcons('./issuers/**/icon.png', 'issuers');
+	writeAggregation('issuers-icons', issuersIcons);
 
 	// Basic data aggregation
 	const issuersDetails = await aggregateFolders<derived.IssuerId, agg.IssuerDetails>(
@@ -47,8 +53,10 @@ async function aggregateData() {
 	const graph = createBackingGraph(
 		assetsDetails,
 		issuersDetails,
+		issuersIcons,
 		chainsDetails,
-		icons,
+		chainsIcons,
+		assetsIcons,
 		assetsContracts,
 		assetsPrice,
 		assetsSupply,
@@ -66,9 +74,9 @@ async function aggregateData() {
 		assetsSupply,
 		assetsBacking,
 		assetsStats,
+		assetsIcons,
 		chainsDetails,
 		issuersDetails,
-		icons,
 		globalStats,
 		graph
 	};

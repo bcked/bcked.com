@@ -19,7 +19,8 @@ export async function readAggregation<Type>(
 }
 
 export function writeAggregation(name: string, obj: Object) {
-	writeJson(`./.aggregation/${name}.json`, obj);
+	const sortedData = Object.fromEntries(Object.entries(obj).sort());
+	writeJson(`./.aggregation/${name}.json`, sortedData);
 }
 
 export function writeHistoryUpdate(

@@ -12,7 +12,7 @@
 
 	export let data: PageData;
 
-	$: ({ assetsDetails, assetsStats, icons, graphData } = data);
+	$: ({ assetsStats, graphData } = data);
 
 	$: graph = fromJson(graphData);
 </script>

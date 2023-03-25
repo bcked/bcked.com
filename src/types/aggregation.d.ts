@@ -104,7 +104,11 @@ declare namespace agg {
 		href: string;
 	};
 
-	type Icons = { [Property in derived.AssetId]: Icon };
+	type AssetsIcons = { [Property in derived.AssetId]: Icon };
+
+	type ChainsIcons = { [Property in derived.ChainId]: Icon };
+
+	type IssuersIcons = { [Property in derived.IssuerId]: Icon };
 
 	type GraphNodeData = {
 		mcap: number;

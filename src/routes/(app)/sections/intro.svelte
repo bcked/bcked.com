@@ -38,13 +38,6 @@
 				const data = node.data;
 				const svg = loadSvg(`${base}/assets/${data.details.id}/icon.svg`, new Vector3(18, 18));
 				return svg;
-
-				// const href = icons[(node as graph.Node).id]!.href;
-				// const imgTexture = new Three.TextureLoader().load(href);
-				// const material = new Three.SpriteMaterial({ map: imgTexture });
-				// const sprite = new Three.Sprite(material);
-				// sprite.scale.set(18, 18, 1);
-				// return sprite;
 			})
 			.linkColor(() => '#000000')
 			.linkCurvature(0.0)

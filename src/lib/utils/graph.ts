@@ -139,8 +139,10 @@ export function writeGraph(name: string, graph: Graph) {
 export function createBackingGraph(
 	assetsDetails: agg.AssetsDetails,
 	issuersDetails: agg.IssuersDetails,
+	issuersIcons: agg.IssuersIcons,
 	chainsDetails: agg.ChainsDetails,
-	icons: agg.Icons,
+	chainsIcons: agg.ChainsIcons,
+	assetsIcons: agg.AssetsIcons,
 	assetsContracts: agg.AssetsContracts,
 	assetsPrice: agg.AssetsPrice,
 	assetsSupply: agg.AssetsSupply,
@@ -150,14 +152,20 @@ export function createBackingGraph(
 	for (const [id, details] of Object.entries(assetsDetails)) {
 		const supplyHistory = assetsSupply[id]?.history;
 		const priceHistory = assetsPrice[id]?.history;
-		const icon = icons[id]!;
+		const icon = assetsIcons[id];
 		const contracts = assetsContracts[id];
 
 		if (!supplyHistory?.length || !priceHistory?.length) {
+			const issuer = issuersDetails[details.issuer ?? ''] ?? undefined;
+			const chain = chainsDetails[contracts?.token?.chain ?? ''] ?? undefined;
 			graph.addNode(id, {
 				details,
-				issuer: issuersDetails[details.issuer ?? ''] ?? undefined,
-				chain: chainsDetails[contracts?.token?.chain ?? ''] ?? undefined,
+				issuer: issuer
+					? { ...issuer, icon: issuersIcons[details.issuer ?? ''] ?? undefined }
+					: undefined,
+				chain: chain
+					? { ...chain, icon: chainsIcons[contracts?.token?.chain ?? ''] ?? undefined }
+					: undefined,
 				icon,
 				contracts,
 				history: []

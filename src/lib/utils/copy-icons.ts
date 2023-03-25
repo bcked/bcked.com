@@ -3,7 +3,7 @@ import glob from 'glob';
 import _ from 'lodash';
 import path from 'path';
 
-export function queryIcons(source: string, target: string): agg.Icons {
+export function queryIcons(source: string, target: string): { [key: string]: agg.Icon } {
 	const icons: agg.Icon[] = glob.sync(source).map((filepath) => {
 		const file = path.parse(filepath);
 		const basename = path.basename(file.dir);
@@ -27,7 +27,7 @@ export function queryIcons(source: string, target: string): agg.Icons {
 }
 
 export function copyIcons(source: string, target: string) {
-	const icons: agg.Icons = queryIcons(source, target);
+	const icons = queryIcons(source, target);
 
 	// TODO This can be parallelized
 	for (const icon of Object.values(icons)) {
