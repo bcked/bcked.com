@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import Glow from '$components/glow.svelte';
-	import SectionHeader from '$components/section-header.svelte';
-	import Section from '$components/section.svelte';
+	import SectionHeader from '$components/layout/section/header.svelte';
+	import Section from '$components/layout/section/main.svelte';
 	import { loadSvg } from '$lib/utils/three';
 	import type { ForceGraph3DInstance } from '3d-force-graph';
 	import { CubeIcon } from '@rgossiaux/svelte-heroicons/outline';

@@ -3,6 +3,7 @@
 	import { combine, compare } from '$lib/utils/string-formatting';
 	import { ChevronDownIcon, ChevronUpIcon } from '@rgossiaux/svelte-heroicons/solid';
 	import type { ComponentType } from 'svelte';
+	import { twMerge } from 'tailwind-merge';
 	import type { PageData } from '../routes/(app)/$types';
 
 	let clazz: string = '';
@@ -29,7 +30,7 @@
 	export let length: number | undefined = undefined;
 </script>
 
-<div class="overflow-clip {clazz}">
+<div class={twMerge(`overflow-clip ${clazz}`)}>
 	<table class="min-w-full ">
 		<thead class="bg-gray-100">
 			<tr>

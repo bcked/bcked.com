@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { XIcon } from '@rgossiaux/svelte-heroicons/outline';
+	import { twMerge } from 'tailwind-merge';
 
 	let clazz: string = '';
 	export { clazz as class };
@@ -11,7 +12,9 @@
 
 {#if open}
 	<div
-		class="{placement == 'top' ? 'relative' : 'fixed inset-x-0 bottom-0'} bg-neon-gray-dark {clazz}"
+		class={twMerge(
+			`${placement == 'top' ? 'relative' : 'fixed inset-x-0 bottom-0'} bg-neon-gray-dark ${clazz}`
+		)}
 	>
 		<div class="max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8">
 			<slot />

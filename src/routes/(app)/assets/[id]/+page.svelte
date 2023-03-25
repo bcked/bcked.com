@@ -2,6 +2,9 @@
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
 	import FinancialChart from '$components/financial-chart.svelte';
+	import Page from '$components/layout/page.svelte';
+	import SubjectItem from '$components/layout/title/item.svelte';
+	import SubjectTitle from '$components/layout/title/main.svelte';
 	import LiquidFill from '$components/liquid-fill.svelte';
 	import Sankey from '$components/sankey-layer.svelte';
 	import Table from '$components/table.svelte';
@@ -157,55 +160,31 @@
 	}}
 />
 
-<div class="max-w-7xl mx-auto space-y-4 pt-4 sm:px-6 lg:px-8">
-	<div class="md:flex md:items-center md:justify-between md:space-x-5 py-4 px-4">
-		<div class="flex items-start space-x-5">
-			<div class="flex-shrink-0">
-				<object
-					aria-label="Icon of {details.name}"
-					class="h-14 w-14 flex-shrink-1 object-contain pointer-events-none"
-					data="{base}/assets/{id}/icon.svg"
-					type="image/svg+xml"
-				/>
-			</div>
-			<!-- 
-					Use vertical padding to simulate center alignment when both lines of text are one line,
-					but preserve the same layout if the text wraps without making the image jump around. 
-				-->
-			<div class="pt-1.5">
-				<h1 class="flex items-center space-x-2 text-2xl font-bold text-gray-900 truncate">
-					<span>{details.name}</span>
-					<span
-						class="hidden sm:inline text-xs font-semibold uppercase text-gray-600 bg-gray-300 rounded-md p-1"
-						>{details.symbol}</span
-					>
-				</h1>
-				<div class="mt-1 flex flex-col md:mt-0 md:flex-row md:flex-wrap md:space-x-4">
-					{#if issuer}
-						<div class="mt-2 flex items-center text-sm text-gray-600">
-							<OfficeBuildingIcon
-								class="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-500"
-								aria-hidden="true"
-							/>
-							{issuer.name}
-						</div>
-					{/if}
-					{#if chain}
-						<div class="mt-2 flex items-center text-sm text-gray-600">
-							<LinkIcon class="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-500" aria-hidden="true" />
-							{chain.name}
-						</div>
-					{/if}
-					{#if updated}
-						<div class="mt-2 flex items-center text-sm text-gray-600">
-							<CalendarIcon class="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-500" aria-hidden="true" />
-							Updated on {new Date(updated).toLocaleDateString()}
-						</div>
-					{/if}
-				</div>
-			</div>
-		</div>
-	</div>
+<Page class="px-0">
+	<SubjectTitle
+		title={details.name}
+		subtitle={details.symbol}
+		iconUrl="{base}/assets/{id}/icon.svg"
+	>
+		{#if issuer}
+			<SubjectItem>
+				<OfficeBuildingIcon class="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-500" aria-hidden="true" />
+				{issuer.name}
+			</SubjectItem>
+		{/if}
+		{#if chain}
+			<SubjectItem>
+				<LinkIcon class="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-500" aria-hidden="true" />
+				{chain.name}
+			</SubjectItem>
+		{/if}
+		{#if updated}
+			<SubjectItem>
+				<CalendarIcon class="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-500" aria-hidden="true" />
+				Updated on {new Date(updated).toLocaleDateString()}
+			</SubjectItem>
+		{/if}
+	</SubjectTitle>
 
 	<div class="grid grid-cols-2 gap-[0.1rem] sm:gap-4 md:grid-cols-4 shadow sm:shadow-none">
 		<!-- {stats.length <= 4 ? stats.length : 4} -->
@@ -402,7 +381,7 @@
 					<div class="px-4 pt-5 sm:px-6 sm:pt-6">
 						<div class="max-w-3xl mx-auto text-center">
 							<h2 class="text-3xl tracking-tight font-bold text-gray-900">
-								History of Derivative Mcap Ratio
+								History of Derivative Market Cap Ratio
 							</h2>
 							<p class="mt-4 text-lg text-gray-500">
 								View {details.name}'s derivative history of up to the last {entries * interval} days.
@@ -411,7 +390,7 @@
 						<div class="flex mt-6 items-center justify-between">
 							<dl>
 								<dt class="text-sm font-medium text-gray-500 truncate">
-									Current Derivative Mcap Ratio
+									Current Derivative Market Cap
 								</dt>
 								<dd class="mt-1 text-3xl font-semibold text-gray-900">
 									{formatCurrency(assetStats.derivative.usd)}
@@ -587,4 +566,4 @@
 			{/each}
 		</div>
 	</div>
-</div>
+</Page>

@@ -8,7 +8,6 @@ Some resources:
 	import { PUBLIC_DOMAIN } from '$env/static/public';
 	import fromJson from 'ngraph.fromjson';
 	import type { Graph } from 'ngraph.graph';
-	// import { base } from '$app/paths';
 
 	let clazz: string = '';
 	export { clazz as class };

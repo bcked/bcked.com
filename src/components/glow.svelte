@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { twMerge } from 'tailwind-merge';
+
 	let clazz: string = '';
 	export { clazz as class };
 
@@ -11,7 +13,9 @@
 
 <div class="relative group-glow">
 	<div
-		class="absolute -inset-0 rounded-md bg-gradient-to-r {theme.from} {theme.via} {theme.to} transition-all duration-500 bg-size-200 bg-pos-100 group-glow-hover:bg-pos-0 blur animate-tilt-4 {clazz}"
+		class={twMerge(
+			`absolute -inset-0 rounded-md bg-gradient-to-r ${theme.from} ${theme.via} ${theme.to} transition-all duration-500 bg-size-200 bg-pos-100 group-glow-hover:bg-pos-0 blur animate-tilt-4 ${clazz}`
+		)}
 	/>
 	<div class="relative">
 		<slot />
