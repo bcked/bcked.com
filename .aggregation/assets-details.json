@@ -444,12 +444,13 @@
         "issuer": null,
         "reference": null,
         "tags": [
-            "commodity"
+            "commodity",
+            "rwa"
         ],
         "git": {
             "updated": {
-                "hash": "582a44205d2389f913b46607a06868928a502c0d",
-                "date": "2023-01-31T21:59:44.000Z"
+                "hash": "508ae8ad5f5747795a792a104d9ec6a8bf73d26b",
+                "date": "2023-03-26T15:50:52.000Z"
             },
             "created": {
                 "hash": "582a44205d2389f913b46607a06868928a502c0d",
@@ -920,8 +921,8 @@
     },
     "lp-toad-movr-toadnetwork-moonriver": {
         "id": "lp-toad-movr-toadnetwork-moonriver",
-        "name": "PAD-MOVR LPs",
-        "symbol": "LP-PAD-MOVR",
+        "name": "TOAD-MOVR LPs",
+        "symbol": "LP-TOAD-MOVR",
         "issuer": "toadnetwork",
         "reference": "https://dapps.padswap.exchange/",
         "tags": [
@@ -930,8 +931,8 @@
         ],
         "git": {
             "updated": {
-                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
-                "date": "2023-03-25T22:02:37.000Z"
+                "hash": "508ae8ad5f5747795a792a104d9ec6a8bf73d26b",
+                "date": "2023-03-26T15:50:52.000Z"
             },
             "created": {
                 "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
@@ -962,8 +963,8 @@
     },
     "lp-usdc-movr-toadnetwork-moonriver": {
         "id": "lp-usdc-movr-toadnetwork-moonriver",
-        "name": "PAD-MOVR LPs",
-        "symbol": "LP-PAD-MOVR",
+        "name": "USDC-MOVR LPs",
+        "symbol": "LP-USDC-MOVR",
         "issuer": "toadnetwork",
         "reference": "https://dapps.padswap.exchange/",
         "tags": [
@@ -972,8 +973,8 @@
         ],
         "git": {
             "updated": {
-                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
-                "date": "2023-03-25T22:02:37.000Z"
+                "hash": "508ae8ad5f5747795a792a104d9ec6a8bf73d26b",
+                "date": "2023-03-26T15:50:52.000Z"
             },
             "created": {
                 "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
@@ -1257,12 +1258,13 @@
         "issuer": "fed",
         "reference": null,
         "tags": [
-            "fiat"
+            "fiat",
+            "rwa"
         ],
         "git": {
             "updated": {
-                "hash": "582a44205d2389f913b46607a06868928a502c0d",
-                "date": "2023-01-31T21:59:44.000Z"
+                "hash": "508ae8ad5f5747795a792a104d9ec6a8bf73d26b",
+                "date": "2023-03-26T15:50:52.000Z"
             },
             "created": {
                 "hash": "582a44205d2389f913b46607a06868928a502c0d",
