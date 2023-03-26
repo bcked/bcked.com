@@ -4,6 +4,8 @@ import fs from 'fs';
 // import glob from 'glob';
 
 const assets = fs.readdirSync('./assets');
+const issuers = fs.readdirSync('./issuers');
+const chains = fs.readdirSync('./chains');
 
 // const tokens = glob
 // 	.sync('./assets/*/contracts.json')
@@ -53,6 +55,8 @@ const config = {
 				// '/assets.json',
 				// ...assets.map((id) => `/assets/${id}.json`),
 				...assets.map((id) => `/assets/${id}`),
+				...issuers.map((id) => `/issuers/${id}`),
+				...chains.map((id) => `/chains/${id}`),
 				// '/trees.json',
 				// '/graph.json',
 				// ...assets.map((id) => `/trees/${id}.json`),

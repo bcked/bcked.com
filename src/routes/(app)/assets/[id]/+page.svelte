@@ -169,20 +169,17 @@
 		iconUrl="{base}/assets/{id}/icon.svg"
 	>
 		{#if issuer}
-			<SubjectItem>
-				<OfficeBuildingIcon class="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-500" aria-hidden="true" />
+			<SubjectItem href="{base}/issuers/{issuer.id}" icon={OfficeBuildingIcon}>
 				{issuer.name}
 			</SubjectItem>
 		{/if}
 		{#if chain}
-			<SubjectItem>
-				<LinkIcon class="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-500" aria-hidden="true" />
+			<SubjectItem href="{base}/chains/{chain.id}" icon={LinkIcon}>
 				{chain.name}
 			</SubjectItem>
 		{/if}
 		{#if updated}
-			<SubjectItem>
-				<CalendarIcon class="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-500" aria-hidden="true" />
+			<SubjectItem icon={CalendarIcon}>
 				Updated on {new Date(updated).toLocaleDateString()}
 			</SubjectItem>
 		{/if}
