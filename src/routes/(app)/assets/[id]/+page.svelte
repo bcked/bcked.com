@@ -301,7 +301,7 @@
 						name: {
 							text: linkedNode?.data.details.name,
 							value: linkedNode?.data.details.name,
-							icon: linkedNode?.id
+							icon: `${base}/assets/${linkedNode?.id}/icon.svg`
 						},
 						'name-path': {
 							text: `${base}/assets/${linkedNode?.id}`,
@@ -452,7 +452,7 @@
 						name: {
 							text: linkedNode?.data.details.name,
 							value: linkedNode?.data.details.name,
-							icon: linkedNode?.id
+							icon: `${base}/assets/${linkedNode?.id}/icon.svg`
 						},
 						'name-path': {
 							text: `${base}/assets/${linkedNode?.id}`,

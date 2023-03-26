@@ -44,7 +44,11 @@
 					)
 					.map(({ id, data: { details, history } }, i) => ({
 						rank: { text: i + 1, value: i },
-						name: { text: details.name, value: details.name, icon: id },
+						name: {
+							text: details.name,
+							value: details.name,
+							icon: `${base}/assets/${id}/icon.svg`
+						},
 						price: {
 							text: history?.at(-1)?.price?.usd
 								? formatCurrency(history?.at(-1)?.price?.usd ?? 0)

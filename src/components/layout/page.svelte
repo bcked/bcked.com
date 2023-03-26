@@ -5,6 +5,6 @@
 	export { clazz as class };
 </script>
 
-<div class={twMerge(`max-w-7xl mx-auto space-y-4 pt-8 px-4 sm:px-6 lg:px-8 ${clazz}`)}>
+<div class={twMerge(`w-full max-w-7xl mx-auto space-y-4 pt-8 px-4 sm:px-6 lg:px-8 ${clazz}`)}>
 	<slot />
 </div>

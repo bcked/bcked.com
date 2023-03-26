@@ -84,12 +84,20 @@
 								<a href={row[column.id + '-path'].text}>
 									<div class="flex items-center space-x-1">
 										{#if row[column.id].icon}
-											<object
-												aria-label="Icon of {row[column.id].text}"
-												class="h-5 w-5 object-contain pointer-events-none"
-												data="{base}/assets/{row[column.id].icon}/icon.svg"
-												type="image/svg+xml"
-											/>
+											{#if row[column.id].icon.endsWith('.svg')}
+												<object
+													aria-label="Icon of {row[column.id].text}"
+													class="h-5 w-5 object-contain pointer-events-none"
+													data={row[column.id].icon}
+													type="image/svg+xml"
+												/>
+											{:else}
+												<img
+													alt="Icon of {row[column.id].text}"
+													class="h-5 w-5 object-contain pointer-events-none"
+													src={row[column.id].icon}
+												/>
+											{/if}
 										{/if}
 										<span class="truncate">
 											{row[column.id].text}

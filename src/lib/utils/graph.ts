@@ -155,19 +155,22 @@ export function createBackingGraph(
 		const icon = assetsIcons[id];
 		const contracts = assetsContracts[id];
 
+		const issuerId = details.issuer ?? '';
+		const issuer = issuersDetails[issuerId] ?? undefined;
+		const chainId = contracts?.token?.chain ?? (details.tags.includes('rwa') ? 'rwa' : '');
+		const chain = chainsDetails[chainId] ?? undefined;
+
+		const baseNode = {
+			details,
+			issuer: issuer ? { ...issuer, icon: issuersIcons[issuerId] ?? undefined } : undefined,
+			chain: chain ? { ...chain, icon: chainsIcons[chainId] ?? undefined } : undefined,
+			icon,
+			contracts
+		};
+
 		if (!supplyHistory?.length || !priceHistory?.length) {
-			const issuer = issuersDetails[details.issuer ?? ''] ?? undefined;
-			const chain = chainsDetails[contracts?.token?.chain ?? ''] ?? undefined;
 			graph.addNode(id, {
-				details,
-				issuer: issuer
-					? { ...issuer, icon: issuersIcons[details.issuer ?? ''] ?? undefined }
-					: undefined,
-				chain: chain
-					? { ...chain, icon: chainsIcons[contracts?.token?.chain ?? ''] ?? undefined }
-					: undefined,
-				icon,
-				contracts,
+				...baseNode,
 				history: []
 			});
 			continue;
@@ -191,11 +194,7 @@ export function createBackingGraph(
 		});
 
 		graph.addNode(id, {
-			details,
-			issuer: issuersDetails[details.issuer ?? ''] ?? undefined,
-			chain: chainsDetails[contracts?.token?.chain ?? ''] ?? undefined,
-			icon,
-			contracts,
+			...baseNode,
 			history
 		});
 	}

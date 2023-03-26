@@ -49,7 +49,7 @@ Some resources:
 	xmlns="http://www.w3.org/2000/svg"
 >
 	<desc>Icon of {asset.details.name}</desc>
-	{#if asset && asset.details.tags.includes('lp') && underlying.length == 2}
+	{#if asset.details.tags.includes('lp') && underlying.length == 2}
 		{#if underlying[0]}
 			<image
 				x={0}
@@ -89,6 +89,30 @@ Some resources:
 			href="{PUBLIC_DOMAIN}/default-icon.png"
 			height={64}
 			width={64}
+			dominant-baseline="central"
+			text-anchor="middle"
+		/>
+	{/if}
+	{#if asset.chain?.icon}
+		<circle cx={50} cy={50} r={14} fill="#FFFFFFE5" />
+		<image
+			x={38}
+			y={38}
+			href="{PUBLIC_DOMAIN}/{asset.chain?.icon.href}"
+			height={24}
+			width={24}
+			dominant-baseline="central"
+			text-anchor="middle"
+		/>
+	{/if}
+	{#if asset.issuer?.icon}
+		<circle cx={34} cy={50} r={14} fill="#FFFFFFE5" />
+		<image
+			x={22}
+			y={38}
+			href="{PUBLIC_DOMAIN}/{asset.issuer?.icon.href}"
+			height={24}
+			width={24}
 			dominant-baseline="central"
 			text-anchor="middle"
 		/>

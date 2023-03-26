@@ -106,7 +106,7 @@ export function loadSvgImages(svg: SVGResult) {
 
 		// Set the sprite scale
 		sprite.scale.set(width, height, 1);
-		sprite.position.set(x, y, 0);
+		sprite.position.set(x, -y, 1);
 
 		// Return the sprite
 		group.add(sprite);

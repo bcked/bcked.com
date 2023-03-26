@@ -3,8 +3,10 @@
 	import { formatCurrency } from '$lib/utils/string-formatting';
 	import SvelteSeo from 'svelte-seo';
 	import type { PageData } from './$types';
+	import ChainsSection from './sections/chains.svelte';
 	import DiscoverSection from './sections/discover.svelte';
 	import IntroSection from './sections/intro.svelte';
+	import IssuersSection from './sections/issuers.svelte';
 	import RankingSection from './sections/ranking.svelte';
 
 	export let data: PageData;
@@ -69,3 +71,5 @@
 <IntroSection {data} theme={themes.blue} />
 <DiscoverSection {data} theme={themes.yellow} />
 <RankingSection {data} theme={themes.pink} />
+<IssuersSection {data} theme={themes.yellow} />
+<ChainsSection {data} theme={themes.blue} />
