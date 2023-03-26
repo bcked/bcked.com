@@ -146,35 +146,46 @@
 	>
 		<div class="px-4 py-2 sm:px-6 transition-all motion-reduce:transition-none duration-1000">
 			{#if selectedNode}
-				<a href="{base}/assets/{selectedNode?.id}">
-					<div class="flex items-center justify-start space-x-4">
+				<div class="flex items-center justify-start space-x-4">
+					<a href="{base}/assets/{selectedNode?.id}">
 						<object
 							aria-label="Icon of {selectedNode?.data?.details?.name}"
 							class="h-10 w-10 flex-shrink-1 object-contain pointer-events-none"
 							data="{base}/assets/{selectedNode?.id}/icon.svg"
 							type="image/svg+xml"
 						/>
-						<div>
+					</a>
+					<div>
+						<a href="{base}/assets/{selectedNode?.id}">
 							<h2 class="text-lg font-medium leading-6 text-neon-pink">
 								{selectedNode?.data?.details?.name}
 							</h2>
+						</a>
+						<p class="mt-1 max-w-2xl text-sm text-gray-500">
 							{#if selectedNode?.data?.issuer?.name && selectedNode?.data?.chain?.name}
-								<p class="mt-1 max-w-2xl text-sm text-gray-500">
-									Issuer: {selectedNode?.data?.issuer?.name} | Chain: {selectedNode?.data?.chain
-										?.name}
-								</p>
+								<a
+									href="{base}/issuers/{selectedNode?.data?.issuer?.id}"
+									class="hover:text-gray-900">Issuer: {selectedNode?.data?.issuer?.name}</a
+								>
+								|
+								<a href="{base}/chains/{selectedNode?.data?.chain?.id}" class="hover:text-gray-900"
+									>Chain: {selectedNode?.data?.chain?.name}</a
+								>
 							{:else if selectedNode?.data?.issuer?.name}
-								<p class="mt-1 max-w-2xl text-sm text-gray-500">
+								<a
+									href="{base}/issuers/{selectedNode?.data?.issuer?.id}"
+									class="hover:text-gray-900"
+								>
 									Issuer: {selectedNode?.data?.issuer?.name}
-								</p>
+								</a>
 							{:else if selectedNode?.data?.chain?.name}
-								<p class="mt-1 max-w-2xl text-sm text-gray-500">
+								<a href="{base}/chains/{selectedNode?.data?.chain?.id}" class="hover:text-gray-900">
 									Chain: {selectedNode?.data?.chain?.name}
-								</p>
+								</a>
 							{/if}
-						</div>
+						</p>
 					</div>
-				</a>
+				</div>
 			{/if}
 		</div>
 	</div>
