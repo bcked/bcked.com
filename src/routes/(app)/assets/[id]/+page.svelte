@@ -138,9 +138,6 @@
 			alt: `Preview of ${details.name}'s backing view.`
 		}
 	};
-
-	let interval = 3;
-	let entries = 10;
 </script>
 
 <SvelteSeo
@@ -223,11 +220,7 @@
 		{#if history.length > 0}
 			<div class="grid grid-cols-1 gap-4 lg:grid-cols-2 shadow-none">
 				<Card>
-					<CardHeader
-						title="Backing History"
-						subtitle="View {details.name}'s backing history of up to the last {entries *
-							interval} days."
-					/>
+					<CardHeader title="Backing History" subtitle="View {details.name}'s backing history." />
 					<div class="flex items-center justify-between mt-5 sm:mt-6 px-4 sm:px-6">
 						<dl>
 							<dt class="text-sm font-medium text-gray-500 truncate">Current Backing</dt>
@@ -369,8 +362,7 @@
 				<Card>
 					<CardHeader
 						title="History of Derivative Market Cap Ratio"
-						subtitle="View {details.name}'s derivative history of up to the last {entries *
-							interval} days."
+						subtitle="View {details.name}'s derivative history."
 					/>
 					<div class="flex items-center justify-between mt-5 sm:mt-6 px-4 sm:px-6">
 						<dl>
