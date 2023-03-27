@@ -42,7 +42,9 @@
 
 	$: node = graph.getNode(id)!;
 	$: asset = node.data;
-	$: links = (graph.getLinks(id) ?? []).filter((link) => link.data.history.at(-1)?.amount);
+	$: links = (graph.getLinks(id) ?? []).filter(
+		(link) => link.data.history.at(-1)?.amount != undefined
+	);
 	$: underlying = links.filter((link) => link.fromId == id);
 	$: derivative = links.filter((link) => link.fromId != id);
 
@@ -82,7 +84,7 @@
 
 	let stats: Stat[] = [];
 	$: stats = [
-		history?.at(-1)?.price?.usd
+		history?.at(-1)?.price?.usd != undefined
 			? {
 					name: 'Price',
 					value: history.at(-1)!.price!.usd,
@@ -98,7 +100,7 @@
 			value: underlying.length,
 			type: 'standard'
 		},
-		assetStats.underlying.ratio
+		assetStats.underlying.ratio != undefined
 			? {
 					name: 'Backing Ratio',
 					value: assetStats.underlying.ratio,
@@ -308,37 +310,44 @@
 							value: `${base}/assets/${linkedNode?.id}`
 						},
 						price: {
-							text: linkedNode?.data.history?.at(-1)?.price?.usd
-								? formatCurrency(linkedNode?.data.history?.at(-1)?.price?.usd ?? 0)
-								: 'UNK',
+							text:
+								linkedNode?.data.history?.at(-1)?.price?.usd != undefined
+									? formatCurrency(linkedNode?.data.history?.at(-1)?.price?.usd ?? 0)
+									: 'UNK',
 							value: linkedNode?.data.history?.at(-1)?.price?.usd
 						},
 						amount: {
-							text: linkData.history?.at(-1)?.amount
-								? formatNum(linkData.history.at(-1).amount)
-								: 'UNK',
+							text:
+								linkData.history?.at(-1)?.amount != undefined
+									? formatNum(linkData.history.at(-1).amount)
+									: 'UNK',
 							value: linkData.history?.at(-1)?.amount
 						},
-						share: linkData.history?.at(-1)?.value
-							? {
-									text: formatPercentage(linkData.history.at(-1).value / assetStats.underlying.usd),
-									value: linkData.history.at(-1).value / assetStats.underlying.usd
-							  }
-							: {
-									text: 'UNK',
-									value: undefined
-							  },
-						'underlying-usd': linkData.history?.at(-1)?.value
-							? {
-									text: formatCurrency(linkData.history.at(-1).value),
-									value: linkData.history.at(-1).value
-							  }
-							: {
-									text: 'UNK',
-									value: undefined
-							  },
+						share:
+							linkData.history?.at(-1)?.value != undefined
+								? {
+										text: formatPercentage(
+											linkData.history.at(-1).value / assetStats.underlying.usd
+										),
+										value: linkData.history.at(-1).value / assetStats.underlying.usd
+								  }
+								: {
+										text: 'UNK',
+										value: undefined
+								  },
+						'underlying-usd':
+							linkData.history?.at(-1)?.value != undefined
+								? {
+										text: formatCurrency(linkData.history.at(-1).value),
+										value: linkData.history.at(-1).value
+								  }
+								: {
+										text: 'UNK',
+										value: undefined
+								  },
 						'underlying-ratio':
-							linkData.history?.at(-1)?.value && asset?.history?.at(-1)?.mcap
+							linkData.history?.at(-1)?.value != undefined &&
+							asset?.history?.at(-1)?.mcap != undefined
 								? {
 										text: formatPercentage(
 											linkData.history.at(-1).value / asset?.history.at(-1).mcap
@@ -459,37 +468,44 @@
 							value: `${base}/assets/${linkedNode?.id}`
 						},
 						price: {
-							text: linkedNode?.data.history?.at(-1)?.price?.usd
-								? formatCurrency(linkedNode?.data.history.at(-1).price.usd)
-								: 'UNK',
+							text:
+								linkedNode?.data.history?.at(-1)?.price?.usd != undefined
+									? formatCurrency(linkedNode?.data.history.at(-1).price.usd)
+									: 'UNK',
 							value: linkedNode?.data.history?.at(-1)?.price?.usd
 						},
 						amount: {
-							text: linkData.history?.at(-1)?.amount
-								? formatNum(linkData.history.at(-1).amount)
-								: 'UNK',
+							text:
+								linkData.history?.at(-1)?.amount != undefined
+									? formatNum(linkData.history.at(-1).amount)
+									: 'UNK',
 							value: linkData.history?.at(-1)?.amount
 						},
-						share: linkData.history?.at(-1)?.value
-							? {
-									text: formatPercentage(linkData.history.at(-1).value / assetStats.derivative.usd),
-									value: linkData.history.at(-1).value / assetStats.derivative.usd
-							  }
-							: {
-									text: 'UNK',
-									value: undefined
-							  },
-						'derivative-usd': linkData.history?.at(-1)?.value
-							? {
-									text: formatCurrency(linkData.history.at(-1).value),
-									value: linkData.history.at(-1).value
-							  }
-							: {
-									text: 'UNK',
-									value: undefined
-							  },
+						share:
+							linkData.history?.at(-1)?.value != undefined
+								? {
+										text: formatPercentage(
+											linkData.history.at(-1).value / assetStats.derivative.usd
+										),
+										value: linkData.history.at(-1).value / assetStats.derivative.usd
+								  }
+								: {
+										text: 'UNK',
+										value: undefined
+								  },
+						'derivative-usd':
+							linkData.history?.at(-1)?.value != undefined
+								? {
+										text: formatCurrency(linkData.history.at(-1).value),
+										value: linkData.history.at(-1).value
+								  }
+								: {
+										text: 'UNK',
+										value: undefined
+								  },
 						'derivative-ratio':
-							linkData.history?.at(-1)?.value && asset?.history?.at(-1)?.mcap
+							linkData.history?.at(-1)?.value != undefined &&
+							asset?.history?.at(-1)?.mcap != undefined
 								? {
 										text: formatPercentage(
 											linkData.history.at(-1).value / asset.history.at(-1).mcap

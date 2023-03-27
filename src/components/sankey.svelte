@@ -22,8 +22,10 @@
 	/** [nodeHight=5] - The width of each node, in pixels, passed to [`sankey.nodeHight`](https://github.com/d3/d3-sankey#sankey_nodeWidth). */
 	export let nodeHeight: number = 40;
 
+	export let nodeMinWidth = 1;
+
 	/** [linkWidth=d => '0.9'] - A function to return a float to scale the link width. */
-	export let linkWidth = (d: d3.SankeyLink) => 0.9;
+	export let linkScale = (d: d3.SankeyLink) => 0.9;
 
 	/** [nodePadding=10] - The padding between nodes, passed to [`sankey.nodePadding`](https://github.com/d3/d3-sankey#sankey_nodePadding). */
 	export let nodePadding: number = 10;
@@ -59,12 +61,14 @@
 		let sy1 = link.source.x1;
 		let ty0 = link.target.x0;
 
+		const linkWidth = Math.max(link.width, nodeMinWidth);
+
 		// All four outer corners of the link
 		// where e.g. lsx0 is the right corner of the link on the source side
-		let lsx0 = link.y0 - (link.width / 2) * linkWidth(link);
-		let lsx1 = link.y0 + (link.width / 2) * linkWidth(link);
-		let ltx0 = link.y1 - (link.width / 2) * linkWidth(link);
-		let ltx1 = link.y1 + (link.width / 2) * linkWidth(link);
+		let lsx0 = link.y0 - (linkWidth / 2) * linkScale(link);
+		let lsx1 = link.y0 + (linkWidth / 2) * linkScale(link);
+		let ltx0 = link.y1 - (linkWidth / 2) * linkScale(link);
+		let ltx1 = link.y1 + (linkWidth / 2) * linkScale(link);
 
 		// Center (y) of the link
 		let lcy = sy1 + (ty0 - sy1) / 2;
@@ -152,7 +156,9 @@
 	<g class="sankey-nodes">
 		{#each sankeyData.nodes as d, i}
 			{@const asset = graph.getNode(d.id)?.data}
-			{@const nodeWidth = Math.max(d.y1 - d.y0, 1)}
+			{@const nodeDiff = d.y1 - d.y0}
+			{@const nodeStart = nodeDiff < nodeMinWidth ? (d.y0 + d.y1) / 2 - nodeMinWidth / 2 : d.y0}
+			{@const nodeWidth = Math.max(nodeDiff, nodeMinWidth)}
 			{@const iconSize = Math.min(nodeHeight, nodeWidth) * 0.8}
 			<g class="sankey-node group">
 				<title>
@@ -160,7 +166,7 @@
 				</title>
 				<rect
 					class="fill-neon-pink group-hover:fill-neon-blue"
-					x={d.y0}
+					x={nodeStart}
 					y={d.x0}
 					height={nodeHeight}
 					width={nodeWidth}

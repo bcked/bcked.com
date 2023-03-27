@@ -12,23 +12,25 @@
 	function ngraph2d3(g: Graph<graph.NodeData, graph.LinkData>): d3.Graph {
 		let d3graph: d3.Graph = { nodes: [], links: [] };
 		g.forEachNode((node) => {
-			if (!node?.data?.history?.at(-1)?.mcap) return;
+			const nodeValue = node?.data?.history?.at(-1)?.mcap;
 			d3graph.nodes.push({
 				id: node.id as string,
 				name: node.id as string,
-				value: node.data.history.at(-1)!.mcap!
+				value: nodeValue ?? 0
 			});
 		});
 		g.forEachLink((link) => {
-			if (!link?.data?.history?.at(-1)?.value) return;
+			const linkValue = link?.data?.history?.at(-1)?.value;
 			if (!d3graph.nodes.some((node) => node.id == link.fromId)) return;
 			if (!d3graph.nodes.some((node) => node.id == link.toId)) return;
 			d3graph.links.push({
 				source: link.fromId as string,
 				target: link.toId as string,
-				value: link.data.history.at(-1)!.value!
+				value: linkValue ?? 0
 			});
 		});
+
+		if (d3graph.nodes.length == 0 || d3graph.links.length == 0) return { nodes: [], links: [] };
 		return d3graph;
 	}
 </script>
