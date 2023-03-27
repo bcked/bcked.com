@@ -94,25 +94,25 @@ Some resources:
 		/>
 	{/if}
 	{#if asset.chain?.icon}
-		<circle cx={50} cy={50} r={14} fill="#FFFFFFE5" />
+		<circle cx={52} cy={40} r={12} fill="#FFFFFFE5" />
 		<image
-			x={38}
-			y={38}
+			x={43}
+			y={31}
 			href="{PUBLIC_DOMAIN}/{asset.chain?.icon.href}"
-			height={24}
-			width={24}
+			height={18}
+			width={18}
 			dominant-baseline="central"
 			text-anchor="middle"
 		/>
 	{/if}
 	{#if asset.issuer?.icon}
-		<circle cx={34} cy={50} r={14} fill="#FFFFFFE5" />
+		<circle cx={40} cy={52} r={12} fill="#FFFFFFE5" />
 		<image
-			x={22}
-			y={38}
+			x={31}
+			y={43}
 			href="{PUBLIC_DOMAIN}/{asset.issuer?.icon.href}"
-			height={24}
-			width={24}
+			height={18}
+			width={18}
 			dominant-baseline="central"
 			text-anchor="middle"
 		/>
