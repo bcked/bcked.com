@@ -29,16 +29,19 @@
                 Use vertical padding to simulate center alignment when both lines of text are one line,
                 but preserve the same layout if the text wraps without making the image jump around. 
             -->
-		<div class="pt-1.5">
-			<h1 class="flex items-center space-x-2 text-2xl font-bold text-gray-900 truncate">
-				<span>{title}</span>
+		<div class="min-w-0 pt-1.5">
+			<div class="flex items-center space-x-2">
+				<h1 class="block text-2xl font-bold text-gray-900 truncate">
+					{title}
+				</h1>
 				{#if subtitle}
 					<span
 						class="hidden sm:inline text-xs font-semibold uppercase text-gray-600 bg-gray-300 rounded-md p-1"
 						>{subtitle}</span
 					>
 				{/if}
-			</h1>
+			</div>
+
 			<div class="mt-1 flex flex-col md:mt-0 md:flex-row md:flex-wrap md:space-x-4">
 				<slot />
 			</div>
