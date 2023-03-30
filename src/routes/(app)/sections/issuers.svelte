@@ -22,12 +22,14 @@
 	<SectionHeader
 		title="Issuers"
 		description="View all assets by issuer."
-		theme={{ title: theme.text }}
+		button={{ text: 'View all Issuers', href: `${base}/issuers` }}
+		theme={{ title: theme.text, from: theme.from, via: theme.via, to: theme.to }}
 	/>
 	<div class="mt-10 w-full max-w-7xl mx-auto px-0 sm:px-4 lg:px-8">
 		<Glow {theme} class="-inset-x-4 sm:-inset-x-0 animate-tilt-1">
 			<Table
 				{data}
+				length={10}
 				columns={[
 					{ id: 'rank', title: '#', class: '' },
 					{ id: 'name', title: 'Name', class: 'font-medium', link: true },

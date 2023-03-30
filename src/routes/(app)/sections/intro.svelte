@@ -1,11 +1,9 @@
 <script lang="ts">
 	import { base } from '$app/paths';
-	import Glow from '$components/glow.svelte';
 	import SectionHeader from '$components/layout/section/header.svelte';
 	import Section from '$components/layout/section/main.svelte';
 	import { loadSvg } from '$lib/utils/three';
 	import type { ForceGraph3DInstance } from '3d-force-graph';
-	import { CubeIcon } from '@rgossiaux/svelte-heroicons/outline';
 	import { onMount } from 'svelte';
 	import { Vector3 } from 'three';
 	import type { PageData } from '../$types';
@@ -70,20 +68,9 @@
 			title="Reduce your exposure to unbacked assets."
 			description="Leverage insights from our community driven open source knowledge base to find cryptocurrencies backed
 		by various asset classes."
-			theme={{ title: theme.text }}
+			button={{ text: 'Explore Backing Graph', href: `${base}/graph` }}
+			theme={{ title: theme.text, from: theme.from, via: theme.via, to: theme.to }}
 			class="mt-10"
-		>
-			<div class="mt-16 inline-flex items-center lg:mx-0">
-				<Glow {theme}>
-					<a
-						href="{base}/graph"
-						class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-md bg-neon-gray-dark text-gray-50  hover:bg-neon-blue hover:text-gray-900"
-					>
-						<CubeIcon class="h-5 w-5 mr-3 transform" />
-						Explore Backing Graph
-					</a>
-				</Glow>
-			</div>
-		</SectionHeader>
+		/>
 	</Section>
 </div>

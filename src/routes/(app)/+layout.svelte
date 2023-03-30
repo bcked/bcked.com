@@ -13,10 +13,9 @@
 	export let data: LayoutData;
 
 	const mainNavigation: ui.Navigation = [
-		{ name: 'Discover', path: `${base}/#discover` },
-		{ name: 'Ranking', path: `${base}/#ranking` },
-		{ name: 'Issuers', path: `${base}/#issuers` },
-		{ name: 'Chains', path: `${base}/#chains` }
+		{ name: 'Ranking', path: `${base}/assets` },
+		{ name: 'Issuers', path: `${base}/issuers` },
+		{ name: 'Chains', path: `${base}/chains` }
 	];
 
 	const bottomNavigation: ui.Navigation = [
