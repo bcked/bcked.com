@@ -239,6 +239,7 @@
 					</div>
 					<div class="mt-5 sm:mt-6 h-full overflow-hidden">
 						<FinancialChart
+							formatter={(i) => formatPercentage(i, 1)}
 							data={underlying.length
 								? [...new Set(underlying.flatMap((link) => _.map(link.data.history, 'timestamp')))]
 										.sort()
@@ -254,7 +255,7 @@
 												: 0;
 											return {
 												date: timestamp,
-												value: ratio * 100
+												value: ratio
 											};
 										})
 								: [
@@ -391,6 +392,7 @@
 					</div>
 					<div class="mt-5 sm:mt-6 h-full overflow-hidden">
 						<FinancialChart
+							formatter={(i) => formatPercentage(i, 1)}
 							data={derivative.length
 								? [
 										...new Set(
@@ -412,7 +414,7 @@
 												: 0;
 											return {
 												date: timestamp,
-												value: ratio * 100
+												value: ratio
 											};
 										})
 								: [

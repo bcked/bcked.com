@@ -1,15 +1,16 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
+	import FinancialChart from '$components/financial-chart.svelte';
 	import CardHeader from '$components/layout/card/header.svelte';
 	import Card from '$components/layout/card/main.svelte';
 	import Page from '$components/layout/page.svelte';
 	import SubjectItem from '$components/layout/title/item.svelte';
 	import SubjectTitle from '$components/layout/title/main.svelte';
-	import LiquidFill from '$components/liquid-fill.svelte';
 	import Table from '$components/table.svelte';
 	import { PUBLIC_DOMAIN } from '$env/static/public';
-	import { formatCurrency, formatNum, formatPercentage } from '$lib/utils/string-formatting';
+	import { closest, uniqueTimes } from '$lib/utils/array';
+	import { formatCurrency, formatNum } from '$lib/utils/string-formatting';
 	import { ExternalLinkIcon } from '@rgossiaux/svelte-heroicons/outline';
 	import _ from 'lodash-es';
 	import SvelteSeo from 'svelte-seo';
@@ -31,6 +32,25 @@
 	$: uniqueAssets = assetsOfIssuer.filter((asset) => !asset.details.tags.includes('lp'));
 	$: lpAssets = assetsOfIssuer.filter((asset) => asset.details.tags.includes('lp'));
 
+	$: uaTimepoints = uniqueTimes(
+		_.flatMap(uniqueAssets, (v) => _.map(v.history, 'timestamp')),
+		60 * 60 * 1000
+	).sort(); // unique within 1h
+	$: lpaTimepoints = uniqueTimes(
+		_.flatMap(lpAssets, (v) => _.map(v.history, 'timestamp')),
+		60 * 60 * 1000
+	).sort(); // unique within 1h
+
+	$: uaTvlHistory = _.map(uaTimepoints, (timestamp) => ({
+		date: timestamp,
+		value: _.sumBy(uniqueAssets, (asset) => closest(asset.history, timestamp)?.mcap ?? 0)
+	}));
+
+	$: lpaTvlHistory = _.map(lpaTimepoints, (timestamp) => ({
+		date: timestamp,
+		value: _.sumBy(lpAssets, (asset) => closest(asset.history, timestamp)?.mcap ?? 0)
+	}));
+
 	type Stat = {
 		name: string;
 		value: string | number;
@@ -45,7 +65,7 @@
 			type: 'standard'
 		},
 		{
-			name: 'Total Value',
+			name: 'Total Value Locked (TVL)',
 			value: formatCurrency(_.sumBy(uniqueAssets, (asset) => asset.history?.at(-1)?.mcap ?? 0)),
 			type: 'currency'
 		}
@@ -108,39 +128,42 @@
 	</SubjectTitle>
 
 	{#if uniqueAssets.length}
-		<div class="grid grid-cols-2 gap-[0.1rem] sm:gap-4 shadow sm:shadow-none">
-			<!-- {stats.length <= 4 ? stats.length : 4} -->
-			{#each uniqueAssetsStats as item}
-				<Card class="relative px-4 py-5 sm:p-6">
-					{#if item.type == 'percent' && typeof item.value == 'number'}
-						<div class="absolute top-0 left-0 h-full w-full">
-							<LiquidFill
-								fillPercent={item.value}
-								class="h-full w-full"
-								waveColor="#FFDDDD"
-								waveAnimateTime={2000}
-								waveHeight={0.1}
-								waveHeightScaling={true}
-							/>
-						</div>
-					{/if}
-					<dl class="relative">
-						<dt class="text-sm font-medium text-gray-500 truncate">{item.name}</dt>
-						<dd class="mt-1 text-3xl font-semibold text-gray-900">
-							{#if item.type == 'standard'}
-								{item.value}
-							{:else if item.type == 'currency' && typeof item.value == 'number'}
-								{formatCurrency(item.value)}
-							{:else if item.type == 'percent' && typeof item.value == 'number'}
-								{formatPercentage(item.value)}
-							{:else}
-								{item.value}
-							{/if}
-						</dd>
-					</dl>
-				</Card>
-			{/each}
-		</div>
+		<Card>
+			<CardHeader
+				title="TVL History"
+				subtitle="View {issuerDetails.name}'s total value locked (TVL) history."
+			/>
+			<div class="flex items-center justify-between mt-5 sm:mt-6 px-4 sm:px-6">
+				<dl>
+					<dt class="text-sm font-medium text-gray-500 truncate">Current Number of Assets</dt>
+					<dd class="mt-1 text-3xl font-semibold text-gray-900">
+						{uniqueAssets.length}
+					</dd>
+				</dl>
+				<dl class="text-right">
+					<dt class="text-sm font-medium text-gray-500 truncate">
+						Current Total Value Locked (TVL)
+					</dt>
+					<dd class="mt-1 text-3xl font-semibold text-gray-900">
+						{formatCurrency(uaTvlHistory.at(-1)?.value ?? 0)}
+					</dd>
+				</dl>
+			</div>
+
+			<div class="mt-5 sm:mt-6 h-full overflow-hidden">
+				<FinancialChart
+					formatter={formatCurrency}
+					data={uaTvlHistory.length
+						? uaTvlHistory
+						: [
+								{
+									date: new Date().toISOString(),
+									value: 0
+								}
+						  ]}
+				/>
+			</div>
+		</Card>
 
 		<Card class="sm:mx-0 divide-y divide-gray-200">
 			<CardHeader title="Issued Assets" subtitle="List of assets issued by {issuerDetails.name}." />
@@ -188,39 +211,42 @@
 	{/if}
 
 	{#if lpAssets.length}
-		<div class="grid grid-cols-2 gap-[0.1rem] sm:gap-4 shadow sm:shadow-none">
-			<!-- {stats.length <= 4 ? stats.length : 4} -->
-			{#each lpAssetsStats as item}
-				<Card class="relative px-4 py-5 sm:p-6">
-					{#if item.type == 'percent' && typeof item.value == 'number'}
-						<div class="absolute top-0 left-0 h-full w-full">
-							<LiquidFill
-								fillPercent={item.value}
-								class="h-full w-full"
-								waveColor="#FFDDDD"
-								waveAnimateTime={2000}
-								waveHeight={0.1}
-								waveHeightScaling={true}
-							/>
-						</div>
-					{/if}
-					<dl class="relative">
-						<dt class="text-sm font-medium text-gray-500 truncate">{item.name}</dt>
-						<dd class="mt-1 text-3xl font-semibold text-gray-900">
-							{#if item.type == 'standard'}
-								{item.value}
-							{:else if item.type == 'currency' && typeof item.value == 'number'}
-								{formatCurrency(item.value)}
-							{:else if item.type == 'percent' && typeof item.value == 'number'}
-								{formatPercentage(item.value)}
-							{:else}
-								{item.value}
-							{/if}
-						</dd>
-					</dl>
-				</Card>
-			{/each}
-		</div>
+		<Card>
+			<CardHeader
+				title="TVL History"
+				subtitle="View {issuerDetails.name}'s total value locked (TVL) history."
+			/>
+			<div class="flex items-center justify-between mt-5 sm:mt-6 px-4 sm:px-6">
+				<dl>
+					<dt class="text-sm font-medium text-gray-500 truncate">Current Number of Assets</dt>
+					<dd class="mt-1 text-3xl font-semibold text-gray-900">
+						{lpAssets.length}
+					</dd>
+				</dl>
+				<dl class="text-right">
+					<dt class="text-sm font-medium text-gray-500 truncate">
+						Current Total Value Locked (TVL)
+					</dt>
+					<dd class="mt-1 text-3xl font-semibold text-gray-900">
+						{formatCurrency(lpaTvlHistory.at(-1)?.value ?? 0)}
+					</dd>
+				</dl>
+			</div>
+
+			<div class="mt-5 sm:mt-6 h-full overflow-hidden">
+				<FinancialChart
+					formatter={formatCurrency}
+					data={lpaTvlHistory.length
+						? lpaTvlHistory
+						: [
+								{
+									date: new Date().toISOString(),
+									value: 0
+								}
+						  ]}
+				/>
+			</div>
+		</Card>
 
 		<Card class="sm:mx-0 divide-y divide-gray-200">
 			<CardHeader

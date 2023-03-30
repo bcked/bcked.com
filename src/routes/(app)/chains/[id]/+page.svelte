@@ -1,15 +1,16 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
+	import FinancialChart from '$components/financial-chart.svelte';
 	import CardHeader from '$components/layout/card/header.svelte';
 	import Card from '$components/layout/card/main.svelte';
 	import Page from '$components/layout/page.svelte';
 	import SubjectItem from '$components/layout/title/item.svelte';
 	import SubjectTitle from '$components/layout/title/main.svelte';
-	import LiquidFill from '$components/liquid-fill.svelte';
 	import Table from '$components/table.svelte';
 	import { PUBLIC_DOMAIN } from '$env/static/public';
-	import { formatCurrency, formatNum, formatPercentage } from '$lib/utils/string-formatting';
+	import { closest, uniqueTimes } from '$lib/utils/array';
+	import { formatCurrency, formatNum } from '$lib/utils/string-formatting';
 	import { CurrencyDollarIcon, ExternalLinkIcon } from '@rgossiaux/svelte-heroicons/outline';
 	import _ from 'lodash-es';
 	import SvelteSeo from 'svelte-seo';
@@ -34,6 +35,19 @@
 		type: string;
 	};
 
+	$: timepoints = uniqueTimes(
+		_.flatMap(assetsOnChain, (v) => _.map(v.history, 'timestamp')),
+		60 * 60 * 1000
+	).sort(); // unique within 1h
+
+	$: tvlHistory = _.map(timepoints, (timestamp) => ({
+		date: timestamp,
+		value: Math.max(
+			_.sumBy(assetsOnChain, (asset) => closest(asset.history, timestamp)?.mcap ?? 0),
+			0.0
+		)
+	}));
+
 	let stats: Stat[] = [];
 	$: stats = [
 		{
@@ -43,7 +57,7 @@
 		},
 		{
 			name: 'Total Value Locked (TVL)',
-			value: formatCurrency(_.sumBy(assetsOnChain, (asset) => asset.history?.at(-1)?.mcap ?? 0)),
+			value: formatCurrency(tvlHistory.at(-1)?.value ?? 0),
 			type: 'currency'
 		}
 	];
@@ -81,10 +95,10 @@
 />
 
 <Page class="px-0">
-	<SubjectTitle title={chainDetails.name} iconUrl="{base}/{chainIcon.href}">
+	<SubjectTitle title={chainDetails.name} iconUrl="{base}/{chainIcon?.href}">
 		{#if chainDetails.native}
 			<SubjectItem href="{base}/assets/{chainDetails.native}" icon={CurrencyDollarIcon}>
-				Native: {assetsDetails[chainDetails.native].name}
+				Native: {assetsDetails[chainDetails.native]?.name}
 			</SubjectItem>
 		{/if}
 		{#if chainDetails.explorer}
@@ -94,39 +108,40 @@
 		{/if}
 	</SubjectTitle>
 
-	<div class="grid grid-cols-2 gap-[0.1rem] sm:gap-4 shadow sm:shadow-none">
-		<!-- {stats.length <= 4 ? stats.length : 4} -->
-		{#each stats as item}
-			<Card class="relative px-4 py-5 sm:p-6">
-				{#if item.type == 'percent' && typeof item.value == 'number'}
-					<div class="absolute top-0 left-0 h-full w-full">
-						<LiquidFill
-							fillPercent={item.value}
-							class="h-full w-full"
-							waveColor="#FFDDDD"
-							waveAnimateTime={2000}
-							waveHeight={0.1}
-							waveHeightScaling={true}
-						/>
-					</div>
-				{/if}
-				<dl class="relative">
-					<dt class="text-sm font-medium text-gray-500 truncate">{item.name}</dt>
-					<dd class="mt-1 text-3xl font-semibold text-gray-900">
-						{#if item.type == 'standard'}
-							{item.value}
-						{:else if item.type == 'currency' && typeof item.value == 'number'}
-							{formatCurrency(item.value)}
-						{:else if item.type == 'percent' && typeof item.value == 'number'}
-							{formatPercentage(item.value)}
-						{:else}
-							{item.value}
-						{/if}
-					</dd>
-				</dl>
-			</Card>
-		{/each}
-	</div>
+	<Card>
+		<CardHeader
+			title="TVL History"
+			subtitle="View {chainDetails.name}'s total value locked (TVL) history."
+		/>
+		<div class="flex items-center justify-between mt-5 sm:mt-6 px-4 sm:px-6">
+			<dl>
+				<dt class="text-sm font-medium text-gray-500 truncate">Current Number of Assets</dt>
+				<dd class="mt-1 text-3xl font-semibold text-gray-900">
+					{assetsOnChain.length}
+				</dd>
+			</dl>
+			<dl class="text-right">
+				<dt class="text-sm font-medium text-gray-500 truncate">Current Total Value Locked (TVL)</dt>
+				<dd class="mt-1 text-3xl font-semibold text-gray-900">
+					{formatCurrency(tvlHistory.at(-1)?.value ?? 0)}
+				</dd>
+			</dl>
+		</div>
+
+		<div class="mt-5 sm:mt-6 h-full overflow-hidden">
+			<FinancialChart
+				formatter={formatCurrency}
+				data={tvlHistory.length
+					? tvlHistory
+					: [
+							{
+								date: new Date().toISOString(),
+								value: 0
+							}
+					  ]}
+			/>
+		</div>
+	</Card>
 
 	<Card class="sm:mx-0 divide-y divide-gray-200">
 		<CardHeader title="Assets on Chain" subtitle="List of assets on {chainDetails.name}." />

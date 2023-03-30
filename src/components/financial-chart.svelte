@@ -1,11 +1,14 @@
 <script lang="ts">
+	import { formatNum } from '$lib/utils/string-formatting';
 	import {
 		ColorType,
 		createChart,
+		type BarPrice,
 		type HorzAlign,
 		type IChartApi,
 		type ISeriesApi,
-		type PriceFormatBuiltIn,
+		type PriceFormatCustom,
+		type PriceFormatterFn,
 		type Time,
 		type VertAlign
 	} from 'lightweight-charts';
@@ -17,7 +20,9 @@
 		},
 		grid: { vertLines: { visible: false }, horzLines: { visible: false } },
 		timeScale: { borderVisible: false },
-		rightPriceScale: { borderVisible: false },
+		rightPriceScale: {
+			borderVisible: false
+		},
 		watermark: {
 			visible: true,
 			fontSize: 24,
@@ -28,7 +33,13 @@
 		}
 	};
 
-	export let priceFormat: PriceFormatBuiltIn = { type: 'percent', precision: 2, minMove: 0.01 };
+	export let formatter: PriceFormatterFn = (i: BarPrice) => formatNum(i);
+
+	export let priceFormat: PriceFormatCustom = {
+		type: 'custom',
+		formatter: formatter,
+		minMove: 0.01
+	};
 
 	const areaOptions = {
 		lineColor: '#FF3B76',
