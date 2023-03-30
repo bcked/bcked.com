@@ -84,12 +84,12 @@
 	<SubjectTitle title={chainDetails.name} iconUrl="{base}/{chainIcon.href}">
 		{#if chainDetails.native}
 			<SubjectItem href="{base}/assets/{chainDetails.native}" icon={CurrencyDollarIcon}>
-				{assetsDetails[chainDetails.native].name}
+				Native: {assetsDetails[chainDetails.native].name}
 			</SubjectItem>
 		{/if}
 		{#if chainDetails.explorer}
 			<SubjectItem href={chainDetails.explorer} icon={ExternalLinkIcon}>
-				{chainDetails.explorer}
+				Explorer: {chainDetails.explorer}
 			</SubjectItem>
 		{/if}
 	</SubjectTitle>
