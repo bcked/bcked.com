@@ -6,6 +6,7 @@ Some resources:
  -->
 <script lang="ts">
 	import { PUBLIC_DOMAIN } from '$env/static/public';
+	import _ from 'lodash-es';
 	import fromJson from 'ngraph.fromjson';
 	import type { Graph } from 'ngraph.graph';
 
@@ -33,9 +34,7 @@ Some resources:
 		.filter((link) => link.fromId == id)
 		.map((link) => graph.getNode(link.toId)!.data);
 
-	// TODO add chain icon to bottom right corner
-
-	// TODO add issuer icon to bottom left corner
+	$: numSubIcons = _.compact([asset.chain?.icon, asset.issuer?.icon]).length;
 </script>
 
 <svg
@@ -54,7 +53,7 @@ Some resources:
 			<image
 				x={0}
 				y={22}
-				href="{PUBLIC_DOMAIN}/{underlying[0].icon.href}"
+				href="{PUBLIC_DOMAIN}/{underlying[0]?.icon?.href}"
 				height={42}
 				width={42}
 				dominant-baseline="central"
@@ -65,7 +64,7 @@ Some resources:
 			<image
 				x={22}
 				y={0}
-				href="{PUBLIC_DOMAIN}/{underlying[1].icon.href}"
+				href="{PUBLIC_DOMAIN}/{underlying[1]?.icon?.href}"
 				height={42}
 				width={42}
 				dominant-baseline="central"
@@ -77,8 +76,8 @@ Some resources:
 			x={0}
 			y={0}
 			href="{PUBLIC_DOMAIN}/{asset.icon.href}"
-			height={64}
-			width={64}
+			height={numSubIcons > 1 ? 52 : 64}
+			width={numSubIcons > 1 ? 52 : 64}
 			dominant-baseline="central"
 			text-anchor="middle"
 		/>
@@ -87,30 +86,39 @@ Some resources:
 			x={0}
 			y={0}
 			href="{PUBLIC_DOMAIN}/default-icon.png"
-			height={64}
-			width={64}
+			height={numSubIcons > 1 ? 52 : 64}
+			width={numSubIcons > 1 ? 52 : 64}
 			dominant-baseline="central"
 			text-anchor="middle"
 		/>
 	{/if}
-	{#if asset.chain?.icon}
-		<circle cx={52} cy={40} r={12} fill="#FFFFFFE5" />
+	{#if numSubIcons == 2}
+		<circle cx={52} cy={40} r={12} fill="#FFFFFF" opacity="0.9" />
 		<image
 			x={43}
 			y={31}
-			href="{PUBLIC_DOMAIN}/{asset.chain?.icon.href}"
+			href="{PUBLIC_DOMAIN}/{asset.chain?.icon?.href}"
 			height={18}
 			width={18}
 			dominant-baseline="central"
 			text-anchor="middle"
 		/>
-	{/if}
-	{#if asset.issuer?.icon}
-		<circle cx={40} cy={52} r={12} fill="#FFFFFFE5" />
+		<circle cx={40} cy={52} r={12} fill="#FFFFFF" opacity="0.9" />
 		<image
 			x={31}
 			y={43}
-			href="{PUBLIC_DOMAIN}/{asset.issuer?.icon.href}"
+			href="{PUBLIC_DOMAIN}/{asset.issuer?.icon?.href}"
+			height={18}
+			width={18}
+			dominant-baseline="central"
+			text-anchor="middle"
+		/>
+	{:else if numSubIcons == 1}
+		<circle cx={52} cy={52} r={12} fill="#FFFFFF" opacity="0.9" />
+		<image
+			x={43}
+			y={43}
+			href="{PUBLIC_DOMAIN}/{asset.chain?.icon?.href ?? asset.issuer?.icon?.href}"
 			height={18}
 			width={18}
 			dominant-baseline="central"
