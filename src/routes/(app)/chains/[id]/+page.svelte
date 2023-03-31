@@ -111,22 +111,22 @@
 	<Card>
 		<CardHeader
 			title="TVL History"
-			subtitle="View {chainDetails.name}'s total value locked (TVL) history."
+			subtitle="The history of total value locked (TVL) on {chainDetails.name}."
 		/>
-		<div class="flex items-center justify-between mt-5 sm:mt-6 px-4 sm:px-6">
+		<!-- <div class="flex items-center justify-between mt-5 sm:mt-6 px-4 sm:px-6">
 			<dl>
-				<dt class="text-sm font-medium text-gray-500 truncate">Current Number of Assets</dt>
+				<dt class="text-sm font-medium text-gray-500 truncate">Number of Assets</dt>
 				<dd class="mt-1 text-3xl font-semibold text-gray-900">
 					{assetsOnChain.length}
 				</dd>
 			</dl>
 			<dl class="text-right">
-				<dt class="text-sm font-medium text-gray-500 truncate">Current Total Value Locked (TVL)</dt>
+				<dt class="text-sm font-medium text-gray-500 truncate">TVL</dt>
 				<dd class="mt-1 text-3xl font-semibold text-gray-900">
 					{formatCurrency(tvlHistory.at(-1)?.value ?? 0)}
 				</dd>
 			</dl>
-		</div>
+		</div> -->
 
 		<div class="mt-5 sm:mt-6 h-full overflow-hidden">
 			<FinancialChart

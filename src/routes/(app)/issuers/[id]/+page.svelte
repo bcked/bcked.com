@@ -131,24 +131,22 @@
 		<Card>
 			<CardHeader
 				title="TVL History"
-				subtitle="View {issuerDetails.name}'s total value locked (TVL) history."
+				subtitle="The history of total value locked (TVL) in {issuerDetails.name}."
 			/>
-			<div class="flex items-center justify-between mt-5 sm:mt-6 px-4 sm:px-6">
+			<!-- <div class="flex items-center justify-between mt-5 sm:mt-6 px-4 sm:px-6">
 				<dl>
-					<dt class="text-sm font-medium text-gray-500 truncate">Current Number of Assets</dt>
+					<dt class="text-sm font-medium text-gray-500 truncate">Number of Assets</dt>
 					<dd class="mt-1 text-3xl font-semibold text-gray-900">
 						{uniqueAssets.length}
 					</dd>
 				</dl>
 				<dl class="text-right">
-					<dt class="text-sm font-medium text-gray-500 truncate">
-						Current Total Value Locked (TVL)
-					</dt>
+					<dt class="text-sm font-medium text-gray-500 truncate">TVL</dt>
 					<dd class="mt-1 text-3xl font-semibold text-gray-900">
 						{formatCurrency(uaTvlHistory.at(-1)?.value ?? 0)}
 					</dd>
 				</dl>
-			</div>
+			</div> -->
 
 			<div class="mt-5 sm:mt-6 h-full overflow-hidden">
 				<FinancialChart
@@ -213,25 +211,25 @@
 	{#if lpAssets.length}
 		<Card>
 			<CardHeader
-				title="TVL History"
-				subtitle="View {issuerDetails.name}'s total value locked (TVL) history."
+				title="LP History"
+				subtitle="The history of {issuerDetails.name}'s liquidity provided by liquidity providers (LPs)."
 			/>
-			<div class="flex items-center justify-between mt-5 sm:mt-6 px-4 sm:px-6">
+			<!-- <div class="flex items-center justify-between mt-5 sm:mt-6 px-4 sm:px-6">
 				<dl>
-					<dt class="text-sm font-medium text-gray-500 truncate">Current Number of Assets</dt>
+					<dt class="text-sm font-medium text-gray-500 truncate">Number of Assets</dt>
 					<dd class="mt-1 text-3xl font-semibold text-gray-900">
 						{lpAssets.length}
 					</dd>
 				</dl>
 				<dl class="text-right">
 					<dt class="text-sm font-medium text-gray-500 truncate">
-						Current Total Value Locked (TVL)
+						TVL
 					</dt>
 					<dd class="mt-1 text-3xl font-semibold text-gray-900">
 						{formatCurrency(lpaTvlHistory.at(-1)?.value ?? 0)}
 					</dd>
 				</dl>
-			</div>
+			</div> -->
 
 			<div class="mt-5 sm:mt-6 h-full overflow-hidden">
 				<FinancialChart
