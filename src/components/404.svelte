@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { base } from '$app/paths';
+	import { PUBLIC_DOMAIN } from '$env/static/public';
 	import GitHubIcon from '$lib/icons/github.svelte';
 	import SvelteSeo from 'svelte-seo';
 
@@ -28,7 +29,7 @@
 				</div>
 				<div class="mt-10 flex space-x-3 sm:pl-6">
 					<a
-						href="{base}/"
+						href="{PUBLIC_DOMAIN}/"
 						class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-md bg-neon-gray-dark text-gray-50  hover:bg-neon-yellow hover:text-gray-900"
 					>
 						Go back home
