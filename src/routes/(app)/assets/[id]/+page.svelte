@@ -134,7 +134,7 @@
 		}. Learn more ...`,
 		url: `${PUBLIC_DOMAIN}/assets/${id}`,
 		image: {
-			url: `${PUBLIC_DOMAIN}/previews/assets/${id}.jpg`,
+			url: `${PUBLIC_DOMAIN}/assets/${id}/preview.jpg`,
 			width: 1200,
 			height: 630,
 			alt: `Preview of ${details.name}'s backing view.`

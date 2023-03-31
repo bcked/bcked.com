@@ -107,7 +107,7 @@
 		description: `Take an interactive look at the ${globalStats.count} assets in the 3D graph.`,
 		url: `${PUBLIC_DOMAIN}`,
 		image: {
-			url: `${PUBLIC_DOMAIN}/previews/landing.jpg`,
+			url: `${PUBLIC_DOMAIN}/preview.jpg`,
 			width: 1200,
 			height: 630,
 			alt: `Preview of bcked's landing page.`

@@ -67,7 +67,7 @@
 		description: `See all assets of ${chainDetails.name}. Learn more ...`,
 		url: `${PUBLIC_DOMAIN}/issuers/${id}`,
 		image: {
-			url: `${PUBLIC_DOMAIN}/previews/issuers/${id}.jpg`,
+			url: `${PUBLIC_DOMAIN}/issuers/${id}/preview.jpg`,
 			width: 1200,
 			height: 630,
 			alt: `Preview of ${chainDetails.name}'s detail view.`

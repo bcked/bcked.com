@@ -5,7 +5,7 @@ Some resources:
 - https://www.w3schools.com/graphics/svg_intro.asp
  -->
 <script lang="ts">
-	import { PUBLIC_DOMAIN } from '$env/static/public';
+	import { base } from '$app/paths';
 	import _ from 'lodash-es';
 	import fromJson from 'ngraph.fromjson';
 	import type { Graph } from 'ngraph.graph';
@@ -20,7 +20,8 @@ Some resources:
 	export let x: number = 0;
 	export let y: number = 0;
 
-	export let size: number = 32;
+	export let width: number | null = null;
+	export let height: number | null = null;
 
 	$: ({ graphData } = data);
 
@@ -41,8 +42,8 @@ Some resources:
 	version="1.1"
 	{x}
 	{y}
-	height={size}
-	width={size}
+	{width}
+	{height}
 	viewBox="0 0 64 64"
 	class={clazz}
 	xmlns="http://www.w3.org/2000/svg"
@@ -53,7 +54,7 @@ Some resources:
 			<image
 				x={0}
 				y={22}
-				href="{PUBLIC_DOMAIN}/{underlying[0]?.icon?.href}"
+				href="{base}/{underlying[0]?.icon?.href}"
 				height={42}
 				width={42}
 				dominant-baseline="central"
@@ -64,7 +65,7 @@ Some resources:
 			<image
 				x={22}
 				y={0}
-				href="{PUBLIC_DOMAIN}/{underlying[1]?.icon?.href}"
+				href="{base}/{underlying[1]?.icon?.href}"
 				height={42}
 				width={42}
 				dominant-baseline="central"
@@ -75,7 +76,7 @@ Some resources:
 		<image
 			x={0}
 			y={0}
-			href="{PUBLIC_DOMAIN}/{asset.icon.href}"
+			href="{base}/{asset.icon.href}"
 			height={numSubIcons > 1 ? 52 : 64}
 			width={numSubIcons > 1 ? 52 : 64}
 			dominant-baseline="central"
@@ -85,7 +86,7 @@ Some resources:
 		<image
 			x={0}
 			y={0}
-			href="{PUBLIC_DOMAIN}/default-icon.png"
+			href="{base}/default-icon.png"
 			height={numSubIcons > 1 ? 52 : 64}
 			width={numSubIcons > 1 ? 52 : 64}
 			dominant-baseline="central"
@@ -97,7 +98,7 @@ Some resources:
 		<image
 			x={43}
 			y={31}
-			href="{PUBLIC_DOMAIN}/{asset.chain?.icon?.href}"
+			href="{base}/{asset.chain?.icon?.href}"
 			height={18}
 			width={18}
 			dominant-baseline="central"
@@ -107,7 +108,7 @@ Some resources:
 		<image
 			x={31}
 			y={43}
-			href="{PUBLIC_DOMAIN}/{asset.issuer?.icon?.href}"
+			href="{base}/{asset.issuer?.icon?.href}"
 			height={18}
 			width={18}
 			dominant-baseline="central"
@@ -118,7 +119,7 @@ Some resources:
 		<image
 			x={43}
 			y={43}
-			href="{PUBLIC_DOMAIN}/{asset.chain?.icon?.href ?? asset.issuer?.icon?.href}"
+			href="{base}/{asset.chain?.icon?.href ?? asset.issuer?.icon?.href}"
 			height={18}
 			width={18}
 			dominant-baseline="central"

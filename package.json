@@ -12,7 +12,7 @@
 		"unit:watch": "vitest watch",
 		"lint": "prettier --plugin-search-dir . --check .",
 		"format": "prettier --plugin-search-dir . --write .",
-		"gen:previews": "playwright test ./src/preview-screenshots.spec.ts && cp -rf ./static/previews ./build/previews"
+		"gen:previews": "playwright test ./src/preview-screenshots.spec.ts && rsync -avq --include='*/' --include='preview.jpg' --exclude='*' ./static/ ./build/"
 	},
 	"devDependencies": {
 		"@0xsequence/multicall": "^0.43.21",

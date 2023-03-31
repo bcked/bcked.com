@@ -19,7 +19,6 @@ export const GET: RequestHandler = async ({ params }) => {
 	return renderSvgResponse(Icon, {
 		id: params.id!,
 		data: { graphData },
-		size: 64,
 		class: 'object-contain'
 	});
 };

@@ -41,7 +41,7 @@
 		description: `The cryptocurrencies recorded in bcked are backed by ${backingUsd} with an average backing of ${backingUsdAvg}. Read more on bcked, which is an open source community project that provides and visualizes data about cryptocurrency backing.`,
 		url: `${PUBLIC_DOMAIN}`,
 		image: {
-			url: `${PUBLIC_DOMAIN}/previews/landing.jpg`,
+			url: `${PUBLIC_DOMAIN}/preview.jpg`,
 			width: 1200,
 			height: 630,
 			alt: `Preview of bcked's landing page.`

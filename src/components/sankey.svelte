@@ -200,7 +200,8 @@
 					data={pageData}
 					x={d.y0 + nodeWidth / 2 - iconSize / 2}
 					y={d.x0 + nodeHeight / 2 - iconSize / 2}
-					size={iconSize}
+					width={iconSize}
+					height={iconSize}
 				/>
 			</g>
 		{/each}

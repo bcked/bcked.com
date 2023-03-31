@@ -4,7 +4,7 @@
 
 <p align="center">The official GitHub repository for <a href="https://bcked.com/">bcked.com</a> - a community driven resource on cryptocurrency backing.</p>
 
-<p align="center"><img src="https://raw.githubusercontent.com/bcked/bcked.com/gh-pages/previews/landing.jpg" width=700 alt="Screenshot of bcked's landing page."></p>
+<p align="center"><img src="https://raw.githubusercontent.com/bcked/bcked.com/gh-pages/preview.jpg" width=700 alt="Screenshot of bcked's landing page."></p>
 
 <p align="center"><em>Check it out at <a href="https://bcked.com/">bcked.com</a>.</em></p>
 
