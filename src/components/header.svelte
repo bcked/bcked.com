@@ -14,7 +14,7 @@
 </script>
 
 <div
-	class="hidden sm:flex z-10 relative top-0 max-w-7xl mx-auto pt-4 px-2 sm:px-4 lg:px-8 space-x-8 items-center justify-end backdrop-blur-sm"
+	class="hidden sm:flex z-10 relative top-0 w-full max-w-7xl mx-auto pt-4 px-2 sm:px-4 lg:px-8 space-x-8 items-center justify-end backdrop-blur-sm"
 >
 	<nav class="flex justify-center space-x-6 sm:order-2">
 		{#each bottomNavigation as item}
