@@ -110,64 +110,21 @@ declare namespace agg {
 
 	type IssuersIcons = { [Property in derived.IssuerId]: Icon };
 
-	type GraphNodeData = {
-		mcap: number;
-	};
-
-	type GraphNode = {
-		id: derived.AssetId;
-		data: GraphNodeData;
-	};
-
-	type GraphLinkData = {
-		backing: number;
-	};
-
-	type GraphLink = {
-		fromId: derived.AssetId;
-		toId: derived.AssetId;
-		data: GraphLinkData;
-	};
-
-	type Graph = {
-		nodes: GraphNode[];
-		links: GraphLink[];
-	};
-
-	type LinksStats = {
-		count: number;
-		usd: number;
-		ratio: number | null;
-		uniformity: number;
-	};
-
-	type NodeStats = {
-		underlying: LinksStats;
-		derivative: LinksStats;
-	};
-
-	type AssetsStats = { [Property in derived.AssetId]: NodeStats };
-
-	type SubStats = {
-		total: {
-			count: number;
-			usd: number;
-		};
-		avg: {
-			usd: number;
-			ratio: number;
-			uniformity: number;
-		};
-	};
-
-	type GlobalStats = {
-		underlying: SubStats;
-		derivative: SubStats;
-		count: number;
-	};
-
 	type Update = {
 		timestamp: Timestamp;
 		query: Timestamp;
+	};
+
+	type Data = {
+		assetsDetails: agg.AssetsDetails;
+		assetsIcons: agg.AssetsIcons;
+		assetsContracts: agg.AssetsContracts;
+		assetsPrice: agg.AssetsPrice;
+		assetsSupply: agg.AssetsSupply;
+		assetsBacking: agg.AssetsBacking;
+		issuersDetails: agg.IssuersDetails;
+		issuersIcons: agg.IssuersIcons;
+		chainsDetails: agg.ChainsDetails;
+		chainsIcons: agg.ChainsIcons;
 	};
 }

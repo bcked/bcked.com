@@ -10,15 +10,14 @@
 
 	export let data: PageData;
 
-	$: ({ assetsPrice, assetsBacking, assetsStats, graphData } = data);
+	$: ({ assetsPrice, assetsBacking, graphData } = data);
 
 	let graph: Graph<graph.NodeData, graph.LinkData>;
 	$: graph = fromJson(graphData);
 
 	$: rows = graphData.nodes
 		.filter(
-			({ id, data: { details, issuer } }) =>
-				graph.getLinks(id)?.length && !details?.tags?.includes('lp')
+			({ id, data: { details } }) => graph.getLinks(id)?.length && !details?.tags?.includes('lp')
 		)
 		.map(({ id, data: { details, history } }, i) => ({
 			rank: { text: i + 1, value: i },
@@ -34,20 +33,20 @@
 				value: history?.at(-1)?.price?.usd
 			},
 			'backing-assets': {
-				text: assetsStats[id]!.underlying.count,
-				value: assetsStats[id]!.underlying.count
+				text: history?.at(-1)?.underlying?.count ?? 'UNK',
+				value: history?.at(-1)?.underlying?.count
 			},
 			'backing-ratio': {
-				text: assetsStats[id]!.underlying.ratio
-					? formatPercentage(assetsStats[id]!.underlying.ratio!)
+				text: history?.at(-1)?.underlying?.ratio
+					? formatPercentage(history?.at(-1)?.underlying?.ratio!)
 					: 'UNK',
-				value: assetsStats[id]!.underlying.ratio
+				value: history?.at(-1)?.underlying?.ratio
 			},
 			'backing-usd': {
-				text: assetsStats[id]!.underlying.usd
-					? formatCurrency(assetsStats[id]!.underlying.usd)
+				text: history?.at(-1)?.underlying?.usd
+					? formatCurrency(history?.at(-1)?.underlying?.usd!)
 					: 'UNK',
-				value: assetsStats[id]!.underlying.usd
+				value: history?.at(-1)?.underlying?.usd
 			},
 			mcap: {
 				text: history?.at(-1)?.mcap ? formatCurrency(history!.at(-1)!.mcap!) : 'UNK',
@@ -55,10 +54,10 @@
 			},
 			'backing-uniformity': {
 				text:
-					(assetsStats[id]!.underlying.ratio ?? 0) > 0
-						? formatPercentage(assetsStats[id]!.underlying.uniformity)
+					(history?.at(-1)?.underlying?.ratio ?? 0) > 0
+						? formatPercentage(history?.at(-1)?.underlying?.uniformity!)
 						: 'N/A',
-				value: assetsStats[id]!.underlying.uniformity
+				value: history?.at(-1)?.underlying?.uniformity
 			},
 			'name-path': { text: `${base}/assets/${id}`, value: `${base}/assets/${id}` }
 		}));

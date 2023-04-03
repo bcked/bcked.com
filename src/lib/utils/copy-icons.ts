@@ -2,6 +2,7 @@ import fs from 'fs';
 import glob from 'glob';
 import _ from 'lodash';
 import path from 'path';
+import { writeAggregation } from './files';
 
 export function queryIcons(source: string, target: string): { [key: string]: agg.Icon } {
 	const icons: agg.Icon[] = glob.sync(source).map((filepath) => {
@@ -24,6 +25,12 @@ export function queryIcons(source: string, target: string): { [key: string]: agg
 	// }
 
 	return _.keyBy(icons, 'basename');
+}
+
+export function aggregateIcons(name: string): { [key: string]: agg.Icon } {
+	const icons = queryIcons(`./${name}/**/icon.png`, name);
+	writeAggregation(`${name}-icons`, icons);
+	return icons;
 }
 
 export function copyIcons(source: string, target: string) {

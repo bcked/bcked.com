@@ -1,77 +1,47 @@
 import { writeAggregation } from '$lib/utils/files';
-import { round, uniformity as calcUniformity } from '$lib/utils/math';
+import { round } from '$lib/utils/math';
 import _ from 'lodash';
-import type { Graph, Link, Node } from 'ngraph.graph';
+import type { Graph } from 'ngraph.graph';
+import { closest, uniqueTimes } from './array';
 
-function calcLinksStats(node: Node<graph.NodeData>, links: Link<graph.LinkData>[]): agg.LinksStats {
-	const count = links.length;
-	const usd = round(_.sum(links.map((link) => link.data.history.at(-1)?.value)), 2);
-	const ratio = node.data.history?.at(-1)?.mcap
-		? round(usd / node.data.history.at(-1)!.mcap!, 4)
-		: null;
-	const uniformity = round(
-		calcUniformity(_.compact(links.map((link) => link.data.history.at(-1)?.value))),
-		4
-	);
-	return {
-		count,
-		usd,
-		ratio,
-		uniformity
-	};
-}
-
-function calcNodeStats(node: Node<graph.NodeData>, links: Link<graph.LinkData>[]): agg.NodeStats {
-	return {
-		underlying: calcLinksStats(
-			node,
-			links.filter((link) => link.fromId == node.id)
-		),
-		derivative: calcLinksStats(
-			node,
-			links.filter((link) => link.fromId != node.id)
-		)
-	};
-}
-
-export function calcAssetsStats(graph: Graph<graph.NodeData, graph.LinkData>): agg.AssetsStats {
-	let assetsStats: agg.AssetsStats = {};
-
-	graph.forEachNode((node) => {
-		assetsStats[node.id] = calcNodeStats(
-			node,
-			[...(graph.getLinks(node.id) ?? [])].filter((link) => link.data.history?.at(-1)?.amount)
-		);
-	});
-
-	writeAggregation('assets-stats', assetsStats);
-	return assetsStats;
-}
-
-function calcSubStats(assetsStats: agg.NodeStats[], key: keyof agg.NodeStats): agg.SubStats {
+function calcSubStats(
+	assetsStats: stats.Asset[],
+	key: 'underlying' | 'derivative'
+): stats.SubStats {
+	const stats = _.filter(assetsStats, key);
 	return {
 		total: {
-			count: _.sumBy(assetsStats, (s) => (s[key].count > 0 ? 1 : 0)),
-			usd: round(_.sumBy(assetsStats, `${key}.usd`), 2)
+			count: _.sumBy(stats, (s) => (s[key]!.count > 0 ? 1 : 0)),
+			usd: round(_.sumBy(stats, `${key}.usd`), 2)
 		},
 		avg: {
-			usd: round(_.meanBy(assetsStats, `${key}.usd`), 2),
-			ratio: round(_.meanBy(assetsStats, `${key}.ratio`), 4),
-			uniformity: round(_.meanBy(assetsStats, `${key}.uniformity`), 4)
+			usd: round(_.meanBy(stats, `${key}.usd`), 2),
+			ratio: round(_.meanBy(stats, `${key}.ratio`), 4),
+			uniformity: round(_.meanBy(stats, `${key}.uniformity`), 4)
 		}
 	};
 }
 
-export function calcGlobalStats(
+export function aggregateGlobalStats(
 	graph: Graph<graph.NodeData, graph.LinkData>,
-	assetsStats: agg.AssetsStats
-): agg.GlobalStats {
-	const _assetsStats = Object.values(assetsStats);
-	const globalStats = {
-		underlying: calcSubStats(_assetsStats, 'underlying'),
-		derivative: calcSubStats(_assetsStats, 'derivative'),
-		count: _assetsStats.length
-	};
+	data: agg.Data
+): stats.GlobalStats {
+	const ids = Object.keys(data.assetsDetails);
+	const nodes = ids.map((id) => graph.getNode(id)!);
+	const timepoints = uniqueTimes(
+		_.flatMap(nodes, (node) => _.map(node.data.history, 'timestamp')),
+		60 * 60 * 1000
+	).sort(); // unique within 1h
+
+	const history = timepoints.map((timepoint) => {
+		const nodeStatsAtTimepoint = nodes.map((node) => closest(node.data.history, timepoint));
+		return {
+			underlying: calcSubStats(nodeStatsAtTimepoint, 'underlying'),
+			derivative: calcSubStats(nodeStatsAtTimepoint, 'derivative'),
+			count: nodeStatsAtTimepoint.length
+		};
+	});
+	const globalStats = { history };
 
 	writeAggregation('global-stats', globalStats);
 	return globalStats;

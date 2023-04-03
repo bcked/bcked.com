@@ -1,5 +1,6 @@
 import { closest, uniqueTimes } from '$lib/utils/array';
 import { writeAggregation } from '$lib/utils/files';
+import { uniformity as calcUniformity, round } from '$lib/utils/math';
 import fs from 'fs';
 import _ from 'lodash';
 import fromJson from 'ngraph.fromjson';
@@ -7,7 +8,6 @@ import type { Graph, Link, NodeId } from 'ngraph.graph';
 import createGraph from 'ngraph.graph';
 import path from 'ngraph.path';
 import toJson from 'ngraph.tojson';
-import { round } from './math';
 
 export function getDAG(graph: Graph, start: NodeId, direction: 'up' | 'down' = 'down'): Graph {
 	const from = (link: Link) => (direction == 'down' ? link.fromId : link.toId);
@@ -136,34 +136,17 @@ export function writeGraph(name: string, graph: Graph) {
 	writeAggregation(name, JSON.parse(toJson(graph)));
 }
 
-export function createBackingGraph(
-	assetsDetails: agg.AssetsDetails,
-	issuersDetails: agg.IssuersDetails,
-	issuersIcons: agg.IssuersIcons,
-	chainsDetails: agg.ChainsDetails,
-	chainsIcons: agg.ChainsIcons,
-	assetsIcons: agg.AssetsIcons,
-	assetsContracts: agg.AssetsContracts,
-	assetsPrice: agg.AssetsPrice,
-	assetsSupply: agg.AssetsSupply,
-	assetsBacking: agg.AssetsBacking
-): Graph<graph.NodeData, graph.LinkData> {
-	let graph = createGraph<graph.NodeData, graph.LinkData>();
-	for (const [id, details] of Object.entries(assetsDetails)) {
-		const supplyHistory = assetsSupply[id]?.history;
-		const priceHistory = assetsPrice[id]?.history;
-		const icon = assetsIcons[id];
-		const contracts = assetsContracts[id];
-
-		const issuerId = details.issuer ?? '';
-		const issuer = issuersDetails[issuerId] ?? undefined;
-		const chainId = contracts?.token?.chain ?? (details.tags.includes('rwa') ? 'rwa' : '');
-		const chain = chainsDetails[chainId] ?? undefined;
+function addNodes(graph: Graph<graph.NodeData, graph.LinkData>, data: agg.Data) {
+	for (const [id, details] of Object.entries(data.assetsDetails)) {
+		const supplyHistory = data.assetsSupply[id]?.history;
+		const priceHistory = data.assetsPrice[id]?.history;
+		const icon = data.assetsIcons[id];
+		const contracts = data.assetsContracts[id];
 
 		const baseNode = {
 			details,
-			issuer: issuer ? { ...issuer, icon: issuersIcons[issuerId] ?? undefined } : undefined,
-			chain: chain ? { ...chain, icon: chainsIcons[chainId] ?? undefined } : undefined,
+			issuer: details.issuer ?? undefined,
+			chain: contracts?.token?.chain ?? (details.tags.includes('rwa') ? 'rwa' : undefined),
 			icon,
 			contracts
 		};
@@ -198,8 +181,10 @@ export function createBackingGraph(
 			history
 		});
 	}
+}
 
-	for (const [id, assetBacking] of Object.entries(assetsBacking)) {
+function addLinks(graph: Graph<graph.NodeData, graph.LinkData>, data: agg.Data) {
+	for (const [id, assetBacking] of Object.entries(data.assetsBacking)) {
 		if (!assetBacking.history?.length) continue;
 
 		let underlyingKeys = new Set(assetBacking.history.flatMap(({ assets }) => Object.keys(assets)));
@@ -228,6 +213,43 @@ export function createBackingGraph(
 			}
 		}
 	}
+}
 
+function calcLinksStats(assetStats: stats.Asset, links: Link<graph.LinkData>[]): stats.LinksStats {
+	const backings = links
+		.map((link) => closest(link.data.history, assetStats.timestamp))
+		.filter((link) => link.amount > 0);
+
+	const values = _.map(backings, 'value');
+
+	const count = backings.length;
+	const usd = round(_.sum(values), 2);
+	const ratio = assetStats.mcap ? round(usd / assetStats.mcap, 4) : null;
+	const uniformity = round(calcUniformity(_.compact(values)), 4);
+	return {
+		count,
+		usd,
+		ratio,
+		uniformity
+	};
+}
+
+function addNodeStats(graph: Graph<graph.NodeData, graph.LinkData>, data: agg.Data) {
+	graph.forEachNode((node) => {
+		const links = [...(graph.getLinks(node.id) ?? [])];
+		const underlyingLinks = links.filter((link) => link.fromId == node.id);
+		const derivativeLinks = links.filter((link) => link.fromId != node.id);
+		for (const timepoint of node.data.history) {
+			timepoint['underlying'] = calcLinksStats(timepoint, underlyingLinks);
+			timepoint['derivative'] = calcLinksStats(timepoint, derivativeLinks);
+		}
+	});
+}
+
+export function createBackingGraph(data: agg.Data): Graph<graph.NodeData, graph.LinkData> {
+	let graph = createGraph<graph.NodeData, graph.LinkData>();
+	addNodes(graph, data);
+	addLinks(graph, data);
+	addNodeStats(graph, data);
 	return graph;
 }

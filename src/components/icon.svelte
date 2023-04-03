@@ -13,7 +13,11 @@ Some resources:
 	let clazz: string = '';
 	export { clazz as class };
 
-	export let data: { graphData: graph.Graph };
+	export let data: {
+		graphData: graph.Graph;
+		issuersIcons: agg.IssuersIcons;
+		chainsIcons: agg.ChainsIcons;
+	};
 
 	export let id: derived.AssetId;
 
@@ -23,7 +27,7 @@ Some resources:
 	export let width: number | null = null;
 	export let height: number | null = null;
 
-	$: ({ graphData } = data);
+	$: ({ graphData, issuersIcons, chainsIcons } = data);
 
 	let graph: Graph<graph.NodeData, graph.LinkData>;
 	$: graph = fromJson(graphData);
@@ -35,7 +39,10 @@ Some resources:
 		.filter((link) => link.fromId == id)
 		.map((link) => graph.getNode(link.toId)!.data);
 
-	$: numSubIcons = _.compact([asset.chain?.icon, asset.issuer?.icon]).length;
+	$: numSubIcons = _.compact([
+		issuersIcons[asset.issuer ?? ''],
+		chainsIcons[asset.chain ?? '']
+	]).length;
 </script>
 
 <svg
@@ -98,7 +105,7 @@ Some resources:
 		<image
 			x={43}
 			y={31}
-			href="{base}/{asset.chain?.icon?.href}"
+			href="{base}/{chainsIcons[asset.chain ?? '']?.href}"
 			height={18}
 			width={18}
 			dominant-baseline="central"
@@ -108,7 +115,7 @@ Some resources:
 		<image
 			x={31}
 			y={43}
-			href="{base}/{asset.issuer?.icon?.href}"
+			href="{base}/{issuersIcons[asset.issuer ?? '']?.href}"
 			height={18}
 			width={18}
 			dominant-baseline="central"
@@ -119,7 +126,7 @@ Some resources:
 		<image
 			x={43}
 			y={43}
-			href="{base}/{asset.chain?.icon?.href ?? asset.issuer?.icon?.href}"
+			href="{base}/{chainsIcons[asset.chain ?? '']?.href ?? issuersIcons[asset.issuer ?? '']?.href}"
 			height={18}
 			width={18}
 			dominant-baseline="central"

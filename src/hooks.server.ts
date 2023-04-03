@@ -1,9 +1,9 @@
 import { queryAssets } from '$lib/query/query';
 import { aggregateFolders } from '$lib/utils/aggregation';
-import { queryIcons } from '$lib/utils/copy-icons';
+import { aggregateIcons } from '$lib/utils/copy-icons';
 import { readAggregation, writeAggregation, writeHistoryUpdate } from '$lib/utils/files';
 import { createBackingGraph, writeGraph } from '$lib/utils/graph';
-import { calcAssetsStats, calcGlobalStats } from '$lib/utils/stats';
+import { aggregateGlobalStats } from '$lib/utils/stats';
 import fs from 'fs';
 
 console.log(`Hooks loading.`);
@@ -11,14 +11,9 @@ console.log(`Hooks loading.`);
 async function aggregateData() {
 	console.log(`Data preprocessing started.`);
 	// Copy static files
-	const assetsIcons = queryIcons('./assets/**/icon.png', 'assets');
-	writeAggregation('assets-icons', assetsIcons);
-
-	const chainsIcons = queryIcons('./chains/**/icon.png', 'chains');
-	writeAggregation('chains-icons', chainsIcons);
-
-	const issuersIcons = queryIcons('./issuers/**/icon.png', 'issuers');
-	writeAggregation('issuers-icons', issuersIcons);
+	const assetsIcons = aggregateIcons('assets');
+	const chainsIcons = aggregateIcons('chains');
+	const issuersIcons = aggregateIcons('issuers');
 
 	// Basic data aggregation
 	const issuersDetails = await aggregateFolders<derived.IssuerId, agg.IssuerDetails>(
@@ -50,33 +45,37 @@ async function aggregateData() {
 
 	await updateData(assetsDetails, assetsContracts, assetsPrice, assetsSupply, assetsBacking);
 
-	const graph = createBackingGraph(
+	const data = {
 		assetsDetails,
-		issuersDetails,
-		issuersIcons,
-		chainsDetails,
-		chainsIcons,
 		assetsIcons,
-		assetsContracts,
-		assetsPrice,
-		assetsSupply,
-		assetsBacking
-	);
-	writeGraph('graph', graph);
-
-	const assetsStats = calcAssetsStats(graph);
-	const globalStats = calcGlobalStats(graph, assetsStats);
-
-	return {
-		assetsDetails,
 		assetsContracts,
 		assetsPrice,
 		assetsSupply,
 		assetsBacking,
-		assetsStats,
-		assetsIcons,
-		chainsDetails,
 		issuersDetails,
+		issuersIcons,
+		chainsDetails,
+		chainsIcons
+	};
+
+	const graph = createBackingGraph(data);
+	writeGraph('graph', graph);
+
+	// TODO aggregate stats of issuers and chains
+
+	const globalStats = aggregateGlobalStats(graph, data);
+
+	return {
+		assetsDetails,
+		assetsIcons,
+		assetsContracts,
+		assetsPrice,
+		assetsSupply,
+		assetsBacking,
+		issuersDetails,
+		issuersIcons,
+		chainsDetails,
+		chainsIcons,
 		globalStats,
 		graph
 	};

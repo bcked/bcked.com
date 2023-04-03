@@ -26,7 +26,7 @@
 	$: chainIcon = chainsIcons[id];
 
 	$: assetsOnChain = graphData.nodes
-		.filter((asset) => asset.data.chain?.id == id)
+		.filter((asset) => asset.data.chain == id)
 		.map((node) => node.data);
 
 	type Stat = {

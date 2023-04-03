@@ -11,7 +11,7 @@
 
 	export let data: PageData;
 
-	$: ({ assetsPrice, assetsBacking, assetsStats, graphData, chainsDetails, chainsIcons } = data);
+	$: ({ assetsPrice, assetsBacking, graphData, chainsDetails, chainsIcons } = data);
 
 	let graph: Graph<graph.NodeData, graph.LinkData>;
 	$: graph = fromJson(graphData);
@@ -19,7 +19,7 @@
 	$: rows = Object.values(chainsDetails)
 		.map((chain) => {
 			const assetsOnChain = graphData.nodes
-				.filter((node) => node.data.chain?.id == chain.id)
+				.filter((node) => node.data.chain == chain.id)
 				.filter((node) => !node.data.details.tags.includes('lp'));
 			return {
 				...chain,

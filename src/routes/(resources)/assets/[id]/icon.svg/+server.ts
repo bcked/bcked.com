@@ -15,10 +15,12 @@ export const prerender = true;
 
 export const GET: RequestHandler = async ({ params }) => {
 	const graphData = await readAggregation<graph.Graph>('graph');
+	const chainsIcons = await readAggregation<agg.ChainsIcons>('chains-icons');
+	const issuersIcons = await readAggregation<agg.IssuersIcons>('issuers-icons');
 
 	return renderSvgResponse(Icon, {
 		id: params.id!,
-		data: { graphData },
+		data: { graphData, chainsIcons, issuersIcons },
 		class: 'object-contain'
 	});
 };

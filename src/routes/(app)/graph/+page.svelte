@@ -19,7 +19,7 @@
 	type Node = graph.Node & { x: number; y: number; z: number };
 	type Link = graph.Link;
 
-	$: ({ graphData, globalStats } = data);
+	$: ({ graphData, globalStats, issuersDetails, chainsDetails } = data);
 
 	let htmlElement: HTMLDivElement;
 
@@ -37,8 +37,8 @@
 				const node = n as Node;
 				const data = node.data;
 				const name = data.details.name;
-				const issuer = data.issuer?.name;
-				const chain = data.chain?.name;
+				const issuer = issuersDetails[data.issuer ?? '']?.name;
+				const chain = chainsDetails[data.chain ?? '']?.name;
 
 				if (name && issuer && chain) return `${name} - ${issuer} (${chain})`;
 				if (name && issuer) return `${name} - ${issuer}`;
@@ -50,14 +50,6 @@
 				const data = node.data;
 				const svg = loadSvg(`${base}/assets/${data.details.id}/icon.svg`, new Vector3(18, 18));
 				return svg;
-
-				// 	const href = data?.icon?.href;
-
-				// 	const imgTexture = new Three.TextureLoader().load(href);
-				// 	const material = new Three.SpriteMaterial({ map: imgTexture });
-				// 	const sprite = new Three.Sprite(material);
-				// 	sprite.scale.set(18, 18, 1);
-				// 	return sprite;
 			})
 			.onNodeClick((n) => {
 				const node = n as Node;
@@ -104,7 +96,9 @@
 
 	$: seo = {
 		title: '3D Graph Visualizing Asset Backing',
-		description: `Take an interactive look at the ${globalStats.count} assets in the 3D graph.`,
+		description: `Take an interactive look at the ${
+			globalStats.history.at(-1)?.count
+		} assets in the 3D graph.`,
 		url: `${PUBLIC_DOMAIN}`,
 		image: {
 			url: `${PUBLIC_DOMAIN}/preview.jpg`,
@@ -146,6 +140,8 @@
 	>
 		<div class="px-4 py-2 sm:px-6 transition-all motion-reduce:transition-none duration-1000">
 			{#if selectedNode}
+				{@const selectedIssuer = issuersDetails[selectedNode?.data?.issuer ?? '']}
+				{@const selectedChain = chainsDetails[selectedNode?.data?.chain ?? '']}
 				<div class="flex items-center justify-start space-x-4">
 					<a href="{base}/assets/{selectedNode?.id}">
 						<object
@@ -162,25 +158,21 @@
 							</h2>
 						</a>
 						<p class="mt-1 max-w-2xl text-sm text-gray-500">
-							{#if selectedNode?.data?.issuer?.name && selectedNode?.data?.chain?.name}
-								<a
-									href="{base}/issuers/{selectedNode?.data?.issuer?.id}"
-									class="hover:text-gray-900">Issuer: {selectedNode?.data?.issuer?.name}</a
+							{#if selectedIssuer?.name && selectedChain?.name}
+								<a href="{base}/issuers/{selectedIssuer.id}" class="hover:text-gray-900"
+									>Issuer: {selectedIssuer.name}</a
 								>
 								|
-								<a href="{base}/chains/{selectedNode?.data?.chain?.id}" class="hover:text-gray-900"
-									>Chain: {selectedNode?.data?.chain?.name}</a
+								<a href="{base}/chains/{selectedChain.id}" class="hover:text-gray-900"
+									>Chain: {selectedChain.name}</a
 								>
-							{:else if selectedNode?.data?.issuer?.name}
-								<a
-									href="{base}/issuers/{selectedNode?.data?.issuer?.id}"
-									class="hover:text-gray-900"
-								>
-									Issuer: {selectedNode?.data?.issuer?.name}
+							{:else if selectedIssuer?.name}
+								<a href="{base}/issuers/{selectedIssuer.id}" class="hover:text-gray-900">
+									Issuer: {selectedIssuer.name}
 								</a>
-							{:else if selectedNode?.data?.chain?.name}
-								<a href="{base}/chains/{selectedNode?.data?.chain?.id}" class="hover:text-gray-900">
-									Chain: {selectedNode?.data?.chain?.name}
+							{:else if selectedChain?.name}
+								<a href="{base}/chains/{selectedChain.id}" class="hover:text-gray-900">
+									Chain: {selectedChain.name}
 								</a>
 							{/if}
 						</p>

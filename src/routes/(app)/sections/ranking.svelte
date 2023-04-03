@@ -12,7 +12,7 @@
 
 	export let data: PageData;
 
-	$: ({ assetsStats, graphData } = data);
+	$: ({ graphData } = data);
 
 	$: graph = fromJson(graphData);
 </script>
@@ -58,18 +58,20 @@
 							value: history?.at(-1)?.price?.usd
 						},
 						'backing-assets': {
-							text: assetsStats[id].underlying.count,
-							value: assetsStats[id].underlying.count
+							text: history?.at(-1)?.underlying?.count ?? 'UNK',
+							value: history?.at(-1)?.underlying?.count
 						},
 						'backing-ratio': {
-							text: formatPercentage(assetsStats[id].underlying.ratio),
-							value: assetsStats[id].underlying.ratio
+							text: history?.at(-1)?.underlying?.ratio
+								? formatPercentage(history?.at(-1)?.underlying?.ratio)
+								: 'UNK',
+							value: history?.at(-1)?.underlying?.ratio
 						},
 						'backing-usd': {
-							text: assetsStats[id].underlying.usd
-								? formatCurrency(assetsStats[id].underlying.usd)
+							text: history?.at(-1)?.underlying?.usd
+								? formatCurrency(history?.at(-1)?.underlying?.usd)
 								: 'UNK',
-							value: assetsStats[id].underlying.usd
+							value: history?.at(-1)?.underlying?.usd
 						},
 						mcap: {
 							text: history?.at(-1)?.mcap ? formatCurrency(history.at(-1).mcap) : 'UNK',
@@ -77,10 +79,10 @@
 						},
 						'backing-uniformity': {
 							text:
-								assetsStats[id].underlying.ratio > 0
-									? formatPercentage(assetsStats[id].underlying.uniformity)
+								history?.at(-1)?.underlying?.ratio > 0
+									? formatPercentage(history?.at(-1)?.underlying?.uniformity)
 									: 'N/A',
-							value: assetsStats[id].underlying.uniformity
+							value: history?.at(-1)?.underlying?.uniformity
 						},
 						'name-path': { text: `${base}/assets/${id}`, value: `${base}/assets/${id}` }
 					}))}

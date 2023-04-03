@@ -12,9 +12,7 @@
 	import Table from '$components/table.svelte';
 	import { PUBLIC_DOMAIN } from '$env/static/public';
 	import { ApiProxy } from '$lib/query/apis/proxy';
-	import { closest } from '$lib/utils/array';
 	import { getDAG, limitValueByLinks } from '$lib/utils/graph';
-	import { round } from '$lib/utils/math';
 	import { formatCurrency, formatNum, formatPercentage } from '$lib/utils/string-formatting';
 	import {
 		CalendarIcon,
@@ -24,7 +22,6 @@
 		ThumbDownIcon,
 		ThumbUpIcon
 	} from '@rgossiaux/svelte-heroicons/outline';
-	import _ from 'lodash-es';
 	import fromJson from 'ngraph.fromjson';
 	import type { Graph } from 'ngraph.graph';
 	import { onMount } from 'svelte';
@@ -33,7 +30,7 @@
 
 	export let data: PageData;
 
-	$: ({ assetsPrice, assetsBacking, assetsStats, graphData, comments } = data);
+	$: ({ assetsPrice, assetsBacking, graphData, issuersDetails, chainsDetails, comments } = data);
 
 	let graph: Graph<graph.NodeData, graph.LinkData>;
 	$: graph = fromJson(graphData);
@@ -49,8 +46,6 @@
 	$: derivative = links.filter((link) => link.fromId != id);
 
 	$: ({ details, issuer, chain, icon, contracts, history } = asset);
-
-	$: assetStats = assetsStats[id]!;
 
 	$: updated = history?.at(-1)?.timestamp;
 
@@ -100,10 +95,10 @@
 			value: underlying.length,
 			type: 'standard'
 		},
-		assetStats.underlying.ratio != undefined
+		history?.at(-1)?.underlying?.ratio != undefined
 			? {
 					name: 'Backing Ratio',
-					value: assetStats.underlying.ratio,
+					value: history?.at(-1)?.underlying?.ratio,
 					type: 'percent'
 			  }
 			: {
@@ -111,10 +106,10 @@
 					value: 'N/A',
 					type: 'standard'
 			  },
-		assetStats.underlying.count > 0
+		(history?.at(-1)?.underlying?.count ?? 0) > 0
 			? {
 					name: 'Backing Uniformity',
-					value: assetStats.underlying.uniformity,
+					value: history?.at(-1)?.underlying?.uniformity,
 					type: 'percent'
 			  }
 			: {
@@ -127,11 +122,13 @@
 	$: seo = {
 		title: `${details.name} (${details.symbol}) Backing, History, Chain`,
 		description: `${details.name} is backed ${
-			assetStats.underlying.ratio ? `to ${formatPercentage(assetStats.underlying.ratio)} ` : ''
+			history?.at(-1)?.underlying?.ratio
+				? `to ${formatPercentage(history?.at(-1)?.underlying?.ratio!)} `
+				: ''
 		}
-			with ${formatCurrency(assetStats.underlying.usd)} by ${assetStats.underlying.count} ${
-			assetStats.underlying.count == 1 ? 'asset' : 'assets'
-		}. Learn more ...`,
+			with ${formatCurrency(history?.at(-1)?.underlying?.usd ?? 0)} by ${
+			history?.at(-1)?.underlying?.count
+		} ${history?.at(-1)?.underlying?.count == 1 ? 'asset' : 'assets'}. Learn more ...`,
 		url: `${PUBLIC_DOMAIN}/assets/${id}`,
 		image: {
 			url: `${PUBLIC_DOMAIN}/assets/${id}/preview.jpg`,
@@ -168,13 +165,13 @@
 		iconUrl="{base}/assets/{id}/icon.svg"
 	>
 		{#if issuer}
-			<SubjectItem href="{base}/issuers/{issuer.id}" icon={OfficeBuildingIcon}>
-				{issuer.name}
+			<SubjectItem href="{base}/issuers/{issuersDetails[issuer]?.id}" icon={OfficeBuildingIcon}>
+				{issuersDetails[issuer]?.name}
 			</SubjectItem>
 		{/if}
 		{#if chain}
-			<SubjectItem href="{base}/chains/{chain.id}" icon={LinkIcon}>
-				{chain.name}
+			<SubjectItem href="{base}/chains/{chainsDetails[chain]?.id}" icon={LinkIcon}>
+				{chainsDetails[chain]?.name}
 			</SubjectItem>
 		{/if}
 		{#if updated}
@@ -227,13 +224,13 @@
 						<dl>
 							<dt class="text-sm font-medium text-gray-500 truncate">Current Backing</dt>
 							<dd class="mt-1 text-3xl font-semibold text-gray-900">
-								{formatCurrency(assetStats.underlying.usd)}
+								{formatCurrency(history?.at(-1)?.underlying?.usd ?? 0)}
 							</dd>
 						</dl>
 						<dl class="text-right">
 							<dt class="text-sm font-medium text-gray-500 truncate">Current Market Cap</dt>
 							<dd class="mt-1 text-3xl font-semibold text-gray-900">
-								{asset?.history?.at(-1)?.mcap ? formatCurrency(asset.history.at(-1).mcap) : 'UNK'}
+								{history?.at(-1)?.mcap ? formatCurrency(history.at(-1)?.mcap ?? 0) : 'UNK'}
 							</dd>
 						</dl>
 					</div>
@@ -241,23 +238,10 @@
 						<FinancialChart
 							formatter={(i) => formatPercentage(i, 1)}
 							data={underlying.length
-								? [...new Set(underlying.flatMap((link) => _.map(link.data.history, 'timestamp')))]
-										.sort()
-										.map((timestamp) => {
-											const mcap = closest(asset.history, timestamp)?.mcap;
-											const ratio = mcap
-												? round(
-														_.sum(
-															underlying.map((link) => closest(link.data.history, timestamp).value)
-														) / mcap,
-														4
-												  )
-												: 0;
-											return {
-												date: timestamp,
-												value: ratio
-											};
-										})
+								? history.map(({ timestamp, underlying }) => ({
+										date: timestamp,
+										value: underlying?.ratio ?? 0
+								  }))
 								: [
 										{
 											date: new Date().toISOString(),
@@ -328,9 +312,9 @@
 							linkData.history?.at(-1)?.value != undefined
 								? {
 										text: formatPercentage(
-											linkData.history.at(-1).value / assetStats.underlying.usd
+											linkData.history.at(-1).value / history?.at(-1)?.underlying?.usd
 										),
-										value: linkData.history.at(-1).value / assetStats.underlying.usd
+										value: linkData.history.at(-1).value / history?.at(-1)?.underlying?.usd
 								  }
 								: {
 										text: 'UNK',
@@ -380,13 +364,13 @@
 								Current Derivative Market Cap
 							</dt>
 							<dd class="mt-1 text-3xl font-semibold text-gray-900">
-								{formatCurrency(assetStats.derivative.usd)}
+								{formatCurrency(history?.at(-1)?.derivative?.usd ?? 0)}
 							</dd>
 						</dl>
 						<dl class="text-right">
 							<dt class="text-sm font-medium text-gray-500 truncate">Current Market Cap</dt>
 							<dd class="mt-1 text-3xl font-semibold text-gray-900">
-								{asset?.history?.at(-1)?.mcap ? formatCurrency(asset.history.at(-1).mcap) : 'UNK'}
+								{history?.at(-1)?.mcap ? formatCurrency(history.at(-1)?.mcap ?? 0) : 'UNK'}
 							</dd>
 						</dl>
 					</div>
@@ -394,29 +378,10 @@
 						<FinancialChart
 							formatter={(i) => formatPercentage(i, 1)}
 							data={derivative.length
-								? [
-										...new Set(
-											derivative.flatMap((deriv) => _.map(deriv.data.history, 'timestamp'))
-										)
-								  ]
-										.sort()
-										.map((timestamp) => {
-											const mcap = closest(asset.history, timestamp)?.mcap;
-											const ratio = mcap
-												? round(
-														_.sum(
-															derivative.map(
-																(deriv) => closest(deriv.data.history, timestamp).value
-															)
-														) / mcap,
-														4
-												  )
-												: 0;
-											return {
-												date: timestamp,
-												value: ratio
-											};
-										})
+								? history.map(({ timestamp, derivative }) => ({
+										date: timestamp,
+										value: derivative?.ratio ?? 0
+								  }))
 								: [
 										{
 											date: new Date().toISOString(),
@@ -487,9 +452,9 @@
 							linkData.history?.at(-1)?.value != undefined
 								? {
 										text: formatPercentage(
-											linkData.history.at(-1).value / assetStats.derivative.usd
+											linkData.history.at(-1).value / history?.at(-1)?.derivative?.usd
 										),
-										value: linkData.history.at(-1).value / assetStats.derivative.usd
+										value: linkData.history.at(-1).value / history?.at(-1)?.derivative?.usd
 								  }
 								: {
 										text: 'UNK',

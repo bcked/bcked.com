@@ -6,16 +6,13 @@
 	import Table from '$components/table.svelte';
 	import { compare, formatCurrency } from '$lib/utils/string-formatting';
 	import _ from 'lodash-es';
-	import fromJson from 'ngraph.fromjson';
 	import type { PageData } from '../$types';
 
 	export let theme: ui.Theme;
 
 	export let data: PageData;
 
-	$: ({ assetsStats, graphData, issuersDetails, issuersIcons } = data);
-
-	$: graph = fromJson(graphData);
+	$: ({ graphData, issuersDetails, issuersIcons } = data);
 </script>
 
 <Section id="issuers" label="Ranking of recorded issuers.">

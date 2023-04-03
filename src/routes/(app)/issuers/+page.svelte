@@ -11,7 +11,7 @@
 
 	export let data: PageData;
 
-	$: ({ assetsPrice, assetsBacking, assetsStats, graphData, issuersDetails, issuersIcons } = data);
+	$: ({ assetsPrice, assetsBacking, graphData, issuersDetails, issuersIcons } = data);
 
 	let graph: Graph<graph.NodeData, graph.LinkData>;
 	$: graph = fromJson(graphData);

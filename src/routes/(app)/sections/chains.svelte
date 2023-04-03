@@ -6,16 +6,13 @@
 	import Table from '$components/table.svelte';
 	import { compare, formatCurrency } from '$lib/utils/string-formatting';
 	import _ from 'lodash-es';
-	import fromJson from 'ngraph.fromjson';
 	import type { PageData } from '../$types';
 
 	export let theme: ui.Theme;
 
 	export let data: PageData;
 
-	$: ({ assetsStats, graphData, chainsDetails, chainsIcons } = data);
-
-	$: graph = fromJson(graphData);
+	$: ({ graphData, chainsDetails, chainsIcons } = data);
 </script>
 
 <Section id="chains" label="Ranking of recorded chains.">
@@ -39,7 +36,7 @@
 				rows={Object.values(chainsDetails)
 					.map((chain) => {
 						const assetsOnChain = graphData.nodes
-							.filter((node) => node.data.chain?.id == chain.id)
+							.filter((node) => node.data.chain == chain.id)
 							.filter((node) => !node.data.details.tags.includes('lp'));
 						return {
 							...chain,
