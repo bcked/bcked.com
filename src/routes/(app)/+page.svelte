@@ -42,6 +42,8 @@
 		url: `${PUBLIC_DOMAIN}`,
 		image: {
 			url: `${PUBLIC_DOMAIN}/preview.jpg`,
+			secure_url: `${PUBLIC_DOMAIN}/preview.jpg`,
+			type: 'image/jpeg',
 			width: 1200,
 			height: 630,
 			alt: `Preview of bcked's landing page.`
