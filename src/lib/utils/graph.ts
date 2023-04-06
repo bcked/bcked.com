@@ -251,5 +251,6 @@ export function createBackingGraph(data: agg.Data): Graph<graph.NodeData, graph.
 	addNodes(graph, data);
 	addLinks(graph, data);
 	addNodeStats(graph, data);
+	writeGraph('graph', graph);
 	return graph;
 }

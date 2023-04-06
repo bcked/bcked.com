@@ -9,25 +9,35 @@
 	import SubjectTitle from '$components/layout/title/main.svelte';
 	import Table from '$components/table.svelte';
 	import { PUBLIC_DOMAIN } from '$env/static/public';
-	import { closest, uniqueTimes } from '$lib/utils/array';
 	import { formatCurrency, formatNum } from '$lib/utils/string-formatting';
-	import { CurrencyDollarIcon, ExternalLinkIcon } from '@rgossiaux/svelte-heroicons/outline';
-	import _ from 'lodash-es';
+	import {
+		CalendarIcon,
+		CurrencyDollarIcon,
+		ExternalLinkIcon
+	} from '@rgossiaux/svelte-heroicons/outline';
+	import fromJson from 'ngraph.fromjson';
+	import type { Graph } from 'ngraph.graph';
 	import SvelteSeo from 'svelte-seo';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
 
-	$: ({ chainsDetails, chainsIcons, assetsDetails, graphData } = data);
+	$: ({ chainsDetails, chainsStats, chainsIcons, assetsDetails, graphData } = data);
 
 	$: id = $page.params.id!;
 
+	let graph: Graph<graph.NodeData, graph.LinkData>;
+	$: graph = fromJson(graphData);
+
 	$: chainDetails = chainsDetails[id]!;
+	$: chainStats = chainsStats[id]!;
 	$: chainIcon = chainsIcons[id];
 
-	$: assetsOnChain = graphData.nodes
-		.filter((asset) => asset.data.chain == id)
-		.map((node) => node.data);
+	$: latestStats = chainStats.history.at(-1)!;
+
+	$: nodes = Object.keys(latestStats.mcaps).map((assetId) => graph.getNode(assetId)!.data);
+
+	$: updated = latestStats.timestamp;
 
 	type Stat = {
 		name: string;
@@ -35,29 +45,16 @@
 		type: string;
 	};
 
-	$: timepoints = uniqueTimes(
-		_.flatMap(assetsOnChain, (v) => _.map(v.history, 'timestamp')),
-		60 * 60 * 1000
-	).sort(); // unique within 1h
-
-	$: tvlHistory = _.map(timepoints, (timestamp) => ({
-		date: timestamp,
-		value: Math.max(
-			_.sumBy(assetsOnChain, (asset) => closest(asset.history, timestamp)?.mcap ?? 0),
-			0.0
-		)
-	}));
-
 	let stats: Stat[] = [];
 	$: stats = [
 		{
 			name: 'Number of Assets',
-			value: assetsOnChain.length,
+			value: latestStats.count,
 			type: 'standard'
 		},
 		{
 			name: 'Total Value Locked (TVL)',
-			value: formatCurrency(tvlHistory.at(-1)?.value ?? 0),
+			value: formatCurrency(latestStats.tvl),
 			type: 'currency'
 		}
 	];
@@ -106,6 +103,11 @@
 				Explorer: {chainDetails.explorer}
 			</SubjectItem>
 		{/if}
+		{#if updated}
+			<SubjectItem icon={CalendarIcon}>
+				Updated on {new Date(updated).toLocaleDateString()}
+			</SubjectItem>
+		{/if}
 	</SubjectTitle>
 
 	<Card>
@@ -131,8 +133,8 @@
 		<div class="mt-5 sm:mt-6 h-full overflow-hidden">
 			<FinancialChart
 				formatter={formatCurrency}
-				data={tvlHistory.length
-					? tvlHistory
+				data={latestStats.count > 0
+					? chainStats.history.map((s) => ({ date: s.timestamp, value: s.tvl }))
 					: [
 							{
 								date: new Date().toISOString(),
@@ -153,7 +155,7 @@
 				{ id: 'supply', title: 'Supply', class: 'hidden sm:table-cell' },
 				{ id: 'mcap', title: 'Market Cap', class: '' }
 			]}
-			rows={assetsOnChain.map((asset) => ({
+			rows={nodes.map((asset) => ({
 				name: {
 					text: asset.details.name,
 					value: asset.details.name,

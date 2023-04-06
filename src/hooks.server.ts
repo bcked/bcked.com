@@ -2,8 +2,12 @@ import { queryAssets } from '$lib/query/query';
 import { aggregateFolders } from '$lib/utils/aggregation';
 import { aggregateIcons } from '$lib/utils/copy-icons';
 import { readAggregation, writeAggregation, writeHistoryUpdate } from '$lib/utils/files';
-import { createBackingGraph, writeGraph } from '$lib/utils/graph';
-import { aggregateGlobalStats } from '$lib/utils/stats';
+import { createBackingGraph } from '$lib/utils/graph';
+import {
+	aggregateChainsStats,
+	aggregateGlobalStats,
+	aggregateIssuersStats
+} from '$lib/utils/stats';
 import fs from 'fs';
 
 console.log(`Hooks loading.`);
@@ -16,14 +20,6 @@ async function aggregateData() {
 	const issuersIcons = aggregateIcons('issuers');
 
 	// Basic data aggregation
-	const issuersDetails = await aggregateFolders<derived.IssuerId, agg.IssuerDetails>(
-		'issuers',
-		'details'
-	);
-	const chainsDetails = await aggregateFolders<derived.ChainId, agg.ChainDetails>(
-		'chains',
-		'details'
-	);
 	const assetsDetails = await aggregateFolders<derived.AssetId, agg.AssetDetails>(
 		'assets',
 		'details'
@@ -31,6 +27,14 @@ async function aggregateData() {
 	const assetsContracts = await aggregateFolders<derived.AssetId, agg.AssetContracts>(
 		'assets',
 		'contracts'
+	);
+	const chainsDetails = await aggregateFolders<derived.ChainId, agg.ChainDetails>(
+		'chains',
+		'details'
+	);
+	const issuersDetails = await aggregateFolders<derived.IssuerId, agg.IssuerDetails>(
+		'issuers',
+		'details'
 	);
 
 	let assetsPrice = await aggregateFolders<derived.AssetId, agg.AssetPriceData>('assets', 'price');
@@ -52,17 +56,16 @@ async function aggregateData() {
 		assetsPrice,
 		assetsSupply,
 		assetsBacking,
-		issuersDetails,
-		issuersIcons,
 		chainsDetails,
-		chainsIcons
+		chainsIcons,
+		issuersDetails,
+		issuersIcons
 	};
 
 	const graph = createBackingGraph(data);
-	writeGraph('graph', graph);
 
-	// TODO aggregate stats of issuers and chains
-
+	const chainsStats = aggregateChainsStats(graph, data);
+	const issuersStats = aggregateIssuersStats(graph, data);
 	const globalStats = aggregateGlobalStats(graph, data);
 
 	return {
@@ -72,10 +75,12 @@ async function aggregateData() {
 		assetsPrice,
 		assetsSupply,
 		assetsBacking,
-		issuersDetails,
-		issuersIcons,
 		chainsDetails,
+		chainsStats,
 		chainsIcons,
+		issuersDetails,
+		issuersStats,
+		issuersIcons,
 		globalStats,
 		graph
 	};

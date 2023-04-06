@@ -9,47 +9,34 @@
 	import SubjectTitle from '$components/layout/title/main.svelte';
 	import Table from '$components/table.svelte';
 	import { PUBLIC_DOMAIN } from '$env/static/public';
-	import { closest, uniqueTimes } from '$lib/utils/array';
 	import { formatCurrency, formatNum } from '$lib/utils/string-formatting';
-	import { ExternalLinkIcon } from '@rgossiaux/svelte-heroicons/outline';
-	import _ from 'lodash-es';
+	import { CalendarIcon, ExternalLinkIcon } from '@rgossiaux/svelte-heroicons/outline';
+	import fromJson from 'ngraph.fromjson';
+	import type { Graph } from 'ngraph.graph';
 	import SvelteSeo from 'svelte-seo';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
 
-	$: ({ issuersDetails, issuersIcons, assetsDetails, graphData } = data);
+	$: ({ issuersDetails, issuersStats, issuersIcons, assetsDetails, graphData } = data);
 
 	$: id = $page.params.id!;
 
+	let graph: Graph<graph.NodeData, graph.LinkData>;
+	$: graph = fromJson(graphData);
+
 	$: issuerDetails = issuersDetails[id]!;
+	$: issuerStats = issuersStats[id]!;
 	$: issuerIcon = issuersIcons[id];
 
-	$: assetsOfIssuer = graphData.nodes
-		.filter((asset) => asset.data.details.issuer == id)
-		.map((node) => node.data);
+	$: latestStats = issuerStats.history.at(-1)!;
 
-	$: uniqueAssets = assetsOfIssuer.filter((asset) => !asset.details.tags.includes('lp'));
-	$: lpAssets = assetsOfIssuer.filter((asset) => asset.details.tags.includes('lp'));
+	$: ({ assets, lps } = latestStats);
 
-	$: uaTimepoints = uniqueTimes(
-		_.flatMap(uniqueAssets, (v) => _.map(v.history, 'timestamp')),
-		60 * 60 * 1000
-	).sort(); // unique within 1h
-	$: lpaTimepoints = uniqueTimes(
-		_.flatMap(lpAssets, (v) => _.map(v.history, 'timestamp')),
-		60 * 60 * 1000
-	).sort(); // unique within 1h
+	$: assetsNodes = Object.keys(assets.mcaps).map((assetId) => graph.getNode(assetId)!.data);
+	$: lpsNodes = Object.keys(lps.mcaps).map((assetId) => graph.getNode(assetId)!.data);
 
-	$: uaTvlHistory = _.map(uaTimepoints, (timestamp) => ({
-		date: timestamp,
-		value: _.sumBy(uniqueAssets, (asset) => closest(asset.history, timestamp)?.mcap ?? 0)
-	}));
-
-	$: lpaTvlHistory = _.map(lpaTimepoints, (timestamp) => ({
-		date: timestamp,
-		value: _.sumBy(lpAssets, (asset) => closest(asset.history, timestamp)?.mcap ?? 0)
-	}));
+	$: updated = latestStats.timestamp;
 
 	type Stat = {
 		name: string;
@@ -61,12 +48,12 @@
 	$: uniqueAssetsStats = [
 		{
 			name: 'Number of Assets',
-			value: uniqueAssets.length,
+			value: assets.count,
 			type: 'standard'
 		},
 		{
 			name: 'Total Value Locked (TVL)',
-			value: formatCurrency(_.sumBy(uniqueAssets, (asset) => asset.history?.at(-1)?.mcap ?? 0)),
+			value: formatCurrency(assets.tvl),
 			type: 'currency'
 		}
 	];
@@ -75,12 +62,12 @@
 	$: lpAssetsStats = [
 		{
 			name: 'Number of LP Tokens',
-			value: lpAssets.length,
+			value: lps.count,
 			type: 'standard'
 		},
 		{
 			name: 'Total Value Locked (TVL)',
-			value: formatCurrency(_.sumBy(lpAssets, (asset) => asset.history?.at(-1)?.mcap ?? 0)),
+			value: formatCurrency(lps.tvl),
 			type: 'currency'
 		}
 	];
@@ -125,9 +112,14 @@
 		<SubjectItem href={issuerDetails.reference} icon={ExternalLinkIcon}>
 			{issuerDetails.reference}
 		</SubjectItem>
+		{#if updated}
+			<SubjectItem icon={CalendarIcon}>
+				Updated on {new Date(updated).toLocaleDateString()}
+			</SubjectItem>
+		{/if}
 	</SubjectTitle>
 
-	{#if uniqueAssets.length}
+	{#if assets.count > 0}
 		<Card>
 			<CardHeader
 				title="TVL History"
@@ -151,8 +143,8 @@
 			<div class="mt-5 sm:mt-6 h-full overflow-hidden">
 				<FinancialChart
 					formatter={formatCurrency}
-					data={uaTvlHistory.length
-						? uaTvlHistory
+					data={assets.count > 0
+						? issuerStats.history.map((s) => ({ date: s.timestamp, value: s.assets.tvl }))
 						: [
 								{
 									date: new Date().toISOString(),
@@ -173,7 +165,7 @@
 					{ id: 'supply', title: 'Supply', class: 'hidden sm:table-cell' },
 					{ id: 'mcap', title: 'Market Cap', class: '' }
 				]}
-				rows={uniqueAssets.map((asset) => ({
+				rows={assetsNodes.map((asset) => ({
 					name: {
 						text: asset.details.name,
 						value: asset.details.name,
@@ -208,7 +200,7 @@
 		</Card>
 	{/if}
 
-	{#if lpAssets.length}
+	{#if lps.count > 0}
 		<Card>
 			<CardHeader
 				title="LP History"
@@ -234,8 +226,8 @@
 			<div class="mt-5 sm:mt-6 h-full overflow-hidden">
 				<FinancialChart
 					formatter={formatCurrency}
-					data={lpaTvlHistory.length
-						? lpaTvlHistory
+					data={lps.count > 0
+						? issuerStats.history.map((s) => ({ date: s.timestamp, value: s.lps.tvl }))
 						: [
 								{
 									date: new Date().toISOString(),
@@ -259,7 +251,7 @@
 					{ id: 'supply', title: 'Supply', class: 'hidden sm:table-cell' },
 					{ id: 'mcap', title: 'Market Cap', class: '' }
 				]}
-				rows={lpAssets.map((asset) => ({
+				rows={lpsNodes.map((asset) => ({
 					name: {
 						text: asset.details.name,
 						value: asset.details.name,

@@ -8,13 +8,13 @@ declare namespace graph {
 		history: stats.Asset[];
 	};
 
+	type LinkData = {
+		history: stats.Backing[];
+	};
+
 	type Node = {
 		id: derived.AssetId;
 		data: NodeData;
-	};
-
-	type LinkData = {
-		history: stats.Backing[];
 	};
 
 	type Link = {

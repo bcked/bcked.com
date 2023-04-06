@@ -1,4 +1,8 @@
 declare namespace stats {
+	type HistoryBase = {
+		timestamp: agg.Timestamp;
+	};
+
 	type LinksStats = {
 		count: number;
 		usd: number;
@@ -6,8 +10,7 @@ declare namespace stats {
 		uniformity: number;
 	};
 
-	type Asset = {
-		timestamp: agg.Timestamp;
+	type Asset = HistoryBase & {
 		price: agg.AssetPrice;
 		supply: agg.AssetSupply;
 		mcap: number | undefined; // TODO Compute live
@@ -15,24 +18,37 @@ declare namespace stats {
 		derivative?: LinksStats;
 	};
 
-	type AssetsShare = {
-		tvl: number;
-	};
-
-	type Issuer = {
-		assets: AssetsShare;
-		lp: AssetsShare;
-	};
-
-	type Chain = AssetsShare;
-
-	type Backing = {
-		timestamp: agg.Timestamp;
+	type Backing = HistoryBase & {
 		source: string;
 
 		amount: number;
 		value: number | undefined; // TODO Compute live
 	};
+
+	type AssetsShare = {
+		mcaps: { [Property in derived.AssetId]: number };
+		count: number;
+		tvl: number;
+	};
+
+	type Issuer = HistoryBase & {
+		assets: AssetsShare;
+		lps: AssetsShare;
+	};
+
+	type IssuerStats = {
+		history: Issuer[];
+	};
+
+	type Chain = HistoryBase & AssetsShare;
+
+	type ChainStats = {
+		history: Chain[];
+	};
+
+	type ChainsStats = { [Property in derived.ChainId]: ChainStats };
+
+	type IssuersStats = { [Property in derived.IssuerId]: IssuerStats };
 
 	type SubStats = {
 		total: {
