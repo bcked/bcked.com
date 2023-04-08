@@ -8,12 +8,16 @@ declare namespace stats {
 		usd: number;
 		ratio: number | null;
 		uniformity: number;
+		rate24h: number | undefined;
+		rate30d: number | undefined;
 	};
 
 	type Asset = HistoryBase & {
 		price: agg.AssetPrice;
 		supply: agg.AssetSupply;
 		mcap: number | undefined; // TODO Compute live
+		rate24h: number | undefined;
+		rate30d: number | undefined;
 		underlying?: LinksStats;
 		derivative?: LinksStats;
 	};
@@ -23,12 +27,16 @@ declare namespace stats {
 
 		amount: number;
 		value: number | undefined; // TODO Compute live
+		rate24h: number | undefined;
+		rate30d: number | undefined;
 	};
 
 	type AssetsShare = {
 		mcaps: { [Property in derived.AssetId]: number };
 		count: number;
 		tvl: number;
+		rate24h: number | undefined;
+		rate30d: number | undefined;
 	};
 
 	type Issuer = HistoryBase & {

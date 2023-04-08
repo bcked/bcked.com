@@ -4,10 +4,10 @@
 	import FinancialChart from '$components/financial-chart.svelte';
 	import CardHeader from '$components/layout/card/header.svelte';
 	import Card from '$components/layout/card/main.svelte';
+	import Stats from '$components/layout/card/stats.svelte';
 	import Page from '$components/layout/page.svelte';
 	import SubjectItem from '$components/layout/title/item.svelte';
 	import SubjectTitle from '$components/layout/title/main.svelte';
-	import LiquidFill from '$components/liquid-fill.svelte';
 	import Sankey from '$components/sankey-layer.svelte';
 	import Table from '$components/table.svelte';
 	import { PUBLIC_DOMAIN } from '$env/static/public';
@@ -38,22 +38,24 @@
 	$: id = $page.params.id!;
 
 	$: node = graph.getNode(id)!;
-	$: asset = node.data;
+	$: assetData = node.data;
 	$: links = (graph.getLinks(id) ?? []).filter(
 		(link) => link.data.history.at(-1)?.amount != undefined
 	);
 	$: underlying = links.filter((link) => link.fromId == id);
 	$: derivative = links.filter((link) => link.fromId != id);
 
-	$: ({ details, issuer, chain, icon, contracts, history } = asset);
+	$: ({ details, issuer, chain, icon, contracts, history } = assetData);
+
+	$: latest = history.at(-1);
 
 	$: updated = history?.at(-1)?.timestamp;
 
 	const api = new ApiProxy();
 
 	async function fetchCurrentPrice() {
-		if (asset.contracts) {
-			const currentPrice = await api.getPrice(asset.contracts);
+		if (contracts) {
+			const currentPrice = await api.getPrice(contracts);
 			if (!currentPrice) return;
 			// TODO fix
 			// price?.history?.push(currentPrice);
@@ -71,64 +73,106 @@
 		};
 	});
 
-	type Stat = {
-		name: string;
-		value: string | number;
-		type: string;
-	};
-
-	let stats: Stat[] = [];
+	let stats: ui.Stats[] = [];
 	$: stats = [
-		history?.at(-1)?.price?.usd != undefined
-			? {
-					name: 'Price',
-					value: history.at(-1)!.price!.usd,
-					type: 'currency'
-			  }
-			: {
-					name: 'Price',
-					value: 'UNK',
-					type: 'standard'
-			  },
+		{
+			name: 'Price',
+			value: latest?.price?.usd,
+			type: 'currency'
+		},
+		{
+			name: 'Market Cap',
+			value: latest?.mcap,
+			type: 'currency'
+		},
+		{
+			name: '24h Change',
+			value: latest?.rate24h,
+			type: 'change'
+		},
+		{
+			name: '30d Change',
+			value: latest?.rate30d,
+			type: 'change'
+		}
+	];
+
+	let underlyingStats: ui.Stats[] = [];
+	$: underlyingStats = [
 		{
 			name: 'Backing Assets',
-			value: underlying.length,
+			value: latest?.underlying?.count.toString(),
 			type: 'standard'
 		},
-		history?.at(-1)?.underlying?.ratio != undefined
-			? {
-					name: 'Backing Ratio',
-					value: history?.at(-1)?.underlying?.ratio,
-					type: 'percent'
-			  }
-			: {
-					name: 'Backing Ratio',
-					value: 'N/A',
-					type: 'standard'
-			  },
-		(history?.at(-1)?.underlying?.count ?? 0) > 0
-			? {
-					name: 'Backing Uniformity',
-					value: history?.at(-1)?.underlying?.uniformity,
-					type: 'percent'
-			  }
-			: {
-					name: 'Backing Uniformity',
-					value: 'N/A',
-					type: 'standard'
-			  }
+		{
+			name: 'Current Backing',
+			value: latest?.underlying?.usd,
+			type: 'currency'
+		},
+		{
+			name: 'Backing Uniformity',
+			value: latest?.underlying?.uniformity,
+			type: 'percent'
+		},
+		{
+			name: 'Backing Ratio',
+			value: latest?.underlying?.ratio ?? undefined,
+			type: 'percent'
+		},
+		{
+			name: '24h Change',
+			value: latest?.underlying?.rate24h,
+			type: 'change'
+		},
+		{
+			name: '30d Change',
+			value: latest?.underlying?.rate30d,
+			type: 'change'
+		}
+	];
+
+	let derivativeStats: ui.Stats[] = [];
+	$: derivativeStats = [
+		{
+			name: 'Derivative Assets',
+			value: latest?.derivative?.count.toString(),
+			type: 'standard'
+		},
+		{
+			name: 'Current Derivatives',
+			value: latest?.derivative?.usd,
+			type: 'currency'
+		},
+		{
+			name: 'Derivative Uniformity',
+			value: latest?.derivative?.uniformity,
+			type: 'percent'
+		},
+		{
+			name: 'Derivative Ratio',
+			value: latest?.derivative?.ratio ?? undefined,
+			type: 'percent'
+		},
+		{
+			name: '24h Change',
+			value: latest?.derivative?.rate24h,
+			type: 'change'
+		},
+		{
+			name: '30d Change',
+			value: latest?.derivative?.rate30d,
+			type: 'change'
+		}
 	];
 
 	$: seo = {
 		title: `${details.name} (${details.symbol}) Backing, History, Chain`,
 		description: `${details.name} is backed ${
-			history?.at(-1)?.underlying?.ratio
-				? `to ${formatPercentage(history?.at(-1)?.underlying?.ratio!)} `
-				: ''
+			latest?.underlying?.ratio ? `to ${formatPercentage(latest?.underlying?.ratio!)} ` : ''
 		}
-			with ${formatCurrency(history?.at(-1)?.underlying?.usd ?? 0)} by ${
-			history?.at(-1)?.underlying?.count
-		} ${history?.at(-1)?.underlying?.count == 1 ? 'asset' : 'assets'}. Learn more ...`,
+			with ${formatCurrency(latest?.underlying?.usd ?? 0)} by ${latest?.underlying?.count} ${
+			latest?.underlying?.count == 1 ? 'asset' : 'assets'
+		}. Learn more ...`,
 		url: `${PUBLIC_DOMAIN}/assets/${id}`,
 		image: {
 			url: `${PUBLIC_DOMAIN}/assets/${id}/preview.jpg`,
@@ -183,39 +227,24 @@
 
 	<div class="grid grid-cols-2 gap-[0.1rem] sm:gap-4 md:grid-cols-4 shadow sm:shadow-none">
 		<!-- {stats.length <= 4 ? stats.length : 4} -->
-		{#each stats as item}
+		{#each stats as data}
 			<Card class="relative px-4 py-5 sm:p-6">
-				{#if item.type == 'percent' && typeof item.value == 'number'}
-					<div class="absolute top-0 left-0 h-full w-full">
-						<LiquidFill
-							fillPercent={item.value}
-							class="h-full w-full"
-							waveColor="#FFDDDD"
-							waveAnimateTime={2000}
-							waveHeight={0.1}
-							waveHeightScaling={true}
-						/>
-					</div>
-				{/if}
-				<dl class="relative">
-					<dt class="text-sm font-medium text-gray-500 truncate">{item.name}</dt>
-					<dd class="mt-1 text-3xl font-semibold text-gray-900">
-						{#if item.type == 'standard'}
-							{item.value}
-						{:else if item.type == 'currency' && typeof item.value == 'number'}
-							{formatCurrency(item.value)}
-						{:else if item.type == 'percent' && typeof item.value == 'number'}
-							{formatPercentage(item.value)}
-						{:else}
-							{item.value}
-						{/if}
-					</dd>
-				</dl>
+				<Stats {data} />
 			</Card>
 		{/each}
 	</div>
 
 	{#if underlying.length > 0}
+		<div
+			class="grid grid-cols-2 sm:grid-cols-3 gap-[0.1rem] sm:gap-4 lg:grid-cols-6 shadow sm:shadow-none"
+		>
+			<!-- {stats.length <= 4 ? stats.length : 4} -->
+			{#each underlyingStats as data}
+				<Card class="relative px-4 py-5 sm:p-6">
+					<Stats {data} />
+				</Card>
+			{/each}
+		</div>
 		{#if history.length > 0}
 			<div class="grid grid-cols-1 gap-4 lg:grid-cols-2 shadow-none">
 				<Card>
@@ -311,10 +340,8 @@
 						share:
 							linkData.history?.at(-1)?.value != undefined
 								? {
-										text: formatPercentage(
-											linkData.history.at(-1).value / history?.at(-1)?.underlying?.usd
-										),
-										value: linkData.history.at(-1).value / history?.at(-1)?.underlying?.usd
+										text: formatPercentage(linkData.history.at(-1).value / latest?.underlying?.usd),
+										value: linkData.history.at(-1).value / latest?.underlying?.usd
 								  }
 								: {
 										text: 'UNK',
@@ -331,13 +358,10 @@
 										value: undefined
 								  },
 						'underlying-ratio':
-							linkData.history?.at(-1)?.value != undefined &&
-							asset?.history?.at(-1)?.mcap != undefined
+							linkData.history?.at(-1)?.value != undefined && latest?.mcap != undefined
 								? {
-										text: formatPercentage(
-											linkData.history.at(-1).value / asset?.history.at(-1).mcap
-										),
-										value: linkData.history.at(-1).value / asset?.history.at(-1).mcap
+										text: formatPercentage(linkData.history.at(-1).value / latest?.mcap),
+										value: linkData.history.at(-1).value / latest?.mcap
 								  }
 								: {
 										text: 'UNK',
@@ -351,6 +375,16 @@
 	{/if}
 
 	{#if derivative.length > 0}
+		<div
+			class="grid grid-cols-2 sm:grid-cols-3 gap-[0.1rem] sm:gap-4 lg:grid-cols-6 shadow sm:shadow-none"
+		>
+			<!-- {stats.length <= 4 ? stats.length : 4} -->
+			{#each derivativeStats as data}
+				<Card class="relative px-4 py-5 sm:p-6">
+					<Stats {data} />
+				</Card>
+			{/each}
+		</div>
 		{#if history.length > 0}
 			<div class="grid grid-cols-1 gap-4 lg:grid-cols-2 shadow-none">
 				<Card>
@@ -451,10 +485,8 @@
 						share:
 							linkData.history?.at(-1)?.value != undefined
 								? {
-										text: formatPercentage(
-											linkData.history.at(-1).value / history?.at(-1)?.derivative?.usd
-										),
-										value: linkData.history.at(-1).value / history?.at(-1)?.derivative?.usd
+										text: formatPercentage(linkData.history.at(-1).value / latest?.derivative?.usd),
+										value: linkData.history.at(-1).value / latest?.derivative?.usd
 								  }
 								: {
 										text: 'UNK',
@@ -471,13 +503,10 @@
 										value: undefined
 								  },
 						'derivative-ratio':
-							linkData.history?.at(-1)?.value != undefined &&
-							asset?.history?.at(-1)?.mcap != undefined
+							linkData.history?.at(-1)?.value != undefined && latest?.mcap != undefined
 								? {
-										text: formatPercentage(
-											linkData.history.at(-1).value / asset.history.at(-1).mcap
-										),
-										value: linkData.history.at(-1).value / asset.history.at(-1).mcap
+										text: formatPercentage(linkData.history.at(-1).value / latest?.mcap),
+										value: linkData.history.at(-1).value / latest?.mcap
 								  }
 								: {
 										text: 'UNK',

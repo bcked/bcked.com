@@ -4,6 +4,7 @@
 	import FinancialChart from '$components/financial-chart.svelte';
 	import CardHeader from '$components/layout/card/header.svelte';
 	import Card from '$components/layout/card/main.svelte';
+	import Stats from '$components/layout/card/stats.svelte';
 	import Page from '$components/layout/page.svelte';
 	import SubjectItem from '$components/layout/title/item.svelte';
 	import SubjectTitle from '$components/layout/title/main.svelte';
@@ -38,37 +39,51 @@
 
 	$: updated = latestStats.timestamp;
 
-	type Stat = {
-		name: string;
-		value: string | number;
-		type: string;
-	};
-
-	let uniqueAssetsStats: Stat[] = [];
+	let uniqueAssetsStats: ui.Stats[] = [];
 	$: uniqueAssetsStats = [
 		{
 			name: 'Number of Assets',
-			value: assets.count,
+			value: assets.count.toString(),
 			type: 'standard'
 		},
 		{
 			name: 'Total Value Locked (TVL)',
-			value: formatCurrency(assets.tvl),
+			value: assets.tvl,
 			type: 'currency'
+		},
+		{
+			name: '24h Change',
+			value: assets.rate24h,
+			type: 'change'
+		},
+		{
+			name: '30d Change',
+			value: assets.rate30d,
+			type: 'change'
 		}
 	];
 
-	let lpAssetsStats: Stat[] = [];
+	let lpAssetsStats: ui.Stats[] = [];
 	$: lpAssetsStats = [
 		{
 			name: 'Number of LP Tokens',
-			value: lps.count,
+			value: lps.count.toString(),
 			type: 'standard'
 		},
 		{
 			name: 'Total Value Locked (TVL)',
 			value: formatCurrency(lps.tvl),
 			type: 'currency'
+		},
+		{
+			name: '24h Change',
+			value: lps.rate24h,
+			type: 'change'
+		},
+		{
+			name: '30d Change',
+			value: lps.rate30d,
+			type: 'change'
 		}
 	];
 
@@ -120,25 +135,20 @@
 	</SubjectTitle>
 
 	{#if assets.count > 0}
+		<div class="grid grid-cols-2 gap-[0.1rem] sm:gap-4 md:grid-cols-4 shadow sm:shadow-none">
+			<!-- {stats.length <= 4 ? stats.length : 4} -->
+			{#each uniqueAssetsStats as data}
+				<Card class="relative px-4 py-5 sm:p-6">
+					<Stats {data} />
+				</Card>
+			{/each}
+		</div>
+
 		<Card>
 			<CardHeader
 				title="TVL History"
 				subtitle="The history of total value locked (TVL) in {issuerDetails.name}."
 			/>
-			<!-- <div class="flex items-center justify-between mt-5 sm:mt-6 px-4 sm:px-6">
-				<dl>
-					<dt class="text-sm font-medium text-gray-500 truncate">Number of Assets</dt>
-					<dd class="mt-1 text-3xl font-semibold text-gray-900">
-						{uniqueAssets.length}
-					</dd>
-				</dl>
-				<dl class="text-right">
-					<dt class="text-sm font-medium text-gray-500 truncate">TVL</dt>
-					<dd class="mt-1 text-3xl font-semibold text-gray-900">
-						{formatCurrency(uaTvlHistory.at(-1)?.value ?? 0)}
-					</dd>
-				</dl>
-			</div> -->
 
 			<div class="mt-5 sm:mt-6 h-full overflow-hidden">
 				<FinancialChart
@@ -201,27 +211,20 @@
 	{/if}
 
 	{#if lps.count > 0}
+		<div class="grid grid-cols-2 gap-[0.1rem] sm:gap-4 md:grid-cols-4 shadow sm:shadow-none">
+			<!-- {stats.length <= 4 ? stats.length : 4} -->
+			{#each lpAssetsStats as data}
+				<Card class="relative px-4 py-5 sm:p-6">
+					<Stats {data} />
+				</Card>
+			{/each}
+		</div>
+
 		<Card>
 			<CardHeader
 				title="LP History"
 				subtitle="The history of {issuerDetails.name}'s liquidity provided by liquidity providers (LPs)."
 			/>
-			<!-- <div class="flex items-center justify-between mt-5 sm:mt-6 px-4 sm:px-6">
-				<dl>
-					<dt class="text-sm font-medium text-gray-500 truncate">Number of Assets</dt>
-					<dd class="mt-1 text-3xl font-semibold text-gray-900">
-						{lpAssets.length}
-					</dd>
-				</dl>
-				<dl class="text-right">
-					<dt class="text-sm font-medium text-gray-500 truncate">
-						TVL
-					</dt>
-					<dd class="mt-1 text-3xl font-semibold text-gray-900">
-						{formatCurrency(lpaTvlHistory.at(-1)?.value ?? 0)}
-					</dd>
-				</dl>
-			</div> -->
 
 			<div class="mt-5 sm:mt-6 h-full overflow-hidden">
 				<FinancialChart

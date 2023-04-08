@@ -14,4 +14,12 @@ declare namespace ui {
 	};
 
 	type Placement = 'top' | 'bottom';
+
+	type StatsType = 'standard' | 'currency' | 'percent' | 'change';
+
+	type Stats = {
+		name: string;
+		value: string | number | undefined;
+		type: ui.StatsType;
+	};
 }

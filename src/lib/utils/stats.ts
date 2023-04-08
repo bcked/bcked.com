@@ -1,26 +1,35 @@
 import { writeAggregation } from '$lib/utils/files';
-import { round } from '$lib/utils/math';
+import { rate, round } from '$lib/utils/math';
 import _ from 'lodash';
 import type { Graph } from 'ngraph.graph';
-import { closest, uniqueTimes } from './array';
+import { closest, relativeInDays, relativeInHours, uniqueTimesWithInHours } from './array';
 
 export function calcChainStats(assetsOnChain: graph.NodeData[]): stats.ChainStats {
-	const timepoints = uniqueTimes(
-		_.flatMap(assetsOnChain, (v) => _.map(v.history, 'timestamp')),
-		60 * 60 * 1000
-	).sort(); // unique within 1h
+	const timepoints = uniqueTimesWithInHours(
+		_.flatMap(assetsOnChain, (v) => _.map(v.history, 'timestamp'))
+	);
 
-	const history = _.map(timepoints, (timestamp) => {
+	let history = [];
+	for (const timestamp of timepoints) {
 		const mcaps = Object.fromEntries(
 			assetsOnChain.map((asset) => [asset.details.id, closest(asset.history, timestamp)?.mcap ?? 0])
 		);
-		return {
+		const item: stats.Chain = {
 			timestamp,
 			mcaps: mcaps,
 			count: Object.keys(mcaps).length,
-			tvl: _.sum(Object.values(mcaps))
+			tvl: _.sum(Object.values(mcaps)),
+			rate24h: undefined,
+			rate30d: undefined
 		};
-	});
+
+		history.push(item);
+
+		const value24h = relativeInHours(history, 24, 0.5)?.tvl;
+		const value30d = relativeInDays(history, 30, 0.5)?.tvl;
+		if (value24h != undefined) item.rate24h = round(rate(value24h, item.tvl), 4);
+		if (value30d != undefined) item.rate30d = round(rate(value30d, item.tvl), 4);
+	}
 
 	return { history };
 }
@@ -43,35 +52,53 @@ export function aggregateChainsStats(
 }
 
 export function calcIssuerStats(assetsOfIssuer: graph.NodeData[]): stats.IssuerStats {
-	const timepoints = uniqueTimes(
-		_.flatMap(assetsOfIssuer, (v) => _.map(v.history, 'timestamp')),
-		60 * 60 * 1000
-	).sort(); // unique within 1h
+	const timepoints = uniqueTimesWithInHours(
+		_.flatMap(assetsOfIssuer, (v) => _.map(v.history, 'timestamp'))
+	);
 
 	const assets = assetsOfIssuer.filter((asset) => !asset.details.tags.includes('lp'));
 	const lps = assetsOfIssuer.filter((asset) => asset.details.tags.includes('lp'));
 
-	const history = _.map(timepoints, (timestamp) => {
+	let history = [];
+	for (const timestamp of timepoints) {
 		const assetMcaps = Object.fromEntries(
 			assets.map((asset) => [asset.details.id, closest(asset.history, timestamp)?.mcap ?? 0])
 		);
 		const lpMcaps = Object.fromEntries(
 			lps.map((asset) => [asset.details.id, closest(asset.history, timestamp)?.mcap ?? 0])
 		);
-		return {
+		const item: stats.Issuer = {
 			timestamp,
 			assets: {
 				mcaps: assetMcaps,
 				count: Object.keys(assetMcaps).length,
-				tvl: _.sum(Object.values(assetMcaps))
+				tvl: _.sum(Object.values(assetMcaps)),
+				rate24h: undefined,
+				rate30d: undefined
 			},
 			lps: {
 				mcaps: lpMcaps,
 				count: Object.keys(lpMcaps).length,
-				tvl: _.sum(Object.values(lpMcaps))
+				tvl: _.sum(Object.values(lpMcaps)),
+				rate24h: undefined,
+				rate30d: undefined
 			}
 		};
-	});
+
+		history.push(item);
+
+		const assetsValue24h = relativeInHours(history, 24, 0.5)?.assets?.tvl;
+		const assetsValue30d = relativeInDays(history, 30, 0.5)?.assets?.tvl;
+		if (assetsValue24h != undefined)
+			item.assets.rate24h = round(rate(assetsValue24h, item.assets.tvl), 4);
+		if (assetsValue30d != undefined)
+			item.assets.rate30d = round(rate(assetsValue30d, item.assets.tvl), 4);
+
+		const lpsValue24h = relativeInHours(history, 24, 0.5)?.lps.tvl;
+		const lpsValue30d = relativeInDays(history, 30, 0.5)?.lps.tvl;
+		if (lpsValue24h != undefined) item.lps.rate24h = round(rate(lpsValue24h, item.lps.tvl), 4);
+		if (lpsValue30d != undefined) item.lps.rate30d = round(rate(lpsValue30d, item.lps.tvl), 4);
+	}
 
 	return { history };
 }
@@ -119,10 +146,9 @@ export function aggregateGlobalStats(
 ): stats.GlobalStats {
 	const ids = Object.keys(data.assetsDetails);
 	const nodes = ids.map((id) => graph.getNode(id)!);
-	const timepoints = uniqueTimes(
-		_.flatMap(nodes, (node) => _.map(node.data.history, 'timestamp')),
-		60 * 60 * 1000
-	).sort(); // unique within 1h
+	const timepoints = uniqueTimesWithInHours(
+		_.flatMap(nodes, (node) => _.map(node.data.history, 'timestamp'))
+	);
 
 	const history = timepoints.map((timepoint) => {
 		const nodeStatsAtTimepoint = nodes.map((node) => closest(node.data.history, timepoint));

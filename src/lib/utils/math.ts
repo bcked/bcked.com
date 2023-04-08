@@ -1,5 +1,11 @@
 import _ from 'lodash';
 
+/** Calculate rate of change with respect to previous value. */
+export function rate(prev: number, cur: number): number {
+	if (prev === 0 || prev === cur) return 0;
+	return (cur - prev) / prev;
+}
+
 /** Perform min-max normalization. */
 export function minMaxNorm(value: number, min: number, max: number): number {
 	return (value - min) / (max - min);

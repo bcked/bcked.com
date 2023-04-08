@@ -1,6 +1,6 @@
-import { closest, uniqueTimes } from '$lib/utils/array';
+import { closest, relativeInDays, relativeInHours, uniqueTimesWithInHours } from '$lib/utils/array';
 import { writeAggregation } from '$lib/utils/files';
-import { uniformity as calcUniformity, round } from '$lib/utils/math';
+import { uniformity as calcUniformity, rate, round } from '$lib/utils/math';
 import fs from 'fs';
 import _ from 'lodash';
 import fromJson from 'ngraph.fromjson';
@@ -159,22 +159,31 @@ function addNodes(graph: Graph<graph.NodeData, graph.LinkData>, data: agg.Data) 
 			continue;
 		}
 
-		const uniqueList = uniqueTimes(
-			_.concat(_.map(supplyHistory, 'timestamp'), _.map(priceHistory, 'timestamp')),
-			60 * 60 * 1000
-		); // unique within 1h
+		const uniqueList = uniqueTimesWithInHours(
+			_.concat(_.map(supplyHistory, 'timestamp'), _.map(priceHistory, 'timestamp'))
+		);
 
-		const history = uniqueList.map((timestamp) => {
+		let history = [];
+		for (const timestamp of uniqueList) {
 			const supply = closest(supplyHistory, timestamp);
 			const price = closest(priceHistory, timestamp);
 			const mcap = round(price.usd * supply.total, 2);
-			return {
+			const item: stats.Asset = {
 				timestamp,
 				price,
 				supply,
-				mcap
+				mcap,
+				rate24h: undefined,
+				rate30d: undefined
 			};
-		});
+
+			history.push(item);
+
+			const value24h = relativeInHours(history, 24, 0.5)?.mcap;
+			const value30d = relativeInDays(history, 30, 0.5)?.mcap;
+			if (value24h != undefined) item.rate24h = round(rate(value24h, item.mcap ?? 0), 4);
+			if (value30d != undefined) item.rate30d = round(rate(value30d, item.mcap ?? 0), 4);
+		}
 
 		graph.addNode(id, {
 			...baseNode,
@@ -200,12 +209,25 @@ function addLinks(graph: Graph<graph.NodeData, graph.LinkData>, data: agg.Data) 
 				}
 
 				let history = graph.getLink(id, underlying)?.data?.history ?? [];
-				history.push({
+
+				let item: stats.Backing = {
 					timestamp: backing.timestamp,
 					source: backing.source,
 					amount,
-					value
-				});
+					value,
+					rate24h: undefined,
+					rate30d: undefined
+				};
+
+				history.push(item);
+
+				if (value != undefined) {
+					const value24h = relativeInHours(history, 24, 0.5)?.value;
+					const value30d = relativeInDays(history, 30, 0.5)?.value;
+
+					if (value24h != undefined) item.rate24h = round(rate(value24h, value), 4);
+					if (value30d != undefined) item.rate30d = round(rate(value30d, value), 4);
+				}
 
 				graph.addLink(id, underlying, {
 					history
@@ -226,11 +248,14 @@ function calcLinksStats(assetStats: stats.Asset, links: Link<graph.LinkData>[]):
 	const usd = round(_.sum(values), 2);
 	const ratio = assetStats.mcap ? round(usd / assetStats.mcap, 4) : null;
 	const uniformity = round(calcUniformity(_.compact(values)), 4);
+
 	return {
 		count,
 		usd,
 		ratio,
-		uniformity
+		uniformity,
+		rate24h: undefined,
+		rate30d: undefined
 	};
 }
 
@@ -239,9 +264,34 @@ function addNodeStats(graph: Graph<graph.NodeData, graph.LinkData>, data: agg.Da
 		const links = [...(graph.getLinks(node.id) ?? [])];
 		const underlyingLinks = links.filter((link) => link.fromId == node.id);
 		const derivativeLinks = links.filter((link) => link.fromId != node.id);
-		for (const timepoint of node.data.history) {
-			timepoint['underlying'] = calcLinksStats(timepoint, underlyingLinks);
-			timepoint['derivative'] = calcLinksStats(timepoint, derivativeLinks);
+		const history = node.data.history;
+		for (let i = 0; i < history.length; i++) {
+			const e = history[i]!;
+			e['underlying'] = calcLinksStats(e, underlyingLinks);
+			e['derivative'] = calcLinksStats(e, derivativeLinks);
+
+			const historySlice = history.slice(0, i + 1);
+
+			const elem24h = relativeInHours(historySlice, 24, 0.5);
+			const elem30d = relativeInDays(historySlice, 30, 0.5);
+
+			if (elem24h != undefined) {
+				if (elem24h.underlying!.ratio != null && e.underlying!.ratio != null) {
+					e.underlying!.rate24h = round(e.underlying!.ratio - elem24h.underlying!.ratio, 4);
+				}
+				if (elem24h.derivative!.ratio != null && e.derivative!.ratio != null) {
+					e.derivative!.rate24h = round(e.derivative!.ratio - elem24h.derivative!.ratio, 4);
+				}
+			}
+
+			if (elem30d != undefined) {
+				if (elem30d.underlying!.ratio != null && e.underlying!.ratio != null) {
+					e.underlying!.rate30d = round(e.underlying!.ratio - elem30d.underlying!.ratio, 4);
+				}
+				if (elem30d.derivative!.ratio != null && e.derivative!.ratio != null) {
+					e.derivative!.rate30d = round(e.derivative!.ratio - elem30d.derivative!.ratio, 4);
+				}
+			}
 		}
 	});
 }
