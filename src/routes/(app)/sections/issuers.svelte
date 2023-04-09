@@ -41,13 +41,13 @@
 						return {
 							...issuer,
 							numAssets: assetsOfIssuer.length,
-							tvl: _.sumBy(assetsOfIssuer, (asset) => asset.data.history?.at(-1)?.mcap ?? 0)
+							tvl: _.sumBy(assetsOfIssuer, (asset) => asset.data.history?.at(-1)?.mcap?.value ?? 0)
 						};
 					})
 					.filter((issuer) => issuer.tvl)
 					.sort((a, b) => compare(a.tvl, b.tvl))
 					.map((issuer, i) => ({
-						rank: { text: i + 1, value: i },
+						rank: { text: (i + 1).toString(), value: i },
 						name: {
 							text: issuer.name,
 							value: issuer.name,
@@ -58,7 +58,7 @@
 							value: `${base}/issuers/${issuer.id}`
 						},
 						numAssets: {
-							text: issuer.numAssets,
+							text: issuer.numAssets.toString(),
 							value: issuer.numAssets
 						},
 						tvl: {

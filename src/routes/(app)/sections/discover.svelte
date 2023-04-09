@@ -12,6 +12,8 @@
 
 	$: ({ graphData, globalStats } = data);
 
+	$: latest = globalStats.history.at(-1)!;
+
 	$: graph = fromJson(graphData);
 
 	export let theme: ui.Theme;
@@ -20,11 +22,10 @@
 <Section id="discover" label="Discover backed cryptocurrencies">
 	<SectionHeader
 		title="Discover"
-		description="Of the {globalStats.history.at(-1)
-			.count} assets recorded in bcked, {globalStats.history.at(-1).underlying.total
+		description="Of the {latest.count} assets recorded in bcked, {latest.underlying.total
 			.count} are backed with a total backing of {formatCurrency(
-			globalStats.history.at(-1).underlying.total.usd
-		)} and an average backing of {formatCurrency(globalStats.history.at(-1).underlying.avg.usd)}."
+			latest.underlying.total.usd
+		)} and an average backing of {formatCurrency(latest.underlying.avg.usd)}."
 		theme={{ title: theme.text }}
 	/>
 	<div class="mt-10 w-full max-w-7xl mx-auto px-0 sm:px-4 lg:px-8">

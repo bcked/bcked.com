@@ -45,44 +45,45 @@
 							graph.getLinks(id)?.length && !details?.tags?.includes('lp')
 					)
 					.map(({ id, data: { details, history } }, i) => ({
-						rank: { text: i + 1, value: i },
+						rank: { text: (i + 1).toString(), value: i },
 						name: {
 							text: details.name,
 							value: details.name,
 							icon: `${base}/assets/${id}/icon.svg`
 						},
 						price: {
-							text: history?.at(-1)?.price?.usd
-								? formatCurrency(history?.at(-1)?.price?.usd ?? 0)
+							text: history.at(-1)?.price?.usd
+								? formatCurrency(history.at(-1)?.price?.usd ?? 0)
 								: 'UNK',
-							value: history?.at(-1)?.price?.usd
+							value: history.at(-1)?.price?.usd
 						},
 						'backing-assets': {
-							text: history?.at(-1)?.underlying?.count ?? 'UNK',
-							value: history?.at(-1)?.underlying?.count
+							text: history.at(-1)?.underlying?.count
+								? history.at(-1)?.underlying?.count?.toString() ?? ''
+								: 'UNK',
+							value: history.at(-1)?.underlying?.count
 						},
 						'backing-ratio': {
-							text: history?.at(-1)?.underlying?.ratio
-								? formatPercentage(history?.at(-1)?.underlying?.ratio)
+							text: history.at(-1)?.underlying?.ratio
+								? formatPercentage(history?.at(-1)?.underlying?.ratio?.value ?? 0)
 								: 'UNK',
-							value: history?.at(-1)?.underlying?.ratio
+							value: history.at(-1)?.underlying?.ratio?.value
 						},
 						'backing-usd': {
-							text: history?.at(-1)?.underlying?.usd
-								? formatCurrency(history?.at(-1)?.underlying?.usd)
+							text: history.at(-1)?.underlying?.usd
+								? formatCurrency(history?.at(-1)?.underlying?.usd ?? 0)
 								: 'UNK',
-							value: history?.at(-1)?.underlying?.usd
+							value: history.at(-1)?.underlying?.usd
 						},
 						mcap: {
-							text: history?.at(-1)?.mcap ? formatCurrency(history.at(-1).mcap) : 'UNK',
-							value: history?.at(-1)?.mcap
+							text: history.at(-1)?.mcap ? formatCurrency(history.at(-1)?.mcap?.value ?? 0) : 'UNK',
+							value: history.at(-1)?.mcap?.value
 						},
 						'backing-uniformity': {
-							text:
-								history?.at(-1)?.underlying?.ratio > 0
-									? formatPercentage(history?.at(-1)?.underlying?.uniformity)
-									: 'N/A',
-							value: history?.at(-1)?.underlying?.uniformity
+							text: history.at(-1)?.underlying?.ratio?.value
+								? formatPercentage(history.at(-1)?.underlying?.uniformity ?? 0)
+								: 'N/A',
+							value: history.at(-1)?.underlying?.uniformity
 						},
 						'name-path': { text: `${base}/assets/${id}`, value: `${base}/assets/${id}` }
 					}))}

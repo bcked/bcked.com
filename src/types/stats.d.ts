@@ -3,21 +3,29 @@ declare namespace stats {
 		timestamp: agg.Timestamp;
 	};
 
+	type HistoryRate = {
+		rate24h: number | undefined;
+		rate7d: number | undefined;
+		rate30d: number | undefined;
+		rate3m: number | undefined;
+		rate1y: number | undefined;
+	};
+
+	type HistoryValue = {
+		value: number;
+	} & HistoryRate;
+
 	type LinksStats = {
 		count: number;
 		usd: number;
-		ratio: number | null;
+		ratio: HistoryValue | undefined;
 		uniformity: number;
-		rate24h: number | undefined;
-		rate30d: number | undefined;
 	};
 
 	type Asset = HistoryBase & {
 		price: agg.AssetPrice;
 		supply: agg.AssetSupply;
-		mcap: number | undefined; // TODO Compute live
-		rate24h: number | undefined;
-		rate30d: number | undefined;
+		mcap: HistoryValue | undefined;
 		underlying?: LinksStats;
 		derivative?: LinksStats;
 	};
@@ -26,17 +34,13 @@ declare namespace stats {
 		source: string;
 
 		amount: number;
-		value: number | undefined; // TODO Compute live
-		rate24h: number | undefined;
-		rate30d: number | undefined;
+		usd: HistoryValue | undefined;
 	};
 
 	type AssetsShare = {
 		mcaps: { [Property in derived.AssetId]: number };
 		count: number;
-		tvl: number;
-		rate24h: number | undefined;
-		rate30d: number | undefined;
+		tvl: HistoryValue;
 	};
 
 	type Issuer = HistoryBase & {

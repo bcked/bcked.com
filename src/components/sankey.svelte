@@ -133,9 +133,9 @@
 			{@const target = graph.getNode(d.target.id)?.data}
 			<g class="sankey-link group">
 				<title>
-					{source.details.name}
+					{source?.details?.name}
 					{' -> '}
-					{target.details.name}
+					{target?.details?.name}
 					<!-- TODO there is something wrong with the value here -->
 					<!-- {formatCurrency(d.value)} -->
 				</title>
@@ -162,7 +162,7 @@
 			{@const iconSize = Math.min(nodeHeight, nodeWidth) * 0.8}
 			<g class="sankey-node group">
 				<title>
-					{asset.details.name}
+					{asset?.details?.name}
 				</title>
 				<rect
 					class="fill-neon-pink group-hover:fill-neon-blue"

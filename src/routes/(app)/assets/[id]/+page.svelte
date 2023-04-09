@@ -82,17 +82,17 @@
 		},
 		{
 			name: 'Market Cap',
-			value: latest?.mcap,
+			value: latest?.mcap?.value,
 			type: 'currency'
 		},
 		{
-			name: '24h Change',
-			value: latest?.rate24h,
+			name: '7d Change',
+			value: latest?.mcap?.rate7d,
 			type: 'change'
 		},
 		{
 			name: '30d Change',
-			value: latest?.rate30d,
+			value: latest?.mcap?.rate30d,
 			type: 'change'
 		}
 	];
@@ -116,17 +116,17 @@
 		},
 		{
 			name: 'Backing Ratio',
-			value: latest?.underlying?.ratio ?? undefined,
+			value: latest?.underlying?.ratio?.value,
 			type: 'percent'
 		},
 		{
-			name: '24h Change',
-			value: latest?.underlying?.rate24h,
+			name: '7d Change',
+			value: latest?.underlying?.ratio?.rate7d,
 			type: 'change'
 		},
 		{
 			name: '30d Change',
-			value: latest?.underlying?.rate30d,
+			value: latest?.underlying?.ratio?.rate30d,
 			type: 'change'
 		}
 	];
@@ -150,17 +150,17 @@
 		},
 		{
 			name: 'Derivative Ratio',
-			value: latest?.derivative?.ratio ?? undefined,
+			value: latest?.derivative?.ratio?.value,
 			type: 'percent'
 		},
 		{
-			name: '24h Change',
-			value: latest?.derivative?.rate24h,
+			name: '7d Change',
+			value: latest?.derivative?.ratio?.rate7d,
 			type: 'change'
 		},
 		{
 			name: '30d Change',
-			value: latest?.derivative?.rate30d,
+			value: latest?.derivative?.ratio?.rate30d,
 			type: 'change'
 		}
 	];
@@ -168,7 +168,7 @@
 	$: seo = {
 		title: `${details.name} (${details.symbol}) Backing, History, Chain`,
 		description: `${details.name} is backed ${
-			latest?.underlying?.ratio ? `to ${formatPercentage(latest?.underlying?.ratio!)} ` : ''
+			latest?.underlying?.ratio ? `to ${formatPercentage(latest?.underlying?.ratio!.value)} ` : ''
 		}
 			with ${formatCurrency(latest?.underlying?.usd ?? 0)} by ${latest?.underlying?.count} ${
 			latest?.underlying?.count == 1 ? 'asset' : 'assets'
@@ -253,13 +253,13 @@
 						<dl>
 							<dt class="text-sm font-medium text-gray-500 truncate">Current Backing</dt>
 							<dd class="mt-1 text-3xl font-semibold text-gray-900">
-								{formatCurrency(history?.at(-1)?.underlying?.usd ?? 0)}
+								{formatCurrency(latest?.underlying?.usd ?? 0)}
 							</dd>
 						</dl>
 						<dl class="text-right">
 							<dt class="text-sm font-medium text-gray-500 truncate">Current Market Cap</dt>
 							<dd class="mt-1 text-3xl font-semibold text-gray-900">
-								{history?.at(-1)?.mcap ? formatCurrency(history.at(-1)?.mcap ?? 0) : 'UNK'}
+								{latest?.mcap ? formatCurrency(latest?.mcap.value ?? 0) : 'UNK'}
 							</dd>
 						</dl>
 					</div>
@@ -269,7 +269,7 @@
 							data={underlying.length
 								? history.map(({ timestamp, underlying }) => ({
 										date: timestamp,
-										value: underlying?.ratio ?? 0
+										value: underlying?.ratio?.value ?? 0
 								  }))
 								: [
 										{
@@ -333,35 +333,39 @@
 						amount: {
 							text:
 								linkData.history?.at(-1)?.amount != undefined
-									? formatNum(linkData.history.at(-1).amount)
+									? formatNum(linkData.history.at(-1)?.amount ?? 0)
 									: 'UNK',
 							value: linkData.history?.at(-1)?.amount
 						},
 						share:
-							linkData.history?.at(-1)?.value != undefined
+							linkData.history?.at(-1)?.usd?.value != undefined
 								? {
-										text: formatPercentage(linkData.history.at(-1).value / latest?.underlying?.usd),
-										value: linkData.history.at(-1).value / latest?.underlying?.usd
+										text: formatPercentage(
+											linkData.history.at(-1)?.usd?.value / latest?.underlying?.usd
+										),
+										value: linkData.history.at(-1)?.usd?.value / latest?.underlying?.usd
 								  }
 								: {
 										text: 'UNK',
 										value: undefined
 								  },
 						'underlying-usd':
-							linkData.history?.at(-1)?.value != undefined
+							linkData.history?.at(-1)?.usd?.value != undefined
 								? {
-										text: formatCurrency(linkData.history.at(-1).value),
-										value: linkData.history.at(-1).value
+										text: formatCurrency(linkData.history.at(-1).usd?.value),
+										value: linkData.history.at(-1).usd?.value
 								  }
 								: {
 										text: 'UNK',
 										value: undefined
 								  },
 						'underlying-ratio':
-							linkData.history?.at(-1)?.value != undefined && latest?.mcap != undefined
+							linkData.history?.at(-1)?.usd?.value != undefined && latest?.mcap != undefined
 								? {
-										text: formatPercentage(linkData.history.at(-1).value / latest?.mcap),
-										value: linkData.history.at(-1).value / latest?.mcap
+										text: formatPercentage(
+											linkData.history.at(-1).usd?.value / latest?.mcap?.value
+										),
+										value: linkData.history.at(-1).usd?.value / latest?.mcap?.value
 								  }
 								: {
 										text: 'UNK',
@@ -404,7 +408,7 @@
 						<dl class="text-right">
 							<dt class="text-sm font-medium text-gray-500 truncate">Current Market Cap</dt>
 							<dd class="mt-1 text-3xl font-semibold text-gray-900">
-								{history?.at(-1)?.mcap ? formatCurrency(history.at(-1)?.mcap ?? 0) : 'UNK'}
+								{history?.at(-1)?.mcap ? formatCurrency(history.at(-1)?.mcap?.value ?? 0) : 'UNK'}
 							</dd>
 						</dl>
 					</div>
@@ -414,7 +418,7 @@
 							data={derivative.length
 								? history.map(({ timestamp, derivative }) => ({
 										date: timestamp,
-										value: derivative?.ratio ?? 0
+										value: derivative?.ratio?.value ?? 0
 								  }))
 								: [
 										{
@@ -483,30 +487,34 @@
 							value: linkData.history?.at(-1)?.amount
 						},
 						share:
-							linkData.history?.at(-1)?.value != undefined
+							linkData.history?.at(-1)?.usd?.value != undefined
 								? {
-										text: formatPercentage(linkData.history.at(-1).value / latest?.derivative?.usd),
-										value: linkData.history.at(-1).value / latest?.derivative?.usd
+										text: formatPercentage(
+											linkData.history.at(-1).usd?.value / latest?.derivative?.usd
+										),
+										value: linkData.history.at(-1).usd?.value / latest?.derivative?.usd
 								  }
 								: {
 										text: 'UNK',
 										value: undefined
 								  },
 						'derivative-usd':
-							linkData.history?.at(-1)?.value != undefined
+							linkData.history?.at(-1)?.usd?.value != undefined
 								? {
-										text: formatCurrency(linkData.history.at(-1).value),
-										value: linkData.history.at(-1).value
+										text: formatCurrency(linkData.history.at(-1).usd?.value),
+										value: linkData.history.at(-1).usd?.value
 								  }
 								: {
 										text: 'UNK',
 										value: undefined
 								  },
 						'derivative-ratio':
-							linkData.history?.at(-1)?.value != undefined && latest?.mcap != undefined
+							linkData.history?.at(-1)?.usd?.value != undefined && latest?.mcap != undefined
 								? {
-										text: formatPercentage(linkData.history.at(-1).value / latest?.mcap),
-										value: linkData.history.at(-1).value / latest?.mcap
+										text: formatPercentage(
+											linkData.history.at(-1).usd?.value / latest?.mcap?.value
+										),
+										value: linkData.history.at(-1).usd?.value / latest?.mcap?.value
 								  }
 								: {
 										text: 'UNK',

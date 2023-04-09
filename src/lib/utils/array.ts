@@ -5,6 +5,7 @@ const SECOND_IN_MS = 1000;
 const MINUTE_IN_MS = 60 * SECOND_IN_MS;
 const HOUR_IN_MS = 60 * MINUTE_IN_MS;
 const DAY_IN_MS = 24 * HOUR_IN_MS;
+const MONTH_IN_MS = 30 * DAY_IN_MS;
 
 /** Get the closest element in time. */
 export function closest<T extends { timestamp: string }>(array: T[], timestamp: string): T {
@@ -76,6 +77,14 @@ export function relativeInDays<T extends { timestamp: string }>(
 	deviation: number = 0.1
 ): T | undefined {
 	return relativeInMs(array, interval * DAY_IN_MS, deviation);
+}
+
+export function relativeInMonths<T extends { timestamp: string }>(
+	array: T[],
+	interval: number,
+	deviation: number = 0.1
+): T | undefined {
+	return relativeInMs(array, interval * MONTH_IN_MS, deviation);
 }
 
 /** Get a list of unique time strings within a specified range in milliseconds. */

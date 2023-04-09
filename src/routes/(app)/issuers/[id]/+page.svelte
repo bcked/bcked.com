@@ -48,17 +48,17 @@
 		},
 		{
 			name: 'Total Value Locked (TVL)',
-			value: assets.tvl,
+			value: assets.tvl.value,
 			type: 'currency'
 		},
 		{
-			name: '24h Change',
-			value: assets.rate24h,
+			name: '7d Change',
+			value: assets.tvl.rate7d,
 			type: 'change'
 		},
 		{
 			name: '30d Change',
-			value: assets.rate30d,
+			value: assets.tvl.rate30d,
 			type: 'change'
 		}
 	];
@@ -72,17 +72,17 @@
 		},
 		{
 			name: 'Total Value Locked (TVL)',
-			value: formatCurrency(lps.tvl),
+			value: assets.tvl.value,
 			type: 'currency'
 		},
 		{
-			name: '24h Change',
-			value: lps.rate24h,
+			name: '7d Change',
+			value: lps.tvl.rate7d,
 			type: 'change'
 		},
 		{
 			name: '30d Change',
-			value: lps.rate30d,
+			value: lps.tvl.rate30d,
 			type: 'change'
 		}
 	];
@@ -154,7 +154,7 @@
 				<FinancialChart
 					formatter={formatCurrency}
 					data={assets.count > 0
-						? issuerStats.history.map((s) => ({ date: s.timestamp, value: s.assets.tvl }))
+						? issuerStats.history.map((s) => ({ date: s.timestamp, value: s.assets.tvl.value }))
 						: [
 								{
 									date: new Date().toISOString(),
@@ -199,9 +199,9 @@
 					},
 					mcap: {
 						text: asset.history?.at(-1)?.mcap
-							? formatCurrency(asset.history?.at(-1)?.mcap ?? 0)
+							? formatCurrency(asset.history?.at(-1)?.mcap?.value ?? 0)
 							: 'UNK',
-						value: asset.history?.at(-1)?.mcap
+						value: asset.history?.at(-1)?.mcap?.value
 					}
 				}))}
 				sort={[{ by: 'mcap' }]}
@@ -230,7 +230,7 @@
 				<FinancialChart
 					formatter={formatCurrency}
 					data={lps.count > 0
-						? issuerStats.history.map((s) => ({ date: s.timestamp, value: s.lps.tvl }))
+						? issuerStats.history.map((s) => ({ date: s.timestamp, value: s.lps.tvl.value }))
 						: [
 								{
 									date: new Date().toISOString(),
@@ -278,9 +278,9 @@
 					},
 					mcap: {
 						text: asset.history?.at(-1)?.mcap
-							? formatCurrency(asset.history?.at(-1)?.mcap ?? 0)
+							? formatCurrency(asset.history?.at(-1)?.mcap?.value ?? 0)
 							: 'UNK',
-						value: asset.history?.at(-1)?.mcap
+						value: asset.history?.at(-1)?.mcap?.value
 					}
 				}))}
 				sort={[{ by: 'mcap' }]}

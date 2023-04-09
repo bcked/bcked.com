@@ -2,7 +2,28 @@ import { writeAggregation } from '$lib/utils/files';
 import { rate, round } from '$lib/utils/math';
 import _ from 'lodash';
 import type { Graph } from 'ngraph.graph';
-import { closest, relativeInDays, relativeInHours, uniqueTimesWithInHours } from './array';
+import {
+	closest,
+	relativeInDays,
+	relativeInHours,
+	relativeInMonths,
+	uniqueTimesWithInHours
+} from './array';
+
+function valuesFromHistory<T extends { history: { timestamp: string }[] }, V>(
+	array: T[],
+	timestamp: string,
+	idPath: string,
+	valuePath: string,
+	defaultValue: V
+): { [id: string]: V } {
+	return Object.fromEntries(
+		array.map((elem) => [
+			_.get(elem, idPath),
+			_.get(closest(elem.history, timestamp), valuePath, defaultValue)
+		])
+	);
+}
 
 export function calcChainStats(assetsOnChain: graph.NodeData[]): stats.ChainStats {
 	const timepoints = uniqueTimesWithInHours(
@@ -11,24 +32,40 @@ export function calcChainStats(assetsOnChain: graph.NodeData[]): stats.ChainStat
 
 	let history = [];
 	for (const timestamp of timepoints) {
-		const mcaps = Object.fromEntries(
-			assetsOnChain.map((asset) => [asset.details.id, closest(asset.history, timestamp)?.mcap ?? 0])
-		);
+		const mcaps = valuesFromHistory(assetsOnChain, timestamp, 'details.id', 'mcap.value', 0);
 		const item: stats.Chain = {
 			timestamp,
 			mcaps: mcaps,
 			count: Object.keys(mcaps).length,
-			tvl: _.sum(Object.values(mcaps)),
-			rate24h: undefined,
-			rate30d: undefined
+			tvl: {
+				value: _.sum(Object.values(mcaps)),
+				rate24h: undefined,
+				rate7d: undefined,
+				rate30d: undefined,
+				rate3m: undefined,
+				rate1y: undefined
+			}
 		};
 
 		history.push(item);
 
-		const value24h = relativeInHours(history, 24, 0.5)?.tvl;
-		const value30d = relativeInDays(history, 30, 0.5)?.tvl;
-		if (value24h != undefined) item.rate24h = round(rate(value24h, item.tvl), 4);
-		if (value30d != undefined) item.rate30d = round(rate(value30d, item.tvl), 4);
+		const comp = (elem: stats.Chain | undefined, path: string) =>
+			elem ? round(rate(_.get(elem, path), _.get(item, path)), 4) : undefined;
+
+		const elem24h = relativeInHours(history, 24, 0.5);
+		item.tvl.rate24h = comp(elem24h, 'tvl.value');
+
+		const elem7d = relativeInDays(history, 7, 0.5);
+		item.tvl.rate7d = comp(elem7d, 'tvl.value');
+
+		const elem30d = relativeInDays(history, 30, 0.5);
+		item.tvl.rate30d = comp(elem30d, 'tvl.value');
+
+		const elem3m = relativeInMonths(history, 3, 0.5);
+		item.tvl.rate3m = comp(elem3m, 'tvl.value');
+
+		const elem1y = relativeInMonths(history, 12, 0.5);
+		item.tvl.rate1y = comp(elem1y, 'tvl.value');
 	}
 
 	return { history };
@@ -61,43 +98,61 @@ export function calcIssuerStats(assetsOfIssuer: graph.NodeData[]): stats.IssuerS
 
 	let history = [];
 	for (const timestamp of timepoints) {
-		const assetMcaps = Object.fromEntries(
-			assets.map((asset) => [asset.details.id, closest(asset.history, timestamp)?.mcap ?? 0])
-		);
-		const lpMcaps = Object.fromEntries(
-			lps.map((asset) => [asset.details.id, closest(asset.history, timestamp)?.mcap ?? 0])
-		);
+		const assetMcaps = valuesFromHistory(assets, timestamp, 'details.id', 'mcap.value', 0);
+		const lpMcaps = valuesFromHistory(lps, timestamp, 'details.id', 'mcap.value', 0);
+
 		const item: stats.Issuer = {
 			timestamp,
 			assets: {
 				mcaps: assetMcaps,
 				count: Object.keys(assetMcaps).length,
-				tvl: _.sum(Object.values(assetMcaps)),
-				rate24h: undefined,
-				rate30d: undefined
+				tvl: {
+					value: _.sum(Object.values(assetMcaps)),
+					rate24h: undefined,
+					rate7d: undefined,
+					rate30d: undefined,
+					rate3m: undefined,
+					rate1y: undefined
+				}
 			},
 			lps: {
 				mcaps: lpMcaps,
 				count: Object.keys(lpMcaps).length,
-				tvl: _.sum(Object.values(lpMcaps)),
-				rate24h: undefined,
-				rate30d: undefined
+				tvl: {
+					value: _.sum(Object.values(lpMcaps)),
+					rate24h: undefined,
+					rate7d: undefined,
+					rate30d: undefined,
+					rate3m: undefined,
+					rate1y: undefined
+				}
 			}
 		};
 
 		history.push(item);
 
-		const assetsValue24h = relativeInHours(history, 24, 0.5)?.assets?.tvl;
-		const assetsValue30d = relativeInDays(history, 30, 0.5)?.assets?.tvl;
-		if (assetsValue24h != undefined)
-			item.assets.rate24h = round(rate(assetsValue24h, item.assets.tvl), 4);
-		if (assetsValue30d != undefined)
-			item.assets.rate30d = round(rate(assetsValue30d, item.assets.tvl), 4);
+		const comp = (elem: stats.Issuer | undefined, path: string) =>
+			elem ? round(rate(_.get(elem, path), _.get(item, path)), 4) : undefined;
 
-		const lpsValue24h = relativeInHours(history, 24, 0.5)?.lps.tvl;
-		const lpsValue30d = relativeInDays(history, 30, 0.5)?.lps.tvl;
-		if (lpsValue24h != undefined) item.lps.rate24h = round(rate(lpsValue24h, item.lps.tvl), 4);
-		if (lpsValue30d != undefined) item.lps.rate30d = round(rate(lpsValue30d, item.lps.tvl), 4);
+		const elem24h = relativeInHours(history, 24, 0.5);
+		item.assets.tvl.rate24h = comp(elem24h, 'assets.tvl.value');
+		item.lps.tvl.rate24h = comp(elem24h, 'assets.tvl.value');
+
+		const elem7d = relativeInDays(history, 7, 0.5);
+		item.assets.tvl.rate7d = comp(elem7d, 'assets.tvl.value');
+		item.lps.tvl.rate7d = comp(elem7d, 'assets.tvl.value');
+
+		const elem30d = relativeInDays(history, 30, 0.5);
+		item.assets.tvl.rate30d = comp(elem30d, 'assets.tvl.value');
+		item.lps.tvl.rate30d = comp(elem30d, 'assets.tvl.value');
+
+		const elem3m = relativeInMonths(history, 3, 0.5);
+		item.assets.tvl.rate3m = comp(elem3m, 'assets.tvl.value');
+		item.lps.tvl.rate3m = comp(elem3m, 'assets.tvl.value');
+
+		const elem1y = relativeInMonths(history, 12, 0.5);
+		item.assets.tvl.rate1y = comp(elem1y, 'assets.tvl.value');
+		item.lps.tvl.rate1y = comp(elem1y, 'assets.tvl.value');
 	}
 
 	return { history };

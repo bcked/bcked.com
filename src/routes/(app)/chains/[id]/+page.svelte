@@ -49,17 +49,17 @@
 		},
 		{
 			name: 'Total Value Locked (TVL)',
-			value: latestStats.tvl,
+			value: latestStats.tvl.value,
 			type: 'currency'
 		},
 		{
-			name: '24h Change',
-			value: latestStats.rate24h,
+			name: '7d Change',
+			value: latestStats.tvl.rate7d,
 			type: 'change'
 		},
 		{
 			name: '30d Change',
-			value: latestStats.rate30d,
+			value: latestStats.tvl.rate30d,
 			type: 'change'
 		}
 	];
@@ -133,7 +133,7 @@
 			<FinancialChart
 				formatter={formatCurrency}
 				data={latestStats.count > 0
-					? chainStats.history.map((s) => ({ date: s.timestamp, value: s.tvl }))
+					? chainStats.history.map((s) => ({ date: s.timestamp, value: s.tvl.value }))
 					: [
 							{
 								date: new Date().toISOString(),
@@ -178,9 +178,9 @@
 				},
 				mcap: {
 					text: asset.history?.at(-1)?.mcap
-						? formatCurrency(asset.history?.at(-1)?.mcap ?? 0)
+						? formatCurrency(asset.history?.at(-1)?.mcap?.value ?? 0)
 						: 'UNK',
-					value: asset.history?.at(-1)?.mcap
+					value: asset.history?.at(-1)?.mcap?.value
 				}
 			}))}
 			sort={[{ by: 'mcap' }]}

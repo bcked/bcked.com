@@ -34,8 +34,8 @@
 		}
 	};
 
-	$: backingUsd = formatCurrency(globalStats.history.at(-1).underlying.total.usd);
-	$: backingUsdAvg = formatCurrency(globalStats.history.at(-1).underlying.avg.usd);
+	$: backingUsd = formatCurrency(globalStats.history.at(-1)!.underlying.total.usd);
+	$: backingUsdAvg = formatCurrency(globalStats.history.at(-1)!.underlying.avg.usd);
 	$: seo = {
 		title: 'bcked: Cryptocurrency Backing, Ranking, History, Stats, ...',
 		description: `The cryptocurrencies recorded in bcked are backed by ${backingUsd} with an average backing of ${backingUsdAvg}. Read more on bcked, which is an open source community project that provides and visualizes data about cryptocurrency backing.`,

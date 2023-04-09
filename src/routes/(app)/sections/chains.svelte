@@ -41,13 +41,13 @@
 						return {
 							...chain,
 							numAssets: assetsOnChain.length,
-							tvl: _.sumBy(assetsOnChain, (asset) => asset.data.history?.at(-1)?.mcap ?? 0)
+							tvl: _.sumBy(assetsOnChain, (asset) => asset.data.history?.at(-1)?.mcap?.value ?? 0)
 						};
 					})
 					.filter((chain) => chain.tvl)
 					.sort((a, b) => compare(a.tvl, b.tvl))
 					.map((chain, i) => ({
-						rank: { text: i + 1, value: i },
+						rank: { text: (i + 1).toString(), value: i },
 						name: {
 							text: chain.name,
 							value: chain.name,
@@ -58,7 +58,7 @@
 							value: `${base}/chains/${chain.id}`
 						},
 						numAssets: {
-							text: chain.numAssets,
+							text: chain.numAssets.toString(),
 							value: chain.numAssets
 						},
 						tvl: {

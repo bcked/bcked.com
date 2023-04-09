@@ -1,4 +1,10 @@
-import { closest, relativeInDays, relativeInHours, uniqueTimesWithInHours } from '$lib/utils/array';
+import {
+	closest,
+	relativeInDays,
+	relativeInHours,
+	relativeInMonths,
+	uniqueTimesWithInHours
+} from '$lib/utils/array';
 import { writeAggregation } from '$lib/utils/files';
 import { uniformity as calcUniformity, rate, round } from '$lib/utils/math';
 import fs from 'fs';
@@ -72,13 +78,21 @@ export function limitValueByLinks(
 			const nodeValue = incomingLinks.length
 				? _.sumBy(
 						incomingLinks,
-						({ data }) => closest(data.history, nodeData.timestamp)?.value ?? 0
+						({ data }) => closest(data.history, nodeData.timestamp)?.usd?.value ?? 0
 				  )
-				: nodeData.mcap ?? 0;
+				: nodeData.mcap?.value ?? 0;
 
 			return {
 				...nodeData,
-				mcap: nodeValue
+				mcap: {
+					rate24h: undefined,
+					rate7d: undefined,
+					rate30d: undefined,
+					rate3m: undefined,
+					rate1y: undefined,
+					// ...nodeData.mcap,
+					value: nodeValue
+				}
 			};
 		});
 
@@ -96,18 +110,26 @@ export function limitValueByLinks(
 
 			const linkHistory = link.data.history.map((linkData, i) => {
 				let linkValue = 0;
-				if (linkData.amount && linkData.value) {
+				if (linkData.amount && linkData.usd?.value) {
 					const linkValueTotal = _.sumBy(
 						underlyingLinks,
-						({ data }) => data.history[i]?.value ?? 0
+						({ data }) => data.history[i]?.usd?.value ?? 0
 					);
-					const linkRatio = linkData.value / linkValueTotal;
-					linkValue = linkRatio * (closest(nodeHistory, linkData.timestamp)?.mcap ?? 0);
+					const linkRatio = linkData.usd?.value / linkValueTotal;
+					linkValue = linkRatio * (closest(nodeHistory, linkData.timestamp)?.mcap?.value ?? 0);
 				}
 
 				return {
 					...linkData,
-					value: linkValue
+					usd: {
+						rate24h: undefined,
+						rate7d: undefined,
+						rate30d: undefined,
+						rate3m: undefined,
+						rate1y: undefined,
+						// ...nodeData.mcap,
+						value: linkValue
+					}
 				};
 			});
 
@@ -167,22 +189,42 @@ function addNodes(graph: Graph<graph.NodeData, graph.LinkData>, data: agg.Data) 
 		for (const timestamp of uniqueList) {
 			const supply = closest(supplyHistory, timestamp);
 			const price = closest(priceHistory, timestamp);
-			const mcap = round(price.usd * supply.total, 2);
+			const mcap = {
+				value: round(price.usd * supply.total, 2),
+				rate24h: undefined,
+				rate7d: undefined,
+				rate30d: undefined,
+				rate3m: undefined,
+				rate1y: undefined
+			};
 			const item: stats.Asset = {
 				timestamp,
 				price,
 				supply,
-				mcap,
-				rate24h: undefined,
-				rate30d: undefined
+				mcap
 			};
 
 			history.push(item);
 
-			const value24h = relativeInHours(history, 24, 0.5)?.mcap;
-			const value30d = relativeInDays(history, 30, 0.5)?.mcap;
-			if (value24h != undefined) item.rate24h = round(rate(value24h, item.mcap ?? 0), 4);
-			if (value30d != undefined) item.rate30d = round(rate(value30d, item.mcap ?? 0), 4);
+			const comp = (elem: stats.Asset | undefined, path: string) =>
+				elem ? round(rate(_.get(elem, path), _.get(item, path)), 4) : undefined;
+
+			if (item.mcap != undefined) {
+				const elem24h = relativeInHours(history, 24, 0.5);
+				item.mcap.rate24h = comp(elem24h, 'mcap.value');
+
+				const elem7d = relativeInDays(history, 7, 0.5);
+				item.mcap.rate7d = comp(elem7d, 'mcap.value');
+
+				const elem30d = relativeInDays(history, 30, 0.5);
+				item.mcap.rate30d = comp(elem30d, 'mcap.value');
+
+				const elem3m = relativeInMonths(history, 3, 0.5);
+				item.mcap.rate3m = comp(elem3m, 'mcap.value');
+
+				const elem1y = relativeInMonths(history, 12, 0.5);
+				item.mcap.rate1y = comp(elem1y, 'mcap.value');
+			}
 		}
 
 		graph.addNode(id, {
@@ -202,10 +244,17 @@ function addLinks(graph: Graph<graph.NodeData, graph.LinkData>, data: agg.Data) 
 				const amount = backing.assets[underlying] ?? 0;
 				const underlyingHistory = graph.getNode(underlying)?.data?.history;
 
-				let value: number | undefined = undefined;
+				let usd: stats.HistoryValue | undefined = undefined;
 				if (underlyingHistory?.length) {
 					const data = closest(underlyingHistory, backing.timestamp);
-					value = round(data.price.usd * amount, 2);
+					usd = {
+						value: round(data.price.usd * amount, 2),
+						rate24h: undefined,
+						rate7d: undefined,
+						rate30d: undefined,
+						rate3m: undefined,
+						rate1y: undefined
+					};
 				}
 
 				let history = graph.getLink(id, underlying)?.data?.history ?? [];
@@ -214,19 +263,29 @@ function addLinks(graph: Graph<graph.NodeData, graph.LinkData>, data: agg.Data) 
 					timestamp: backing.timestamp,
 					source: backing.source,
 					amount,
-					value,
-					rate24h: undefined,
-					rate30d: undefined
+					usd
 				};
 
 				history.push(item);
 
-				if (value != undefined) {
-					const value24h = relativeInHours(history, 24, 0.5)?.value;
-					const value30d = relativeInDays(history, 30, 0.5)?.value;
+				if (item.usd != undefined) {
+					const comp = (elem: stats.Backing | undefined, path: string) =>
+						elem ? round(rate(_.get(elem, path), _.get(item, path)), 4) : undefined;
 
-					if (value24h != undefined) item.rate24h = round(rate(value24h, value), 4);
-					if (value30d != undefined) item.rate30d = round(rate(value30d, value), 4);
+					const elem24h = relativeInHours(history, 24, 0.5);
+					item.usd.rate24h = comp(elem24h, 'usd.value');
+
+					const elem7d = relativeInDays(history, 7, 0.5);
+					item.usd.rate7d = comp(elem7d, 'usd.value');
+
+					const elem30d = relativeInDays(history, 30, 0.5);
+					item.usd.rate30d = comp(elem30d, 'usd.value');
+
+					const elem3m = relativeInMonths(history, 3, 0.5);
+					item.usd.rate3m = comp(elem3m, 'usd.value');
+
+					const elem1y = relativeInMonths(history, 12, 0.5);
+					item.usd.rate1y = comp(elem1y, 'usd.value');
 				}
 
 				graph.addLink(id, underlying, {
@@ -242,20 +301,27 @@ function calcLinksStats(assetStats: stats.Asset, links: Link<graph.LinkData>[]):
 		.map((link) => closest(link.data.history, assetStats.timestamp))
 		.filter((link) => link.amount > 0);
 
-	const values = _.map(backings, 'value');
+	const values = _.map(backings, 'usd.value');
 
 	const count = backings.length;
 	const usd = round(_.sum(values), 2);
-	const ratio = assetStats.mcap ? round(usd / assetStats.mcap, 4) : null;
 	const uniformity = round(calcUniformity(_.compact(values)), 4);
+	const ratio = assetStats.mcap
+		? {
+				value: round(usd / assetStats.mcap.value, 4),
+				rate24h: undefined,
+				rate7d: undefined,
+				rate30d: undefined,
+				rate3m: undefined,
+				rate1y: undefined
+		  }
+		: undefined;
 
 	return {
 		count,
 		usd,
 		ratio,
-		uniformity,
-		rate24h: undefined,
-		rate30d: undefined
+		uniformity
 	};
 }
 
@@ -266,32 +332,34 @@ function addNodeStats(graph: Graph<graph.NodeData, graph.LinkData>, data: agg.Da
 		const derivativeLinks = links.filter((link) => link.fromId != node.id);
 		const history = node.data.history;
 		for (let i = 0; i < history.length; i++) {
-			const e = history[i]!;
-			e['underlying'] = calcLinksStats(e, underlyingLinks);
-			e['derivative'] = calcLinksStats(e, derivativeLinks);
+			const item = history[i]!;
+			history[i]!['underlying'] = calcLinksStats(item, underlyingLinks);
+			history[i]!['derivative'] = calcLinksStats(item, derivativeLinks);
 
 			const historySlice = history.slice(0, i + 1);
 
+			const comp = (elem: stats.Asset | undefined, path: string) =>
+				elem ? round(_.get(item, path) - _.get(elem, path), 4) : undefined;
+
 			const elem24h = relativeInHours(historySlice, 24, 0.5);
+			item.underlying!.ratio!.rate24h = comp(elem24h, 'underlying.ratio.value');
+			item.derivative!.ratio!.rate24h = comp(elem24h, 'derivative.ratio.value');
+
+			const elem7d = relativeInDays(historySlice, 7, 0.5);
+			item.underlying!.ratio!.rate7d = comp(elem7d, 'underlying.ratio.value');
+			item.derivative!.ratio!.rate7d = comp(elem7d, 'derivative.ratio.value');
+
 			const elem30d = relativeInDays(historySlice, 30, 0.5);
+			item.underlying!.ratio!.rate30d = comp(elem30d, 'underlying.ratio.value');
+			item.derivative!.ratio!.rate30d = comp(elem30d, 'derivative.ratio.value');
 
-			if (elem24h != undefined) {
-				if (elem24h.underlying!.ratio != null && e.underlying!.ratio != null) {
-					e.underlying!.rate24h = round(e.underlying!.ratio - elem24h.underlying!.ratio, 4);
-				}
-				if (elem24h.derivative!.ratio != null && e.derivative!.ratio != null) {
-					e.derivative!.rate24h = round(e.derivative!.ratio - elem24h.derivative!.ratio, 4);
-				}
-			}
+			const elem3m = relativeInMonths(historySlice, 3, 0.5);
+			item.underlying!.ratio!.rate3m = comp(elem3m, 'underlying.ratio.value');
+			item.derivative!.ratio!.rate3m = comp(elem3m, 'derivative.ratio.value');
 
-			if (elem30d != undefined) {
-				if (elem30d.underlying!.ratio != null && e.underlying!.ratio != null) {
-					e.underlying!.rate30d = round(e.underlying!.ratio - elem30d.underlying!.ratio, 4);
-				}
-				if (elem30d.derivative!.ratio != null && e.derivative!.ratio != null) {
-					e.derivative!.rate30d = round(e.derivative!.ratio - elem30d.derivative!.ratio, 4);
-				}
-			}
+			const elem1y = relativeInMonths(historySlice, 12, 0.5);
+			item.underlying!.ratio!.rate1y = comp(elem1y, 'underlying.ratio.value');
+			item.derivative!.ratio!.rate1y = comp(elem1y, 'derivative.ratio.value');
 		}
 	});
 }

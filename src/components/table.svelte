@@ -2,7 +2,6 @@
 	import { base } from '$app/paths';
 	import { combine, compare } from '$lib/utils/string-formatting';
 	import { ChevronDownIcon, ChevronUpIcon } from '@rgossiaux/svelte-heroicons/solid';
-	import type { ComponentType } from 'svelte';
 	import { twMerge } from 'tailwind-merge';
 	import type { PageData } from '../routes/(app)/$types';
 
@@ -20,7 +19,7 @@
 	export let columns: Column[];
 
 	type Row = {
-		[key: string]: { text: string; value: string | number | undefined; icon: ComponentType };
+		[key: string]: { text: string; value: string | number | undefined; icon?: string };
 	};
 	export let rows: Row[];
 
