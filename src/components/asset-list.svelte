@@ -10,15 +10,15 @@
 	export let headerIcon: ComponentType;
 	export let title: string;
 	export let size: number;
-	export let map: (asset: agg.AssetDetails) => any = (asset) => asset;
-	export let filter: (asset: agg.AssetDetails) => boolean;
-	export let compare: (a: agg.AssetDetails, b: agg.AssetDetails) => number;
-	export let select: (asset: agg.AssetDetails) => string;
+	export let map: <T extends agg.AssetDetails>(asset: T) => T = (asset) => asset;
+	export let filter: <T>(asset: T) => boolean;
+	export let compare: <T>(a: T, b: T) => number;
+	export let select: <T>(asset: T) => string;
 </script>
 
 <div class="px-4 py-5 overflow-hidden sm:p-6 text-gray-900">
 	<dt>
-		<div class="flex items-center space-x-2 ">
+		<div class="flex items-center space-x-2">
 			<svelte:component this={headerIcon} class="h-5 w-5" aria-hidden="true" />
 			<span class="text-lg font-semibold">{title}</span>
 		</div>

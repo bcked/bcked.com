@@ -2,6 +2,7 @@
 	import { PUBLIC_DOMAIN } from '$env/static/public';
 	import { formatCurrency } from '$lib/utils/string-formatting';
 	import SvelteSeo from 'svelte-seo';
+	import { blue, pink, yellow } from '../../themes';
 	import type { PageData } from './$types';
 	import ChainsSection from './sections/chains.svelte';
 	import DiscoverSection from './sections/discover.svelte';
@@ -12,27 +13,6 @@
 	export let data: PageData;
 
 	$: ({ globalStats } = data);
-
-	const themes = {
-		blue: {
-			text: 'text-neon-blue',
-			from: 'from-neon-blue',
-			via: 'via-neon-blue',
-			to: 'to-neon-gray-light'
-		},
-		yellow: {
-			text: 'text-neon-yellow',
-			from: 'from-neon-yellow',
-			via: 'via-neon-yellow',
-			to: 'to-gray-50'
-		},
-		pink: {
-			text: 'text-neon-pink',
-			from: 'from-neon-pink',
-			via: 'via-neon-pink',
-			to: 'to-gray-light'
-		}
-	};
 
 	$: backingUsd = formatCurrency(globalStats.history.at(-1)!.underlying.total.usd);
 	$: backingUsdAvg = formatCurrency(globalStats.history.at(-1)!.underlying.avg.usd);
@@ -70,8 +50,8 @@
 	}}
 />
 
-<IntroSection {data} theme={themes.blue} />
-<DiscoverSection {data} theme={themes.yellow} />
-<RankingSection {data} theme={themes.pink} />
-<IssuersSection {data} theme={themes.yellow} />
-<ChainsSection {data} theme={themes.blue} />
+<IntroSection {data} theme={blue} />
+<DiscoverSection {data} theme={yellow} />
+<RankingSection {data} theme={pink} />
+<IssuersSection {data} theme={yellow} />
+<ChainsSection {data} theme={blue} />
