@@ -1,6 +1,6 @@
 import { ALCHEMY_ARBITRUM, ALCHEMY_ETHEREUM, ALCHEMY_POLYGON } from '$env/static/private';
 import { providers } from '@0xsequence/multicall';
-import { BigNumber, Contract, providers as ethersProviders, utils } from 'ethers';
+import { Contract, providers as ethersProviders, utils, type BigNumber } from 'ethers';
 
 import { format } from '$lib/utils/string-formatting';
 import type { MulticallProvider } from '@0xsequence/multicall/dist/declarations/src/providers';

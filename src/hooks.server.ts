@@ -98,9 +98,9 @@ async function updateData(
 		console.log(`Data update started.`);
 		const queryResults = await queryAssets(assetsDetails, assetsContracts);
 		for (const [id, queryResult] of Object.entries(queryResults)) {
-			writeHistoryUpdate(id, queryResult, assetsPrice, 'price');
-			writeHistoryUpdate(id, queryResult, assetsSupply, 'supply');
-			writeHistoryUpdate(id, queryResult, assetsBacking, 'backing');
+			writeHistoryUpdate('price', id, queryResult, assetsPrice);
+			writeHistoryUpdate('supply', id, queryResult, assetsSupply);
+			writeHistoryUpdate('backing', id, queryResult, assetsBacking);
 		}
 		await aggregateFolders<derived.AssetId, agg.AssetPriceData>('assets', 'price');
 		await aggregateFolders<derived.AssetId, agg.AssetSupplyData>('assets', 'supply');

@@ -23,14 +23,29 @@ export function writeAggregation(name: string, obj: Object) {
 	writeJson(`./.aggregation/${name}.json`, sortedData);
 }
 
+export function writeHistory(
+	t: 'price' | 'supply' | 'backing',
+	id: derived.AssetId,
+	history: object[] = []
+) {
+	writeJson(`./assets/${id}/${t}.json`, { history });
+}
+
 export function writeHistoryUpdate(
+	t: 'price' | 'supply' | 'backing',
 	id: derived.AssetId,
 	queryResult: query.Result,
-	historyData: { [Property in derived.AssetId]: { history: object[] } },
-	t: 'price' | 'supply' | 'backing'
+	historyData: { [Property in derived.AssetId]: { history: object[] } }
 ) {
+	if (!queryResult[t] && historyData[id]) return; // No change
+
 	if (queryResult[t] && historyData[id]) {
 		historyData[id]!.history.push(queryResult[t]!);
-		writeJson(`./assets/${id}/${t}.json`, { history: historyData[id]!.history });
+	} else if (queryResult[t]) {
+		historyData[id] = { history: [queryResult[t]!] };
+	} else {
+		historyData[id] = { history: [] };
 	}
+
+	writeHistory(t, id, historyData[id]!.history);
 }

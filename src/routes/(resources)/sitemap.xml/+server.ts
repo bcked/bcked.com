@@ -12,7 +12,7 @@ export const GET: RequestHandler = async () => {
 
 	// const assets = await _readAssets();
 	const sortedAssets = Object.values(assetsBacking)
-		.filter(({ history }) => Object.keys(history.at(-1)!.assets).length > 0)
+		.filter(({ history }) => history.length > 0 && Object.keys(history.at(-1)!.assets).length > 0)
 		.map((asset) => ({
 			loc: `${PUBLIC_DOMAIN}/assets/${asset.id}`,
 			lastmod: asset.git.updated.date,
