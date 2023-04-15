@@ -271,6 +271,46 @@
             }
         }
     },
+    "cusdcv2-compound-ethereum": {
+        "id": "cusdcv2-compound-ethereum",
+        "name": "Compound USD Coin v2",
+        "symbol": "cUSDCv2",
+        "issuer": "compound",
+        "reference": "https://docs.compound.finance/v2/",
+        "tags": [
+            "cryptocurrency"
+        ],
+        "git": {
+            "updated": {
+                "hash": "a2573df4ac1ad4b7b03e2b53ebb3aa714a16e7d4",
+                "date": "2023-04-15T23:16:30.000Z"
+            },
+            "created": {
+                "hash": "a2573df4ac1ad4b7b03e2b53ebb3aa714a16e7d4",
+                "date": "2023-04-15T23:16:30.000Z"
+            }
+        }
+    },
+    "cusdtv2-compound-ethereum": {
+        "id": "cusdtv2-compound-ethereum",
+        "name": "Compound USDT v2",
+        "symbol": "cUSDTv2",
+        "issuer": "compound",
+        "reference": "https://docs.compound.finance/v2/",
+        "tags": [
+            "cryptocurrency"
+        ],
+        "git": {
+            "updated": {
+                "hash": "a2573df4ac1ad4b7b03e2b53ebb3aa714a16e7d4",
+                "date": "2023-04-15T23:16:30.000Z"
+            },
+            "created": {
+                "hash": "a2573df4ac1ad4b7b03e2b53ebb3aa714a16e7d4",
+                "date": "2023-04-15T23:16:30.000Z"
+            }
+        }
+    },
     "eth-binance-bsc": {
         "id": "eth-binance-bsc",
         "name": "Binance-Peg Ethereum",
@@ -331,6 +371,27 @@
             "created": {
                 "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
                 "date": "2023-02-01T21:31:00.000Z"
+            }
+        }
+    },
+    "eusd-reserve-eth": {
+        "id": "eusd-reserve-eth",
+        "name": "Electronic Dollar",
+        "symbol": "eUSD",
+        "issuer": "reserve",
+        "reference": "https://register.app/#/overview?token=0xA0d69E286B938e21CBf7E51D71F6A4c8918f482F",
+        "tags": [
+            "cryptocurrency",
+            "stable"
+        ],
+        "git": {
+            "updated": {
+                "hash": "a2573df4ac1ad4b7b03e2b53ebb3aa714a16e7d4",
+                "date": "2023-04-15T23:16:30.000Z"
+            },
+            "created": {
+                "hash": "a2573df4ac1ad4b7b03e2b53ebb3aa714a16e7d4",
+                "date": "2023-04-15T23:16:30.000Z"
             }
         }
     },
@@ -1377,6 +1438,27 @@
             "created": {
                 "hash": "582a44205d2389f913b46607a06868928a502c0d",
                 "date": "2023-01-31T21:59:44.000Z"
+            }
+        }
+    },
+    "usdt-tether-ethereum": {
+        "id": "usdt-tether-ethereum",
+        "name": "Tether USD",
+        "symbol": "USDT",
+        "issuer": "tether",
+        "reference": "https://tether.to/en/transparency/",
+        "tags": [
+            "cryptocurrency",
+            "stable"
+        ],
+        "git": {
+            "updated": {
+                "hash": "a2573df4ac1ad4b7b03e2b53ebb3aa714a16e7d4",
+                "date": "2023-04-15T23:16:30.000Z"
+            },
+            "created": {
+                "hash": "a2573df4ac1ad4b7b03e2b53ebb3aa714a16e7d4",
+                "date": "2023-04-15T23:16:30.000Z"
             }
         }
     }

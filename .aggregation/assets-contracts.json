@@ -252,6 +252,54 @@
             }
         }
     },
+    "cusdcv2-compound-ethereum": {
+        "id": "cusdcv2-compound-ethereum",
+        "token": {
+            "address": "0x39AA39c021dfbaE8faC545936693aC917d5E7563",
+            "chain": "ethereum"
+        },
+        "vault": {
+            "address": "0x39AA39c021dfbaE8faC545936693aC917d5E7563",
+            "chain": "ethereum",
+            "underlying-assets": [
+                "usdc-circle-ethereum"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "a2573df4ac1ad4b7b03e2b53ebb3aa714a16e7d4",
+                "date": "2023-04-15T23:16:30.000Z"
+            },
+            "created": {
+                "hash": "a2573df4ac1ad4b7b03e2b53ebb3aa714a16e7d4",
+                "date": "2023-04-15T23:16:30.000Z"
+            }
+        }
+    },
+    "cusdtv2-compound-ethereum": {
+        "id": "cusdtv2-compound-ethereum",
+        "token": {
+            "address": "0xf650C3d88D12dB855b8bf7D11Be6C55A4e07dCC9",
+            "chain": "ethereum"
+        },
+        "vault": {
+            "address": "0xf650C3d88D12dB855b8bf7D11Be6C55A4e07dCC9",
+            "chain": "ethereum",
+            "underlying-assets": [
+                "usdt-tether-ethereum"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "a2573df4ac1ad4b7b03e2b53ebb3aa714a16e7d4",
+                "date": "2023-04-15T23:16:30.000Z"
+            },
+            "created": {
+                "hash": "a2573df4ac1ad4b7b03e2b53ebb3aa714a16e7d4",
+                "date": "2023-04-15T23:16:30.000Z"
+            }
+        }
+    },
     "eth-binance-bsc": {
         "id": "eth-binance-bsc",
         "token": {
@@ -290,6 +338,31 @@
             "created": {
                 "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
                 "date": "2023-02-01T21:31:00.000Z"
+            }
+        }
+    },
+    "eusd-reserve-eth": {
+        "id": "eusd-reserve-eth",
+        "token": {
+            "address": "0xA0d69E286B938e21CBf7E51D71F6A4c8918f482F",
+            "chain": "ethereum"
+        },
+        "vault": {
+            "address": "0xF014FEF41cCB703975827C8569a3f0940cFD80A4",
+            "chain": "ethereum",
+            "underlying-assets": [
+                "cusdcv2-compound-ethereum",
+                "cusdtv2-compound-ethereum"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "a2573df4ac1ad4b7b03e2b53ebb3aa714a16e7d4",
+                "date": "2023-04-15T23:16:30.000Z"
+            },
+            "created": {
+                "hash": "a2573df4ac1ad4b7b03e2b53ebb3aa714a16e7d4",
+                "date": "2023-04-15T23:16:30.000Z"
             }
         }
     },
@@ -1339,6 +1412,23 @@
             "created": {
                 "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
                 "date": "2023-02-01T21:31:00.000Z"
+            }
+        }
+    },
+    "usdt-tether-ethereum": {
+        "id": "usdt-tether-ethereum",
+        "token": {
+            "address": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+            "chain": "ethereum"
+        },
+        "git": {
+            "updated": {
+                "hash": "a2573df4ac1ad4b7b03e2b53ebb3aa714a16e7d4",
+                "date": "2023-04-15T23:16:30.000Z"
+            },
+            "created": {
+                "hash": "a2573df4ac1ad4b7b03e2b53ebb3aa714a16e7d4",
+                "date": "2023-04-15T23:16:30.000Z"
             }
         }
     }
