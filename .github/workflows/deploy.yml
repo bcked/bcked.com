@@ -6,8 +6,8 @@ on:
     branches:
       - main
   schedule:
-    # Runs "at 22:00 every day" (see https://crontab.guru)
-    - cron: "0 22 * * *"
+    # Runs "At minute 0 past hour 5 and 17." (see https://crontab.guru)
+    - cron: "0 5,17 * * *"
   workflow_dispatch:
 
 jobs:

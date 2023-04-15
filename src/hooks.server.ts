@@ -93,8 +93,8 @@ async function updateData(
 	assetsSupply: agg.AssetsSupply,
 	assetsBacking: agg.AssetsBacking
 ) {
-	// Update only every 12h
-	if (!update.query || Date.now() - new Date(update.query).getTime() > 12 * 60 * 60 * 1000) {
+	// Update only every 6h
+	if (!update.query || Date.now() - new Date(update.query).getTime() > 6 * 60 * 60 * 1000) {
 		console.log(`Data update started.`);
 		const queryResults = await queryAssets(assetsDetails, assetsContracts);
 		for (const [id, queryResult] of Object.entries(queryResults)) {
