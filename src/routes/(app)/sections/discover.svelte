@@ -42,7 +42,7 @@
 						<AssetList
 							{data}
 							headerIcon={ClockIcon}
-							title="New Listings"
+							title="Newest Listings"
 							filter={(asset) =>
 								(graph.getLinks(asset.id) ?? []).filter((link) => link.toId != asset.id).length > 0}
 							compare={(a, b) => {
