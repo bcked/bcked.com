@@ -30,7 +30,7 @@
 
 	export let data: PageData;
 
-	$: ({ assetsPrice, assetsBacking, graphData, issuersDetails, chainsDetails, comments } = data);
+	$: ({ graphData, issuersDetails, chainsDetails, comments } = data);
 
 	let graph: Graph<graph.NodeData, graph.LinkData>;
 	$: graph = fromJson(graphData);

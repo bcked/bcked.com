@@ -36,7 +36,7 @@
 				</h1>
 				{#if subtitle}
 					<span
-						class="hidden sm:inline text-xs font-semibold uppercase text-gray-600 bg-gray-300 rounded-md p-1"
+						class="hidden sm:inline text-xs font-semibold text-gray-600 bg-gray-300 rounded-md p-1"
 						>{subtitle}</span
 					>
 				{/if}
