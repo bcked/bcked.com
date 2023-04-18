@@ -1,7 +1,7 @@
 import { queryAssets } from '$lib/query/query';
 import { aggregateFolders } from '$lib/utils/aggregation';
 import { aggregateIcons } from '$lib/utils/copy-icons';
-import { readAggregation, writeAggregation, writeHistoryUpdate } from '$lib/utils/files';
+import { readAggregation, writeAggregation, writeHistory } from '$lib/utils/files';
 import { createBackingGraph } from '$lib/utils/graph';
 import {
 	aggregateChainsStats,
@@ -9,6 +9,7 @@ import {
 	aggregateIssuersStats
 } from '$lib/utils/stats';
 import fs from 'fs';
+import _ from 'lodash';
 
 console.log(`Hooks loading.`);
 
@@ -47,7 +48,7 @@ async function aggregateData() {
 		'backing'
 	);
 
-	await updateData(assetsDetails, assetsContracts, assetsPrice, assetsSupply, assetsBacking);
+	await updateData(assetsContracts, assetsPrice, assetsSupply, assetsBacking);
 
 	const data = {
 		assetsDetails,
@@ -86,8 +87,80 @@ async function aggregateData() {
 	};
 }
 
+function writeHistoryUpdate(
+	t: 'price' | 'supply' | 'backing',
+	id: derived.AssetId,
+	queryResult: query.Result,
+	historyData: { [Property in derived.AssetId]: { history: object[] } }
+) {
+	if (!queryResult[t] && historyData[id]) return; // No change
+
+	if (queryResult[t] && historyData[id]) {
+		historyData[id]!.history.push(queryResult[t]!);
+	} else if (queryResult[t]) {
+		historyData[id] = { history: [queryResult[t]!] };
+	} else {
+		historyData[id] = { history: [] };
+	}
+
+	writeHistory(t, id, historyData[id]!.history);
+}
+
+/** Compute the price for assets where the price is determined by the backing. */
+function computePrices(
+	assetsContracts: agg.AssetsContracts,
+	assetsPrice: agg.AssetsPrice,
+	assetsSupply: agg.AssetsSupply,
+	assetsBacking: agg.AssetsBacking
+) {
+	let computedAssets = Object.entries(assetsContracts)
+		.filter(([id, contracts]) => contracts.computed)
+		.map(([id, contracts]) => ({
+			id,
+			contracts,
+			price: assetsPrice[id],
+			supply: assetsSupply[id],
+			backing: assetsBacking[id]
+		}));
+
+	let change = true;
+	while (change) {
+		change = false;
+
+		for (const { id, price, supply, backing } of Object.values(computedAssets)) {
+			const latestPrice = price?.history?.at(-1);
+			const latestSupply = supply?.history?.at(-1);
+			const latestBacking = backing?.history?.at(-1);
+
+			if (price && latestSupply && latestBacking) {
+				// Calculate Net Asset Value (NAV) for LP tokens and take that as price.
+				try {
+					const totalBacking = _.sum(
+						Object.entries(latestBacking.assets).map(
+							([bId, bAmount]) => assetsPrice[bId]!.history.at(-1)!.usd * bAmount
+						)
+					);
+					const computedPrice = totalBacking / latestSupply.total;
+					if (latestPrice?.usd != computedPrice) {
+						change = true;
+						price.history.push({
+							usd: computedPrice,
+							source: `Calculated Net Asset Value (NAV) based on underlying assets: ${Object.keys(
+								latestBacking.assets
+							)}`,
+							timestamp: new Date().toISOString()
+						});
+						writeHistory('price', id, price.history);
+					}
+				} catch {
+					console.log(`Failed to calculate NAV price for ${id}.`);
+				}
+			}
+		}
+	}
+}
+
 async function updateData(
-	assetsDetails: agg.AssetsDetails,
 	assetsContracts: agg.AssetsContracts,
 	assetsPrice: agg.AssetsPrice,
 	assetsSupply: agg.AssetsSupply,
@@ -96,12 +169,15 @@ async function updateData(
 	// Update only every 6h
 	if (!update.query || Date.now() - new Date(update.query).getTime() > 6 * 60 * 60 * 1000) {
 		console.log(`Data update started.`);
-		const queryResults = await queryAssets(assetsDetails, assetsContracts);
+		const queryResults = await queryAssets(assetsContracts);
 		for (const [id, queryResult] of Object.entries(queryResults)) {
 			writeHistoryUpdate('price', id, queryResult, assetsPrice);
 			writeHistoryUpdate('supply', id, queryResult, assetsSupply);
 			writeHistoryUpdate('backing', id, queryResult, assetsBacking);
 		}
+
+		computePrices(assetsContracts, assetsPrice, assetsSupply, assetsBacking);
+
 		await aggregateFolders<derived.AssetId, agg.AssetPriceData>('assets', 'price');
 		await aggregateFolders<derived.AssetId, agg.AssetSupplyData>('assets', 'supply');
 		await aggregateFolders<derived.AssetId, agg.AssetBackingData>('assets', 'backing');

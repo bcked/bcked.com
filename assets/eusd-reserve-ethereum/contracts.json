@@ -6,6 +6,11 @@
 	"vault": {
 		"address": "0xF014FEF41cCB703975827C8569a3f0940cFD80A4",
 		"chain": "ethereum",
-		"underlying-assets": ["cusdcv2-compound-ethereum", "cusdtv2-compound-ethereum"]
+		"underlying-assets": [
+			"cusdcv2-compound-ethereum",
+			"cusdtv2-compound-ethereum",
+			"sausdc-reserve-ethereum",
+			"sausdt-reserve-ethereum"
+		]
 	}
 }

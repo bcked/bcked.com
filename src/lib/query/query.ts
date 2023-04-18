@@ -1,6 +1,5 @@
 import { ApiProxy } from '$lib/query/apis/proxy';
 import { ChainProxy } from '$lib/query/chains/proxy';
-import _ from 'lodash';
 
 const chain = new ChainProxy();
 const api = new ApiProxy();
@@ -63,11 +62,10 @@ async function queryChainData(
 	};
 }
 
-export async function queryAssets(
-	assetsDetails: agg.AssetsDetails,
-	assetsContracts: agg.AssetsContracts
-): Promise<query.Results> {
-	const pricePromise = api.getPrices(Object.values(assetsContracts));
+export async function queryAssets(assetsContracts: agg.AssetsContracts): Promise<query.Results> {
+	const pricePromise = api.getPrices(
+		Object.values(assetsContracts).filter((contracts) => !contracts.computed)
+	);
 
 	const chainDataPromise = Promise.all(
 		Object.values(assetsContracts).map(async (contracts) =>
@@ -80,29 +78,6 @@ export async function queryAssets(
 	let allData = Object.fromEntries(
 		chainData.map((data) => [data.id, { ...data, price: price[data.id] ?? null }])
 	);
-
-	Object.entries(allData).forEach(([id, data]) => {
-		if (!data.price && assetsDetails[id]!.tags.includes('lp') && data.supply && data.backing) {
-			// Calculate Net Asset Value (NAV) for LP tokens and take that as price.
-			try {
-				const totalBacking = _.sum(
-					Object.entries(data.backing.assets).map(
-						([bId, bAmount]) => allData[bId]!.price!.usd * bAmount
-					)
-				);
-				const price = totalBacking / data.supply.total;
-				data.price = {
-					usd: price,
-					source: `Calculated Net Asset Value (NAV) based on the LPs underlying assets: ${Object.keys(
-						data.backing.assets
-					)}`,
-					timestamp: new Date().toISOString()
-				};
-			} catch {
-				console.log(`Failed to pull LP prices for ${id}.`);
-			}
-		}
-	});
 
 	return allData;
 }
