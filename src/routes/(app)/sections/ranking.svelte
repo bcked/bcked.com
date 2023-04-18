@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import Glow from '$components/glow.svelte';
-	import SectionHeader from '$components/layout/section/header.svelte';
-	import Section from '$components/layout/section/main.svelte';
+	import SectionHeader from '$components/layout/landing/section/header.svelte';
+	import Section from '$components/layout/landing/section/main.svelte';
 	import Table from '$components/table.svelte';
 	import { formatCurrency, formatPercentage } from '$lib/utils/string-formatting';
 	import fromJson from 'ngraph.fromjson';

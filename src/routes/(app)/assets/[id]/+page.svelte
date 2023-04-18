@@ -6,6 +6,7 @@
 	import Card from '$components/layout/card/main.svelte';
 	import Stats from '$components/layout/card/stats.svelte';
 	import Page from '$components/layout/page.svelte';
+	import Title from '$components/layout/section/title.svelte';
 	import SubjectItem from '$components/layout/title/item.svelte';
 	import SubjectTitle from '$components/layout/title/main.svelte';
 	import Sankey from '$components/sankey-layer.svelte';
@@ -225,6 +226,7 @@
 		{/if}
 	</SubjectTitle>
 
+	<Title>General Information</Title>
 	<div class="grid grid-cols-2 gap-[0.1rem] sm:gap-4 md:grid-cols-4 shadow sm:shadow-none">
 		<!-- {stats.length <= 4 ? stats.length : 4} -->
 		{#each stats as data}
@@ -235,6 +237,7 @@
 	</div>
 
 	{#if underlying.length > 0}
+		<Title>Backing Information</Title>
 		<div
 			class="grid grid-cols-2 sm:grid-cols-3 gap-[0.1rem] sm:gap-4 lg:grid-cols-6 shadow sm:shadow-none"
 		>
@@ -379,6 +382,7 @@
 	{/if}
 
 	{#if derivative.length > 0}
+		<Title>Derivative Information</Title>
 		<div
 			class="grid grid-cols-2 sm:grid-cols-3 gap-[0.1rem] sm:gap-4 lg:grid-cols-6 shadow sm:shadow-none"
 		>

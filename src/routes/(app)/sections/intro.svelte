@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { base } from '$app/paths';
-	import SectionHeader from '$components/layout/section/header.svelte';
-	import Section from '$components/layout/section/main.svelte';
+	import SectionHeader from '$components/layout/landing/section/header.svelte';
+	import Section from '$components/layout/landing/section/main.svelte';
 	import { loadSvg } from '$lib/utils/three';
 	import type { ForceGraph3DInstance } from '3d-force-graph';
 	import { onMount } from 'svelte';

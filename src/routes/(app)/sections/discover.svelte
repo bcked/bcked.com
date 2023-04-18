@@ -3,8 +3,8 @@
 	import AssetList from '$components/asset-list.svelte';
 	import Glow from '$components/glow.svelte';
 	import Card from '$components/layout/card/main.svelte';
-	import SectionHeader from '$components/layout/section/header.svelte';
-	import Section from '$components/layout/section/main.svelte';
+	import SectionHeader from '$components/layout/landing/section/header.svelte';
+	import Section from '$components/layout/landing/section/main.svelte';
 	import { formatCurrency, formatPercentage } from '$lib/utils/string-formatting';
 	import { ClockIcon, HashtagIcon } from '@rgossiaux/svelte-heroicons/outline';
 	import CurrencyDollar from '@rgossiaux/svelte-heroicons/outline/CurrencyDollar';
