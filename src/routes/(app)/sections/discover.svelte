@@ -59,6 +59,64 @@
 							<Carousel autoplay autoplayDuration={3000} arrows={false} pauseOnFocus>
 								<AssetList
 									{data}
+									headerIcon={TrendingUp}
+									title="Biggest 7d Gainers"
+									map={(asset) => ({
+										...asset,
+										rate: graph.getNode(asset.id)?.data.history.at(-1)?.underlying?.ratio?.rate7d
+									})}
+									filter={(asset) => asset.rate != undefined && asset.rate > 0}
+									compare={(a, b) => b.rate - a.rate}
+									size={3}
+									select={(asset) => formatPercentage(asset.rate)}
+								/>
+								<AssetList
+									{data}
+									headerIcon={TrendingDown}
+									title="Biggest 7d Losers"
+									map={(asset) => ({
+										...asset,
+										rate: graph.getNode(asset.id)?.data.history.at(-1)?.underlying?.ratio?.rate7d
+									})}
+									filter={(asset) => asset.rate != undefined && asset.rate < 0}
+									compare={(a, b) => a.rate - b.rate}
+									size={3}
+									select={(asset) => formatPercentage(asset.rate)}
+								/>
+								<AssetList
+									{data}
+									headerIcon={TrendingUp}
+									title="Biggest 30d Gainers"
+									map={(asset) => ({
+										...asset,
+										rate: graph.getNode(asset.id)?.data.history.at(-1)?.underlying?.ratio?.rate30d
+									})}
+									filter={(asset) => asset.rate != undefined && asset.rate > 0}
+									compare={(a, b) => b.rate - a.rate}
+									size={3}
+									select={(asset) => formatPercentage(asset.rate)}
+								/>
+								<AssetList
+									{data}
+									headerIcon={TrendingDown}
+									title="Biggest 30d Losers"
+									map={(asset) => ({
+										...asset,
+										rate: graph.getNode(asset.id)?.data.history.at(-1)?.underlying?.ratio?.rate30d
+									})}
+									filter={(asset) => asset.rate != undefined && asset.rate < 0}
+									compare={(a, b) => a.rate - b.rate}
+									size={3}
+									select={(asset) => formatPercentage(asset.rate)}
+								/>
+							</Carousel>
+						{/if}
+					</Card>
+					<Card class="">
+						{#if browser}
+							<Carousel autoplay autoplayDuration={3000} arrows={false} pauseOnFocus>
+								<AssetList
+									{data}
 									headerIcon={HashtagIcon}
 									title="Number of Underlying"
 									map={(asset) => ({
@@ -111,64 +169,6 @@
 									compare={(a, b) => b.derivativesUsd - a.derivativesUsd}
 									size={3}
 									select={(asset) => formatCurrency(asset.derivativesUsd)}
-								/>
-							</Carousel>
-						{/if}
-					</Card>
-					<Card class="">
-						{#if browser}
-							<Carousel autoplay autoplayDuration={3000} arrows={false} pauseOnFocus>
-								<AssetList
-									{data}
-									headerIcon={TrendingUp}
-									title="Biggest 7d Gainers"
-									map={(asset) => ({
-										...asset,
-										rate: graph.getNode(asset.id)?.data.history.at(-1)?.underlying?.ratio?.rate7d
-									})}
-									filter={(asset) => asset.rate != undefined && asset.rate > 0}
-									compare={(a, b) => b.rate - a.rate}
-									size={3}
-									select={(asset) => formatPercentage(asset.rate)}
-								/>
-								<AssetList
-									{data}
-									headerIcon={TrendingDown}
-									title="Biggest 7d Losers"
-									map={(asset) => ({
-										...asset,
-										rate: graph.getNode(asset.id)?.data.history.at(-1)?.underlying?.ratio?.rate7d
-									})}
-									filter={(asset) => asset.rate != undefined && asset.rate < 0}
-									compare={(a, b) => a.rate - b.rate}
-									size={3}
-									select={(asset) => formatPercentage(asset.rate)}
-								/>
-								<AssetList
-									{data}
-									headerIcon={TrendingUp}
-									title="Biggest 30d Gainers"
-									map={(asset) => ({
-										...asset,
-										rate: graph.getNode(asset.id)?.data.history.at(-1)?.underlying?.ratio?.rate30d
-									})}
-									filter={(asset) => asset.rate != undefined && asset.rate > 0}
-									compare={(a, b) => b.rate - a.rate}
-									size={3}
-									select={(asset) => formatPercentage(asset.rate)}
-								/>
-								<AssetList
-									{data}
-									headerIcon={TrendingDown}
-									title="Biggest 30d Losers"
-									map={(asset) => ({
-										...asset,
-										rate: graph.getNode(asset.id)?.data.history.at(-1)?.underlying?.ratio?.rate30d
-									})}
-									filter={(asset) => asset.rate != undefined && asset.rate < 0}
-									compare={(a, b) => a.rate - b.rate}
-									size={3}
-									select={(asset) => formatPercentage(asset.rate)}
 								/>
 							</Carousel>
 						{/if}
