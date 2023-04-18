@@ -1,4 +1,15 @@
 {
+    "aave": {
+        "root": "",
+        "dir": "issuers/aave",
+        "base": "icon.png",
+        "ext": ".png",
+        "name": "icon",
+        "basename": "aave",
+        "source": "issuers/aave/icon.png",
+        "target": "static/issuers/aave",
+        "href": "issuers/aave/icon.png"
+    },
     "allbridge": {
         "root": "",
         "dir": "issuers/allbridge",
@@ -75,6 +86,17 @@
         "source": "issuers/fed/icon.png",
         "target": "static/issuers/fed",
         "href": "issuers/fed/icon.png"
+    },
+    "mobilecoin": {
+        "root": "",
+        "dir": "issuers/mobilecoin",
+        "base": "icon.png",
+        "ext": ".png",
+        "name": "icon",
+        "basename": "mobilecoin",
+        "source": "issuers/mobilecoin/icon.png",
+        "target": "static/issuers/mobilecoin",
+        "href": "issuers/mobilecoin/icon.png"
     },
     "moonbeamfoundation": {
         "root": "",

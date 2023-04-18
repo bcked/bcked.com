@@ -1,4 +1,44 @@
 {
+    "ausdc-aave-ethereum": {
+        "id": "ausdc-aave-ethereum",
+        "history": [
+            {
+                "total": 621101851.474797,
+                "timestamp": "2023-04-18T22:00:10.814Z",
+                "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}"
+            }
+        ],
+        "git": {
+            "updated": {
+                "hash": null,
+                "date": "2023-04-18T22:03:54.057Z"
+            },
+            "created": {
+                "hash": null,
+                "date": "2023-04-18T22:03:54.057Z"
+            }
+        }
+    },
+    "ausdt-aave-ethereum": {
+        "id": "ausdt-aave-ethereum",
+        "history": [
+            {
+                "total": 505782842.115247,
+                "timestamp": "2023-04-18T22:00:10.814Z",
+                "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}"
+            }
+        ],
+        "git": {
+            "updated": {
+                "hash": null,
+                "date": "2023-04-18T22:03:54.057Z"
+            },
+            "created": {
+                "hash": null,
+                "date": "2023-04-18T22:03:54.057Z"
+            }
+        }
+    },
     "bjt-bsc": {
         "id": "bjt-bsc",
         "history": [
@@ -371,12 +411,17 @@
                 "total": 1000000000000,
                 "timestamp": "2023-04-18T17:09:25.604Z",
                 "source": "https://bsc-dataseed3.binance.org/"
+            },
+            {
+                "total": 1000000000000,
+                "timestamp": "2023-04-18T22:00:11.269Z",
+                "source": "https://bsc-dataseed3.binance.org/"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -761,12 +806,17 @@
                 "total": 3251637.749174939,
                 "timestamp": "2023-04-18T17:09:25.604Z",
                 "source": "https://bsc-dataseed3.binance.org/"
+            },
+            {
+                "total": 3256645.723714842,
+                "timestamp": "2023-04-18T22:00:11.269Z",
+                "source": "https://bsc-dataseed3.binance.org/"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -1141,12 +1191,17 @@
                 "total": 2136.68582074,
                 "timestamp": "2023-04-18T17:09:25.473Z",
                 "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}"
+            },
+            {
+                "total": 2136.68582074,
+                "timestamp": "2023-04-18T22:00:10.814Z",
+                "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -1521,12 +1576,17 @@
                 "total": 10213.48596672,
                 "timestamp": "2023-04-18T17:09:24.817Z",
                 "source": "https://solana-mainnet.g.alchemy.com/v2/{ALCHEMY_SOLANA}"
+            },
+            {
+                "total": 10213.5251831,
+                "timestamp": "2023-04-18T22:00:10.570Z",
+                "source": "https://solana-mainnet.g.alchemy.com/v2/{ALCHEMY_SOLANA}"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -1901,12 +1961,17 @@
                 "total": 60500.99999999999,
                 "timestamp": "2023-04-18T17:09:25.604Z",
                 "source": "https://bsc-dataseed3.binance.org/"
+            },
+            {
+                "total": 60500.99999999999,
+                "timestamp": "2023-04-18T22:00:11.268Z",
+                "source": "https://bsc-dataseed3.binance.org/"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -2306,12 +2371,17 @@
                 "total": 69918.8263948,
                 "timestamp": "2023-04-18T17:09:24.925Z",
                 "source": "https://solana-mainnet.g.alchemy.com/v2/{ALCHEMY_SOLANA}"
+            },
+            {
+                "total": 69907.584682609,
+                "timestamp": "2023-04-18T22:00:10.569Z",
+                "source": "https://solana-mainnet.g.alchemy.com/v2/{ALCHEMY_SOLANA}"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -2686,12 +2756,17 @@
                 "total": 2250999016.256384,
                 "timestamp": "2023-04-18T17:09:25.604Z",
                 "source": "https://bsc-dataseed3.binance.org/"
+            },
+            {
+                "total": 2250999016.256384,
+                "timestamp": "2023-04-18T22:00:11.268Z",
+                "source": "https://bsc-dataseed3.binance.org/"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -3066,12 +3141,17 @@
                 "total": 426736.1375266271,
                 "timestamp": "2023-04-18T17:09:25.833Z",
                 "source": "https://moonbeam.public.blastapi.io"
+            },
+            {
+                "total": 426544.70452662715,
+                "timestamp": "2023-04-18T22:00:11.251Z",
+                "source": "https://moonbeam.public.blastapi.io"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -3446,12 +3526,17 @@
                 "total": 613156.5091976741,
                 "timestamp": "2023-04-18T17:09:25.640Z",
                 "source": "https://rpc.api.moonriver.moonbeam.network"
+            },
+            {
+                "total": 613156.5091976741,
+                "timestamp": "2023-04-18T22:00:11.100Z",
+                "source": "https://rpc.api.moonriver.moonbeam.network"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -4061,12 +4146,17 @@
                 "total": 6656024716.67,
                 "timestamp": "2023-04-18T17:09:25.472Z",
                 "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}"
+            },
+            {
+                "total": 6641005990.46,
+                "timestamp": "2023-04-18T22:00:10.813Z",
+                "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -4446,12 +4536,17 @@
                 "total": 11000000,
                 "timestamp": "2023-04-18T17:09:25.578Z",
                 "source": "https://bsc-dataseed3.binance.org/"
+            },
+            {
+                "total": 11000000,
+                "timestamp": "2023-04-18T22:00:11.015Z",
+                "source": "https://bsc-dataseed3.binance.org/"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -4826,12 +4921,17 @@
                 "total": 2354092.443034003,
                 "timestamp": "2023-04-18T17:09:25.472Z",
                 "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}"
+            },
+            {
+                "total": 2354092.443034003,
+                "timestamp": "2023-04-18T22:00:10.813Z",
+                "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -4871,12 +4971,17 @@
                 "total": 16495280496.611193,
                 "timestamp": "2023-04-18T17:09:25.472Z",
                 "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}"
+            },
+            {
+                "total": 16987807309.039865,
+                "timestamp": "2023-04-18T22:00:10.813Z",
+                "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "ad69d8367ce2d358128490799e60ab91d6c7fbe8",
@@ -4916,12 +5021,17 @@
                 "total": 7478649951.512955,
                 "timestamp": "2023-04-18T17:09:25.472Z",
                 "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}"
+            },
+            {
+                "total": 7478588732.10669,
+                "timestamp": "2023-04-18T22:00:10.813Z",
+                "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "ad69d8367ce2d358128490799e60ab91d6c7fbe8",
@@ -5296,12 +5406,17 @@
                 "total": 604999.9999908485,
                 "timestamp": "2023-04-18T17:09:25.578Z",
                 "source": "https://bsc-dataseed3.binance.org/"
+            },
+            {
+                "total": 604999.9999908485,
+                "timestamp": "2023-04-18T22:00:11.015Z",
+                "source": "https://bsc-dataseed3.binance.org/"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -5701,12 +5816,17 @@
                 "total": 3738644.3210522463,
                 "timestamp": "2023-04-18T17:09:25.472Z",
                 "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}"
+            },
+            {
+                "total": 3752506.6628973503,
+                "timestamp": "2023-04-18T22:00:10.813Z",
+                "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -5714,8 +5834,8 @@
             }
         }
     },
-    "eusd-reserve-eth": {
-        "id": "eusd-reserve-eth",
+    "eusd-mobilecoin-ethereum": {
+        "id": "eusd-mobilecoin-ethereum",
         "history": [
             {
                 "total": 11667833.962858355,
@@ -5746,12 +5866,17 @@
                 "total": 11917720.186947355,
                 "timestamp": "2023-04-18T17:09:25.472Z",
                 "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}"
+            },
+            {
+                "total": 11917720.186947355,
+                "timestamp": "2023-04-18T22:00:10.813Z",
+                "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "3d3bd2c5cdcada77d94bb3bf7b6978ff2bd91bb6",
+                "date": "2023-04-18T20:13:30.000Z"
             },
             "created": {
                 "hash": "ad69d8367ce2d358128490799e60ab91d6c7fbe8",
@@ -6131,12 +6256,17 @@
                 "total": 1000000000000,
                 "timestamp": "2023-04-18T17:09:25.578Z",
                 "source": "https://bsc-dataseed3.binance.org/"
+            },
+            {
+                "total": 1000000000000,
+                "timestamp": "2023-04-18T22:00:11.015Z",
+                "source": "https://bsc-dataseed3.binance.org/"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -6516,12 +6646,17 @@
                 "total": 100000000000000,
                 "timestamp": "2023-04-18T17:09:25.578Z",
                 "source": "https://bsc-dataseed3.binance.org/"
+            },
+            {
+                "total": 100000000000000,
+                "timestamp": "2023-04-18T22:00:11.014Z",
+                "source": "https://bsc-dataseed3.binance.org/"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -6916,12 +7051,17 @@
                 "total": 14862527.028887957,
                 "timestamp": "2023-04-18T17:09:25.874Z",
                 "source": "https://moonbeam.public.blastapi.io"
+            },
+            {
+                "total": 14852294.864184694,
+                "timestamp": "2023-04-18T22:00:11.274Z",
+                "source": "https://moonbeam.public.blastapi.io"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -7276,12 +7416,17 @@
                 "total": 40175.491873613544,
                 "timestamp": "2023-04-18T17:09:25.976Z",
                 "source": "https://moonbeam.public.blastapi.io"
+            },
+            {
+                "total": 40181.76554206168,
+                "timestamp": "2023-04-18T22:00:11.401Z",
+                "source": "https://moonbeam.public.blastapi.io"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -7686,12 +7831,17 @@
                 "total": 1000000000000,
                 "timestamp": "2023-04-18T17:09:25.472Z",
                 "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}"
+            },
+            {
+                "total": 1000000000000,
+                "timestamp": "2023-04-18T22:00:10.813Z",
+                "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -8066,12 +8216,17 @@
                 "total": 15330095168.926317,
                 "timestamp": "2023-04-18T17:09:25.578Z",
                 "source": "https://bsc-dataseed3.binance.org/"
+            },
+            {
+                "total": 15330095168.926317,
+                "timestamp": "2023-04-18T22:00:11.014Z",
+                "source": "https://bsc-dataseed3.binance.org/"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -8421,12 +8576,17 @@
                 "total": 657626.9366190747,
                 "timestamp": "2023-04-18T17:09:25.577Z",
                 "source": "https://bsc-dataseed3.binance.org/"
+            },
+            {
+                "total": 657626.9366190747,
+                "timestamp": "2023-04-18T22:00:11.014Z",
+                "source": "https://bsc-dataseed3.binance.org/"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -8776,12 +8936,17 @@
                 "total": 2919.854150072722,
                 "timestamp": "2023-04-18T17:09:25.577Z",
                 "source": "https://bsc-dataseed3.binance.org/"
+            },
+            {
+                "total": 2919.854150072722,
+                "timestamp": "2023-04-18T22:00:11.014Z",
+                "source": "https://bsc-dataseed3.binance.org/"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -9131,12 +9296,17 @@
                 "total": 186557.79059078227,
                 "timestamp": "2023-04-18T17:09:25.577Z",
                 "source": "https://bsc-dataseed3.binance.org/"
+            },
+            {
+                "total": 186557.79059078227,
+                "timestamp": "2023-04-18T22:00:11.014Z",
+                "source": "https://bsc-dataseed3.binance.org/"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -9486,12 +9656,17 @@
                 "total": 318.5318433049515,
                 "timestamp": "2023-04-18T17:09:25.577Z",
                 "source": "https://bsc-dataseed3.binance.org/"
+            },
+            {
+                "total": 318.5318433049515,
+                "timestamp": "2023-04-18T22:00:11.014Z",
+                "source": "https://bsc-dataseed3.binance.org/"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -9841,12 +10016,17 @@
                 "total": 3385001.886158202,
                 "timestamp": "2023-04-18T17:09:25.577Z",
                 "source": "https://bsc-dataseed3.binance.org/"
+            },
+            {
+                "total": 3025044.6849683,
+                "timestamp": "2023-04-18T22:00:11.014Z",
+                "source": "https://bsc-dataseed3.binance.org/"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -10196,12 +10376,17 @@
                 "total": 504.94614834558814,
                 "timestamp": "2023-04-18T17:09:25.577Z",
                 "source": "https://bsc-dataseed3.binance.org/"
+            },
+            {
+                "total": 504.94614834558814,
+                "timestamp": "2023-04-18T22:00:11.014Z",
+                "source": "https://bsc-dataseed3.binance.org/"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -10551,12 +10736,17 @@
                 "total": 370.62439970339665,
                 "timestamp": "2023-04-18T17:09:25.577Z",
                 "source": "https://bsc-dataseed3.binance.org/"
+            },
+            {
+                "total": 370.62439970339665,
+                "timestamp": "2023-04-18T22:00:11.014Z",
+                "source": "https://bsc-dataseed3.binance.org/"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -10906,12 +11096,17 @@
                 "total": 2189.8717729890377,
                 "timestamp": "2023-04-18T17:09:25.577Z",
                 "source": "https://bsc-dataseed3.binance.org/"
+            },
+            {
+                "total": 2189.8717729890377,
+                "timestamp": "2023-04-18T22:00:11.014Z",
+                "source": "https://bsc-dataseed3.binance.org/"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -11266,12 +11461,17 @@
                 "total": 0.000816384213270556,
                 "timestamp": "2023-04-18T17:09:25.979Z",
                 "source": "https://moonbeam.public.blastapi.io"
+            },
+            {
+                "total": 0.000816384213270556,
+                "timestamp": "2023-04-18T22:00:11.278Z",
+                "source": "https://moonbeam.public.blastapi.io"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -11626,12 +11826,17 @@
                 "total": 0.01177891537048592,
                 "timestamp": "2023-04-18T17:09:25.635Z",
                 "source": "https://rpc.api.moonriver.moonbeam.network"
+            },
+            {
+                "total": 0.01177891537048592,
+                "timestamp": "2023-04-18T22:00:11.102Z",
+                "source": "https://rpc.api.moonriver.moonbeam.network"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -11981,12 +12186,17 @@
                 "total": 31.471294320604255,
                 "timestamp": "2023-04-18T17:09:25.577Z",
                 "source": "https://bsc-dataseed3.binance.org/"
+            },
+            {
+                "total": 31.471294320604255,
+                "timestamp": "2023-04-18T22:00:11.014Z",
+                "source": "https://bsc-dataseed3.binance.org/"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -12336,12 +12546,17 @@
                 "total": 350626.3322590384,
                 "timestamp": "2023-04-18T17:09:25.812Z",
                 "source": "https://bsc-dataseed3.binance.org/"
+            },
+            {
+                "total": 350626.3322590384,
+                "timestamp": "2023-04-18T22:00:10.918Z",
+                "source": "https://bsc-dataseed3.binance.org/"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -12691,12 +12906,17 @@
                 "total": 8574.178409115508,
                 "timestamp": "2023-04-18T17:09:25.812Z",
                 "source": "https://bsc-dataseed3.binance.org/"
+            },
+            {
+                "total": 8574.178409115508,
+                "timestamp": "2023-04-18T22:00:10.918Z",
+                "source": "https://bsc-dataseed3.binance.org/"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -13046,12 +13266,17 @@
                 "total": 3085766.278364336,
                 "timestamp": "2023-04-18T17:09:25.812Z",
                 "source": "https://bsc-dataseed3.binance.org/"
+            },
+            {
+                "total": 3085766.278364336,
+                "timestamp": "2023-04-18T22:00:10.917Z",
+                "source": "https://bsc-dataseed3.binance.org/"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -13401,12 +13626,17 @@
                 "total": 23970.748992779925,
                 "timestamp": "2023-04-18T17:09:25.812Z",
                 "source": "https://bsc-dataseed3.binance.org/"
+            },
+            {
+                "total": 23970.748992779925,
+                "timestamp": "2023-04-18T22:00:10.917Z",
+                "source": "https://bsc-dataseed3.binance.org/"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -13761,12 +13991,17 @@
                 "total": 11355741.459641246,
                 "timestamp": "2023-04-18T17:09:25.925Z",
                 "source": "https://moonbeam.public.blastapi.io"
+            },
+            {
+                "total": 11355741.459641246,
+                "timestamp": "2023-04-18T22:00:11.315Z",
+                "source": "https://moonbeam.public.blastapi.io"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -14116,12 +14351,17 @@
                 "total": 2608.9007365879456,
                 "timestamp": "2023-04-18T17:09:25.811Z",
                 "source": "https://bsc-dataseed3.binance.org/"
+            },
+            {
+                "total": 2608.9007365879456,
+                "timestamp": "2023-04-18T22:00:10.917Z",
+                "source": "https://bsc-dataseed3.binance.org/"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -14476,12 +14716,17 @@
                 "total": 2073472.5706367572,
                 "timestamp": "2023-04-18T17:09:25.637Z",
                 "source": "https://rpc.api.moonriver.moonbeam.network"
+            },
+            {
+                "total": 2073472.5706367572,
+                "timestamp": "2023-04-18T22:00:11.107Z",
+                "source": "https://rpc.api.moonriver.moonbeam.network"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -14831,12 +15076,17 @@
                 "total": 14899942.85330531,
                 "timestamp": "2023-04-18T17:09:25.811Z",
                 "source": "https://bsc-dataseed3.binance.org/"
+            },
+            {
+                "total": 14899942.85330531,
+                "timestamp": "2023-04-18T22:00:10.917Z",
+                "source": "https://bsc-dataseed3.binance.org/"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -15191,12 +15441,17 @@
                 "total": 5309.154046994628,
                 "timestamp": "2023-04-18T17:09:25.897Z",
                 "source": "https://moonbeam.public.blastapi.io"
+            },
+            {
+                "total": 5309.154046994628,
+                "timestamp": "2023-04-18T22:00:11.201Z",
+                "source": "https://moonbeam.public.blastapi.io"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -15551,12 +15806,17 @@
                 "total": 413.09952634577866,
                 "timestamp": "2023-04-18T17:09:25.677Z",
                 "source": "https://rpc.api.moonriver.moonbeam.network"
+            },
+            {
+                "total": 413.09952634577866,
+                "timestamp": "2023-04-18T22:00:11.099Z",
+                "source": "https://rpc.api.moonriver.moonbeam.network"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -15911,12 +16171,17 @@
                 "total": 0.000798260065700403,
                 "timestamp": "2023-04-18T17:09:25.955Z",
                 "source": "https://moonbeam.public.blastapi.io"
+            },
+            {
+                "total": 0.000798260065700403,
+                "timestamp": "2023-04-18T22:00:11.157Z",
+                "source": "https://moonbeam.public.blastapi.io"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -16271,12 +16536,17 @@
                 "total": 0.000289568153103044,
                 "timestamp": "2023-04-18T17:09:25.655Z",
                 "source": "https://rpc.api.moonriver.moonbeam.network"
+            },
+            {
+                "total": 0.000289568153103044,
+                "timestamp": "2023-04-18T22:00:11.089Z",
+                "source": "https://rpc.api.moonriver.moonbeam.network"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -16671,12 +16941,17 @@
                 "total": 607.065043614386,
                 "timestamp": "2023-04-18T17:09:25.646Z",
                 "source": "https://rpc.api.moonriver.moonbeam.network"
+            },
+            {
+                "total": 607.9110717525365,
+                "timestamp": "2023-04-18T22:00:11.092Z",
+                "source": "https://rpc.api.moonriver.moonbeam.network"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -17051,12 +17326,17 @@
                 "total": 120240990061.04869,
                 "timestamp": "2023-04-18T17:09:25.811Z",
                 "source": "https://bsc-dataseed3.binance.org/"
+            },
+            {
+                "total": 120240990061.04869,
+                "timestamp": "2023-04-18T22:00:10.917Z",
+                "source": "https://bsc-dataseed3.binance.org/"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -17431,12 +17711,17 @@
                 "total": 65868699719.517715,
                 "timestamp": "2023-04-18T17:09:25.956Z",
                 "source": "https://moonbeam.public.blastapi.io"
+            },
+            {
+                "total": 65868699719.517715,
+                "timestamp": "2023-04-18T22:00:11.174Z",
+                "source": "https://moonbeam.public.blastapi.io"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -17811,12 +18096,17 @@
                 "total": 85023597111.1229,
                 "timestamp": "2023-04-18T17:09:25.645Z",
                 "source": "https://rpc.api.moonriver.moonbeam.network"
+            },
+            {
+                "total": 85023597111.1229,
+                "timestamp": "2023-04-18T22:00:11.092Z",
+                "source": "https://rpc.api.moonriver.moonbeam.network"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -18191,12 +18481,17 @@
                 "total": 300,
                 "timestamp": "2023-04-18T17:09:25.811Z",
                 "source": "https://bsc-dataseed3.binance.org/"
+            },
+            {
+                "total": 300,
+                "timestamp": "2023-04-18T22:00:10.917Z",
+                "source": "https://bsc-dataseed3.binance.org/"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -18771,12 +19066,17 @@
                 "total": 259443.23,
                 "timestamp": "2023-04-18T17:09:25.472Z",
                 "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}"
+            },
+            {
+                "total": 259443.23,
+                "timestamp": "2023-04-18T22:00:10.812Z",
+                "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -19151,12 +19451,17 @@
                 "total": 437.4675732,
                 "timestamp": "2023-04-18T17:09:24.927Z",
                 "source": "https://solana-mainnet.g.alchemy.com/v2/{ALCHEMY_SOLANA}"
+            },
+            {
+                "total": 437.4675732,
+                "timestamp": "2023-04-18T22:00:10.572Z",
+                "source": "https://solana-mainnet.g.alchemy.com/v2/{ALCHEMY_SOLANA}"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -19536,16 +19841,61 @@
                 "total": 486134625132.0184,
                 "timestamp": "2023-04-18T17:09:25.811Z",
                 "source": "https://bsc-dataseed3.binance.org/"
+            },
+            {
+                "total": 485992450124.943,
+                "timestamp": "2023-04-18T22:00:10.917Z",
+                "source": "https://bsc-dataseed3.binance.org/"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
                 "date": "2023-03-04T23:37:13.000Z"
+            }
+        }
+    },
+    "sausdc-reserve-ethereum": {
+        "id": "sausdc-reserve-ethereum",
+        "history": [
+            {
+                "total": 2746545.883689,
+                "timestamp": "2023-04-18T22:00:10.812Z",
+                "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}"
+            }
+        ],
+        "git": {
+            "updated": {
+                "hash": null,
+                "date": "2023-04-18T22:03:54.052Z"
+            },
+            "created": {
+                "hash": null,
+                "date": "2023-04-18T22:03:54.052Z"
+            }
+        }
+    },
+    "sausdt-reserve-ethereum": {
+        "id": "sausdt-reserve-ethereum",
+        "history": [
+            {
+                "total": 2682480.942987,
+                "timestamp": "2023-04-18T22:00:10.812Z",
+                "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}"
+            }
+        ],
+        "git": {
+            "updated": {
+                "hash": null,
+                "date": "2023-04-18T22:03:54.052Z"
+            },
+            "created": {
+                "hash": null,
+                "date": "2023-04-18T22:03:54.052Z"
             }
         }
     },
@@ -19941,12 +20291,17 @@
                 "total": 200000,
                 "timestamp": "2023-04-18T17:09:25.810Z",
                 "source": "https://bsc-dataseed3.binance.org/"
+            },
+            {
+                "total": 200000,
+                "timestamp": "2023-04-18T22:00:10.917Z",
+                "source": "https://bsc-dataseed3.binance.org/"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -20321,12 +20676,17 @@
                 "total": 24357.877354969038,
                 "timestamp": "2023-04-18T17:09:25.755Z",
                 "source": "https://moonbeam.public.blastapi.io"
+            },
+            {
+                "total": 24357.877354969038,
+                "timestamp": "2023-04-18T22:00:11.333Z",
+                "source": "https://moonbeam.public.blastapi.io"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -20701,12 +21061,17 @@
                 "total": 4695.675353623307,
                 "timestamp": "2023-04-18T17:09:25.646Z",
                 "source": "https://rpc.api.moonriver.moonbeam.network"
+            },
+            {
+                "total": 4695.675353623307,
+                "timestamp": "2023-04-18T22:00:11.090Z",
+                "source": "https://rpc.api.moonriver.moonbeam.network"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -21101,12 +21466,17 @@
                 "total": 778999999.8499041,
                 "timestamp": "2023-04-18T17:09:25.810Z",
                 "source": "https://bsc-dataseed3.binance.org/"
+            },
+            {
+                "total": 778999999.8499041,
+                "timestamp": "2023-04-18T22:00:10.917Z",
+                "source": "https://bsc-dataseed3.binance.org/"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -21746,12 +22116,17 @@
                 "total": 29938613161.00953,
                 "timestamp": "2023-04-18T17:09:25.472Z",
                 "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}"
+            },
+            {
+                "total": 29797444491.299526,
+                "timestamp": "2023-04-18T22:00:10.812Z",
+                "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -22126,12 +22501,17 @@
                 "total": 5034953972.406477,
                 "timestamp": "2023-04-18T17:09:24.931Z",
                 "source": "https://solana-mainnet.g.alchemy.com/v2/{ALCHEMY_SOLANA}"
+            },
+            {
+                "total": 5034953972.364736,
+                "timestamp": "2023-04-18T22:00:10.572Z",
+                "source": "https://solana-mainnet.g.alchemy.com/v2/{ALCHEMY_SOLANA}"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -22506,12 +22886,17 @@
                 "total": 1452646.165178,
                 "timestamp": "2023-04-18T17:09:25.773Z",
                 "source": "https://moonbeam.public.blastapi.io"
+            },
+            {
+                "total": 1452646.165178,
+                "timestamp": "2023-04-18T22:00:11.071Z",
+                "source": "https://moonbeam.public.blastapi.io"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -22886,12 +23271,17 @@
                 "total": 8875689.177342,
                 "timestamp": "2023-04-18T17:09:25.643Z",
                 "source": "https://rpc.api.moonriver.moonbeam.network"
+            },
+            {
+                "total": 8875689.177342,
+                "timestamp": "2023-04-18T22:00:11.086Z",
+                "source": "https://rpc.api.moonriver.moonbeam.network"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "cc6aecfddcadce4aeba9034adc455eacd7a67b6a",
@@ -22931,12 +23321,17 @@
                 "total": 35283904986.78857,
                 "timestamp": "2023-04-18T17:09:25.472Z",
                 "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}"
+            },
+            {
+                "total": 35283904986.78857,
+                "timestamp": "2023-04-18T22:00:10.812Z",
+                "source": "https://eth-mainnet.g.alchemy.com/v2/{ALCHEMY_ETHEREUM}"
             }
         ],
         "git": {
             "updated": {
-                "hash": "1ce2c831f54ace69cc122059de43c9e86abc4154",
-                "date": "2023-04-18T05:17:52.000Z"
+                "hash": "0a218991155acb78aca10a51812341e45ed8b622",
+                "date": "2023-04-18T17:16:32.000Z"
             },
             "created": {
                 "hash": "ad69d8367ce2d358128490799e60ab91d6c7fbe8",

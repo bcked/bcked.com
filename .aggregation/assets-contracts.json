@@ -1,4 +1,52 @@
 {
+    "ausdc-aave-ethereum": {
+        "id": "ausdc-aave-ethereum",
+        "token": {
+            "address": "0xBcca60bB61934080951369a648Fb03DF4F96263C",
+            "chain": "ethereum"
+        },
+        "vault": {
+            "address": "0xBcca60bB61934080951369a648Fb03DF4F96263C",
+            "chain": "ethereum",
+            "underlying-assets": [
+                "usdc-circle-ethereum"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "70d552756e6ac4be466655a444352451338dfa68",
+                "date": "2023-04-18T19:48:46.000Z"
+            },
+            "created": {
+                "hash": "a2573df4ac1ad4b7b03e2b53ebb3aa714a16e7d4",
+                "date": "2023-04-15T23:16:30.000Z"
+            }
+        }
+    },
+    "ausdt-aave-ethereum": {
+        "id": "ausdt-aave-ethereum",
+        "token": {
+            "address": "0x3Ed3B47Dd13EC9a98b44e6204A523E766B225811",
+            "chain": "ethereum"
+        },
+        "vault": {
+            "address": "0x3Ed3B47Dd13EC9a98b44e6204A523E766B225811",
+            "chain": "ethereum",
+            "underlying-assets": [
+                "usdt-tether-ethereum"
+            ]
+        },
+        "git": {
+            "updated": {
+                "hash": "70d552756e6ac4be466655a444352451338dfa68",
+                "date": "2023-04-18T19:48:46.000Z"
+            },
+            "created": {
+                "hash": "a2573df4ac1ad4b7b03e2b53ebb3aa714a16e7d4",
+                "date": "2023-04-15T23:16:30.000Z"
+            }
+        }
+    },
     "bjt-bsc": {
         "id": "bjt-bsc",
         "token": {
@@ -341,8 +389,8 @@
             }
         }
     },
-    "eusd-reserve-eth": {
-        "id": "eusd-reserve-eth",
+    "eusd-mobilecoin-ethereum": {
+        "id": "eusd-mobilecoin-ethereum",
         "token": {
             "address": "0xA0d69E286B938e21CBf7E51D71F6A4c8918f482F",
             "chain": "ethereum"
@@ -352,13 +400,15 @@
             "chain": "ethereum",
             "underlying-assets": [
                 "cusdcv2-compound-ethereum",
-                "cusdtv2-compound-ethereum"
+                "cusdtv2-compound-ethereum",
+                "sausdc-reserve-ethereum",
+                "sausdt-reserve-ethereum"
             ]
         },
         "git": {
             "updated": {
-                "hash": "a2573df4ac1ad4b7b03e2b53ebb3aa714a16e7d4",
-                "date": "2023-04-15T23:16:30.000Z"
+                "hash": "3d3bd2c5cdcada77d94bb3bf7b6978ff2bd91bb6",
+                "date": "2023-04-18T20:13:30.000Z"
             },
             "created": {
                 "hash": "a2573df4ac1ad4b7b03e2b53ebb3aa714a16e7d4",
@@ -489,10 +539,11 @@
                 "bjt-bsc"
             ]
         },
+        "computed": true,
         "git": {
             "updated": {
-                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
-                "date": "2023-03-25T22:02:37.000Z"
+                "hash": "70d552756e6ac4be466655a444352451338dfa68",
+                "date": "2023-04-18T19:48:46.000Z"
             },
             "created": {
                 "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
@@ -514,10 +565,11 @@
                 "cats-catoshi-bsc"
             ]
         },
+        "computed": true,
         "git": {
             "updated": {
-                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
-                "date": "2023-03-25T22:02:37.000Z"
+                "hash": "70d552756e6ac4be466655a444352451338dfa68",
+                "date": "2023-04-18T19:48:46.000Z"
             },
             "created": {
                 "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
@@ -539,10 +591,11 @@
                 "fuk-bsc"
             ]
         },
+        "computed": true,
         "git": {
             "updated": {
-                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
-                "date": "2023-03-25T22:02:37.000Z"
+                "hash": "70d552756e6ac4be466655a444352451338dfa68",
+                "date": "2023-04-18T19:48:46.000Z"
             },
             "created": {
                 "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
@@ -564,10 +617,11 @@
                 "gal-bsc"
             ]
         },
+        "computed": true,
         "git": {
             "updated": {
-                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
-                "date": "2023-03-25T22:02:37.000Z"
+                "hash": "70d552756e6ac4be466655a444352451338dfa68",
+                "date": "2023-04-18T19:48:46.000Z"
             },
             "created": {
                 "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
@@ -589,10 +643,11 @@
                 "pxbsc-bsc"
             ]
         },
+        "computed": true,
         "git": {
             "updated": {
-                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
-                "date": "2023-03-25T22:02:37.000Z"
+                "hash": "70d552756e6ac4be466655a444352451338dfa68",
+                "date": "2023-04-18T19:48:46.000Z"
             },
             "created": {
                 "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
@@ -614,10 +669,11 @@
                 "toad-toadnetwork-bsc"
             ]
         },
+        "computed": true,
         "git": {
             "updated": {
-                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
-                "date": "2023-03-25T22:02:37.000Z"
+                "hash": "70d552756e6ac4be466655a444352451338dfa68",
+                "date": "2023-04-18T19:48:46.000Z"
             },
             "created": {
                 "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
@@ -639,10 +695,11 @@
                 "bnb-binance-bsc"
             ]
         },
+        "computed": true,
         "git": {
             "updated": {
-                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
-                "date": "2023-03-25T22:02:37.000Z"
+                "hash": "70d552756e6ac4be466655a444352451338dfa68",
+                "date": "2023-04-18T19:48:46.000Z"
             },
             "created": {
                 "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
@@ -664,10 +721,11 @@
                 "toad-toadnetwork-bsc"
             ]
         },
+        "computed": true,
         "git": {
             "updated": {
-                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
-                "date": "2023-03-25T22:02:37.000Z"
+                "hash": "70d552756e6ac4be466655a444352451338dfa68",
+                "date": "2023-04-18T19:48:46.000Z"
             },
             "created": {
                 "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
@@ -689,10 +747,11 @@
                 "usdc-multichain-moonbeam"
             ]
         },
+        "computed": true,
         "git": {
             "updated": {
-                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
-                "date": "2023-03-25T22:02:37.000Z"
+                "hash": "70d552756e6ac4be466655a444352451338dfa68",
+                "date": "2023-04-18T19:48:46.000Z"
             },
             "created": {
                 "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
@@ -714,10 +773,11 @@
                 "usdc-multichain-moonriver"
             ]
         },
+        "computed": true,
         "git": {
             "updated": {
-                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
-                "date": "2023-03-25T22:02:37.000Z"
+                "hash": "70d552756e6ac4be466655a444352451338dfa68",
+                "date": "2023-04-18T19:48:46.000Z"
             },
             "created": {
                 "hash": "071073b0990eb78a574b0c35e5f73800bd93f11e",
@@ -739,10 +799,11 @@
                 "toad-toadnetwork-bsc"
             ]
         },
+        "computed": true,
         "git": {
             "updated": {
-                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
-                "date": "2023-03-25T22:02:37.000Z"
+                "hash": "70d552756e6ac4be466655a444352451338dfa68",
+                "date": "2023-04-18T19:48:46.000Z"
             },
             "created": {
                 "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
@@ -764,10 +825,11 @@
                 "bnb-binance-bsc"
             ]
         },
+        "computed": true,
         "git": {
             "updated": {
-                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
-                "date": "2023-03-25T22:02:37.000Z"
+                "hash": "70d552756e6ac4be466655a444352451338dfa68",
+                "date": "2023-04-18T19:48:46.000Z"
             },
             "created": {
                 "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
@@ -789,10 +851,11 @@
                 "btc-binance-bsc"
             ]
         },
+        "computed": true,
         "git": {
             "updated": {
-                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
-                "date": "2023-03-25T22:02:37.000Z"
+                "hash": "70d552756e6ac4be466655a444352451338dfa68",
+                "date": "2023-04-18T19:48:46.000Z"
             },
             "created": {
                 "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
@@ -814,10 +877,11 @@
                 "busd-binance-bsc"
             ]
         },
+        "computed": true,
         "git": {
             "updated": {
-                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
-                "date": "2023-03-25T22:02:37.000Z"
+                "hash": "70d552756e6ac4be466655a444352451338dfa68",
+                "date": "2023-04-18T19:48:46.000Z"
             },
             "created": {
                 "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
@@ -839,10 +903,11 @@
                 "eth-binance-bsc"
             ]
         },
+        "computed": true,
         "git": {
             "updated": {
-                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
-                "date": "2023-03-25T22:02:37.000Z"
+                "hash": "70d552756e6ac4be466655a444352451338dfa68",
+                "date": "2023-04-18T19:48:46.000Z"
             },
             "created": {
                 "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
@@ -864,10 +929,11 @@
                 "glmrw-toadnetwork-moonbeam"
             ]
         },
+        "computed": true,
         "git": {
             "updated": {
-                "hash": "04fc04eb635cb3ad0be13567b30c2bb48d2b8574",
-                "date": "2023-03-25T22:23:10.000Z"
+                "hash": "70d552756e6ac4be466655a444352451338dfa68",
+                "date": "2023-04-18T19:48:46.000Z"
             },
             "created": {
                 "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
@@ -889,10 +955,11 @@
                 "hoge-multichain-bsc"
             ]
         },
+        "computed": true,
         "git": {
             "updated": {
-                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
-                "date": "2023-03-25T22:02:37.000Z"
+                "hash": "70d552756e6ac4be466655a444352451338dfa68",
+                "date": "2023-04-18T19:48:46.000Z"
             },
             "created": {
                 "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
@@ -914,10 +981,11 @@
                 "movrw-moonbeamfoundation-moonriver"
             ]
         },
+        "computed": true,
         "git": {
             "updated": {
-                "hash": "73cce3e3cc4a45681b2dd644feb6e4712bc24d61",
-                "date": "2023-03-25T22:43:37.000Z"
+                "hash": "70d552756e6ac4be466655a444352451338dfa68",
+                "date": "2023-04-18T19:48:46.000Z"
             },
             "created": {
                 "hash": "071073b0990eb78a574b0c35e5f73800bd93f11e",
@@ -939,10 +1007,11 @@
                 "toad-toadnetwork-bsc"
             ]
         },
+        "computed": true,
         "git": {
             "updated": {
-                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
-                "date": "2023-03-25T22:02:37.000Z"
+                "hash": "70d552756e6ac4be466655a444352451338dfa68",
+                "date": "2023-04-18T19:48:46.000Z"
             },
             "created": {
                 "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
@@ -964,10 +1033,11 @@
                 "glmrw-toadnetwork-moonbeam"
             ]
         },
+        "computed": true,
         "git": {
             "updated": {
-                "hash": "04fc04eb635cb3ad0be13567b30c2bb48d2b8574",
-                "date": "2023-03-25T22:23:10.000Z"
+                "hash": "70d552756e6ac4be466655a444352451338dfa68",
+                "date": "2023-04-18T19:48:46.000Z"
             },
             "created": {
                 "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
@@ -989,10 +1059,11 @@
                 "movrw-moonbeamfoundation-moonriver"
             ]
         },
+        "computed": true,
         "git": {
             "updated": {
-                "hash": "73cce3e3cc4a45681b2dd644feb6e4712bc24d61",
-                "date": "2023-03-25T22:43:37.000Z"
+                "hash": "70d552756e6ac4be466655a444352451338dfa68",
+                "date": "2023-04-18T19:48:46.000Z"
             },
             "created": {
                 "hash": "071073b0990eb78a574b0c35e5f73800bd93f11e",
@@ -1014,10 +1085,11 @@
                 "glmrw-toadnetwork-moonbeam"
             ]
         },
+        "computed": true,
         "git": {
             "updated": {
-                "hash": "04fc04eb635cb3ad0be13567b30c2bb48d2b8574",
-                "date": "2023-03-25T22:23:10.000Z"
+                "hash": "70d552756e6ac4be466655a444352451338dfa68",
+                "date": "2023-04-18T19:48:46.000Z"
             },
             "created": {
                 "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
@@ -1039,10 +1111,11 @@
                 "movrw-moonbeamfoundation-moonriver"
             ]
         },
+        "computed": true,
         "git": {
             "updated": {
-                "hash": "73cce3e3cc4a45681b2dd644feb6e4712bc24d61",
-                "date": "2023-03-25T22:43:37.000Z"
+                "hash": "70d552756e6ac4be466655a444352451338dfa68",
+                "date": "2023-04-18T19:48:46.000Z"
             },
             "created": {
                 "hash": "071073b0990eb78a574b0c35e5f73800bd93f11e",
@@ -1241,6 +1314,56 @@
             "created": {
                 "hash": "582a44205d2389f913b46607a06868928a502c0d",
                 "date": "2023-01-31T21:59:44.000Z"
+            }
+        }
+    },
+    "sausdc-reserve-ethereum": {
+        "id": "sausdc-reserve-ethereum",
+        "token": {
+            "address": "0x60C384e226b120d93f3e0F4C502957b2B9C32B15",
+            "chain": "ethereum"
+        },
+        "vault": {
+            "address": "0x60C384e226b120d93f3e0F4C502957b2B9C32B15",
+            "chain": "ethereum",
+            "underlying-assets": [
+                "ausdc-aave-ethereum"
+            ]
+        },
+        "computed": true,
+        "git": {
+            "updated": {
+                "hash": "70d552756e6ac4be466655a444352451338dfa68",
+                "date": "2023-04-18T19:48:46.000Z"
+            },
+            "created": {
+                "hash": "70d552756e6ac4be466655a444352451338dfa68",
+                "date": "2023-04-18T19:48:46.000Z"
+            }
+        }
+    },
+    "sausdt-reserve-ethereum": {
+        "id": "sausdt-reserve-ethereum",
+        "token": {
+            "address": "0x21fe646D1Ed0733336F2D4d9b2FE67790a6099D9",
+            "chain": "ethereum"
+        },
+        "vault": {
+            "address": "0x21fe646D1Ed0733336F2D4d9b2FE67790a6099D9",
+            "chain": "ethereum",
+            "underlying-assets": [
+                "ausdt-aave-ethereum"
+            ]
+        },
+        "computed": true,
+        "git": {
+            "updated": {
+                "hash": "70d552756e6ac4be466655a444352451338dfa68",
+                "date": "2023-04-18T19:48:46.000Z"
+            },
+            "created": {
+                "hash": "70d552756e6ac4be466655a444352451338dfa68",
+                "date": "2023-04-18T19:48:46.000Z"
             }
         }
     },

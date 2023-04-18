@@ -1,4 +1,44 @@
 {
+    "ausdc-aave-ethereum": {
+        "id": "ausdc-aave-ethereum",
+        "name": "Aave interest bearing USDC",
+        "symbol": "aUSDC",
+        "issuer": "aave",
+        "reference": "",
+        "tags": [
+            "cryptocurrency"
+        ],
+        "git": {
+            "updated": {
+                "hash": "70d552756e6ac4be466655a444352451338dfa68",
+                "date": "2023-04-18T19:48:46.000Z"
+            },
+            "created": {
+                "hash": "70d552756e6ac4be466655a444352451338dfa68",
+                "date": "2023-04-18T19:48:46.000Z"
+            }
+        }
+    },
+    "ausdt-aave-ethereum": {
+        "id": "ausdt-aave-ethereum",
+        "name": "Aave interest bearing USDT",
+        "symbol": "aUSDT",
+        "issuer": "aave",
+        "reference": "",
+        "tags": [
+            "cryptocurrency"
+        ],
+        "git": {
+            "updated": {
+                "hash": "70d552756e6ac4be466655a444352451338dfa68",
+                "date": "2023-04-18T19:48:46.000Z"
+            },
+            "created": {
+                "hash": "70d552756e6ac4be466655a444352451338dfa68",
+                "date": "2023-04-18T19:48:46.000Z"
+            }
+        }
+    },
     "bjt-bsc": {
         "id": "bjt-bsc",
         "name": "Bullish Jackpot",
@@ -374,11 +414,11 @@
             }
         }
     },
-    "eusd-reserve-eth": {
-        "id": "eusd-reserve-eth",
+    "eusd-mobilecoin-ethereum": {
+        "id": "eusd-mobilecoin-ethereum",
         "name": "Electronic Dollar",
         "symbol": "eUSD",
-        "issuer": "reserve",
+        "issuer": "mobilecoin",
         "reference": "https://register.app/#/overview?token=0xA0d69E286B938e21CBf7E51D71F6A4c8918f482F",
         "tags": [
             "cryptocurrency",
@@ -386,8 +426,8 @@
         ],
         "git": {
             "updated": {
-                "hash": "a2573df4ac1ad4b7b03e2b53ebb3aa714a16e7d4",
-                "date": "2023-04-15T23:16:30.000Z"
+                "hash": "3d3bd2c5cdcada77d94bb3bf7b6978ff2bd91bb6",
+                "date": "2023-04-18T20:13:30.000Z"
             },
             "created": {
                 "hash": "a2573df4ac1ad4b7b03e2b53ebb3aa714a16e7d4",
@@ -1226,6 +1266,46 @@
             "created": {
                 "hash": "582a44205d2389f913b46607a06868928a502c0d",
                 "date": "2023-01-31T21:59:44.000Z"
+            }
+        }
+    },
+    "sausdc-reserve-ethereum": {
+        "id": "sausdc-reserve-ethereum",
+        "name": "Static Aave interest bearing USDC",
+        "symbol": "saUSDC",
+        "issuer": "reserve",
+        "reference": "",
+        "tags": [
+            "cryptocurrency"
+        ],
+        "git": {
+            "updated": {
+                "hash": "70d552756e6ac4be466655a444352451338dfa68",
+                "date": "2023-04-18T19:48:46.000Z"
+            },
+            "created": {
+                "hash": "70d552756e6ac4be466655a444352451338dfa68",
+                "date": "2023-04-18T19:48:46.000Z"
+            }
+        }
+    },
+    "sausdt-reserve-ethereum": {
+        "id": "sausdt-reserve-ethereum",
+        "name": "Static Aave interest bearing USDT",
+        "symbol": "saUSDT",
+        "issuer": "reserve",
+        "reference": "",
+        "tags": [
+            "cryptocurrency"
+        ],
+        "git": {
+            "updated": {
+                "hash": "70d552756e6ac4be466655a444352451338dfa68",
+                "date": "2023-04-18T19:48:46.000Z"
+            },
+            "created": {
+                "hash": "70d552756e6ac4be466655a444352451338dfa68",
+                "date": "2023-04-18T19:48:46.000Z"
             }
         }
     },
