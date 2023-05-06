@@ -150,8 +150,8 @@
 			{data}
 			columns={[
 				{ id: 'name', title: 'Name', class: 'font-medium', link: true },
-				{ id: 'price', title: 'Price', class: 'hidden sm:table-cell' },
-				{ id: 'supply', title: 'Supply', class: 'hidden sm:table-cell' },
+				{ id: 'price', title: 'Price', class: '' },
+				{ id: 'supply', title: 'Supply', class: '' },
 				{ id: 'mcap', title: 'Market Cap', class: '' }
 			]}
 			rows={nodes.map((asset) => ({

@@ -306,10 +306,10 @@
 				columns={[
 					{ id: 'name', title: 'Name', class: 'font-medium', link: true },
 					{ id: 'share', title: '%', class: '' },
-					{ id: 'price', title: 'Price', class: 'hidden lg:table-cell' },
-					{ id: 'amount', title: 'Amount', class: 'hidden sm:table-cell' },
+					{ id: 'price', title: 'Price', class: '' },
+					{ id: 'amount', title: 'Amount', class: '' },
 					{ id: 'underlying-usd', title: 'Backing', class: '' },
-					{ id: 'underlying-ratio', title: 'Mcap Ratio', class: 'hidden sm:table-cell' }
+					{ id: 'underlying-ratio', title: 'Mcap Ratio', class: '' }
 				]}
 				rows={underlying
 					.map((link) => ({
@@ -455,9 +455,9 @@
 				{data}
 				columns={[
 					{ id: 'name', title: 'Name', class: 'font-medium', link: true },
-					{ id: 'share', title: '%', class: 'hidden sm:table-cell' },
-					{ id: 'price', title: 'Price', class: 'hidden lg:table-cell' },
-					{ id: 'amount', title: 'Amount', class: 'hidden sm:table-cell' },
+					{ id: 'share', title: '%', class: '' },
+					{ id: 'price', title: 'Price', class: '' },
+					{ id: 'amount', title: 'Amount', class: '' },
 					{ id: 'derivative-usd', title: 'Backing', class: '' },
 					{ id: 'derivative-ratio', title: 'Mcap Ratio', class: '' }
 				]}

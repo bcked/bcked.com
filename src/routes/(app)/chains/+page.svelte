@@ -88,7 +88,7 @@
 		columns={[
 			{ id: 'rank', title: '#', class: '' },
 			{ id: 'name', title: 'Name', class: 'font-medium', link: true },
-			{ id: 'numAssets', title: 'Assets', class: 'hidden sm:table-cell' },
+			{ id: 'numAssets', title: 'Assets', class: '' },
 			{ id: 'tvl', title: 'Total Value Locked (TVL)', class: '' }
 		]}
 		{rows}
