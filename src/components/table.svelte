@@ -29,8 +29,8 @@
 	export let length: number | undefined = undefined;
 </script>
 
-<div class={twMerge(`flow-root ${clazz}`)}>
-	<div class="overflow-x-auto">
+<div class="flow-root">
+	<div class={twMerge(`overflow-x-auto ${clazz}`)}>
 		<table class="min-w-full">
 			<thead class="bg-gray-100">
 				<tr>

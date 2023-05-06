@@ -167,46 +167,48 @@
 
 		<Card class="sm:mx-0 divide-y divide-gray-200">
 			<CardHeader title="Issued Assets" subtitle="List of assets issued by {issuerDetails.name}." />
-			<Table
-				{data}
-				columns={[
-					{ id: 'name', title: 'Name', class: 'font-medium', link: true },
-					{ id: 'price', title: 'Price', class: '' },
-					{ id: 'supply', title: 'Supply', class: '' },
-					{ id: 'mcap', title: 'Market Cap', class: '' }
-				]}
-				rows={assetsNodes.map((asset) => ({
-					name: {
-						text: asset.details.name,
-						value: asset.details.name,
-						icon: `${base}/assets/${asset.details.id}/icon.svg`
-					},
-					'name-path': {
-						text: `${base}/assets/${asset.details.id}`,
-						value: `${base}/assets/${asset.details.id}`
-					},
-					price: {
-						text: asset.history?.at(-1)?.price?.usd
-							? formatCurrency(asset.history?.at(-1)?.price?.usd ?? 0)
-							: 'UNK',
-						value: asset.history?.at(-1)?.price?.usd
-					},
-					supply: {
-						text: asset.history?.at(-1)?.supply?.total
-							? formatNum(asset.history?.at(-1)?.supply?.total ?? 0)
-							: 'UNK',
-						value: asset.history?.at(-1)?.supply?.total
-					},
-					mcap: {
-						text: asset.history?.at(-1)?.mcap
-							? formatCurrency(asset.history?.at(-1)?.mcap?.value ?? 0)
-							: 'UNK',
-						value: asset.history?.at(-1)?.mcap?.value
-					}
-				}))}
-				sort={[{ by: 'mcap' }]}
-				class="mt-5 sm:mt-6"
-			/>
+			<div class="mt-5 sm:mt-6">
+				<Table
+					{data}
+					columns={[
+						{ id: 'name', title: 'Name', class: 'font-medium', link: true },
+						{ id: 'price', title: 'Price', class: '' },
+						{ id: 'supply', title: 'Supply', class: '' },
+						{ id: 'mcap', title: 'Market Cap', class: '' }
+					]}
+					rows={assetsNodes.map((asset) => ({
+						name: {
+							text: asset.details.name,
+							value: asset.details.name,
+							icon: `${base}/assets/${asset.details.id}/icon.svg`
+						},
+						'name-path': {
+							text: `${base}/assets/${asset.details.id}`,
+							value: `${base}/assets/${asset.details.id}`
+						},
+						price: {
+							text: asset.history?.at(-1)?.price?.usd
+								? formatCurrency(asset.history?.at(-1)?.price?.usd ?? 0)
+								: 'UNK',
+							value: asset.history?.at(-1)?.price?.usd
+						},
+						supply: {
+							text: asset.history?.at(-1)?.supply?.total
+								? formatNum(asset.history?.at(-1)?.supply?.total ?? 0)
+								: 'UNK',
+							value: asset.history?.at(-1)?.supply?.total
+						},
+						mcap: {
+							text: asset.history?.at(-1)?.mcap
+								? formatCurrency(asset.history?.at(-1)?.mcap?.value ?? 0)
+								: 'UNK',
+							value: asset.history?.at(-1)?.mcap?.value
+						}
+					}))}
+					sort={[{ by: 'mcap' }]}
+					class=""
+				/>
+			</div>
 		</Card>
 	{/if}
 
@@ -246,46 +248,48 @@
 				title="Issued LP Tokens"
 				subtitle="List of LP tokens issued by {issuerDetails.name}."
 			/>
-			<Table
-				{data}
-				columns={[
-					{ id: 'name', title: 'Name', class: 'font-medium', link: true },
-					{ id: 'price', title: 'Price', class: '' },
-					{ id: 'supply', title: 'Supply', class: '' },
-					{ id: 'mcap', title: 'Market Cap', class: '' }
-				]}
-				rows={lpsNodes.map((asset) => ({
-					name: {
-						text: asset.details.name,
-						value: asset.details.name,
-						icon: `${base}/assets/${asset.details.id}/icon.svg`
-					},
-					'name-path': {
-						text: `${base}/assets/${asset.details.id}`,
-						value: `${base}/assets/${asset.details.id}`
-					},
-					price: {
-						text: asset.history?.at(-1)?.price?.usd
-							? formatCurrency(asset.history?.at(-1)?.price?.usd ?? 0)
-							: 'UNK',
-						value: asset.history?.at(-1)?.price?.usd
-					},
-					supply: {
-						text: asset.history?.at(-1)?.supply?.total
-							? formatNum(asset.history?.at(-1)?.supply?.total ?? 0)
-							: 'UNK',
-						value: asset.history?.at(-1)?.supply?.total
-					},
-					mcap: {
-						text: asset.history?.at(-1)?.mcap
-							? formatCurrency(asset.history?.at(-1)?.mcap?.value ?? 0)
-							: 'UNK',
-						value: asset.history?.at(-1)?.mcap?.value
-					}
-				}))}
-				sort={[{ by: 'mcap' }]}
-				class="mt-5 sm:mt-6"
-			/>
+			<div class="mt-5 sm:mt-6">
+				<Table
+					{data}
+					columns={[
+						{ id: 'name', title: 'Name', class: 'font-medium', link: true },
+						{ id: 'price', title: 'Price', class: '' },
+						{ id: 'supply', title: 'Supply', class: '' },
+						{ id: 'mcap', title: 'Market Cap', class: '' }
+					]}
+					rows={lpsNodes.map((asset) => ({
+						name: {
+							text: asset.details.name,
+							value: asset.details.name,
+							icon: `${base}/assets/${asset.details.id}/icon.svg`
+						},
+						'name-path': {
+							text: `${base}/assets/${asset.details.id}`,
+							value: `${base}/assets/${asset.details.id}`
+						},
+						price: {
+							text: asset.history?.at(-1)?.price?.usd
+								? formatCurrency(asset.history?.at(-1)?.price?.usd ?? 0)
+								: 'UNK',
+							value: asset.history?.at(-1)?.price?.usd
+						},
+						supply: {
+							text: asset.history?.at(-1)?.supply?.total
+								? formatNum(asset.history?.at(-1)?.supply?.total ?? 0)
+								: 'UNK',
+							value: asset.history?.at(-1)?.supply?.total
+						},
+						mcap: {
+							text: asset.history?.at(-1)?.mcap
+								? formatCurrency(asset.history?.at(-1)?.mcap?.value ?? 0)
+								: 'UNK',
+							value: asset.history?.at(-1)?.mcap?.value
+						}
+					}))}
+					sort={[{ by: 'mcap' }]}
+					class=""
+				/>
+			</div>
 		</Card>
 	{/if}
 </Page>

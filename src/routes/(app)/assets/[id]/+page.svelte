@@ -301,83 +301,85 @@
 				title="Underlying Assets"
 				subtitle="List of {details.name}'s underlying assets."
 			/>
-			<Table
-				{data}
-				columns={[
-					{ id: 'name', title: 'Name', class: 'font-medium', link: true },
-					{ id: 'share', title: '%', class: '' },
-					{ id: 'price', title: 'Price', class: '' },
-					{ id: 'amount', title: 'Amount', class: '' },
-					{ id: 'underlying-usd', title: 'Backing', class: '' },
-					{ id: 'underlying-ratio', title: 'Mcap Ratio', class: '' }
-				]}
-				rows={underlying
-					.map((link) => ({
-						linkedNode: graph.getNode(link.toId),
-						linkData: link.data
-					}))
-					.map(({ linkedNode, linkData }) => ({
-						name: {
-							text: linkedNode?.data.details.name,
-							value: linkedNode?.data.details.name,
-							icon: `${base}/assets/${linkedNode?.id}/icon.svg`
-						},
-						'name-path': {
-							text: `${base}/assets/${linkedNode?.id}`,
-							value: `${base}/assets/${linkedNode?.id}`
-						},
-						price: {
-							text:
-								linkedNode?.data.history?.at(-1)?.price?.usd != undefined
-									? formatCurrency(linkedNode?.data.history?.at(-1)?.price?.usd ?? 0)
-									: 'UNK',
-							value: linkedNode?.data.history?.at(-1)?.price?.usd
-						},
-						amount: {
-							text:
-								linkData.history?.at(-1)?.amount != undefined
-									? formatNum(linkData.history.at(-1)?.amount ?? 0)
-									: 'UNK',
-							value: linkData.history?.at(-1)?.amount
-						},
-						share:
-							linkData.history?.at(-1)?.usd?.value != undefined
-								? {
-										text: formatPercentage(
-											linkData.history.at(-1)?.usd?.value / latest?.underlying?.usd
-										),
-										value: linkData.history.at(-1)?.usd?.value / latest?.underlying?.usd
-								  }
-								: {
-										text: 'UNK',
-										value: undefined
-								  },
-						'underlying-usd':
-							linkData.history?.at(-1)?.usd?.value != undefined
-								? {
-										text: formatCurrency(linkData.history.at(-1).usd?.value),
-										value: linkData.history.at(-1).usd?.value
-								  }
-								: {
-										text: 'UNK',
-										value: undefined
-								  },
-						'underlying-ratio':
-							linkData.history?.at(-1)?.usd?.value != undefined && latest?.mcap != undefined
-								? {
-										text: formatPercentage(
-											linkData.history.at(-1).usd?.value / latest?.mcap?.value
-										),
-										value: linkData.history.at(-1).usd?.value / latest?.mcap?.value
-								  }
-								: {
-										text: 'UNK',
-										value: undefined
-								  }
-					}))}
-				sort={[{ by: 'share' }]}
-				class="mt-5 sm:mt-6"
-			/>
+			<div class="mt-5 sm:mt-6">
+				<Table
+					{data}
+					columns={[
+						{ id: 'name', title: 'Name', class: 'font-medium', link: true },
+						{ id: 'share', title: '%', class: '' },
+						{ id: 'price', title: 'Price', class: '' },
+						{ id: 'amount', title: 'Amount', class: '' },
+						{ id: 'underlying-usd', title: 'Backing', class: '' },
+						{ id: 'underlying-ratio', title: 'Mcap Ratio', class: '' }
+					]}
+					rows={underlying
+						.map((link) => ({
+							linkedNode: graph.getNode(link.toId),
+							linkData: link.data
+						}))
+						.map(({ linkedNode, linkData }) => ({
+							name: {
+								text: linkedNode?.data.details.name,
+								value: linkedNode?.data.details.name,
+								icon: `${base}/assets/${linkedNode?.id}/icon.svg`
+							},
+							'name-path': {
+								text: `${base}/assets/${linkedNode?.id}`,
+								value: `${base}/assets/${linkedNode?.id}`
+							},
+							price: {
+								text:
+									linkedNode?.data.history?.at(-1)?.price?.usd != undefined
+										? formatCurrency(linkedNode?.data.history?.at(-1)?.price?.usd ?? 0)
+										: 'UNK',
+								value: linkedNode?.data.history?.at(-1)?.price?.usd
+							},
+							amount: {
+								text:
+									linkData.history?.at(-1)?.amount != undefined
+										? formatNum(linkData.history.at(-1)?.amount ?? 0)
+										: 'UNK',
+								value: linkData.history?.at(-1)?.amount
+							},
+							share:
+								linkData.history?.at(-1)?.usd?.value != undefined
+									? {
+											text: formatPercentage(
+												linkData.history.at(-1)?.usd?.value / latest?.underlying?.usd
+											),
+											value: linkData.history.at(-1)?.usd?.value / latest?.underlying?.usd
+									  }
+									: {
+											text: 'UNK',
+											value: undefined
+									  },
+							'underlying-usd':
+								linkData.history?.at(-1)?.usd?.value != undefined
+									? {
+											text: formatCurrency(linkData.history.at(-1).usd?.value),
+											value: linkData.history.at(-1).usd?.value
+									  }
+									: {
+											text: 'UNK',
+											value: undefined
+									  },
+							'underlying-ratio':
+								linkData.history?.at(-1)?.usd?.value != undefined && latest?.mcap != undefined
+									? {
+											text: formatPercentage(
+												linkData.history.at(-1).usd?.value / latest?.mcap?.value
+											),
+											value: linkData.history.at(-1).usd?.value / latest?.mcap?.value
+									  }
+									: {
+											text: 'UNK',
+											value: undefined
+									  }
+						}))}
+					sort={[{ by: 'share' }]}
+					class=""
+				/>
+			</div>
 		</Card>
 	{/if}
 
@@ -451,83 +453,85 @@
 				title="Derivative Assets"
 				subtitle="List of {details.name}'s derivative assets."
 			/>
-			<Table
-				{data}
-				columns={[
-					{ id: 'name', title: 'Name', class: 'font-medium', link: true },
-					{ id: 'share', title: '%', class: '' },
-					{ id: 'price', title: 'Price', class: '' },
-					{ id: 'amount', title: 'Amount', class: '' },
-					{ id: 'derivative-usd', title: 'Backing', class: '' },
-					{ id: 'derivative-ratio', title: 'Mcap Ratio', class: '' }
-				]}
-				rows={derivative
-					.map((link) => ({
-						linkedNode: graph.getNode(link.fromId),
-						linkData: link.data
-					}))
-					.map(({ linkedNode, linkData }) => ({
-						name: {
-							text: linkedNode?.data.details.name,
-							value: linkedNode?.data.details.name,
-							icon: `${base}/assets/${linkedNode?.id}/icon.svg`
-						},
-						'name-path': {
-							text: `${base}/assets/${linkedNode?.id}`,
-							value: `${base}/assets/${linkedNode?.id}`
-						},
-						price: {
-							text:
-								linkedNode?.data.history?.at(-1)?.price?.usd != undefined
-									? formatCurrency(linkedNode?.data.history.at(-1).price.usd)
-									: 'UNK',
-							value: linkedNode?.data.history?.at(-1)?.price?.usd
-						},
-						amount: {
-							text:
-								linkData.history?.at(-1)?.amount != undefined
-									? formatNum(linkData.history.at(-1).amount)
-									: 'UNK',
-							value: linkData.history?.at(-1)?.amount
-						},
-						share:
-							linkData.history?.at(-1)?.usd?.value != undefined
-								? {
-										text: formatPercentage(
-											linkData.history.at(-1).usd?.value / latest?.derivative?.usd
-										),
-										value: linkData.history.at(-1).usd?.value / latest?.derivative?.usd
-								  }
-								: {
-										text: 'UNK',
-										value: undefined
-								  },
-						'derivative-usd':
-							linkData.history?.at(-1)?.usd?.value != undefined
-								? {
-										text: formatCurrency(linkData.history.at(-1).usd?.value),
-										value: linkData.history.at(-1).usd?.value
-								  }
-								: {
-										text: 'UNK',
-										value: undefined
-								  },
-						'derivative-ratio':
-							linkData.history?.at(-1)?.usd?.value != undefined && latest?.mcap != undefined
-								? {
-										text: formatPercentage(
-											linkData.history.at(-1).usd?.value / latest?.mcap?.value
-										),
-										value: linkData.history.at(-1).usd?.value / latest?.mcap?.value
-								  }
-								: {
-										text: 'UNK',
-										value: undefined
-								  }
-					}))}
-				sort={[{ by: 'derivative-ratio' }]}
-				class="mt-5 sm:mt-6"
-			/>
+			<div class="mt-5 sm:mt-6">
+				<Table
+					{data}
+					columns={[
+						{ id: 'name', title: 'Name', class: 'font-medium', link: true },
+						{ id: 'share', title: '%', class: '' },
+						{ id: 'price', title: 'Price', class: '' },
+						{ id: 'amount', title: 'Amount', class: '' },
+						{ id: 'derivative-usd', title: 'Backing', class: '' },
+						{ id: 'derivative-ratio', title: 'Mcap Ratio', class: '' }
+					]}
+					rows={derivative
+						.map((link) => ({
+							linkedNode: graph.getNode(link.fromId),
+							linkData: link.data
+						}))
+						.map(({ linkedNode, linkData }) => ({
+							name: {
+								text: linkedNode?.data.details.name,
+								value: linkedNode?.data.details.name,
+								icon: `${base}/assets/${linkedNode?.id}/icon.svg`
+							},
+							'name-path': {
+								text: `${base}/assets/${linkedNode?.id}`,
+								value: `${base}/assets/${linkedNode?.id}`
+							},
+							price: {
+								text:
+									linkedNode?.data.history?.at(-1)?.price?.usd != undefined
+										? formatCurrency(linkedNode?.data.history.at(-1).price.usd)
+										: 'UNK',
+								value: linkedNode?.data.history?.at(-1)?.price?.usd
+							},
+							amount: {
+								text:
+									linkData.history?.at(-1)?.amount != undefined
+										? formatNum(linkData.history.at(-1).amount)
+										: 'UNK',
+								value: linkData.history?.at(-1)?.amount
+							},
+							share:
+								linkData.history?.at(-1)?.usd?.value != undefined
+									? {
+											text: formatPercentage(
+												linkData.history.at(-1).usd?.value / latest?.derivative?.usd
+											),
+											value: linkData.history.at(-1).usd?.value / latest?.derivative?.usd
+									  }
+									: {
+											text: 'UNK',
+											value: undefined
+									  },
+							'derivative-usd':
+								linkData.history?.at(-1)?.usd?.value != undefined
+									? {
+											text: formatCurrency(linkData.history.at(-1).usd?.value),
+											value: linkData.history.at(-1).usd?.value
+									  }
+									: {
+											text: 'UNK',
+											value: undefined
+									  },
+							'derivative-ratio':
+								linkData.history?.at(-1)?.usd?.value != undefined && latest?.mcap != undefined
+									? {
+											text: formatPercentage(
+												linkData.history.at(-1).usd?.value / latest?.mcap?.value
+											),
+											value: linkData.history.at(-1).usd?.value / latest?.mcap?.value
+									  }
+									: {
+											text: 'UNK',
+											value: undefined
+									  }
+						}))}
+					sort={[{ by: 'derivative-ratio' }]}
+					class=""
+				/>
+			</div>
 		</Card>
 	{/if}
 

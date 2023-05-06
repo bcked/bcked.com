@@ -93,6 +93,6 @@
 		]}
 		{rows}
 		sort={[{ by: 'tvl' }]}
-		class="sm:rounded-lg"
+		class=""
 	/>
 </div>
