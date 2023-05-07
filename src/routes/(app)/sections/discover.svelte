@@ -39,24 +39,59 @@
 			<Glow {theme} class="-inset-x-4 sm:-inset-x-0">
 				<div class="grid grid-cols-1 gap-[0.1rem] sm:gap-4 md:grid-cols-3 shadow sm:shadow-none">
 					<Card class="">
-						<AssetList
-							{data}
-							headerIcon={ClockIcon}
-							title="Newest Listings"
-							filter={(asset) =>
-								(graph.getLinks(asset.id) ?? []).filter((link) => link.toId != asset.id).length > 0}
-							compare={(a, b) => {
-								const aTime = new Date(a.git.created.date).getTime();
-								const bTime = new Date(b.git.created.date).getTime();
-								return bTime - aTime;
-							}}
-							size={3}
-							select={(asset) => new Date(asset.git.created.date).toLocaleDateString()}
-						/>
+						{#if browser}
+							<Carousel autoplay autoplayDuration={4000} arrows={false} pauseOnFocus>
+								<AssetList
+									{data}
+									headerIcon={ClockIcon}
+									title="Newest Listings"
+									filter={(asset) =>
+										(graph.getLinks(asset.id) ?? []).filter((link) => link.toId != asset.id)
+											.length > 0}
+									compare={(a, b) => {
+										const aTime = new Date(a.git.created.date).getTime();
+										const bTime = new Date(b.git.created.date).getTime();
+										return bTime - aTime;
+									}}
+									slice={[0, 3]}
+									select={(asset) => new Date(asset.git.created.date).toLocaleDateString()}
+								/>
+								<AssetList
+									{data}
+									headerIcon={ClockIcon}
+									title="Newest Listings"
+									filter={(asset) =>
+										(graph.getLinks(asset.id) ?? []).filter((link) => link.toId != asset.id)
+											.length > 0}
+									compare={(a, b) => {
+										const aTime = new Date(a.git.created.date).getTime();
+										const bTime = new Date(b.git.created.date).getTime();
+										return bTime - aTime;
+									}}
+									slice={[3, 6]}
+									select={(asset) => new Date(asset.git.created.date).toLocaleDateString()}
+								/>
+								<AssetList
+									{data}
+									headerIcon={ClockIcon}
+									title="Newest Listings"
+									filter={(asset) =>
+										(graph.getLinks(asset.id) ?? []).filter((link) => link.toId != asset.id)
+											.length > 0}
+									compare={(a, b) => {
+										const aTime = new Date(a.git.created.date).getTime();
+										const bTime = new Date(b.git.created.date).getTime();
+										return bTime - aTime;
+									}}
+									slice={[6, 9]}
+									select={(asset) => new Date(asset.git.created.date).toLocaleDateString()}
+								/>
+							</Carousel>
+						{/if}
 					</Card>
 					<Card class="">
 						{#if browser}
-							<Carousel autoplay autoplayDuration={3000} arrows={false} pauseOnFocus>
+							<Carousel autoplay autoplayDuration={4000} arrows={false} pauseOnFocus>
 								<AssetList
 									{data}
 									headerIcon={TrendingUp}
@@ -67,7 +102,7 @@
 									})}
 									filter={(asset) => asset.rate != undefined && asset.rate > 0}
 									compare={(a, b) => b.rate - a.rate}
-									size={3}
+									slice={[0, 3]}
 									select={(asset) => formatPercentage(asset.rate)}
 								/>
 								<AssetList
@@ -80,7 +115,7 @@
 									})}
 									filter={(asset) => asset.rate != undefined && asset.rate < 0}
 									compare={(a, b) => a.rate - b.rate}
-									size={3}
+									slice={[0, 3]}
 									select={(asset) => formatPercentage(asset.rate)}
 								/>
 								<AssetList
@@ -93,7 +128,7 @@
 									})}
 									filter={(asset) => asset.rate != undefined && asset.rate > 0}
 									compare={(a, b) => b.rate - a.rate}
-									size={3}
+									slice={[0, 3]}
 									select={(asset) => formatPercentage(asset.rate)}
 								/>
 								<AssetList
@@ -106,7 +141,7 @@
 									})}
 									filter={(asset) => asset.rate != undefined && asset.rate < 0}
 									compare={(a, b) => a.rate - b.rate}
-									size={3}
+									slice={[0, 3]}
 									select={(asset) => formatPercentage(asset.rate)}
 								/>
 							</Carousel>
@@ -114,7 +149,7 @@
 					</Card>
 					<Card class="">
 						{#if browser}
-							<Carousel autoplay autoplayDuration={3000} arrows={false} pauseOnFocus>
+							<Carousel autoplay autoplayDuration={4000} arrows={false} pauseOnFocus>
 								<AssetList
 									{data}
 									headerIcon={HashtagIcon}
@@ -126,7 +161,7 @@
 									filter={(asset) =>
 										asset.underlyingCount != undefined && asset.underlyingCount > 0}
 									compare={(a, b) => b.underlyingCount - a.underlyingCount}
-									size={3}
+									slice={[0, 3]}
 									select={(asset) => asset.underlyingCount.toString()}
 								/>
 								<AssetList
@@ -141,7 +176,7 @@
 									filter={(asset) =>
 										asset.derivativesCount != undefined && asset.derivativesCount > 0}
 									compare={(a, b) => b.derivativesCount - a.derivativesCount}
-									size={3}
+									slice={[0, 3]}
 									select={(asset) => asset.derivativesCount.toString()}
 								/>
 								<AssetList
@@ -154,7 +189,7 @@
 									})}
 									filter={(asset) => asset.underlyingUsd != undefined && asset.underlyingUsd > 0}
 									compare={(a, b) => b.underlyingUsd - a.underlyingUsd}
-									size={3}
+									slice={[0, 3]}
 									select={(asset) => formatCurrency(asset.underlyingUsd)}
 								/>
 								<AssetList
@@ -167,7 +202,7 @@
 									})}
 									filter={(asset) => asset.derivativesUsd != undefined && asset.derivativesUsd > 0}
 									compare={(a, b) => b.derivativesUsd - a.derivativesUsd}
-									size={3}
+									slice={[0, 3]}
 									select={(asset) => formatCurrency(asset.derivativesUsd)}
 								/>
 							</Carousel>

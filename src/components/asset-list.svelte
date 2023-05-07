@@ -9,7 +9,7 @@
 
 	export let headerIcon: ComponentType;
 	export let title: string;
-	export let size: number;
+	export let slice: [number, number];
 	export let map: <T extends agg.AssetDetails>(asset: T) => T = (asset) => asset;
 	export let filter: <T>(asset: T) => boolean;
 	export let compare: <T>(a: T, b: T) => number;
@@ -29,13 +29,13 @@
 				.map(map)
 				.filter(filter)
 				.sort(compare)
-				.slice(0, size) as asset, i}
+				.slice(...slice) as asset, i}
 				<li>
 					<a href="{base}/assets/{asset.id}" class="rounded-md block">
 						<div class="flex items-center min-w-0 flex-1 space-x-1 justify-between">
 							<div class="flex items-center min-w-0 space-x-4">
 								<div class="text-gray-500 text-sm">
-									{i + 1}
+									{slice[0] + i + 1}
 								</div>
 								<div class="flex items-center min-w-0 space-x-1">
 									<object
