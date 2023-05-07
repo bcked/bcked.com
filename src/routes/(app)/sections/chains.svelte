@@ -30,8 +30,8 @@
 				columns={[
 					{ id: 'rank', title: '#', class: '' },
 					{ id: 'name', title: 'Name', class: 'font-medium', link: true },
-					{ id: 'numAssets', title: 'Assets', class: '' },
-					{ id: 'tvl', title: 'Total Value Locked (TVL)', class: '' }
+					{ id: 'tvl', title: 'Total Value Locked (TVL)', class: '' },
+					{ id: 'numAssets', title: 'Assets', class: '' }
 				]}
 				rows={Object.values(chainsDetails)
 					.map((chain) => {

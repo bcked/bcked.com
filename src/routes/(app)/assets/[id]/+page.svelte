@@ -14,7 +14,7 @@
 	import { PUBLIC_DOMAIN } from '$env/static/public';
 	import { ApiProxy } from '$lib/query/apis/proxy';
 	import { getDAG, limitValueByLinks } from '$lib/utils/graph';
-	import { formatCurrency, formatNum, formatPercentage } from '$lib/utils/string-formatting';
+	import { formatCurrency, formatPercentage } from '$lib/utils/string-formatting';
 	import {
 		CalendarIcon,
 		ChatAltIcon,
@@ -87,12 +87,12 @@
 			type: 'currency'
 		},
 		{
-			name: '7d Change',
+			name: 'Mcap 7d %',
 			value: latest?.mcap?.rate7d,
 			type: 'change'
 		},
 		{
-			name: '30d Change',
+			name: 'Mcap 30d %',
 			value: latest?.mcap?.rate30d,
 			type: 'change'
 		}
@@ -121,12 +121,12 @@
 			type: 'percent'
 		},
 		{
-			name: '7d Change',
+			name: 'Backing 7d %',
 			value: latest?.underlying?.ratio?.rate7d,
 			type: 'change'
 		},
 		{
-			name: '30d Change',
+			name: 'Backing 30d %',
 			value: latest?.underlying?.ratio?.rate30d,
 			type: 'change'
 		}
@@ -145,23 +145,23 @@
 			type: 'currency'
 		},
 		{
-			name: 'Derivative Uniformity',
-			value: latest?.derivative?.uniformity,
-			type: 'percent'
-		},
-		{
 			name: 'Derivative Ratio',
 			value: latest?.derivative?.ratio?.value,
 			type: 'percent'
 		},
 		{
-			name: '7d Change',
+			name: 'Derivatives 7d %',
 			value: latest?.derivative?.ratio?.rate7d,
 			type: 'change'
 		},
 		{
-			name: '30d Change',
+			name: 'Derivatives 30d %',
 			value: latest?.derivative?.ratio?.rate30d,
+			type: 'change'
+		},
+		{
+			name: 'Derivatives 90d %',
+			value: latest?.derivative?.ratio?.rate3m,
 			type: 'change'
 		}
 	];
@@ -306,11 +306,9 @@
 					{data}
 					columns={[
 						{ id: 'name', title: 'Name', class: 'font-medium', link: true },
-						{ id: 'share', title: '%', class: '' },
-						{ id: 'price', title: 'Price', class: '' },
-						{ id: 'amount', title: 'Amount', class: '' },
 						{ id: 'underlying-usd', title: 'Backing', class: '' },
-						{ id: 'underlying-ratio', title: 'Mcap Ratio', class: '' }
+						{ id: 'underlying-ratio', title: 'Backing/Mcap Ratio', class: '' },
+						{ id: 'share', title: '%', class: '' }
 					]}
 					rows={underlying
 						.map((link) => ({
@@ -326,20 +324,6 @@
 							'name-path': {
 								text: `${base}/assets/${linkedNode?.id}`,
 								value: `${base}/assets/${linkedNode?.id}`
-							},
-							price: {
-								text:
-									linkedNode?.data.history?.at(-1)?.price?.usd != undefined
-										? formatCurrency(linkedNode?.data.history?.at(-1)?.price?.usd ?? 0)
-										: 'UNK',
-								value: linkedNode?.data.history?.at(-1)?.price?.usd
-							},
-							amount: {
-								text:
-									linkData.history?.at(-1)?.amount != undefined
-										? formatNum(linkData.history.at(-1)?.amount ?? 0)
-										: 'UNK',
-								value: linkData.history?.at(-1)?.amount
 							},
 							share:
 								linkData.history?.at(-1)?.usd?.value != undefined
@@ -399,14 +383,12 @@
 			<div class="grid grid-cols-1 gap-4 lg:grid-cols-2 shadow-none">
 				<Card>
 					<CardHeader
-						title="History of Derivative Market Cap Ratio"
+						title="History of Derivative Ratio"
 						subtitle="View {details.name}'s derivative history."
 					/>
 					<div class="flex items-center justify-between mt-5 sm:mt-6 px-4 sm:px-6">
 						<dl>
-							<dt class="text-sm font-medium text-gray-500 truncate">
-								Current Derivative Market Cap
-							</dt>
+							<dt class="text-sm font-medium text-gray-500 truncate">Current Derivatives</dt>
 							<dd class="mt-1 text-3xl font-semibold text-gray-900">
 								{formatCurrency(history?.at(-1)?.derivative?.usd ?? 0)}
 							</dd>
@@ -458,11 +440,9 @@
 					{data}
 					columns={[
 						{ id: 'name', title: 'Name', class: 'font-medium', link: true },
-						{ id: 'share', title: '%', class: '' },
-						{ id: 'price', title: 'Price', class: '' },
-						{ id: 'amount', title: 'Amount', class: '' },
-						{ id: 'derivative-usd', title: 'Backing', class: '' },
-						{ id: 'derivative-ratio', title: 'Mcap Ratio', class: '' }
+						{ id: 'derivative-usd', title: 'Derivative in USD', class: '' },
+						{ id: 'derivative-ratio', title: 'Derivative/Mcap Ratio', class: '' },
+						{ id: 'share', title: '%', class: '' }
 					]}
 					rows={derivative
 						.map((link) => ({
@@ -485,13 +465,6 @@
 										? formatCurrency(linkedNode?.data.history.at(-1).price.usd)
 										: 'UNK',
 								value: linkedNode?.data.history?.at(-1)?.price?.usd
-							},
-							amount: {
-								text:
-									linkData.history?.at(-1)?.amount != undefined
-										? formatNum(linkData.history.at(-1).amount)
-										: 'UNK',
-								value: linkData.history?.at(-1)?.amount
 							},
 							share:
 								linkData.history?.at(-1)?.usd?.value != undefined
@@ -528,7 +501,7 @@
 											value: undefined
 									  }
 						}))}
-					sort={[{ by: 'derivative-ratio' }]}
+					sort={[{ by: 'share' }]}
 					class=""
 				/>
 			</div>

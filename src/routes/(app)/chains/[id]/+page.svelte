@@ -53,12 +53,12 @@
 			type: 'currency'
 		},
 		{
-			name: '7d Change',
+			name: 'TVL 7d %',
 			value: latestStats.tvl.rate7d,
 			type: 'change'
 		},
 		{
-			name: '30d Change',
+			name: 'TVL 30d %',
 			value: latestStats.tvl.rate30d,
 			type: 'change'
 		}

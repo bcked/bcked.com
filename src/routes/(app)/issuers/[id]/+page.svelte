@@ -52,12 +52,12 @@
 			type: 'currency'
 		},
 		{
-			name: '7d Change',
+			name: 'TVL 7d %',
 			value: assets.tvl.rate7d,
 			type: 'change'
 		},
 		{
-			name: '30d Change',
+			name: 'TVL 30d %',
 			value: assets.tvl.rate30d,
 			type: 'change'
 		}
@@ -76,12 +76,12 @@
 			type: 'currency'
 		},
 		{
-			name: '7d Change',
+			name: 'TVL 7d %',
 			value: lps.tvl.rate7d,
 			type: 'change'
 		},
 		{
-			name: '30d Change',
+			name: 'TVL 30d %',
 			value: lps.tvl.rate30d,
 			type: 'change'
 		}

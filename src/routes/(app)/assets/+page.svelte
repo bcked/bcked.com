@@ -100,12 +100,11 @@
 		columns={[
 			{ id: 'rank', title: '#', class: '' },
 			{ id: 'name', title: 'Name', class: 'font-medium', link: true },
-			{ id: 'price', title: 'Price', class: '' },
-			{ id: 'backing-assets', title: 'Backing Assets', class: '' },
-			{ id: 'backing-ratio', title: 'Backing Ratio', class: '' },
 			{ id: 'backing-usd', title: 'Backing in USD', class: '' },
-			{ id: 'mcap', title: 'Market Cap', class: '' },
-			{ id: 'backing-uniformity', title: 'Backing Uniformity', class: '' }
+			{ id: 'backing-ratio', title: 'Backing Ratio', class: '' },
+			{ id: 'backing-assets', title: 'Backing Assets', class: '' },
+			{ id: 'backing-uniformity', title: 'Backing Uniformity', class: '' },
+			{ id: 'mcap', title: 'Market Cap', class: '' }
 		]}
 		{rows}
 		sort={[{ by: 'mcap' }, { by: 'backing-usd' }]}
