@@ -72,7 +72,7 @@
 		},
 		{
 			name: 'Total Value Locked (TVL)',
-			value: assets.tvl.value,
+			value: lps.tvl.value,
 			type: 'currency'
 		},
 		{
