@@ -1269,6 +1269,26 @@
             }
         }
     },
+    "rsr-reserve-ethereum": {
+        "id": "rsr-reserve-ethereum",
+        "name": "Reserve Rights",
+        "symbol": "RSR",
+        "issuer": "reserve",
+        "reference": "",
+        "tags": [
+            "cryptocurrency"
+        ],
+        "git": {
+            "updated": {
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
+            },
+            "created": {
+                "hash": "70d552756e6ac4be466655a444352451338dfa68",
+                "date": "2023-04-18T19:48:46.000Z"
+            }
+        }
+    },
     "sausdc-reserve-ethereum": {
         "id": "sausdc-reserve-ethereum",
         "name": "Static Aave interest bearing USDC",

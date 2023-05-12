@@ -5,17 +5,19 @@
             "address": "0xBcca60bB61934080951369a648Fb03DF4F96263C",
             "chain": "ethereum"
         },
-        "vault": {
-            "address": "0xBcca60bB61934080951369a648Fb03DF4F96263C",
-            "chain": "ethereum",
-            "underlying-assets": [
-                "usdc-circle-ethereum"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0xBcca60bB61934080951369a648Fb03DF4F96263C",
+                "chain": "ethereum",
+                "underlying-assets": [
+                    "usdc-circle-ethereum"
+                ]
+            }
+        ],
         "git": {
             "updated": {
-                "hash": "70d552756e6ac4be466655a444352451338dfa68",
-                "date": "2023-04-18T19:48:46.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "a2573df4ac1ad4b7b03e2b53ebb3aa714a16e7d4",
@@ -29,17 +31,19 @@
             "address": "0x3Ed3B47Dd13EC9a98b44e6204A523E766B225811",
             "chain": "ethereum"
         },
-        "vault": {
-            "address": "0x3Ed3B47Dd13EC9a98b44e6204A523E766B225811",
-            "chain": "ethereum",
-            "underlying-assets": [
-                "usdt-tether-ethereum"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0x3Ed3B47Dd13EC9a98b44e6204A523E766B225811",
+                "chain": "ethereum",
+                "underlying-assets": [
+                    "usdt-tether-ethereum"
+                ]
+            }
+        ],
         "git": {
             "updated": {
-                "hash": "70d552756e6ac4be466655a444352451338dfa68",
-                "date": "2023-04-18T19:48:46.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "a2573df4ac1ad4b7b03e2b53ebb3aa714a16e7d4",
@@ -87,17 +91,19 @@
             "address": "0x418D75f65a02b3D53B2418FB8E1fe493759c7605",
             "chain": "ethereum"
         },
-        "vault": {
-            "address": "0xB6F6D86a8f9879A9c87f643768d9efc38c1Da6E7",
-            "chain": "bsc",
-            "underlying-assets": [
-                "bnb-binance-bsc"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0xB6F6D86a8f9879A9c87f643768d9efc38c1Da6E7",
+                "chain": "bsc",
+                "underlying-assets": [
+                    "bnb-binance-bsc"
+                ]
+            }
+        ],
         "git": {
             "updated": {
-                "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
-                "date": "2023-02-01T21:31:00.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "582a44205d2389f913b46607a06868928a502c0d",
@@ -111,17 +117,19 @@
             "address": "9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa",
             "chain": "solana"
         },
-        "vault": {
-            "address": "0xB6F6D86a8f9879A9c87f643768d9efc38c1Da6E7",
-            "chain": "bsc",
-            "underlying-assets": [
-                "bnb-binance-bsc"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0xB6F6D86a8f9879A9c87f643768d9efc38c1Da6E7",
+                "chain": "bsc",
+                "underlying-assets": [
+                    "bnb-binance-bsc"
+                ]
+            }
+        ],
         "git": {
             "updated": {
-                "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
-                "date": "2023-02-01T21:31:00.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "582a44205d2389f913b46607a06868928a502c0d",
@@ -152,17 +160,19 @@
             "address": "6nuaX3ogrr2CaoAPjtaKHAoBNWok32BMcRozuf32s2QF",
             "chain": "solana"
         },
-        "vault": {
-            "address": "0xBBbD1BbB4f9b936C3604906D7592A644071dE884",
-            "chain": "bsc",
-            "underlying-assets": [
-                "busd-binance-bsc"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0xBBbD1BbB4f9b936C3604906D7592A644071dE884",
+                "chain": "bsc",
+                "underlying-assets": [
+                    "busd-binance-bsc"
+                ]
+            }
+        ],
         "git": {
             "updated": {
-                "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
-                "date": "2023-02-01T21:31:00.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "582a44205d2389f913b46607a06868928a502c0d",
@@ -176,17 +186,19 @@
             "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
             "chain": "bsc"
         },
-        "vault": {
-            "address": "0x47ac0Fb4F2D84898e4D9E7b4DaB3C24507a6D503",
-            "chain": "ethereum",
-            "underlying-assets": [
-                "busd-paxos-ethereum"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0x47ac0Fb4F2D84898e4D9E7b4DaB3C24507a6D503",
+                "chain": "ethereum",
+                "underlying-assets": [
+                    "busd-paxos-ethereum"
+                ]
+            }
+        ],
         "git": {
             "updated": {
-                "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
-                "date": "2023-02-01T21:31:00.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "582a44205d2389f913b46607a06868928a502c0d",
@@ -200,17 +212,19 @@
             "address": "0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F",
             "chain": "moonbeam"
         },
-        "vault": {
-            "address": "0xd9B4aE62721d6311d67566A32E75f9002447922e",
-            "chain": "bsc",
-            "underlying-assets": [
-                "busd-binance-bsc"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0xd9B4aE62721d6311d67566A32E75f9002447922e",
+                "chain": "bsc",
+                "underlying-assets": [
+                    "busd-binance-bsc"
+                ]
+            }
+        ],
         "git": {
             "updated": {
-                "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
-                "date": "2023-02-01T21:31:00.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
@@ -224,17 +238,19 @@
             "address": "0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818",
             "chain": "moonriver"
         },
-        "vault": {
-            "address": "0xd6faf697504075a358524996b132b532cc5D0F14",
-            "chain": "bsc",
-            "underlying-assets": [
-                "busd-binance-bsc"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0xd6faf697504075a358524996b132b532cc5D0F14",
+                "chain": "bsc",
+                "underlying-assets": [
+                    "busd-binance-bsc"
+                ]
+            }
+        ],
         "git": {
             "updated": {
-                "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
-                "date": "2023-02-01T21:31:00.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "582a44205d2389f913b46607a06868928a502c0d",
@@ -265,17 +281,19 @@
             "address": "0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56",
             "chain": "bsc"
         },
-        "vault": {
-            "address": "0xd4721caA7aB7d2C8A7d461A546717375Dc42e9c1",
-            "chain": "ethereum",
-            "underlying-assets": [
-                "cats-catoshi-ethereum"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0xd4721caA7aB7d2C8A7d461A546717375Dc42e9c1",
+                "chain": "ethereum",
+                "underlying-assets": [
+                    "cats-catoshi-ethereum"
+                ]
+            }
+        ],
         "git": {
             "updated": {
-                "hash": "31a13f2cfc7886cce993e2a9363c6af4e6447cab",
-                "date": "2023-02-03T19:58:11.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "582a44205d2389f913b46607a06868928a502c0d",
@@ -306,17 +324,19 @@
             "address": "0x39AA39c021dfbaE8faC545936693aC917d5E7563",
             "chain": "ethereum"
         },
-        "vault": {
-            "address": "0x39AA39c021dfbaE8faC545936693aC917d5E7563",
-            "chain": "ethereum",
-            "underlying-assets": [
-                "usdc-circle-ethereum"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0x39AA39c021dfbaE8faC545936693aC917d5E7563",
+                "chain": "ethereum",
+                "underlying-assets": [
+                    "usdc-circle-ethereum"
+                ]
+            }
+        ],
         "git": {
             "updated": {
-                "hash": "a2573df4ac1ad4b7b03e2b53ebb3aa714a16e7d4",
-                "date": "2023-04-15T23:16:30.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "a2573df4ac1ad4b7b03e2b53ebb3aa714a16e7d4",
@@ -330,17 +350,19 @@
             "address": "0xf650C3d88D12dB855b8bf7D11Be6C55A4e07dCC9",
             "chain": "ethereum"
         },
-        "vault": {
-            "address": "0xf650C3d88D12dB855b8bf7D11Be6C55A4e07dCC9",
-            "chain": "ethereum",
-            "underlying-assets": [
-                "usdt-tether-ethereum"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0xf650C3d88D12dB855b8bf7D11Be6C55A4e07dCC9",
+                "chain": "ethereum",
+                "underlying-assets": [
+                    "usdt-tether-ethereum"
+                ]
+            }
+        ],
         "git": {
             "updated": {
-                "hash": "a2573df4ac1ad4b7b03e2b53ebb3aa714a16e7d4",
-                "date": "2023-04-15T23:16:30.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "a2573df4ac1ad4b7b03e2b53ebb3aa714a16e7d4",
@@ -354,17 +376,19 @@
             "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
             "chain": "bsc"
         },
-        "vault": {
-            "address": "0x47ac0Fb4F2D84898e4D9E7b4DaB3C24507a6D503",
-            "chain": "ethereum",
-            "underlying-assets": [
-                "eth-ethereumfoundation-ethereum"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0x47ac0Fb4F2D84898e4D9E7b4DaB3C24507a6D503",
+                "chain": "ethereum",
+                "underlying-assets": [
+                    "eth-ethereumfoundation-ethereum"
+                ]
+            }
+        ],
         "git": {
             "updated": {
-                "hash": "04fc04eb635cb3ad0be13567b30c2bb48d2b8574",
-                "date": "2023-03-25T22:23:10.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "582a44205d2389f913b46607a06868928a502c0d",
@@ -395,20 +419,29 @@
             "address": "0xA0d69E286B938e21CBf7E51D71F6A4c8918f482F",
             "chain": "ethereum"
         },
-        "vault": {
-            "address": "0xF014FEF41cCB703975827C8569a3f0940cFD80A4",
-            "chain": "ethereum",
-            "underlying-assets": [
-                "cusdcv2-compound-ethereum",
-                "cusdtv2-compound-ethereum",
-                "sausdc-reserve-ethereum",
-                "sausdt-reserve-ethereum"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0xF014FEF41cCB703975827C8569a3f0940cFD80A4",
+                "chain": "ethereum",
+                "underlying-assets": [
+                    "cusdcv2-compound-ethereum",
+                    "cusdtv2-compound-ethereum",
+                    "sausdc-reserve-ethereum",
+                    "sausdt-reserve-ethereum"
+                ]
+            },
+            {
+                "address": "0x18ba6e33ceb80f077DEb9260c9111e62f21aE7B8",
+                "chain": "ethereum",
+                "underlying-assets": [
+                    "rsr-reserve-ethereum"
+                ]
+            }
+        ],
         "git": {
             "updated": {
-                "hash": "3d3bd2c5cdcada77d94bb3bf7b6978ff2bd91bb6",
-                "date": "2023-04-18T20:13:30.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "a2573df4ac1ad4b7b03e2b53ebb3aa714a16e7d4",
@@ -507,17 +540,19 @@
             "address": "0xa4FFfc757e8c4F24E7b209C033c123D20983Ad40",
             "chain": "bsc"
         },
-        "vault": {
-            "address": "0x533e3c0e6b48010873B947bddC4721b1bDFF9648",
-            "chain": "ethereum",
-            "underlying-assets": [
-                "hoge-ethereum"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0x533e3c0e6b48010873B947bddC4721b1bDFF9648",
+                "chain": "ethereum",
+                "underlying-assets": [
+                    "hoge-ethereum"
+                ]
+            }
+        ],
         "git": {
             "updated": {
-                "hash": "582a44205d2389f913b46607a06868928a502c0d",
-                "date": "2023-01-31T21:59:44.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "582a44205d2389f913b46607a06868928a502c0d",
@@ -531,19 +566,21 @@
             "address": "0xeB22EbB99D5E6B16ae35b77Cf136c60cd077B8Cb",
             "chain": "bsc"
         },
-        "vault": {
-            "address": "0xeB22EbB99D5E6B16ae35b77Cf136c60cd077B8Cb",
-            "chain": "bsc",
-            "underlying-assets": [
-                "bnb-binance-bsc",
-                "bjt-bsc"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0xeB22EbB99D5E6B16ae35b77Cf136c60cd077B8Cb",
+                "chain": "bsc",
+                "underlying-assets": [
+                    "bnb-binance-bsc",
+                    "bjt-bsc"
+                ]
+            }
+        ],
         "computed": true,
         "git": {
             "updated": {
-                "hash": "70d552756e6ac4be466655a444352451338dfa68",
-                "date": "2023-04-18T19:48:46.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
@@ -557,19 +594,21 @@
             "address": "0xD91636511cDc2B9F2Af58CC8fcacbB0F0127f37f",
             "chain": "bsc"
         },
-        "vault": {
-            "address": "0xD91636511cDc2B9F2Af58CC8fcacbB0F0127f37f",
-            "chain": "bsc",
-            "underlying-assets": [
-                "bnb-binance-bsc",
-                "cats-catoshi-bsc"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0xD91636511cDc2B9F2Af58CC8fcacbB0F0127f37f",
+                "chain": "bsc",
+                "underlying-assets": [
+                    "bnb-binance-bsc",
+                    "cats-catoshi-bsc"
+                ]
+            }
+        ],
         "computed": true,
         "git": {
             "updated": {
-                "hash": "70d552756e6ac4be466655a444352451338dfa68",
-                "date": "2023-04-18T19:48:46.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
@@ -583,19 +622,21 @@
             "address": "0x2c001A059A0F2BD76293c755B3455163cC03A159",
             "chain": "bsc"
         },
-        "vault": {
-            "address": "0x2c001A059A0F2BD76293c755B3455163cC03A159",
-            "chain": "bsc",
-            "underlying-assets": [
-                "bnb-binance-bsc",
-                "fuk-bsc"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0x2c001A059A0F2BD76293c755B3455163cC03A159",
+                "chain": "bsc",
+                "underlying-assets": [
+                    "bnb-binance-bsc",
+                    "fuk-bsc"
+                ]
+            }
+        ],
         "computed": true,
         "git": {
             "updated": {
-                "hash": "70d552756e6ac4be466655a444352451338dfa68",
-                "date": "2023-04-18T19:48:46.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
@@ -609,19 +650,21 @@
             "address": "0x1afE79f5eB36798b92106885507Ba1A9cDA954f6",
             "chain": "bsc"
         },
-        "vault": {
-            "address": "0x1afE79f5eB36798b92106885507Ba1A9cDA954f6",
-            "chain": "bsc",
-            "underlying-assets": [
-                "bnb-binance-bsc",
-                "gal-bsc"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0x1afE79f5eB36798b92106885507Ba1A9cDA954f6",
+                "chain": "bsc",
+                "underlying-assets": [
+                    "bnb-binance-bsc",
+                    "gal-bsc"
+                ]
+            }
+        ],
         "computed": true,
         "git": {
             "updated": {
-                "hash": "70d552756e6ac4be466655a444352451338dfa68",
-                "date": "2023-04-18T19:48:46.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
@@ -635,19 +678,21 @@
             "address": "0x6F547381e6594C177A4C56Bc818b599cc78A8c16",
             "chain": "bsc"
         },
-        "vault": {
-            "address": "0x6F547381e6594C177A4C56Bc818b599cc78A8c16",
-            "chain": "bsc",
-            "underlying-assets": [
-                "bnb-binance-bsc",
-                "pxbsc-bsc"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0x6F547381e6594C177A4C56Bc818b599cc78A8c16",
+                "chain": "bsc",
+                "underlying-assets": [
+                    "bnb-binance-bsc",
+                    "pxbsc-bsc"
+                ]
+            }
+        ],
         "computed": true,
         "git": {
             "updated": {
-                "hash": "70d552756e6ac4be466655a444352451338dfa68",
-                "date": "2023-04-18T19:48:46.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
@@ -661,19 +706,21 @@
             "address": "0xEF6421325F7eD6ebeeAa2B092F9Cc64EE2aA3B3B",
             "chain": "bsc"
         },
-        "vault": {
-            "address": "0xEF6421325F7eD6ebeeAa2B092F9Cc64EE2aA3B3B",
-            "chain": "bsc",
-            "underlying-assets": [
-                "bnb-binance-bsc",
-                "toad-toadnetwork-bsc"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0xEF6421325F7eD6ebeeAa2B092F9Cc64EE2aA3B3B",
+                "chain": "bsc",
+                "underlying-assets": [
+                    "bnb-binance-bsc",
+                    "toad-toadnetwork-bsc"
+                ]
+            }
+        ],
         "computed": true,
         "git": {
             "updated": {
-                "hash": "70d552756e6ac4be466655a444352451338dfa68",
-                "date": "2023-04-18T19:48:46.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
@@ -687,19 +734,21 @@
             "address": "0x1Ed31DB9078FaFA28ba8a2c09C0fa421943cb383",
             "chain": "bsc"
         },
-        "vault": {
-            "address": "0x1Ed31DB9078FaFA28ba8a2c09C0fa421943cb383",
-            "chain": "bsc",
-            "underlying-assets": [
-                "busd-binance-bsc",
-                "bnb-binance-bsc"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0x1Ed31DB9078FaFA28ba8a2c09C0fa421943cb383",
+                "chain": "bsc",
+                "underlying-assets": [
+                    "busd-binance-bsc",
+                    "bnb-binance-bsc"
+                ]
+            }
+        ],
         "computed": true,
         "git": {
             "updated": {
-                "hash": "70d552756e6ac4be466655a444352451338dfa68",
-                "date": "2023-04-18T19:48:46.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
@@ -713,19 +762,21 @@
             "address": "0x71D40923e39aC8D93471477c677018d0223b3da9",
             "chain": "bsc"
         },
-        "vault": {
-            "address": "0x71D40923e39aC8D93471477c677018d0223b3da9",
-            "chain": "bsc",
-            "underlying-assets": [
-                "busd-binance-bsc",
-                "toad-toadnetwork-bsc"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0x71D40923e39aC8D93471477c677018d0223b3da9",
+                "chain": "bsc",
+                "underlying-assets": [
+                    "busd-binance-bsc",
+                    "toad-toadnetwork-bsc"
+                ]
+            }
+        ],
         "computed": true,
         "git": {
             "updated": {
-                "hash": "70d552756e6ac4be466655a444352451338dfa68",
-                "date": "2023-04-18T19:48:46.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
@@ -739,19 +790,21 @@
             "address": "0x079095D0AA760Dd88964b24267Ef7d9e3DC32944",
             "chain": "moonbeam"
         },
-        "vault": {
-            "address": "0x079095D0AA760Dd88964b24267Ef7d9e3DC32944",
-            "chain": "moonbeam",
-            "underlying-assets": [
-                "busd-multichain-moonbeam",
-                "usdc-multichain-moonbeam"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0x079095D0AA760Dd88964b24267Ef7d9e3DC32944",
+                "chain": "moonbeam",
+                "underlying-assets": [
+                    "busd-multichain-moonbeam",
+                    "usdc-multichain-moonbeam"
+                ]
+            }
+        ],
         "computed": true,
         "git": {
             "updated": {
-                "hash": "70d552756e6ac4be466655a444352451338dfa68",
-                "date": "2023-04-18T19:48:46.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
@@ -765,19 +818,21 @@
             "address": "0x21D6DbcA8aACdAa739e40180b1C8C828B46Ae376",
             "chain": "moonriver"
         },
-        "vault": {
-            "address": "0x21D6DbcA8aACdAa739e40180b1C8C828B46Ae376",
-            "chain": "moonriver",
-            "underlying-assets": [
-                "busd-multichain-moonriver",
-                "usdc-multichain-moonriver"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0x21D6DbcA8aACdAa739e40180b1C8C828B46Ae376",
+                "chain": "moonriver",
+                "underlying-assets": [
+                    "busd-multichain-moonriver",
+                    "usdc-multichain-moonriver"
+                ]
+            }
+        ],
         "computed": true,
         "git": {
             "updated": {
-                "hash": "70d552756e6ac4be466655a444352451338dfa68",
-                "date": "2023-04-18T19:48:46.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "071073b0990eb78a574b0c35e5f73800bd93f11e",
@@ -791,19 +846,21 @@
             "address": "0xc8B8568E7963054a00f107805f8156A7b283A6C2",
             "chain": "bsc"
         },
-        "vault": {
-            "address": "0xc8B8568E7963054a00f107805f8156A7b283A6C2",
-            "chain": "bsc",
-            "underlying-assets": [
-                "hoge-multichain-bsc",
-                "toad-toadnetwork-bsc"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0xc8B8568E7963054a00f107805f8156A7b283A6C2",
+                "chain": "bsc",
+                "underlying-assets": [
+                    "hoge-multichain-bsc",
+                    "toad-toadnetwork-bsc"
+                ]
+            }
+        ],
         "computed": true,
         "git": {
             "updated": {
-                "hash": "70d552756e6ac4be466655a444352451338dfa68",
-                "date": "2023-04-18T19:48:46.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
@@ -817,19 +874,21 @@
             "address": "0xf199cB43149132eb2D6Cf03AFCBa0cF074Dc806b",
             "chain": "bsc"
         },
-        "vault": {
-            "address": "0xf199cB43149132eb2D6Cf03AFCBa0cF074Dc806b",
-            "chain": "bsc",
-            "underlying-assets": [
-                "pad-toadnetwork-bsc",
-                "bnb-binance-bsc"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0xf199cB43149132eb2D6Cf03AFCBa0cF074Dc806b",
+                "chain": "bsc",
+                "underlying-assets": [
+                    "pad-toadnetwork-bsc",
+                    "bnb-binance-bsc"
+                ]
+            }
+        ],
         "computed": true,
         "git": {
             "updated": {
-                "hash": "70d552756e6ac4be466655a444352451338dfa68",
-                "date": "2023-04-18T19:48:46.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
@@ -843,19 +902,21 @@
             "address": "0x8DB3E34F642AA4B404956557a681BC8973529356",
             "chain": "bsc"
         },
-        "vault": {
-            "address": "0x8DB3E34F642AA4B404956557a681BC8973529356",
-            "chain": "bsc",
-            "underlying-assets": [
-                "pad-toadnetwork-bsc",
-                "btc-binance-bsc"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0x8DB3E34F642AA4B404956557a681BC8973529356",
+                "chain": "bsc",
+                "underlying-assets": [
+                    "pad-toadnetwork-bsc",
+                    "btc-binance-bsc"
+                ]
+            }
+        ],
         "computed": true,
         "git": {
             "updated": {
-                "hash": "70d552756e6ac4be466655a444352451338dfa68",
-                "date": "2023-04-18T19:48:46.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
@@ -869,19 +930,21 @@
             "address": "0x2856aDD546E729425383173D4f65Bb3e23E796A4",
             "chain": "bsc"
         },
-        "vault": {
-            "address": "0x2856aDD546E729425383173D4f65Bb3e23E796A4",
-            "chain": "bsc",
-            "underlying-assets": [
-                "pad-toadnetwork-bsc",
-                "busd-binance-bsc"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0x2856aDD546E729425383173D4f65Bb3e23E796A4",
+                "chain": "bsc",
+                "underlying-assets": [
+                    "pad-toadnetwork-bsc",
+                    "busd-binance-bsc"
+                ]
+            }
+        ],
         "computed": true,
         "git": {
             "updated": {
-                "hash": "70d552756e6ac4be466655a444352451338dfa68",
-                "date": "2023-04-18T19:48:46.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
@@ -895,19 +958,21 @@
             "address": "0x4BdDDa73F0a83ccada25107830e29de594E8F7C2",
             "chain": "bsc"
         },
-        "vault": {
-            "address": "0x4BdDDa73F0a83ccada25107830e29de594E8F7C2",
-            "chain": "bsc",
-            "underlying-assets": [
-                "pad-toadnetwork-bsc",
-                "eth-binance-bsc"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0x4BdDDa73F0a83ccada25107830e29de594E8F7C2",
+                "chain": "bsc",
+                "underlying-assets": [
+                    "pad-toadnetwork-bsc",
+                    "eth-binance-bsc"
+                ]
+            }
+        ],
         "computed": true,
         "git": {
             "updated": {
-                "hash": "70d552756e6ac4be466655a444352451338dfa68",
-                "date": "2023-04-18T19:48:46.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
@@ -921,19 +986,21 @@
             "address": "0x7C33896Ce19831dc170d99330878688a5f6DF614",
             "chain": "moonbeam"
         },
-        "vault": {
-            "address": "0x7C33896Ce19831dc170d99330878688a5f6DF614",
-            "chain": "moonbeam",
-            "underlying-assets": [
-                "pad-toadnetwork-moonbeam",
-                "glmrw-toadnetwork-moonbeam"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0x7C33896Ce19831dc170d99330878688a5f6DF614",
+                "chain": "moonbeam",
+                "underlying-assets": [
+                    "pad-toadnetwork-moonbeam",
+                    "glmrw-toadnetwork-moonbeam"
+                ]
+            }
+        ],
         "computed": true,
         "git": {
             "updated": {
-                "hash": "70d552756e6ac4be466655a444352451338dfa68",
-                "date": "2023-04-18T19:48:46.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
@@ -947,19 +1014,21 @@
             "address": "0xB7073b6082e8B77ab667fAc3AB02e88b2C3937D3",
             "chain": "bsc"
         },
-        "vault": {
-            "address": "0xB7073b6082e8B77ab667fAc3AB02e88b2C3937D3",
-            "chain": "bsc",
-            "underlying-assets": [
-                "pad-toadnetwork-bsc",
-                "hoge-multichain-bsc"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0xB7073b6082e8B77ab667fAc3AB02e88b2C3937D3",
+                "chain": "bsc",
+                "underlying-assets": [
+                    "pad-toadnetwork-bsc",
+                    "hoge-multichain-bsc"
+                ]
+            }
+        ],
         "computed": true,
         "git": {
             "updated": {
-                "hash": "70d552756e6ac4be466655a444352451338dfa68",
-                "date": "2023-04-18T19:48:46.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
@@ -973,19 +1042,21 @@
             "address": "0xfDFaB6B6A5982F627F70f392207bfA536f66327b",
             "chain": "moonriver"
         },
-        "vault": {
-            "address": "0xfDFaB6B6A5982F627F70f392207bfA536f66327b",
-            "chain": "moonriver",
-            "underlying-assets": [
-                "pad-toadnetwork-moonriver",
-                "movrw-moonbeamfoundation-moonriver"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0xfDFaB6B6A5982F627F70f392207bfA536f66327b",
+                "chain": "moonriver",
+                "underlying-assets": [
+                    "pad-toadnetwork-moonriver",
+                    "movrw-moonbeamfoundation-moonriver"
+                ]
+            }
+        ],
         "computed": true,
         "git": {
             "updated": {
-                "hash": "70d552756e6ac4be466655a444352451338dfa68",
-                "date": "2023-04-18T19:48:46.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "071073b0990eb78a574b0c35e5f73800bd93f11e",
@@ -999,19 +1070,21 @@
             "address": "0x26234882C1D95fCaDA4553a655045c35cffC9dAD",
             "chain": "bsc"
         },
-        "vault": {
-            "address": "0x26234882C1D95fCaDA4553a655045c35cffC9dAD",
-            "chain": "bsc",
-            "underlying-assets": [
-                "pad-toadnetwork-bsc",
-                "toad-toadnetwork-bsc"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0x26234882C1D95fCaDA4553a655045c35cffC9dAD",
+                "chain": "bsc",
+                "underlying-assets": [
+                    "pad-toadnetwork-bsc",
+                    "toad-toadnetwork-bsc"
+                ]
+            }
+        ],
         "computed": true,
         "git": {
             "updated": {
-                "hash": "70d552756e6ac4be466655a444352451338dfa68",
-                "date": "2023-04-18T19:48:46.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "52ac2ba0389bcf50f126a514be6c82cf25a41b1d",
@@ -1025,19 +1098,21 @@
             "address": "0xed048a21361fff12fb10335655b273c396994AA0",
             "chain": "moonbeam"
         },
-        "vault": {
-            "address": "0xed048a21361fff12fb10335655b273c396994AA0",
-            "chain": "moonbeam",
-            "underlying-assets": [
-                "toad-toadnetwork-moonbeam",
-                "glmrw-toadnetwork-moonbeam"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0xed048a21361fff12fb10335655b273c396994AA0",
+                "chain": "moonbeam",
+                "underlying-assets": [
+                    "toad-toadnetwork-moonbeam",
+                    "glmrw-toadnetwork-moonbeam"
+                ]
+            }
+        ],
         "computed": true,
         "git": {
             "updated": {
-                "hash": "70d552756e6ac4be466655a444352451338dfa68",
-                "date": "2023-04-18T19:48:46.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
@@ -1051,19 +1126,21 @@
             "address": "0x3D44494656370126E50Fe6488606165Bc0f2fd80",
             "chain": "moonriver"
         },
-        "vault": {
-            "address": "0x3D44494656370126E50Fe6488606165Bc0f2fd80",
-            "chain": "moonriver",
-            "underlying-assets": [
-                "toad-toadnetwork-moonriver",
-                "movrw-moonbeamfoundation-moonriver"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0x3D44494656370126E50Fe6488606165Bc0f2fd80",
+                "chain": "moonriver",
+                "underlying-assets": [
+                    "toad-toadnetwork-moonriver",
+                    "movrw-moonbeamfoundation-moonriver"
+                ]
+            }
+        ],
         "computed": true,
         "git": {
             "updated": {
-                "hash": "70d552756e6ac4be466655a444352451338dfa68",
-                "date": "2023-04-18T19:48:46.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "071073b0990eb78a574b0c35e5f73800bd93f11e",
@@ -1077,19 +1154,21 @@
             "address": "0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD",
             "chain": "moonbeam"
         },
-        "vault": {
-            "address": "0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD",
-            "chain": "moonbeam",
-            "underlying-assets": [
-                "usdc-multichain-moonbeam",
-                "glmrw-toadnetwork-moonbeam"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD",
+                "chain": "moonbeam",
+                "underlying-assets": [
+                    "usdc-multichain-moonbeam",
+                    "glmrw-toadnetwork-moonbeam"
+                ]
+            }
+        ],
         "computed": true,
         "git": {
             "updated": {
-                "hash": "70d552756e6ac4be466655a444352451338dfa68",
-                "date": "2023-04-18T19:48:46.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "d1b4393c61fcc89ba8c378c4744c458b4fe1fc9f",
@@ -1103,19 +1182,21 @@
             "address": "0x38185BF42E4D6d0b51Db5F6C2B83064008549087",
             "chain": "moonriver"
         },
-        "vault": {
-            "address": "0x38185BF42E4D6d0b51Db5F6C2B83064008549087",
-            "chain": "moonriver",
-            "underlying-assets": [
-                "usdc-multichain-moonriver",
-                "movrw-moonbeamfoundation-moonriver"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0x38185BF42E4D6d0b51Db5F6C2B83064008549087",
+                "chain": "moonriver",
+                "underlying-assets": [
+                    "usdc-multichain-moonriver",
+                    "movrw-moonbeamfoundation-moonriver"
+                ]
+            }
+        ],
         "computed": true,
         "git": {
             "updated": {
-                "hash": "70d552756e6ac4be466655a444352451338dfa68",
-                "date": "2023-04-18T19:48:46.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "071073b0990eb78a574b0c35e5f73800bd93f11e",
@@ -1146,32 +1227,34 @@
             "address": "0xC0888d80EE0AbF84563168b3182650c0AdDEb6d5",
             "chain": "bsc"
         },
-        "vault": {
-            "address": "0x6bEee53eFa847ec426707693c83836E359E92609",
-            "chain": "bsc",
-            "underlying-assets": [
-                "lp-pad-toad-toadnetwork-bsc",
-                "lp-bnb-toad-toadnetwork-bsc",
-                "lp-busd-toad-toadnetwork-bsc",
-                "lp-pad-bnb-toadnetwork-bsc",
-                "lp-pad-busd-toadnetwork-bsc",
-                "lp-busd-bnb-toadnetwork-bsc",
-                "lp-pad-eth-toadnetwork-bsc",
-                "lp-pad-btc-toadnetwork-bsc",
-                "lp-hoge-toad-toadnetwork-bsc",
-                "lp-bnb-bjt-toadnetwork-bsc",
-                "lp-bnb-pxbsc-toadnetwork-bsc",
-                "lp-bnb-fuk-toadnetwork-bsc",
-                "lp-bnb-gal-toadnetwork-bsc",
-                "lp-pad-hoge-toadnetwork-bsc",
-                "lp-bnb-cats-toadnetwork-bsc",
-                "toad-toadnetwork-bsc"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0x6bEee53eFa847ec426707693c83836E359E92609",
+                "chain": "bsc",
+                "underlying-assets": [
+                    "lp-pad-toad-toadnetwork-bsc",
+                    "lp-bnb-toad-toadnetwork-bsc",
+                    "lp-busd-toad-toadnetwork-bsc",
+                    "lp-pad-bnb-toadnetwork-bsc",
+                    "lp-pad-busd-toadnetwork-bsc",
+                    "lp-busd-bnb-toadnetwork-bsc",
+                    "lp-pad-eth-toadnetwork-bsc",
+                    "lp-pad-btc-toadnetwork-bsc",
+                    "lp-hoge-toad-toadnetwork-bsc",
+                    "lp-bnb-bjt-toadnetwork-bsc",
+                    "lp-bnb-pxbsc-toadnetwork-bsc",
+                    "lp-bnb-fuk-toadnetwork-bsc",
+                    "lp-bnb-gal-toadnetwork-bsc",
+                    "lp-pad-hoge-toadnetwork-bsc",
+                    "lp-bnb-cats-toadnetwork-bsc",
+                    "toad-toadnetwork-bsc"
+                ]
+            }
+        ],
         "git": {
             "updated": {
-                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
-                "date": "2023-03-25T22:02:37.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
@@ -1185,21 +1268,23 @@
             "address": "0x59193512877E2EC3bB27C178A8888Cfac62FB32D",
             "chain": "moonbeam"
         },
-        "vault": {
-            "address": "0xdBD1BBCa71B2589504DE48a000D2E6386a277118",
-            "chain": "moonbeam",
-            "underlying-assets": [
-                "lp-pad-glmr-toadnetwork-moonbeam",
-                "lp-busd-usdc-toadnetwork-moonbeam",
-                "lp-toad-glmr-toadnetwork-moonbeam",
-                "lp-usdc-glmr-toadnetwork-moonbeam",
-                "toad-toadnetwork-moonbeam"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0xdBD1BBCa71B2589504DE48a000D2E6386a277118",
+                "chain": "moonbeam",
+                "underlying-assets": [
+                    "lp-pad-glmr-toadnetwork-moonbeam",
+                    "lp-busd-usdc-toadnetwork-moonbeam",
+                    "lp-toad-glmr-toadnetwork-moonbeam",
+                    "lp-usdc-glmr-toadnetwork-moonbeam",
+                    "toad-toadnetwork-moonbeam"
+                ]
+            }
+        ],
         "git": {
             "updated": {
-                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
-                "date": "2023-03-25T22:02:37.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
@@ -1213,21 +1298,23 @@
             "address": "0x45488C50184Ce2092756ba7CdF85731fD17e6f3d",
             "chain": "moonriver"
         },
-        "vault": {
-            "address": "0x7a06dbaE8666e7DbdCf26A37be020dfedC782176",
-            "chain": "moonriver",
-            "underlying-assets": [
-                "lp-pad-movr-toadnetwork-moonriver",
-                "lp-busd-usdc-toadnetwork-moonriver",
-                "lp-usdc-movr-toadnetwork-moonriver",
-                "lp-toad-movr-toadnetwork-moonriver",
-                "toad-toadnetwork-moonriver"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0x7a06dbaE8666e7DbdCf26A37be020dfedC782176",
+                "chain": "moonriver",
+                "underlying-assets": [
+                    "lp-pad-movr-toadnetwork-moonriver",
+                    "lp-busd-usdc-toadnetwork-moonriver",
+                    "lp-usdc-movr-toadnetwork-moonriver",
+                    "lp-toad-movr-toadnetwork-moonriver",
+                    "toad-toadnetwork-moonriver"
+                ]
+            }
+        ],
         "git": {
             "updated": {
-                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
-                "date": "2023-03-25T22:02:37.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
@@ -1241,17 +1328,19 @@
             "address": "0x7950865a9140cB519342433146Ed5b40c6F210f7",
             "chain": "bsc"
         },
-        "vault": {
-            "address": "0x47ac0Fb4F2D84898e4D9E7b4DaB3C24507a6D503",
-            "chain": "ethereum",
-            "underlying-assets": [
-                "paxg-paxos-ethereum"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0x47ac0Fb4F2D84898e4D9E7b4DaB3C24507a6D503",
+                "chain": "ethereum",
+                "underlying-assets": [
+                    "paxg-paxos-ethereum"
+                ]
+            }
+        ],
         "git": {
             "updated": {
-                "hash": "582a44205d2389f913b46607a06868928a502c0d",
-                "date": "2023-01-31T21:59:44.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "582a44205d2389f913b46607a06868928a502c0d",
@@ -1282,17 +1371,19 @@
             "address": "C6oFsE8nXRDThzrMEQ5SxaNFGKoyyfWDDVPw37JKvPTe",
             "chain": "solana"
         },
-        "vault": {
-            "address": "0x3ee18B2214AFF97000D974cf647E7C347E8fa585",
-            "chain": "ethereum",
-            "underlying-assets": [
-                "paxg-paxos-ethereum"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0x3ee18B2214AFF97000D974cf647E7C347E8fa585",
+                "chain": "ethereum",
+                "underlying-assets": [
+                    "paxg-paxos-ethereum"
+                ]
+            }
+        ],
         "git": {
             "updated": {
-                "hash": "582a44205d2389f913b46607a06868928a502c0d",
-                "date": "2023-01-31T21:59:44.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "582a44205d2389f913b46607a06868928a502c0d",
@@ -1317,24 +1408,43 @@
             }
         }
     },
+    "rsr-reserve-ethereum": {
+        "id": "rsr-reserve-ethereum",
+        "token": {
+            "address": "0x320623b8E4fF03373931769A31Fc52A4E78B5d70",
+            "chain": "ethereum"
+        },
+        "git": {
+            "updated": {
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
+            },
+            "created": {
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
+            }
+        }
+    },
     "sausdc-reserve-ethereum": {
         "id": "sausdc-reserve-ethereum",
         "token": {
             "address": "0x60C384e226b120d93f3e0F4C502957b2B9C32B15",
             "chain": "ethereum"
         },
-        "vault": {
-            "address": "0x60C384e226b120d93f3e0F4C502957b2B9C32B15",
-            "chain": "ethereum",
-            "underlying-assets": [
-                "ausdc-aave-ethereum"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0x60C384e226b120d93f3e0F4C502957b2B9C32B15",
+                "chain": "ethereum",
+                "underlying-assets": [
+                    "ausdc-aave-ethereum"
+                ]
+            }
+        ],
         "computed": true,
         "git": {
             "updated": {
-                "hash": "70d552756e6ac4be466655a444352451338dfa68",
-                "date": "2023-04-18T19:48:46.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "70d552756e6ac4be466655a444352451338dfa68",
@@ -1348,18 +1458,20 @@
             "address": "0x21fe646D1Ed0733336F2D4d9b2FE67790a6099D9",
             "chain": "ethereum"
         },
-        "vault": {
-            "address": "0x21fe646D1Ed0733336F2D4d9b2FE67790a6099D9",
-            "chain": "ethereum",
-            "underlying-assets": [
-                "ausdt-aave-ethereum"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0x21fe646D1Ed0733336F2D4d9b2FE67790a6099D9",
+                "chain": "ethereum",
+                "underlying-assets": [
+                    "ausdt-aave-ethereum"
+                ]
+            }
+        ],
         "computed": true,
         "git": {
             "updated": {
-                "hash": "70d552756e6ac4be466655a444352451338dfa68",
-                "date": "2023-04-18T19:48:46.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "70d552756e6ac4be466655a444352451338dfa68",
@@ -1390,17 +1502,19 @@
             "address": "0xF480f38C366dAaC4305dC484b2Ad7a496FF00CeA",
             "chain": "moonbeam"
         },
-        "vault": {
-            "address": "0xadfc9a631157B59A65EB337FEd810DaB8879A5Fd",
-            "chain": "bsc",
-            "underlying-assets": [
-                "toad-toadnetwork-bsc"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0xadfc9a631157B59A65EB337FEd810DaB8879A5Fd",
+                "chain": "bsc",
+                "underlying-assets": [
+                    "toad-toadnetwork-bsc"
+                ]
+            }
+        ],
         "git": {
             "updated": {
-                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
-                "date": "2023-03-25T22:02:37.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "582a44205d2389f913b46607a06868928a502c0d",
@@ -1414,17 +1528,19 @@
             "address": "0x165DBb08de0476271714952C3C1F068693bd60D7",
             "chain": "moonriver"
         },
-        "vault": {
-            "address": "0xd6faf697504075a358524996b132b532cc5D0F14",
-            "chain": "bsc",
-            "underlying-assets": [
-                "toad-toadnetwork-bsc"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0xd6faf697504075a358524996b132b532cc5D0F14",
+                "chain": "bsc",
+                "underlying-assets": [
+                    "toad-toadnetwork-bsc"
+                ]
+            }
+        ],
         "git": {
             "updated": {
-                "hash": "c424329d3baa96d8b6d09f217a465ad136ac4826",
-                "date": "2023-03-25T22:02:37.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "582a44205d2389f913b46607a06868928a502c0d",
@@ -1438,17 +1554,19 @@
             "address": "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d",
             "chain": "bsc"
         },
-        "vault": {
-            "address": "0x47ac0Fb4F2D84898e4D9E7b4DaB3C24507a6D503",
-            "chain": "ethereum",
-            "underlying-assets": [
-                "usdc-circle-ethereum"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0x47ac0Fb4F2D84898e4D9E7b4DaB3C24507a6D503",
+                "chain": "ethereum",
+                "underlying-assets": [
+                    "usdc-circle-ethereum"
+                ]
+            }
+        ],
         "git": {
             "updated": {
-                "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
-                "date": "2023-02-01T21:31:00.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "582a44205d2389f913b46607a06868928a502c0d",
@@ -1496,17 +1614,19 @@
             "address": "0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b",
             "chain": "moonbeam"
         },
-        "vault": {
-            "address": "0xEC4486a90371c9b66f499Ff3936F29f0D5AF8b7E",
-            "chain": "ethereum",
-            "underlying-assets": [
-                "usdc-circle-ethereum"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0xEC4486a90371c9b66f499Ff3936F29f0D5AF8b7E",
+                "chain": "ethereum",
+                "underlying-assets": [
+                    "usdc-circle-ethereum"
+                ]
+            }
+        ],
         "git": {
             "updated": {
-                "hash": "582a44205d2389f913b46607a06868928a502c0d",
-                "date": "2023-01-31T21:59:44.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "582a44205d2389f913b46607a06868928a502c0d",
@@ -1520,17 +1640,19 @@
             "address": "0xe3f5a90f9cb311505cd691a46596599aa1a0ad7d",
             "chain": "moonriver"
         },
-        "vault": {
-            "address": "0x10c6b61DbF44a083Aec3780aCF769C77BE747E23",
-            "chain": "ethereum",
-            "underlying-assets": [
-                "usdc-circle-ethereum"
-            ]
-        },
+        "vaults": [
+            {
+                "address": "0x10c6b61DbF44a083Aec3780aCF769C77BE747E23",
+                "chain": "ethereum",
+                "underlying-assets": [
+                    "usdc-circle-ethereum"
+                ]
+            }
+        ],
         "git": {
             "updated": {
-                "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
-                "date": "2023-02-01T21:31:00.000Z"
+                "hash": "bcb70bb1f67b1ebfb1bc9fbd95e4d8eeb7aef676",
+                "date": "2023-05-12T20:15:27.000Z"
             },
             "created": {
                 "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
