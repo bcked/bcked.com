@@ -3,10 +3,12 @@
 		"address": "0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD",
 		"chain": "moonbeam"
 	},
-	"vault": {
-		"address": "0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD",
-		"chain": "moonbeam",
-		"underlying-assets": ["usdc-multichain-moonbeam", "glmrw-toadnetwork-moonbeam"]
-	},
+	"vaults": [
+		{
+			"address": "0x5E3ebf3813Ece2CE3090C2Ce36cC567dD0b279FD",
+			"chain": "moonbeam",
+			"underlying-assets": ["usdc-multichain-moonbeam", "glmrw-toadnetwork-moonbeam"]
+		}
+	],
 	"computed": true
 }

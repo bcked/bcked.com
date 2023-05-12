@@ -3,10 +3,12 @@
 		"address": "0x7C33896Ce19831dc170d99330878688a5f6DF614",
 		"chain": "moonbeam"
 	},
-	"vault": {
-		"address": "0x7C33896Ce19831dc170d99330878688a5f6DF614",
-		"chain": "moonbeam",
-		"underlying-assets": ["pad-toadnetwork-moonbeam", "glmrw-toadnetwork-moonbeam"]
-	},
+	"vaults": [
+		{
+			"address": "0x7C33896Ce19831dc170d99330878688a5f6DF614",
+			"chain": "moonbeam",
+			"underlying-assets": ["pad-toadnetwork-moonbeam", "glmrw-toadnetwork-moonbeam"]
+		}
+	],
 	"computed": true
 }

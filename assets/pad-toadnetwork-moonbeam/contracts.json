@@ -3,15 +3,17 @@
 		"address": "0x59193512877E2EC3bB27C178A8888Cfac62FB32D",
 		"chain": "moonbeam"
 	},
-	"vault": {
-		"address": "0xdBD1BBCa71B2589504DE48a000D2E6386a277118",
-		"chain": "moonbeam",
-		"underlying-assets": [
-			"lp-pad-glmr-toadnetwork-moonbeam",
-			"lp-busd-usdc-toadnetwork-moonbeam",
-			"lp-toad-glmr-toadnetwork-moonbeam",
-			"lp-usdc-glmr-toadnetwork-moonbeam",
-			"toad-toadnetwork-moonbeam"
-		]
-	}
+	"vaults": [
+		{
+			"address": "0xdBD1BBCa71B2589504DE48a000D2E6386a277118",
+			"chain": "moonbeam",
+			"underlying-assets": [
+				"lp-pad-glmr-toadnetwork-moonbeam",
+				"lp-busd-usdc-toadnetwork-moonbeam",
+				"lp-toad-glmr-toadnetwork-moonbeam",
+				"lp-usdc-glmr-toadnetwork-moonbeam",
+				"toad-toadnetwork-moonbeam"
+			]
+		}
+	]
 }

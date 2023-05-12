@@ -3,9 +3,11 @@
 		"address": "9gP2kCy3wA1ctvYWQk75guqXuHfrEomqydHLtcTCqiLa",
 		"chain": "solana"
 	},
-	"vault": {
-		"address": "0xB6F6D86a8f9879A9c87f643768d9efc38c1Da6E7",
-		"chain": "bsc",
-		"underlying-assets": ["bnb-binance-bsc"]
-	}
+	"vaults": [
+		{
+			"address": "0xB6F6D86a8f9879A9c87f643768d9efc38c1Da6E7",
+			"chain": "bsc",
+			"underlying-assets": ["bnb-binance-bsc"]
+		}
+	]
 }

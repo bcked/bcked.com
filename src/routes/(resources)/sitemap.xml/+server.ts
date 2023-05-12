@@ -16,7 +16,7 @@ export const GET: RequestHandler = async () => {
 		.map((asset) => ({
 			loc: `${PUBLIC_DOMAIN}/assets/${asset.id}`,
 			lastmod: asset.git.updated.date,
-			changefreq: assetsContracts[asset.id]?.vault ? 'daily' : 'monthly'
+			changefreq: assetsContracts[asset.id]?.vaults ? 'daily' : 'monthly'
 		}))
 		.sort((assetA, assetB) => compareDates(assetA.lastmod, assetB.lastmod));
 	const lastmodAsset = sortedAssets.shift()!;

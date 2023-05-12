@@ -3,26 +3,28 @@
 		"address": "0xC0888d80EE0AbF84563168b3182650c0AdDEb6d5",
 		"chain": "bsc"
 	},
-	"vault": {
-		"address": "0x6bEee53eFa847ec426707693c83836E359E92609",
-		"chain": "bsc",
-		"underlying-assets": [
-			"lp-pad-toad-toadnetwork-bsc",
-			"lp-bnb-toad-toadnetwork-bsc",
-			"lp-busd-toad-toadnetwork-bsc",
-			"lp-pad-bnb-toadnetwork-bsc",
-			"lp-pad-busd-toadnetwork-bsc",
-			"lp-busd-bnb-toadnetwork-bsc",
-			"lp-pad-eth-toadnetwork-bsc",
-			"lp-pad-btc-toadnetwork-bsc",
-			"lp-hoge-toad-toadnetwork-bsc",
-			"lp-bnb-bjt-toadnetwork-bsc",
-			"lp-bnb-pxbsc-toadnetwork-bsc",
-			"lp-bnb-fuk-toadnetwork-bsc",
-			"lp-bnb-gal-toadnetwork-bsc",
-			"lp-pad-hoge-toadnetwork-bsc",
-			"lp-bnb-cats-toadnetwork-bsc",
-			"toad-toadnetwork-bsc"
-		]
-	}
+	"vaults": [
+		{
+			"address": "0x6bEee53eFa847ec426707693c83836E359E92609",
+			"chain": "bsc",
+			"underlying-assets": [
+				"lp-pad-toad-toadnetwork-bsc",
+				"lp-bnb-toad-toadnetwork-bsc",
+				"lp-busd-toad-toadnetwork-bsc",
+				"lp-pad-bnb-toadnetwork-bsc",
+				"lp-pad-busd-toadnetwork-bsc",
+				"lp-busd-bnb-toadnetwork-bsc",
+				"lp-pad-eth-toadnetwork-bsc",
+				"lp-pad-btc-toadnetwork-bsc",
+				"lp-hoge-toad-toadnetwork-bsc",
+				"lp-bnb-bjt-toadnetwork-bsc",
+				"lp-bnb-pxbsc-toadnetwork-bsc",
+				"lp-bnb-fuk-toadnetwork-bsc",
+				"lp-bnb-gal-toadnetwork-bsc",
+				"lp-pad-hoge-toadnetwork-bsc",
+				"lp-bnb-cats-toadnetwork-bsc",
+				"toad-toadnetwork-bsc"
+			]
+		}
+	]
 }

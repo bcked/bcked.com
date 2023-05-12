@@ -3,10 +3,12 @@
 		"address": "0xf199cB43149132eb2D6Cf03AFCBa0cF074Dc806b",
 		"chain": "bsc"
 	},
-	"vault": {
-		"address": "0xf199cB43149132eb2D6Cf03AFCBa0cF074Dc806b",
-		"chain": "bsc",
-		"underlying-assets": ["pad-toadnetwork-bsc", "bnb-binance-bsc"]
-	},
+	"vaults": [
+		{
+			"address": "0xf199cB43149132eb2D6Cf03AFCBa0cF074Dc806b",
+			"chain": "bsc",
+			"underlying-assets": ["pad-toadnetwork-bsc", "bnb-binance-bsc"]
+		}
+	],
 	"computed": true
 }

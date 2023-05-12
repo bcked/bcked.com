@@ -3,9 +3,11 @@
 		"address": "0x56747Ed2fca81B25FAe112C7a9D4465E947Aac56",
 		"chain": "bsc"
 	},
-	"vault": {
-		"address": "0xd4721caA7aB7d2C8A7d461A546717375Dc42e9c1",
-		"chain": "ethereum",
-		"underlying-assets": ["cats-catoshi-ethereum"]
-	}
+	"vaults": [
+		{
+			"address": "0xd4721caA7aB7d2C8A7d461A546717375Dc42e9c1",
+			"chain": "ethereum",
+			"underlying-assets": ["cats-catoshi-ethereum"]
+		}
+	]
 }

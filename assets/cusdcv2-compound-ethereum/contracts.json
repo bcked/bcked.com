@@ -3,9 +3,11 @@
 		"address": "0x39AA39c021dfbaE8faC545936693aC917d5E7563",
 		"chain": "ethereum"
 	},
-	"vault": {
-		"address": "0x39AA39c021dfbaE8faC545936693aC917d5E7563",
-		"chain": "ethereum",
-		"underlying-assets": ["usdc-circle-ethereum"]
-	}
+	"vaults": [
+		{
+			"address": "0x39AA39c021dfbaE8faC545936693aC917d5E7563",
+			"chain": "ethereum",
+			"underlying-assets": ["usdc-circle-ethereum"]
+		}
+	]
 }

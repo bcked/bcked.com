@@ -20,18 +20,23 @@ async function queryUnderlying(
 }
 
 async function queryBacking(
-	vault: agg.VaultContract,
+	vaults: agg.VaultContract[],
 	assetsContracts: agg.AssetsContracts
 ): Promise<agg.AssetBacking> {
 	return {
 		assets: Object.fromEntries(
 			await Promise.all(
-				vault['underlying-assets']
-					.filter((u) => u in assetsContracts)
-					.map(async (u) => [u, (await queryUnderlying(assetsContracts[u]!.token, vault)).balance])
+				vaults.flatMap((vault) =>
+					vault['underlying-assets']
+						.filter((u) => u in assetsContracts)
+						.map(async (u) => [
+							u,
+							(await queryUnderlying(assetsContracts[u]!.token, vault)).balance
+						])
+				)
 			)
 		),
-		source: chain.getRpcUrl(vault.chain),
+		source: [...new Set(vaults.map((vault) => chain.getRpcUrl(vault.chain)))].join(', '),
 		timestamp: new Date().toISOString()
 	};
 }
@@ -50,7 +55,7 @@ async function queryChainData(
 	}
 	let backing = null;
 	try {
-		backing = assetContracts.vault ? queryBacking(assetContracts.vault, assetsContracts) : null;
+		backing = assetContracts.vaults ? queryBacking(assetContracts.vaults, assetsContracts) : null;
 	} catch (error) {
 		console.log(error);
 	}
@@ -82,11 +87,6 @@ export async function queryAssets(assetsContracts: agg.AssetsContracts): Promise
 	return allData;
 }
 
-export async function queryAsset(
-	assetDetails: agg.AssetDetails,
-	assetContracts: agg.AssetContracts
-) {
-	return (
-		await queryAssets({ [assetDetails.id]: assetDetails }, { [assetContracts.id]: assetContracts })
-	)[0];
+export async function queryAsset(assetContracts: agg.AssetContracts) {
+	return (await queryAssets({ [assetContracts.id]: assetContracts }))[0];
 }

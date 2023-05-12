@@ -3,10 +3,12 @@
 		"address": "0x8DB3E34F642AA4B404956557a681BC8973529356",
 		"chain": "bsc"
 	},
-	"vault": {
-		"address": "0x8DB3E34F642AA4B404956557a681BC8973529356",
-		"chain": "bsc",
-		"underlying-assets": ["pad-toadnetwork-bsc", "btc-binance-bsc"]
-	},
+	"vaults": [
+		{
+			"address": "0x8DB3E34F642AA4B404956557a681BC8973529356",
+			"chain": "bsc",
+			"underlying-assets": ["pad-toadnetwork-bsc", "btc-binance-bsc"]
+		}
+	],
 	"computed": true
 }

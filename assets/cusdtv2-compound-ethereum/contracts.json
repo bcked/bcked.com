@@ -3,9 +3,11 @@
 		"address": "0xf650C3d88D12dB855b8bf7D11Be6C55A4e07dCC9",
 		"chain": "ethereum"
 	},
-	"vault": {
-		"address": "0xf650C3d88D12dB855b8bf7D11Be6C55A4e07dCC9",
-		"chain": "ethereum",
-		"underlying-assets": ["usdt-tether-ethereum"]
-	}
+	"vaults": [
+		{
+			"address": "0xf650C3d88D12dB855b8bf7D11Be6C55A4e07dCC9",
+			"chain": "ethereum",
+			"underlying-assets": ["usdt-tether-ethereum"]
+		}
+	]
 }

@@ -30,7 +30,7 @@ declare namespace agg {
 	type AssetContracts = {
 		id: derived.AssetId;
 		token: TokenContract;
-		vault: VaultContract;
+		vaults: VaultContract[];
 		computed?: boolean;
 	} & git.Meta;
 

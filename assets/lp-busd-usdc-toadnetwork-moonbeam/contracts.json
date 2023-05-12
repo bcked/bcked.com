@@ -3,10 +3,12 @@
 		"address": "0x079095D0AA760Dd88964b24267Ef7d9e3DC32944",
 		"chain": "moonbeam"
 	},
-	"vault": {
-		"address": "0x079095D0AA760Dd88964b24267Ef7d9e3DC32944",
-		"chain": "moonbeam",
-		"underlying-assets": ["busd-multichain-moonbeam", "usdc-multichain-moonbeam"]
-	},
+	"vaults": [
+		{
+			"address": "0x079095D0AA760Dd88964b24267Ef7d9e3DC32944",
+			"chain": "moonbeam",
+			"underlying-assets": ["busd-multichain-moonbeam", "usdc-multichain-moonbeam"]
+		}
+	],
 	"computed": true
 }

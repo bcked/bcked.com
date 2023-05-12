@@ -3,9 +3,11 @@
 		"address": "0x7950865a9140cB519342433146Ed5b40c6F210f7",
 		"chain": "bsc"
 	},
-	"vault": {
-		"address": "0x47ac0Fb4F2D84898e4D9E7b4DaB3C24507a6D503",
-		"chain": "ethereum",
-		"underlying-assets": ["paxg-paxos-ethereum"]
-	}
+	"vaults": [
+		{
+			"address": "0x47ac0Fb4F2D84898e4D9E7b4DaB3C24507a6D503",
+			"chain": "ethereum",
+			"underlying-assets": ["paxg-paxos-ethereum"]
+		}
+	]
 }

@@ -3,10 +3,12 @@
 		"address": "0x2c001A059A0F2BD76293c755B3455163cC03A159",
 		"chain": "bsc"
 	},
-	"vault": {
-		"address": "0x2c001A059A0F2BD76293c755B3455163cC03A159",
-		"chain": "bsc",
-		"underlying-assets": ["bnb-binance-bsc", "fuk-bsc"]
-	},
+	"vaults": [
+		{
+			"address": "0x2c001A059A0F2BD76293c755B3455163cC03A159",
+			"chain": "bsc",
+			"underlying-assets": ["bnb-binance-bsc", "fuk-bsc"]
+		}
+	],
 	"computed": true
 }

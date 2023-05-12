@@ -3,14 +3,21 @@
 		"address": "0xA0d69E286B938e21CBf7E51D71F6A4c8918f482F",
 		"chain": "ethereum"
 	},
-	"vault": {
-		"address": "0xF014FEF41cCB703975827C8569a3f0940cFD80A4",
-		"chain": "ethereum",
-		"underlying-assets": [
-			"cusdcv2-compound-ethereum",
-			"cusdtv2-compound-ethereum",
-			"sausdc-reserve-ethereum",
-			"sausdt-reserve-ethereum"
-		]
-	}
+	"vaults": [
+		{
+			"address": "0xF014FEF41cCB703975827C8569a3f0940cFD80A4",
+			"chain": "ethereum",
+			"underlying-assets": [
+				"cusdcv2-compound-ethereum",
+				"cusdtv2-compound-ethereum",
+				"sausdc-reserve-ethereum",
+				"sausdt-reserve-ethereum"
+			]
+		},
+		{
+			"address": "0x18ba6e33ceb80f077DEb9260c9111e62f21aE7B8",
+			"chain": "ethereum",
+			"underlying-assets": ["rsr-reserve-ethereum"]
+		}
+	]
 }
