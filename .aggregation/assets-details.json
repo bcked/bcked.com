@@ -393,6 +393,26 @@
             }
         }
     },
+    "ethplus-ethereum": {
+        "id": "ethplus-ethereum",
+        "name": "ETHPlus",
+        "symbol": "ETH+",
+        "issuer": null,
+        "reference": "",
+        "tags": [
+            "cryptocurrency"
+        ],
+        "git": {
+            "updated": {
+                "hash": "ac75fcde188bc2ad4870acbf36d976f8c7a1cc71",
+                "date": "2023-05-14T14:58:40.000Z"
+            },
+            "created": {
+                "hash": "ac75fcde188bc2ad4870acbf36d976f8c7a1cc71",
+                "date": "2023-05-14T14:58:40.000Z"
+            }
+        }
+    },
     "ethw-ethereumfoundation-ethereum": {
         "id": "ethw-ethereumfoundation-ethereum",
         "name": "Wrapped Ether",
@@ -1269,6 +1289,26 @@
             }
         }
     },
+    "reth-rocketpool-ethereum": {
+        "id": "reth-rocketpool-ethereum",
+        "name": "Rocket Pool ETH",
+        "symbol": "rETH",
+        "issuer": "rocketpool",
+        "reference": "https://docs.rocketpool.net/guides/staking/overview.html#the-reth-token",
+        "tags": [
+            "cryptocurrency"
+        ],
+        "git": {
+            "updated": {
+                "hash": "ac75fcde188bc2ad4870acbf36d976f8c7a1cc71",
+                "date": "2023-05-14T14:58:40.000Z"
+            },
+            "created": {
+                "hash": "ac75fcde188bc2ad4870acbf36d976f8c7a1cc71",
+                "date": "2023-05-14T14:58:40.000Z"
+            }
+        }
+    },
     "rsr-reserve-ethereum": {
         "id": "rsr-reserve-ethereum",
         "name": "Reserve Rights",
@@ -1347,6 +1387,26 @@
             "created": {
                 "hash": "be842b8ad7a0454dc31ed87ddab23b61b84279d2",
                 "date": "2023-03-25T21:49:36.000Z"
+            }
+        }
+    },
+    "steth-lido-ethereum": {
+        "id": "steth-lido-ethereum",
+        "name": "stETH",
+        "symbol": "stETH",
+        "issuer": "lido",
+        "reference": "https://lido.fi/ethereum",
+        "tags": [
+            "cryptocurrency"
+        ],
+        "git": {
+            "updated": {
+                "hash": "ac75fcde188bc2ad4870acbf36d976f8c7a1cc71",
+                "date": "2023-05-14T14:58:40.000Z"
+            },
+            "created": {
+                "hash": "ac75fcde188bc2ad4870acbf36d976f8c7a1cc71",
+                "date": "2023-05-14T14:58:40.000Z"
             }
         }
     },
@@ -1559,6 +1619,26 @@
             "created": {
                 "hash": "a2573df4ac1ad4b7b03e2b53ebb3aa714a16e7d4",
                 "date": "2023-04-15T23:16:30.000Z"
+            }
+        }
+    },
+    "wsteth-lido-ethereum": {
+        "id": "wsteth-lido-ethereum",
+        "name": "Wrapped liquid staked Ether 2.0",
+        "symbol": "wstETH",
+        "issuer": "lido",
+        "reference": "",
+        "tags": [
+            "cryptocurrency"
+        ],
+        "git": {
+            "updated": {
+                "hash": "ac75fcde188bc2ad4870acbf36d976f8c7a1cc71",
+                "date": "2023-05-14T14:58:40.000Z"
+            },
+            "created": {
+                "hash": "ac75fcde188bc2ad4870acbf36d976f8c7a1cc71",
+                "date": "2023-05-14T14:58:40.000Z"
             }
         }
     }

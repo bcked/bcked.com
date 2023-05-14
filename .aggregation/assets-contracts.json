@@ -396,6 +396,41 @@
             }
         }
     },
+    "ethplus-ethereum": {
+        "id": "ethplus-ethereum",
+        "token": {
+            "address": "0xE72B141DF173b999AE7c1aDcbF60Cc9833Ce56a8",
+            "chain": "ethereum"
+        },
+        "vaults": [
+            {
+                "address": "0x608e1e01EF072c15E5Da7235ce793f4d24eCa67B",
+                "chain": "ethereum",
+                "underlying-assets": [
+                    "wsteth-lido-ethereum",
+                    "reth-rocketpool-ethereum"
+                ]
+            },
+            {
+                "address": "0xffa151Ad0A0e2e40F39f9e5E9F87cF9E45e819dd",
+                "chain": "ethereum",
+                "underlying-assets": [
+                    "rsr-reserve-ethereum"
+                ]
+            }
+        ],
+        "computed": true,
+        "git": {
+            "updated": {
+                "hash": "ac75fcde188bc2ad4870acbf36d976f8c7a1cc71",
+                "date": "2023-05-14T14:58:40.000Z"
+            },
+            "created": {
+                "hash": "ac75fcde188bc2ad4870acbf36d976f8c7a1cc71",
+                "date": "2023-05-14T14:58:40.000Z"
+            }
+        }
+    },
     "ethw-ethereumfoundation-ethereum": {
         "id": "ethw-ethereumfoundation-ethereum",
         "token": {
@@ -1408,6 +1443,23 @@
             }
         }
     },
+    "reth-rocketpool-ethereum": {
+        "id": "reth-rocketpool-ethereum",
+        "token": {
+            "address": "0xae78736Cd615f374D3085123A210448E74Fc6393",
+            "chain": "ethereum"
+        },
+        "git": {
+            "updated": {
+                "hash": "ac75fcde188bc2ad4870acbf36d976f8c7a1cc71",
+                "date": "2023-05-14T14:58:40.000Z"
+            },
+            "created": {
+                "hash": "ac75fcde188bc2ad4870acbf36d976f8c7a1cc71",
+                "date": "2023-05-14T14:58:40.000Z"
+            }
+        }
+    },
     "rsr-reserve-ethereum": {
         "id": "rsr-reserve-ethereum",
         "token": {
@@ -1476,6 +1528,23 @@
             "created": {
                 "hash": "70d552756e6ac4be466655a444352451338dfa68",
                 "date": "2023-04-18T19:48:46.000Z"
+            }
+        }
+    },
+    "steth-lido-ethereum": {
+        "id": "steth-lido-ethereum",
+        "token": {
+            "address": "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
+            "chain": "ethereum"
+        },
+        "git": {
+            "updated": {
+                "hash": "ac75fcde188bc2ad4870acbf36d976f8c7a1cc71",
+                "date": "2023-05-14T14:58:40.000Z"
+            },
+            "created": {
+                "hash": "ac75fcde188bc2ad4870acbf36d976f8c7a1cc71",
+                "date": "2023-05-14T14:58:40.000Z"
             }
         }
     },
@@ -1674,6 +1743,32 @@
             "created": {
                 "hash": "a2573df4ac1ad4b7b03e2b53ebb3aa714a16e7d4",
                 "date": "2023-04-15T23:16:30.000Z"
+            }
+        }
+    },
+    "wsteth-lido-ethereum": {
+        "id": "wsteth-lido-ethereum",
+        "token": {
+            "address": "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
+            "chain": "ethereum"
+        },
+        "vaults": [
+            {
+                "address": "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
+                "chain": "ethereum",
+                "underlying-assets": [
+                    "steth-lido-ethereum"
+                ]
+            }
+        ],
+        "git": {
+            "updated": {
+                "hash": "ac75fcde188bc2ad4870acbf36d976f8c7a1cc71",
+                "date": "2023-05-14T14:58:40.000Z"
+            },
+            "created": {
+                "hash": "ac75fcde188bc2ad4870acbf36d976f8c7a1cc71",
+                "date": "2023-05-14T14:58:40.000Z"
             }
         }
     }
