@@ -1,0 +1,23 @@
+{
+	"token": {
+		"address": "0xaCdf0DBA4B9839b96221a8487e9ca660a48212be",
+		"chain": "ethereum"
+	},
+	"vaults": [
+		{
+			"address": "0x61691c4181F876Dd7e19D6742B367B48AA280ed3",
+			"chain": "ethereum",
+			"underlying-assets": [
+				"fusdc-flux-ethereum",
+				"fdai-flux-ethereum",
+				"stkcvxeusd3crvf-ethereum",
+				"stkcvxmim3lp3crvf-ethereum"
+			]
+		},
+		{
+			"address": "0x7Db3C57001c80644208fb8AA81bA1200C7B0731d",
+			"chain": "ethereum",
+			"underlying-assets": ["rsr-reserve-ethereum"]
+		}
+	]
+}
