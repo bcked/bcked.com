@@ -6569,6 +6569,49 @@
                     "rate3m": -0.1921,
                     "rate1y": -0.8887
                 }
+            },
+            {
+                "timestamp": "2023-05-24T05:00:00.000Z",
+                "mcaps": {
+                    "usdc-binance-bsc": 528887851.85,
+                    "toad-toadnetwork-bsc": 361000,
+                    "pxbsc-bsc": 20484.29,
+                    "paxg-binance-bsc": 0,
+                    "pad-toadnetwork-bsc": 51442.68,
+                    "lp-pad-toad-toadnetwork-bsc": 26564.51,
+                    "lp-pad-hoge-toadnetwork-bsc": 510.02,
+                    "lp-pad-eth-toadnetwork-bsc": 1367.56,
+                    "lp-pad-busd-toadnetwork-bsc": 4201.45,
+                    "lp-pad-btc-toadnetwork-bsc": 1868.83,
+                    "lp-pad-bnb-toadnetwork-bsc": 8898.75,
+                    "lp-hoge-toad-toadnetwork-bsc": 13727.08,
+                    "lp-busd-toad-toadnetwork-bsc": 6295.09,
+                    "lp-busd-bnb-toadnetwork-bsc": 13889.12,
+                    "lp-bnb-toad-toadnetwork-bsc": 26172.86,
+                    "lp-bnb-pxbsc-toadnetwork-bsc": 22188.43,
+                    "lp-bnb-gal-toadnetwork-bsc": 7612.5,
+                    "lp-bnb-fuk-toadnetwork-bsc": 4443.94,
+                    "lp-bnb-cats-toadnetwork-bsc": 3363.84,
+                    "lp-bnb-bjt-toadnetwork-bsc": 980.74,
+                    "hoge-multichain-bsc": 296016.99,
+                    "gal-bsc": 41860,
+                    "fuk-bsc": 23980,
+                    "eth-binance-bsc": 1105250299.98,
+                    "cats-catoshi-bsc": 10827.3,
+                    "busd-binance-bsc": 1551839189.97,
+                    "btc-binance-bsc": 1620640287,
+                    "bnb-binance-bsc": 960776703.35,
+                    "bjt-bsc": 1527
+                },
+                "count": 29,
+                "tvl": {
+                    "value": 5768343555.13,
+                    "rate24h": -0.0116,
+                    "rate7d": -0.1443,
+                    "rate30d": -0.1352,
+                    "rate3m": -0.1997,
+                    "rate1y": -0.8897
+                }
             }
         ]
     },
@@ -14832,6 +14875,40 @@
                     "rate3m": -0.1475,
                     "rate1y": -0.2848
                 }
+            },
+            {
+                "timestamp": "2023-05-24T05:00:00.000Z",
+                "mcaps": {
+                    "wsteth-lido-ethereum": 3509685538.02,
+                    "usdt-tether-ethereum": 36279306401.53,
+                    "usdc-circle-ethereum": 27578756201.71,
+                    "steth-lido-ethereum": 12156016362.25,
+                    "sausdt-reserve-ethereum": 3316161.39,
+                    "sausdc-reserve-ethereum": 3316001.38,
+                    "rsr-reserve-ethereum": 293823000,
+                    "reth-rocketpool-ethereum": 717828691.95,
+                    "paxg-paxos-ethereum": 521825069.3,
+                    "hoge-ethereum": 19140000,
+                    "eusd-mobilecoin-ethereum": 13236549.07,
+                    "ethw-ethereumfoundation-ethereum": 6275567520.54,
+                    "ethplus-ethereum": 522802.91,
+                    "cusdtv2-compound-ethereum": 172108800.14,
+                    "cusdcv2-compound-ethereum": 389250610.64,
+                    "cats-catoshi-ethereum": 34.96,
+                    "busd-paxos-ethereum": 5400572162.34,
+                    "bnb-wormhole-ethereum": 652249.61,
+                    "ausdt-aave-ethereum": 496228825.75,
+                    "ausdc-aave-ethereum": 557674755.15
+                },
+                "count": 20,
+                "tvl": {
+                    "value": 94388827738.64,
+                    "rate24h": -0.0024,
+                    "rate7d": -0.0039,
+                    "rate30d": -0.0268,
+                    "rate3m": -0.1503,
+                    "rate1y": -0.2872
+                }
             }
         ]
     },
@@ -18108,6 +18185,29 @@
                     "rate30d": -0.0888,
                     "rate3m": -0.5264
                 }
+            },
+            {
+                "timestamp": "2023-05-24T05:00:00.000Z",
+                "mcaps": {
+                    "usdc-multichain-moonbeam": 1430888.1,
+                    "toad-toadnetwork-moonbeam": 40969.71,
+                    "pad-toadnetwork-moonbeam": 11136.53,
+                    "lp-usdc-glmr-toadnetwork-moonbeam": 1184.61,
+                    "lp-toad-glmr-toadnetwork-moonbeam": 9160.49,
+                    "lp-pad-glmr-toadnetwork-moonbeam": 5875.06,
+                    "lp-busd-usdc-toadnetwork-moonbeam": 1699.91,
+                    "glmrw-toadnetwork-moonbeam": 16435.12,
+                    "glmrw-moonbeamfoundation-moonbeam": 4673142.92,
+                    "busd-multichain-moonbeam": 338836.46
+                },
+                "count": 10,
+                "tvl": {
+                    "value": 6529328.91,
+                    "rate24h": -0.0126,
+                    "rate7d": -0.0498,
+                    "rate30d": -0.1068,
+                    "rate3m": -0.5292
+                }
             }
         ]
     },
@@ -21245,18 +21345,40 @@
                     "pad-toadnetwork-moonriver": 10404.89,
                     "movrw-moonbeamfoundation-moonriver": 6051.68,
                     "lp-usdc-movr-toadnetwork-moonriver": 1927.03,
-                    "lp-toad-movr-toadnetwork-moonriver": 3590.27,
+                    "lp-toad-movr-toadnetwork-moonriver": 3589.69,
                     "lp-pad-movr-toadnetwork-moonriver": 4549.33,
                     "lp-busd-usdc-toadnetwork-moonriver": 23923.9,
                     "busd-multichain-moonriver": 561046.26
                 },
                 "count": 9,
                 "tvl": {
-                    "value": 8577805.73,
+                    "value": 8577805.15,
                     "rate24h": -0.0265,
                     "rate7d": -0.0443,
                     "rate30d": -0.0487,
                     "rate3m": -0.3425
+                }
+            },
+            {
+                "timestamp": "2023-05-24T05:00:00.000Z",
+                "mcaps": {
+                    "usdc-multichain-moonriver": 7947629.42,
+                    "toad-toadnetwork-moonriver": 9048.38,
+                    "pad-toadnetwork-moonriver": 10404.89,
+                    "movrw-moonbeamfoundation-moonriver": 6053.76,
+                    "lp-usdc-movr-toadnetwork-moonriver": 1927.43,
+                    "lp-toad-movr-toadnetwork-moonriver": 3589.69,
+                    "lp-pad-movr-toadnetwork-moonriver": 4549.33,
+                    "lp-busd-usdc-toadnetwork-moonriver": 23911.41,
+                    "busd-multichain-moonriver": 560863.47
+                },
+                "count": 9,
+                "tvl": {
+                    "value": 8567977.78,
+                    "rate24h": 0.0002,
+                    "rate7d": -0.0443,
+                    "rate30d": -0.0498,
+                    "rate3m": -0.3433
                 }
             }
         ]
@@ -23712,6 +23834,23 @@
                     "rate7d": 0.0012,
                     "rate30d": 0.001,
                     "rate3m": 0.002
+                }
+            },
+            {
+                "timestamp": "2023-05-24T05:00:00.000Z",
+                "mcaps": {
+                    "usdc-circle-solana": 5033875994.72,
+                    "paxg-wormhole-solana": 869073.08,
+                    "busd-allbridge-solana": 68471.48,
+                    "bnb-wormhole-solana": 3089368.54
+                },
+                "count": 4,
+                "tvl": {
+                    "value": 5037902907.82,
+                    "rate24h": 0.0002,
+                    "rate7d": 0.0004,
+                    "rate30d": -0.0003,
+                    "rate3m": 0.0007
                 }
             }
         ]
