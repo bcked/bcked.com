@@ -326,7 +326,8 @@
 								value: `${base}/assets/${linkedNode?.id}`
 							},
 							share:
-								linkData.history?.at(-1)?.usd?.value != undefined
+								linkData.history?.at(-1)?.usd?.value != undefined &&
+								latest?.underlying?.usd != undefined
 									? {
 											text: formatPercentage(
 												linkData.history.at(-1)?.usd?.value / latest?.underlying?.usd
@@ -467,7 +468,8 @@
 								value: linkedNode?.data.history?.at(-1)?.price?.usd
 							},
 							share:
-								linkData.history?.at(-1)?.usd?.value != undefined
+								linkData.history?.at(-1)?.usd?.value != undefined &&
+								latest?.derivative?.usd != undefined
 									? {
 											text: formatPercentage(
 												linkData.history.at(-1).usd?.value / latest?.derivative?.usd

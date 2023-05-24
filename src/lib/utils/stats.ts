@@ -93,6 +93,40 @@ export function calcIssuerStats(assetsOfIssuer: graph.NodeData[]): stats.IssuerS
 		_.flatMap(assetsOfIssuer, (v) => _.map(v.history, 'timestamp'))
 	);
 
+	if (!timepoints.length) {
+		return {
+			history: [
+				{
+					timestamp: new Date().toISOString(),
+					assets: {
+						mcaps: {},
+						count: 0,
+						tvl: {
+							value: 0,
+							rate24h: undefined,
+							rate7d: undefined,
+							rate30d: undefined,
+							rate3m: undefined,
+							rate1y: undefined
+						}
+					},
+					lps: {
+						mcaps: {},
+						count: 0,
+						tvl: {
+							value: 0,
+							rate24h: undefined,
+							rate7d: undefined,
+							rate30d: undefined,
+							rate3m: undefined,
+							rate1y: undefined
+						}
+					}
+				}
+			]
+		};
+	}
+
 	const assets = assetsOfIssuer.filter((asset) => !asset.details.tags.includes('lp'));
 	const lps = assetsOfIssuer.filter((asset) => asset.details.tags.includes('lp'));
 
