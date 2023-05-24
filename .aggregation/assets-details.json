@@ -1,4 +1,24 @@
 {
+    "3crv-curve-ethereum": {
+        "id": "3crv-curve-ethereum",
+        "name": "Curve.fi DAI/USDC/USDT",
+        "symbol": "3Crv",
+        "issuer": "curve",
+        "reference": "https://curve.fi/#/ethereum/pools/3pool/deposit",
+        "tags": [
+            "cryptocurrency"
+        ],
+        "git": {
+            "updated": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
+            },
+            "created": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
+            }
+        }
+    },
     "ausdc-aave-ethereum": {
         "id": "ausdc-aave-ethereum",
         "name": "Aave interest bearing USDC",
@@ -311,9 +331,29 @@
             }
         }
     },
+    "crvfrax-curve-ethereum": {
+        "id": "crvfrax-curve-ethereum",
+        "name": "Curve.fi FRAX/USDC",
+        "symbol": "crvFRAX",
+        "issuer": "curve",
+        "reference": "https://curve.fi/#/ethereum/pools/fraxusdc/deposit",
+        "tags": [
+            "cryptocurrency"
+        ],
+        "git": {
+            "updated": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
+            },
+            "created": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
+            }
+        }
+    },
     "cusdcv2-compound-ethereum": {
         "id": "cusdcv2-compound-ethereum",
-        "name": "Compound USD Coin v2",
+        "name": "Compound USDC v2",
         "symbol": "cUSDCv2",
         "issuer": "compound",
         "reference": "https://docs.compound.finance/v2/",
@@ -322,8 +362,8 @@
         ],
         "git": {
             "updated": {
-                "hash": "a2573df4ac1ad4b7b03e2b53ebb3aa714a16e7d4",
-                "date": "2023-04-15T23:16:30.000Z"
+                "hash": "4321e176ec7ed3393aabd858e289b94f34cf497d",
+                "date": "2023-05-19T21:42:04.000Z"
             },
             "created": {
                 "hash": "a2573df4ac1ad4b7b03e2b53ebb3aa714a16e7d4",
@@ -348,6 +388,66 @@
             "created": {
                 "hash": "a2573df4ac1ad4b7b03e2b53ebb3aa714a16e7d4",
                 "date": "2023-04-15T23:16:30.000Z"
+            }
+        }
+    },
+    "cvxeusd3crvf-convex-ethereum": {
+        "id": "cvxeusd3crvf-convex-ethereum",
+        "name": "Curve.fi Factory USD Metapool: eUSD+FRAX/USDC (FRAXBP) Convex Deposit",
+        "symbol": "cvxeUSD3CRV-f",
+        "issuer": "convex",
+        "reference": "https://www.convexfinance.com/stake",
+        "tags": [
+            "cryptocurrency"
+        ],
+        "git": {
+            "updated": {
+                "hash": "7d79d22473ffe188d6a0813a47bb9e06dc5e5f05",
+                "date": "2023-05-19T20:58:30.000Z"
+            },
+            "created": {
+                "hash": "7d79d22473ffe188d6a0813a47bb9e06dc5e5f05",
+                "date": "2023-05-19T20:58:30.000Z"
+            }
+        }
+    },
+    "cvxmim3lp3crvf-convex-ethereum": {
+        "id": "cvxmim3lp3crvf-convex-ethereum",
+        "name": "Curve.fi Factory USD Metapool: Magic Internet Money 3Pool Convex Deposit",
+        "symbol": "cvxMIM-3LP3CRV-f",
+        "issuer": "convex",
+        "reference": "https://www.convexfinance.com/stake",
+        "tags": [
+            "cryptocurrency"
+        ],
+        "git": {
+            "updated": {
+                "hash": "7d79d22473ffe188d6a0813a47bb9e06dc5e5f05",
+                "date": "2023-05-19T20:58:30.000Z"
+            },
+            "created": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
+            }
+        }
+    },
+    "dai-maker-ethereum": {
+        "id": "dai-maker-ethereum",
+        "name": "Dai Stablecoin",
+        "symbol": "DAI",
+        "issuer": "maker",
+        "reference": "",
+        "tags": [
+            "cryptocurrency"
+        ],
+        "git": {
+            "updated": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
+            },
+            "created": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
             }
         }
     },
@@ -455,6 +555,86 @@
             }
         }
     },
+    "eusd3crvf-curve-ethereum": {
+        "id": "eusd3crvf-curve-ethereum",
+        "name": "Curve.fi Factory USD Metapool: eUSD+FRAX/USDC (FRAXBP) Convex Deposit",
+        "symbol": "eUSD3CRV-f",
+        "issuer": "curve",
+        "reference": "https://curve.fi/#/ethereum/pools/factory-v2-277/deposit",
+        "tags": [
+            "cryptocurrency"
+        ],
+        "git": {
+            "updated": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
+            },
+            "created": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
+            }
+        }
+    },
+    "eusd3crvfgauge-curve-ethereum": {
+        "id": "eusd3crvfgauge-curve-ethereum",
+        "name": "Curve.fi eUSD3CRV-f Gauge Deposit",
+        "symbol": "eUSD3CRV-f-gauge",
+        "issuer": "curve",
+        "reference": "https://curve.fi/#/ethereum/pools/factory-v2-277/deposit",
+        "tags": [
+            "cryptocurrency"
+        ],
+        "git": {
+            "updated": {
+                "hash": "7d79d22473ffe188d6a0813a47bb9e06dc5e5f05",
+                "date": "2023-05-19T20:58:30.000Z"
+            },
+            "created": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
+            }
+        }
+    },
+    "fdai-flux-ethereum": {
+        "id": "fdai-flux-ethereum",
+        "name": "Flux DAI",
+        "symbol": "fDAI",
+        "issuer": "flux",
+        "reference": "https://fluxfinance.com/market/dai",
+        "tags": [
+            "cryptocurrency"
+        ],
+        "git": {
+            "updated": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
+            },
+            "created": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
+            }
+        }
+    },
+    "frax-frax-ethereum": {
+        "id": "frax-frax-ethereum",
+        "name": "Frax",
+        "symbol": "FRAX",
+        "issuer": "frax",
+        "reference": "",
+        "tags": [
+            "cryptocurrency"
+        ],
+        "git": {
+            "updated": {
+                "hash": "bb62fb1a893663b8c97037ade88a236f142cca92",
+                "date": "2023-05-24T20:42:07.000Z"
+            },
+            "created": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
+            }
+        }
+    },
     "fuk-bsc": {
         "id": "fuk-bsc",
         "name": "FuckYouKarens",
@@ -472,6 +652,46 @@
             "created": {
                 "hash": "582a44205d2389f913b46607a06868928a502c0d",
                 "date": "2023-01-31T21:59:44.000Z"
+            }
+        }
+    },
+    "fusdc-flux-ethereum": {
+        "id": "fusdc-flux-ethereum",
+        "name": "Flux USDC",
+        "symbol": "fUSDC",
+        "issuer": "flux",
+        "reference": "https://fluxfinance.com/market/usdc",
+        "tags": [
+            "cryptocurrency"
+        ],
+        "git": {
+            "updated": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
+            },
+            "created": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
+            }
+        }
+    },
+    "fusdt-flux-ethereum": {
+        "id": "fusdt-flux-ethereum",
+        "name": "Flux USDT",
+        "symbol": "fUSDT",
+        "issuer": "flux",
+        "reference": "https://fluxfinance.com/market/usdt",
+        "tags": [
+            "cryptocurrency"
+        ],
+        "git": {
+            "updated": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
+            },
+            "created": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
             }
         }
     },
@@ -617,6 +837,26 @@
             "created": {
                 "hash": "582a44205d2389f913b46607a06868928a502c0d",
                 "date": "2023-01-31T21:59:44.000Z"
+            }
+        }
+    },
+    "hyusd-ethereum": {
+        "id": "hyusd-ethereum",
+        "name": "High Yield USD",
+        "symbol": "hyUSD",
+        "issuer": null,
+        "reference": "",
+        "tags": [
+            "cryptocurrency"
+        ],
+        "git": {
+            "updated": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
+            },
+            "created": {
+                "hash": "ac75fcde188bc2ad4870acbf36d976f8c7a1cc71",
+                "date": "2023-05-14T14:58:40.000Z"
             }
         }
     },
@@ -1103,6 +1343,66 @@
             }
         }
     },
+    "mim-abracadabra-ethereum": {
+        "id": "mim-abracadabra-ethereum",
+        "name": "Magic Internet Money",
+        "symbol": "MIM",
+        "issuer": "abracadabra",
+        "reference": "",
+        "tags": [
+            "cryptocurrency"
+        ],
+        "git": {
+            "updated": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
+            },
+            "created": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
+            }
+        }
+    },
+    "mim3lp3crvf-curve-ethereum": {
+        "id": "mim3lp3crvf-curve-ethereum",
+        "name": "Curve.fi Factory USD Metapool: Magic Internet Money 3Pool Convex Deposit",
+        "symbol": "MIM-3LP3CRV-f",
+        "issuer": "curve",
+        "reference": "https://curve.fi/#/ethereum/pools/mim/deposit",
+        "tags": [
+            "cryptocurrency"
+        ],
+        "git": {
+            "updated": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
+            },
+            "created": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
+            }
+        }
+    },
+    "mim3lp3crvfgauge-curve-ethereum": {
+        "id": "mim3lp3crvfgauge-curve-ethereum",
+        "name": "Curve.fi MIM-3LP3CRV-f Gauge Deposit",
+        "symbol": "MIM-3LP3CRV-f-gauge",
+        "issuer": "curve",
+        "reference": "https://curve.fi/#/ethereum/pools/mim/deposit",
+        "tags": [
+            "cryptocurrency"
+        ],
+        "git": {
+            "updated": {
+                "hash": "7d79d22473ffe188d6a0813a47bb9e06dc5e5f05",
+                "date": "2023-05-19T20:58:30.000Z"
+            },
+            "created": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
+            }
+        }
+    },
     "movr-moonbeamfoundation-moonriver": {
         "id": "movr-moonbeamfoundation-moonriver",
         "name": "MOVR",
@@ -1407,6 +1707,46 @@
             "created": {
                 "hash": "ac75fcde188bc2ad4870acbf36d976f8c7a1cc71",
                 "date": "2023-05-14T14:58:40.000Z"
+            }
+        }
+    },
+    "stkcvxeusd3crvf-convex-ethereum": {
+        "id": "stkcvxeusd3crvf-convex-ethereum",
+        "name": "Staked Curve.fi Factory USD Metapool: eUSD+FRAX/USDC (FRAXBP) Convex Deposit",
+        "symbol": "stkcvxeUSD3CRV-f",
+        "issuer": "convex",
+        "reference": "https://www.convexfinance.com/stake",
+        "tags": [
+            "cryptocurrency"
+        ],
+        "git": {
+            "updated": {
+                "hash": "7d79d22473ffe188d6a0813a47bb9e06dc5e5f05",
+                "date": "2023-05-19T20:58:30.000Z"
+            },
+            "created": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
+            }
+        }
+    },
+    "stkcvxmim3lp3crvf-convex-ethereum": {
+        "id": "stkcvxmim3lp3crvf-convex-ethereum",
+        "name": "Staked Curve.fi Factory USD Metapool: Magic Internet Money 3Pool Convex Deposit",
+        "symbol": "stkcvxMIM-3LP3CRV-f",
+        "issuer": "convex",
+        "reference": "https://www.convexfinance.com/stake",
+        "tags": [
+            "cryptocurrency"
+        ],
+        "git": {
+            "updated": {
+                "hash": "7d79d22473ffe188d6a0813a47bb9e06dc5e5f05",
+                "date": "2023-05-19T20:58:30.000Z"
+            },
+            "created": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
             }
         }
     },

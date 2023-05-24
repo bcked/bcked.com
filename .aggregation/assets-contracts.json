@@ -1,4 +1,32 @@
 {
+    "3crv-curve-ethereum": {
+        "id": "3crv-curve-ethereum",
+        "token": {
+            "address": "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490",
+            "chain": "ethereum"
+        },
+        "vaults": [
+            {
+                "address": "0xbEbc44782C7dB0a1A60Cb6fe97d0b483032FF1C7",
+                "chain": "ethereum",
+                "underlying-assets": [
+                    "usdc-circle-ethereum",
+                    "dai-maker-ethereum",
+                    "usdt-tether-ethereum"
+                ]
+            }
+        ],
+        "git": {
+            "updated": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
+            },
+            "created": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
+            }
+        }
+    },
     "ausdc-aave-ethereum": {
         "id": "ausdc-aave-ethereum",
         "token": {
@@ -318,6 +346,33 @@
             }
         }
     },
+    "crvfrax-curve-ethereum": {
+        "id": "crvfrax-curve-ethereum",
+        "token": {
+            "address": "0x3175Df0976dFA876431C2E9eE6Bc45b65d3473CC",
+            "chain": "ethereum"
+        },
+        "vaults": [
+            {
+                "address": "0xDcEF968d416a41Cdac0ED8702fAC8128A64241A2",
+                "chain": "ethereum",
+                "underlying-assets": [
+                    "usdc-circle-ethereum",
+                    "frax-frax-ethereum"
+                ]
+            }
+        ],
+        "git": {
+            "updated": {
+                "hash": "bb62fb1a893663b8c97037ade88a236f142cca92",
+                "date": "2023-05-24T20:42:07.000Z"
+            },
+            "created": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
+            }
+        }
+    },
     "cusdcv2-compound-ethereum": {
         "id": "cusdcv2-compound-ethereum",
         "token": {
@@ -370,6 +425,76 @@
             }
         }
     },
+    "cvxeusd3crvf-convex-ethereum": {
+        "id": "cvxeusd3crvf-convex-ethereum",
+        "token": {
+            "address": "0x8e074d44aaBC1b3b4406fE03Da7ceF787ea85938",
+            "chain": "ethereum"
+        },
+        "vaults": [
+            {
+                "address": "0x989AEb4d175e16225E39E87d0D97A3360524AD80",
+                "chain": "ethereum",
+                "underlying-assets": [
+                    "eusd3crvfgauge-curve-ethereum"
+                ]
+            }
+        ],
+        "computed": true,
+        "git": {
+            "updated": {
+                "hash": "7d79d22473ffe188d6a0813a47bb9e06dc5e5f05",
+                "date": "2023-05-19T20:58:30.000Z"
+            },
+            "created": {
+                "hash": "7d79d22473ffe188d6a0813a47bb9e06dc5e5f05",
+                "date": "2023-05-19T20:58:30.000Z"
+            }
+        }
+    },
+    "cvxmim3lp3crvf-convex-ethereum": {
+        "id": "cvxmim3lp3crvf-convex-ethereum",
+        "token": {
+            "address": "0xabB54222c2b77158CC975a2b715a3d703c256F05",
+            "chain": "ethereum"
+        },
+        "vaults": [
+            {
+                "address": "0x5a6A4D54456819380173272A5E8E9B9904BdF41B",
+                "chain": "ethereum",
+                "underlying-assets": [
+                    "mim3lp3crvfgauge-curve-ethereum"
+                ]
+            }
+        ],
+        "git": {
+            "updated": {
+                "hash": "7d79d22473ffe188d6a0813a47bb9e06dc5e5f05",
+                "date": "2023-05-19T20:58:30.000Z"
+            },
+            "created": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
+            }
+        }
+    },
+    "dai-maker-ethereum": {
+        "id": "dai-maker-ethereum",
+        "token": {
+            "address": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+            "chain": "ethereum"
+        },
+        "git": {
+            "updated": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
+            },
+            "created": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
+            }
+        }
+    },
     "eth-binance-bsc": {
         "id": "eth-binance-bsc",
         "token": {
@@ -419,11 +544,10 @@
                 ]
             }
         ],
-        "computed": true,
         "git": {
             "updated": {
-                "hash": "ac75fcde188bc2ad4870acbf36d976f8c7a1cc71",
-                "date": "2023-05-14T14:58:40.000Z"
+                "hash": "4321e176ec7ed3393aabd858e289b94f34cf497d",
+                "date": "2023-05-19T21:42:04.000Z"
             },
             "created": {
                 "hash": "ac75fcde188bc2ad4870acbf36d976f8c7a1cc71",
@@ -484,6 +608,103 @@
             }
         }
     },
+    "eusd3crvf-curve-ethereum": {
+        "id": "eusd3crvf-curve-ethereum",
+        "token": {
+            "address": "0xAEda92e6A3B1028edc139A4ae56Ec881f3064D4F",
+            "chain": "ethereum"
+        },
+        "vaults": [
+            {
+                "address": "0xAEda92e6A3B1028edc139A4ae56Ec881f3064D4F",
+                "chain": "ethereum",
+                "underlying-assets": [
+                    "eusd-mobilecoin-ethereum",
+                    "crvfrax-curve-ethereum"
+                ]
+            }
+        ],
+        "git": {
+            "updated": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
+            },
+            "created": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
+            }
+        }
+    },
+    "eusd3crvfgauge-curve-ethereum": {
+        "id": "eusd3crvfgauge-curve-ethereum",
+        "token": {
+            "address": "0x8605dc0C339a2e7e85EEA043bD29d42DA2c6D784",
+            "chain": "ethereum"
+        },
+        "vaults": [
+            {
+                "address": "0x8605dc0C339a2e7e85EEA043bD29d42DA2c6D784",
+                "chain": "ethereum",
+                "underlying-assets": [
+                    "eusd3crvf-curve-ethereum"
+                ]
+            }
+        ],
+        "computed": true,
+        "git": {
+            "updated": {
+                "hash": "7d79d22473ffe188d6a0813a47bb9e06dc5e5f05",
+                "date": "2023-05-19T20:58:30.000Z"
+            },
+            "created": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
+            }
+        }
+    },
+    "fdai-flux-ethereum": {
+        "id": "fdai-flux-ethereum",
+        "token": {
+            "address": "0xe2bA8693cE7474900A045757fe0efCa900F6530b",
+            "chain": "ethereum"
+        },
+        "vaults": [
+            {
+                "address": "0xe2bA8693cE7474900A045757fe0efCa900F6530b",
+                "chain": "ethereum",
+                "underlying-assets": [
+                    "dai-maker-ethereum"
+                ]
+            }
+        ],
+        "git": {
+            "updated": {
+                "hash": "b2e3d612927187a43f24d6df514e1e43e23488d6",
+                "date": "2023-05-19T14:53:55.000Z"
+            },
+            "created": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
+            }
+        }
+    },
+    "frax-frax-ethereum": {
+        "id": "frax-frax-ethereum",
+        "token": {
+            "address": "0x853d955aCEf822Db058eb8505911ED77F175b99e",
+            "chain": "ethereum"
+        },
+        "git": {
+            "updated": {
+                "hash": "bb62fb1a893663b8c97037ade88a236f142cca92",
+                "date": "2023-05-24T20:42:07.000Z"
+            },
+            "created": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
+            }
+        }
+    },
     "fuk-bsc": {
         "id": "fuk-bsc",
         "token": {
@@ -498,6 +719,58 @@
             "created": {
                 "hash": "582a44205d2389f913b46607a06868928a502c0d",
                 "date": "2023-01-31T21:59:44.000Z"
+            }
+        }
+    },
+    "fusdc-flux-ethereum": {
+        "id": "fusdc-flux-ethereum",
+        "token": {
+            "address": "0x465a5a630482f3abD6d3b84B39B29b07214d19e5",
+            "chain": "ethereum"
+        },
+        "vaults": [
+            {
+                "address": "0x465a5a630482f3abD6d3b84B39B29b07214d19e5",
+                "chain": "ethereum",
+                "underlying-assets": [
+                    "usdc-circle-ethereum"
+                ]
+            }
+        ],
+        "git": {
+            "updated": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
+            },
+            "created": {
+                "hash": "a2573df4ac1ad4b7b03e2b53ebb3aa714a16e7d4",
+                "date": "2023-04-15T23:16:30.000Z"
+            }
+        }
+    },
+    "fusdt-flux-ethereum": {
+        "id": "fusdt-flux-ethereum",
+        "token": {
+            "address": "0x81994b9607e06ab3d5cF3AffF9a67374f05F27d7",
+            "chain": "ethereum"
+        },
+        "vaults": [
+            {
+                "address": "0x81994b9607e06ab3d5cF3AffF9a67374f05F27d7",
+                "chain": "ethereum",
+                "underlying-assets": [
+                    "usdt-tether-ethereum"
+                ]
+            }
+        ],
+        "git": {
+            "updated": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
+            },
+            "created": {
+                "hash": "a2573df4ac1ad4b7b03e2b53ebb3aa714a16e7d4",
+                "date": "2023-04-15T23:16:30.000Z"
             }
         }
     },
@@ -592,6 +865,42 @@
             "created": {
                 "hash": "582a44205d2389f913b46607a06868928a502c0d",
                 "date": "2023-01-31T21:59:44.000Z"
+            }
+        }
+    },
+    "hyusd-ethereum": {
+        "id": "hyusd-ethereum",
+        "token": {
+            "address": "0xaCdf0DBA4B9839b96221a8487e9ca660a48212be",
+            "chain": "ethereum"
+        },
+        "vaults": [
+            {
+                "address": "0x61691c4181F876Dd7e19D6742B367B48AA280ed3",
+                "chain": "ethereum",
+                "underlying-assets": [
+                    "fusdc-flux-ethereum",
+                    "fdai-flux-ethereum",
+                    "stkcvxeusd3crvf-convex-ethereum",
+                    "stkcvxmim3lp3crvf-convex-ethereum"
+                ]
+            },
+            {
+                "address": "0x7Db3C57001c80644208fb8AA81bA1200C7B0731d",
+                "chain": "ethereum",
+                "underlying-assets": [
+                    "rsr-reserve-ethereum"
+                ]
+            }
+        ],
+        "git": {
+            "updated": {
+                "hash": "7d79d22473ffe188d6a0813a47bb9e06dc5e5f05",
+                "date": "2023-05-19T20:58:30.000Z"
+            },
+            "created": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
             }
         }
     },
@@ -1239,6 +1548,76 @@
             }
         }
     },
+    "mim-abracadabra-ethereum": {
+        "id": "mim-abracadabra-ethereum",
+        "token": {
+            "address": "0x99D8a9C45b2ecA8864373A26D1459e3Dff1e17F3",
+            "chain": "ethereum"
+        },
+        "git": {
+            "updated": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
+            },
+            "created": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
+            }
+        }
+    },
+    "mim3lp3crvf-curve-ethereum": {
+        "id": "mim3lp3crvf-curve-ethereum",
+        "token": {
+            "address": "0x5a6A4D54456819380173272A5E8E9B9904BdF41B",
+            "chain": "ethereum"
+        },
+        "vaults": [
+            {
+                "address": "0x5a6A4D54456819380173272A5E8E9B9904BdF41B",
+                "chain": "ethereum",
+                "underlying-assets": [
+                    "mim-abracadabra-ethereum",
+                    "3crv-curve-ethereum"
+                ]
+            }
+        ],
+        "git": {
+            "updated": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
+            },
+            "created": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
+            }
+        }
+    },
+    "mim3lp3crvfgauge-curve-ethereum": {
+        "id": "mim3lp3crvfgauge-curve-ethereum",
+        "token": {
+            "address": "0xd8b712d29381748dB89c36BCa0138d7c75866ddF",
+            "chain": "ethereum"
+        },
+        "vaults": [
+            {
+                "address": "0xd8b712d29381748dB89c36BCa0138d7c75866ddF",
+                "chain": "ethereum",
+                "underlying-assets": [
+                    "mim3lp3crvf-curve-ethereum"
+                ]
+            }
+        ],
+        "git": {
+            "updated": {
+                "hash": "7d79d22473ffe188d6a0813a47bb9e06dc5e5f05",
+                "date": "2023-05-19T20:58:30.000Z"
+            },
+            "created": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
+            }
+        }
+    },
     "movrw-moonbeamfoundation-moonriver": {
         "id": "movrw-moonbeamfoundation-moonriver",
         "token": {
@@ -1545,6 +1924,58 @@
             "created": {
                 "hash": "ac75fcde188bc2ad4870acbf36d976f8c7a1cc71",
                 "date": "2023-05-14T14:58:40.000Z"
+            }
+        }
+    },
+    "stkcvxeusd3crvf-convex-ethereum": {
+        "id": "stkcvxeusd3crvf-convex-ethereum",
+        "token": {
+            "address": "0xBF2FBeECc974a171e319b6f92D8f1d042C6F1AC3",
+            "chain": "ethereum"
+        },
+        "vaults": [
+            {
+                "address": "0xB468dB2E478885B87D7ce0C8DA1D4373A756C138",
+                "chain": "ethereum",
+                "underlying-assets": [
+                    "cvxeusd3crvf-convex-ethereum"
+                ]
+            }
+        ],
+        "git": {
+            "updated": {
+                "hash": "3b49e77ad9e60305301aa4603e38be0bdb359078",
+                "date": "2023-05-19T21:02:37.000Z"
+            },
+            "created": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
+            }
+        }
+    },
+    "stkcvxmim3lp3crvf-convex-ethereum": {
+        "id": "stkcvxmim3lp3crvf-convex-ethereum",
+        "token": {
+            "address": "0x8443364625e09a33d793acd03aCC1F3b5DbFA6F6",
+            "chain": "ethereum"
+        },
+        "vaults": [
+            {
+                "address": "0xFd5AbF66b003881b88567EB9Ed9c651F14Dc4771",
+                "chain": "ethereum",
+                "underlying-assets": [
+                    "cvxmim3lp3crvf-convex-ethereum"
+                ]
+            }
+        ],
+        "git": {
+            "updated": {
+                "hash": "3b49e77ad9e60305301aa4603e38be0bdb359078",
+                "date": "2023-05-19T21:02:37.000Z"
+            },
+            "created": {
+                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
+                "date": "2023-05-19T14:46:55.000Z"
             }
         }
     },

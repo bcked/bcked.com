@@ -1812,6 +1812,55 @@
                         "rate30d": 0.0024
                     }
                 }
+            },
+            {
+                "timestamp": "2023-05-24T22:00:00.000Z",
+                "assets": {
+                    "mcaps": {
+                        "ausdt-aave-ethereum": 494138481.12,
+                        "ausdc-aave-ethereum": 564226734.19
+                    },
+                    "count": 2,
+                    "tvl": {
+                        "value": 1058365215.3100001,
+                        "rate24h": 0.0004,
+                        "rate7d": 0.0186,
+                        "rate30d": 0.0089
+                    }
+                },
+                "lps": {
+                    "mcaps": {},
+                    "count": 0,
+                    "tvl": {
+                        "value": 0,
+                        "rate24h": 0.0004,
+                        "rate7d": 0.0186,
+                        "rate30d": 0.0089
+                    }
+                }
+            }
+        ]
+    },
+    "abracadabra": {
+        "history": [
+            {
+                "timestamp": "2023-05-24T22:00:00.000Z",
+                "assets": {
+                    "mcaps": {
+                        "mim-abracadabra-ethereum": 136518265.2
+                    },
+                    "count": 1,
+                    "tvl": {
+                        "value": 136518265.2
+                    }
+                },
+                "lps": {
+                    "mcaps": {},
+                    "count": 0,
+                    "tvl": {
+                        "value": 0
+                    }
+                }
             }
         ]
     },
@@ -5636,6 +5685,33 @@
                         "rate7d": -0.0012,
                         "rate30d": -0.0303,
                         "rate3m": -0.0545
+                    }
+                }
+            },
+            {
+                "timestamp": "2023-05-24T22:00:00.000Z",
+                "assets": {
+                    "mcaps": {
+                        "busd-allbridge-solana": 68471.48
+                    },
+                    "count": 1,
+                    "tvl": {
+                        "value": 68471.48,
+                        "rate24h": 0.0002,
+                        "rate7d": -0.0001,
+                        "rate30d": -0.0292,
+                        "rate3m": -0.0534
+                    }
+                },
+                "lps": {
+                    "mcaps": {},
+                    "count": 0,
+                    "tvl": {
+                        "value": 0,
+                        "rate24h": 0.0002,
+                        "rate7d": -0.0001,
+                        "rate30d": -0.0292,
+                        "rate3m": -0.0534
                     }
                 }
             }
@@ -10644,6 +10720,40 @@
                         "rate1y": -0.8914
                     }
                 }
+            },
+            {
+                "timestamp": "2023-05-24T22:00:00.000Z",
+                "assets": {
+                    "mcaps": {
+                        "usdc-binance-bsc": 528999999.85,
+                        "paxg-binance-bsc": 0,
+                        "eth-binance-bsc": 1090282599.98,
+                        "busd-binance-bsc": 1544820370.83,
+                        "btc-binance-bsc": 1595713875,
+                        "bnb-binance-bsc": 944438618.57
+                    },
+                    "count": 6,
+                    "tvl": {
+                        "value": 5704255464.23,
+                        "rate24h": -0.0202,
+                        "rate7d": -0.1502,
+                        "rate30d": -0.1354,
+                        "rate3m": -0.2125,
+                        "rate1y": -0.891
+                    }
+                },
+                "lps": {
+                    "mcaps": {},
+                    "count": 0,
+                    "tvl": {
+                        "value": 0,
+                        "rate24h": -0.0202,
+                        "rate7d": -0.1502,
+                        "rate30d": -0.1354,
+                        "rate3m": -0.2125,
+                        "rate1y": -0.891
+                    }
+                }
             }
         ]
     },
@@ -15057,6 +15167,36 @@
             },
             {
                 "timestamp": "2023-05-24T17:00:00.000Z",
+                "assets": {
+                    "mcaps": {
+                        "cats-catoshi-ethereum": 34.96,
+                        "cats-catoshi-bsc": 10827.3
+                    },
+                    "count": 2,
+                    "tvl": {
+                        "value": 10862.259999999998,
+                        "rate24h": 0,
+                        "rate7d": 0,
+                        "rate30d": 0,
+                        "rate3m": -0.9796,
+                        "rate1y": -0.9941
+                    }
+                },
+                "lps": {
+                    "mcaps": {},
+                    "count": 0,
+                    "tvl": {
+                        "value": 0,
+                        "rate24h": 0,
+                        "rate7d": 0,
+                        "rate30d": 0,
+                        "rate3m": -0.9796,
+                        "rate1y": -0.9941
+                    }
+                }
+            },
+            {
+                "timestamp": "2023-05-24T22:00:00.000Z",
                 "assets": {
                     "mcaps": {
                         "cats-catoshi-ethereum": 34.96,
@@ -20866,6 +21006,36 @@
                         "rate1y": -0.4513
                     }
                 }
+            },
+            {
+                "timestamp": "2023-05-24T22:00:00.000Z",
+                "assets": {
+                    "mcaps": {
+                        "usdc-circle-solana": 5034943402.65,
+                        "usdc-circle-ethereum": 27414024977.13
+                    },
+                    "count": 2,
+                    "tvl": {
+                        "value": 32448968379.78,
+                        "rate24h": -0.0057,
+                        "rate7d": -0.0141,
+                        "rate30d": -0.0574,
+                        "rate3m": -0.2687,
+                        "rate1y": -0.4504
+                    }
+                },
+                "lps": {
+                    "mcaps": {},
+                    "count": 0,
+                    "tvl": {
+                        "value": 0,
+                        "rate24h": -0.0057,
+                        "rate7d": -0.0141,
+                        "rate30d": -0.0574,
+                        "rate3m": -0.2687,
+                        "rate1y": -0.4504
+                    }
+                }
             }
         ]
     },
@@ -22840,6 +23010,86 @@
                         "rate24h": 0.0081,
                         "rate7d": -0.0233,
                         "rate30d": 0.0316
+                    }
+                }
+            },
+            {
+                "timestamp": "2023-05-24T22:00:00.000Z",
+                "assets": {
+                    "mcaps": {
+                        "cusdtv2-compound-ethereum": 170651643.66,
+                        "cusdcv2-compound-ethereum": 392418094.7
+                    },
+                    "count": 2,
+                    "tvl": {
+                        "value": 563069738.36,
+                        "rate24h": 0.0072,
+                        "rate7d": -0.0242,
+                        "rate30d": 0.0307
+                    }
+                },
+                "lps": {
+                    "mcaps": {},
+                    "count": 0,
+                    "tvl": {
+                        "value": 0,
+                        "rate24h": 0.0072,
+                        "rate7d": -0.0242,
+                        "rate30d": 0.0307
+                    }
+                }
+            }
+        ]
+    },
+    "convex": {
+        "history": [
+            {
+                "timestamp": "2023-05-24T22:00:00.000Z",
+                "assets": {
+                    "mcaps": {
+                        "stkcvxmim3lp3crvf-convex-ethereum": 0,
+                        "stkcvxeusd3crvf-convex-ethereum": 0,
+                        "cvxmim3lp3crvf-convex-ethereum": 90655648.72,
+                        "cvxeusd3crvf-convex-ethereum": 13079030.31
+                    },
+                    "count": 4,
+                    "tvl": {
+                        "value": 103734679.03
+                    }
+                },
+                "lps": {
+                    "mcaps": {},
+                    "count": 0,
+                    "tvl": {
+                        "value": 0
+                    }
+                }
+            }
+        ]
+    },
+    "curve": {
+        "history": [
+            {
+                "timestamp": "2023-05-24T22:00:00.000Z",
+                "assets": {
+                    "mcaps": {
+                        "mim3lp3crvfgauge-curve-ethereum": 92591062.06,
+                        "mim3lp3crvf-curve-ethereum": 93068598.31,
+                        "eusd3crvfgauge-curve-ethereum": 13696353.48,
+                        "eusd3crvf-curve-ethereum": 13696597.33,
+                        "crvfrax-curve-ethereum": 500550147.38,
+                        "3crv-curve-ethereum": 395767725.32
+                    },
+                    "count": 6,
+                    "tvl": {
+                        "value": 1109370483.8799999
+                    }
+                },
+                "lps": {
+                    "mcaps": {},
+                    "count": 0,
+                    "tvl": {
+                        "value": 0
                     }
                 }
             }
@@ -27206,6 +27456,36 @@
                         "rate1y": -0.2472
                     }
                 }
+            },
+            {
+                "timestamp": "2023-05-24T22:00:00.000Z",
+                "assets": {
+                    "mcaps": {
+                        "ethw-ethereumfoundation-ethereum": 6199394593.27,
+                        "eth-ethereumfoundation-ethereum": 149030565230.78
+                    },
+                    "count": 2,
+                    "tvl": {
+                        "value": 155229959824.05,
+                        "rate24h": -0.001,
+                        "rate7d": -0.001,
+                        "rate30d": -0.0033,
+                        "rate3m": -0.0026,
+                        "rate1y": -0.247
+                    }
+                },
+                "lps": {
+                    "mcaps": {},
+                    "count": 0,
+                    "tvl": {
+                        "value": 0,
+                        "rate24h": -0.001,
+                        "rate7d": -0.001,
+                        "rate30d": -0.0033,
+                        "rate3m": -0.0026,
+                        "rate1y": -0.247
+                    }
+                }
             }
         ]
     },
@@ -27248,6 +27528,50 @@
                     "tvl": {
                         "value": 0,
                         "rate30d": 0
+                    }
+                }
+            }
+        ]
+    },
+    "flux": {
+        "history": [
+            {
+                "timestamp": "2023-05-24T22:21:18.675Z",
+                "assets": {
+                    "mcaps": {},
+                    "count": 0,
+                    "tvl": {
+                        "value": 0
+                    }
+                },
+                "lps": {
+                    "mcaps": {},
+                    "count": 0,
+                    "tvl": {
+                        "value": 0
+                    }
+                }
+            }
+        ]
+    },
+    "frax": {
+        "history": [
+            {
+                "timestamp": "2023-05-24T22:00:00.000Z",
+                "assets": {
+                    "mcaps": {
+                        "frax-frax-ethereum": 1003155342.54
+                    },
+                    "count": 1,
+                    "tvl": {
+                        "value": 1003155342.54
+                    }
+                },
+                "lps": {
+                    "mcaps": {},
+                    "count": 0,
+                    "tvl": {
+                        "value": 0
                     }
                 }
             }
@@ -27740,6 +28064,53 @@
                         "value": 0,
                         "rate24h": -0.0317,
                         "rate7d": 0.0565
+                    }
+                }
+            },
+            {
+                "timestamp": "2023-05-24T22:00:00.000Z",
+                "assets": {
+                    "mcaps": {
+                        "wsteth-lido-ethereum": 3471239605.47,
+                        "steth-lido-ethereum": 12010126974.31
+                    },
+                    "count": 2,
+                    "tvl": {
+                        "value": 15481366579.779999,
+                        "rate24h": -0.0227,
+                        "rate7d": 0.0663
+                    }
+                },
+                "lps": {
+                    "mcaps": {},
+                    "count": 0,
+                    "tvl": {
+                        "value": 0,
+                        "rate24h": -0.0227,
+                        "rate7d": 0.0663
+                    }
+                }
+            }
+        ]
+    },
+    "maker": {
+        "history": [
+            {
+                "timestamp": "2023-05-24T22:00:00.000Z",
+                "assets": {
+                    "mcaps": {
+                        "dai-maker-ethereum": 4628852497.74
+                    },
+                    "count": 1,
+                    "tvl": {
+                        "value": 4628852497.74
+                    }
+                },
+                "lps": {
+                    "mcaps": {},
+                    "count": 0,
+                    "tvl": {
+                        "value": 0
                     }
                 }
             }
@@ -29657,6 +30028,31 @@
                         "value": 0,
                         "rate24h": 0.0016,
                         "rate7d": 0.0019,
+                        "rate30d": 0.1079
+                    }
+                }
+            },
+            {
+                "timestamp": "2023-05-24T22:00:00.000Z",
+                "assets": {
+                    "mcaps": {
+                        "eusd-mobilecoin-ethereum": 13239648.7
+                    },
+                    "count": 1,
+                    "tvl": {
+                        "value": 13239648.7,
+                        "rate24h": 0.0017,
+                        "rate7d": 0.002,
+                        "rate30d": 0.1079
+                    }
+                },
+                "lps": {
+                    "mcaps": {},
+                    "count": 0,
+                    "tvl": {
+                        "value": 0,
+                        "rate24h": 0.0017,
+                        "rate7d": 0.002,
                         "rate30d": 0.1079
                     }
                 }
@@ -34045,6 +34441,36 @@
                         "rate24h": -0.0002,
                         "rate7d": -0.0008,
                         "rate30d": -0.0021,
+                        "rate3m": -0.0156
+                    }
+                }
+            },
+            {
+                "timestamp": "2023-05-24T22:00:00.000Z",
+                "assets": {
+                    "mcaps": {
+                        "movrw-moonbeamfoundation-moonriver": 6083.6,
+                        "movr-moonbeamfoundation-moonriver": 65059933.58,
+                        "glmrw-moonbeamfoundation-moonbeam": 4664079.24,
+                        "glmr-moonbeamfoundation-moonbeam": 338207251.14
+                    },
+                    "count": 4,
+                    "tvl": {
+                        "value": 407937347.56,
+                        "rate24h": -0.0001,
+                        "rate7d": -0.0007,
+                        "rate30d": -0.002,
+                        "rate3m": -0.0156
+                    }
+                },
+                "lps": {
+                    "mcaps": {},
+                    "count": 0,
+                    "tvl": {
+                        "value": 0,
+                        "rate24h": -0.0001,
+                        "rate7d": -0.0007,
+                        "rate30d": -0.002,
                         "rate3m": -0.0156
                     }
                 }
@@ -38456,6 +38882,37 @@
                         "rate7d": -0.0801,
                         "rate30d": -0.1064,
                         "rate3m": -0.3788
+                    }
+                }
+            },
+            {
+                "timestamp": "2023-05-24T22:00:00.000Z",
+                "assets": {
+                    "mcaps": {
+                        "usdc-multichain-moonriver": 6007020.98,
+                        "usdc-multichain-moonbeam": 1344714.02,
+                        "hoge-multichain-bsc": 296790.29,
+                        "busd-multichain-moonriver": 552800.67,
+                        "busd-multichain-moonbeam": 334133.72
+                    },
+                    "count": 5,
+                    "tvl": {
+                        "value": 8535459.68,
+                        "rate24h": -0.1919,
+                        "rate7d": -0.2256,
+                        "rate30d": -0.2478,
+                        "rate3m": -0.4771
+                    }
+                },
+                "lps": {
+                    "mcaps": {},
+                    "count": 0,
+                    "tvl": {
+                        "value": 0,
+                        "rate24h": -0.1919,
+                        "rate7d": -0.2256,
+                        "rate30d": -0.2478,
+                        "rate3m": -0.4771
                     }
                 }
             }
@@ -44096,6 +44553,36 @@
                         "rate1y": -0.6887
                     }
                 }
+            },
+            {
+                "timestamp": "2023-05-24T22:00:00.000Z",
+                "assets": {
+                    "mcaps": {
+                        "paxg-paxos-ethereum": 518806862.85,
+                        "busd-paxos-ethereum": 5332532250.62
+                    },
+                    "count": 2,
+                    "tvl": {
+                        "value": 5851339113.47,
+                        "rate24h": -0.0166,
+                        "rate7d": -0.0356,
+                        "rate30d": -0.1585,
+                        "rate3m": -0.516,
+                        "rate1y": -0.6892
+                    }
+                },
+                "lps": {
+                    "mcaps": {},
+                    "count": 0,
+                    "tvl": {
+                        "value": 0,
+                        "rate24h": -0.0166,
+                        "rate7d": -0.0356,
+                        "rate30d": -0.1585,
+                        "rate3m": -0.516,
+                        "rate1y": -0.6892
+                    }
+                }
             }
         ]
     },
@@ -45985,6 +46472,33 @@
                         "rate30d": 0.04
                     }
                 }
+            },
+            {
+                "timestamp": "2023-05-24T22:00:00.000Z",
+                "assets": {
+                    "mcaps": {
+                        "sausdt-reserve-ethereum": 3316666.25,
+                        "sausdc-reserve-ethereum": 3316869.06,
+                        "rsr-reserve-ethereum": 288960000
+                    },
+                    "count": 3,
+                    "tvl": {
+                        "value": 295593535.31,
+                        "rate24h": -0.0404,
+                        "rate7d": -0.0418,
+                        "rate30d": 0.0498
+                    }
+                },
+                "lps": {
+                    "mcaps": {},
+                    "count": 0,
+                    "tvl": {
+                        "value": 0,
+                        "rate24h": -0.0404,
+                        "rate7d": -0.0418,
+                        "rate30d": 0.0498
+                    }
+                }
             }
         ]
     },
@@ -46454,6 +46968,29 @@
                         "value": 0,
                         "rate24h": -0.0165,
                         "rate7d": 0.1143
+                    }
+                }
+            },
+            {
+                "timestamp": "2023-05-24T22:00:00.000Z",
+                "assets": {
+                    "mcaps": {
+                        "reth-rocketpool-ethereum": 715220356.53
+                    },
+                    "count": 1,
+                    "tvl": {
+                        "value": 715220356.53,
+                        "rate24h": -0.007,
+                        "rate7d": 0.1251
+                    }
+                },
+                "lps": {
+                    "mcaps": {},
+                    "count": 0,
+                    "tvl": {
+                        "value": 0,
+                        "rate24h": -0.007,
+                        "rate7d": 0.1251
                     }
                 }
             }
@@ -48374,6 +48911,31 @@
                         "rate24h": 0.001,
                         "rate7d": 0,
                         "rate30d": -0.002
+                    }
+                }
+            },
+            {
+                "timestamp": "2023-05-24T22:00:00.000Z",
+                "assets": {
+                    "mcaps": {
+                        "usdt-tether-ethereum": 36283188702.72
+                    },
+                    "count": 1,
+                    "tvl": {
+                        "value": 36283188702.72,
+                        "rate24h": 0,
+                        "rate7d": -0.001,
+                        "rate30d": -0.003
+                    }
+                },
+                "lps": {
+                    "mcaps": {},
+                    "count": 0,
+                    "tvl": {
+                        "value": 0,
+                        "rate24h": 0,
+                        "rate7d": -0.001,
+                        "rate30d": -0.003
                     }
                 }
             }
@@ -57323,6 +57885,65 @@
                         "rate1y": -0.3356
                     }
                 }
+            },
+            {
+                "timestamp": "2023-05-24T22:00:00.000Z",
+                "assets": {
+                    "mcaps": {
+                        "toad-toadnetwork-moonriver": 9048.38,
+                        "toad-toadnetwork-moonbeam": 40969.71,
+                        "toad-toadnetwork-bsc": 361000,
+                        "pad-toadnetwork-moonriver": 10404.89,
+                        "pad-toadnetwork-moonbeam": 11136.53,
+                        "pad-toadnetwork-bsc": 51473.99,
+                        "glmrw-toadnetwork-moonbeam": 16526.78
+                    },
+                    "count": 7,
+                    "tvl": {
+                        "value": 500560.28,
+                        "rate24h": 0.0003,
+                        "rate7d": 0.0006,
+                        "rate30d": 0.0022,
+                        "rate3m": -0.0536,
+                        "rate1y": -0.3355
+                    }
+                },
+                "lps": {
+                    "mcaps": {
+                        "lp-usdc-movr-toadnetwork-moonriver": 1932.54,
+                        "lp-usdc-glmr-toadnetwork-moonbeam": 1188.82,
+                        "lp-toad-movr-toadnetwork-moonriver": 3590.74,
+                        "lp-toad-glmr-toadnetwork-moonbeam": 9170.76,
+                        "lp-pad-toad-toadnetwork-bsc": 26564.51,
+                        "lp-pad-movr-toadnetwork-moonriver": 4550.74,
+                        "lp-pad-hoge-toadnetwork-bsc": 510.57,
+                        "lp-pad-glmr-toadnetwork-moonbeam": 5876.47,
+                        "lp-pad-eth-toadnetwork-bsc": 1358.24,
+                        "lp-pad-busd-toadnetwork-bsc": 4191.98,
+                        "lp-pad-btc-toadnetwork-bsc": 1854.45,
+                        "lp-pad-bnb-toadnetwork-bsc": 8854.2,
+                        "lp-hoge-toad-toadnetwork-bsc": 13744.97,
+                        "lp-busd-usdc-toadnetwork-moonriver": 23913.95,
+                        "lp-busd-usdc-toadnetwork-moonbeam": 1700.13,
+                        "lp-busd-toad-toadnetwork-bsc": 6280.48,
+                        "lp-busd-bnb-toadnetwork-bsc": 13788.28,
+                        "lp-bnb-toad-toadnetwork-bsc": 26041.33,
+                        "lp-bnb-pxbsc-toadnetwork-bsc": 22066.86,
+                        "lp-bnb-gal-toadnetwork-bsc": 7567.71,
+                        "lp-bnb-fuk-toadnetwork-bsc": 4423.85,
+                        "lp-bnb-cats-toadnetwork-bsc": 3349.62,
+                        "lp-bnb-bjt-toadnetwork-bsc": 975.62
+                    },
+                    "count": 23,
+                    "tvl": {
+                        "value": 193496.81999999995,
+                        "rate24h": 0.0003,
+                        "rate7d": 0.0006,
+                        "rate30d": 0.0022,
+                        "rate3m": -0.0536,
+                        "rate1y": -0.3355
+                    }
+                }
             }
         ]
     },
@@ -61437,6 +62058,35 @@
                         "value": 0,
                         "rate24h": -0.0261,
                         "rate7d": 0.0717,
+                        "rate30d": -0.083,
+                        "rate3m": -0.0893
+                    }
+                }
+            },
+            {
+                "timestamp": "2023-05-24T22:00:00.000Z",
+                "assets": {
+                    "mcaps": {
+                        "paxg-wormhole-solana": 862725.43,
+                        "bnb-wormhole-solana": 3103385.23,
+                        "bnb-wormhole-ethereum": 653315.46
+                    },
+                    "count": 3,
+                    "tvl": {
+                        "value": 4619426.12,
+                        "rate24h": -0.0261,
+                        "rate7d": 0.0716,
+                        "rate30d": -0.083,
+                        "rate3m": -0.0893
+                    }
+                },
+                "lps": {
+                    "mcaps": {},
+                    "count": 0,
+                    "tvl": {
+                        "value": 0,
+                        "rate24h": -0.0261,
+                        "rate7d": 0.0716,
                         "rate30d": -0.083,
                         "rate3m": -0.0893
                     }
