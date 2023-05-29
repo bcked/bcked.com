@@ -2,5 +2,32 @@
 	"token": {
 		"address": "0x99D8a9C45b2ecA8864373A26D1459e3Dff1e17F3",
 		"chain": "ethereum"
-	}
+	},
+	"vaults": [
+		{
+			"address": "0xd96f48665a1410C0cd669A88898ecA36B9Fc2cce",
+			"chain": "ethereum",
+			"underlying-assets": [
+				"mim-abracadabra-ethereum",
+				"crv-curve-ethereum",
+				"wbtc-bitgo-ethereum",
+				"weth-ethereumfoundation-ethereum",
+				"lusd-liquity-ethereum"
+			]
+		},
+		{
+			"address": "0xF5BCE5077908a1b7370B9ae04AdC565EBd643966",
+			"chain": "ethereum",
+			"underlying-assets": [
+				"mim-abracadabra-ethereum",
+				"usdc-circle-ethereum",
+				"usdt-tether-ethereum",
+				"dai-maker-ethereum",
+				"weth-ethereumfoundation-ethereum",
+				"wbtc-bitgo-ethereum",
+				"wsteth-lido-ethereum",
+				"lusd-liquity-ethereum"
+			]
+		}
+	]
 }
