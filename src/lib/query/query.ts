@@ -1,5 +1,6 @@
 import { ApiProxy } from '$lib/query/apis/proxy';
 import { ChainProxy } from '$lib/query/chains/proxy';
+import _ from 'lodash';
 
 const chain = new ChainProxy();
 const api = new ApiProxy();
@@ -24,17 +25,20 @@ async function queryBacking(
 	assetsContracts: agg.AssetsContracts
 ): Promise<agg.AssetBacking> {
 	return {
-		assets: Object.fromEntries(
+		assets: (
 			await Promise.all(
 				vaults.flatMap((vault) =>
 					vault['underlying-assets']
 						.filter((u) => u in assetsContracts)
-						.map(async (u) => [
-							u,
-							(await queryUnderlying(assetsContracts[u]!.token, vault)).balance
-						])
+						.map(async (u) => ({
+							[u]: (await queryUnderlying(assetsContracts[u]!.token, vault)).balance
+						}))
 				)
 			)
+		).reduce(
+			(acc, el) =>
+				_.mergeWith(acc, el, (objValue, srcValue) => (objValue ? objValue + srcValue : srcValue)),
+			{}
 		),
 		source: [...new Set(vaults.map((vault) => chain.getRpcUrl(vault.chain)))].join(', '),
 		timestamp: new Date().toISOString()
