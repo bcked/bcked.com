@@ -346,6 +346,23 @@
             }
         }
     },
+    "crv-curve-ethereum": {
+        "id": "crv-curve-ethereum",
+        "token": {
+            "address": "0xD533a949740bb3306d119CC777fa900bA034cd52",
+            "chain": "ethereum"
+        },
+        "git": {
+            "updated": {
+                "hash": "cd7e91ccd20e6295e5af5a26501478e953278c85",
+                "date": "2023-05-29T14:42:37.000Z"
+            },
+            "created": {
+                "hash": "cd7e91ccd20e6295e5af5a26501478e953278c85",
+                "date": "2023-05-29T14:42:37.000Z"
+            }
+        }
+    },
     "crvfrax-curve-ethereum": {
         "id": "crvfrax-curve-ethereum",
         "token": {
@@ -552,23 +569,6 @@
             "created": {
                 "hash": "ac75fcde188bc2ad4870acbf36d976f8c7a1cc71",
                 "date": "2023-05-14T14:58:40.000Z"
-            }
-        }
-    },
-    "ethw-ethereumfoundation-ethereum": {
-        "id": "ethw-ethereumfoundation-ethereum",
-        "token": {
-            "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
-            "chain": "ethereum"
-        },
-        "git": {
-            "updated": {
-                "hash": "04fc04eb635cb3ad0be13567b30c2bb48d2b8574",
-                "date": "2023-03-25T22:23:10.000Z"
-            },
-            "created": {
-                "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
-                "date": "2023-02-01T21:31:00.000Z"
             }
         }
     },
@@ -1548,16 +1548,60 @@
             }
         }
     },
+    "lusd-liquity-ethereum": {
+        "id": "lusd-liquity-ethereum",
+        "token": {
+            "address": "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
+            "chain": "ethereum"
+        },
+        "git": {
+            "updated": {
+                "hash": "cd7e91ccd20e6295e5af5a26501478e953278c85",
+                "date": "2023-05-29T14:42:37.000Z"
+            },
+            "created": {
+                "hash": "cd7e91ccd20e6295e5af5a26501478e953278c85",
+                "date": "2023-05-29T14:42:37.000Z"
+            }
+        }
+    },
     "mim-abracadabra-ethereum": {
         "id": "mim-abracadabra-ethereum",
         "token": {
             "address": "0x99D8a9C45b2ecA8864373A26D1459e3Dff1e17F3",
             "chain": "ethereum"
         },
+        "vaults": [
+            {
+                "address": "0xd96f48665a1410C0cd669A88898ecA36B9Fc2cce",
+                "chain": "ethereum",
+                "underlying-assets": [
+                    "mim-abracadabra-ethereum",
+                    "crv-curve-ethereum",
+                    "wbtc-bitgo-ethereum",
+                    "weth-ethereumfoundation-ethereum",
+                    "lusd-liquity-ethereum"
+                ]
+            },
+            {
+                "address": "0xF5BCE5077908a1b7370B9ae04AdC565EBd643966",
+                "chain": "ethereum",
+                "underlying-assets": [
+                    "mim-abracadabra-ethereum",
+                    "usdc-circle-ethereum",
+                    "usdt-tether-ethereum",
+                    "dai-maker-ethereum",
+                    "weth-ethereumfoundation-ethereum",
+                    "wbtc-bitgo-ethereum",
+                    "wsteth-lido-ethereum",
+                    "lusd-liquity-ethereum"
+                ]
+            }
+        ],
         "git": {
             "updated": {
-                "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
-                "date": "2023-05-19T14:46:55.000Z"
+                "hash": "cd7e91ccd20e6295e5af5a26501478e953278c85",
+                "date": "2023-05-29T14:42:37.000Z"
             },
             "created": {
                 "hash": "b6ace21e67dc716e4297bfca4fcc4752f2843b5d",
@@ -2174,6 +2218,40 @@
             "created": {
                 "hash": "a2573df4ac1ad4b7b03e2b53ebb3aa714a16e7d4",
                 "date": "2023-04-15T23:16:30.000Z"
+            }
+        }
+    },
+    "wbtc-bitgo-ethereum": {
+        "id": "wbtc-bitgo-ethereum",
+        "token": {
+            "address": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+            "chain": "ethereum"
+        },
+        "git": {
+            "updated": {
+                "hash": "cd7e91ccd20e6295e5af5a26501478e953278c85",
+                "date": "2023-05-29T14:42:37.000Z"
+            },
+            "created": {
+                "hash": "cd7e91ccd20e6295e5af5a26501478e953278c85",
+                "date": "2023-05-29T14:42:37.000Z"
+            }
+        }
+    },
+    "weth-ethereumfoundation-ethereum": {
+        "id": "weth-ethereumfoundation-ethereum",
+        "token": {
+            "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+            "chain": "ethereum"
+        },
+        "git": {
+            "updated": {
+                "hash": "cd7e91ccd20e6295e5af5a26501478e953278c85",
+                "date": "2023-05-29T14:42:37.000Z"
+            },
+            "created": {
+                "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
+                "date": "2023-02-01T21:31:00.000Z"
             }
         }
     },

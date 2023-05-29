@@ -331,6 +331,26 @@
             }
         }
     },
+    "crv-curve-ethereum": {
+        "id": "crv-curve-ethereum",
+        "name": "Curve DAO Token",
+        "symbol": "CRV",
+        "issuer": "curve",
+        "reference": "https://dao.curve.fi/",
+        "tags": [
+            "cryptocurrency"
+        ],
+        "git": {
+            "updated": {
+                "hash": "cd7e91ccd20e6295e5af5a26501478e953278c85",
+                "date": "2023-05-29T14:42:37.000Z"
+            },
+            "created": {
+                "hash": "cd7e91ccd20e6295e5af5a26501478e953278c85",
+                "date": "2023-05-29T14:42:37.000Z"
+            }
+        }
+    },
     "crvfrax-curve-ethereum": {
         "id": "crvfrax-curve-ethereum",
         "name": "Curve.fi FRAX/USDC",
@@ -510,27 +530,6 @@
             "created": {
                 "hash": "ac75fcde188bc2ad4870acbf36d976f8c7a1cc71",
                 "date": "2023-05-14T14:58:40.000Z"
-            }
-        }
-    },
-    "ethw-ethereumfoundation-ethereum": {
-        "id": "ethw-ethereumfoundation-ethereum",
-        "name": "Wrapped Ether",
-        "symbol": "WETH",
-        "issuer": "ethereumfoundation",
-        "reference": "https://ethereum.org/en/",
-        "tags": [
-            "cryptocurrency",
-            "derivative"
-        ],
-        "git": {
-            "updated": {
-                "hash": "04fc04eb635cb3ad0be13567b30c2bb48d2b8574",
-                "date": "2023-03-25T22:23:10.000Z"
-            },
-            "created": {
-                "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
-                "date": "2023-02-01T21:31:00.000Z"
             }
         }
     },
@@ -1343,6 +1342,26 @@
             }
         }
     },
+    "lusd-liquity-ethereum": {
+        "id": "lusd-liquity-ethereum",
+        "name": "Liquity USD",
+        "symbol": "LUSD",
+        "issuer": "liquity",
+        "reference": "https://www.liquity.org/",
+        "tags": [
+            "cryptocurrency"
+        ],
+        "git": {
+            "updated": {
+                "hash": "cd7e91ccd20e6295e5af5a26501478e953278c85",
+                "date": "2023-05-29T14:42:37.000Z"
+            },
+            "created": {
+                "hash": "cd7e91ccd20e6295e5af5a26501478e953278c85",
+                "date": "2023-05-29T14:42:37.000Z"
+            }
+        }
+    },
     "mim-abracadabra-ethereum": {
         "id": "mim-abracadabra-ethereum",
         "name": "Magic Internet Money",
@@ -1959,6 +1978,47 @@
             "created": {
                 "hash": "a2573df4ac1ad4b7b03e2b53ebb3aa714a16e7d4",
                 "date": "2023-04-15T23:16:30.000Z"
+            }
+        }
+    },
+    "wbtc-bitgo-ethereum": {
+        "id": "wbtc-bitgo-ethereum",
+        "name": "Wrapped Bitcoin",
+        "symbol": "WBTC",
+        "issuer": "bitgo",
+        "reference": "https://wbtc.network/dashboard/audit",
+        "tags": [
+            "cryptocurrency"
+        ],
+        "git": {
+            "updated": {
+                "hash": "cd7e91ccd20e6295e5af5a26501478e953278c85",
+                "date": "2023-05-29T14:42:37.000Z"
+            },
+            "created": {
+                "hash": "cd7e91ccd20e6295e5af5a26501478e953278c85",
+                "date": "2023-05-29T14:42:37.000Z"
+            }
+        }
+    },
+    "weth-ethereumfoundation-ethereum": {
+        "id": "weth-ethereumfoundation-ethereum",
+        "name": "Wrapped Ether",
+        "symbol": "WETH",
+        "issuer": "ethereumfoundation",
+        "reference": "https://ethereum.org/en/",
+        "tags": [
+            "cryptocurrency",
+            "derivative"
+        ],
+        "git": {
+            "updated": {
+                "hash": "cd7e91ccd20e6295e5af5a26501478e953278c85",
+                "date": "2023-05-29T14:42:37.000Z"
+            },
+            "created": {
+                "hash": "0cd630eb2a882d3eda5ce5682c775968432d3edb",
+                "date": "2023-02-01T21:31:00.000Z"
             }
         }
     },
