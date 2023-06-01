@@ -1,10 +1,11 @@
-# Documentation
+# Abracadabra
+
+## Documentation
 
 - <https://abracadabramoney.gitbook.io/learn>
 - <https://abracadabramoney.gitbook.io/developer/>
 
-
-# Research on Contracts and Code
+## Research on Contracts and Code
 
 - <https://github.com/DefiLlama/DefiLlama-Adapters/blob/main/projects/abracadabra/market.json>
 - <https://github.com/DefiLlama/DefiLlama-Adapters/blob/main/projects/abracadabra/index.js>
@@ -13,11 +14,11 @@
 - <https://abracadabramoney.gitbook.io/learn/our-ecosystem/our-contracts#our-degenbox-contracts>
 - <https://app.abracadabra.money/#/cauldrons>
 
-# Icons
+## Icons
 
 - <https://abracadabramoney.gitbook.io/learn/our-ecosystem/marketing-material>
 
-# How to query
+## How to query
 
 loop through every caudlron
 collateral() will give you token
