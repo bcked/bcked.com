@@ -1,33 +1,100 @@
 import { GH_TOKEN } from '$env/static/private';
 import { compareDates } from '$lib/utils/string-formatting';
-import { Octokit } from '@octokit/rest';
+import { graphql } from '@octokit/graphql';
 import fs from 'fs';
 import { marked } from 'marked';
 import type { PageServerLoad } from './$types';
 
-export const load: PageServerLoad = async () => {
-	const octokit = new Octokit({ auth: GH_TOKEN });
+type QueryRepository = {
+	repository: {
+		issues: {
+			nodes: {
+				title: string;
+				updatedAt: string;
+				body: string;
+				url: string;
+				labels: {
+					nodes: {
+						name: string;
+					}[];
+				};
+				projectItems: {
+					nodes: {
+						iteration: {
+							startDate: string;
+							title: string;
+							duration: number;
+						} | null;
+						status: {
+							name: string;
+						} | null;
+					}[];
+				};
+			}[];
+		};
+	};
+};
 
-	const roadmapIssues = (
-		await octokit.paginate(octokit.rest.issues.listForRepo, {
-			owner: 'bcked',
-			repo: 'bcked.com',
-			state: 'open',
-			per_page: 100
-		})
-	)
-		.filter((issue) => issue.milestone && issue.milestone.due_on)
+export const load: PageServerLoad = async (): Promise<{
+	content: string;
+	roadmapIssues: gh.Issues;
+}> => {
+	const graphqlWithAuth = graphql.defaults({
+		headers: {
+			authorization: `token ${GH_TOKEN}`
+		}
+	});
+
+	const queryRepository: QueryRepository = await graphqlWithAuth(`
+		{
+			repository(owner: "bcked", name: "bcked.com") {
+			  issues(first: 100, states: [OPEN]) {
+				nodes {
+				  title
+				  updatedAt
+				  body
+				  url
+				  labels(first: 10) {
+					nodes {
+					  name
+					}
+				  }
+				  projectItems(first: 1) {
+					nodes {
+					  iteration: fieldValueByName(name: "Iteration") {
+						... on ProjectV2ItemFieldIterationValue {
+						  startDate
+						  title
+						  duration
+						}
+					  }
+					  status: fieldValueByName(name: "Status") {
+						... on ProjectV2ItemFieldSingleSelectValue {
+						  name
+						}
+					  }
+					}
+				  }
+				}
+			  }
+			}
+		}
+	`);
+
+	const roadmapIssues = queryRepository.repository.issues.nodes
 		.filter((issue) =>
-			issue.labels.some(
+			issue.labels.nodes.some(
 				(label) => (typeof label === 'string' ? label : label.name) == 'enhancement'
 			)
 		)
-		.sort((a, b) => compareDates(a.updated_at, b.updated_at))
-		.sort((a, b) => -compareDates(a.milestone!.due_on!, b.milestone!.due_on!))
+		.filter((issue) => issue.projectItems.nodes[0]?.iteration != null)
+		.map((issue) => ({ ...issue, labels: issue.labels.nodes }))
+		.map((issue) => ({ ...issue, iteration: issue.projectItems.nodes[0]!.iteration! }))
+		.sort((a, b) => compareDates(a.updatedAt, b.updatedAt))
+		.sort((a, b) => -compareDates(a.iteration.startDate, b.iteration.startDate))
 		.map((issue) => ({
 			...issue,
-			body: marked(issue.body!),
-			milestone: { ...issue.milestone!, due_on: issue.milestone!.due_on! }
+			body: marked(issue.body!)
 		}));
 
 	return {

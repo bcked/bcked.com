@@ -23,10 +23,10 @@
 				<div class="min-w-0 flex-1">
 					<div>
 						<div class="text-sm">
-							<a href={issue.html_url} class="font-medium text-gray-900">{issue.title}</a>
+							<a href={issue.url} class="font-medium text-gray-900">{issue.title}</a>
 						</div>
 						<p class="mt-0.5 text-sm text-gray-500">
-							Last updated on {new Date(issue.updated_at).toLocaleDateString()}
+							Last updated on {new Date(issue.updatedAt).toLocaleDateString()}
 						</p>
 					</div>
 					<div class="mt-2 text-sm text-gray-700">

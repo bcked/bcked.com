@@ -1,6 +1,8 @@
 declare namespace gh {
-	type Milestone = {
+	type Iteration = {
 		title: string;
+		startDate: string;
+		duration: number;
 	};
 
 	type Label = {
@@ -9,10 +11,10 @@ declare namespace gh {
 
 	type Issue = {
 		title: string;
-		html_url: string;
-		updated_at: string;
+		url: string;
+		updatedAt: string;
 		body: string;
-		milestone: Milestone;
+		iteration: Iteration;
 		labels: Label[];
 	};
 

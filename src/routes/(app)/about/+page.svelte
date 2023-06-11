@@ -3,7 +3,7 @@
 	import type { PageData } from './$types';
 
 	import Page from '$components/layout/page.svelte';
-	import Milestones from '$components/roadmap-milestones.svelte';
+	import Iterations from '$components/roadmap-iterations.svelte';
 
 	export let data: PageData;
 </script>
@@ -19,5 +19,5 @@
 		<h2>Roadmap</h2>
 		<div>Follow our public and completely transparent roadmap planning.</div>
 	</div>
-	<Milestones issues={data.roadmapIssues} />
+	<Iterations issues={data.roadmapIssues} />
 </Page>
