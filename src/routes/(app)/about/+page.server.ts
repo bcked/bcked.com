@@ -45,6 +45,7 @@ export const load: PageServerLoad = async (): Promise<{
 		}
 	});
 
+	// Test here: https://docs.github.com/en/graphql/overview/explorer
 	const queryRepository: QueryRepository = await graphqlWithAuth(`
 		{
 			repository(owner: "bcked", name: "bcked.com") {
