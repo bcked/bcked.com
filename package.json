@@ -3,7 +3,8 @@
 	"version": "1.0.0",
 	"scripts": {
 		"dev": "vite dev",
-		"build": "NODE_OPTIONS='--max-old-space-size=16384' vite build --debug=false --logLevel=silent",
+		"build": "NODE_OPTIONS='--max-old-space-size=16384' vite build",
+		"build-silent": "NODE_OPTIONS='--max-old-space-size=16384' vite build --debug=false --logLevel=silent",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
@@ -17,7 +18,6 @@
 	"devDependencies": {
 		"@0xsequence/multicall": "^0.43.33",
 		"@octokit/graphql": "^5.0.6",
-		"@octokit/rest": "^19.0.11",
 		"@playwright/test": "^1.35.0",
 		"@rgossiaux/svelte-headlessui": "^1.0.2",
 		"@rgossiaux/svelte-heroicons": "^0.1.2",
