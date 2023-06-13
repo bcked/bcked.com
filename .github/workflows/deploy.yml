@@ -13,9 +13,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pull-requests: read
     steps:
       - uses: actions/checkout@v3
         with:
@@ -48,7 +45,7 @@ jobs:
 
       - name: Build Application
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           ALCHEMY_ETHEREUM: ${{ secrets.ALCHEMY_ETHEREUM }}
           ALCHEMY_POLYGON: ${{ secrets.ALCHEMY_POLYGON }}
           ALCHEMY_SOLANA: ${{ secrets.ALCHEMY_SOLANA }}
