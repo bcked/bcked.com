@@ -221,16 +221,16 @@
 					class="inline z-10 fill-gray-900 group-hover:hidden text-xs"
 					x={nodeStart + nodeWidth / 2}
 					y={d.x0 - 4}
-					text-anchor="middle">{rootRatio ? formatCurrency(d.value * rootRatio) : 'N/A'}</text
+					text-anchor="middle"
+					>{rootMcap && rootRatio
+						? formatPercentage((d.value / rootMcap) * rootRatio)
+						: 'N/A'}</text
 				>
 				<text
 					class="hidden z-10 fill-gray-900 group-hover:inline text-xs"
 					x={nodeStart + nodeWidth / 2}
 					y={d.x0 - 4}
-					text-anchor="middle"
-					>{rootMcap && rootRatio
-						? formatPercentage((d.value / rootMcap) * rootRatio)
-						: 'N/A'}</text
+					text-anchor="middle">{rootRatio ? formatCurrency(d.value * rootRatio) : 'N/A'}</text
 				>
 			</g>
 		{/each}
