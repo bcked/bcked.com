@@ -39,15 +39,11 @@ export const load: PageServerLoad = async (): Promise<{
 	content: string;
 	roadmapIssues: gh.Issues;
 }> => {
-	console.log('Loading GitHub data');
 	const graphqlWithAuth = graphql.defaults({
 		headers: {
 			authorization: `token ${GH_TOKEN}`
 		}
 	});
-
-	console.log('Check GH token');
-	console.log(GH_TOKEN ? GH_TOKEN.slice(0, 5) : 'No GitHub token');
 
 	// Test here: https://docs.github.com/en/graphql/overview/explorer
 	const queryRepository: QueryRepository = await graphqlWithAuth(`
@@ -85,8 +81,6 @@ export const load: PageServerLoad = async (): Promise<{
 			}
 		}
 	`);
-	console.log('Queried repository');
-	console.log(JSON.stringify(queryRepository, null, 2));
 
 	const roadmapIssues = queryRepository.repository.issues.nodes
 		.filter((issue) =>
@@ -103,9 +97,6 @@ export const load: PageServerLoad = async (): Promise<{
 			...issue,
 			body: marked(issue.body!)
 		}));
-
-	console.log('Roadmap issues');
-	console.log(JSON.stringify(roadmapIssues, null, 2));
 
 	return {
 		content: marked(fs.readFileSync(`ABOUT.md`, 'utf-8')),
