@@ -15,6 +15,35 @@ import createGraph from 'ngraph.graph';
 import path from 'ngraph.path';
 import toJson from 'ngraph.tojson';
 
+function setNodeDepth(
+	graph: Graph,
+	start: NodeId,
+	newDepth: number,
+	direction: 'up' | 'down' = 'down'
+): Graph {
+	const from = (link: Link) => (direction == 'down' ? link.fromId : link.toId);
+	const to = (link: Link) => (direction == 'down' ? link.toId : link.fromId);
+
+	let queue = [{ id: start, depth: newDepth }];
+	let visited = new Set();
+
+	while (queue.length > 0) {
+		let { id, depth } = queue.shift()!;
+		visited.add(id);
+		const node = graph.getNode(id);
+		if (node && node.data.depth < depth) {
+			node.data.depth = depth;
+			const underlyingLinks = [...(graph.getLinks(id) ?? [])].filter((link) => from(link) == id);
+			for (const link of underlyingLinks) {
+				if (visited.has(to(link))) continue;
+				queue.push({ id: to(link), depth: depth + 1 });
+			}
+		}
+	}
+
+	return graph;
+}
+
 export function getDAG(graph: Graph, start: NodeId, direction: 'up' | 'down' = 'down'): Graph {
 	const from = (link: Link) => (direction == 'down' ? link.fromId : link.toId);
 	const to = (link: Link) => (direction == 'down' ? link.toId : link.fromId);
@@ -28,11 +57,11 @@ export function getDAG(graph: Graph, start: NodeId, direction: 'up' | 'down' = '
 	if (!graph.hasNode(start)) return subgraph;
 	const startNode = graph.getNode(start)!;
 
-	let queue = [startNode];
-	subgraph.addNode(start, startNode.data);
+	let queue = [{ node: startNode, depth: 0 }];
+	subgraph.addNode(start, { ...startNode.data, depth: 0 });
 
 	while (queue.length > 0) {
-		let currentNode = queue.shift()!;
+		let { node: currentNode, depth: currentDepth } = queue.shift()!;
 		const underlyingLinks = [...(graph.getLinks(currentNode.id) ?? [])].filter(
 			(link) => from(link) == currentNode.id
 		);
@@ -48,10 +77,18 @@ export function getDAG(graph: Graph, start: NodeId, direction: 'up' | 'down' = '
 				continue;
 			}
 
-			const nextNode = graph.getNode(to(link))!;
-			subgraph.addNode(nextNode.id, nextNode.data);
-			subgraph.addLink(from(link), to(link), link.data);
-			queue.push(nextNode);
+			const existing = subgraph.getNode(to(link));
+			let depth = currentDepth + 1;
+
+			if (existing) {
+				// setNodeDepth(subgraph, existing.id, depth, direction);
+				subgraph.addLink(from(link), to(link), link.data);
+			} else {
+				const nextNode = graph.getNode(to(link))!;
+				subgraph.addNode(nextNode.id, { ...nextNode.data, depth });
+				subgraph.addLink(from(link), to(link), link.data);
+				queue.push({ node: nextNode, depth });
+			}
 		}
 	}
 
@@ -143,6 +180,32 @@ export function limitValueByLinks(
 	}
 
 	return subgraph;
+}
+
+export function ngraph2d3(g: Graph<graph.NodeData, graph.LinkData>): d3.Graph {
+	let d3graph: d3.Graph = { nodes: [], links: [] };
+	g.forEachNode((node) => {
+		const nodeValue = node?.data?.history?.at(-1)?.mcap?.value;
+		d3graph.nodes.push({
+			id: node.id as string,
+			name: node.id as string,
+			value: nodeValue ?? 0,
+			depth: node.data.depth
+		});
+	});
+	g.forEachLink((link) => {
+		const linkValue = link?.data?.history?.at(-1)?.usd?.value;
+		if (!d3graph.nodes.some((node) => node.id == link.fromId)) return;
+		if (!d3graph.nodes.some((node) => node.id == link.toId)) return;
+		d3graph.links.push({
+			source: link.fromId as string,
+			target: link.toId as string,
+			value: linkValue ?? 0
+		});
+	});
+
+	if (d3graph.nodes.length == 0 || d3graph.links.length == 0) return { nodes: [], links: [] };
+	return d3graph;
 }
 
 export function readGraph<NodeData = any, LinkData = any>(

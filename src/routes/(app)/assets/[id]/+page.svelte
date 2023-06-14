@@ -290,7 +290,11 @@
 						subtitle="View the full chain of {details.name}'s underlying assets."
 					/>
 					<div class="mt-5 sm:mt-6 h-full justify-center">
-						<Sankey graph={limitValueByLinks(getDAG(graph, id, 'down'), id)} {data} />
+						<Sankey
+							graph={limitValueByLinks(getDAG(graph, id, 'down'), id)}
+							direction="down"
+							{data}
+						/>
 					</div>
 				</Card>
 			</div>
@@ -425,7 +429,7 @@
 						subtitle="View the full chain of {details.name}'s derivative assets."
 					/>
 					<div class="mt-5 sm:mt-6 h-full justify-center">
-						<Sankey graph={limitValueByLinks(getDAG(graph, id, 'up'), id)} {data} />
+						<Sankey graph={limitValueByLinks(getDAG(graph, id, 'up'), id)} direction="up" {data} />
 					</div>
 				</Card>
 			</div>

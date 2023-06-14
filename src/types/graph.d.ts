@@ -1,5 +1,6 @@
 declare namespace graph {
 	type NodeData = {
+		depth: number;
 		details: agg.AssetDetails;
 		issuer: derived.IssuerId | undefined;
 		chain: derived.ChainId | undefined;

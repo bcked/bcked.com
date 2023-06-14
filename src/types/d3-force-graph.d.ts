@@ -5,6 +5,7 @@ declare namespace d3 {
 		id: string;
 		name: string;
 		value: number;
+		depth: number;
 	};
 
 	type Link = {

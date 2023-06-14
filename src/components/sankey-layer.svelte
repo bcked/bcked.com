@@ -5,44 +5,29 @@
 
 	export let graph: Graph<graph.NodeData, graph.LinkData>;
 
+	export let direction: 'up' | 'down' = 'down';
+
+	import { ngraph2d3 } from '$lib/utils/graph';
+	import _ from 'lodash-es';
 	import type { PageData } from '../routes/(app)/$types';
 
 	export let data: PageData;
 
-	function ngraph2d3(g: Graph<graph.NodeData, graph.LinkData>): d3.Graph {
-		let d3graph: d3.Graph = { nodes: [], links: [] };
-		g.forEachNode((node) => {
-			const nodeValue = node?.data?.history?.at(-1)?.mcap?.value;
-			d3graph.nodes.push({
-				id: node.id as string,
-				name: node.id as string,
-				value: nodeValue ?? 0
-			});
-		});
-		g.forEachLink((link) => {
-			const linkValue = link?.data?.history?.at(-1)?.usd?.value;
-			if (!d3graph.nodes.some((node) => node.id == link.fromId)) return;
-			if (!d3graph.nodes.some((node) => node.id == link.toId)) return;
-			d3graph.links.push({
-				source: link.fromId as string,
-				target: link.toId as string,
-				value: linkValue ?? 0
-			});
-		});
+	$: d3graph = ngraph2d3(graph);
+	$: dagDepth = _.maxBy(d3graph.nodes, 'depth')!.depth + 1;
 
-		if (d3graph.nodes.length == 0 || d3graph.links.length == 0) return { nodes: [], links: [] };
-		return d3graph;
-	}
+	$: containerHeight = 300;
+	$: height = Math.max(dagDepth * 70, 300, containerHeight);
 </script>
 
 <div class="relative w-full h-full items-center">
 	<div class="absolute flex inset-0 text-2xl justify-center items-center text-neon-pink/50">
 		<span>bcked.com</span>
 	</div>
-	<div class="h-full w-full min-h-[300px] sm:min-h-[350px] lg:min-h-[300px]">
-		<LayerCake data={JSON.parse(JSON.stringify(ngraph2d3(graph)))}>
-			<svg version="1.1" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-				<Sankey {graph} {data} />
+	<div class="h-full w-full" bind:clientHeight={containerHeight}>
+		<LayerCake data={JSON.parse(JSON.stringify(d3graph))}>
+			<svg version="1.1" width="100%" {height} xmlns="http://www.w3.org/2000/svg">
+				<Sankey {graph} {direction} {data} />
 			</svg>
 		</LayerCake>
 	</div>

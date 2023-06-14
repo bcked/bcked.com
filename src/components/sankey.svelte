@@ -5,12 +5,16 @@
 <script lang="ts">
 	import * as d3 from 'd3';
 
+	import { page } from '$app/stores';
 	import * as Sankey from 'd3-sankey';
 	import type { Graph } from 'ngraph.graph';
 	import { getContext } from 'svelte';
 
 	export let graph: Graph<graph.NodeData, graph.LinkData>;
 
+	export let direction: 'up' | 'down' = 'down';
+
+	import { formatCurrency, formatPercentage } from '$lib/utils/string-formatting';
 	import type { PageData } from '../routes/(app)/$types';
 	import Icon from './icon.svelte';
 
@@ -22,7 +26,7 @@
 	/** [nodeHight=5] - The width of each node, in pixels, passed to [`sankey.nodeHight`](https://github.com/d3/d3-sankey#sankey_nodeWidth). */
 	export let nodeHeight: number = 40;
 
-	export let nodeMinWidth = 1;
+	export let nodeMinWidth = 2;
 
 	/** [linkWidth=d => '0.9'] - A function to return a float to scale the link width. */
 	export let linkScale = (d: d3.SankeyLink) => 0.9;
@@ -51,6 +55,16 @@
 	$: sankeyData = sankey($data);
 
 	$: sankeyWidth = $width;
+
+	$: rootId = $page.params.id!;
+	$: rootNode = graph.getNode(rootId)!.data;
+
+	$: rootMcap = rootNode.history.at(-1)?.mcap?.value;
+
+	$: rootRatio =
+		direction == 'down'
+			? rootNode?.history?.at(-1)?.underlying?.ratio?.value
+			: rootNode?.history?.at(-1)?.derivative?.ratio?.value;
 
 	/**
 	 * This function is a drop in replacement for d3.sankeyLinkVertical().
@@ -203,6 +217,21 @@
 					width={iconSize}
 					height={iconSize}
 				/>
+				<text
+					class="inline z-10 fill-gray-900 group-hover:hidden text-xs"
+					x={nodeStart + nodeWidth / 2}
+					y={d.x0 - 4}
+					text-anchor="middle">{rootRatio ? formatCurrency(d.value * rootRatio) : 'N/A'}</text
+				>
+				<text
+					class="hidden z-10 fill-gray-900 group-hover:inline text-xs"
+					x={nodeStart + nodeWidth / 2}
+					y={d.x0 - 4}
+					text-anchor="middle"
+					>{rootMcap && rootRatio
+						? formatPercentage((d.value / rootMcap) * rootRatio)
+						: 'N/A'}</text
+				>
 			</g>
 		{/each}
 	</g>
