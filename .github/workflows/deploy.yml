@@ -3,11 +3,11 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches:
-      - main
-  schedule:
-    # Runs "At minute 0 past hour 5 and 17." (see https://crontab.guru)
-    - cron: "0 5,17 * * *"
+    #branches:
+    #- main
+  # schedule:
+  # Runs "At minute 0 past hour 5 and 17." (see https://crontab.guru)
+  # - cron: "0 5,17 * * *"
   workflow_dispatch:
 
 jobs:
