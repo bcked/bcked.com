@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en" class="h-full m-0 bg-gray-200 overflow-x-clip lg:scroll-smooth">
+<!doctype html>
+<html lang="en" class="m-0 h-full overflow-x-clip bg-gray-200 lg:scroll-smooth">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -11,29 +11,38 @@
 		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#3bc7ff" />
 		<meta name="msapplication-TileColor" content="#3bc7ff" />
 		<meta name="theme-color" content="#ffffff" />
+		<link href="/_app/immutable/entry/start.CRnsi13h.js" rel="modulepreload">
+		<link href="/_app/immutable/entry/payload.DSmR2FwN.js" rel="modulepreload">
+		<link href="/_app/immutable/chunks/CRzLMJPS.js" rel="modulepreload">
+		<link href="/_app/immutable/chunks/BdFEGw73.js" rel="modulepreload">
+		<link href="/_app/immutable/chunks/Bk1Yob29.js" rel="modulepreload">
+		<link href="/_app/immutable/chunks/DfIVyAXy.js" rel="modulepreload">
+		<link href="/_app/immutable/entry/app.DZfKYfgW.js" rel="modulepreload">
+		<link href="/_app/immutable/nodes/0.SGhatNhR.js" rel="modulepreload">
+		<link href="/_app/immutable/chunks/XKyaHtl9.js" rel="modulepreload">
+		<link href="/_app/immutable/chunks/DN4nHl_t.js" rel="modulepreload">
+		<link href="/_app/immutable/chunks/Dvhef5Db.js" rel="modulepreload">
+		<link href="/_app/immutable/chunks/BZSu2T3j.js" rel="modulepreload">
+		<link href="/_app/immutable/chunks/CE2qzpwa.js" rel="modulepreload">
+		<link href="/_app/immutable/chunks/tSQw08GI.js" rel="modulepreload">
+		<link href="/_app/immutable/chunks/O8X_HnD9.js" rel="modulepreload">
 		
-		<link rel="modulepreload" href="/_app/immutable/entry/start.27b3dca9.js">
-		<link rel="modulepreload" href="/_app/immutable/chunks/index.3647f7f4.js">
-		<link rel="modulepreload" href="/_app/immutable/chunks/singletons.0b058b56.js">
-		<link rel="modulepreload" href="/_app/immutable/chunks/paths.c0198c97.js">
-		<link rel="modulepreload" href="/_app/immutable/entry/app.7ec5124f.js">
-		<link rel="modulepreload" href="/_app/immutable/chunks/preload-helper.41c905a7.js">
+		<link href="/_app/immutable/assets/0.DM6Ru2qw.css" rel="stylesheet">
 	</head>
-	<body class="h-full overflow-x-clip">
-		<div class="flex flex-col min-h-full">
+	<body class="h-full overflow-x-clip" data-sveltekit-preload-data="hover">
+		<div class="flex min-h-full flex-col">
 			<script>
 				{
-					__sveltekit_19zy9g7 = {
+					__sveltekit_xv7qt4 = {
 						base: "",
-						env: {"PUBLIC_DOMAIN":"https://bcked.com"}
+						version: "1793163949634"
 					};
 
 					const element = document.currentScript.parentElement;
 
-					Promise.all([
-						import("/_app/immutable/entry/start.27b3dca9.js"),
-						import("/_app/immutable/entry/app.7ec5124f.js")
-					]).then(([kit, app]) => {
+					import("/_app/immutable/entry/start.CRnsi13h.js").then(async (kit) => {
+						kit.init(__sveltekit_xv7qt4);
+						const app = await import("/_app/immutable/entry/app.DZfKYfgW.js");
 						kit.start(app, element);
 					});
 				}
