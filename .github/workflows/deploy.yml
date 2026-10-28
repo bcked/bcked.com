@@ -7,8 +7,9 @@ on:
   pull_request:
     branches: [main]
   schedule:
-    # Rebuild with fresh API data. Runs "At minute 30 past every 6th hour." (see https://crontab.guru)
-    - cron: '30 */6 * * *'
+    # Rebuild with fresh API data every hour, after the hourly crawl and API deploy. GitHub skips
+    # scheduled runs under load, so a longer interval can leave the site a day behind.
+    - cron: '41 * * * *'
   workflow_dispatch:
 
 concurrency:
