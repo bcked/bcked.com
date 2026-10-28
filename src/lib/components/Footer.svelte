@@ -26,7 +26,11 @@
 			{/each}
 		</div>
 		<div class="mt-6 md:order-1 md:mt-0">
-			<p class="text-center text-base text-gray-600">&copy; 2022 bcked. All rights reserved.</p>
+			<p class="text-center text-base text-gray-600">&copy; 2022-2026 Sebastian Penhouet</p>
+			<p class="mt-1 text-center text-xs text-gray-500">
+				Data from DefiLlama, issuer reports and more, powered by Etherscan.io APIs.
+				<a href="/methodology" class="underline hover:text-gray-900">Sources</a>
+			</p>
 		</div>
 	</div>
 </footer>

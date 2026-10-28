@@ -1,11 +1,14 @@
 /** Markdown content from the repository root, rendered at build time. */
 import { marked } from 'marked';
 
-const files = import.meta.glob(['/ABOUT.md', '/LEGAL_NOTICE.md', '/faqs/*.md'], {
-	query: '?raw',
-	import: 'default',
-	eager: true
-}) as Record<string, string>;
+const files = import.meta.glob(
+	['/ABOUT.md', '/LEGAL_NOTICE.md', '/PRIVACY.md', '/METHODOLOGY.md', '/faqs/*.md'],
+	{
+		query: '?raw',
+		import: 'default',
+		eager: true
+	}
+) as Record<string, string>;
 
 export function renderMarkdown(path: string): string {
 	const content = files[path];

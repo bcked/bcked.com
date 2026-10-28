@@ -30,7 +30,9 @@
 	const bottomNavigation: NavigationItem[] = [
 		{ name: 'FAQ', path: resolve('/faq') },
 		{ name: 'About', path: resolve('/about') },
-		{ name: 'Legal Notice', path: resolve('/legal-notice') }
+		{ name: 'Methodology', path: resolve('/methodology') },
+		{ name: 'Legal Notice', path: resolve('/legal-notice') },
+		{ name: 'Privacy', path: resolve('/privacy') }
 	];
 
 	const socials: SocialItem[] = [

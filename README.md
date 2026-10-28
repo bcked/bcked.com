@@ -20,4 +20,4 @@ You can read more about the background of this project [here](ABOUT.md).
 
 ## Legal Notice
 
-See our Terms and Conditions [here](LEGAL_NOTICE.md).
+See the [Legal Notice (Impressum)](LEGAL_NOTICE.md) and the [Privacy Policy](PRIVACY.md).
