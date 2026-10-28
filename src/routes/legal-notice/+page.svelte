@@ -7,7 +7,7 @@
 	let { data }: PageProps = $props();
 </script>
 
-<Seo title="Legal Notice | bcked" description="Terms and conditions of bcked." />
+<Seo title="Legal Notice | bcked" description="Legal notice (Impressum) and disclaimer of bcked." />
 
 <Page class="px-0">
 	<Card class="px-4 py-8 sm:px-10">

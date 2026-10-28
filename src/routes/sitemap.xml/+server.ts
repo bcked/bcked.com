@@ -20,7 +20,9 @@ export const GET: RequestHandler = async ({ fetch }) => {
 		{ loc: '/chains', changefreq: 'daily' },
 		{ loc: '/faq', changefreq: 'monthly' },
 		{ loc: '/about', changefreq: 'monthly' },
+		{ loc: '/methodology', changefreq: 'monthly' },
 		{ loc: '/legal-notice', changefreq: 'yearly' },
+		{ loc: '/privacy', changefreq: 'yearly' },
 		...assets.map((a) => ({
 			loc: `/assets/${encodeURIComponent(a.id)}`,
 			changefreq: 'daily',

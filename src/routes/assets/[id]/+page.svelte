@@ -178,6 +178,21 @@
 				values and ratios below refer to that date.
 			</div>
 		{/if}
+		{#if backingDate}
+			<p class="px-4 text-sm text-gray-600 sm:px-0">
+				Backing as of {formatDate(backingDate)}.
+				{#if details.reference}
+					Source: <a href={details.reference} class="underline hover:text-gray-900"
+						>{new URL(details.reference).hostname}</a
+					>.
+				{/if}
+				<a
+					href="https://github.com/bcked/bcked-adapters/blob/records/assets/{asset.id}/records/backing.csv"
+					class="underline hover:text-gray-900">Recorded data</a
+				>
+				and <a href={resolve('/methodology')} class="underline hover:text-gray-900">methodology</a>.
+			</p>
+		{/if}
 		<div class="grid grid-cols-2 gap-[0.1rem] shadow sm:gap-4 sm:shadow-none md:grid-cols-4">
 			{#each backingStats as stat (stat.name)}
 				<Card class="relative px-4 py-5 sm:p-6"><Stats data={stat} /></Card>
