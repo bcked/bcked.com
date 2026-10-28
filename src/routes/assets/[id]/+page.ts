@@ -9,7 +9,6 @@ import {
 	type Breakdown,
 	type CollateralizationGraph
 } from '#lib/api.ts';
-import { comments } from '#lib/content.ts';
 import { graphLinks } from '#lib/graph.ts';
 import type { EntryGenerator, PageLoad } from './$types';
 
@@ -59,7 +58,6 @@ export const load: PageLoad = async ({ params, parent, fetch }) => {
 		asset,
 		details,
 		links,
-		comments: comments(asset.id),
 		series,
 		underlying: underlyingAssets,
 		underlyingTimestamp: underlying?.timestamp ?? null,
