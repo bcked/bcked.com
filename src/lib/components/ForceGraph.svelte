@@ -36,10 +36,9 @@
 		let orbit: ReturnType<typeof setInterval> | undefined;
 
 		(async () => {
-			const [{ default: ForceGraph3D }, THREE, { UnrealBloomPass }] = await Promise.all([
+			const [{ default: ForceGraph3D }, THREE] = await Promise.all([
 				import('3d-force-graph'),
-				import('three'),
-				import('three/examples/jsm/postprocessing/UnrealBloomPass.js')
+				import('three')
 			]);
 			if (destroyed) return;
 
@@ -88,11 +87,8 @@
 					links: links.map((link) => ({ ...link }))
 				});
 
-			if (interactive) {
-				instance
-					.postProcessingComposer()
-					.addPass(new UnrealBloomPass(new THREE.Vector2(width, height), 0.3, 4, 0));
-			} else {
+			// No bloom pass: it renders on black and ignores the transparent background.
+			if (!interactive) {
 				const distance = 400;
 				let angle = 0;
 				instance.cameraPosition({ z: distance });

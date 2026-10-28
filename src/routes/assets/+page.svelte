@@ -5,11 +5,14 @@
 	import Seo from '#lib/components/Seo.svelte';
 	import Table from '#lib/components/Table.svelte';
 	import { assetColumns, assetRow, isRankable } from '#lib/rows.ts';
+	import { summariesQuery } from '#lib/queries.ts';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();
 
-	const ranked = $derived(data.assets.filter(isRankable));
+	const summaries = summariesQuery(() => data);
+
+	const ranked = $derived(summaries.data.assets.filter(isRankable));
 </script>
 
 <Seo

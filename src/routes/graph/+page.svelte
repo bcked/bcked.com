@@ -5,16 +5,20 @@
 	import Seo from '#lib/components/Seo.svelte';
 	import { formatCurrency } from '#lib/format.ts';
 	import { graphNodes, iconPng } from '#lib/graph.ts';
+	import { graphLinksQuery, summariesQuery } from '#lib/queries.ts';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();
 
-	const byId = $derived(new Map(data.assets.map((a) => [a.id, a])));
-	const entityName = (id?: string) => data.entities.find((e) => e.id == id)?.name;
-	const systemName = (id?: string | null) => data.systems.find((s) => s.id == id)?.name;
+	const summaries = summariesQuery(() => data);
+	const graphLinks = graphLinksQuery(() => data.links);
+
+	const byId = $derived(new Map(summaries.data.assets.map((a) => [a.id, a])));
+	const entityName = (id?: string) => summaries.data.entities.find((e) => e.id == id)?.name;
+	const systemName = (id?: string | null) => summaries.data.systems.find((s) => s.id == id)?.name;
 
 	const nodes: ForceNode[] = $derived(
-		graphNodes(data.assets, data.links).map((a) => {
+		graphNodes(summaries.data.assets, graphLinks.data).map((a) => {
 			const issuer = entityName(a.linkedEntities.issuer);
 			const system = systemName(a.system);
 			const name = a.name ?? a.id;
@@ -28,15 +32,15 @@
 	);
 
 	const links = $derived(
-		data.links.map((l) => ({ ...l, label: l.usd == null ? '' : formatCurrency(l.usd) }))
+		graphLinks.data.map((l) => ({ ...l, label: l.usd == null ? '' : formatCurrency(l.usd) }))
 	);
 
 	let selectedId: string | undefined = $state();
 	const selected = $derived(selectedId ? byId.get(selectedId) : undefined);
 	const selectedIssuer = $derived(
-		data.entities.find((e) => e.id == selected?.linkedEntities.issuer)
+		summaries.data.entities.find((e) => e.id == selected?.linkedEntities.issuer)
 	);
-	const selectedSystem = $derived(data.systems.find((s) => s.id == selected?.system));
+	const selectedSystem = $derived(summaries.data.systems.find((s) => s.id == selected?.system));
 </script>
 
 <Seo
