@@ -5,9 +5,12 @@
 	import Seo from '#lib/components/Seo.svelte';
 	import Table from '#lib/components/Table.svelte';
 	import { groupColumns, groupRow } from '#lib/rows.ts';
+	import { summariesQuery } from '#lib/queries.ts';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();
+
+	const summaries = summariesQuery(() => data);
 </script>
 
 <Seo
@@ -24,7 +27,7 @@
 		<div class="mt-5 sm:mt-6">
 			<Table
 				columns={groupColumns}
-				rows={data.systems.map((item) => groupRow(item, '/chains/[id]'))}
+				rows={summaries.data.systems.map((item) => groupRow(item, '/chains/[id]'))}
 				sortBy="total-value-locked"
 				rank
 			/>

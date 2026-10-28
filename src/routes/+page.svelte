@@ -12,13 +12,17 @@
 	import { graphNodes, iconPng } from '#lib/graph.ts';
 	import { assetColumns, assetRow, groupColumns, groupRow, isRankable } from '#lib/rows.ts';
 	import { blue, pink, yellow } from '#lib/ui.ts';
+	import { graphLinksQuery, summariesQuery } from '#lib/queries.ts';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();
 
-	const ranked = $derived(data.assets.filter(isRankable));
+	const summaries = summariesQuery(() => data);
+	const links = graphLinksQuery(() => data.links);
+
+	const ranked = $derived(summaries.data.assets.filter(isRankable));
 	const graphNodesData = $derived(
-		graphNodes(data.assets, data.links).map((a) => ({
+		graphNodes(summaries.data.assets, links.data).map((a) => ({
 			id: a.id,
 			name: a.name ?? a.id,
 			icon: iconPng(a.icon)
@@ -88,7 +92,7 @@
 		class="flex min-h-[80vh] items-center justify-between pt-32"
 	>
 		<div class="absolute inset-0 -z-10">
-			<ForceGraph nodes={graphNodesData} links={data.links} />
+			<ForceGraph nodes={graphNodesData} links={links.data} />
 		</div>
 		<SectionHeader
 			title="Reduce your exposure to unbacked assets."
@@ -108,7 +112,7 @@
 				</div>
 				<div>
 					<dt class="text-sm font-medium text-gray-500">Issuers</dt>
-					<dd class="text-3xl font-semibold">{data.entities.length}</dd>
+					<dd class="text-3xl font-semibold">{summaries.data.entities.length}</dd>
 				</div>
 			</dl>
 		</SectionHeader>
@@ -185,7 +189,7 @@
 		<Glow theme={yellow} class="-inset-x-4 animate-tilt-1 sm:-inset-x-0">
 			<Table
 				columns={groupColumns}
-				rows={data.entities.map((e) => groupRow(e, '/issuers/[id]'))}
+				rows={summaries.data.entities.map((e) => groupRow(e, '/issuers/[id]'))}
 				sortBy="total-value-locked"
 				rank
 				length={5}
@@ -206,7 +210,7 @@
 		<Glow theme={blue} class="-inset-x-4 animate-tilt-1 sm:-inset-x-0">
 			<Table
 				columns={groupColumns}
-				rows={data.systems.map((s) => groupRow(s, '/chains/[id]'))}
+				rows={summaries.data.systems.map((s) => groupRow(s, '/chains/[id]'))}
 				sortBy="total-value-locked"
 				rank
 				length={5}

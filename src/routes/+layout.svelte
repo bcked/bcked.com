@@ -8,9 +8,18 @@
 	import TelegramIcon from '#lib/icons/telegram.svelte';
 	import TwitterIcon from '#lib/icons/twitter.svelte';
 	import type { NavigationItem, SocialItem } from '#lib/ui.ts';
+	import { setQueryClientContext } from '@tanstack/svelte-query';
+	import { createQueryClient, summariesQuery } from '#lib/queries.ts';
 	import type { LayoutProps } from './$types';
 
 	let { data, children }: LayoutProps = $props();
+
+	const queryClient = createQueryClient();
+	setQueryClientContext(queryClient);
+	const summaries = summariesQuery(
+		() => ({ assets: data.assets, entities: data.entities, systems: data.systems }),
+		() => queryClient
+	);
 
 	const mainNavigation: NavigationItem[] = [
 		{ name: 'Ranking', path: resolve('/assets') },
@@ -33,9 +42,9 @@
 </script>
 
 <Header
-	assets={data.assets}
-	entities={data.entities}
-	systems={data.systems}
+	assets={summaries.data.assets}
+	entities={summaries.data.entities}
+	systems={summaries.data.systems}
 	{mainNavigation}
 	{bottomNavigation}
 	{socials}

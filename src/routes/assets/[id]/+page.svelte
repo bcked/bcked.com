@@ -15,12 +15,20 @@
 	import Title from '#lib/components/Title.svelte';
 	import { formatCurrency, formatDate, formatNum, formatPercentage } from '#lib/format.ts';
 	import type { Stat } from '#lib/ui.ts';
+	import { assetPageQuery, summariesQuery } from '#lib/queries.ts';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();
 
-	const { asset, details, series, underlying, derivatives, underlyingTimestamp, links } =
-		$derived(data);
+	const summaries = summariesQuery(() => data);
+	const page = assetPageQuery(
+		() => data.asset.id,
+		() => data
+	);
+
+	const { asset, details, series, underlying, derivatives, underlyingTimestamp, links } = $derived(
+		page.data
+	);
 
 	const underlyingChain = $derived(chain(links, asset.id, 'down'));
 	const derivativeChain = $derived(chain(links, asset.id, 'up'));
@@ -49,9 +57,11 @@
 	);
 
 	const issuer = $derived(
-		data.entities.find(({ id }) => id == details.linkedEntities.issuer) ?? null
+		summaries.data.entities.find(({ id }) => id == details.linkedEntities.issuer) ?? null
 	);
-	const system = $derived(data.systems.find(({ id }) => id == details.identifier.system) ?? null);
+	const system = $derived(
+		summaries.data.systems.find(({ id }) => id == details.identifier.system) ?? null
+	);
 	const marketCap = $derived(asset['market-cap']?.value ?? null);
 	const collateral = $derived(asset.collateral?.value ?? null);
 	const updated = $derived(asset.price?.date ?? asset['market-cap']?.date ?? null);
@@ -208,7 +218,7 @@
 					subtitle="View the full chain of {details.name}'s underlying assets."
 				/>
 				<div class="mt-5 px-2 pb-4 sm:mt-6">
-					<Sankey links={underlyingChain} direction="down" assets={data.assets} />
+					<Sankey links={underlyingChain} direction="down" assets={summaries.data.assets} />
 				</div>
 			</Card>
 		</div>
@@ -255,7 +265,7 @@
 				subtitle="View the full chain of assets backed by {details.name}."
 			/>
 			<div class="mt-5 px-2 pb-4 sm:mt-6">
-				<Sankey links={derivativeChain} direction="up" assets={data.assets} />
+				<Sankey links={derivativeChain} direction="up" assets={summaries.data.assets} />
 			</div>
 		</Card>
 		<Card>

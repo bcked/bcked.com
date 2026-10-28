@@ -7,8 +7,9 @@ on:
   pull_request:
     branches: [main]
   schedule:
-    # Rebuild with fresh API data. Runs "At minute 30 past every 6th hour." (see https://crontab.guru)
-    - cron: '30 */6 * * *'
+    # Pages load current data from the API in the browser. The daily rebuild adds pages for new
+    # assets and refreshes the prerendered data that search engines see.
+    - cron: '41 4 * * *'
   workflow_dispatch:
 
 concurrency:

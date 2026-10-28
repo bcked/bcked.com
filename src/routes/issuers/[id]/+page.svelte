@@ -12,12 +12,23 @@
 	import { formatCurrency } from '#lib/format.ts';
 	import { assetColumns, assetRow } from '#lib/rows.ts';
 	import type { Stat } from '#lib/ui.ts';
+	import { groupSeriesQuery, summariesQuery } from '#lib/queries.ts';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();
 
-	const { group, series } = $derived(data);
-	const assets = $derived(data.assets.filter(({ id }) => group.assets.includes(id)));
+	const summaries = summariesQuery(() => data);
+	const seriesQuery = groupSeriesQuery(
+		'entities',
+		() => data.group.id,
+		() => data.series
+	);
+
+	const group = $derived(
+		summaries.data.entities.find(({ id }) => id == data.group.id) ?? data.group
+	);
+	const series = $derived(seriesQuery.data);
+	const assets = $derived(summaries.data.assets.filter(({ id }) => group.assets.includes(id)));
 	const tvl = $derived(group['total-value-locked']);
 	const reference = $derived(
 		'reference' in group && typeof group.reference == 'string' ? group.reference : null
