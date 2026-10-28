@@ -1,71 +1,44 @@
-# This is a basic workflow to automatically build a Svelte app and deploy it to GitHub Pages
+# Builds the static site from the bcked API (https://api.bcked.com) and deploys it to GitHub Pages.
 name: Deploy to GitHub Pages
 
 on:
-  #push:
-  #branches:
-  #- main
-  # schedule:
-  # Runs "At minute 0 past hour 5 and 17." (see https://crontab.guru)
-  # - cron: "0 5,17 * * *"
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    # Rebuild with fresh API data. Runs "At minute 30 past every 6th hour." (see https://crontab.guru)
+    - cron: '30 */6 * * *'
   workflow_dispatch:
 
+concurrency:
+  group: 'pages-${{ github.ref }}'
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v7
+      - uses: oven-sh/setup-bun@v2
         with:
-          fetch-depth: 1
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          cache: "npm"
-
-      - name: Get installed Playwright version
-        id: playwright-version
-        run: echo "PLAYWRIGHT_VERSION=$(grep '\"@playwright/test\":' ./package-lock.json | grep -Eo '[0-9]+\.[0-9]+\.[0-9]+')" >> $GITHUB_ENV
-
-      - name: Cache playwright binaries
-        uses: actions/cache@v3
-        id: playwright-cache
-        with:
-          path: |
-            ~/.cache/ms-playwright
-          key: ${{ runner.os }}-playwright-${{ env.PLAYWRIGHT_VERSION }}
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Install playwright browsers
-        run: npx playwright install --with-deps
-        if: steps.playwright-cache.outputs.cache-hit != 'true'
-      - run: npx playwright install-deps
-        if: steps.playwright-cache.outputs.cache-hit != 'true'
-
-      - name: Build Application
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          ALCHEMY_ETHEREUM: ${{ secrets.ALCHEMY_ETHEREUM }}
-          ALCHEMY_POLYGON: ${{ secrets.ALCHEMY_POLYGON }}
-          ALCHEMY_SOLANA: ${{ secrets.ALCHEMY_SOLANA }}
-          ALCHEMY_ARBITRUM: ${{ secrets.ALCHEMY_ARBITRUM }}
-          PUBLIC_DOMAIN: ${{ secrets.PUBLIC_DOMAIN }}
-        run: npm run build
-
-      - name: Run tests
-        run: npm run unit
-      - run: npm test
-      - run: npm run gen:previews
-      - run: touch build/.nojekyll
-
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: Update Asset Data
-          branch: main
-          file_pattern: ":/assets/**/*.json .aggregation/*.json"
-
-      - name: Deploy to GitHub Pages
+          bun-version-file: package.json
+      - name: Install Dependencies
+        run: bun install --frozen-lockfile
+      - name: Check
+        run: bun run check
+      - name: Lint
+        run: bun run lint
+      - name: Test
+        run: bun run test
+      - name: Build
+        run: bun run build
+      - name: Deploy
+        # Only deploy from main, pull requests only build.
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
