@@ -4,75 +4,52 @@ Any contribution is welcome.
 
 To avoid reliance on third party services, this project will require community support to extend and maintain the list of tracked token backings.
 
-For the most part this only requires adding or updating data files.
+Data about assets, issuers and chains is collected in [bcked-adapters](https://github.com/bcked/bcked-adapters) and published through the [bcked API](https://api.bcked.com/docs/). To add or update an asset, contribute there.
 
-If you want to contribute on the functionality of the webpage itself, you can fork the repository and propose changes through pull requests. The webpage is build using Svelte and development is done using NPM.
+This repository contains the website. It is built with [SvelteKit](https://svelte.dev/docs/kit) and [Bun](https://bun.sh/). If you want to contribute to the website itself, fork the repository and propose changes through pull requests.
 
 ## How do I get set up?
 
-### Install nvm
-
-For the package management, we need to install Node. To install a specific version of Node, we will first install the [Node Version Management (nvm)](https://github.com/nvm-sh/nvm).
-
-Download and install nvm:
+Install Bun:
 
 ```shell
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+curl -fsSL https://bun.sh/install | bash
 ```
 
-Reload the .bashrc:
+Install the dependencies:
 
 ```shell
-source ~/.bashrc
-```
-
-### Install Node
-
-You should now be able to list all available Node versions like this (``--lts`` for versions with long term support):
-
-```shell
-nvm list-remote --lts
-```
-
-You can find some information about the major versions and their long term support on the [release page of Node.js](https://nodejs.org/en/about/releases/).
-
-You can install the latest v16 version with long term support with this command:
-
-```shell
-nvm install v16 --lts
-```
-
-Switch to the project folder and install the dependencies.
-
-```shell
-cd portal
-npm install
+bun install
 ```
 
 ## How to locally serve the page?
 
-To see if everything is working you can start it up like that.
+By default the page loads its data from https://api.bcked.com:
 
 ```shell
-npm run dev -- --open
+bun run dev
 ```
 
-If everything worked correct, your browser should open `http://localhost:3000/`.
-
-You can also use the VS code launch configuration `Debug Svelte App` via `F5` to debug the application.
-
-## How do I run tests?
-
-Execute:
+To develop against a local API build from bcked-adapters (`bun run api` in that repository), serve it and point the page to it:
 
 ```shell
-npm test
+bun scripts/serve-api.ts ../bcked-adapters/api
+API_URL=http://localhost:5174 bun run dev
+```
+
+## How do I run tests and checks?
+
+```shell
+bun run check
+bun run lint
+bun run test
 ```
 
 ## Building
 
-To create a production version of your app:
+The site is prerendered into static files in `./build`:
 
-```bash
-npm run build
+```shell
+bun run build
+bun run preview
 ```

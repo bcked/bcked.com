@@ -1,4 +1,10 @@
-<svg fill="currentColor" viewBox="0 0 24 24" width="24" height="24" {...$$props}>
+<script lang="ts">
+	import type { SVGAttributes } from 'svelte/elements';
+
+	let props: SVGAttributes<SVGSVGElement> = $props();
+</script>
+
+<svg fill="currentColor" viewBox="0 0 24 24" width="24" height="24" {...props}>
 	<path
 		fill-rule="evenodd"
 		clip-rule="evenodd"

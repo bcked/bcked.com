@@ -1,0 +1,60 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+@theme {
+	--color-neon-yellow: #d8ff3b; /* contrast to dark */
+	--color-neon-blue: #3bc7ff; /* contrast to dark */
+	--color-neon-pink: #ff3b76; /* contrast to light */
+	--color-neon-gray-light: #cbc8cc; /* contrast to light */
+	--color-neon-gray-dark: #52656b; /* contrast to dark */
+	--color-neon-orange: #ffa73b;
+	--color-neon-green: #3bffad;
+
+	--animate-tilt-1: tilt-1 10s infinite linear;
+	--animate-tilt-4: tilt-4 10s infinite linear;
+
+	@keyframes tilt-1 {
+		0%,
+		50%,
+		100% {
+			transform: rotate3d(2, 2, 2, 0deg);
+		}
+		25% {
+			transform: rotate3d(2, 2, 2, 1deg);
+		}
+		75% {
+			transform: rotate3d(2, 2, 2, -1deg);
+		}
+	}
+
+	@keyframes tilt-4 {
+		0%,
+		50%,
+		100% {
+			transform: rotate3d(2, 2, 2, 0deg);
+		}
+		25% {
+			transform: rotate3d(2, 2, 2, 4deg);
+		}
+		75% {
+			transform: rotate3d(2, 2, 2, -4deg);
+		}
+	}
+}
+
+@utility bg-size-200 {
+	background-size: 200% 200%;
+}
+
+@utility bg-pos-0 {
+	background-position: 0% 0%;
+}
+
+@utility bg-pos-100 {
+	background-position: 100% 100%;
+}
+
+:root {
+	color-scheme: only light;
+}

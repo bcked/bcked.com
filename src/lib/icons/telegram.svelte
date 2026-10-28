@@ -1,3 +1,9 @@
+<script lang="ts">
+	import type { SVGAttributes } from 'svelte/elements';
+
+	let props: SVGAttributes<SVGSVGElement> = $props();
+</script>
+
 <svg
 	stroke="currentColor"
 	fill="currentColor"
@@ -5,7 +11,7 @@
 	viewBox="0 0 448 512"
 	width="24"
 	height="24"
-	{...$$props}
+	{...props}
 >
 	<path
 		fill-rule="evenodd"
