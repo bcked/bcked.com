@@ -53,3 +53,10 @@ The site is prerendered into static files in `./build`:
 bun run build
 bun run preview
 ```
+
+## License of contributions
+
+The project is licensed for non-commercial use, and commercial licenses are sold separately (see the
+[README](README.md#license)). By submitting a contribution you confirm that you have the right to
+submit it, and you grant Sebastian Penhouet a perpetual, worldwide, royalty-free license to use,
+modify and relicense your contribution, including under commercial licenses.
