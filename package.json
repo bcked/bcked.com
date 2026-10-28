@@ -16,6 +16,7 @@
 		"test": "vitest --run"
 	},
 	"devDependencies": {
+		"3d-force-graph": "^1.80.1",
 		"@eslint/js": "^10.0.1",
 		"@steeze-ui/heroicons": "^2.4.2",
 		"@steeze-ui/svelte-icon": "^1.6.2",
@@ -25,7 +26,10 @@
 		"@tailwindcss/forms": "^0.5.11",
 		"@tailwindcss/typography": "^0.5.19",
 		"@tailwindcss/vite": "^4.3.0",
+		"@types/d3-sankey": "^0.12.5",
 		"@types/node": "^26",
+		"@types/three": "^0.186.0",
+		"d3-sankey": "^0.12.3",
 		"eslint": "^10.4.1",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-svelte": "^3.19.0",
@@ -39,6 +43,7 @@
 		"svelte-check": "^4.6.0",
 		"tailwind-merge": "^3.7.0",
 		"tailwindcss": "^4.3.0",
+		"three": "^0.186.1",
 		"typescript": "^6.0.3",
 		"typescript-eslint": "^8.60.1",
 		"vite": "^8.3.0",

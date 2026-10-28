@@ -9,6 +9,8 @@ import {
 	type Breakdown,
 	type CollateralizationGraph
 } from '#lib/api.ts';
+import { comments } from '#lib/content.ts';
+import { graphLinks } from '#lib/graph.ts';
 import type { EntryGenerator, PageLoad } from './$types';
 
 export const entries: EntryGenerator = async () =>
@@ -46,9 +48,18 @@ export const load: PageLoad = async ({ params, parent, fetch }) => {
 			};
 		});
 
+	// The latest graph only contains assets with recent backing records, so use this asset's own
+	// latest breakdown for its direct underlying assets.
+	const links = [
+		...graphLinks(graph).filter((link) => link.source != asset.id),
+		...underlyingAssets.map((item) => ({ source: asset.id, target: item.id, usd: item.usd }))
+	];
+
 	return {
 		asset,
 		details,
+		links,
+		comments: comments(asset.id),
 		series,
 		underlying: underlyingAssets,
 		underlyingTimestamp: underlying?.timestamp ?? null,

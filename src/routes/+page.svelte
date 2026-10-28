@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { asset, resolve } from '$app/paths';
 	import AssetIcon from '#lib/components/AssetIcon.svelte';
+	import ForceGraph from '#lib/components/ForceGraph.svelte';
 	import Glow from '#lib/components/Glow.svelte';
 	import Section from '#lib/components/Section.svelte';
 	import SectionHeader from '#lib/components/SectionHeader.svelte';
@@ -8,6 +9,7 @@
 	import Table from '#lib/components/Table.svelte';
 	import type { AssetSummary } from '#lib/api.ts';
 	import { formatCurrency, formatPercentage } from '#lib/format.ts';
+	import { graphNodes, iconPng } from '#lib/graph.ts';
 	import { assetColumns, assetRow, groupColumns, groupRow, isRankable } from '#lib/rows.ts';
 	import { blue, pink, yellow } from '#lib/ui.ts';
 	import type { PageProps } from './$types';
@@ -15,6 +17,13 @@
 	let { data }: PageProps = $props();
 
 	const ranked = $derived(data.assets.filter(isRankable));
+	const graphNodesData = $derived(
+		graphNodes(data.assets, data.links).map((a) => ({
+			id: a.id,
+			name: a.name ?? a.id,
+			icon: iconPng(a.icon)
+		}))
+	);
 	const backed = $derived(ranked.filter((a) => a.collateral?.value != null));
 	const totalBacking = $derived(backed.reduce((sum, a) => sum + (a.collateral?.value ?? 0), 0));
 
@@ -78,10 +87,13 @@
 		label="Introduction to bcked"
 		class="flex min-h-[80vh] items-center justify-between pt-32"
 	>
+		<div class="absolute inset-0 -z-10">
+			<ForceGraph nodes={graphNodesData} links={data.links} />
+		</div>
 		<SectionHeader
 			title="Reduce your exposure to unbacked assets."
 			description="Use insights from our community driven open source knowledge base to find cryptocurrencies backed by various asset classes."
-			button={{ text: 'Explore the Ranking', href: resolve('/assets') }}
+			button={{ text: 'Explore Backing Graph', href: resolve('/graph') }}
 			theme={blue}
 			class="mt-10"
 		>

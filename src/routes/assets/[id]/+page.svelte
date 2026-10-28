@@ -1,10 +1,21 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
-	import { BuildingOffice, Calendar, GlobeAlt, Link } from '@steeze-ui/heroicons';
+	import {
+		BuildingOffice,
+		Calendar,
+		ChatBubbleLeftRight,
+		GlobeAlt,
+		HandThumbDown,
+		HandThumbUp,
+		Link
+	} from '@steeze-ui/heroicons';
+	import { Icon } from '@steeze-ui/svelte-icon';
 	import Card from '#lib/components/Card.svelte';
 	import CardHeader from '#lib/components/CardHeader.svelte';
 	import HistoryChart from '#lib/components/HistoryChart.svelte';
 	import Page from '#lib/components/Page.svelte';
+	import Sankey from '#lib/components/Sankey.svelte';
+	import { chain } from '#lib/graph.ts';
 	import Seo from '#lib/components/Seo.svelte';
 	import Stats from '#lib/components/Stats.svelte';
 	import SubjectItem from '#lib/components/SubjectItem.svelte';
@@ -17,7 +28,11 @@
 
 	let { data }: PageProps = $props();
 
-	const { asset, details, series, underlying, derivatives, underlyingTimestamp } = $derived(data);
+	const { asset, details, series, underlying, derivatives, underlyingTimestamp, links, comments } =
+		$derived(data);
+
+	const underlyingChain = $derived(chain(links, asset.id, 'down'));
+	const derivativeChain = $derived(chain(links, asset.id, 'up'));
 
 	/** Last value of a daily series on or before the given date. */
 	function valueAt(daily: [string, number][], date: string | null): number | null {
@@ -198,31 +213,38 @@
 
 			<Card>
 				<CardHeader
-					title="Underlying Assets"
-					subtitle="List of {details.name}'s underlying assets."
+					title="Underlying Chain"
+					subtitle="View the full chain of {details.name}'s underlying assets."
 				/>
-				<div class="mt-5 sm:mt-6">
-					<Table
-						columns={[
-							{ id: 'name', title: 'Name', class: 'font-medium' },
-							{ id: 'usd', title: 'Backing' },
-							{ id: 'mcap-ratio', title: 'Backing/Mcap' },
-							{ id: 'share', title: '%' }
-						]}
-						rows={underlying.map((item) => linkedRow(item, collateral, marketCapAtBacking))}
-						sortBy="usd"
-						empty="No underlying assets recorded."
-					/>
-					{#if underlying.length}
-						<p class="px-4 py-3 text-sm text-gray-500 sm:px-6">
-							Amounts: {underlying
-								.map((u) => `${formatNum(u.amount)} ${u.asset?.name ?? u.id}`)
-								.join(', ')}
-						</p>
-					{/if}
+				<div class="mt-5 px-2 pb-4 sm:mt-6">
+					<Sankey links={underlyingChain} direction="down" assets={data.assets} />
 				</div>
 			</Card>
 		</div>
+
+		<Card>
+			<CardHeader
+				title="Underlying Assets"
+				subtitle="List of {details.name}'s underlying assets."
+			/>
+			<div class="mt-5 sm:mt-6">
+				<Table
+					columns={[
+						{ id: 'name', title: 'Name', class: 'font-medium' },
+						{ id: 'amount', title: 'Amount' },
+						{ id: 'usd', title: 'Backing' },
+						{ id: 'mcap-ratio', title: 'Backing/Mcap' },
+						{ id: 'share', title: '%' }
+					]}
+					rows={underlying.map((item) => ({
+						...linkedRow(item, collateral, marketCapAtBacking),
+						amount: { text: formatNum(item.amount), value: item.amount }
+					}))}
+					sortBy="usd"
+					empty="No underlying assets recorded."
+				/>
+			</div>
+		</Card>
 	{:else}
 		<Card class="px-4 py-5 sm:p-6">
 			<p class="text-gray-600">
@@ -236,6 +258,15 @@
 
 	{#if derivatives.length > 0}
 		<Title>Derivative Information</Title>
+		<Card>
+			<CardHeader
+				title="Derivative Chain"
+				subtitle="View the full chain of assets backed by {details.name}."
+			/>
+			<div class="mt-5 px-2 pb-4 sm:mt-6">
+				<Sankey links={derivativeChain} direction="up" assets={data.assets} />
+			</div>
+		</Card>
 		<Card>
 			<CardHeader
 				title="Derivative Assets"
@@ -255,4 +286,51 @@
 			</div>
 		</Card>
 	{/if}
+
+	<Card>
+		<CardHeader
+			title="Praise and Doubts"
+			subtitle="Any praise and doubts the community has about {details.name}'s backing."
+		/>
+		<div
+			class="space-y-10 p-5 sm:grid sm:grid-cols-2 sm:space-y-0 sm:gap-x-6 sm:gap-y-12 sm:p-6 lg:grid-cols-3 lg:gap-x-8"
+		>
+			{#each comments as comment (comment.title)}
+				<div class="relative flex">
+					<div class="mr-4 shrink-0">
+						<Icon
+							src={comment.type == 'doubt' ? HandThumbDown : HandThumbUp}
+							class="h-6 w-6 {comment.type == 'doubt' ? 'text-red-500' : 'text-green-500'}"
+							aria-hidden="true"
+						/>
+					</div>
+					<dl class="flex-1">
+						<dt class="text-lg leading-6 font-medium text-gray-900">{comment.title}</dt>
+						<dd class="prose mt-2 text-base text-gray-500 prose-a:text-neon-pink">
+							<!-- eslint-disable-next-line svelte/no-at-html-tags -- rendered from Markdown in this repository -->
+							{@html comment.html}
+						</dd>
+					</dl>
+				</div>
+			{/each}
+			<div class="relative flex">
+				<div class="mr-4 shrink-0">
+					<Icon src={ChatBubbleLeftRight} class="h-6 w-6 text-blue-500" aria-hidden="true" />
+				</div>
+				<dl class="flex-1">
+					<dt class="text-lg leading-6 font-medium text-gray-900">
+						{comments.length ? 'Anything missing?' : 'Share your thoughts'}
+					</dt>
+					<dd class="mt-2 text-base text-gray-500">
+						{comments.length
+							? 'Add your comment now! Leave your praise and doubts'
+							: 'There are no comments yet. Be the first to leave your praise and doubts'}
+						<a class="text-neon-pink underline" href="https://github.com/bcked/bcked.com/issues"
+							>on GitHub</a
+						>.
+					</dd>
+				</dl>
+			</div>
+		</div>
+	</Card>
 </Page>
