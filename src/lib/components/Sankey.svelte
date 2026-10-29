@@ -95,7 +95,16 @@
 	{#if layout}
 		<svg width="100%" height={layout.height} class="relative overflow-visible">
 			<defs>
-				<linearGradient id="sankey-gradient-{direction}" x1="0" x2="0" y1="0" y2="1">
+				<!-- In user space: a gradient in bounding box units paints nothing on a straight vertical
+				link, whose box has no width. -->
+				<linearGradient
+					id="sankey-gradient-{direction}"
+					gradientUnits="userSpaceOnUse"
+					x1="0"
+					x2="0"
+					y1="0"
+					y2={layout.height}
+				>
 					<stop offset="0%" stop-color="#ff3b76" />
 					<stop offset="100%" stop-color="#3bc7ff" />
 				</linearGradient>

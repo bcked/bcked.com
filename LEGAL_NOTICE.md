@@ -1,6 +1,6 @@
 # Legal Notice (Impressum)
 
-## Information according to § 5 DDG
+## Provider (§ 5 DDG, § 18 (1) MStV)
 
 Sebastian Penhouet<br>
 Konrad-Adenauer-Str. 13<br>
@@ -8,8 +8,6 @@ Konrad-Adenauer-Str. 13<br>
 Germany
 
 Email: [contact@bcked.com](mailto:contact@bcked.com)
-
-Responsible for the content according to § 18 (2) MStV: Sebastian Penhouet, address as above.
 
 ## Disclaimer
 
@@ -37,12 +35,12 @@ known. Such content will be removed as soon as I learn of it.
 The provider of a linked page is responsible for its content. Linked pages were checked for possible
 legal violations when the link was set. If I learn of an infringement, I will remove the link.
 
-**Copyright and licenses.** The code of bcked is licensed under
-[PolyForm Noncommercial 1.0.0](https://github.com/bcked/bcked.com/blob/main/LICENSE), the data of the
-[bcked API](https://api.bcked.com) under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
-Commercial use requires a separate license, contact [contact@bcked.com](mailto:contact@bcked.com).
-Logos and names of assets, issuers and chains belong to their owners and are only used to identify them.
-If you hold rights to a logo and want it removed, write to [contact@bcked.com](mailto:contact@bcked.com).
+**Copyright and licenses.** bcked is a non-commercial open source project. The code is licensed under
+the [GNU General Public License, Version 3](https://github.com/bcked/bcked.com/blob/main/LICENSE), the
+data of the [bcked API](https://api.bcked.com) under the
+[same license](https://github.com/bcked/bcked-adapters/blob/main/LICENSE). Logos and names of assets,
+issuers and chains belong to their owners and are only used to identify them. If you hold rights to a
+logo and want it removed, write to [contact@bcked.com](mailto:contact@bcked.com).
 
 ## Privacy
 

@@ -12,13 +12,7 @@ If you would like to contribute, please read [our contribution guideline](CONTRI
 
 ## License
 
-The code is licensed under [PolyForm Noncommercial 1.0.0](LICENSE): free for personal use, research,
-education, and for non-profit and public organizations. Commercial use needs a separate license,
-contact [contact@bcked.com](mailto:contact@bcked.com). The data shown on the site comes from the
-[bcked API](https://api.bcked.com) and is licensed under CC BY-NC 4.0 (see
-[bcked-adapters](https://github.com/bcked/bcked-adapters#license)).
-
-Versions released before this change stay available under the GNU General Public License, Version 3.
+This tool is an open source community project released under the [GNU General Public License, Version 3](LICENSE).
 
 ## About
 
