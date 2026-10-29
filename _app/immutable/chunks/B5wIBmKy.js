@@ -14,15 +14,14 @@ In the wake of the 2022 recession, I asked myself these questions. For me, some 
 
 ## Independence
 
-bcked takes no money from the issuers whose tokens it tracks. There are no paid listings, no sponsored
-placements, no ads and no affiliate links. The project is free for non-commercial use. Companies that use
-the data or code commercially pay for a license, which is the only planned source of revenue. How the
-data is collected is described in the [methodology](/methodology).
+bcked is a non-commercial open source project. It takes no money from the issuers whose tokens it
+tracks. There are no paid listings, sponsored placements, ads or affiliate links. How the data
+is collected is described in the [methodology](/methodology).
 
 If you have any questions, want to contribute or any other request, feel free to write [on GitHub](https://github.com/bcked/bcked.com/discussions) or by email [contact@bcked.com](mailto:contact@bcked.com).
 `,t=`# Legal Notice (Impressum)
 
-## Information according to § 5 DDG
+## Provider (§ 5 DDG, § 18 (1) MStV)
 
 Sebastian Penhouet<br>
 Konrad-Adenauer-Str. 13<br>
@@ -30,8 +29,6 @@ Konrad-Adenauer-Str. 13<br>
 Germany
 
 Email: [contact@bcked.com](mailto:contact@bcked.com)
-
-Responsible for the content according to § 18 (2) MStV: Sebastian Penhouet, address as above.
 
 ## Disclaimer
 
@@ -59,12 +56,12 @@ known. Such content will be removed as soon as I learn of it.
 The provider of a linked page is responsible for its content. Linked pages were checked for possible
 legal violations when the link was set. If I learn of an infringement, I will remove the link.
 
-**Copyright and licenses.** The code of bcked is licensed under
-[PolyForm Noncommercial 1.0.0](https://github.com/bcked/bcked.com/blob/main/LICENSE), the data of the
-[bcked API](https://api.bcked.com) under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
-Commercial use requires a separate license, contact [contact@bcked.com](mailto:contact@bcked.com).
-Logos and names of assets, issuers and chains belong to their owners and are only used to identify them.
-If you hold rights to a logo and want it removed, write to [contact@bcked.com](mailto:contact@bcked.com).
+**Copyright and licenses.** bcked is a non-commercial open source project. The code is licensed under
+the [GNU General Public License, Version 3](https://github.com/bcked/bcked.com/blob/main/LICENSE), the
+data of the [bcked API](https://api.bcked.com) under the
+[same license](https://github.com/bcked/bcked-adapters/blob/main/LICENSE). Logos and names of assets,
+issuers and chains belong to their owners and are only used to identify them. If you hold rights to a
+logo and want it removed, write to [contact@bcked.com](mailto:contact@bcked.com).
 
 ## Privacy
 
@@ -135,7 +132,7 @@ _Last updated: October 28, 2026_
 
 ## Controller
 
-Sebastian Penhouet, Konrad-Adenauer-Str. 13, 72072 Tübingen, Germany.
+The provider named in the [Legal Notice](/legal-notice).
 Email: [contact@bcked.com](mailto:contact@bcked.com)
 
 ## What this website does not do
