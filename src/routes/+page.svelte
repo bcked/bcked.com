@@ -122,7 +122,7 @@
 	text="The end of every chain added up: cash, Treasuries, gold, bitcoin. Hover to read a month."
 >
 	<div class="rounded-xl border bg-card p-4">
-		<StackedArea points={history} assets={summaries.data.assets} />
+		<StackedArea points={history} assets={summaries.data.assets} mode="usd" />
 	</div>
 </NumberedSection>
 
