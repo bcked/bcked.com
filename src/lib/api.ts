@@ -35,6 +35,29 @@ export type AssetSummary = {
 	'market-cap': Latest;
 	'collateralization-ratio': Latest;
 	collateral: Latest;
+	/** How the backing is obtained, for assets with backing. */
+	backing: BackingMethod | null;
+	/** USD value per underlying asset on the latest day with a breakdown. */
+	composition: { date: string; parts: Record<string, number> } | null;
+};
+
+export type BackingMethod = 'reports' | 'on-chain' | 'custodian';
+
+export type BackingSource = {
+	method: BackingMethod;
+	description: string;
+	reference: string | null;
+	address?: string;
+	reports?: 'asset' | 'issuer';
+};
+
+export type Report = { report: string; file: string; sha256: string; url: string };
+
+export type AssetReports = { source: BackingSource | null; reports: Report[] };
+
+/** The backing graph of the last recorded day of every month, links as [from, to, USD]. */
+export type GraphSeries = {
+	months: { month: string; date: string; links: [string, string, number | null][] }[];
 };
 
 type GroupSummary = {
@@ -64,6 +87,8 @@ export type AssetSeries = {
 	'market-cap': DailySeries;
 	'collateralization-ratio': DailySeries;
 	collateral: DailySeries;
+	/** Daily USD value per underlying asset. */
+	composition?: Record<string, DailySeries>;
 };
 
 export type GroupSeries = { 'total-value-locked': DailySeries };
@@ -76,6 +101,7 @@ export type AssetDetails = {
 	linkedEntities: { issuer?: string } & Record<string, string | undefined>;
 	reference: string | null;
 	tags: string[];
+	backing: BackingSource | null;
 	listed: string;
 	updated: string;
 };

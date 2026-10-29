@@ -1,17 +1,12 @@
 <script lang="ts">
-	import { Building2, Globe } from '@lucide/svelte';
-	import Card from '#lib/components/Card.svelte';
-	import CardHeader from '#lib/components/CardHeader.svelte';
+	import { resolve } from '$app/paths';
+	import AssetIcon from '#lib/components/AssetIcon.svelte';
+	import CompositionBar from '#lib/components/backing/CompositionBar.svelte';
 	import HistoryChart from '#lib/components/HistoryChart.svelte';
-	import Page from '#lib/components/Page.svelte';
+	import NumberedSection from '#lib/components/NumberedSection.svelte';
 	import Seo from '#lib/components/Seo.svelte';
-	import Stats from '#lib/components/Stats.svelte';
-	import SubjectItem from '#lib/components/SubjectItem.svelte';
-	import SubjectTitle from '#lib/components/SubjectTitle.svelte';
-	import Table from '#lib/components/Table.svelte';
-	import { formatCurrency } from '#lib/format.ts';
-	import { assetColumns, assetRow } from '#lib/rows.ts';
-	import type { Stat } from '#lib/ui.ts';
+	import { summaryComposition, toComposition } from '#lib/backing.ts';
+	import { formatCurrency, formatDate, formatPercentage } from '#lib/format.ts';
 	import { groupSeriesQuery, summariesQuery } from '#lib/queries.ts';
 	import type { PageProps } from './$types';
 
@@ -27,58 +22,127 @@
 	const group = $derived(
 		summaries.data.entities.find(({ id }) => id == data.group.id) ?? data.group
 	);
-	const series = $derived(seriesQuery.data);
-	const assets = $derived(summaries.data.assets.filter(({ id }) => group.assets.includes(id)));
-	const tvl = $derived(group['total-value-locked']);
-	const reference = $derived(
-		'reference' in group && typeof group.reference == 'string' ? group.reference : null
-	);
-
-	const stats: Stat[] = $derived([
-		{ name: 'Assets', value: group.assets.length.toString(), type: 'standard' },
-		{ name: 'Total Value Locked', value: tvl?.value, type: 'currency' },
-		{ name: 'TVL 7d %', value: tvl?.change['7d'], type: 'change' },
-		{ name: 'TVL 30d %', value: tvl?.change['30d'], type: 'change' }
+	const assets = $derived(summaries.data.assets);
+	const tokens = $derived(assets.filter((a) => a.linkedEntities.issuer == group.id));
+	const backed = $derived(tokens.filter((a) => a.backing));
+	const combined = $derived.by(() => {
+		const parts: Record<string, number> = {};
+		for (const token of backed)
+			for (const [id, usd] of Object.entries(token.composition?.parts ?? {}))
+				parts[id] = (parts[id] ?? 0) + usd;
+		return toComposition(parts);
+	});
+	const reports = $derived(data.reports);
+	const perYear = $derived.by(() => {
+		const years: Record<string, number> = {};
+		for (const r of reports) years[r.report.slice(0, 4)] = (years[r.report.slice(0, 4)] ?? 0) + 1;
+		const all = Object.keys(years).map(Number);
+		if (!all.length) return [];
+		// Years without a report show as zero, gaps are part of the record.
+		const first = Math.min(...all);
+		return Array.from({ length: Math.max(...all) - first + 1 }, (_, i) => {
+			const year = String(first + i);
+			return [year, years[year] ?? 0] as const;
+		});
+	});
+	const maxPerYear = $derived(Math.max(1, ...perYear.map(([, n]) => n)));
+	const metrics = $derived([
+		['Reserves of tracked tokens', combined.total ? formatCurrency(combined.total) : '–'],
+		['Tracked tokens', tokens.length.toString()],
+		['Reports', reports.length ? reports.length.toString() : '–'],
+		['First report', reports.at(-1)?.report ?? '–']
 	]);
 </script>
 
 <Seo
-	title="{group.name} | bcked"
-	description="{group.name} is linked to {group.assets.length} tracked {group.assets.length == 1
-		? 'asset'
-		: 'assets'}{tvl
-		? ` with a total value of ${formatCurrency(tvl.value)}`
-		: ''}. View them on bcked."
+	title="{group.name}: tokens, reserves and reports | bcked"
+	description="Tokens issued by {group.name}, their combined reserves and the reports behind them."
 />
 
-<Page class="px-0">
-	<SubjectTitle title={group.name} subtitle="Issuer" iconUrl={group.icon}>
-		<SubjectItem icon={Building2}>Issuer</SubjectItem>
-		{#if reference}
-			<SubjectItem href={reference} icon={Globe}>Reference</SubjectItem>
-		{/if}
-	</SubjectTitle>
+<div class="w-full bg-card">
+	<section class="mx-auto max-w-6xl px-4 pt-12 pb-10 sm:px-6 lg:px-8">
+		<p class="text-sm font-medium text-primary">Issuer</p>
+		<div class="mt-2 flex items-center gap-3">
+			<AssetIcon src={group.icon} name={group.name} class="size-10" />
+			<h1 class="text-3xl font-light tracking-tight">{group.name}</h1>
+		</div>
+		<dl class="mt-8 grid grid-cols-2 gap-8 sm:grid-cols-4">
+			{#each metrics as [label, value] (label)}
+				<div>
+					<dd class="text-3xl font-light tabular-nums">{value}</dd>
+					<dt class="mt-1 text-sm text-muted-foreground">{label}</dt>
+				</div>
+			{/each}
+		</dl>
+	</section>
+</div>
 
-	<div class="grid grid-cols-2 gap-[0.1rem] shadow sm:gap-4 sm:shadow-none md:grid-cols-4">
-		{#each stats as stat (stat.name)}
-			<Card class="relative px-4 py-5 sm:p-6"><Stats data={stat} /></Card>
+<NumberedSection label="01 · Tokens" title="Tokens issued by {group.name}" muted>
+	<div class="grid gap-4 sm:grid-cols-2">
+		{#each tokens as token (token.id)}
+			{@const ratio = token['collateralization-ratio']?.value}
+			{@const composition = summaryComposition(token)}
+			<a
+				href={resolve('/assets/[id]', { id: token.id })}
+				class="rounded-xl border bg-card p-5 hover:shadow-sm"
+			>
+				<div class="flex items-center gap-3">
+					<AssetIcon src={token.icon} name={token.name} class="size-7" />
+					<span class="font-medium">{token.name}</span>
+					<span class="ml-auto text-xl font-light tabular-nums">
+						{ratio == null ? '–' : formatPercentage(ratio, 1)}
+					</span>
+				</div>
+				{#if composition}
+					<CompositionBar {composition} {assets} legend class="mt-4" />
+					<p class="mt-3 text-xs text-muted-foreground">
+						{formatCurrency(composition.total)} · as of {composition.date
+							? formatDate(composition.date)
+							: '–'}
+					</p>
+				{:else}
+					<p class="mt-3 text-sm text-muted-foreground">No backing recorded.</p>
+				{/if}
+			</a>
 		{/each}
 	</div>
+</NumberedSection>
 
-	<Card>
-		<CardHeader
-			title="Total Value Locked"
-			subtitle="History of the total value of all assets linked to {group.name}."
+{#if combined.parts.length}
+	<NumberedSection label="02 · Reserves" title="Combined reserves of its tracked tokens">
+		<div class="rounded-xl border bg-card p-6">
+			<div class="text-2xl font-light tabular-nums">{formatCurrency(combined.total)}</div>
+			<CompositionBar composition={combined} {assets} legend class="mt-4" barClass="h-4" />
+		</div>
+	</NumberedSection>
+{/if}
+
+<NumberedSection label="03 · Over time" title="Value of its tracked tokens" muted>
+	<div class="h-72 rounded-xl border bg-card p-2">
+		<HistoryChart
+			data={seriesQuery.data['total-value-locked']}
+			formatter={(v) => formatCurrency(v)}
 		/>
-		<div class="mt-5 h-full overflow-hidden sm:mt-6">
-			<HistoryChart data={series['total-value-locked']} formatter={(v) => formatCurrency(v)} />
-		</div>
-	</Card>
+	</div>
+</NumberedSection>
 
-	<Card>
-		<CardHeader title="Assets" subtitle="Assets linked to {group.name}." />
-		<div class="mt-5 sm:mt-6">
-			<Table columns={assetColumns} rows={assets.map(assetRow)} sortBy="market-cap" rank />
+{#if perYear.length}
+	<NumberedSection
+		label="04 · Reports"
+		title="{reports.length} reports since {perYear[0]?.[0]}"
+		text="How often {group.name} published the reports bcked reads, per year."
+	>
+		<div class="flex h-40 items-end gap-2">
+			{#each perYear as [year, n] (year)}
+				<div class="flex grow flex-col items-center gap-1">
+					<span class="text-xs text-muted-foreground tabular-nums">{n}</span>
+					<div
+						class="w-full rounded-t {n ? 'bg-primary/70' : 'bg-muted'}"
+						style="height: {n ? (n / maxPerYear) * 120 : 2}px"
+					></div>
+					<span class="text-xs text-muted-foreground">{year}</span>
+				</div>
+			{/each}
 		</div>
-	</Card>
-</Page>
+	</NumberedSection>
+{/if}

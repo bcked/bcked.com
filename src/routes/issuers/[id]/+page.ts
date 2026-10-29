@@ -1,5 +1,5 @@
 import { error } from '@sveltejs/kit';
-import { getEntities } from '#lib/api.ts';
+import { getEntities, getOptional, type AssetReports } from '#lib/api.ts';
 import { fetchGroupSeries } from '#lib/data.ts';
 import type { EntryGenerator, PageLoad } from './$types';
 
@@ -7,10 +7,19 @@ export const entries: EntryGenerator = async () =>
 	(await getEntities(fetch)).map(({ id }) => ({ id }));
 
 export const load: PageLoad = async ({ params, parent, fetch }) => {
-	const { entities } = await parent();
+	const { entities, assets } = await parent();
 	const group = entities.find(({ id }) => id == params.id);
 	if (!group) error(404, `We could not find the issuer ${params.id}.`);
 
-	const series = await fetchGroupSeries(fetch, 'entities', group.id);
-	return { group, series };
+	const tokens = assets.filter((a) => a.linkedEntities.issuer == group.id && a.backing);
+	const [series, ...reports] = await Promise.all([
+		fetchGroupSeries(fetch, 'entities', group.id),
+		...tokens.map((t) => getOptional<AssetReports>(fetch, `/assets/${t.id}/reports`))
+	]);
+	// Tokens with issuer-wide reports list the same reports, keep each once.
+	const seen = new Set<string>();
+	const list = reports
+		.flatMap((r) => r?.reports ?? [])
+		.filter((r) => !seen.has(r.file) && !!seen.add(r.file));
+	return { group, series, reports: list };
 };

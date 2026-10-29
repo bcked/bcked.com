@@ -1,6 +1,6 @@
 import { error } from '@sveltejs/kit';
 import { getAssets } from '#lib/api.ts';
-import { fetchAssetPage } from '#lib/data.ts';
+import { fetchAssetPage, fetchGraphSeries } from '#lib/data.ts';
 import type { EntryGenerator, PageLoad } from './$types';
 
 export const entries: EntryGenerator = async () =>
@@ -8,7 +8,10 @@ export const entries: EntryGenerator = async () =>
 
 export const load: PageLoad = async ({ params, parent, fetch }) => {
 	const { assets } = await parent();
-	const page = await fetchAssetPage(fetch, assets, params.id);
+	const [page, graph] = await Promise.all([
+		fetchAssetPage(fetch, assets, params.id),
+		fetchGraphSeries(fetch)
+	]);
 	if (!page) error(404, `We could not find the asset ${params.id}.`);
-	return page;
+	return { page, graph };
 };
