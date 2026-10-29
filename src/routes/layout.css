@@ -4,6 +4,14 @@
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
 
+/* The shadcn-svelte components use short data variants. bits-ui sets the state as data-state and
+   data-orientation, so map the variants to those attributes. */
+@custom-variant data-open (&:where([data-state='open']));
+@custom-variant data-closed (&:where([data-state='closed']));
+@custom-variant data-active (&:where([data-state='active']));
+@custom-variant data-horizontal (&:where([data-orientation='horizontal']));
+@custom-variant data-vertical (&:where([data-orientation='vertical']));
+
 /* shadcn-svelte tokens. Light only. Brand: neon pink (primary) and neon blue from the logo. */
 :root {
 	--radius: 0.625rem;
