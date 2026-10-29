@@ -1,16 +1,19 @@
 # Privacy Policy
 
-_Last updated: October 28, 2026_
+_Last updated: October 29, 2026_
 
 ## Controller
 
 The provider named in the [Legal Notice](/legal-notice).
 Email: [contact@bcked.com](mailto:contact@bcked.com)
 
-## What this website does not do
+## Cookies, tracking and browser storage
 
-bcked.com sets no cookies, uses no analytics or tracking, loads no third-party scripts or fonts and
-stores nothing in your browser's storage.
+bcked.com sets no cookies, uses no analytics or tracking and loads no third-party scripts or fonts.
+To restore the scroll position when you go back and forward between pages, the website keeps the
+scroll positions in your browser's session storage. They contain no personal data, never leave your
+browser and are deleted when you close the tab. This storage is technically necessary for the
+website (§ 25 (2) no. 2 TDDDG).
 
 ## Hosting
 
