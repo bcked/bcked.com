@@ -48,8 +48,6 @@
 	entities={summaries.data.entities}
 	systems={summaries.data.systems}
 	{mainNavigation}
-	{bottomNavigation}
-	{socials}
 />
 
 <main class="mx-auto flex w-full grow flex-col items-center justify-start">

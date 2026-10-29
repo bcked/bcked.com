@@ -4,7 +4,7 @@ _Last updated: October 28, 2026_
 
 ## Controller
 
-Sebastian Penhouet, Konrad-Adenauer-Str. 13, 72072 Tübingen, Germany.
+The provider named in the [Legal Notice](/legal-notice).
 Email: [contact@bcked.com](mailto:contact@bcked.com)
 
 ## What this website does not do

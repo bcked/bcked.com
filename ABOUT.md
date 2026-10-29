@@ -14,9 +14,8 @@ In the wake of the 2022 recession, I asked myself these questions. For me, some 
 
 ## Independence
 
-bcked takes no money from the issuers whose tokens it tracks. There are no paid listings, no sponsored
-placements, no ads and no affiliate links. The project is free for non-commercial use. Companies that use
-the data or code commercially pay for a license, which is the only planned source of revenue. How the
-data is collected is described in the [methodology](/methodology).
+bcked is a non-commercial open source project. It takes no money from the issuers whose tokens it
+tracks. There are no paid listings, sponsored placements, ads or affiliate links. How the data
+is collected is described in the [methodology](/methodology).
 
 If you have any questions, want to contribute or any other request, feel free to write [on GitHub](https://github.com/bcked/bcked.com/discussions) or by email [contact@bcked.com](mailto:contact@bcked.com).
