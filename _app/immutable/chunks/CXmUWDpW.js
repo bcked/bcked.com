@@ -1,0 +1,1 @@
+import{D as e,H as t,W as n,jt as r,ut as i}from"./GW892SPh.js";var a=n(`<div class="w-full bg-card"><article class="mx-auto prose max-w-3xl px-4 py-12 sm:px-6 prose-a:text-primary"></article></div>`);function o(n,o){var s=a(),c=i(s);e(c,()=>o.html,!0),r(c),r(s),t(n,s)}export{o as t};

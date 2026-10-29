@@ -1,1 +1,0 @@
-import{C as e}from"./GW892SPh.js";import{t}from"./Dvhef5Db.js";function n(...n){return t(e(n))}export{n as t};
