@@ -177,7 +177,7 @@
 	<NumberedSection
 		label={label('composition', 'Composition over time')}
 		title="What the reserves were made of"
-		text="In USD at the time. Gaps are periods without records. Hover to read the values."
+		text="Share of each reserve asset, or its value in USD at the time. Shares also shift when the price of a reserve asset changes. Gaps are periods without records."
 		muted={muted('composition')}
 	>
 		<div class="rounded-xl border bg-card p-4"><StackedArea points={history} {assets} /></div>
