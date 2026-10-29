@@ -54,7 +54,9 @@ If a value is wrong, please report it with the
 - Reserves: [Tether](https://tether.to/en/transparency/), [Circle](https://www.circle.com/transparency),
   [Paxos](https://paxos.com/), [BlackRock Circle Reserve Fund](https://www.blackrock.com/cash/en-us/products/329365/)
 - US dollar supply: [Federal Reserve H.6](https://www.federalreserve.gov/releases/h6/). Treasury
-  securities: [TreasuryDirect](https://www.treasurydirect.gov/). Gold supply: [USGS](https://www.usgs.gov/)
+  securities: [TreasuryDirect](https://www.treasurydirect.gov/)
+- Gold supply: [USGS](https://www.usgs.gov/) until 2018, above-ground stock of the
+  [World Gold Council](https://www.gold.org/goldhub/data/how-much-gold) from 2019
 - Gold price: [Swissquote](https://www.swissquote.com/)
 - Backfill of the crawler gap: [mempool.space](https://mempool.space/), [ultrasound.money](https://ultrasound.money/),
   [dRPC](https://drpc.org/), [currency-api](https://github.com/fawazahmed0/exchange-api)
