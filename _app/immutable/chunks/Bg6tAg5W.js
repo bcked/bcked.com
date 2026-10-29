@@ -1,1 +1,0 @@
-import{L as e}from"./CIaCyozg.js";import{t}from"./Dvhef5Db.js";function n(...n){return t(e(n))}export{n as t};
