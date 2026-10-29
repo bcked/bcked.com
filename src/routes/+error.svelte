@@ -9,7 +9,7 @@
 	<meta name="robots" content="noindex, nofollow" />
 </svelte:head>
 
-<div class="relative -mt-16 flex min-h-screen w-full items-center justify-center sm:-mt-26">
+<div class="relative isolate -mt-16 flex min-h-screen w-full items-center justify-center">
 	<video
 		class="absolute inset-0 -z-10 h-full w-full object-cover"
 		autoplay
