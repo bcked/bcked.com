@@ -2,6 +2,7 @@
 	import { resolve } from '$app/paths';
 	import AssetIcon from '#lib/components/AssetIcon.svelte';
 	import Seo from '#lib/components/Seo.svelte';
+	import * as Table from '#lib/components/ui/table/index.ts';
 	import { METHOD_NAMES } from '#lib/backing.ts';
 	import { formatCurrency } from '#lib/format.ts';
 	import { summariesQuery } from '#lib/queries.ts';
@@ -42,19 +43,19 @@
 			where the numbers come from.
 		</p>
 		<div class="mt-8 overflow-x-auto rounded-xl border">
-			<table class="w-full text-sm">
-				<thead class="bg-muted/60 text-left text-xs text-muted-foreground">
-					<tr>
-						<th class="px-4 py-3 font-medium">Issuer</th>
-						<th class="px-4 py-3 font-medium">Backed tokens</th>
-						<th class="px-4 py-3 text-right font-medium">Reserves</th>
-						<th class="px-4 py-3 font-medium">Source</th>
-					</tr>
-				</thead>
-				<tbody class="divide-y">
+			<Table.Root>
+				<Table.Header>
+					<Table.Row>
+						<Table.Head>Issuer</Table.Head>
+						<Table.Head>Backed tokens</Table.Head>
+						<Table.Head class="text-right">Reserves</Table.Head>
+						<Table.Head>Source</Table.Head>
+					</Table.Row>
+				</Table.Header>
+				<Table.Body>
 					{#each issuers as { entity, tokens, reserves, methods } (entity.id)}
-						<tr class="hover:bg-muted/40">
-							<td class="px-4 py-3">
+						<Table.Row>
+							<Table.Cell>
 								<a
 									href={resolve('/issuers/[id]', { id: entity.id })}
 									class="flex items-center gap-3 font-medium"
@@ -62,8 +63,8 @@
 									<AssetIcon src={entity.icon} name={entity.name} class="size-7" />
 									{entity.name}
 								</a>
-							</td>
-							<td class="px-4 py-3">
+							</Table.Cell>
+							<Table.Cell>
 								<span class="flex flex-wrap gap-2">
 									{#each tokens as token (token.id)}
 										<a
@@ -76,17 +77,17 @@
 										<span class="text-muted-foreground">–</span>
 									{/each}
 								</span>
-							</td>
-							<td class="px-4 py-3 text-right tabular-nums">
+							</Table.Cell>
+							<Table.Cell class="text-right" numeric>
 								{reserves ? formatCurrency(reserves) : '–'}
-							</td>
-							<td class="px-4 py-3 text-muted-foreground">
+							</Table.Cell>
+							<Table.Cell muted>
 								{methods.map((m) => METHOD_NAMES[m]).join(', ') || '–'}
-							</td>
-						</tr>
+							</Table.Cell>
+						</Table.Row>
 					{/each}
-				</tbody>
-			</table>
+				</Table.Body>
+			</Table.Root>
 		</div>
 	</section>
 </div>

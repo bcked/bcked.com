@@ -7,6 +7,7 @@
 	import { formatCurrency } from '#lib/format.ts';
 	import { partColor, partName, type Composition } from '#lib/backing.ts';
 	import { cn } from '#lib/utils.ts';
+	import ColorDot from './ColorDot.svelte';
 
 	type Props = {
 		composition: Composition;
@@ -29,8 +30,9 @@
 	<div class={cn('flex w-full overflow-hidden rounded-full bg-muted', barClass)}>
 		{#each composition.parts as part, i (part.id)}
 			<div
-				class="h-full"
-				style="width: {(part.usd / composition.total) * 100}%; background: {partColor(part.id, i)}"
+				class="h-full w-(--part-width) bg-(--part-color)"
+				style:--part-width="{(part.usd / composition.total) * 100}%"
+				style:--part-color={partColor(part.id, i)}
 				title="{partName(part.id, assets)}: {formatCurrency(part.usd)}"
 			></div>
 		{/each}
@@ -39,7 +41,7 @@
 		<ul class="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-xs text-muted-foreground">
 			{#each composition.parts as part, i (part.id)}
 				<li class="flex items-center gap-1.5">
-					<span class="size-2 rounded-full" style="background: {partColor(part.id, i)}"></span>
+					<ColorDot color={partColor(part.id, i)} />
 					{partName(part.id, assets)}
 					<span class="tabular-nums">{Math.round((part.usd / composition.total) * 100)}%</span>
 				</li>

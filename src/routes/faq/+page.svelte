@@ -1,8 +1,6 @@
 <script lang="ts">
-	import Card from '#lib/components/Card.svelte';
-	import CardHeader from '#lib/components/CardHeader.svelte';
-	import Page from '#lib/components/Page.svelte';
 	import Seo from '#lib/components/Seo.svelte';
+	import * as Accordion from '#lib/components/ui/accordion/index.ts';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();
@@ -13,21 +11,22 @@
 	description="Answers to common questions about cryptocurrency backing and how bcked measures it."
 />
 
-<Page class="px-0">
-	<Card class="pb-8">
-		<CardHeader title="Frequently asked questions" subtitle="Questions about backing and bcked." />
-		<dl
-			class="mt-8 space-y-10 px-4 sm:grid sm:grid-cols-2 sm:space-y-0 sm:gap-x-6 sm:gap-y-12 sm:px-6 lg:grid-cols-3 lg:gap-x-8"
-		>
+<div class="w-full bg-card">
+	<section class="mx-auto max-w-3xl px-4 py-12 sm:px-6">
+		<h1 class="text-3xl font-light tracking-tight">Frequently asked questions</h1>
+		<p class="mt-2 text-muted-foreground">Questions about backing and bcked.</p>
+		<Accordion.Root type="multiple" class="mt-8">
 			{#each data.faqs as faq (faq.question)}
-				<div>
-					<dt class="text-base font-medium text-foreground">{faq.question}</dt>
-					<dd class="prose prose-sm mt-3 text-muted-foreground">
-						<!-- eslint-disable-next-line svelte/no-at-html-tags -- rendered from Markdown in this repository -->
-						{@html faq.answer}
-					</dd>
-				</div>
+				<Accordion.Item value={faq.question}>
+					<Accordion.Trigger>{faq.question}</Accordion.Trigger>
+					<Accordion.Content>
+						<div class="prose prose-sm text-muted-foreground">
+							<!-- eslint-disable-next-line svelte/no-at-html-tags -- rendered from Markdown in this repository -->
+							{@html faq.answer}
+						</div>
+					</Accordion.Content>
+				</Accordion.Item>
 			{/each}
-		</dl>
-	</Card>
-</Page>
+		</Accordion.Root>
+	</section>
+</div>

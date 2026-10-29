@@ -132,9 +132,9 @@
 	);
 </script>
 
-<div class="grid gap-6 {panel ? 'lg:grid-cols-[17rem_1fr]' : ''}">
+<div class="grid gap-6 {panel ? 'lg:grid-cols-4' : ''}">
 	{#if panel}
-		<aside class="space-y-5">
+		<aside class="space-y-5 lg:col-span-1">
 			<Input placeholder="Search assets" bind:value={query} />
 			<div>
 				<p class="mb-2 text-xs font-medium text-muted-foreground">Show</p>
@@ -155,20 +155,19 @@
 				<ul class="max-h-96 space-y-0.5 overflow-auto">
 					{#each listed as asset (asset.id)}
 						<li>
-							<button
-								type="button"
+							<Button
+								variant={focus == asset.id ? 'secondary' : 'ghost'}
+								size="sm"
+								class="w-full justify-start"
+								aria-pressed={focus == asset.id}
 								onclick={() => (focus = focus == asset.id ? null : asset.id)}
-								class="flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-left text-sm hover:bg-muted {focus ==
-								asset.id
-									? 'bg-primary/10 font-medium text-primary'
-									: ''}"
 							>
 								<AssetIcon src={asset.icon} name={asset.name} class="size-4" />
 								<span class="truncate">{asset.name}</span>
 								<span class="ml-auto text-xs text-muted-foreground">
 									{asset.backing ? 'token' : 'reserve'}
 								</span>
-							</button>
+							</Button>
 						</li>
 					{/each}
 				</ul>
@@ -176,7 +175,7 @@
 		</aside>
 	{/if}
 
-	<div class="min-w-0">
+	<div class="min-w-0 {panel ? 'lg:col-span-3' : ''}">
 		<div class="flex flex-wrap items-center gap-4 rounded-xl border bg-card px-4 py-3">
 			<Button
 				size="icon"

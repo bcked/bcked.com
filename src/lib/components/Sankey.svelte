@@ -109,8 +109,8 @@
 					y1="0"
 					y2={layout.height}
 				>
-					<stop offset="0%" stop-color="#ff3b76" />
-					<stop offset="100%" stop-color="#3bc7ff" />
+					<stop offset="0%" stop-color="var(--color-neon-pink)" />
+					<stop offset="100%" stop-color="var(--color-neon-blue)" />
 				</linearGradient>
 			</defs>
 			{#each layout.graph.links as link, i (i)}
@@ -148,7 +148,7 @@
 						rx="4"
 						class={node.id == highlight
 							? 'fill-primary/25 stroke-primary hover:fill-primary/35'
-							: 'fill-gray-200 hover:fill-gray-300'}
+							: 'fill-muted hover:fill-border'}
 					/>
 					<foreignObject
 						x={Math.min(Math.max(x + w / 2 - labelWidth / 2, 0), width - labelWidth)}

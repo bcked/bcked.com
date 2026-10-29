@@ -3,12 +3,15 @@
 	import { ExternalLink, FileText, Link2, Radio } from '@lucide/svelte';
 	import AssetIcon from '#lib/components/AssetIcon.svelte';
 	import ChainExplorer from '#lib/components/backing/ChainExplorer.svelte';
+	import ColorDot from '#lib/components/backing/ColorDot.svelte';
 	import CompositionBar from '#lib/components/backing/CompositionBar.svelte';
 	import StackedArea from '#lib/components/backing/StackedArea.svelte';
 	import HistoryChart from '#lib/components/HistoryChart.svelte';
 	import NumberedSection from '#lib/components/NumberedSection.svelte';
 	import Seo from '#lib/components/Seo.svelte';
+	import * as Table from '#lib/components/ui/table/index.ts';
 	import { Badge } from '#lib/components/ui/badge/index.ts';
+	import { Button } from '#lib/components/ui/button/index.ts';
 	import {
 		compositionHistory,
 		METHOD_NAMES,
@@ -105,14 +108,14 @@
 			<Badge variant="secondary">{details.symbol}</Badge>
 			{#if system && system.id != 'rwa'}<Badge variant="outline">{system.name}</Badge>{/if}
 			{#if issuer}
-				<a href={resolve('/issuers/[id]', { id: issuer.id })}>
-					<Badge variant="outline" class="hover:bg-muted">Issued by {issuer.name}</Badge>
-				</a>
+				<Badge variant="outline" href={resolve('/issuers/[id]', { id: issuer.id })}>
+					Issued by {issuer.name}
+				</Badge>
 			{/if}
 		</div>
 
 		{#if composition}
-			<div class="mt-8 grid gap-8 sm:grid-cols-[auto_1fr] sm:items-end">
+			<div class="mt-8 flex flex-col gap-8 sm:flex-row sm:items-end">
 				<div>
 					<div class="text-6xl font-light tracking-tight tabular-nums">
 						{ratio == null ? '–' : formatPercentage(ratio, 1)}
@@ -123,7 +126,7 @@
 						)} market cap
 					</p>
 				</div>
-				<div class="sm:pb-2">
+				<div class="flex-1 sm:pb-2">
 					<CompositionBar {composition} {assets} legend barClass="h-3" />
 					<p class="mt-2 flex flex-wrap items-center gap-1.5 text-xs text-muted-foreground">
 						<FileText class="size-3.5" />
@@ -207,35 +210,34 @@
 		muted={muted('reserves')}
 	>
 		<div class="overflow-hidden rounded-xl border bg-card">
-			<table class="w-full text-sm">
-				<thead class="bg-muted/60 text-left text-xs text-muted-foreground">
-					<tr>
-						<th class="px-4 py-2 font-medium">Reserve asset</th>
-						<th class="px-4 py-2 text-right font-medium">Value</th>
-						<th class="px-4 py-2 text-right font-medium">Share</th>
-					</tr>
-				</thead>
-				<tbody class="divide-y">
+			<Table.Root>
+				<Table.Header>
+					<Table.Row>
+						<Table.Head>Reserve asset</Table.Head>
+						<Table.Head class="text-right">Value</Table.Head>
+						<Table.Head class="text-right">Share</Table.Head>
+					</Table.Row>
+				</Table.Header>
+				<Table.Body>
 					{#each composition.parts as part, i (part.id)}
-						<tr>
-							<td class="px-4 py-2.5">
+						<Table.Row>
+							<Table.Cell>
 								<a
 									href={resolve('/assets/[id]', { id: part.id })}
 									class="flex items-center gap-2 hover:text-primary"
 								>
-									<span class="size-2 rounded-full" style="background: {partColor(part.id, i)}"
-									></span>
+									<ColorDot color={partColor(part.id, i)} />
 									{partName(part.id, assets)}
 								</a>
-							</td>
-							<td class="px-4 py-2.5 text-right tabular-nums">{formatCurrency(part.usd)}</td>
-							<td class="px-4 py-2.5 text-right tabular-nums">
+							</Table.Cell>
+							<Table.Cell class="text-right" numeric>{formatCurrency(part.usd)}</Table.Cell>
+							<Table.Cell class="text-right" numeric>
 								{formatPercentage(part.usd / composition.total, 1)}
-							</td>
-						</tr>
+							</Table.Cell>
+						</Table.Row>
 					{/each}
-				</tbody>
-			</table>
+				</Table.Body>
+			</Table.Root>
 		</div>
 	</NumberedSection>
 {/if}
@@ -247,18 +249,18 @@
 		muted={muted('holders')}
 	>
 		<div class="overflow-hidden rounded-xl border bg-card">
-			<table class="w-full text-sm">
-				<thead class="bg-muted/60 text-left text-xs text-muted-foreground">
-					<tr>
-						<th class="px-4 py-2 font-medium">Token</th>
-						<th class="px-4 py-2 text-right font-medium">Held</th>
-						<th class="px-4 py-2 text-right font-medium">Share of the token's backing</th>
-					</tr>
-				</thead>
-				<tbody class="divide-y">
+			<Table.Root>
+				<Table.Header>
+					<Table.Row>
+						<Table.Head>Token</Table.Head>
+						<Table.Head class="text-right">Held</Table.Head>
+						<Table.Head class="text-right">Share of the token's backing</Table.Head>
+					</Table.Row>
+				</Table.Header>
+				<Table.Body>
 					{#each holders as holder (holder.id)}
-						<tr>
-							<td class="px-4 py-2.5">
+						<Table.Row>
+							<Table.Cell>
 								<a
 									href={resolve('/assets/[id]', { id: holder.id })}
 									class="flex items-center gap-2 hover:text-primary"
@@ -266,15 +268,15 @@
 									<AssetIcon src={holder.token?.icon} name={holder.token?.name ?? holder.id} />
 									{holder.token?.name ?? holder.id}
 								</a>
-							</td>
-							<td class="px-4 py-2.5 text-right tabular-nums">{formatCurrency(holder.usd)}</td>
-							<td class="px-4 py-2.5 text-right tabular-nums">
+							</Table.Cell>
+							<Table.Cell class="text-right" numeric>{formatCurrency(holder.usd)}</Table.Cell>
+							<Table.Cell class="text-right" numeric>
 								{holder.share == null ? '–' : formatPercentage(holder.share, 1)}
-							</td>
-						</tr>
+							</Table.Cell>
+						</Table.Row>
 					{/each}
-				</tbody>
-			</table>
+				</Table.Body>
+			</Table.Root>
 		</div>
 	</NumberedSection>
 {/if}
@@ -293,17 +295,16 @@
 	>
 		{#if source.method == 'reports'}
 			<div class="max-h-96 overflow-auto rounded-xl border bg-card">
-				<table class="w-full text-sm">
-					<tbody class="divide-y">
+				<Table.Root>
+					<Table.Body>
 						{#each reports as report (report.file)}
-							<tr>
-								<td class="px-4 py-2.5 font-medium tabular-nums">{report.report}</td>
-								<td class="px-4 py-2.5 text-muted-foreground">{report.file}</td>
-								<td
-									class="hidden px-4 py-2.5 font-mono text-xs text-muted-foreground md:table-cell"
-									title="SHA-256 of the report">{report.sha256.slice(0, 16)}…</td
+							<Table.Row>
+								<Table.Cell numeric>{report.report}</Table.Cell>
+								<Table.Cell muted>{report.file}</Table.Cell>
+								<Table.Cell class="hidden md:table-cell" code muted title="SHA-256 of the report"
+									>{report.sha256.slice(0, 16)}…</Table.Cell
 								>
-								<td class="px-4 py-2.5 text-right">
+								<Table.Cell class="text-right">
 									{#if report.url}
 										<a
 											href={report.url}
@@ -311,11 +312,11 @@
 											>Original <ExternalLink class="size-3" /></a
 										>
 									{/if}
-								</td>
-							</tr>
+								</Table.Cell>
+							</Table.Row>
 						{/each}
-					</tbody>
-				</table>
+					</Table.Body>
+				</Table.Root>
 			</div>
 			<p class="mt-3 text-xs text-muted-foreground">
 				The reports belong to their issuers and auditors. The hash lets anyone check that a copy is
@@ -324,24 +325,18 @@
 		{:else}
 			<div class="flex flex-wrap gap-3">
 				{#if source.address}
-					<a
-						href="{explorer}{source.address}"
-						class="inline-flex items-center gap-2 rounded-xl border bg-card px-4 py-3 text-sm hover:bg-muted"
-					>
+					<Button variant="outline" href="{explorer}{source.address}">
 						<Radio class="size-4 text-primary" />
 						<span class="font-mono">{source.address}</span>
 						<ExternalLink class="size-3 text-muted-foreground" />
-					</a>
+					</Button>
 				{/if}
 				{#if source.reference}
-					<a
-						href={source.reference}
-						class="inline-flex items-center gap-2 rounded-xl border bg-card px-4 py-3 text-sm hover:bg-muted"
-					>
+					<Button variant="outline" href={source.reference}>
 						<Link2 class="size-4 text-primary" />
 						{new URL(source.reference).hostname}
 						<ExternalLink class="size-3 text-muted-foreground" />
-					</a>
+					</Button>
 				{/if}
 			</div>
 		{/if}

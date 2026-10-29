@@ -69,7 +69,7 @@
 </script>
 
 <div
-	class="h-full min-h-[200px] w-full overflow-visible sm:min-h-[250px]"
+	class="h-full min-h-50 w-full overflow-visible sm:min-h-62.5"
 	bind:clientWidth={width}
 	bind:clientHeight={height}
 	bind:this={container}

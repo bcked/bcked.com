@@ -9,6 +9,7 @@
 	import { area, curveStepAfter, stack, stackOrderReverse } from 'd3-shape';
 	import type { AssetSummary } from '#lib/api.ts';
 	import * as ToggleGroup from '#lib/components/ui/toggle-group/index.ts';
+	import ColorDot from './ColorDot.svelte';
 	import { formatCurrency, formatDate, formatPercentage } from '#lib/format.ts';
 	import { partColor, partName, type CompositionPoint } from '#lib/backing.ts';
 
@@ -131,21 +132,12 @@
 					y2={y(tick)}
 					class="stroke-border"
 				/>
-				<text
-					x={width - margin.right + 6}
-					y={y(tick) + 4}
-					class="fill-muted-foreground text-[10px]"
-				>
+				<text x={width - margin.right + 6} y={y(tick) + 4} class="fill-muted-foreground text-xs">
 					{tickLabel(tick)}
 				</text>
 			{/each}
 			{#each x.ticks(5) as tick (tick.getTime())}
-				<text
-					x={x(tick)}
-					y={height - 6}
-					text-anchor="middle"
-					class="fill-muted-foreground text-[10px]"
-				>
+				<text x={x(tick)} y={height - 6} text-anchor="middle" class="fill-muted-foreground text-xs">
 					{tick.getUTCFullYear()}
 				</text>
 			{/each}
@@ -169,7 +161,7 @@
 			{#if share}<span class="text-muted-foreground">of {formatCurrency(total(current))}</span>{/if}
 			{#each keys.filter((k) => current.parts[k]) as key, i (key)}
 				<span class="flex items-center gap-1.5 text-muted-foreground">
-					<span class="size-2 rounded-full" style="background: {partColor(key, i)}"></span>
+					<ColorDot color={partColor(key, i)} />
 					{partName(key, assets)}
 					<span class="text-foreground tabular-nums">
 						{share
