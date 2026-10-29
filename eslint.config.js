@@ -34,7 +34,6 @@ export default defineConfig(
 			}
 		},
 		// Design system rules for the shadcn-svelte components (https://github.com/shadcn-ui/lint).
-		// Registered without rules. Enable them under `rules` as "shadcn/<rule>".
 		plugins: { shadcn }
 	},
 	{
@@ -47,6 +46,22 @@ export default defineConfig(
 			// Internal links are built with resolve() where they are created (e.g. in rows.ts or the
 			// layout) and passed to components as props. External links need no resolve().
 			'svelte/no-navigation-without-resolve': ['error', { ignoreLinks: true }]
+		}
+	},
+	{
+		// Design system rules (https://github.com/shadcn-ui/lint). The generated components in
+		// src/lib/components/ui define the design system and are not checked.
+		files: ['src/**/*.svelte', 'src/**/*.ts'],
+		ignores: ['src/lib/components/ui/**'],
+		rules: {
+			// Components own their look. Pages may only place them (margin, width, flex and grid).
+			'shadcn/no-restyle': ['error', { allow: ['layout'] }],
+			'shadcn/no-raw-colors': 'error',
+			'shadcn/no-arbitrary-values': 'error',
+			// Data-driven values (chart widths, colors) go through CSS custom properties.
+			'shadcn/no-inline-styles': 'error',
+			'shadcn/no-unknown-classes': 'error',
+			'shadcn/require-static-classes': 'error'
 		}
 	}
 );

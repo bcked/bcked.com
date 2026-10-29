@@ -70,7 +70,7 @@
 	<Search class="size-4" aria-hidden="true" />
 	<span class="grow text-left">Search</span>
 	<kbd
-		class="hidden rounded border border-border bg-muted px-1.5 font-mono text-[10px] font-medium sm:inline"
+		class="hidden rounded border border-border bg-muted px-1.5 font-mono text-xs font-medium sm:inline"
 		>Ctrl K</kbd
 	>
 </button>

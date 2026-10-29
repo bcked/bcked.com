@@ -137,8 +137,8 @@
 				<div class="flex grow flex-col items-center gap-1">
 					<span class="text-xs text-muted-foreground tabular-nums">{n}</span>
 					<div
-						class="w-full rounded-t {n ? 'bg-primary/70' : 'bg-muted'}"
-						style="height: {n ? (n / maxPerYear) * 120 : 2}px"
+						class="h-(--bar-height) w-full rounded-t {n ? 'bg-primary/70' : 'bg-muted'}"
+						style:--bar-height="{n ? (n / maxPerYear) * 120 : 2}px"
 					></div>
 					<span class="text-xs text-muted-foreground">{year}</span>
 				</div>

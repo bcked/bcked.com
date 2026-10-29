@@ -1,15 +1,14 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 	import { ArrowRight, Braces } from '@lucide/svelte';
-	import AssetIcon from '#lib/components/AssetIcon.svelte';
-	import CompositionBar from '#lib/components/backing/CompositionBar.svelte';
 	import StackedArea from '#lib/components/backing/StackedArea.svelte';
+	import TokenTable from '#lib/components/backing/TokenTable.svelte';
 	import NumberedSection from '#lib/components/NumberedSection.svelte';
 	import Sankey from '#lib/components/Sankey.svelte';
 	import Seo from '#lib/components/Seo.svelte';
 	import { Button } from '#lib/components/ui/button/index.ts';
-	import { monthLinks, reserveHistory, summaryComposition } from '#lib/backing.ts';
-	import { formatCurrency, formatDate, formatPercentage } from '#lib/format.ts';
+	import { monthLinks, reserveHistory } from '#lib/backing.ts';
+	import { formatCurrency } from '#lib/format.ts';
 	import { graphSeriesQuery, summariesQuery } from '#lib/queries.ts';
 	import type { PageProps } from './$types';
 
@@ -69,36 +68,8 @@
 	title="What the reserves are made of"
 	text="Not one total per token, but every reserve category from the issuer’s report or the chain."
 >
-	<div class="divide-y rounded-xl border bg-card">
-		{#each backed as asset (asset.id)}
-			{@const composition = summaryComposition(asset)}
-			{@const ratio = asset['collateralization-ratio']?.value}
-			<a
-				href={resolve('/assets/[id]', { id: asset.id })}
-				class="grid grid-cols-[1fr_auto] items-center gap-x-6 gap-y-2 px-5 py-4 hover:bg-muted/50 md:grid-cols-[13rem_6rem_1fr_8rem]"
-			>
-				<span class="flex items-center gap-3">
-					<AssetIcon src={asset.icon} name={asset.name} class="size-7" />
-					<span class="font-medium">{asset.name}</span>
-				</span>
-				<span class="text-right text-xl font-light tabular-nums md:text-left">
-					{ratio == null ? '–' : formatPercentage(ratio, 1)}
-				</span>
-				{#if composition}
-					<CompositionBar
-						{composition}
-						assets={summaries.data.assets}
-						legend
-						class="col-span-2 md:col-span-1"
-					/>
-				{/if}
-				<span class="col-span-2 text-xs text-muted-foreground md:col-span-1 md:text-right">
-					{formatCurrency(asset.collateral?.value ?? 0)}<br />as of {asset.collateral
-						? formatDate(asset.collateral.date)
-						: '–'}
-				</span>
-			</a>
-		{/each}
+	<div class="rounded-xl border bg-card">
+		<TokenTable tokens={backed} assets={summaries.data.assets} />
 	</div>
 </NumberedSection>
 
@@ -111,7 +82,7 @@
 	<div class="rounded-xl border bg-card p-4">
 		<Sankey links={monthLinks(months.at(-1))} direction="down" assets={summaries.data.assets} />
 	</div>
-	<Button href={resolve('/explore')} variant="link" class="mt-2 px-0">
+	<Button href={resolve('/explore')} variant="link" class="mt-2">
 		Explore the chains over time <ArrowRight class="size-4" />
 	</Button>
 </NumberedSection>
