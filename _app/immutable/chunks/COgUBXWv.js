@@ -122,23 +122,28 @@ If a value is wrong, please report it with the
 - Reserves: [Tether](https://tether.to/en/transparency/), [Circle](https://www.circle.com/transparency),
   [Paxos](https://paxos.com/), [BlackRock Circle Reserve Fund](https://www.blackrock.com/cash/en-us/products/329365/)
 - US dollar supply: [Federal Reserve H.6](https://www.federalreserve.gov/releases/h6/). Treasury
-  securities: [TreasuryDirect](https://www.treasurydirect.gov/). Gold supply: [USGS](https://www.usgs.gov/)
+  securities: [TreasuryDirect](https://www.treasurydirect.gov/)
+- Gold supply: [USGS](https://www.usgs.gov/) until 2018, above-ground stock of the
+  [World Gold Council](https://www.gold.org/goldhub/data/how-much-gold) from 2019
 - Gold price: [Swissquote](https://www.swissquote.com/)
 - Backfill of the crawler gap: [mempool.space](https://mempool.space/), [ultrasound.money](https://ultrasound.money/),
   [dRPC](https://drpc.org/), [currency-api](https://github.com/fawazahmed0/exchange-api)
 `,r=`# Privacy Policy
 
-_Last updated: October 28, 2026_
+_Last updated: October 29, 2026_
 
 ## Controller
 
 The provider named in the [Legal Notice](/legal-notice).
 Email: [contact@bcked.com](mailto:contact@bcked.com)
 
-## What this website does not do
+## Cookies, tracking and browser storage
 
-bcked.com sets no cookies, uses no analytics or tracking, loads no third-party scripts or fonts and
-stores nothing in your browser's storage.
+bcked.com sets no cookies, uses no analytics or tracking and loads no third-party scripts or fonts.
+To restore the scroll position when you go back and forward between pages, the website keeps the
+scroll positions in your browser's session storage. They contain no personal data, never leave your
+browser and are deleted when you close the tab. This storage is technically necessary for the
+website (§ 25 (2) no. 2 TDDDG).
 
 ## Hosting
 
