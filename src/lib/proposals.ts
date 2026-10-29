@@ -1,5 +1,14 @@
 /** Shared data and helpers for the design proposals under /proposals. */
-import { getLatest, refId, type AssetSummary, type Breakdown } from '#lib/api.ts';
+import {
+	getLatest,
+	getOptional,
+	refId,
+	type AssetSummary,
+	type Breakdown,
+	type CollateralizationGraph,
+	type Ref
+} from '#lib/api.ts';
+import { graphLinks, type GraphLink } from '#lib/graph.ts';
 
 type Fetch = typeof fetch;
 
@@ -61,4 +70,122 @@ const SHORT: Record<string, string> = {
 
 export function partName(id: string, assets: AssetSummary[]): string {
 	return SHORT[id] ?? assets.find((a) => a.id == id)?.symbol ?? id;
+}
+
+/** Kind of a token for filters. */
+export type Kind = 'stablecoin' | 'rwa' | 'wrapped' | 'reserve';
+
+export function assetKind(asset: AssetSummary): Kind {
+	if (asset.system == 'rwa') return 'reserve';
+	if (asset.tags.includes('stablecoin')) return 'stablecoin';
+	if (asset.tags.includes('real-world-asset')) return 'rwa';
+	return 'wrapped';
+}
+
+export const KIND_NAMES: Record<Kind, string> = {
+	stablecoin: 'Stablecoins',
+	rwa: 'Real-world assets',
+	wrapped: 'Wrapped tokens',
+	reserve: 'Reserve assets'
+};
+
+/** Months from January 2023 (first backing graph) to now, as "YYYY-MM". */
+export function graphMonths(now = new Date()): string[] {
+	const months: string[] = [];
+	const end = now.getUTCFullYear() * 12 + now.getUTCMonth();
+	for (let i = 2023 * 12; i <= end; i++) {
+		months.push(`${Math.floor(i / 12)}-${String((i % 12) + 1).padStart(2, '0')}`);
+	}
+	return months;
+}
+
+type Refs = { data: Ref[] };
+
+/** Backing graph links of the last recorded day of a month ("YYYY-MM"), or null without a graph. */
+export async function fetchGraphForMonth(fetch: Fetch, month: string): Promise<GraphLink[] | null> {
+	const [year, mm] = month.split('-');
+	const days = await getOptional<Refs>(fetch, `/graphs/collateralization/${year}/${mm}`);
+	const last = days?.data.at(-1);
+	if (!last) return null;
+	return graphLinks(await getOptional<CollateralizationGraph>(fetch, last.$ref));
+}
+
+export type CompositionPoint = { date: string; parts: Record<string, number> };
+
+/**
+ * Composition of an asset's backing in USD over time, one point per month (the median record of
+ * the month). Each point is one request, so this is meant for prerendering, not the browser.
+ */
+export async function fetchCompositionHistory(
+	fetch: Fetch,
+	id: string
+): Promise<CompositionPoint[]> {
+	const index = await getOptional<{ history: Refs }>(fetch, `/assets/${id}/underlying-assets`);
+	if (!index) return [];
+	const years = await Promise.all(
+		index.history.data.map((ref) => getOptional<Refs>(fetch, ref.$ref))
+	);
+	const months = years.flatMap((year) => year?.data ?? []);
+	const medians = await Promise.all(
+		months.map(async (month) => {
+			const stats = await getOptional<{ median: Ref }>(fetch, month.$ref);
+			return stats ? getOptional<Breakdown>(fetch, stats.median.$ref) : null;
+		})
+	);
+	return medians
+		.filter((b): b is Breakdown => b != null)
+		.map((b) => ({
+			date: b.timestamp,
+			parts: Object.fromEntries(
+				b.breakdown
+					.filter((item) => typeof item.value?.['rwa:USD'] == 'number')
+					.map((item) => [refId(item.asset), item.value!['rwa:USD']])
+			)
+		}))
+		.toSorted((a, b) => a.date.localeCompare(b.date));
+}
+
+export type Report = { report: string; file: string; sha256: string; url: string };
+
+/**
+ * Reports behind an asset's backing, from evidence.csv on the records branch: the asset's own, or its
+ * issuer's when the issuer reports for all chains together. Read from GitHub at build time only. For
+ * the real page this belongs in the API.
+ */
+export async function fetchReports(fetch: Fetch, id: string, issuer?: string): Promise<Report[]> {
+	const base = 'https://raw.githubusercontent.com/bcked/bcked-adapters/records';
+	for (const path of [`assets/${id}`, issuer ? `entities/${issuer}` : null]) {
+		if (!path) continue;
+		try {
+			const response = await fetch(`${base}/${path}/records/evidence.csv`);
+			if (!response.ok) continue;
+			const [header, ...lines] = (await response.text()).trim().split('\n');
+			const columns = header!.split(',');
+			return lines
+				.map((line) => Object.fromEntries(line.split(',').map((v, i) => [columns[i], v])) as Report)
+				.toSorted((a, b) => b.report.localeCompare(a.report));
+		} catch {
+			continue;
+		}
+	}
+	return [];
+}
+
+/** Number of levels from an asset down to the end of its backing chain. */
+export function chainDepth(links: GraphLink[], id: string): number {
+	let depth = 0;
+	let level = new Set([id]);
+	const seen = new Set([id]);
+	while (level.size && depth < 10) {
+		const next = new Set<string>();
+		for (const link of links)
+			if (level.has(link.source) && !seen.has(link.target)) {
+				next.add(link.target);
+				seen.add(link.target);
+			}
+		if (!next.size) break;
+		depth++;
+		level = next;
+	}
+	return depth;
 }

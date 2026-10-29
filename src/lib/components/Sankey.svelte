@@ -16,9 +16,13 @@
 		links: GraphLink[];
 		direction: 'down' | 'up';
 		assets: AssetSummary[];
+		/** Link target of a node. Defaults to the asset page. */
+		href?: (id: string) => string;
+		/** Node to highlight, e.g. the asset in focus. */
+		highlight?: string | null;
 	};
 
-	let { links, direction, assets }: Props = $props();
+	let { links, direction, assets, href, highlight = null }: Props = $props();
 
 	type Node = { id: string };
 	type Link = { source: string; target: string; value: number; usd: number | null };
@@ -134,7 +138,7 @@
 				<!-- Narrow nodes only show their icon, the name and value are in the tooltip. -->
 				{@const label = w >= 120}
 				{@const labelWidth = label ? w : 20}
-				<a href={resolve('/assets/[id]', { id: node.id })}>
+				<a href={href ? href(node.id) : resolve('/assets/[id]', { id: node.id })}>
 					<title>{name}{value != null ? `: ${formatCurrency(value)}` : ''}</title>
 					<rect
 						{x}
@@ -142,7 +146,9 @@
 						width={w}
 						height={nodeThickness}
 						rx="4"
-						class="fill-gray-200 hover:fill-gray-300"
+						class={node.id == highlight
+							? 'fill-primary/25 stroke-primary hover:fill-primary/35'
+							: 'fill-gray-200 hover:fill-gray-300'}
 					/>
 					<foreignObject
 						x={Math.min(Math.max(x + w / 2 - labelWidth / 2, 0), width - labelWidth)}
