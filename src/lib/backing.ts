@@ -138,3 +138,11 @@ export function reserveHistory(months: GraphSeries['months']): CompositionPoint[
 		return { date: month.date, parts };
 	});
 }
+
+/** Query of an Explore link: the focused asset and the month, if not the latest. */
+export function exploreQuery(focus: string | null, month: string | null): string {
+	const params = new URLSearchParams();
+	if (focus) params.set('focus', focus);
+	if (month) params.set('month', month);
+	return params.size ? `?${params}` : '';
+}

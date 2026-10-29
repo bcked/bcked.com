@@ -3,10 +3,15 @@
   Backing chains as a Sankey, with a time slider over every month of the graph series. Without a
   focus it shows all tracked tokens and has a side panel to search, filter and focus. With a focus it
   shows the chain through one asset: what it backs above, what backs it below.
+  With `url`, the focus and the month are kept in the query (`?focus=…&month=YYYY-MM`), so a chain at
+  a date can be linked.
 -->
 <script lang="ts">
+	import { replaceState } from '$app/navigation';
 	import { resolve } from '$app/paths';
-	import { Pause, Play, X } from '@lucide/svelte';
+	import { page } from '$app/state';
+	import { onMount, untrack } from 'svelte';
+	import { ArrowUpRight, Pause, Play, X } from '@lucide/svelte';
 	import type { AssetSummary, GraphSeries } from '#lib/api.ts';
 	import AssetIcon from '#lib/components/AssetIcon.svelte';
 	import Sankey from '#lib/components/Sankey.svelte';
@@ -14,7 +19,7 @@
 	import { Input } from '#lib/components/ui/input/index.ts';
 	import { Slider } from '#lib/components/ui/slider/index.ts';
 	import * as ToggleGroup from '#lib/components/ui/toggle-group/index.ts';
-	import { assetKind, KIND_NAMES, monthLinks, type Kind } from '#lib/backing.ts';
+	import { assetKind, exploreQuery, KIND_NAMES, monthLinks, type Kind } from '#lib/backing.ts';
 	import { formatDate } from '#lib/format.ts';
 	import { chain, type GraphLink } from '#lib/graph.ts';
 
@@ -25,9 +30,11 @@
 		focus?: string | null;
 		/** Side panel with search, filters and focus. */
 		panel?: boolean;
+		/** Keep the focus and the month in the URL query. Only on the Explore page. */
+		url?: boolean;
 	};
 
-	let { assets, months, focus: initialFocus = null, panel = true }: Props = $props();
+	let { assets, months, focus: initialFocus = null, panel = true, url = false }: Props = $props();
 
 	// svelte-ignore state_referenced_locally
 	let focus: string | null = $state(initialFocus);
@@ -38,6 +45,37 @@
 	let playing = $state(false);
 
 	const month = $derived(months[Math.min(index, months.length - 1)]);
+
+	// The page is prerendered, so the query is only read in the browser, once mounted.
+	let mounted = $state(false);
+	// Last query written to the URL. Shallow routing does not update page.url, so compare to this.
+	let written = '';
+	onMount(() => {
+		written = page.url.search;
+		if (url) {
+			const params = page.url.searchParams;
+			const focusParam = params.get('focus');
+			if (focusParam && assets.some((a) => a.id == focusParam)) focus = focusParam;
+			const monthParam = months.findIndex((m) => m.month == params.get('month'));
+			if (monthParam >= 0) index = monthParam;
+		}
+		mounted = true;
+	});
+
+	// The focus and the month as a query. The latest month is the default and left out.
+	const urlQuery = $derived(
+		exploreQuery(focus, month && index < months.length - 1 ? month.month : null)
+	);
+	const exploreHref = $derived(`${resolve('/explore')}${urlQuery}`);
+
+	// Write the query without a navigation, so the current view can be linked.
+	$effect(() => {
+		if (!url || !mounted || urlQuery == written) return;
+		written = urlQuery;
+		const state = untrack(() => page.state);
+		// eslint-disable-next-line svelte/no-navigation-without-resolve -- exploreHref is built with resolve()
+		replaceState(exploreHref, state);
+	});
 	const links = $derived(monthLinks(month));
 	const byId = $derived(new Map(assets.map((a) => [a.id, a])));
 
@@ -158,6 +196,11 @@
 			{#if focus && panel}
 				<Button size="sm" variant="ghost" onclick={() => (focus = null)}>
 					{byId.get(focus)?.symbol ?? focus}<X class="size-3.5" />
+				</Button>
+			{/if}
+			{#if !panel}
+				<Button size="sm" variant="ghost" href={exploreHref}>
+					Open in Explore <ArrowUpRight class="size-3.5" />
 				</Button>
 			{/if}
 		</div>
