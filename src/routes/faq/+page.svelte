@@ -21,8 +21,8 @@
 		>
 			{#each data.faqs as faq (faq.question)}
 				<div>
-					<dt class="text-base font-medium text-gray-900">{faq.question}</dt>
-					<dd class="prose prose-sm mt-3 text-gray-500">
+					<dt class="text-base font-medium text-foreground">{faq.question}</dt>
+					<dd class="prose prose-sm mt-3 text-muted-foreground">
 						<!-- eslint-disable-next-line svelte/no-at-html-tags -- rendered from Markdown in this repository -->
 						{@html faq.answer}
 					</dd>

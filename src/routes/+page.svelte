@@ -103,15 +103,15 @@
 		>
 			<dl class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
 				<div>
-					<dt class="text-sm font-medium text-gray-500">Recorded backing</dt>
+					<dt class="text-sm font-medium text-muted-foreground">Recorded backing</dt>
 					<dd class="text-3xl font-semibold">{formatCurrency(totalBacking)}</dd>
 				</div>
 				<div>
-					<dt class="text-sm font-medium text-gray-500">Tracked cryptocurrencies</dt>
+					<dt class="text-sm font-medium text-muted-foreground">Tracked cryptocurrencies</dt>
 					<dd class="text-3xl font-semibold">{ranked.length}</dd>
 				</div>
 				<div>
-					<dt class="text-sm font-medium text-gray-500">Issuers</dt>
+					<dt class="text-sm font-medium text-muted-foreground">Issuers</dt>
 					<dd class="text-3xl font-semibold">{summaries.data.entities.length}</dd>
 				</div>
 			</dl>
@@ -130,17 +130,17 @@
 	>
 		{#each discover as list (list.title)}
 			<Glow theme={yellow}>
-				<div class="h-full overflow-hidden bg-gray-50 px-4 py-5 text-gray-900 sm:rounded-lg sm:p-6">
+				<div class="h-full overflow-hidden bg-card px-4 py-5 text-foreground sm:rounded-lg sm:p-6">
 					<h3 class="text-lg font-semibold">{list.title}</h3>
 					<ol class="mt-2 space-y-2">
 						{#each list.items.slice(0, 5) as item, i (item.id)}
 							<li>
 								<a
 									href={resolve('/assets/[id]', { id: item.id })}
-									class="flex items-center justify-between space-x-2 hover:text-neon-pink"
+									class="flex items-center justify-between space-x-2 hover:text-primary"
 								>
 									<span class="flex min-w-0 items-center space-x-2">
-										<span class="text-sm text-gray-500">{i + 1}</span>
+										<span class="text-sm text-muted-foreground">{i + 1}</span>
 										<AssetIcon src={item.icon} name={item.name} />
 										<span class="truncate font-semibold">{item.name}</span>
 									</span>
@@ -148,7 +148,7 @@
 								</a>
 							</li>
 						{:else}
-							<li class="text-gray-500">No data yet.</li>
+							<li class="text-muted-foreground">No data yet.</li>
 						{/each}
 					</ol>
 				</div>

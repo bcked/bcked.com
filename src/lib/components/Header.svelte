@@ -1,8 +1,7 @@
 <script lang="ts">
 	import { asset, resolve } from '$app/paths';
 	import { page } from '$app/state';
-	import { Bars3, XMark } from '@steeze-ui/heroicons';
-	import { Icon } from '@steeze-ui/svelte-icon';
+	import { Menu, X } from '@lucide/svelte';
 	import type { AssetSummary, EntitySummary, SystemSummary } from '#lib/api.ts';
 	import type { NavigationItem } from '#lib/ui.ts';
 	import Search from './Search.svelte';
@@ -42,8 +41,8 @@
 							class="inline-flex items-center border-b-2 px-1 pt-1 text-lg font-medium {isCurrent(
 								item.path
 							)
-								? 'border-neon-pink text-gray-900'
-								: 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-800'}"
+								? 'border-neon-pink text-foreground'
+								: 'border-transparent text-muted-foreground hover:border-input hover:text-foreground'}"
 							aria-current={isCurrent(item.path) ? 'page' : undefined}
 						>
 							{item.name}
@@ -59,12 +58,15 @@
 			<div class="flex items-center sm:hidden">
 				<button
 					type="button"
-					class="inline-flex items-center justify-center rounded-md p-2 text-gray-500 hover:bg-gray-100 focus:ring-2 focus:ring-neon-pink focus:outline-none focus:ring-inset"
+					class="inline-flex items-center justify-center rounded-md p-2 text-muted-foreground hover:bg-muted focus:ring-2 focus:ring-ring focus:outline-none focus:ring-inset"
 					aria-expanded={open}
 					onclick={() => (open = !open)}
 				>
 					<span class="sr-only">Open main menu</span>
-					<Icon src={open ? XMark : Bars3} class="block h-6 w-6" aria-hidden="true" />
+					{#if open}<X class="block size-6" aria-hidden="true" />{:else}<Menu
+							class="block size-6"
+							aria-hidden="true"
+						/>{/if}
 				</button>
 			</div>
 		</div>
@@ -78,8 +80,8 @@
 						href={item.path}
 						onclick={() => (open = false)}
 						class="block border-l-4 py-2 pr-4 pl-3 text-base font-medium {isCurrent(item.path)
-							? 'border-neon-pink bg-gray-100/20 text-gray-900'
-							: 'border-transparent text-gray-500 hover:border-gray-400 hover:bg-gray-50/20 hover:text-gray-800'}"
+							? 'border-neon-pink bg-muted/20 text-foreground'
+							: 'border-transparent text-muted-foreground hover:border-gray-400 hover:bg-card/20 hover:text-foreground'}"
 						aria-current={isCurrent(item.path) ? 'page' : undefined}
 					>
 						{item.name}

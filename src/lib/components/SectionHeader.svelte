@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { ArrowRight } from '@steeze-ui/heroicons';
-	import { Icon } from '@steeze-ui/svelte-icon';
+	import { ArrowRight } from '@lucide/svelte';
 	import type { Snippet } from 'svelte';
 	import { twMerge } from 'tailwind-merge';
 	import type { Theme } from '#lib/ui.ts';
@@ -44,10 +43,10 @@
 				<Glow {theme}>
 					<a
 						href={button.href}
-						class="inline-flex items-center rounded-md bg-neon-gray-dark px-4 py-2 text-sm font-medium whitespace-nowrap text-gray-50 hover:bg-neon-blue hover:text-gray-900"
+						class="inline-flex items-center rounded-md bg-neon-gray-dark px-4 py-2 text-sm font-medium whitespace-nowrap text-gray-50 hover:bg-neon-blue hover:text-foreground"
 					>
 						{button.text}
-						<Icon src={ArrowRight} class="ml-3 h-5 w-5" />
+						<ArrowRight class="ml-3 size-5" />
 					</a>
 				</Glow>
 			</div>

@@ -24,7 +24,7 @@
 	}
 </script>
 
-<div class="w-full odd:bg-gray-200 odd:text-gray-900 even:bg-neon-gray-light even:text-gray-50">
+<div class="w-full odd:bg-background odd:text-foreground even:bg-neon-gray-light even:text-gray-50">
 	<section
 		{id}
 		aria-label={label}

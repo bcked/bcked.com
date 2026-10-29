@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Link, GlobeAlt } from '@steeze-ui/heroicons';
+	import { Globe, Link } from '@lucide/svelte';
 	import Card from '#lib/components/Card.svelte';
 	import CardHeader from '#lib/components/CardHeader.svelte';
 	import HistoryChart from '#lib/components/HistoryChart.svelte';
@@ -55,7 +55,7 @@
 	<SubjectTitle title={group.name} subtitle="Chain" iconUrl={group.icon}>
 		<SubjectItem icon={Link}>Chain</SubjectItem>
 		{#if reference}
-			<SubjectItem href={reference} icon={GlobeAlt}>Reference</SubjectItem>
+			<SubjectItem href={reference} icon={Globe}>Reference</SubjectItem>
 		{/if}
 	</SubjectTitle>
 

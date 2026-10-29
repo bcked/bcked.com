@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { ChevronDown, ChevronUp } from '@steeze-ui/heroicons';
-	import { Icon } from '@steeze-ui/svelte-icon';
+	import { ChevronDown, ChevronUp } from '@lucide/svelte';
 	import { formatCurrency, formatNum, formatPercentage } from '#lib/format.ts';
 	import type { Stat } from '#lib/ui.ts';
 
@@ -18,8 +17,8 @@
 	></div>
 {/if}
 <dl class="relative">
-	<dt class="truncate text-sm font-medium text-gray-500">{name}</dt>
-	<dd class="mt-1 text-3xl font-semibold text-gray-900">
+	<dt class="truncate text-sm font-medium text-muted-foreground">{name}</dt>
+	<dd class="mt-1 text-3xl font-semibold text-foreground">
 		{#if value == null}
 			UNK
 		{:else if type == 'currency' && typeof value == 'number'}
@@ -32,12 +31,12 @@
 					? 'text-green-500'
 					: sign < 0
 						? 'text-red-500'
-						: 'text-gray-900'}"
+						: 'text-foreground'}"
 			>
 				{#if sign > 0}
-					<Icon src={ChevronUp} class="mt-1 h-7 w-7" />
+					<ChevronUp class="mt-1 size-7" />
 				{:else if sign < 0}
-					<Icon src={ChevronDown} class="mt-3 h-7 w-7" />
+					<ChevronDown class="mt-3 size-7" />
 				{/if}
 				{formatPercentage(Math.abs(value), 1)}
 			</span>

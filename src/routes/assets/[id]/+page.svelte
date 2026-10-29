@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
-	import { BuildingOffice, Calendar, GlobeAlt, Link } from '@steeze-ui/heroicons';
+	import { Building2, Calendar, Globe, Link } from '@lucide/svelte';
 	import Card from '#lib/components/Card.svelte';
 	import CardHeader from '#lib/components/CardHeader.svelte';
 	import HistoryChart from '#lib/components/HistoryChart.svelte';
@@ -131,7 +131,7 @@
 <Page class="px-0">
 	<SubjectTitle title={details.name} subtitle={details.symbol} iconUrl={asset.icon}>
 		{#if issuer}
-			<SubjectItem href={resolve('/issuers/[id]', { id: issuer.id })} icon={BuildingOffice}>
+			<SubjectItem href={resolve('/issuers/[id]', { id: issuer.id })} icon={Building2}>
 				{issuer.name}
 			</SubjectItem>
 		{/if}
@@ -141,7 +141,7 @@
 			</SubjectItem>
 		{/if}
 		{#if details.reference}
-			<SubjectItem href={details.reference} icon={GlobeAlt}>Reference</SubjectItem>
+			<SubjectItem href={details.reference} icon={Globe}>Reference</SubjectItem>
 		{/if}
 		{#if updated}
 			<SubjectItem icon={Calendar}>Updated on {formatDate(updated)}</SubjectItem>
@@ -173,24 +173,25 @@
 	{#if underlying.length > 0 || series['collateralization-ratio'].length > 0}
 		<Title>Backing Information</Title>
 		{#if backingIsStale && backingDate}
-			<div class="rounded-md bg-neon-orange/20 px-4 py-3 text-sm text-gray-900">
+			<div class="rounded-md bg-neon-orange/20 px-4 py-3 text-sm text-foreground">
 				The latest recorded backing of {details.name} is from {formatDate(backingDate)}. Backing
 				values and ratios below refer to that date.
 			</div>
 		{/if}
 		{#if backingDate}
-			<p class="px-4 text-sm text-gray-600 sm:px-0">
+			<p class="px-4 text-sm text-muted-foreground sm:px-0">
 				Backing as of {formatDate(backingDate)}.
 				{#if details.reference}
-					Source: <a href={details.reference} class="underline hover:text-gray-900"
+					Source: <a href={details.reference} class="underline hover:text-foreground"
 						>{new URL(details.reference).hostname}</a
 					>.
 				{/if}
 				<a
 					href="https://github.com/bcked/bcked-adapters/blob/records/assets/{asset.id}/records/backing.csv"
-					class="underline hover:text-gray-900">Recorded data</a
+					class="underline hover:text-foreground">Recorded data</a
 				>
-				and <a href={resolve('/methodology')} class="underline hover:text-gray-900">methodology</a>.
+				and
+				<a href={resolve('/methodology')} class="underline hover:text-foreground">methodology</a>.
 			</p>
 		{/if}
 		<div class="grid grid-cols-2 gap-[0.1rem] shadow sm:gap-4 sm:shadow-none md:grid-cols-4">
@@ -207,14 +208,16 @@
 				/>
 				<div class="mt-5 flex items-center justify-between px-4 sm:mt-6 sm:px-6">
 					<dl>
-						<dt class="truncate text-sm font-medium text-gray-500">Current Backing</dt>
-						<dd class="mt-1 text-3xl font-semibold text-gray-900">
+						<dt class="truncate text-sm font-medium text-muted-foreground">Current Backing</dt>
+						<dd class="mt-1 text-3xl font-semibold text-foreground">
 							{collateral == null ? 'UNK' : formatCurrency(collateral)}
 						</dd>
 					</dl>
 					<dl class="text-right">
-						<dt class="truncate text-sm font-medium text-gray-500">Market Cap at that time</dt>
-						<dd class="mt-1 text-3xl font-semibold text-gray-900">
+						<dt class="truncate text-sm font-medium text-muted-foreground">
+							Market Cap at that time
+						</dt>
+						<dd class="mt-1 text-3xl font-semibold text-foreground">
 							{marketCapAtBacking == null ? 'UNK' : formatCurrency(marketCapAtBacking)}
 						</dd>
 					</dl>
@@ -263,9 +266,9 @@
 		</Card>
 	{:else}
 		<Card class="px-4 py-5 sm:p-6">
-			<p class="text-gray-600">
+			<p class="text-muted-foreground">
 				The backing of {details.name} is not recorded yet. Help add it
-				<a class="underline hover:text-neon-pink" href="https://github.com/bcked/bcked-adapters"
+				<a class="underline hover:text-primary" href="https://github.com/bcked/bcked-adapters"
 					>on GitHub</a
 				>.
 			</p>

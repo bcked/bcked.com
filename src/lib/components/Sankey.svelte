@@ -88,7 +88,7 @@
 
 <div class="relative w-full" bind:clientWidth={width}>
 	<div
-		class="pointer-events-none absolute inset-0 flex items-center justify-center text-2xl text-neon-pink/50"
+		class="pointer-events-none absolute inset-0 flex items-center justify-center text-2xl text-primary/50"
 	>
 		bcked.com
 	</div>
@@ -150,11 +150,12 @@
 						width={labelWidth}
 						height={nodeThickness}
 					>
-						<div class="flex h-full items-center justify-center space-x-1 text-xs text-gray-900">
+						<div class="flex h-full items-center justify-center space-x-1 text-xs text-foreground">
 							<AssetIcon src={asset?.icon} name={asset?.name ?? node.id} class="h-4 w-4" />
 							{#if label}
 								<span class="truncate font-semibold">{name}</span>
-								{#if value != null}<span class="text-gray-500">{formatCurrency(value)}</span>{/if}
+								{#if value != null}<span class="text-muted-foreground">{formatCurrency(value)}</span
+									>{/if}
 							{/if}
 						</div>
 					</foreignObject>
@@ -162,6 +163,6 @@
 			{/each}
 		</svg>
 	{:else if !links.length}
-		<p class="px-4 py-8 text-center text-gray-500">No chain recorded.</p>
+		<p class="px-4 py-8 text-center text-muted-foreground">No chain recorded.</p>
 	{/if}
 </div>
