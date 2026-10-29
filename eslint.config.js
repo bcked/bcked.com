@@ -1,3 +1,4 @@
+import { plugin as shadcn } from '@shadcn/lint';
 import prettier from 'eslint-config-prettier';
 import path from 'node:path';
 import js from '@eslint/js';
@@ -31,7 +32,15 @@ export default defineConfig(
 				extraFileExtensions: ['.svelte'],
 				parser: ts.parser
 			}
-		}
+		},
+		// Design system rules for the shadcn-svelte components (https://github.com/shadcn-ui/lint).
+		// Registered without rules. Enable them under `rules` as "shadcn/<rule>".
+		plugins: { shadcn }
+	},
+	{
+		// Checks tv() and cn() calls outside of components.
+		files: ['**/*.ts'],
+		plugins: { shadcn }
 	},
 	{
 		rules: {
