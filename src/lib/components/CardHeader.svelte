@@ -2,7 +2,7 @@
 	let { title, subtitle }: { title: string; subtitle: string } = $props();
 </script>
 
-<div class="mx-auto mt-5 max-w-3xl px-4 text-center sm:mt-6 sm:px-6">
-	<h2 class="text-3xl font-bold tracking-tight text-gray-900">{title}</h2>
-	<p class="mt-4 text-lg text-gray-500">{subtitle}</p>
+<div class="mt-5 px-4 sm:mt-6 sm:px-6">
+	<h2 class="text-lg font-semibold tracking-tight text-foreground">{title}</h2>
+	<p class="mt-1 text-sm text-muted-foreground">{subtitle}</p>
 </div>

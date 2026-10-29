@@ -13,7 +13,7 @@
 {#if failed || !url}
 	<span
 		class={twMerge(
-			`inline-flex shrink-0 items-center justify-center rounded-full bg-gray-300 text-[0.6rem] font-bold text-gray-600 ${clazz}`
+			`inline-flex shrink-0 items-center justify-center rounded-full bg-gray-300 text-[0.6rem] font-bold text-muted-foreground ${clazz}`
 		)}
 		aria-hidden="true">{name?.at(0) ?? '?'}</span
 	>

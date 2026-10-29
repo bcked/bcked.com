@@ -50,7 +50,7 @@
 
 <div class="fixed z-10 flex w-full items-start justify-end px-2 sm:px-4">
 	<div
-		class="w-full max-w-60 rounded-b-lg bg-gray-50 shadow transition-all duration-1000 motion-reduce:transition-none sm:max-w-lg lg:max-w-xl {selected
+		class="w-full max-w-60 rounded-b-lg bg-card shadow transition-all duration-1000 motion-reduce:transition-none sm:max-w-lg lg:max-w-xl {selected
 			? 'translate-y-0 opacity-100'
 			: '-translate-y-16 opacity-0'}"
 	>
@@ -61,20 +61,20 @@
 				</a>
 				<div>
 					<a href={resolve('/assets/[id]', { id: selected.id })}>
-						<h2 class="text-lg leading-6 font-medium text-neon-pink">{selected.name}</h2>
+						<h2 class="text-lg leading-6 font-medium text-primary">{selected.name}</h2>
 					</a>
-					<p class="mt-1 max-w-2xl text-sm text-gray-500">
+					<p class="mt-1 max-w-2xl text-sm text-muted-foreground">
 						{#if selectedIssuer}
 							<a
 								href={resolve('/issuers/[id]', { id: selectedIssuer.id })}
-								class="hover:text-gray-900">Issuer: {selectedIssuer.name}</a
+								class="hover:text-foreground">Issuer: {selectedIssuer.name}</a
 							>
 						{/if}
 						{#if selectedIssuer && selectedSystem}|{/if}
 						{#if selectedSystem}
 							<a
 								href={resolve('/chains/[id]', { id: selectedSystem.id })}
-								class="hover:text-gray-900">Chain: {selectedSystem.name}</a
+								class="hover:text-foreground">Chain: {selectedSystem.name}</a
 							>
 						{/if}
 					</p>

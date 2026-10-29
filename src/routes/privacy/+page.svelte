@@ -11,7 +11,7 @@
 
 <Page class="px-0">
 	<Card class="px-4 py-8 sm:px-10">
-		<article class="mx-auto prose max-w-3xl prose-a:text-neon-pink">
+		<article class="mx-auto prose max-w-3xl prose-a:text-primary">
 			<!-- eslint-disable-next-line svelte/no-at-html-tags -- rendered from Markdown in this repository -->
 			{@html data.html}
 		</article>

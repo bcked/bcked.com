@@ -1,10 +1,11 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
-	import { twMerge } from 'tailwind-merge';
+	import * as UiCard from '#lib/components/ui/card/index.ts';
+	import { cn } from '#lib/utils.ts';
 
 	let { class: clazz = '', children }: { class?: string; children: Snippet } = $props();
 </script>
 
-<div class={twMerge(`flex flex-col overflow-hidden bg-gray-50 shadow sm:rounded-lg ${clazz}`)}>
+<UiCard.Root class={cn('gap-0 overflow-hidden py-0 shadow-sm', clazz)}>
 	{@render children()}
-</div>
+</UiCard.Root>

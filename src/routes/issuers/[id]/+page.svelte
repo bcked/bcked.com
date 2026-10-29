@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { BuildingOffice, GlobeAlt } from '@steeze-ui/heroicons';
+	import { Building2, Globe } from '@lucide/svelte';
 	import Card from '#lib/components/Card.svelte';
 	import CardHeader from '#lib/components/CardHeader.svelte';
 	import HistoryChart from '#lib/components/HistoryChart.svelte';
@@ -53,9 +53,9 @@
 
 <Page class="px-0">
 	<SubjectTitle title={group.name} subtitle="Issuer" iconUrl={group.icon}>
-		<SubjectItem icon={BuildingOffice}>Issuer</SubjectItem>
+		<SubjectItem icon={Building2}>Issuer</SubjectItem>
 		{#if reference}
-			<SubjectItem href={reference} icon={GlobeAlt}>Reference</SubjectItem>
+			<SubjectItem href={reference} icon={Globe}>Reference</SubjectItem>
 		{/if}
 	</SubjectTitle>
 

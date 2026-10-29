@@ -19,10 +19,10 @@
 		</div>
 		<div class="min-w-0 pt-1.5">
 			<div class="flex items-center space-x-2">
-				<h1 class="block truncate text-2xl font-bold text-gray-900">{title}</h1>
+				<h1 class="block truncate text-2xl font-bold text-foreground">{title}</h1>
 				{#if subtitle}
 					<span
-						class="hidden rounded-md bg-gray-300 p-1 text-xs font-semibold text-gray-600 sm:inline"
+						class="hidden rounded-md bg-gray-300 p-1 text-xs font-semibold text-muted-foreground sm:inline"
 						>{subtitle}</span
 					>
 				{/if}
