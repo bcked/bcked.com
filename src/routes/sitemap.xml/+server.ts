@@ -1,5 +1,5 @@
 // https://www.sitemaps.org/protocol.html
-import { getAssets, getEntities, getSystems } from '#lib/api.ts';
+import { getAssets, getEntities } from '#lib/api.ts';
 import type { RequestHandler } from './$types';
 
 export const prerender = true;
@@ -7,17 +7,13 @@ export const prerender = true;
 const SITE = 'https://bcked.com';
 
 export const GET: RequestHandler = async ({ fetch }) => {
-	const [assets, entities, systems] = await Promise.all([
-		getAssets(fetch),
-		getEntities(fetch),
-		getSystems(fetch)
-	]);
+	const [assets, entities] = await Promise.all([getAssets(fetch), getEntities(fetch)]);
 
 	const urls = [
 		{ loc: '/', changefreq: 'daily' },
 		{ loc: '/assets', changefreq: 'daily' },
 		{ loc: '/issuers', changefreq: 'daily' },
-		{ loc: '/chains', changefreq: 'daily' },
+		{ loc: '/explore', changefreq: 'daily' },
 		{ loc: '/faq', changefreq: 'monthly' },
 		{ loc: '/about', changefreq: 'monthly' },
 		{ loc: '/methodology', changefreq: 'monthly' },
@@ -28,8 +24,7 @@ export const GET: RequestHandler = async ({ fetch }) => {
 			changefreq: 'daily',
 			lastmod: a.price?.date
 		})),
-		...entities.map((e) => ({ loc: `/issuers/${e.id}`, changefreq: 'daily' })),
-		...systems.map((s) => ({ loc: `/chains/${s.id}`, changefreq: 'daily' }))
+		...entities.map((e) => ({ loc: `/issuers/${e.id}`, changefreq: 'daily' }))
 	];
 
 	const xml = `<?xml version="1.0" encoding="UTF-8"?>

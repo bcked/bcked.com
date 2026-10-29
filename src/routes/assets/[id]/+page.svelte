@@ -1,308 +1,369 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
-	import { Building2, Calendar, Globe, Link } from '@lucide/svelte';
-	import Card from '#lib/components/Card.svelte';
-	import CardHeader from '#lib/components/CardHeader.svelte';
+	import { ExternalLink, FileText, Link2, Radio } from '@lucide/svelte';
+	import AssetIcon from '#lib/components/AssetIcon.svelte';
+	import ChainExplorer from '#lib/components/backing/ChainExplorer.svelte';
+	import CompositionBar from '#lib/components/backing/CompositionBar.svelte';
+	import StackedArea from '#lib/components/backing/StackedArea.svelte';
 	import HistoryChart from '#lib/components/HistoryChart.svelte';
-	import Page from '#lib/components/Page.svelte';
-	import Sankey from '#lib/components/Sankey.svelte';
-	import { chain } from '#lib/graph.ts';
+	import NumberedSection from '#lib/components/NumberedSection.svelte';
 	import Seo from '#lib/components/Seo.svelte';
-	import Stats from '#lib/components/Stats.svelte';
-	import SubjectItem from '#lib/components/SubjectItem.svelte';
-	import SubjectTitle from '#lib/components/SubjectTitle.svelte';
-	import Table, { type Row } from '#lib/components/Table.svelte';
-	import Title from '#lib/components/Title.svelte';
+	import { Badge } from '#lib/components/ui/badge/index.ts';
+	import {
+		compositionHistory,
+		METHOD_NAMES,
+		monthLinks,
+		partColor,
+		partName,
+		toComposition
+	} from '#lib/backing.ts';
 	import { formatCurrency, formatDate, formatNum, formatPercentage } from '#lib/format.ts';
-	import type { Stat } from '#lib/ui.ts';
-	import { assetPageQuery, summariesQuery } from '#lib/queries.ts';
+	import { assetPageQuery, graphSeriesQuery, summariesQuery } from '#lib/queries.ts';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();
 
 	const summaries = summariesQuery(() => data);
+	const graph = graphSeriesQuery(() => data.graph);
 	const page = assetPageQuery(
-		() => data.asset.id,
-		() => data
+		() => data.page.asset.id,
+		() => data.page
 	);
 
-	const { asset, details, series, underlying, derivatives, underlyingTimestamp, links } = $derived(
-		page.data
-	);
-
-	const underlyingChain = $derived(chain(links, asset.id, 'down'));
-	const derivativeChain = $derived(chain(links, asset.id, 'up'));
-
-	/** Last value of a daily series on or before the given date. */
-	function valueAt(daily: [string, number][], date: string | null): number | null {
-		if (!date) return null;
-		const day = date.slice(0, 10);
-		return daily.findLast(([d]) => d <= day)?.[1] ?? null;
-	}
-
-	// Backing records can be older than the latest market cap, so compare them at the same date.
-	const backingDate = $derived(underlyingTimestamp ?? asset.collateral?.date ?? null);
-	const marketCapAtBacking = $derived.by(() => {
-		const direct = valueAt(series['market-cap'], backingDate);
-		if (direct != null) return direct;
-		// The ratio was computed against the market cap at the backing date, so derive it from there.
-		const ratio = valueAt(series['collateralization-ratio'], backingDate);
-		const value = valueAt(series.collateral, backingDate);
-		return ratio && value != null ? value / ratio : null;
-	});
-	const backingIsStale = $derived(
-		backingDate != null &&
-			asset['market-cap'] != null &&
-			Date.parse(asset['market-cap'].date) - Date.parse(backingDate) > 30 * 24 * 60 * 60 * 1000
-	);
-
+	const assets = $derived(summaries.data.assets);
+	const asset = $derived(assets.find((a) => a.id == page.data.asset.id) ?? page.data.asset);
+	const details = $derived(page.data.details);
+	const series = $derived(page.data.series);
+	const source = $derived(page.data.reports?.source ?? details.backing);
+	const reports = $derived(page.data.reports?.reports ?? []);
 	const issuer = $derived(
-		summaries.data.entities.find(({ id }) => id == details.linkedEntities.issuer) ?? null
+		summaries.data.entities.find((e) => e.id == details.linkedEntities.issuer)
 	);
-	const system = $derived(
-		summaries.data.systems.find(({ id }) => id == details.identifier.system) ?? null
+	const system = $derived(summaries.data.systems.find((s) => s.id == details.identifier.system));
+
+	const months = $derived(graph.data.months);
+	const links = $derived(monthLinks(months.at(-1)));
+	const ratio = $derived(asset['collateralization-ratio']?.value ?? null);
+	const composition = $derived(
+		asset.composition ? toComposition(asset.composition.parts, asset.composition.date) : null
 	);
-	const marketCap = $derived(asset['market-cap']?.value ?? null);
-	const collateral = $derived(asset.collateral?.value ?? null);
-	const updated = $derived(asset.price?.date ?? asset['market-cap']?.date ?? null);
-
-	const stats: Stat[] = $derived([
-		{ name: 'Price', value: asset.price?.value, type: 'currency' },
-		{ name: 'Market Cap', value: marketCap, type: 'currency' },
-		{ name: 'Mcap 7d %', value: asset['market-cap']?.change['7d'], type: 'change' },
-		{ name: 'Mcap 30d %', value: asset['market-cap']?.change['30d'], type: 'change' }
-	]);
-
-	const backingStats: Stat[] = $derived([
-		{ name: 'Backing Assets', value: underlying.length.toString(), type: 'standard' },
-		{ name: 'Current Backing', value: collateral, type: 'currency' },
-		{ name: 'Backing Ratio', value: asset['collateralization-ratio']?.value, type: 'percent' },
-		{ name: 'Ratio 30d %', value: asset['collateralization-ratio']?.change['30d'], type: 'change' }
-	]);
-
-	function linkedRow(
-		item: {
-			asset: { name: string | null; icon: string | null } | null;
-			id: string;
-			usd: number | null;
-		},
-		total: number | null,
-		marketCapReference: number | null = marketCap
-	): Row {
-		return {
-			name: {
-				text: item.asset?.name ?? item.id,
-				value: item.asset?.name ?? item.id,
-				icon: item.asset?.icon,
-				href: resolve('/assets/[id]', { id: item.id })
-			},
-			usd: { text: item.usd == null ? 'UNK' : formatCurrency(item.usd), value: item.usd },
-			'mcap-ratio': {
-				text:
-					item.usd == null || !marketCapReference
-						? 'UNK'
-						: formatPercentage(item.usd / marketCapReference, 1),
-				value: item.usd == null || !marketCapReference ? null : item.usd / marketCapReference
-			},
-			share: {
-				text: item.usd == null || !total ? 'UNK' : formatPercentage(item.usd / total, 1),
-				value: item.usd == null || !total ? null : item.usd / total
-			}
-		};
-	}
-
-	const derivativesTotal = $derived(derivatives.reduce((sum, d) => sum + (d.usd ?? 0), 0));
-
-	const description = $derived(
-		`${details.name} (${details.symbol}) ${
-			collateral != null
-				? `is backed with ${formatCurrency(collateral)}${
-						asset['collateralization-ratio']
-							? ` (${formatPercentage(asset['collateralization-ratio'].value, 1)} of its market cap)`
-							: ''
-					} by ${underlying.length} ${underlying.length == 1 ? 'asset' : 'assets'}`
-				: 'has no recorded backing yet'
-		}. View its backing, market cap and price history on bcked.`
+	const history = $derived(compositionHistory(series.composition));
+	const holders = $derived(
+		links
+			.filter((l) => l.target == asset.id && (l.usd ?? 0) > 0)
+			.map((l) => {
+				const token = assets.find((a) => a.id == l.source);
+				const total = token?.collateral?.value ?? 0;
+				return { id: l.source, token, usd: l.usd ?? 0, share: total ? (l.usd ?? 0) / total : null };
+			})
+			.toSorted((a, b) => b.usd - a.usd)
 	);
+	const held = $derived(holders.reduce((sum, h) => sum + h.usd, 0));
+	const inChain = $derived(links.some((l) => l.source == asset.id || l.target == asset.id));
+
+	// Only the sections that apply to this asset, numbered in order.
+	const sections = $derived(
+		[
+			inChain && 'chain',
+			history.length > 1 && 'composition',
+			series['collateralization-ratio'].length > 0 && 'ratio',
+			composition && 'reserves',
+			holders.length > 0 && 'holders',
+			source && 'sources'
+		].filter((s): s is string => !!s)
+	);
+	const label = (key: string, name: string) =>
+		`${String(sections.indexOf(key) + 1).padStart(2, '0')} · ${name}`;
+	/** Sections alternate between card and muted backgrounds. */
+	const muted = (key: string) => sections.indexOf(key) % 2 == 0;
+
+	const chainTitle = $derived(
+		composition && holders.length
+			? `What ${details.symbol} is backed by, and what it backs`
+			: composition
+				? `What ${details.symbol} is backed by`
+				: `Which tokens hold ${details.symbol}`
+	);
+	const explorer = $derived(system?.explorer ?? 'https://etherscan.io/address/');
 </script>
 
-<Seo title="{details.name} ({details.symbol}) Backing, History, Chain | bcked" {description} />
+<Seo
+	title="{details.name} ({details.symbol}): backing, reserves and history | bcked"
+	description={composition
+		? `What backs ${details.name}: ${formatCurrency(composition.total)} in reserves, their composition over time and the backing chain.`
+		: `Which tokens hold ${details.name} as backing, directly or through other tokens.`}
+/>
 
-<Page class="px-0">
-	<SubjectTitle title={details.name} subtitle={details.symbol} iconUrl={asset.icon}>
-		{#if issuer}
-			<SubjectItem href={resolve('/issuers/[id]', { id: issuer.id })} icon={Building2}>
-				{issuer.name}
-			</SubjectItem>
+<div class="w-full bg-card">
+	<section class="mx-auto max-w-6xl px-4 pt-12 pb-10 sm:px-6 lg:px-8">
+		{#if !details.backing}
+			<p class="text-sm font-medium text-primary">Reserve asset</p>
 		{/if}
-		{#if system}
-			<SubjectItem href={resolve('/chains/[id]', { id: system.id })} icon={Link}>
-				{system.name}
-			</SubjectItem>
-		{/if}
-		{#if details.reference}
-			<SubjectItem href={details.reference} icon={Globe}>Reference</SubjectItem>
-		{/if}
-		{#if updated}
-			<SubjectItem icon={Calendar}>Updated on {formatDate(updated)}</SubjectItem>
-		{/if}
-	</SubjectTitle>
+		<div class="mt-2 flex flex-wrap items-center gap-3">
+			<AssetIcon src={asset.icon} name={details.name} class="size-10" />
+			<h1 class="text-3xl font-light tracking-tight">{details.name}</h1>
+			<Badge variant="secondary">{details.symbol}</Badge>
+			{#if system && system.id != 'rwa'}<Badge variant="outline">{system.name}</Badge>{/if}
+			{#if issuer}
+				<a href={resolve('/issuers/[id]', { id: issuer.id })}>
+					<Badge variant="outline" class="hover:bg-muted">Issued by {issuer.name}</Badge>
+				</a>
+			{/if}
+		</div>
 
-	<Title>General Information</Title>
-	<div class="grid grid-cols-2 gap-[0.1rem] shadow sm:gap-4 sm:shadow-none md:grid-cols-4">
-		{#each stats as stat (stat.name)}
-			<Card class="relative px-4 py-5 sm:p-6"><Stats data={stat} /></Card>
-		{/each}
-	</div>
-
-	<div class="grid grid-cols-1 gap-4 shadow-none lg:grid-cols-2">
-		<Card>
-			<CardHeader title="Market Cap History" subtitle="View {details.name}'s market cap history." />
-			<div class="mt-5 h-full overflow-hidden sm:mt-6">
-				<HistoryChart data={series['market-cap']} formatter={(v) => formatCurrency(v)} />
+		{#if composition}
+			<div class="mt-8 grid gap-8 sm:grid-cols-[auto_1fr] sm:items-end">
+				<div>
+					<div class="text-6xl font-light tracking-tight tabular-nums">
+						{ratio == null ? '–' : formatPercentage(ratio, 1)}
+					</div>
+					<p class="mt-1 text-sm text-muted-foreground">
+						{formatCurrency(composition.total)} reserves for {formatCurrency(
+							asset['market-cap']?.value ?? 0
+						)} market cap
+					</p>
+				</div>
+				<div class="sm:pb-2">
+					<CompositionBar {composition} {assets} legend barClass="h-3" />
+					<p class="mt-2 flex flex-wrap items-center gap-1.5 text-xs text-muted-foreground">
+						<FileText class="size-3.5" />
+						As of {composition.date ? formatDate(composition.date) : '–'}
+						{#if source}· {METHOD_NAMES[source.method]}{/if}
+						{#if reports[0]?.url}
+							· <a href={reports[0].url} class="underline hover:text-foreground">latest report</a>
+						{/if}
+						· <a href="#sources" class="underline hover:text-foreground">sources</a>
+					</p>
+				</div>
 			</div>
-		</Card>
-		<Card>
-			<CardHeader title="Price History" subtitle="View {details.name}'s price history." />
-			<div class="mt-5 h-full overflow-hidden sm:mt-6">
-				<HistoryChart data={series.price} formatter={(v) => formatCurrency(v)} />
-			</div>
-		</Card>
-	</div>
-
-	{#if underlying.length > 0 || series['collateralization-ratio'].length > 0}
-		<Title>Backing Information</Title>
-		{#if backingIsStale && backingDate}
-			<div class="rounded-md bg-neon-orange/20 px-4 py-3 text-sm text-foreground">
-				The latest recorded backing of {details.name} is from {formatDate(backingDate)}. Backing
-				values and ratios below refer to that date.
-			</div>
-		{/if}
-		{#if backingDate}
-			<p class="px-4 text-sm text-muted-foreground sm:px-0">
-				Backing as of {formatDate(backingDate)}.
-				{#if details.reference}
-					Source: <a href={details.reference} class="underline hover:text-foreground"
-						>{new URL(details.reference).hostname}</a
-					>.
+		{:else}
+			<dl class="mt-8 grid grid-cols-2 gap-8 sm:grid-cols-3">
+				<div>
+					<dd class="text-3xl font-light tabular-nums">{formatCurrency(held)}</dd>
+					<dt class="mt-1 text-sm text-muted-foreground">Held by tracked tokens</dt>
+				</div>
+				<div>
+					<dd class="text-3xl font-light tabular-nums">{holders.length}</dd>
+					<dt class="mt-1 text-sm text-muted-foreground">Tokens holding it directly</dt>
+				</div>
+				{#if asset['market-cap']}
+					<div>
+						<dd class="text-3xl font-light tabular-nums">
+							{formatCurrency(asset['market-cap'].value)}
+						</dd>
+						<dt class="mt-1 text-sm text-muted-foreground">Market cap</dt>
+					</div>
 				{/if}
-				<a
-					href="https://github.com/bcked/bcked-adapters/blob/records/assets/{asset.id}/records/backing.csv"
-					class="underline hover:text-foreground">Recorded data</a
-				>
-				and
-				<a href={resolve('/methodology')} class="underline hover:text-foreground">methodology</a>.
-			</p>
+			</dl>
 		{/if}
-		<div class="grid grid-cols-2 gap-[0.1rem] shadow sm:gap-4 sm:shadow-none md:grid-cols-4">
-			{#each backingStats as stat (stat.name)}
-				<Card class="relative px-4 py-5 sm:p-6"><Stats data={stat} /></Card>
-			{/each}
-		</div>
+	</section>
+</div>
 
-		<div class="grid grid-cols-1 gap-4 shadow-none lg:grid-cols-2">
-			<Card>
-				<CardHeader
-					title="Backing History"
-					subtitle="View {details.name}'s backing ratio history."
-				/>
-				<div class="mt-5 flex items-center justify-between px-4 sm:mt-6 sm:px-6">
-					<dl>
-						<dt class="truncate text-sm font-medium text-muted-foreground">Current Backing</dt>
-						<dd class="mt-1 text-3xl font-semibold text-foreground">
-							{collateral == null ? 'UNK' : formatCurrency(collateral)}
-						</dd>
-					</dl>
-					<dl class="text-right">
-						<dt class="truncate text-sm font-medium text-muted-foreground">
-							Market Cap at that time
-						</dt>
-						<dd class="mt-1 text-3xl font-semibold text-foreground">
-							{marketCapAtBacking == null ? 'UNK' : formatCurrency(marketCapAtBacking)}
-						</dd>
-					</dl>
-				</div>
-				<div class="mt-5 h-full overflow-hidden sm:mt-6">
-					<HistoryChart
-						data={series['collateralization-ratio']}
-						formatter={(v) => formatPercentage(v, 1)}
-					/>
-				</div>
-			</Card>
+{#if sections.includes('chain')}
+	<NumberedSection
+		label={label('chain', 'Backing chain')}
+		title={chainTitle}
+		text="Move the slider or press play to see the chain at any month since {months[0]?.month.slice(
+			0,
+			4
+		) ?? '2023'}."
+		muted={muted('chain')}
+	>
+		<ChainExplorer {assets} {months} focus={asset.id} panel={false} />
+	</NumberedSection>
+{/if}
 
-			<Card>
-				<CardHeader
-					title="Underlying Chain"
-					subtitle="View the full chain of {details.name}'s underlying assets."
-				/>
-				<div class="mt-5 px-2 pb-4 sm:mt-6">
-					<Sankey links={underlyingChain} direction="down" assets={summaries.data.assets} />
-				</div>
-			</Card>
-		</div>
+{#if sections.includes('composition')}
+	<NumberedSection
+		label={label('composition', 'Composition over time')}
+		title="What the reserves were made of"
+		text="In USD at the time. Gaps are periods without records. Hover to read the values."
+		muted={muted('composition')}
+	>
+		<div class="rounded-xl border bg-card p-4"><StackedArea points={history} {assets} /></div>
+	</NumberedSection>
+{/if}
 
-		<Card>
-			<CardHeader
-				title="Underlying Assets"
-				subtitle="List of {details.name}'s underlying assets."
+{#if sections.includes('ratio')}
+	<NumberedSection
+		label={label('ratio', 'Backing ratio')}
+		title="Reserves against market cap"
+		text="Daily, since market data is recorded. The composition reaches further back."
+		muted={muted('ratio')}
+	>
+		<div class="h-72 rounded-xl border bg-card p-2">
+			<HistoryChart
+				data={series['collateralization-ratio']}
+				formatter={(v) => formatPercentage(v, 1)}
 			/>
-			<div class="mt-5 sm:mt-6">
-				<Table
-					columns={[
-						{ id: 'name', title: 'Name', class: 'font-medium' },
-						{ id: 'amount', title: 'Amount' },
-						{ id: 'usd', title: 'Backing' },
-						{ id: 'mcap-ratio', title: 'Backing/Mcap' },
-						{ id: 'share', title: '%' }
-					]}
-					rows={underlying.map((item) => ({
-						...linkedRow(item, collateral, marketCapAtBacking),
-						amount: { text: formatNum(item.amount), value: item.amount }
-					}))}
-					sortBy="usd"
-					empty="No underlying assets recorded."
-				/>
+		</div>
+	</NumberedSection>
+{/if}
+
+{#if sections.includes('reserves') && composition}
+	<NumberedSection
+		label={label('reserves', 'Reserves today')}
+		title="Every reserve asset"
+		muted={muted('reserves')}
+	>
+		<div class="overflow-hidden rounded-xl border bg-card">
+			<table class="w-full text-sm">
+				<thead class="bg-muted/60 text-left text-xs text-muted-foreground">
+					<tr>
+						<th class="px-4 py-2 font-medium">Reserve asset</th>
+						<th class="px-4 py-2 text-right font-medium">Value</th>
+						<th class="px-4 py-2 text-right font-medium">Share</th>
+					</tr>
+				</thead>
+				<tbody class="divide-y">
+					{#each composition.parts as part, i (part.id)}
+						<tr>
+							<td class="px-4 py-2.5">
+								<a
+									href={resolve('/assets/[id]', { id: part.id })}
+									class="flex items-center gap-2 hover:text-primary"
+								>
+									<span class="size-2 rounded-full" style="background: {partColor(part.id, i)}"
+									></span>
+									{partName(part.id, assets)}
+								</a>
+							</td>
+							<td class="px-4 py-2.5 text-right tabular-nums">{formatCurrency(part.usd)}</td>
+							<td class="px-4 py-2.5 text-right tabular-nums">
+								{formatPercentage(part.usd / composition.total, 1)}
+							</td>
+						</tr>
+					{/each}
+				</tbody>
+			</table>
+		</div>
+	</NumberedSection>
+{/if}
+
+{#if sections.includes('holders')}
+	<NumberedSection
+		label={label('holders', 'Held by')}
+		title="Tokens holding {details.symbol} directly"
+		muted={muted('holders')}
+	>
+		<div class="overflow-hidden rounded-xl border bg-card">
+			<table class="w-full text-sm">
+				<thead class="bg-muted/60 text-left text-xs text-muted-foreground">
+					<tr>
+						<th class="px-4 py-2 font-medium">Token</th>
+						<th class="px-4 py-2 text-right font-medium">Held</th>
+						<th class="px-4 py-2 text-right font-medium">Share of the token's backing</th>
+					</tr>
+				</thead>
+				<tbody class="divide-y">
+					{#each holders as holder (holder.id)}
+						<tr>
+							<td class="px-4 py-2.5">
+								<a
+									href={resolve('/assets/[id]', { id: holder.id })}
+									class="flex items-center gap-2 hover:text-primary"
+								>
+									<AssetIcon src={holder.token?.icon} name={holder.token?.name ?? holder.id} />
+									{holder.token?.name ?? holder.id}
+								</a>
+							</td>
+							<td class="px-4 py-2.5 text-right tabular-nums">{formatCurrency(holder.usd)}</td>
+							<td class="px-4 py-2.5 text-right tabular-nums">
+								{holder.share == null ? '–' : formatPercentage(holder.share, 1)}
+							</td>
+						</tr>
+					{/each}
+				</tbody>
+			</table>
+		</div>
+	</NumberedSection>
+{/if}
+
+{#if sections.includes('sources') && source}
+	<NumberedSection
+		id="sources"
+		label={label('sources', 'Sources')}
+		title={source.method == 'reports'
+			? `${reports.length} reports behind these numbers`
+			: source.method == 'on-chain'
+				? 'Read from the chain'
+				: 'Published by the custodian'}
+		text={source.description}
+		muted={muted('sources')}
+	>
+		{#if source.method == 'reports'}
+			<div class="max-h-96 overflow-auto rounded-xl border bg-card">
+				<table class="w-full text-sm">
+					<tbody class="divide-y">
+						{#each reports as report (report.file)}
+							<tr>
+								<td class="px-4 py-2.5 font-medium tabular-nums">{report.report}</td>
+								<td class="px-4 py-2.5 text-muted-foreground">{report.file}</td>
+								<td
+									class="hidden px-4 py-2.5 font-mono text-xs text-muted-foreground md:table-cell"
+									title="SHA-256 of the report">{report.sha256.slice(0, 16)}…</td
+								>
+								<td class="px-4 py-2.5 text-right">
+									{#if report.url}
+										<a
+											href={report.url}
+											class="inline-flex items-center gap-1 text-primary hover:underline"
+											>Original <ExternalLink class="size-3" /></a
+										>
+									{/if}
+								</td>
+							</tr>
+						{/each}
+					</tbody>
+				</table>
 			</div>
-		</Card>
-	{:else}
-		<Card class="px-4 py-5 sm:p-6">
-			<p class="text-muted-foreground">
-				The backing of {details.name} is not recorded yet. Help add it
-				<a class="underline hover:text-primary" href="https://github.com/bcked/bcked-adapters"
-					>on GitHub</a
-				>.
+			<p class="mt-3 text-xs text-muted-foreground">
+				The reports belong to their issuers and auditors. The hash lets anyone check that a copy is
+				the report the numbers were taken from.
 			</p>
-		</Card>
-	{/if}
+		{:else}
+			<div class="flex flex-wrap gap-3">
+				{#if source.address}
+					<a
+						href="{explorer}{source.address}"
+						class="inline-flex items-center gap-2 rounded-xl border bg-card px-4 py-3 text-sm hover:bg-muted"
+					>
+						<Radio class="size-4 text-primary" />
+						<span class="font-mono">{source.address}</span>
+						<ExternalLink class="size-3 text-muted-foreground" />
+					</a>
+				{/if}
+				{#if source.reference}
+					<a
+						href={source.reference}
+						class="inline-flex items-center gap-2 rounded-xl border bg-card px-4 py-3 text-sm hover:bg-muted"
+					>
+						<Link2 class="size-4 text-primary" />
+						{new URL(source.reference).hostname}
+						<ExternalLink class="size-3 text-muted-foreground" />
+					</a>
+				{/if}
+			</div>
+		{/if}
+		<p class="mt-4 text-sm">
+			<a
+				href="https://github.com/bcked/bcked-adapters/blob/records/assets/{asset.id}/records/backing.csv"
+				class="text-primary hover:underline">Recorded data</a
+			>
+			· <a href={resolve('/methodology')} class="text-primary hover:underline">Methodology</a>
+		</p>
+	</NumberedSection>
+{/if}
 
-	{#if derivatives.length > 0}
-		<Title>Derivative Information</Title>
-		<Card>
-			<CardHeader
-				title="Derivative Chain"
-				subtitle="View the full chain of assets backed by {details.name}."
-			/>
-			<div class="mt-5 px-2 pb-4 sm:mt-6">
-				<Sankey links={derivativeChain} direction="up" assets={summaries.data.assets} />
+<section class="w-full border-t bg-card">
+	<dl
+		class="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-4 py-10 text-sm sm:grid-cols-4 sm:px-6 lg:px-8"
+	>
+		{#each [['Price', asset.price ? formatCurrency(asset.price.value) : '–'], ['Market cap', asset['market-cap'] ? formatCurrency(asset['market-cap'].value) : '–'], ['Supply', asset.supply ? formatNum(asset.supply.value) : '–'], ['Updated', asset.price && asset.price.date > '1971' ? formatDate(asset.price.date) : '–']] as [name, value] (name)}
+			<div>
+				<dt class="text-muted-foreground">{name}</dt>
+				<dd class="mt-1 text-lg font-light tabular-nums">{value}</dd>
 			</div>
-		</Card>
-		<Card>
-			<CardHeader
-				title="Derivative Assets"
-				subtitle="Assets backed by {details.name}, with the value they hold."
-			/>
-			<div class="mt-5 sm:mt-6">
-				<Table
-					columns={[
-						{ id: 'name', title: 'Name', class: 'font-medium' },
-						{ id: 'usd', title: 'Value in USD' },
-						{ id: 'mcap-ratio', title: 'Value/Mcap' },
-						{ id: 'share', title: '%' }
-					]}
-					rows={derivatives.map((item) => linkedRow(item, derivativesTotal || null))}
-					sortBy="usd"
-				/>
-			</div>
-		</Card>
-	{/if}
-</Page>
+		{/each}
+	</dl>
+</section>

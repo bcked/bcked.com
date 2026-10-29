@@ -22,9 +22,9 @@
 	);
 
 	const mainNavigation: NavigationItem[] = [
-		{ name: 'Ranking', path: resolve('/assets') },
-		{ name: 'Issuers', path: resolve('/issuers') },
-		{ name: 'Chains', path: resolve('/chains') }
+		{ name: 'Explore', path: resolve('/explore') },
+		{ name: 'Tokens', path: resolve('/assets') },
+		{ name: 'Issuers', path: resolve('/issuers') }
 	];
 
 	const bottomNavigation: NavigationItem[] = [

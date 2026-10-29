@@ -9,14 +9,13 @@
 import { QueryClient, createQuery, useQueryClient } from '@tanstack/svelte-query';
 import {
 	fetchAssetPage,
-	fetchGraphLinks,
+	fetchGraphSeries,
 	fetchGroupSeries,
 	fetchSummaries,
 	type AssetPage,
 	type Summaries
 } from '#lib/data.ts';
-import type { GraphLink } from '#lib/graph.ts';
-import type { GroupSeries } from '#lib/api.ts';
+import type { GraphSeries, GroupSeries } from '#lib/api.ts';
 
 export function createQueryClient() {
 	return new QueryClient({
@@ -41,10 +40,10 @@ export function summariesQuery(initial: () => Summaries, client?: () => QueryCli
 	);
 }
 
-export function graphLinksQuery(initial: () => GraphLink[]) {
+export function graphSeriesQuery(initial: () => GraphSeries) {
 	return createQuery(() => ({
-		queryKey: ['graph-links'],
-		queryFn: () => fetchGraphLinks(fetch),
+		queryKey: ['graph-series'],
+		queryFn: () => fetchGraphSeries(fetch),
 		initialData: initial(),
 		...prerendered
 	}));

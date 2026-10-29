@@ -1,4 +1,4 @@
-import { fetchGraphLinks } from '#lib/data.ts';
-import type { PageLoad } from './$types';
+import { redirect } from '@sveltejs/kit';
 
-export const load: PageLoad = async ({ fetch }) => ({ links: await fetchGraphLinks(fetch) });
+// The 3D graph was replaced by Explore.
+export const load = () => redirect(308, '/explore');

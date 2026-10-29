@@ -1,221 +1,144 @@
 <script lang="ts">
-	import { asset, resolve } from '$app/paths';
+	import { resolve } from '$app/paths';
+	import { ArrowRight, Braces } from '@lucide/svelte';
 	import AssetIcon from '#lib/components/AssetIcon.svelte';
-	import ForceGraph from '#lib/components/ForceGraph.svelte';
-	import Glow from '#lib/components/Glow.svelte';
-	import Section from '#lib/components/Section.svelte';
-	import SectionHeader from '#lib/components/SectionHeader.svelte';
+	import CompositionBar from '#lib/components/backing/CompositionBar.svelte';
+	import StackedArea from '#lib/components/backing/StackedArea.svelte';
+	import NumberedSection from '#lib/components/NumberedSection.svelte';
+	import Sankey from '#lib/components/Sankey.svelte';
 	import Seo from '#lib/components/Seo.svelte';
-	import Table from '#lib/components/Table.svelte';
-	import type { AssetSummary } from '#lib/api.ts';
-	import { formatCurrency, formatPercentage } from '#lib/format.ts';
-	import { graphNodes, iconPng } from '#lib/graph.ts';
-	import { assetColumns, assetRow, groupColumns, groupRow, isRankable } from '#lib/rows.ts';
-	import { blue, pink, yellow } from '#lib/ui.ts';
-	import { graphLinksQuery, summariesQuery } from '#lib/queries.ts';
+	import { Button } from '#lib/components/ui/button/index.ts';
+	import { monthLinks, reserveHistory, summaryComposition } from '#lib/backing.ts';
+	import { formatCurrency, formatDate, formatPercentage } from '#lib/format.ts';
+	import { graphSeriesQuery, summariesQuery } from '#lib/queries.ts';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();
 
 	const summaries = summariesQuery(() => data);
-	const links = graphLinksQuery(() => data.links);
+	const graph = graphSeriesQuery(() => data.graph);
 
-	const ranked = $derived(summaries.data.assets.filter(isRankable));
-	const graphNodesData = $derived(
-		graphNodes(summaries.data.assets, links.data).map((a) => ({
-			id: a.id,
-			name: a.name ?? a.id,
-			icon: iconPng(a.icon)
-		}))
+	const backed = $derived(
+		summaries.data.assets
+			.filter((a) => a.backing)
+			.toSorted((a, b) => (b['market-cap']?.value ?? 0) - (a['market-cap']?.value ?? 0))
 	);
-	const backed = $derived(ranked.filter((a) => a.collateral?.value != null));
-	const totalBacking = $derived(backed.reduce((sum, a) => sum + (a.collateral?.value ?? 0), 0));
-
-	const description = $derived(
-		`bcked tracks ${ranked.length} cryptocurrencies, of which ${backed.length} are backed by ${formatCurrency(totalBacking)} in recorded collateral. bcked is an open source community project that provides and visualizes data about cryptocurrency backing.`
-	);
-
-	type Discover = {
-		title: string;
-		items: AssetSummary[];
-		value: (asset: AssetSummary) => string;
-	};
-
-	const discover: Discover[] = $derived([
-		{
-			title: 'Highest Backing Ratio',
-			items: backed.toSorted(
-				(a, b) =>
-					(b['collateralization-ratio']?.value ?? 0) - (a['collateralization-ratio']?.value ?? 0)
-			),
-			value: (a) => formatPercentage(a['collateralization-ratio']?.value ?? 0, 1)
-		},
-		{
-			title: 'Largest Backing',
-			items: backed.toSorted((a, b) => (b.collateral?.value ?? 0) - (a.collateral?.value ?? 0)),
-			value: (a) => formatCurrency(a.collateral?.value ?? 0)
-		},
-		{
-			title: 'Market Cap Gainers 30d',
-			items: ranked
-				.filter((a) => a['market-cap']?.change['30d'] != null)
-				.toSorted(
-					(a, b) => (b['market-cap']?.change['30d'] ?? 0) - (a['market-cap']?.change['30d'] ?? 0)
-				),
-			value: (a) => formatPercentage(a['market-cap']?.change['30d'] ?? 0, 1)
-		}
+	const total = $derived(backed.reduce((sum, a) => sum + (a.collateral?.value ?? 0), 0));
+	const months = $derived(graph.data.months);
+	const history = $derived(reserveHistory(months));
+	const reserveTypes = $derived(Object.keys(history.at(-1)?.parts ?? {}).length);
+	const metrics = $derived([
+		['Reserves recorded', formatCurrency(total)],
+		['Backed tokens', backed.length.toString()],
+		['Reserve assets', reserveTypes.toString()],
+		['Months of chain history', months.length.toString()]
 	]);
 </script>
 
 <Seo
-	title="bcked: Cryptocurrency Backing, Ranking, History, Stats"
-	{description}
-	image={{ url: asset('social.svg'), alt: 'bcked' }}
-	jsonLd={{
-		'@context': 'https://schema.org',
-		'@type': 'Organization',
-		name: 'bcked',
-		url: 'https://bcked.com',
-		logo: 'https://bcked.com/bcked-logo.svg',
-		sameAs: [
-			'https://twitter.com/bcked_com',
-			'https://www.reddit.com/r/bcked/',
-			'https://t.me/bcked_com',
-			'https://github.com/bcked/bcked.com'
-		]
-	}}
+	title="bcked: what backs stablecoins and tokenized assets"
+	description="Reserve composition, backing chains and their history for stablecoins and tokenized assets, from issuer reports and on-chain data."
 />
 
-<div class="-mt-16 w-full sm:-mt-[104px]">
-	<Section
-		label="Introduction to bcked"
-		class="flex min-h-[80vh] items-center justify-between pt-32"
-	>
-		<div class="absolute inset-0 -z-10">
-			<ForceGraph nodes={graphNodesData} links={links.data} />
+<div class="w-full bg-card">
+	<section class="mx-auto max-w-6xl px-4 pt-20 pb-14 sm:px-6 lg:px-8">
+		<h1 class="max-w-3xl text-4xl font-light tracking-tight sm:text-5xl">
+			Independent records of what backs digital assets
+		</h1>
+		<p class="mt-6 max-w-2xl text-lg text-muted-foreground">
+			Reserve composition, backing chains and their history for stablecoins and tokenized assets.
+			Collected from issuer reports and on-chain data. Open source, with every source linked.
+		</p>
+		<div class="mt-8 flex flex-wrap gap-3">
+			<Button href={resolve('/explore')}>Explore the backing <ArrowRight class="size-4" /></Button>
+			<Button href={resolve('/assets')} variant="outline">All tokens</Button>
 		</div>
-		<SectionHeader
-			title="Reduce your exposure to unbacked assets."
-			description="Use insights from our community driven open source knowledge base to find cryptocurrencies backed by various asset classes."
-			button={{ text: 'Explore Backing Graph', href: resolve('/graph') }}
-			theme={blue}
-			class="mt-10"
-		>
-			<dl class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
+		<dl class="mt-16 grid grid-cols-2 gap-8 sm:grid-cols-4">
+			{#each metrics as [label, value] (label)}
 				<div>
-					<dt class="text-sm font-medium text-muted-foreground">Recorded backing</dt>
-					<dd class="text-3xl font-semibold">{formatCurrency(totalBacking)}</dd>
+					<dd class="text-3xl font-light tabular-nums">{value}</dd>
+					<dt class="mt-1 text-sm text-muted-foreground">{label}</dt>
 				</div>
-				<div>
-					<dt class="text-sm font-medium text-muted-foreground">Tracked cryptocurrencies</dt>
-					<dd class="text-3xl font-semibold">{ranked.length}</dd>
-				</div>
-				<div>
-					<dt class="text-sm font-medium text-muted-foreground">Issuers</dt>
-					<dd class="text-3xl font-semibold">{summaries.data.entities.length}</dd>
-				</div>
-			</dl>
-		</SectionHeader>
-	</Section>
+			{/each}
+		</dl>
+	</section>
 </div>
 
-<Section id="discover" label="Discover backed cryptocurrencies">
-	<SectionHeader
-		title="Discover"
-		description="Find the best backed cryptocurrencies and recent movers."
-		theme={yellow}
-	/>
-	<div
-		class="mx-auto mt-10 grid w-full max-w-7xl grid-cols-1 gap-4 px-0 sm:px-4 md:grid-cols-3 lg:px-8"
-	>
-		{#each discover as list (list.title)}
-			<Glow theme={yellow}>
-				<div class="h-full overflow-hidden bg-card px-4 py-5 text-foreground sm:rounded-lg sm:p-6">
-					<h3 class="text-lg font-semibold">{list.title}</h3>
-					<ol class="mt-2 space-y-2">
-						{#each list.items.slice(0, 5) as item, i (item.id)}
-							<li>
-								<a
-									href={resolve('/assets/[id]', { id: item.id })}
-									class="flex items-center justify-between space-x-2 hover:text-primary"
-								>
-									<span class="flex min-w-0 items-center space-x-2">
-										<span class="text-sm text-muted-foreground">{i + 1}</span>
-										<AssetIcon src={item.icon} name={item.name} />
-										<span class="truncate font-semibold">{item.name}</span>
-									</span>
-									<span>{list.value(item)}</span>
-								</a>
-							</li>
-						{:else}
-							<li class="text-muted-foreground">No data yet.</li>
-						{/each}
-					</ol>
-				</div>
-			</Glow>
+<NumberedSection
+	label="01 · Composition"
+	title="What the reserves are made of"
+	text="Not one total per token, but every reserve category from the issuer’s report or the chain."
+>
+	<div class="divide-y rounded-xl border bg-card">
+		{#each backed as asset (asset.id)}
+			{@const composition = summaryComposition(asset)}
+			{@const ratio = asset['collateralization-ratio']?.value}
+			<a
+				href={resolve('/assets/[id]', { id: asset.id })}
+				class="grid grid-cols-[1fr_auto] items-center gap-x-6 gap-y-2 px-5 py-4 hover:bg-muted/50 md:grid-cols-[13rem_6rem_1fr_8rem]"
+			>
+				<span class="flex items-center gap-3">
+					<AssetIcon src={asset.icon} name={asset.name} class="size-7" />
+					<span class="font-medium">{asset.name}</span>
+				</span>
+				<span class="text-right text-xl font-light tabular-nums md:text-left">
+					{ratio == null ? '–' : formatPercentage(ratio, 1)}
+				</span>
+				{#if composition}
+					<CompositionBar
+						{composition}
+						assets={summaries.data.assets}
+						legend
+						class="col-span-2 md:col-span-1"
+					/>
+				{/if}
+				<span class="col-span-2 text-xs text-muted-foreground md:col-span-1 md:text-right">
+					{formatCurrency(asset.collateral?.value ?? 0)}<br />as of {asset.collateral
+						? formatDate(asset.collateral.date)
+						: '–'}
+				</span>
+			</a>
 		{/each}
 	</div>
-</Section>
+</NumberedSection>
 
-<Section id="ranking" label="Ranking of backed cryptocurrencies">
-	<SectionHeader
-		title="Ranking"
-		description="Compare cryptocurrencies based on their backing amount and ratio."
-		button={{ text: 'View full Ranking', href: resolve('/assets') }}
-		theme={pink}
-	/>
-	<div class="mx-auto mt-10 w-full max-w-7xl px-0 sm:px-4 lg:px-8">
-		<Glow theme={pink} class="-inset-x-4 animate-tilt-1 sm:-inset-x-0">
-			<Table
-				columns={assetColumns}
-				rows={ranked.map(assetRow)}
-				sortBy="market-cap"
-				rank
-				length={10}
-				class="sm:rounded-lg"
-			/>
-		</Glow>
+<NumberedSection
+	label="02 · Backing chains"
+	title="From the token to the reserve asset"
+	text="Tokens back other tokens. bcked follows each chain to the assets at the end, so exposure hidden one level down becomes visible."
+	muted
+>
+	<div class="rounded-xl border bg-card p-4">
+		<Sankey links={monthLinks(months.at(-1))} direction="down" assets={summaries.data.assets} />
 	</div>
-</Section>
+	<Button href={resolve('/explore')} variant="link" class="mt-2 px-0">
+		Explore the chains over time <ArrowRight class="size-4" />
+	</Button>
+</NumberedSection>
 
-<Section id="issuers" label="Issuers of backed cryptocurrencies">
-	<SectionHeader
-		title="Issuers"
-		description="See who issues backed cryptocurrencies and how much value they hold."
-		button={{ text: 'View all Issuers', href: resolve('/issuers') }}
-		theme={yellow}
-	/>
-	<div class="mx-auto mt-10 w-full max-w-7xl px-0 sm:px-4 lg:px-8">
-		<Glow theme={yellow} class="-inset-x-4 animate-tilt-1 sm:-inset-x-0">
-			<Table
-				columns={groupColumns}
-				rows={summaries.data.entities.map((e) => groupRow(e, '/issuers/[id]'))}
-				sortBy="total-value-locked"
-				rank
-				length={5}
-				class="sm:rounded-lg"
-			/>
-		</Glow>
+<NumberedSection
+	label="03 · History"
+	title="Where all tracked reserves sat, month by month"
+	text="The end of every chain added up: cash, Treasuries, gold, bitcoin. Hover to read a month."
+>
+	<div class="rounded-xl border bg-card p-4">
+		<StackedArea points={history} assets={summaries.data.assets} />
 	</div>
-</Section>
+</NumberedSection>
 
-<Section id="chains" label="Chains with backed cryptocurrencies">
-	<SectionHeader
-		title="Chains"
-		description="Compare the chains backed cryptocurrencies live on."
-		button={{ text: 'View all Chains', href: resolve('/chains') }}
-		theme={blue}
-	/>
-	<div class="mx-auto mt-10 w-full max-w-7xl px-0 sm:px-4 lg:px-8">
-		<Glow theme={blue} class="-inset-x-4 animate-tilt-1 sm:-inset-x-0">
-			<Table
-				columns={groupColumns}
-				rows={summaries.data.systems.map((s) => groupRow(s, '/chains/[id]'))}
-				sortBy="total-value-locked"
-				rank
-				length={5}
-				class="sm:rounded-lg"
-			/>
-		</Glow>
+<section class="w-full border-t bg-card">
+	<div
+		class="mx-auto flex max-w-6xl flex-col items-start gap-6 px-4 py-14 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8"
+	>
+		<div class="flex items-start gap-4">
+			<Braces class="mt-1 size-6 text-primary" />
+			<div>
+				<h2 class="text-lg font-medium">Open data and API</h2>
+				<p class="mt-1 text-muted-foreground">
+					All records are open source on GitHub and available as a free JSON API.
+				</p>
+			</div>
+		</div>
+		<Button href="https://api.bcked.com/docs/" variant="outline">API documentation</Button>
 	</div>
-</Section>
+</section>

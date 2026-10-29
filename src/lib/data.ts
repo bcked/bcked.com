@@ -6,17 +6,15 @@ import {
 	get,
 	getAssets,
 	getEntities,
-	getLatest,
+	getOptional,
 	getSystems,
-	refId,
 	type AssetDetails,
+	type AssetReports,
 	type AssetSeries,
 	type AssetSummary,
-	type Breakdown,
-	type CollateralizationGraph,
+	type GraphSeries,
 	type GroupSeries
 } from '#lib/api.ts';
-import { graphLinks } from '#lib/graph.ts';
 
 type Fetch = typeof fetch;
 
@@ -32,59 +30,21 @@ export async function fetchSummaries(fetch: Fetch) {
 
 export type Summaries = Awaited<ReturnType<typeof fetchSummaries>>;
 
-/** Backing links of the latest collateralization graph. */
-export async function fetchGraphLinks(fetch: Fetch) {
-	return graphLinks(await getLatest<CollateralizationGraph>(fetch, '/graphs/collateralization'));
+/** The backing graph per month, links as [from, to, USD]. */
+export async function fetchGraphSeries(fetch: Fetch) {
+	return get<GraphSeries>(fetch, '/graphs/collateralization/series');
 }
 
-/** Everything the asset page shows, or null if the asset does not exist. */
+/** Everything the asset page loads besides the summaries and the graph, or null if unknown. */
 export async function fetchAssetPage(fetch: Fetch, assets: AssetSummary[], id: string) {
 	const asset = assets.find((a) => a.id == id);
 	if (!asset) return null;
-
-	const [details, series, underlying, graph] = await Promise.all([
+	const [details, series, reports] = await Promise.all([
 		get<AssetDetails>(fetch, `/assets/${asset.id}/details`),
 		get<AssetSeries>(fetch, `/assets/${asset.id}/series`),
-		asset.collateral ? getLatest<Breakdown>(fetch, `/assets/${asset.id}/underlying-assets`) : null,
-		getLatest<CollateralizationGraph>(fetch, '/graphs/collateralization')
+		asset.backing ? getOptional<AssetReports>(fetch, `/assets/${asset.id}/reports`) : null
 	]);
-
-	const byId = new Map(assets.map((a) => [a.id, a]));
-
-	const underlyingAssets = (underlying?.breakdown ?? []).map((item) => ({
-		asset: byId.get(refId(item.asset)) ?? null,
-		id: refId(item.asset),
-		amount: item.amount,
-		usd: typeof item.value?.['rwa:USD'] == 'number' ? item.value['rwa:USD'] : null
-	}));
-
-	const derivativeAssets = (graph?.graph.links ?? [])
-		.filter((link) => link.toId == asset.id)
-		.map((link) => {
-			const usd = link.data.value?.['rwa:USD'];
-			return {
-				asset: byId.get(link.fromId) ?? null,
-				id: link.fromId,
-				usd: typeof usd == 'number' ? usd : null
-			};
-		});
-
-	// The latest graph only contains assets with recent backing records, so use this asset's own
-	// latest breakdown for its direct underlying assets.
-	const links = [
-		...graphLinks(graph).filter((link) => link.source != asset.id),
-		...underlyingAssets.map((item) => ({ source: asset.id, target: item.id, usd: item.usd }))
-	];
-
-	return {
-		asset,
-		details,
-		links,
-		series,
-		underlying: underlyingAssets,
-		underlyingTimestamp: underlying?.timestamp ?? null,
-		derivatives: derivativeAssets
-	};
+	return { asset, details, series, reports };
 }
 
 export type AssetPage = NonNullable<Awaited<ReturnType<typeof fetchAssetPage>>>;
