@@ -78,7 +78,7 @@ export function interpolateLinks(snapshots: GraphSnapshot[], position: number): 
 }
 
 /** Longest time a report counts, see the methodology. Longer gaps are not smoothed over. */
-const REPORT_VALID_DAYS = 140;
+export const REPORT_VALID_DAYS = 140;
 
 /**
  * Snapshots where the change at each new report is spread evenly over the weeks since the report

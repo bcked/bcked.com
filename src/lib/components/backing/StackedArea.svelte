@@ -17,7 +17,13 @@
 	import Watermark from '#lib/components/Watermark.svelte';
 	import ColorDot from './ColorDot.svelte';
 	import { formatCurrency, formatDate, formatPercentage } from '#lib/format.ts';
-	import { partColor, partName, THIN_SHARE, type CompositionPoint } from '#lib/backing.ts';
+	import {
+		partColor,
+		partName,
+		REPORT_VALID_DAYS,
+		THIN_SHARE,
+		type CompositionPoint
+	} from '#lib/backing.ts';
 
 	type Mode = 'share' | 'usd';
 	type Row = { date: Date; gap: boolean; total: number } & Record<string, number | Date | boolean>;
@@ -46,9 +52,9 @@
 		return Object.keys(totals).toSorted((a, b) => totals[b]! - totals[a]!);
 	});
 
-	// A gap is a stretch without records: more than 2.5 times the usual spacing between records
-	// (daily for on-chain backing, quarterly for some reports), and at least two months. The area
-	// ends after the usual spacing and starts again at the next point.
+	// A recorded backing counts until the next record, for at most 140 days (see the methodology).
+	// Records further apart leave a gap: the area ends 140 days after the last record and starts
+	// again at the next one. The usual spacing only sizes the last point.
 	const DAY = 24 * 60 * 60 * 1000;
 	const spacing = $derived.by(() => {
 		const steps = points
@@ -57,7 +63,7 @@
 			.toSorted((a, b) => a - b);
 		return steps[Math.floor(steps.length / 2)] ?? 30 * DAY;
 	});
-	const GAP = $derived(Math.max(62 * DAY, 2.5 * spacing));
+	const GAP = REPORT_VALID_DAYS * DAY;
 	const rows: Row[] = $derived(
 		points.flatMap((p, i) => {
 			const date = new Date(p.date);
@@ -72,7 +78,7 @@
 			if (!next)
 				return [row, { ...row, date: new Date(date.getTime() + Math.min(spacing, 15 * DAY)) }];
 			if (new Date(next.date).getTime() - date.getTime() <= GAP) return [row];
-			const end = new Date(date.getTime() + spacing);
+			const end = new Date(date.getTime() + GAP);
 			return [row, { ...row, date: end }, { ...row, date: end, gap: true }];
 		})
 	);
