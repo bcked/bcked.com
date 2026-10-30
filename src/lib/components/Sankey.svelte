@@ -73,7 +73,10 @@
 			// Without a fixed order, d3-sankey reorders nodes to reduce crossings, which makes nodes
 			// swap places from one date to the next.
 			const rank = (id: string) => order.get(id) ?? order.size;
+			// No relaxation either: it moves nodes a little differently on every frame. Stacked in their
+			// fixed order, nodes only move as much as the values change.
 			generator
+				.iterations(0)
 				.nodeSort((a, b) => rank(a.id) - rank(b.id))
 				.linkSort(
 					(a, b) =>
@@ -160,7 +163,6 @@
 					stroke={linkColor(data)}
 					stroke-opacity={linkOpacity(i)}
 					stroke-width={Math.max(link.width ?? 0, 2)}
-					class="transition-all duration-150"
 					role="presentation"
 					onpointermove={(event) =>
 						(hover = { kind: 'link', index: i, link: data, ...pointer(event) })}

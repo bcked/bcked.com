@@ -114,6 +114,9 @@
 				</p>
 			</div>
 		</div>
-		<Button href="https://api.bcked.com/docs/" variant="outline">API documentation</Button>
+		<!-- On phones the button sits below the text, indented like it (icon size-6 plus gap-4). -->
+		<Button href="https://api.bcked.com/docs/" variant="outline" class="ml-10 sm:ml-0"
+			>API documentation</Button
+		>
 	</div>
 </section>
