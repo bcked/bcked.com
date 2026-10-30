@@ -42,7 +42,10 @@ export function compositionHistory(
 
 /** Links of one snapshot of the graph series. */
 export function snapshotLinks(snapshot: GraphSnapshot | undefined): GraphLink[] {
-	return (snapshot?.links ?? []).map(([source, target, usd]) => ({ source, target, usd }));
+	// A recorded zero (a reserve category the issuer no longer holds) is no link.
+	return (snapshot?.links ?? [])
+		.filter(([, , usd]) => usd !== 0)
+		.map(([source, target, usd]) => ({ source, target, usd }));
 }
 
 /**

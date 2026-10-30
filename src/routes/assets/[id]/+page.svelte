@@ -173,13 +173,16 @@
 		) ?? '2023'}."
 		muted={muted('chain')}
 	>
-		<ChainExplorer
-			{assets}
-			{snapshots}
-			reports={graph.data.reports}
-			focus={asset.id}
-			panel={false}
-		/>
+		<!-- Keyed, so the explorer starts over on the new asset when a node link opens another one. -->
+		{#key asset.id}
+			<ChainExplorer
+				{assets}
+				{snapshots}
+				reports={graph.data.reports}
+				focus={asset.id}
+				panel={false}
+			/>
+		{/key}
 	</NumberedSection>
 {/if}
 

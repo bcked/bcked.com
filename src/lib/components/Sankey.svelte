@@ -45,6 +45,7 @@
 	let width = $state(0);
 
 	const nodeThickness = 36;
+	const radius = 6;
 	const levelHeight = 130;
 
 	const byId = $derived(new Map(assets.map((a) => [a.id, a])));
@@ -115,9 +116,15 @@
 		const x1 = link.y1 ?? 0;
 		const half = Math.max(link.width ?? 0, 2) / 2;
 		const mid = (y0 + y1) / 2;
+		// Into the nodes by their corner radius, so no gap shows in the rounded corners. The nodes are
+		// drawn on top and cover the rest.
+		const a = y0 - radius;
+		const b = y1 + radius;
 		return (
-			`M${x0 - half},${y0}C${x0 - half},${mid} ${x1 - half},${mid} ${x1 - half},${y1}` +
-			`L${x1 + half},${y1}C${x1 + half},${mid} ${x0 + half},${mid} ${x0 + half},${y0}Z`
+			`M${x0 - half},${a}L${x0 - half},${y0}` +
+			`C${x0 - half},${mid} ${x1 - half},${mid} ${x1 - half},${y1}L${x1 - half},${b}` +
+			`L${x1 + half},${b}L${x1 + half},${y1}` +
+			`C${x1 + half},${mid} ${x0 + half},${mid} ${x0 + half},${y0}L${x0 + half},${a}Z`
 		);
 	}
 
@@ -200,12 +207,14 @@
 						(hover = { kind: 'node', id: node.id, value, ...pointer(event) })}
 					onpointerleave={() => (hover = null)}
 				>
+					<!-- Opaque base, so the links below do not show through a tinted node. -->
+					<rect {x} {y} width={w} height={nodeThickness} rx={radius} class="fill-card" />
 					<rect
 						{x}
 						{y}
 						width={w}
 						height={nodeThickness}
-						rx="6"
+						rx={radius}
 						class={node.id == highlight
 							? 'fill-primary/20 stroke-primary hover:fill-primary/30'
 							: 'fill-card stroke-border hover:fill-muted'}
