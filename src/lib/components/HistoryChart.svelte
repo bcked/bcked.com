@@ -1,76 +1,87 @@
+<!--
+  @component
+  A daily series as an area chart. With a reference line the axis fits the data instead of starting at zero. Hovering shows the value at a date, dragging zooms into a
+  period. An optional reference line marks a threshold, like full backing at 100%.
+-->
 <script lang="ts">
-	import {
-		AreaSeries,
-		ColorType,
-		createChart,
-		createTextWatermark,
-		type IChartApi,
-		type ISeriesApi,
-		type UTCTimestamp
-	} from 'lightweight-charts';
+	import { scaleUtc } from 'd3-scale';
+	import { AnnotationLine, Area, AreaChart } from 'layerchart';
 	import type { DailySeries } from '#lib/api.ts';
-	import { formatNum } from '#lib/format.ts';
+	import * as Chart from '#lib/components/ui/chart/index.ts';
+	import Watermark from './Watermark.svelte';
+	import { formatDate, formatNum } from '#lib/format.ts';
 
 	type Props = {
 		/** Daily `[date, value]` pairs. */
 		data: DailySeries;
+		/** Name of the value in the tooltip. */
+		label?: string;
 		formatter?: (value: number) => string;
+		/** Value of a reference line, with its label. */
+		reference?: { value: number; label: string };
 	};
 
-	let { data, formatter = (value) => formatNum(value) }: Props = $props();
+	let {
+		data,
+		label = 'Value',
+		formatter = (value) => formatNum(value),
+		reference
+	}: Props = $props();
 
-	let container: HTMLDivElement | undefined = $state();
-	let width = $state(0);
-	let height = $state(0);
-
-	let chart: IChartApi | undefined;
-	let series: ISeriesApi<'Area'> | undefined;
-
-	$effect(() => {
-		if (!container) return;
-		chart = createChart(container, {
-			layout: {
-				textColor: 'rgb(107 114 128)',
-				background: { type: ColorType.Solid, color: 'transparent' }
-			},
-			grid: { vertLines: { visible: false }, horzLines: { visible: false } },
-			timeScale: { borderVisible: false },
-			rightPriceScale: { borderVisible: false }
-		});
-		createTextWatermark(chart.panes()[0]!, {
-			horzAlign: 'center',
-			vertAlign: 'center',
-			lines: [{ text: 'bcked.com', color: '#FF3B7680', fontSize: 24 }]
-		});
-		series = chart.addSeries(AreaSeries, {
-			lineColor: '#FF3B76',
-			topColor: '#FF3B7688',
-			bottomColor: '#FF3B7600',
-			priceFormat: { type: 'custom', formatter, minMove: 0.0001 }
-		});
-		return () => {
-			chart?.remove();
-			chart = undefined;
-			series = undefined;
-		};
+	const rows = $derived(data.map(([date, value]) => ({ date: new Date(date), value })));
+	// The axis fits the data and always includes the reference line.
+	const yDomain = $derived.by((): [number, number] | undefined => {
+		if (!reference || !rows.length) return undefined;
+		const values = rows.map((r) => r.value);
+		return [Math.min(reference.value, ...values), Math.max(reference.value, ...values)];
 	});
-
-	$effect(() => {
-		series?.setData(
-			data.map(([date, value]) => ({ time: (Date.parse(date) / 1000) as UTCTimestamp, value }))
-		);
-		chart?.timeScale().fitContent();
-	});
-
-	$effect(() => {
-		chart?.resize(width, height);
-		chart?.timeScale().fitContent();
-	});
+	const config = $derived({ value: { label, color: 'var(--primary)' } });
+	// The tooltip snippet is named formatter too, which hides the prop inside it.
+	const formatValue = (value: number) => formatter(value);
 </script>
 
-<div
-	class="h-full min-h-50 w-full overflow-visible sm:min-h-62.5"
-	bind:clientWidth={width}
-	bind:clientHeight={height}
-	bind:this={container}
-></div>
+<Chart.Container {config} class="relative aspect-auto h-full w-full">
+	<Watermark />
+	<AreaChart
+		data={rows}
+		x="date"
+		y="value"
+		xScale={scaleUtc()}
+		yBaseline={reference ? null : 0}
+		{yDomain}
+		padding={{ top: 8, right: 8, bottom: 24, left: 56 }}
+		yPadding={[16, 16]}
+		series={[{ key: 'value', label, color: 'var(--color-value)' }]}
+		brush
+		props={{
+			yAxis: { format: (v: number) => formatter(v) },
+			highlight: { points: { r: 4 } }
+		}}
+	>
+		{#snippet marks()}
+			<Area
+				seriesKey="value"
+				fillOpacity={0.15}
+				line={{ class: 'stroke-2' }}
+				fill="var(--color-value)"
+				stroke="var(--color-value)"
+			/>
+			{#if reference}
+				<AnnotationLine
+					y={reference.value}
+					label={reference.label}
+					labelPlacement="top-right"
+					props={{ line: { class: 'stroke-muted-foreground [stroke-dasharray:4]' } }}
+				/>
+			{/if}
+		{/snippet}
+		{#snippet tooltip()}
+			<Chart.Tooltip labelFormatter={(d: Date) => formatDate(d.toISOString())} indicator="line">
+				{#snippet formatter({ value })}
+					<span class="text-muted-foreground">{label}</span>
+					<span class="ml-auto pl-4 font-medium tabular-nums">{formatValue(Number(value))}</span>
+				{/snippet}
+			</Chart.Tooltip>
+		{/snippet}
+	</AreaChart>
+</Chart.Container>

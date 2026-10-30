@@ -197,7 +197,9 @@
 		<div class="h-72 rounded-xl border bg-card p-2">
 			<HistoryChart
 				data={series['collateralization-ratio']}
+				label="Backing ratio"
 				formatter={(v) => formatPercentage(v, 1)}
+				reference={{ value: 1, label: 'Fully backed' }}
 			/>
 		</div>
 	</NumberedSection>

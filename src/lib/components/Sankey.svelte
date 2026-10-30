@@ -1,15 +1,18 @@
 <!--
   @component
   Vertical Sankey diagram of a backing chain, laid out with [d3-sankey](https://github.com/d3/d3-sankey).
-  The root asset is at the top, links flow downwards to underlying (or derivative) assets.
+  The root asset is at the top, links flow downwards to underlying (or derivative) assets. Links
+  take the color of the reserve asset they lead to. Hovering a link or a node shows its value.
 -->
 <script lang="ts">
 	import { resolve } from '$app/paths';
 	import { sankey, sankeyJustify, type SankeyLink, type SankeyNode } from 'd3-sankey';
 	import type { AssetSummary } from '#lib/api.ts';
-	import { formatCurrency } from '#lib/format.ts';
+	import { hasPartColor, partColor, partName } from '#lib/backing.ts';
+	import { formatCurrency, formatPercentage } from '#lib/format.ts';
 	import type { GraphLink } from '#lib/graph.ts';
 	import AssetIcon from './AssetIcon.svelte';
+	import Watermark from './Watermark.svelte';
 
 	type Props = {
 		/** Links of the chain, oriented from the root side to the far side. */
@@ -25,7 +28,15 @@
 	let { links, direction, assets, href, highlight = null }: Props = $props();
 
 	type Node = { id: string };
-	type Link = { source: string; target: string; value: number; usd: number | null };
+	/** `backed` and `under` keep the backing direction, source and target follow the drawing. */
+	type Link = {
+		source: string;
+		target: string;
+		value: number;
+		usd: number | null;
+		backed: string;
+		under: string;
+	};
 
 	let width = $state(0);
 
@@ -45,7 +56,9 @@
 			source: direction == 'down' ? l.source : l.target,
 			target: direction == 'down' ? l.target : l.source,
 			value: l.usd && l.usd > 0 ? l.usd : fallback,
-			usd: l.usd
+			usd: l.usd,
+			backed: l.source,
+			under: l.target
 		}));
 		const ids = [...new Set(oriented.flatMap((l) => [l.source, l.target]))];
 
@@ -81,6 +94,30 @@
 		return `M${x0},${y0}C${x0},${mid} ${x1},${mid} ${x1},${y1}`;
 	}
 
+	/** Total recorded backing per backed asset, for the share of a link. */
+	const backingTotal = $derived.by(() => {
+		const totals: Record<string, number> = {};
+		for (const l of links) totals[l.source] = (totals[l.source] ?? 0) + (l.usd ?? 0);
+		return totals;
+	});
+
+	const linkColor = (link: Link) =>
+		hasPartColor(link.under) ? partColor(link.under) : 'var(--primary)';
+	const nameOf = (id: string) => partName(id, assets);
+
+	type Hover = { x: number; y: number } & (
+		{ kind: 'link'; index: number; link: Link } | { kind: 'node'; id: string; value: number | null }
+	);
+	let hover: Hover | null = $state(null);
+	let container: HTMLDivElement | undefined = $state();
+
+	function pointer(event: PointerEvent) {
+		const rect = container!.getBoundingClientRect();
+		return { x: event.clientX - rect.left, y: event.clientY - rect.top };
+	}
+	const linkOpacity = (index: number) =>
+		hover?.kind == 'link' ? (hover.index == index ? 0.8 : 0.15) : 0.5;
+
 	function nodeValue(node: SankeyNode<Node, Link>): number | null {
 		const incoming = (node.targetLinks ?? []) as SankeyLink<Node, Link>[];
 		const outgoing = (node.sourceLinks ?? []) as SankeyLink<Node, Link>[];
@@ -90,43 +127,31 @@
 	}
 </script>
 
-<div class="relative w-full" bind:clientWidth={width}>
-	<div
-		class="pointer-events-none absolute inset-0 flex items-center justify-center text-2xl text-primary/50"
-	>
-		bcked.com
-	</div>
+<div class="relative w-full" bind:clientWidth={width} bind:this={container}>
+	<Watermark />
 	{#if layout}
-		<svg width="100%" height={layout.height} class="relative overflow-visible">
-			<defs>
-				<!-- In user space: a gradient in bounding box units paints nothing on a straight vertical
-				link, whose box has no width. -->
-				<linearGradient
-					id="sankey-gradient-{direction}"
-					gradientUnits="userSpaceOnUse"
-					x1="0"
-					x2="0"
-					y1="0"
-					y2={layout.height}
-				>
-					<stop offset="0%" stop-color="var(--color-neon-pink)" />
-					<stop offset="100%" stop-color="var(--color-neon-blue)" />
-				</linearGradient>
-			</defs>
+		<svg
+			width="100%"
+			height={layout.height}
+			class="relative overflow-visible"
+			role="img"
+			aria-label="Backing chain"
+			onpointerleave={() => (hover = null)}
+		>
 			{#each layout.graph.links as link, i (i)}
+				{@const data = link as unknown as Link}
 				<path
 					d={linkPath(link)}
 					fill="none"
-					stroke="url(#sankey-gradient-{direction})"
-					stroke-opacity="0.5"
+					stroke={linkColor(data)}
+					stroke-opacity={linkOpacity(i)}
 					stroke-width={Math.max(link.width ?? 0, 2)}
-				>
-					<title
-						>{(link as unknown as Link).usd == null
-							? 'Unknown value'
-							: formatCurrency((link as unknown as Link).usd!)}</title
-					>
-				</path>
+					class="transition-all duration-150"
+					role="presentation"
+					onpointermove={(event) =>
+						(hover = { kind: 'link', index: i, link: data, ...pointer(event) })}
+					onpointerleave={() => (hover = null)}
+				/>
 			{/each}
 			{#each layout.graph.nodes as node (node.id)}
 				{@const asset = byId.get(node.id)}
@@ -134,22 +159,30 @@
 				{@const x = node.y0 ?? 0}
 				{@const y = node.x0 ?? 0}
 				{@const w = Math.max((node.y1 ?? 0) - x, 4)}
-				{@const name = asset?.symbol ?? asset?.name ?? node.id}
+				{@const name = nameOf(node.id)}
 				<!-- Narrow nodes only show their icon, the name and value are in the tooltip. -->
 				{@const label = w >= 120}
 				{@const labelWidth = label ? w : 20}
-				<a href={href ? href(node.id) : resolve('/assets/[id]', { id: node.id })}>
-					<title>{name}{value != null ? `: ${formatCurrency(value)}` : ''}</title>
+				<a
+					href={href ? href(node.id) : resolve('/assets/[id]', { id: node.id })}
+					aria-label="{asset?.name ?? name}{value != null ? `, ${formatCurrency(value)}` : ''}"
+					onpointermove={(event) =>
+						(hover = { kind: 'node', id: node.id, value, ...pointer(event) })}
+					onpointerleave={() => (hover = null)}
+				>
 					<rect
 						{x}
 						{y}
 						width={w}
 						height={nodeThickness}
-						rx="4"
+						rx="6"
 						class={node.id == highlight
-							? 'fill-primary/25 stroke-primary hover:fill-primary/35'
-							: 'fill-muted hover:fill-border'}
+							? 'fill-primary/20 stroke-primary hover:fill-primary/30'
+							: 'fill-card stroke-border hover:fill-muted'}
 					/>
+					{#if hasPartColor(node.id)}
+						<rect {x} y={y + nodeThickness - 3} width={w} height="3" fill={partColor(node.id)} />
+					{/if}
 					<foreignObject
 						x={Math.min(Math.max(x + w / 2 - labelWidth / 2, 0), width - labelWidth)}
 						{y}
@@ -168,6 +201,46 @@
 				</a>
 			{/each}
 		</svg>
+		{#if hover}
+			<div
+				class="pointer-events-none absolute top-(--tip-y) left-(--tip-x) z-10 grid min-w-40 -translate-x-1/2 translate-y-4 gap-1 rounded-lg border bg-background px-2.5 py-1.5 text-xs shadow-xl"
+				style:--tip-x="{Math.min(Math.max(hover.x, 90), width - 90)}px"
+				style:--tip-y="{hover.y}px"
+			>
+				{#if hover.kind == 'link'}
+					{@const usd = hover.link.usd}
+					{@const total = backingTotal[hover.link.backed]}
+					<span class="font-medium"
+						>{nameOf(hover.link.backed)} backed by {nameOf(hover.link.under)}</span
+					>
+					<span class="flex justify-between gap-4 text-muted-foreground">
+						Value
+						<span class="font-medium text-foreground tabular-nums">
+							{usd == null ? 'Unknown' : formatCurrency(usd)}
+						</span>
+					</span>
+					{#if usd != null && total}
+						<span class="flex justify-between gap-4 text-muted-foreground">
+							Share of {nameOf(hover.link.backed)}
+							<span class="font-medium text-foreground tabular-nums"
+								>{formatPercentage(usd / total, 1)}</span
+							>
+						</span>
+					{/if}
+				{:else}
+					<span class="font-medium">{byId.get(hover.id)?.name ?? hover.id}</span>
+					{#if hover.value != null}
+						<span class="flex justify-between gap-4 text-muted-foreground">
+							Value
+							<span class="font-medium text-foreground tabular-nums"
+								>{formatCurrency(hover.value)}</span
+							>
+						</span>
+					{/if}
+					<span class="text-muted-foreground">Click to open</span>
+				{/if}
+			</div>
+		{/if}
 	{:else if !links.length}
 		<p class="px-4 py-8 text-center text-muted-foreground">No chain recorded.</p>
 	{/if}

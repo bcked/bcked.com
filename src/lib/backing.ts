@@ -44,25 +44,41 @@ export function monthLinks(month: GraphSeries['months'][number] | undefined): Gr
 	return (month?.links ?? []).map(([source, target, usd]) => ({ source, target, usd }));
 }
 
-/** Fixed colors per reserve asset, so a color means the same asset everywhere. */
+/**
+ * Fixed colors per reserve asset, so a color means the same asset everywhere. One hue per kind of
+ * reserve: green for cash, blues for US treasuries (darker for longer maturities, lighter when
+ * issued), teal for repos, gold, orange for bitcoin, violet for ether, slate for reserves without
+ * a breakdown. Equal lightness and chroma within a kind keep the mix readable.
+ */
 const COLORS: Record<string, string> = {
-	'rwa:USD': '#16a34a',
-	'rwa:USTB': '#2563eb',
-	'rwa:USTB-WI': '#60a5fa',
-	'rwa:USTNOTE': '#1e40af',
-	'rwa:USTNOTE-WI': '#93c5fd',
-	'rwa:USTBOND': '#172554',
-	'rwa:USTBOND-WI': '#bfdbfe',
-	'rwa:USTrepo': '#0891b2',
-	'rwa:XAU': '#d4a017',
-	'bitcoin:BTC': '#f7931a',
-	'ethereum:ETH': '#6366f1',
-	'rwa:undefined': '#a1a1aa'
+	'rwa:USD': 'oklch(0.72 0.13 155)',
+	'rwa:USTB': 'oklch(0.52 0.13 255)',
+	'rwa:USTB-WI': 'oklch(0.72 0.09 250)',
+	'rwa:USTNOTE': 'oklch(0.42 0.11 265)',
+	'rwa:USTNOTE-WI': 'oklch(0.8 0.06 255)',
+	'rwa:USTBOND': 'oklch(0.32 0.08 270)',
+	'rwa:USTBOND-WI': 'oklch(0.88 0.04 255)',
+	'rwa:USTrepo': 'oklch(0.7 0.1 200)',
+	'rwa:XAU': 'oklch(0.8 0.13 85)',
+	'bitcoin:BTC': 'oklch(0.72 0.15 55)',
+	'ethereum:ETH': 'oklch(0.58 0.13 290)',
+	'rwa:undefined': 'oklch(0.8 0.015 255)'
 };
-const FALLBACK = ['#db2777', '#7c3aed', '#059669', '#ea580c', '#0d9488'];
+const FALLBACK = [
+	'oklch(0.65 0.14 15)',
+	'oklch(0.65 0.1 130)',
+	'oklch(0.55 0.12 330)',
+	'oklch(0.75 0.08 40)',
+	'oklch(0.6 0.06 180)'
+];
 
 export function partColor(id: string, index = 0): string {
 	return COLORS[id] ?? FALLBACK[index % FALLBACK.length]!;
+}
+
+/** Whether an asset has its own fixed color, which reserve assets do and tokens do not. */
+export function hasPartColor(id: string): boolean {
+	return id in COLORS;
 }
 
 /** Short names for reserve assets, which have long official names. */
