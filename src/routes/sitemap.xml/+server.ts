@@ -12,6 +12,7 @@ export const GET: RequestHandler = async ({ fetch }) => {
 	const urls = [
 		{ loc: '/', changefreq: 'daily' },
 		{ loc: '/assets', changefreq: 'daily' },
+		{ loc: '/reserves', changefreq: 'daily' },
 		{ loc: '/issuers', changefreq: 'daily' },
 		{ loc: '/explore', changefreq: 'daily' },
 		{ loc: '/about', changefreq: 'monthly' },
