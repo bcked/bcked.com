@@ -23,9 +23,11 @@
 		href?: (id: string) => string;
 		/** Node to highlight, e.g. the asset in focus. */
 		highlight?: string | null;
+		/** Fixed rank per asset, lowest first. Keeps nodes in place while values change over time. */
+		order?: Map<string, number>;
 	};
 
-	let { links, direction, assets, href, highlight = null }: Props = $props();
+	let { links, direction, assets, href, highlight = null, order }: Props = $props();
 
 	type Node = { id: string };
 	/** `backed` and `under` keep the backing direction, source and target follow the drawing. */
@@ -67,6 +69,18 @@
 			.nodeAlign(sankeyJustify)
 			.nodeWidth(nodeThickness)
 			.nodePadding(24);
+		if (order) {
+			// Without a fixed order, d3-sankey reorders nodes to reduce crossings, which makes nodes
+			// swap places from one date to the next.
+			const rank = (id: string) => order.get(id) ?? order.size;
+			generator
+				.nodeSort((a, b) => rank(a.id) - rank(b.id))
+				.linkSort(
+					(a, b) =>
+						rank((a.target as Node).id) - rank((b.target as Node).id) ||
+						rank((a.source as Node).id) - rank((b.source as Node).id)
+				);
+		}
 
 		// Lay out horizontally and swap the axes, so depth runs from top to bottom.
 		const probe = generator.size([1, 1])({
@@ -138,7 +152,7 @@
 			aria-label="Backing chain"
 			onpointerleave={() => (hover = null)}
 		>
-			{#each layout.graph.links as link, i (i)}
+			{#each layout.graph.links as link, i (`${(link as unknown as Link).backed}>${(link as unknown as Link).under}`)}
 				{@const data = link as unknown as Link}
 				<path
 					d={linkPath(link)}

@@ -2,7 +2,7 @@
 	import Seo from '#lib/components/Seo.svelte';
 	import TokenTable from '#lib/components/backing/TokenTable.svelte';
 	import * as Tabs from '#lib/components/ui/tabs/index.ts';
-	import { assetKind, KIND_NAMES, monthLinks, type Kind } from '#lib/backing.ts';
+	import { assetKind, KIND_NAMES, snapshotLinks, type Kind } from '#lib/backing.ts';
 	import { graphSeriesQuery, summariesQuery } from '#lib/queries.ts';
 	import type { PageProps } from './$types';
 
@@ -10,7 +10,7 @@
 
 	const summaries = summariesQuery(() => data);
 	const graph = graphSeriesQuery(() => data.graph);
-	const links = $derived(monthLinks(graph.data.months.at(-1)));
+	const links = $derived(snapshotLinks(graph.data.snapshots.at(-1)));
 
 	let filter: 'all' | Kind = $state('all');
 	const tokens = $derived(

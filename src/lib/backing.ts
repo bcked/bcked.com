@@ -1,6 +1,7 @@
 /** Helpers for showing backing: composition, colors, names, kinds and chains. */
-import type { AssetSummary, DailySeries, GraphSeries } from '#lib/api.ts';
+import type { AssetSummary, DailySeries, GraphSnapshot } from '#lib/api.ts';
 import type { GraphLink } from '#lib/graph.ts';
+import { sankey, sankeyJustify } from 'd3-sankey';
 
 export type Part = { id: string; usd: number; amount?: number };
 export type Composition = { date: string | null; parts: Part[]; total: number };
@@ -39,9 +40,68 @@ export function compositionHistory(
 		.toSorted((a, b) => a.date.localeCompare(b.date));
 }
 
-/** Links of one month of the graph series. */
-export function monthLinks(month: GraphSeries['months'][number] | undefined): GraphLink[] {
-	return (month?.links ?? []).map(([source, target, usd]) => ({ source, target, usd }));
+/** Links of one snapshot of the graph series. */
+export function snapshotLinks(snapshot: GraphSnapshot | undefined): GraphLink[] {
+	return (snapshot?.links ?? []).map(([source, target, usd]) => ({ source, target, usd }));
+}
+
+/**
+ * Links at a fractional position between two snapshots, for continuous motion. Values are
+ * interpolated linearly. A link that exists on one side only grows from or shrinks to zero.
+ */
+export function interpolateLinks(snapshots: GraphSnapshot[], position: number): GraphLink[] {
+	const i = Math.max(0, Math.min(Math.floor(position), snapshots.length - 1));
+	const t = position - i;
+	const a = snapshots[i];
+	const b = snapshots[i + 1];
+	if (!b || t <= 0) return snapshotLinks(a);
+	if (t >= 1) return snapshotLinks(b);
+	const key = (from: string, to: string) => `${from}>${to}`;
+	const merged: Record<string, GraphLink & { from?: number | null; to?: number | null }> = {};
+	for (const [source, target, usd] of a?.links ?? [])
+		merged[key(source, target)] = { source, target, usd: null, from: usd };
+	for (const [source, target, usd] of b.links) {
+		const link = (merged[key(source, target)] ??= { source, target, usd: null });
+		link.to = usd;
+	}
+	return Object.values(merged)
+		.map(({ source, target, from, to }) => {
+			// An unknown value stays unknown, a missing link counts as zero.
+			if (from === null || to === null) return { source, target, usd: null };
+			const usd = (from ?? 0) * (1 - t) + (to ?? 0) * t;
+			return { source, target, usd };
+		})
+		.filter((l) => l.usd == null || l.usd > 0);
+}
+
+/**
+ * Fixed rank per asset over the whole history, so the Sankey keeps its nodes in place while the
+ * values change. The order comes from one d3-sankey layout of all snapshots added together, which
+ * reduces link crossings for the history as a whole.
+ */
+export function nodeOrder(snapshots: GraphSnapshot[]): Map<string, number> {
+	const sum: Record<string, { source: string; target: string; value: number }> = {};
+	for (const { links } of snapshots)
+		for (const [source, target, usd] of links) {
+			const link = (sum[`${source}>${target}`] ??= { source, target, value: 0 });
+			link.value += usd ?? 0;
+		}
+	const links = Object.values(sum).filter((l) => l.value > 0);
+	if (!links.length) return new Map();
+	const ids = [...new Set(links.flatMap((l) => [l.source, l.target]))];
+	try {
+		const graph = sankey<{ id: string }, { source: string; target: string; value: number }>()
+			.nodeId((d) => d.id)
+			.nodeAlign(sankeyJustify)
+			.size([1000, 1000])({ nodes: ids.map((id) => ({ id })), links });
+		const ranked = graph.nodes.toSorted(
+			(a, b) => (a.depth ?? 0) - (b.depth ?? 0) || (a.y0 ?? 0) - (b.y0 ?? 0)
+		);
+		return new Map(ranked.map((node, i) => [node.id, i]));
+	} catch {
+		// d3-sankey throws on cycles, then keep the order of appearance.
+		return new Map(ids.map((id, i) => [id, i]));
+	}
 }
 
 /**
@@ -142,23 +202,23 @@ export function chainDepth(links: GraphLink[], id: string): number {
 }
 
 /**
- * All tracked backing by reserve asset per month: the sum of links into assets that have no backing
+ * All tracked backing by reserve asset per snapshot: the sum of links into assets that have no backing
  * themselves (the end of each chain), so value passed through a chain is counted once.
  */
-export function reserveHistory(months: GraphSeries['months']): CompositionPoint[] {
-	return months.map((month) => {
-		const sources = new Set(month.links.map(([from]) => from));
+export function reserveHistory(snapshots: GraphSnapshot[]): CompositionPoint[] {
+	return snapshots.map((snapshot) => {
+		const sources = new Set(snapshot.links.map(([from]) => from));
 		const parts: Record<string, number> = {};
-		for (const [, to, usd] of month.links)
+		for (const [, to, usd] of snapshot.links)
 			if (!sources.has(to) && usd) parts[to] = (parts[to] ?? 0) + usd;
-		return { date: month.date, parts };
+		return { date: snapshot.date, parts };
 	});
 }
 
-/** Query of an Explore link: the focused asset and the month, if not the latest. */
-export function exploreQuery(focus: string | null, month: string | null): string {
+/** Query of an Explore link: the focused asset and the date, if not the latest. */
+export function exploreQuery(focus: string | null, date: string | null): string {
 	const params = new URLSearchParams();
 	if (focus) params.set('focus', focus);
-	if (month) params.set('month', month);
+	if (date) params.set('date', date);
 	return params.size ? `?${params}` : '';
 }

@@ -15,7 +15,7 @@
 	import {
 		compositionHistory,
 		METHOD_NAMES,
-		monthLinks,
+		snapshotLinks,
 		partColor,
 		partName,
 		toComposition
@@ -44,8 +44,8 @@
 	);
 	const system = $derived(summaries.data.systems.find((s) => s.id == details.identifier.system));
 
-	const months = $derived(graph.data.months);
-	const links = $derived(monthLinks(months.at(-1)));
+	const snapshots = $derived(graph.data.snapshots);
+	const links = $derived(snapshotLinks(snapshots.at(-1)));
 	const ratio = $derived(asset['collateralization-ratio']?.value ?? null);
 	const composition = $derived(
 		asset.composition ? toComposition(asset.composition.parts, asset.composition.date) : null
@@ -166,13 +166,13 @@
 	<NumberedSection
 		label={label('chain', 'Backing chain')}
 		title={chainTitle}
-		text="Move the slider or press play to see the chain at any month since {months[0]?.month.slice(
+		text="Move the slider or press play to see the chain week by week since {snapshots[0]?.date.slice(
 			0,
 			4
 		) ?? '2023'}."
 		muted={muted('chain')}
 	>
-		<ChainExplorer {assets} {months} focus={asset.id} panel={false} />
+		<ChainExplorer {assets} {snapshots} focus={asset.id} panel={false} />
 	</NumberedSection>
 {/if}
 
