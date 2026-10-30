@@ -74,6 +74,71 @@ export function interpolateLinks(snapshots: GraphSnapshot[], position: number): 
 		.filter((l) => l.usd == null || l.usd > 0);
 }
 
+/** Longest time a report counts, see the methodology. Longer gaps are not smoothed over. */
+const REPORT_VALID_DAYS = 140;
+
+/**
+ * Snapshots where the change at each new report is spread evenly over the weeks since the report
+ * before, for links from assets whose backing comes from reports. Their recorded backing holds
+ * until the next report and then jumps, while the real reserves likely changed in between. Price
+ * moves stay as recorded. The values between two reports are estimates.
+ */
+export function smoothReports(
+	snapshots: GraphSnapshot[],
+	reports: Record<string, string[]>
+): GraphSnapshot[] {
+	const key = (from: string, to: string) => `${from}>${to}`;
+	const values = snapshots.map(
+		(s) => new Map(s.links.map(([from, to, usd]) => [key(from, to), usd]))
+	);
+	const added = snapshots.map(() => new Map<string, number>());
+	/** Index of the first snapshot on or after a date. */
+	const at = (date: string) => {
+		const i = snapshots.findIndex((s) => s.date >= date);
+		return i < 0 ? snapshots.length : i;
+	};
+	const day = 24 * 60 * 60 * 1000;
+	for (const [asset, dates] of Object.entries(reports)) {
+		const links = new Set(
+			snapshots.flatMap((s) => s.links.filter(([from]) => from == asset).map(([f, t]) => key(f, t)))
+		);
+		for (let r = 0; r + 1 < dates.length; r++) {
+			const span = (Date.parse(dates[r + 1]!) - Date.parse(dates[r]!)) / day;
+			if (span > REPORT_VALID_DAYS) continue;
+			const start = at(dates[r]!);
+			const end = at(dates[r + 1]!);
+			if (end - start < 2 || end >= snapshots.length) continue;
+			for (const link of links) {
+				const before = values[end - 1]!.get(link);
+				const after = values[end]!.get(link);
+				// Unknown values stay unknown.
+				if (before === null || after === null) continue;
+				const jump = (after ?? 0) - (before ?? 0);
+				if (!jump) continue;
+				for (let w = start + 1; w < end; w++)
+					added[w]!.set(link, (added[w]!.get(link) ?? 0) + (jump * (w - start)) / (end - start));
+			}
+		}
+	}
+	return snapshots.map((s, w) => {
+		if (!added[w]!.size) return s;
+		const links = new Map(
+			s.links.map(([from, to, usd]) => [key(from, to), [from, to, usd] as const])
+		);
+		for (const [link, extra] of added[w]!) {
+			const [from, to] = link.split('>') as [string, string];
+			const usd = links.get(link)?.[2] ?? 0;
+			links.set(link, [from, to, Math.max((usd ?? 0) + extra, 0)]);
+		}
+		return {
+			date: s.date,
+			links: [...links.values()]
+				.filter(([, , usd]) => usd == null || usd > 0)
+				.map(([from, to, usd]) => [from, to, usd] as [string, string, number | null])
+		};
+	});
+}
+
 /**
  * Fixed rank per asset over the whole history, so the Sankey keeps its nodes in place while the
  * values change. The order comes from one d3-sankey layout of all snapshots added together, which

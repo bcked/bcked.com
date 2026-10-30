@@ -172,7 +172,13 @@
 		) ?? '2023'}."
 		muted={muted('chain')}
 	>
-		<ChainExplorer {assets} {snapshots} focus={asset.id} panel={false} />
+		<ChainExplorer
+			{assets}
+			{snapshots}
+			reports={graph.data.reports}
+			focus={asset.id}
+			panel={false}
+		/>
 	</NumberedSection>
 {/if}
 

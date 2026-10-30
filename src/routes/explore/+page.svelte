@@ -28,7 +28,12 @@
 			changed, or focus on one asset to see its chain alone.
 		</p>
 		<div class="mt-8">
-			<ChainExplorer assets={summaries.data.assets} snapshots={graph.data.snapshots} url />
+			<ChainExplorer
+				assets={summaries.data.assets}
+				snapshots={graph.data.snapshots}
+				reports={graph.data.reports}
+				url
+			/>
 		</div>
 	</section>
 </div>

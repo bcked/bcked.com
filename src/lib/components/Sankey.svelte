@@ -21,13 +21,15 @@
 		assets: AssetSummary[];
 		/** Link target of a node. Defaults to the asset page. */
 		href?: (id: string) => string;
+		/** Called on a node click instead of opening its link, e.g. to focus on it. */
+		onselect?: (id: string) => void;
 		/** Node to highlight, e.g. the asset in focus. */
 		highlight?: string | null;
 		/** Fixed rank per asset, lowest first. Keeps nodes in place while values change over time. */
 		order?: Map<string, number>;
 	};
 
-	let { links, direction, assets, href, highlight = null, order }: Props = $props();
+	let { links, direction, assets, href, onselect, highlight = null, order }: Props = $props();
 
 	type Node = { id: string };
 	/** `backed` and `under` keep the backing direction, source and target follow the drawing. */
@@ -182,6 +184,11 @@
 				<a
 					href={href ? href(node.id) : resolve('/assets/[id]', { id: node.id })}
 					aria-label="{asset?.name ?? name}{value != null ? `, ${formatCurrency(value)}` : ''}"
+					onclick={(event) => {
+						if (!onselect) return;
+						event.preventDefault();
+						onselect(node.id);
+					}}
 					onpointermove={(event) =>
 						(hover = { kind: 'node', id: node.id, value, ...pointer(event) })}
 					onpointerleave={() => (hover = null)}
@@ -253,7 +260,7 @@
 							>
 						</span>
 					{/if}
-					<span class="text-muted-foreground">Click to open</span>
+					<span class="text-muted-foreground">{onselect ? 'Click to focus' : 'Click to open'}</span>
 				{/if}
 			</div>
 		{/if}
