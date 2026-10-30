@@ -42,7 +42,13 @@
 			</Tabs.List>
 		</Tabs.Root>
 		<div class="mt-4 rounded-xl border">
-			<TokenTable tokens={rows} assets={summaries.data.assets} {links} full />
+			<TokenTable
+				tokens={rows}
+				assets={summaries.data.assets}
+				systems={summaries.data.systems}
+				{links}
+				full
+			/>
 		</div>
 	</section>
 </div>

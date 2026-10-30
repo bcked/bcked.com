@@ -14,14 +14,24 @@
 	import CompositionBar from './CompositionBar.svelte';
 
 	type Props = {
-		tokens: AssetSummary[];
+		/** Tokens, or tokens grouped across chains (`chains`). */
+		tokens: (AssetSummary & { chains?: string[] })[];
 		assets: AssetSummary[];
+		/** Chains, for their names. */
+		systems?: { id: string; name: string | null }[];
 		/** Links of the latest graph, for the chain depth. Only shown with `full`. */
 		links?: GraphLink[];
 		full?: boolean;
 	};
 
-	let { tokens, assets, links = [], full = false }: Props = $props();
+	let { tokens, assets, systems = [], links = [], full = false }: Props = $props();
+
+	const chainName = (id: string | null) => systems.find((s) => s.id == id)?.name ?? id ?? '';
+	/** "on Tron" for one chain, "on 3 chains" for a grouped token. */
+	const where = (token: AssetSummary & { chains?: string[] }) =>
+		token.chains && token.chains.length > 1
+			? `on ${token.chains.length} chains`
+			: `on ${chainName(token.chains?.[0] ?? token.system)}`;
 </script>
 
 <Table.Root>
@@ -44,12 +54,19 @@
 			{@const composition = summaryComposition(asset)}
 			<Table.Row>
 				<Table.Cell>
-					<a href={resolve('/assets/[id]', { id: asset.id })} class="flex items-center gap-3">
+					<a
+						href={resolve('/assets/[id]', { id: asset.id })}
+						class="flex items-center gap-3"
+						title={asset.chains && asset.chains.length > 1
+							? asset.chains.map(chainName).join(', ')
+							: undefined}
+					>
 						<AssetIcon src={asset.icon} name={asset.name} class="size-7" />
 						<span>
 							<span class="block font-medium">{asset.name}</span>
 							<span class="block text-xs text-muted-foreground">
-								{asset.symbol} · {formatCurrency(asset['market-cap']?.value ?? 0)} market cap
+								{asset.symbol}
+								{where(asset)} · {formatCurrency(asset['market-cap']?.value ?? 0)} market cap
 							</span>
 						</span>
 					</a>

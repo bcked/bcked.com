@@ -368,3 +368,75 @@ export function reserveRows(snapshots: GraphSnapshot[]): ReserveRow[] {
 		})
 		.toSorted((a, b) => b.usd - a.usd);
 }
+
+/** A token with all chains it is tracked on, combined into one row. */
+export type TokenGroup = AssetSummary & {
+	/** Ids of the tracked chains (systems), largest first. */
+	chains: string[];
+};
+
+/**
+ * Tokens of the same issuer and symbol on several chains as one row each: reserves, market cap and
+ * composition added up. The backing ratio is the total reserves over the market caps at the backing
+ * dates (each chain's reserves over its own ratio), so it does not mix in today's market cap. The
+ * id, name and icon are the largest chain's, its page links the rest.
+ */
+export function groupTokens(tokens: AssetSummary[]): TokenGroup[] {
+	const groups = new Map<string, AssetSummary[]>();
+	for (const token of tokens) {
+		const key = `${token.linkedEntities.issuer ?? token.id}|${token.symbol}`;
+		groups.set(key, [...(groups.get(key) ?? []), token]);
+	}
+	const sum = (list: AssetSummary[], value: (a: AssetSummary) => number | undefined) =>
+		list.reduce((total, a) => total + (value(a) ?? 0), 0);
+	const latest = (dates: (string | undefined)[]) =>
+		dates
+			.filter((d): d is string => !!d)
+			.toSorted()
+			.at(-1) ?? '';
+	return [...groups.values()].map((members) => {
+		const sorted = members.toSorted(
+			(a, b) => (b['market-cap']?.value ?? 0) - (a['market-cap']?.value ?? 0)
+		);
+		const main = sorted[0]!;
+		const chains = sorted.map((a) => a.system ?? '');
+		if (sorted.length == 1) return { ...main, chains };
+		const reserves = sum(sorted, (a) => a.collateral?.value);
+		const marketCapThen = sum(sorted, (a) =>
+			a.collateral && a['collateralization-ratio']?.value
+				? a.collateral.value / a['collateralization-ratio'].value
+				: undefined
+		);
+		const parts: Record<string, number> = {};
+		for (const a of sorted)
+			for (const [id, usd] of Object.entries(a.composition?.parts ?? {}))
+				parts[id] = (parts[id] ?? 0) + usd;
+		const noChange = { '1d': null, '7d': null, '30d': null };
+		return {
+			...main,
+			chains,
+			collateral: main.collateral && {
+				date: latest(sorted.map((a) => a.collateral?.date)),
+				value: reserves,
+				change: noChange
+			},
+			'market-cap': main['market-cap'] && {
+				date: latest(sorted.map((a) => a['market-cap']?.date)),
+				value: sum(sorted, (a) => a['market-cap']?.value),
+				change: noChange
+			},
+			'collateralization-ratio':
+				marketCapThen && main['collateralization-ratio']
+					? {
+							date: main['collateralization-ratio'].date,
+							value: reserves / marketCapThen,
+							change: noChange
+						}
+					: main['collateralization-ratio'],
+			composition: main.composition && {
+				date: latest(sorted.map((a) => a.composition?.date)),
+				parts
+			}
+		};
+	});
+}
