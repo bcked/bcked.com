@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
-	import { ExternalLink, FileText, Link2, Radio } from '@lucide/svelte';
+	import { ExternalLink, FileText, Link2, Radio, TriangleAlert } from '@lucide/svelte';
 	import AssetIcon from '#lib/components/AssetIcon.svelte';
 	import ChainExplorer from '#lib/components/backing/ChainExplorer.svelte';
 	import ColorDot from '#lib/components/backing/ColorDot.svelte';
@@ -9,6 +9,7 @@
 	import HistoryChart from '#lib/components/HistoryChart.svelte';
 	import NumberedSection from '#lib/components/NumberedSection.svelte';
 	import Seo from '#lib/components/Seo.svelte';
+	import * as Alert from '#lib/components/ui/alert/index.ts';
 	import * as Table from '#lib/components/ui/table/index.ts';
 	import { Badge } from '#lib/components/ui/badge/index.ts';
 	import { Button } from '#lib/components/ui/button/index.ts';
@@ -109,6 +110,20 @@
 
 <div class="w-full bg-card">
 	<section class="mx-auto max-w-6xl px-4 pt-12 pb-10 sm:px-6 lg:px-8">
+		{#if details.warning}
+			<Alert.Root class="mb-6">
+				<TriangleAlert />
+				<Alert.Title>Since {formatDate(details.warning.date)}</Alert.Title>
+				<Alert.Description>
+					<p>
+						{details.warning.text}
+						{#if details.warning.reference}
+							<a href={details.warning.reference} class="underline underline-offset-2">Source</a>
+						{/if}
+					</p>
+				</Alert.Description>
+			</Alert.Root>
+		{/if}
 		{#if !details.backing}
 			<p class="text-sm font-medium text-primary">Reserve asset</p>
 		{/if}
