@@ -15,6 +15,8 @@
 	import { Button } from '#lib/components/ui/button/index.ts';
 	import {
 		compositionHistory,
+		graphByToken,
+		graphNodes,
 		METHOD_NAMES,
 		snapshotLinks,
 		partColor,
@@ -54,7 +56,18 @@
 			.toSorted((a, b) => (b['market-cap']?.value ?? 0) - (a['market-cap']?.value ?? 0))
 	);
 
-	const snapshots = $derived(graph.data.snapshots);
+	// Tokens on several chains are one node, except this asset's own token: its chain stays itself.
+	const byToken = $derived(
+		graphByToken(
+			graph.data,
+			assets.filter((a) => !(details.token && a.token == details.token))
+		)
+	);
+	const nodes = $derived(graphNodes(assets, summaries.data.tokens));
+	const tokenIds = $derived(new Set(summaries.data.tokens.map((t) => t.id)));
+	const nodeHref = (id: string) =>
+		tokenIds.has(id) ? resolve('/tokens/[id]', { id }) : resolve('/assets/[id]', { id });
+	const snapshots = $derived(byToken.snapshots);
 	const links = $derived(snapshotLinks(snapshots.at(-1)));
 	const ratio = $derived(asset['collateralization-ratio']?.value ?? null);
 	const composition = $derived(
@@ -65,7 +78,7 @@
 		links
 			.filter((l) => l.target == asset.id && (l.usd ?? 0) > 0)
 			.map((l) => {
-				const token = assets.find((a) => a.id == l.source);
+				const token = nodes.find((a) => a.id == l.source);
 				const total = token?.collateral?.value ?? 0;
 				return { id: l.source, token, usd: l.usd ?? 0, share: total ? (l.usd ?? 0) / total : null };
 			})
@@ -227,11 +240,12 @@
 		<!-- Keyed, so the explorer starts over on the new asset when a node link opens another one. -->
 		{#key asset.id}
 			<ChainExplorer
-				{assets}
+				assets={nodes}
 				{snapshots}
-				reports={graph.data.reports}
+				reports={byToken.reports}
 				focus={asset.id}
 				panel={false}
+				{nodeHref}
 			/>
 		{/key}
 	</NumberedSection>
@@ -326,10 +340,7 @@
 					{#each holders as holder (holder.id)}
 						<Table.Row>
 							<Table.Cell>
-								<a
-									href={resolve('/assets/[id]', { id: holder.id })}
-									class="flex items-center gap-2 hover:text-primary"
-								>
+								<a href={nodeHref(holder.id)} class="flex items-center gap-2 hover:text-primary">
 									<AssetIcon src={holder.token?.icon} name={holder.token?.name ?? holder.id} />
 									{holder.token?.name ?? holder.id}
 								</a>
