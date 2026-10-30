@@ -17,6 +17,8 @@
 	import * as Table from '#lib/components/ui/table/index.ts';
 	import {
 		compositionHistory,
+		graphByToken,
+		graphNodes,
 		METHOD_NAMES,
 		partColor,
 		partName,
@@ -24,7 +26,8 @@
 		toComposition
 	} from '#lib/backing.ts';
 	import { formatCurrency, formatDate, formatPercentage } from '#lib/format.ts';
-	import { summariesQuery } from '#lib/queries.ts';
+	import ChainExplorer from '#lib/components/backing/ChainExplorer.svelte';
+	import { graphSeriesQuery, summariesQuery } from '#lib/queries.ts';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();
@@ -54,6 +57,12 @@
 	const source = $derived(reportData?.source ?? details.backing);
 	const reports = $derived(reportData?.reports ?? []);
 	const totalReserves = $derived(token.collateral?.value ?? 0);
+
+	// The backing chain with this token and every other token on several chains as one node.
+	const graph = graphSeriesQuery(() => data.graph);
+	const byToken = $derived(graphByToken(graph.data, assets));
+	const nodes = $derived(graphNodes(assets, summaries.data.tokens));
+	const tokenIds = $derived(new Set(summaries.data.tokens.map((t) => t.id)));
 </script>
 
 <Seo
@@ -162,9 +171,27 @@
 	</div>
 </NumberedSection>
 
+<NumberedSection
+	label="02 · Backing chain"
+	title="What {details.symbol} is backed by"
+	text="All chains together. Move the slider or press play to see the chain week by week."
+>
+	{#key token.id}
+		<ChainExplorer
+			assets={nodes}
+			snapshots={byToken.snapshots}
+			reports={byToken.reports}
+			focus={token.id}
+			panel={false}
+			nodeHref={(id) =>
+				tokenIds.has(id) ? resolve('/tokens/[id]', { id }) : resolve('/assets/[id]', { id })}
+		/>
+	{/key}
+</NumberedSection>
+
 {#if history.length}
 	<NumberedSection
-		label="02 · Composition over time"
+		label="03 · Composition over time"
 		title="What the reserves were made of"
 		text="All chains together. Before a chain was tracked, its part is missing from the totals."
 	>
@@ -174,7 +201,7 @@
 
 {#if series['collateralization-ratio'].length}
 	<NumberedSection
-		label="03 · Backing ratio"
+		label="04 · Backing ratio"
 		title="Reserves against market cap"
 		text="All chains together, at the report dates."
 		muted
@@ -191,7 +218,7 @@
 {/if}
 
 {#if composition}
-	<NumberedSection label="04 · Reserves today" title="Every reserve asset">
+	<NumberedSection label="05 · Reserves today" title="Every reserve asset">
 		<div class="overflow-hidden rounded-xl border bg-card">
 			<Table.Root>
 				<Table.Header>
@@ -230,7 +257,7 @@
 {#if source}
 	<NumberedSection
 		id="sources"
-		label="05 · Sources"
+		label="06 · Sources"
 		title="{reports.length} reports behind these numbers"
 		text={source.description}
 		muted

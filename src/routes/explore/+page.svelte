@@ -2,6 +2,8 @@
 	import ChainExplorer from '#lib/components/backing/ChainExplorer.svelte';
 	import Seo from '#lib/components/Seo.svelte';
 	import { formatCurrency } from '#lib/format.ts';
+	import { resolve } from '$app/paths';
+	import { graphByToken, graphNodes } from '#lib/backing.ts';
 	import { graphSeriesQuery, summariesQuery } from '#lib/queries.ts';
 	import type { PageProps } from './$types';
 
@@ -9,6 +11,11 @@
 
 	const summaries = summariesQuery(() => data);
 	const graph = graphSeriesQuery(() => data.graph);
+	// Tokens on several chains are one node each, like on the home page.
+	const byToken = $derived(graphByToken(graph.data, summaries.data.assets));
+	const nodes = $derived(graphNodes(summaries.data.assets, summaries.data.tokens));
+	const tokenIds = $derived(new Set(summaries.data.tokens.map((t) => t.id)));
+	const tokenOf = (id: string) => summaries.data.assets.find((a) => a.id == id)?.token ?? id;
 	const total = $derived(
 		summaries.data.assets.reduce((sum, a) => sum + (a.backing ? (a.collateral?.value ?? 0) : 0), 0)
 	);
@@ -29,9 +36,12 @@
 		</p>
 		<div class="mt-8">
 			<ChainExplorer
-				assets={summaries.data.assets}
-				snapshots={graph.data.snapshots}
-				reports={graph.data.reports}
+				assets={nodes}
+				snapshots={byToken.snapshots}
+				reports={byToken.reports}
+				nodeHref={(id) =>
+					tokenIds.has(id) ? resolve('/tokens/[id]', { id }) : resolve('/assets/[id]', { id })}
+				alias={tokenOf}
 				url
 			/>
 		</div>

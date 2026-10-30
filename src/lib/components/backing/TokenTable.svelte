@@ -60,7 +60,6 @@
 						class="flex items-center gap-3"
 						title={asset.chains.length > 3 ? asset.chains.map(chainName).join(', ') : undefined}
 					>
-						1 ? asset.chains.map(chainName).join(', ') : undefined} >
 						<AssetIcon src={asset.icon} name={asset.name} class="size-7" />
 						<span>
 							<span class="block font-medium">{asset.name}</span>
