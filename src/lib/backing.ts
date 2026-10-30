@@ -170,31 +170,31 @@ export function nodeOrder(snapshots: GraphSnapshot[]): Map<string, number> {
 }
 
 /**
- * Fixed colors per reserve asset, so a color means the same asset everywhere. One hue per kind of
- * reserve: green for cash, blues for US treasuries (darker for longer maturities, lighter when
- * issued), teal for repos, gold, orange for bitcoin, violet for ether, slate for reserves without
- * a breakdown. Equal lightness and chroma within a kind keep the mix readable.
+ * Fixed colors per reserve asset, so a color means the same asset everywhere. Soft pastels, like
+ * colored paper. One hue per kind of reserve: green for cash, blues for US treasuries (darker for
+ * longer maturities, lighter when issued), aqua for repos, gold, apricot for bitcoin, lavender for
+ * ether, warm gray for reserves without a breakdown.
  */
 const COLORS: Record<string, string> = {
-	'rwa:USD': 'oklch(0.72 0.13 155)',
-	'rwa:USTB': 'oklch(0.52 0.13 255)',
-	'rwa:USTB-WI': 'oklch(0.72 0.09 250)',
-	'rwa:USTNOTE': 'oklch(0.42 0.11 265)',
-	'rwa:USTNOTE-WI': 'oklch(0.8 0.06 255)',
-	'rwa:USTBOND': 'oklch(0.32 0.08 270)',
-	'rwa:USTBOND-WI': 'oklch(0.88 0.04 255)',
-	'rwa:USTrepo': 'oklch(0.7 0.1 200)',
-	'rwa:XAU': 'oklch(0.8 0.13 85)',
-	'bitcoin:BTC': 'oklch(0.72 0.15 55)',
-	'ethereum:ETH': 'oklch(0.58 0.13 290)',
-	'rwa:undefined': 'oklch(0.8 0.015 255)'
+	'rwa:USD': 'oklch(0.83 0.08 155)',
+	'rwa:USTB': 'oklch(0.7 0.08 250)',
+	'rwa:USTB-WI': 'oklch(0.82 0.05 250)',
+	'rwa:USTNOTE': 'oklch(0.6 0.08 255)',
+	'rwa:USTNOTE-WI': 'oklch(0.76 0.05 255)',
+	'rwa:USTBOND': 'oklch(0.5 0.07 260)',
+	'rwa:USTBOND-WI': 'oklch(0.7 0.05 260)',
+	'rwa:USTrepo': 'oklch(0.83 0.06 200)',
+	'rwa:XAU': 'oklch(0.89 0.09 90)',
+	'bitcoin:BTC': 'oklch(0.8 0.1 55)',
+	'ethereum:ETH': 'oklch(0.76 0.07 300)',
+	'rwa:undefined': 'oklch(0.9 0.01 80)'
 };
 const FALLBACK = [
-	'oklch(0.65 0.14 15)',
-	'oklch(0.65 0.1 130)',
-	'oklch(0.55 0.12 330)',
-	'oklch(0.75 0.08 40)',
-	'oklch(0.6 0.06 180)'
+	'oklch(0.8 0.08 15)',
+	'oklch(0.84 0.07 125)',
+	'oklch(0.75 0.07 330)',
+	'oklch(0.85 0.06 45)',
+	'oklch(0.8 0.05 180)'
 ];
 
 export function partColor(id: string, index = 0): string {

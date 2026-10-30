@@ -121,7 +121,7 @@
 	});
 
 	const linkColor = (link: Link) =>
-		hasPartColor(link.under) ? partColor(link.under) : 'var(--primary)';
+		hasPartColor(link.under) ? partColor(link.under) : 'oklch(0.86 0.02 250)';
 	const nameOf = (id: string) => partName(id, assets);
 
 	type Hover = { x: number; y: number } & (
@@ -135,7 +135,7 @@
 		return { x: event.clientX - rect.left, y: event.clientY - rect.top };
 	}
 	const linkOpacity = (index: number) =>
-		hover?.kind == 'link' ? (hover.index == index ? 0.8 : 0.15) : 0.5;
+		hover?.kind == 'link' ? (hover.index == index ? 1 : 0.3) : 0.9;
 
 	function nodeValue(node: SankeyNode<Node, Link>): number | null {
 		const incoming = (node.targetLinks ?? []) as SankeyLink<Node, Link>[];

@@ -124,8 +124,9 @@
 				props={{
 					area: {
 						curve: curveStepAfter,
-						fillOpacity: 0.9,
-						line: { class: 'stroke-0' },
+						fillOpacity: 1,
+						// A thin paper-colored line keeps neighboring pastels apart.
+						line: { class: 'stroke-background stroke-1' },
 						defined: (d: { data?: Row } & Row) => !(d.data ?? d).gap
 					},
 					yAxis: {
