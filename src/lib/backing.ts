@@ -197,8 +197,24 @@ const FALLBACK = [
 	'oklch(0.8 0.05 180)'
 ];
 
-export function partColor(id: string, index = 0): string {
-	return COLORS[id] ?? FALLBACK[index % FALLBACK.length]!;
+/** Below this share of a composition, a part is thin and drawn in the deeper shade. */
+export const THIN_SHARE = 0.05;
+
+/**
+ * Color of a reserve asset. Thin parts (a small share, a narrow link) use a deeper shade of the
+ * same hue, since a pastel sliver is hard to see on white.
+ */
+export function partColor(id: string, index = 0, thin = false): string {
+	const color = COLORS[id] ?? FALLBACK[index % FALLBACK.length]!;
+	return thin ? deepen(color) : color;
+}
+
+/** Deeper shade of an `oklch(L C H)` color: darker and more saturated, same hue. */
+function deepen(color: string): string {
+	const match = color.match(/^oklch\(([\d.]+) ([\d.]+) ([\d.]+)\)$/);
+	if (!match) return color;
+	const [, l, c, h] = match.map(Number) as [number, number, number, number];
+	return `oklch(${Math.max(l - 0.16, 0.35).toFixed(2)} ${Math.min(c * 1.6, 0.16).toFixed(3)} ${h})`;
 }
 
 /** Whether an asset has its own fixed color, which reserve assets do and tokens do not. */
