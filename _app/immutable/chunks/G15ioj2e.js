@@ -1,0 +1,1 @@
+import{P as e,Q as t,Vt as n,X as r,bt as i}from"./E874w5bE.js";var a=t(`<div class="w-full bg-card"><article class="mx-auto prose max-w-3xl px-4 py-12 sm:px-6 prose-a:text-primary"></article></div>`);function o(t,o){var s=a(),c=i(s);e(c,()=>o.html,!0),n(c),n(s),r(t,s)}export{o as t};

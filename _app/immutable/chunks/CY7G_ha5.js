@@ -1,0 +1,1 @@
+import{Q as e,X as t}from"./E874w5bE.js";var n=e(`<div class="pointer-events-none absolute inset-0 z-10 flex items-center justify-center text-3xl font-semibold tracking-tight text-foreground/10 select-none" aria-hidden="true">bcked.com</div>`);function r(e){var r=n();t(e,r)}export{r as t};
