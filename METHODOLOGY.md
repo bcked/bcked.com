@@ -50,8 +50,9 @@ statement about the safety of a token.
 ## Gaps and corrections
 
 From November 30, 2025 to October 27, 2026 the crawler did not run. Prices, supplies and on-chain
-backing for that period were filled with daily values from the sources below. WBTC backing has no
-historical source and is missing for that period.
+backing for that period were filled with daily values from the sources below. WBTC backing was
+rebuilt from the bitcoin transactions of its custodian addresses, and matches the recorded holdings
+on both ends of the gap.
 
 If a value is wrong, please report it with the
 [correction form](https://github.com/bcked/bcked-adapters/issues/new?template=correction.yml).
