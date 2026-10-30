@@ -58,6 +58,10 @@
 		panel?: boolean;
 		/** Keep the focus and the date in the URL query. Only on the Explore page. */
 		url?: boolean;
+		/** Page of a node. Defaults to the asset page, tokens have their own. */
+		nodeHref?: (id: string) => string;
+		/** Node that stands for an id in the URL, e.g. the token of a chain asset. */
+		alias?: (id: string) => string;
 	};
 
 	let {
@@ -66,7 +70,9 @@
 		reports = {},
 		focus: initialFocus = null,
 		panel = true,
-		url = false
+		url = false,
+		nodeHref = (id: string) => resolve('/assets/[id]', { id }),
+		alias = (id: string) => id
 	}: Props = $props();
 
 	// svelte-ignore state_referenced_locally
@@ -133,7 +139,8 @@
 		written = page.url.search;
 		if (url) {
 			const params = page.url.searchParams;
-			const focusParam = params.get('focus');
+			const param = params.get('focus');
+			const focusParam = param ? alias(param) : null;
 			if (focusParam && assets.some((a) => a.id == focusParam)) focus = focusParam;
 			// Older links name a month, they open on the last snapshot of that month.
 			const date = params.get('date') ?? params.get('month');
@@ -318,8 +325,8 @@
 				</Popover.Content>
 			</Popover.Root>
 			{#if focused}
-				<Button size="sm" variant="ghost" href={resolve('/assets/[id]', { id: focused.id })}>
-					Asset page <ArrowUpRight />
+				<Button size="sm" variant="ghost" href={nodeHref(focused.id)}>
+					Open page <ArrowUpRight />
 				</Button>
 				<Button
 					size="icon-sm"
@@ -409,7 +416,7 @@
 				links={visible}
 				direction="down"
 				{assets}
-				href={(id) => resolve('/assets/[id]', { id })}
+				href={nodeHref}
 				onselect={panel ? (id) => (focus = id) : undefined}
 				highlight={focus}
 				{order}

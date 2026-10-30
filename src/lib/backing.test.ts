@@ -1,6 +1,13 @@
 import { describe, expect, it } from 'vitest';
 import type { GraphSnapshot } from './api.ts';
-import { listRows, partColor, reserveRows, smoothReports, snapshotLinks } from './backing.ts';
+import {
+	graphByToken,
+	listRows,
+	partColor,
+	reserveRows,
+	smoothReports,
+	snapshotLinks
+} from './backing.ts';
 
 /** Weekly snapshots of one token backed by T-bills, from values per week. */
 function weeks(values: number[]): GraphSnapshot[] {
@@ -101,5 +108,35 @@ describe('listRows', () => {
 			['usdt', '/tokens/usdt', ['tron', 'ethereum']],
 			['ethereum:wbtc', '/assets/ethereum:wbtc', ['ethereum']]
 		]);
+	});
+});
+
+describe('graphByToken', () => {
+	it('combines the chains of a token into one node', () => {
+		const assets = [
+			{ id: 'ethereum:usdt', token: 'usdt' },
+			{ id: 'tron:usdt', token: 'usdt' }
+		] as never;
+		const { snapshots, reports } = graphByToken(
+			{
+				snapshots: [
+					{
+						date: '2026-06-30',
+						links: [
+							['ethereum:usdt', 'rwa:USTB', 40],
+							['tron:usdt', 'rwa:USTB', 50],
+							['tron:usdt', 'rwa:XAU', 5]
+						]
+					}
+				],
+				reports: { 'ethereum:usdt': ['2026-06-30'], 'tron:usdt': ['2026-06-30'] }
+			},
+			assets
+		);
+		expect(snapshots[0]!.links).toEqual([
+			['usdt', 'rwa:USTB', 90],
+			['usdt', 'rwa:XAU', 5]
+		]);
+		expect(reports).toEqual({ usdt: ['2026-06-30'] });
 	});
 });

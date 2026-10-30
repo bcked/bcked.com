@@ -427,3 +427,58 @@ export function listRows(
 		(a, b) => (b['market-cap']?.value ?? 0) - (a['market-cap']?.value ?? 0)
 	);
 }
+
+/** Token of each chain asset that belongs to one. */
+function tokenOf(assets: AssetSummary[]): Map<string, string> {
+	return new Map(assets.filter((a) => a.token).map((a) => [a.id, a.token!]));
+}
+
+/**
+ * The graph with the chain assets of each token combined into one node, the token: USDT on
+ * Ethereum, Tron and Solana become USDT. Links that end up the same are added up. Report dates
+ * move to the token too.
+ */
+export function graphByToken(
+	graph: { snapshots: GraphSnapshot[]; reports: Record<string, string[]> },
+	assets: AssetSummary[]
+): { snapshots: GraphSnapshot[]; reports: Record<string, string[]> } {
+	const token = tokenOf(assets);
+	const id = (asset: string) => token.get(asset) ?? asset;
+	const snapshots = graph.snapshots.map(({ date, links }) => {
+		const merged = new Map<string, [string, string, number | null]>();
+		for (const [from, to, usd] of links) {
+			const key = `${id(from)}>${id(to)}`;
+			const link = merged.get(key);
+			if (!link) merged.set(key, [id(from), id(to), usd]);
+			else link[2] = link[2] == null || usd == null ? null : link[2] + usd;
+		}
+		return { date, links: [...merged.values()] };
+	});
+	const reports: Record<string, string[]> = {};
+	for (const [asset, dates] of Object.entries(graph.reports))
+		reports[id(asset)] = [...new Set([...(reports[id(asset)] ?? []), ...dates])].sort();
+	return { snapshots, reports };
+}
+
+/** Assets and tokens as nodes for the Sankey: tokens with their combined values. */
+export function graphNodes(assets: AssetSummary[], tokens: TokenSummary[]): AssetSummary[] {
+	const byId = new Map(assets.map((a) => [a.id, a]));
+	return [
+		...assets,
+		...tokens.map((t): AssetSummary => ({
+			...(byId.get(t.assets[0] ?? '') ?? ({} as AssetSummary)),
+			id: t.id,
+			token: null,
+			name: t.name,
+			symbol: t.symbol,
+			icon: t.icon,
+			tags: t.tags,
+			backing: t.backing,
+			linkedEntities: { issuer: t.issuer ?? undefined },
+			composition: t.composition,
+			'market-cap': t['market-cap'],
+			'collateralization-ratio': t['collateralization-ratio'],
+			collateral: t.collateral
+		}))
+	];
+}
