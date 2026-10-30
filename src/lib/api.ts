@@ -116,6 +116,8 @@ export type AssetDetails = {
 	reference: string | null;
 	tags: string[];
 	backing: BackingSource | null;
+	/** Shown as a banner, e.g. for a discontinued token. Older API builds leave it out. */
+	warning?: { text: string; date: string; reference: string | null } | null;
 	listed: string;
 	updated: string;
 };
