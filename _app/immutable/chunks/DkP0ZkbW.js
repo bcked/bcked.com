@@ -1,0 +1,1 @@
+import{$ as e,C as t,Z as n,_t as r}from"./BILIwCXQ.js";var i=e(`<span class="inline-block size-2 shrink-0 rounded-full bg-(--dot-color)"></span>`);function a(e,a){var o=i();let s;r(()=>s=t(o,``,s,{"--dot-color":a.color})),n(e,o)}export{a as t};
