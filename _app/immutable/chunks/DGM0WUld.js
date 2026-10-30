@@ -96,8 +96,9 @@ with the price at any time.
   stored with the time the report states, converted to UTC. Reserve categories are mapped to assets as
   closely as the report allows. Commercial paper, money market funds, secured loans, equities and
   similar categories are their own reserve assets, counted at the US dollar value the report states.
-  Categories that do not name a kind of asset, like Tether's "other investments", are shown as
-  "Other reserves (not broken down)".
+  Reserves whose composition the issuer does not report are shown as
+  "Composition not reported": Tether's "other investments", sums of several kinds of assets in one
+  line, and periods where a report only states the total.
 - **Reserves for several chains.** Some issuers report one reserve for a token on all chains (Tether,
   Circle). The token on one chain gets the share of the reserve that matches its share of the
   circulating supply on that day, based on [DefiLlama](https://defillama.com/stablecoins).
