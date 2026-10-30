@@ -26,8 +26,10 @@ with the price at any time.
   contract.
 - **Reported backing** comes from the issuers' attestation reports or reserve pages. Each report date is
   stored with the time the report states, converted to UTC. Reserve categories are mapped to assets as
-  closely as the report allows. Categories that do not name a specific asset are shown as "Other
-  reserves (not broken down)", counted at their US dollar value.
+  closely as the report allows. Commercial paper, money market funds, secured loans, equities and
+  similar categories are their own reserve assets, counted at the US dollar value the report states.
+  Categories that do not name a kind of asset, like Tether's "other investments", are shown as
+  "Other reserves (not broken down)".
 - **Reserves for several chains.** Some issuers report one reserve for a token on all chains (Tether,
   Circle). The token on one chain gets the share of the reserve that matches its share of the
   circulating supply on that day, based on [DefiLlama](https://defillama.com/stablecoins).

@@ -173,7 +173,9 @@ export function nodeOrder(snapshots: GraphSnapshot[]): Map<string, number> {
  * Fixed colors per reserve asset, so a color means the same asset everywhere. Soft pastels, like
  * colored paper. One hue per kind of reserve: green for cash, blues for US treasuries (darker for
  * longer maturities, lighter when issued), aqua for repos, gold, apricot for bitcoin, lavender for
- * ether, warm gray for reserves without a breakdown.
+ * ether, periwinkle for commercial paper, mint for money market funds, sky for non-US bills, slate
+ * for corporate bonds, rose for secured loans, sage for equities, warm gray for reserves without a
+ * breakdown.
  */
 const COLORS: Record<string, string> = {
 	'rwa:USD': 'oklch(0.83 0.08 155)',
@@ -187,6 +189,12 @@ const COLORS: Record<string, string> = {
 	'rwa:XAU': 'oklch(0.89 0.09 90)',
 	'bitcoin:BTC': 'oklch(0.8 0.1 55)',
 	'ethereum:ETH': 'oklch(0.76 0.07 300)',
+	'rwa:CP': 'oklch(0.8 0.06 280)',
+	'rwa:MMF': 'oklch(0.84 0.07 175)',
+	'rwa:NONUSTB': 'oklch(0.86 0.05 225)',
+	'rwa:CORPBOND': 'oklch(0.72 0.05 240)',
+	'rwa:LOAN': 'oklch(0.8 0.08 15)',
+	'rwa:EQUITY': 'oklch(0.84 0.07 125)',
 	'rwa:undefined': 'oklch(0.9 0.01 80)'
 };
 const FALLBACK = [
@@ -233,6 +241,12 @@ const SHORT: Record<string, string> = {
 	'rwa:USTBOND-WI': 'T-Bonds (WI)',
 	'rwa:USTrepo': 'Repos',
 	'rwa:XAU': 'Gold',
+	'rwa:CP': 'Commercial paper',
+	'rwa:MMF': 'Money market funds',
+	'rwa:NONUSTB': 'Non-US T-Bills',
+	'rwa:CORPBOND': 'Corporate bonds',
+	'rwa:LOAN': 'Secured loans',
+	'rwa:EQUITY': 'Equities',
 	'rwa:undefined': 'Other'
 };
 
