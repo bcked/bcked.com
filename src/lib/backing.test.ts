@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { GraphSnapshot } from './api.ts';
-import { partColor, reserveRows, smoothReports, snapshotLinks } from './backing.ts';
+import { groupTokens, partColor, reserveRows, smoothReports, snapshotLinks } from './backing.ts';
 
 /** Weekly snapshots of one token backed by T-bills, from values per week. */
 function weeks(values: number[]): GraphSnapshot[] {
@@ -73,5 +73,33 @@ describe('reserveRows', () => {
 			['bitcoin:BTC', 40, 0.4]
 		]);
 		expect(rows[1]!.holders).toEqual([{ id: 'wbtc', usd: 40 }]);
+	});
+});
+
+describe('groupTokens', () => {
+	const token = (id: string, system: string, reserves: number, ratio: number, cap: number) =>
+		({
+			id,
+			name: 'Tether USD',
+			symbol: 'USDT',
+			system,
+			linkedEntities: { issuer: 'tether' },
+			collateral: { date: '2026-06-30', value: reserves, change: {} },
+			'collateralization-ratio': { date: '2026-06-30', value: ratio, change: {} },
+			'market-cap': { date: '2026-10-30', value: cap, change: {} },
+			composition: { date: '2026-06-30', parts: { 'rwa:USTB': reserves } }
+		}) as never;
+
+	it('adds up a token across chains and keeps the ratio at the backing date', () => {
+		const [group] = groupTokens([
+			token('ethereum:usdt', 'ethereum', 80, 1.0, 90),
+			token('tron:usdt', 'tron', 90, 1.125, 95)
+		]);
+		expect(group!.id).toBe('tron:usdt');
+		expect(group!.chains).toEqual(['tron', 'ethereum']);
+		expect(group!.collateral!.value).toBe(170);
+		expect(group!['market-cap']!.value).toBe(185);
+		expect(group!['collateralization-ratio']!.value).toBeCloseTo(170 / 160);
+		expect(group!.composition!.parts['rwa:USTB']).toBe(170);
 	});
 });

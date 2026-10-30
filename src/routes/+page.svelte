@@ -7,7 +7,7 @@
 	import Sankey from '#lib/components/Sankey.svelte';
 	import Seo from '#lib/components/Seo.svelte';
 	import { Button } from '#lib/components/ui/button/index.ts';
-	import { snapshotLinks, reserveHistory } from '#lib/backing.ts';
+	import { groupTokens, snapshotLinks, reserveHistory } from '#lib/backing.ts';
 	import { formatCurrency } from '#lib/format.ts';
 	import { graphSeriesQuery, summariesQuery } from '#lib/queries.ts';
 	import type { PageProps } from './$types';
@@ -22,13 +22,20 @@
 			.filter((a) => a.backing)
 			.toSorted((a, b) => (b['market-cap']?.value ?? 0) - (a['market-cap']?.value ?? 0))
 	);
+	/** One row per token across its chains, the largest first. */
+	const grouped = $derived(
+		groupTokens(backed).toSorted(
+			(a, b) => (b['market-cap']?.value ?? 0) - (a['market-cap']?.value ?? 0)
+		)
+	);
+	const TOP = 8;
 	const total = $derived(backed.reduce((sum, a) => sum + (a.collateral?.value ?? 0), 0));
 	const snapshots = $derived(graph.data.snapshots);
 	const history = $derived(reserveHistory(snapshots));
 	const reserveTypes = $derived(Object.keys(history.at(-1)?.parts ?? {}).length);
 	const metrics = $derived([
 		['Reserves recorded', formatCurrency(total)],
-		['Backed tokens', backed.length.toString()],
+		['Backed tokens', grouped.length.toString()],
 		['Reserve assets', reserveTypes.toString()],
 		['Months of chain history', new Set(snapshots.map((s) => s.date.slice(0, 7))).size.toString()]
 	]);
@@ -69,8 +76,19 @@
 	text="Not one total per token, but every reserve category from the issuer’s report or the chain."
 >
 	<div class="rounded-xl border bg-card">
-		<TokenTable tokens={backed} assets={summaries.data.assets} />
+		<TokenTable
+			tokens={grouped.slice(0, TOP)}
+			assets={summaries.data.assets}
+			systems={summaries.data.systems}
+		/>
 	</div>
+	{#if grouped.length > TOP}
+		<div class="mt-4 flex justify-end">
+			<Button href={resolve('/assets')} variant="ghost" size="sm">
+				All {grouped.length} tokens, per chain <ArrowRight />
+			</Button>
+		</div>
+	{/if}
 </NumberedSection>
 
 <NumberedSection
