@@ -33,8 +33,14 @@ export type Summaries = Awaited<ReturnType<typeof fetchSummaries>>;
 
 /** The backing graph per week, links as [from, to, USD]. */
 export async function fetchGraphSeries(fetch: Fetch): Promise<GraphSeries> {
-	const { nodes, weeks } = await get<GraphWeekly>(fetch, '/graphs/collateralization/weekly');
+	const { nodes, weeks, reports } = await get<GraphWeekly>(
+		fetch,
+		'/graphs/collateralization/weekly'
+	);
 	return {
+		reports: Object.fromEntries(
+			Object.entries(reports ?? {}).map(([index, dates]) => [nodes[Number(index)]!, dates])
+		),
 		snapshots: weeks.map(({ date, links }) => ({
 			date,
 			links: links.map(([from, to, usd]) => [nodes[from]!, nodes[to]!, usd])

@@ -63,10 +63,16 @@ export type GraphSnapshot = { date: string; links: [string, string, number | nul
 export type GraphWeekly = {
 	nodes: string[];
 	weeks: { date: string; links: [number, number, number | null][] }[];
+	/** Report dates per node index, for assets whose backing comes from reports. */
+	reports?: Record<string, string[]>;
 };
 
 /** The backing graph on the last recorded day of every week. */
-export type GraphSeries = { snapshots: GraphSnapshot[] };
+export type GraphSeries = {
+	snapshots: GraphSnapshot[];
+	/** Report dates per asset id, for assets whose backing comes from reports. */
+	reports: Record<string, string[]>;
+};
 
 type GroupSummary = {
 	id: string;
