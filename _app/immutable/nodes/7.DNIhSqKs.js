@@ -1,0 +1,1 @@
+import{t as e}from"../chunks/DK3Fl9T5.js";import{o as t}from"../chunks/qgd0tyjh.js";import{n}from"../chunks/uA_j_IVI.js";var r=e({entries:()=>i,load:()=>a}),i=async()=>(await t(fetch)).map(({id:e})=>({id:e})),a=()=>n(308,`/explore`);export{r as universal};
