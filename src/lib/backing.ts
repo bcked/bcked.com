@@ -320,3 +320,51 @@ export function exploreQuery(focus: string | null, date: string | null): string 
 	if (date) params.set('date', date);
 	return params.size ? `?${params}` : '';
 }
+
+/** One reserve asset across all tracked tokens, for the reserves overview. */
+export type ReserveRow = {
+	id: string;
+	usd: number;
+	share: number;
+	/** Value a year before the latest snapshot, null without data that far back. */
+	yearAgo: number | null;
+	/** Weekly values over the last year, oldest first. */
+	trend: number[];
+	/** Tokens holding it directly, largest first. */
+	holders: { id: string; usd: number }[];
+};
+
+/**
+ * Reserve assets at the end of the backing chains in the latest snapshot, largest first. Value passed
+ * through a chain (a token backed by WBTC, which is backed by bitcoin) counts once, at its end.
+ */
+export function reserveRows(snapshots: GraphSnapshot[]): ReserveRow[] {
+	const history = reserveHistory(snapshots);
+	const latest = history.at(-1);
+	if (!latest) return [];
+	const total = Object.values(latest.parts).reduce((a, b) => a + b, 0);
+	const yearBefore = new Date(Date.parse(latest.date) - 365 * 24 * 60 * 60 * 1000)
+		.toISOString()
+		.slice(0, 10);
+	const past = history.findLast((p) => p.date <= yearBefore);
+	const lastYear = history.filter((p) => p.date > yearBefore);
+	const links = snapshotLinks(snapshots.at(-1));
+	return Object.entries(latest.parts)
+		.filter(([, usd]) => usd > 0)
+		.map(([id, usd]) => {
+			const holders: Record<string, number> = {};
+			for (const l of links)
+				if (l.target == id) holders[l.source] = (holders[l.source] ?? 0) + (l.usd ?? 0);
+			return {
+				id,
+				usd,
+				share: total ? usd / total : 0,
+				yearAgo: past ? (past.parts[id] ?? 0) : null,
+				trend: lastYear.map((p) => p.parts[id] ?? 0),
+				holders: Object.entries(holders)
+					.map(([holder, value]) => ({ id: holder, usd: value }))
+					.toSorted((a, b) => b.usd - a.usd)
+			};
+		})
+		.toSorted((a, b) => b.usd - a.usd);
+}

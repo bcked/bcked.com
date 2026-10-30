@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { GraphSnapshot } from './api.ts';
-import { partColor, smoothReports, snapshotLinks } from './backing.ts';
+import { partColor, reserveRows, smoothReports, snapshotLinks } from './backing.ts';
 
 /** Weekly snapshots of one token backed by T-bills, from values per week. */
 function weeks(values: number[]): GraphSnapshot[] {
@@ -53,5 +53,25 @@ describe('snapshotLinks', () => {
 			]
 		});
 		expect(links.map((l) => l.target)).toEqual(['rwa:USTB', 'rwa:XAU']);
+	});
+});
+
+describe('reserveRows', () => {
+	it('counts value passed through a token once, at the reserve asset', () => {
+		const rows = reserveRows([
+			{
+				date: '2026-06-30',
+				links: [
+					['usdt', 'rwa:USTB', 60],
+					['usdt', 'wbtc', 40],
+					['wbtc', 'bitcoin:BTC', 40]
+				]
+			}
+		]);
+		expect(rows.map((r) => [r.id, r.usd, r.share])).toEqual([
+			['rwa:USTB', 60, 0.6],
+			['bitcoin:BTC', 40, 0.4]
+		]);
+		expect(rows[1]!.holders).toEqual([{ id: 'wbtc', usd: 40 }]);
 	});
 });
