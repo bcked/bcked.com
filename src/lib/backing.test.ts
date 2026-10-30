@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { GraphSnapshot } from './api.ts';
-import { smoothReports } from './backing.ts';
+import { partColor, smoothReports } from './backing.ts';
 
 /** Weekly snapshots of one token backed by T-bills, from values per week. */
 function weeks(values: number[]): GraphSnapshot[] {
@@ -32,5 +32,12 @@ describe('smoothReports', () => {
 		expect(smoothReports(yearly, { token: [yearly[0]!.date, '2027-06-01'] }).map(value)).toEqual([
 			100, 100, 100, 100, 200
 		]);
+	});
+});
+
+describe('partColor', () => {
+	it('uses a deeper shade of the same hue for thin parts', () => {
+		expect(partColor('rwa:USD')).toBe('oklch(0.83 0.08 155)');
+		expect(partColor('rwa:USD', 0, true)).toBe('oklch(0.67 0.128 155)');
 	});
 });

@@ -16,7 +16,7 @@
 	import Watermark from '#lib/components/Watermark.svelte';
 	import ColorDot from './ColorDot.svelte';
 	import { formatCurrency, formatDate, formatPercentage } from '#lib/format.ts';
-	import { partColor, partName, type CompositionPoint } from '#lib/backing.ts';
+	import { partColor, partName, THIN_SHARE, type CompositionPoint } from '#lib/backing.ts';
 
 	type Mode = 'share' | 'usd';
 	type Row = { date: Date; gap: boolean } & Record<string, number | Date | boolean>;
@@ -72,13 +72,25 @@
 		})
 	);
 
+	/** Assets that never reach a visible share, drawn in the deeper shade. */
+	const thin = $derived.by(() => {
+		const peak: Record<string, number> = {};
+		for (const p of points) {
+			const total = Object.values(p.parts).reduce((a, b) => a + b, 0);
+			for (const [id, usd] of Object.entries(p.parts))
+				peak[id] = Math.max(peak[id] ?? 0, total ? usd / total : 0);
+		}
+		return new Set(keys.filter((k) => (peak[k] ?? 0) < THIN_SHARE));
+	});
+	const colorOf = (id: string, i: number) => partColor(id, i, thin.has(id));
+
 	// Series keys must be valid CSS names for the chart colors, asset ids like rwa:USD are not.
 	const series = $derived(
 		keys.map((id, i) => ({
 			key: `s${i}`,
 			label: partName(id, assets),
 			value: (d: Row) => d[id] as number,
-			color: partColor(id, i)
+			color: colorOf(id, i)
 		}))
 	);
 	const config = $derived(
@@ -161,7 +173,7 @@
 			<span class="font-medium text-foreground">Latest, {formatDate(latest.date)}</span>
 			{#each keys.filter((k) => latest.parts[k]) as key, i (key)}
 				<span class="flex items-center gap-1.5">
-					<ColorDot color={partColor(key, i)} />
+					<ColorDot color={colorOf(key, i)} />
 					{partName(key, assets)}
 				</span>
 			{/each}

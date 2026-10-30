@@ -5,7 +5,7 @@
 <script lang="ts">
 	import type { AssetSummary } from '#lib/api.ts';
 	import { formatCurrency } from '#lib/format.ts';
-	import { partColor, partName, type Composition } from '#lib/backing.ts';
+	import { partColor, partName, THIN_SHARE, type Composition } from '#lib/backing.ts';
 	import { cn } from '#lib/utils.ts';
 	import ColorDot from './ColorDot.svelte';
 
@@ -24,6 +24,9 @@
 		class: clazz = '',
 		barClass = 'h-2'
 	}: Props = $props();
+
+	const color = (part: Composition['parts'][number], i: number) =>
+		partColor(part.id, i, part.usd / composition.total < THIN_SHARE);
 </script>
 
 <div class={clazz}>
@@ -32,7 +35,7 @@
 			<div
 				class="h-full w-(--part-width) bg-(--part-color)"
 				style:--part-width="{(part.usd / composition.total) * 100}%"
-				style:--part-color={partColor(part.id, i)}
+				style:--part-color={color(part, i)}
 				title="{partName(part.id, assets)}: {formatCurrency(part.usd)}"
 			></div>
 		{/each}
@@ -41,7 +44,7 @@
 		<ul class="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-xs text-muted-foreground">
 			{#each composition.parts as part, i (part.id)}
 				<li class="flex items-center gap-1.5">
-					<ColorDot color={partColor(part.id, i)} />
+					<ColorDot color={color(part, i)} />
 					{partName(part.id, assets)}
 					<span class="tabular-nums">{Math.round((part.usd / composition.total) * 100)}%</span>
 				</li>

@@ -120,8 +120,9 @@
 		return totals;
 	});
 
-	const linkColor = (link: Link) =>
-		hasPartColor(link.under) ? partColor(link.under) : 'oklch(0.86 0.02 250)';
+	/** Narrow links use the deeper shade of their reserve, pastel slivers are hard to see. */
+	const linkColor = (link: Link, width: number) =>
+		hasPartColor(link.under) ? partColor(link.under, 0, width < 6) : 'oklch(0.86 0.02 250)';
 	const nameOf = (id: string) => partName(id, assets);
 
 	type Hover = { x: number; y: number } & (
@@ -162,7 +163,7 @@
 				<path
 					d={linkPath(link)}
 					fill="none"
-					stroke={linkColor(data)}
+					stroke={linkColor(data, link.width ?? 0)}
 					stroke-opacity={linkOpacity(i)}
 					stroke-width={Math.max(link.width ?? 0, 2)}
 					role="presentation"
@@ -204,7 +205,13 @@
 							: 'fill-card stroke-border hover:fill-muted'}
 					/>
 					{#if hasPartColor(node.id)}
-						<rect {x} y={y + nodeThickness - 3} width={w} height="3" fill={partColor(node.id)} />
+						<rect
+							{x}
+							y={y + nodeThickness - 3}
+							width={w}
+							height="3"
+							fill={partColor(node.id, 0, true)}
+						/>
 					{/if}
 					<foreignObject
 						x={Math.min(Math.max(x + w / 2 - labelWidth / 2, 0), width - labelWidth)}

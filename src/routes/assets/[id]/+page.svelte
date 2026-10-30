@@ -17,6 +17,7 @@
 		METHOD_NAMES,
 		snapshotLinks,
 		partColor,
+		THIN_SHARE,
 		partName,
 		toComposition
 	} from '#lib/backing.ts';
@@ -234,7 +235,9 @@
 									href={resolve('/assets/[id]', { id: part.id })}
 									class="flex items-center gap-2 hover:text-primary"
 								>
-									<ColorDot color={partColor(part.id, i)} />
+									<ColorDot
+										color={partColor(part.id, i, part.usd / composition.total < THIN_SHARE)}
+									/>
 									{partName(part.id, assets)}
 								</a>
 							</Table.Cell>
