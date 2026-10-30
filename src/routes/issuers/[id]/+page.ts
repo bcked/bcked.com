@@ -18,8 +18,10 @@ export const load: PageLoad = async ({ params, parent, fetch }) => {
 	]);
 	// Tokens with issuer-wide reports list the same reports, keep each once.
 	const seen = new Set<string>();
+	// Newest first across all its tokens, so the last one is the first report.
 	const list = reports
 		.flatMap((r) => r?.reports ?? [])
-		.filter((r) => !seen.has(r.file) && !!seen.add(r.file));
+		.filter((r) => !seen.has(r.file) && !!seen.add(r.file))
+		.toSorted((a, b) => b.report.localeCompare(a.report));
 	return { group, series, reports: list };
 };

@@ -2,7 +2,8 @@
 	import Seo from '#lib/components/Seo.svelte';
 	import TokenTable from '#lib/components/backing/TokenTable.svelte';
 	import * as Tabs from '#lib/components/ui/tabs/index.ts';
-	import { assetKind, KIND_NAMES, snapshotLinks, type Kind } from '#lib/backing.ts';
+	import { resolve } from '$app/paths';
+	import { assetKind, KIND_NAMES, listRows, snapshotLinks, type Kind } from '#lib/backing.ts';
 	import { graphSeriesQuery, summariesQuery } from '#lib/queries.ts';
 	import type { PageProps } from './$types';
 
@@ -13,10 +14,12 @@
 	const links = $derived(snapshotLinks(graph.data.snapshots.at(-1)));
 
 	let filter: 'all' | Kind = $state('all');
+	/** One row per token across its chains, and assets on one chain. */
 	const tokens = $derived(
-		summaries.data.assets
-			.filter((a) => a.backing)
-			.toSorted((a, b) => (b['market-cap']?.value ?? 0) - (a['market-cap']?.value ?? 0))
+		listRows(summaries.data.assets, summaries.data.tokens, {
+			token: (id) => resolve('/tokens/[id]', { id }),
+			asset: (id) => resolve('/assets/[id]', { id })
+		})
 	);
 	const rows = $derived(tokens.filter((a) => filter == 'all' || assetKind(a) == filter));
 </script>

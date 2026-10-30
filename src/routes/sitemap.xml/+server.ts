@@ -1,5 +1,5 @@
 // https://www.sitemaps.org/protocol.html
-import { getAssets, getEntities } from '#lib/api.ts';
+import { getAssets, getEntities, getTokens } from '#lib/api.ts';
 import type { RequestHandler } from './$types';
 
 export const prerender = true;
@@ -7,7 +7,11 @@ export const prerender = true;
 const SITE = 'https://bcked.com';
 
 export const GET: RequestHandler = async ({ fetch }) => {
-	const [assets, entities] = await Promise.all([getAssets(fetch), getEntities(fetch)]);
+	const [assets, tokens, entities] = await Promise.all([
+		getAssets(fetch),
+		getTokens(fetch),
+		getEntities(fetch)
+	]);
 
 	const urls = [
 		{ loc: '/', changefreq: 'daily' },
@@ -24,6 +28,7 @@ export const GET: RequestHandler = async ({ fetch }) => {
 			changefreq: 'daily',
 			lastmod: a.price?.date
 		})),
+		...tokens.map((t) => ({ loc: `/tokens/${t.id}`, changefreq: 'daily' })),
 		...entities.map((e) => ({ loc: `/issuers/${e.id}`, changefreq: 'daily' }))
 	];
 

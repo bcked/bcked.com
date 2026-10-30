@@ -45,6 +45,14 @@
 		summaries.data.entities.find((e) => e.id == details.linkedEntities.issuer)
 	);
 	const system = $derived(summaries.data.systems.find((s) => s.id == details.identifier.system));
+	/** The token across chains this asset is one chain of, and all its chains. */
+	const token = $derived(summaries.data.tokens.find((t) => t.id == (details.token ?? asset.token)));
+	const siblings = $derived(
+		(token?.assets ?? [])
+			.map((id) => summaries.data.assets.find((a) => a.id == id))
+			.filter((a) => a != null)
+			.toSorted((a, b) => (b['market-cap']?.value ?? 0) - (a['market-cap']?.value ?? 0))
+	);
 
 	const snapshots = $derived(graph.data.snapshots);
 	const links = $derived(snapshotLinks(snapshots.at(-1)));
@@ -131,7 +139,8 @@
 			<AssetIcon src={asset.icon} name={details.name} class="size-10" />
 			<h1 class="text-3xl font-light tracking-tight">{details.name}</h1>
 			<Badge variant="secondary">{details.symbol}</Badge>
-			{#if system && system.id != 'rwa'}<Badge variant="outline">{system.name}</Badge>{/if}
+			{#if system && system.id != 'rwa' && !token}<Badge variant="outline">{system.name}</Badge
+				>{/if}
 			{#if issuer}
 				<Badge variant="outline" href={resolve('/issuers/[id]', { id: issuer.id })}>
 					Issued by {issuer.name}
@@ -139,6 +148,24 @@
 			{/if}
 		</div>
 
+		{#if token}
+			<nav
+				aria-label="{details.symbol} on other chains"
+				class="mt-3 flex flex-wrap items-center gap-1.5 text-sm text-muted-foreground"
+			>
+				{details.symbol} on:
+				<Badge variant="outline" href={resolve('/tokens/[id]', { id: token.id })}>All chains</Badge>
+				{#each siblings as sibling (sibling.id)}
+					<Badge
+						variant={sibling.id == asset.id ? 'default' : 'outline'}
+						href={sibling.id == asset.id ? undefined : resolve('/assets/[id]', { id: sibling.id })}
+						aria-current={sibling.id == asset.id ? 'page' : undefined}
+					>
+						{summaries.data.systems.find((s) => s.id == sibling.system)?.name ?? sibling.system}
+					</Badge>
+				{/each}
+			</nav>
+		{/if}
 		{#if composition}
 			<div class="mt-8 flex flex-col gap-8 sm:flex-row sm:items-end">
 				<div>

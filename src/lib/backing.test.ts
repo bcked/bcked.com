@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { GraphSnapshot } from './api.ts';
-import { groupTokens, partColor, reserveRows, smoothReports, snapshotLinks } from './backing.ts';
+import { listRows, partColor, reserveRows, smoothReports, snapshotLinks } from './backing.ts';
 
 /** Weekly snapshots of one token backed by T-bills, from values per week. */
 function weeks(values: number[]): GraphSnapshot[] {
@@ -76,30 +76,30 @@ describe('reserveRows', () => {
 	});
 });
 
-describe('groupTokens', () => {
-	const token = (id: string, system: string, reserves: number, ratio: number, cap: number) =>
-		({
-			id,
-			name: 'Tether USD',
-			symbol: 'USDT',
-			system,
-			linkedEntities: { issuer: 'tether' },
-			collateral: { date: '2026-06-30', value: reserves, change: {} },
-			'collateralization-ratio': { date: '2026-06-30', value: ratio, change: {} },
-			'market-cap': { date: '2026-10-30', value: cap, change: {} },
-			composition: { date: '2026-06-30', parts: { 'rwa:USTB': reserves } }
-		}) as never;
+describe('listRows', () => {
+	const asset = (id: string, system: string, cap: number, token: string | null) =>
+		({ id, system, token, backing: 'reports', 'market-cap': { value: cap } }) as never;
 
-	it('adds up a token across chains and keeps the ratio at the backing date', () => {
-		const [group] = groupTokens([
-			token('ethereum:usdt', 'ethereum', 80, 1.0, 90),
-			token('tron:usdt', 'tron', 90, 1.125, 95)
+	it('lists tokens and the assets that are not a chain of a token', () => {
+		const rows = listRows(
+			[
+				asset('ethereum:usdt', 'ethereum', 70, 'usdt'),
+				asset('tron:usdt', 'tron', 90, 'usdt'),
+				asset('ethereum:wbtc', 'ethereum', 9, null)
+			],
+			[
+				{
+					id: 'usdt',
+					name: 'Tether USD',
+					assets: ['ethereum:usdt', 'tron:usdt'],
+					'market-cap': { value: 160 }
+				} as never
+			],
+			{ token: (id) => `/tokens/${id}`, asset: (id) => `/assets/${id}` }
+		);
+		expect(rows.map((r) => [r.id, r.href, r.chains])).toEqual([
+			['usdt', '/tokens/usdt', ['tron', 'ethereum']],
+			['ethereum:wbtc', '/assets/ethereum:wbtc', ['ethereum']]
 		]);
-		expect(group!.id).toBe('tron:usdt');
-		expect(group!.chains).toEqual(['tron', 'ethereum']);
-		expect(group!.collateral!.value).toBe(170);
-		expect(group!['market-cap']!.value).toBe(185);
-		expect(group!['collateralization-ratio']!.value).toBeCloseTo(170 / 160);
-		expect(group!.composition!.parts['rwa:USTB']).toBe(170);
 	});
 });

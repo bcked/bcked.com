@@ -7,7 +7,7 @@
 	import Sankey from '#lib/components/Sankey.svelte';
 	import Seo from '#lib/components/Seo.svelte';
 	import { Button } from '#lib/components/ui/button/index.ts';
-	import { groupTokens, snapshotLinks, reserveHistory } from '#lib/backing.ts';
+	import { listRows, snapshotLinks, reserveHistory } from '#lib/backing.ts';
 	import { formatCurrency } from '#lib/format.ts';
 	import { graphSeriesQuery, summariesQuery } from '#lib/queries.ts';
 	import type { PageProps } from './$types';
@@ -24,9 +24,10 @@
 	);
 	/** One row per token across its chains, the largest first. */
 	const grouped = $derived(
-		groupTokens(backed).toSorted(
-			(a, b) => (b['market-cap']?.value ?? 0) - (a['market-cap']?.value ?? 0)
-		)
+		listRows(summaries.data.assets, summaries.data.tokens, {
+			token: (id) => resolve('/tokens/[id]', { id }),
+			asset: (id) => resolve('/assets/[id]', { id })
+		})
 	);
 	const TOP = 8;
 	const total = $derived(backed.reduce((sum, a) => sum + (a.collateral?.value ?? 0), 0));
@@ -85,7 +86,7 @@
 	{#if grouped.length > TOP}
 		<div class="mt-4 flex justify-end">
 			<Button href={resolve('/assets')} variant="ghost" size="sm">
-				All {grouped.length} tokens, per chain <ArrowRight />
+				All {grouped.length} tokens <ArrowRight />
 			</Button>
 		</div>
 	{/if}

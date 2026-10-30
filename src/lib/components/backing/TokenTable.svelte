@@ -4,18 +4,17 @@
   backing method and the depth of the backing chain.
 -->
 <script lang="ts">
-	import { resolve } from '$app/paths';
 	import type { AssetSummary } from '#lib/api.ts';
 	import AssetIcon from '#lib/components/AssetIcon.svelte';
 	import * as Table from '#lib/components/ui/table/index.ts';
-	import { chainDepth, METHOD_NAMES, summaryComposition } from '#lib/backing.ts';
+	import { chainDepth, METHOD_NAMES, summaryComposition, type ListRow } from '#lib/backing.ts';
 	import { formatCurrency, formatDate, formatPercentage } from '#lib/format.ts';
 	import type { GraphLink } from '#lib/graph.ts';
 	import CompositionBar from './CompositionBar.svelte';
 
 	type Props = {
-		/** Tokens, or tokens grouped across chains (`chains`). */
-		tokens: (AssetSummary & { chains?: string[] })[];
+		/** Rows of tokens across their chains and of assets on one chain. */
+		tokens: ListRow[];
 		assets: AssetSummary[];
 		/** Chains, for their names. */
 		systems?: { id: string; name: string | null }[];
@@ -27,11 +26,13 @@
 	let { tokens, assets, systems = [], links = [], full = false }: Props = $props();
 
 	const chainName = (id: string | null) => systems.find((s) => s.id == id)?.name ?? id ?? '';
-	/** "on Tron" for one chain, "on 3 chains" for a grouped token. */
-	const where = (token: AssetSummary & { chains?: string[] }) =>
-		token.chains && token.chains.length > 1
-			? `on ${token.chains.length} chains`
-			: `on ${chainName(token.chains?.[0] ?? token.system)}`;
+	/** "on Tron", "on Tron, Ethereum and Solana", or "on 5 chains" with the names in the title. */
+	function where(row: ListRow) {
+		const names = row.chains.map(chainName);
+		if (names.length <= 1) return `on ${names[0] ?? ''}`;
+		if (names.length <= 3) return `on ${names.slice(0, -1).join(', ')} and ${names.at(-1)}`;
+		return `on ${names.length} chains`;
+	}
 </script>
 
 <Table.Root>
@@ -55,12 +56,11 @@
 			<Table.Row>
 				<Table.Cell>
 					<a
-						href={resolve('/assets/[id]', { id: asset.id })}
+						href={asset.href}
 						class="flex items-center gap-3"
-						title={asset.chains && asset.chains.length > 1
-							? asset.chains.map(chainName).join(', ')
-							: undefined}
+						title={asset.chains.length > 3 ? asset.chains.map(chainName).join(', ') : undefined}
 					>
+						1 ? asset.chains.map(chainName).join(', ') : undefined} >
 						<AssetIcon src={asset.icon} name={asset.name} class="size-7" />
 						<span>
 							<span class="block font-medium">{asset.name}</span>
@@ -81,7 +81,7 @@
 					{#if composition}<CompositionBar {composition} {assets} legend />{/if}
 				</Table.Cell>
 				{#if full}
-					{@const depth = chainDepth(links, asset.id)}
+					{@const depth = chainDepth(links, asset.members[0] ?? asset.id)}
 					<Table.Cell muted>
 						{asset.backing ? METHOD_NAMES[asset.backing] : '–'}
 					</Table.Cell>

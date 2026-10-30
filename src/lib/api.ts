@@ -23,6 +23,8 @@ export type DailySeries = [string, number][];
 
 export type AssetSummary = {
 	id: string;
+	/** The token this asset is a chain of, for products on several chains. */
+	token?: string | null;
 	name: string | null;
 	symbol: string | null;
 	system: string | null;
@@ -107,6 +109,40 @@ export type AssetSeries = {
 
 export type GroupSeries = { 'total-value-locked': DailySeries };
 
+/** One product on several chains, e.g. USDT. Its values are added up across its chain assets. */
+export type TokenSummary = {
+	id: string;
+	name: string | null;
+	symbol: string | null;
+	issuer: string | null;
+	tags: string[];
+	icon: string | null;
+	backing: BackingMethod | null;
+	/** Ids of its chain assets. */
+	assets: string[];
+	composition: { date: string; parts: Record<string, number> } | null;
+	'market-cap': Latest;
+	'collateralization-ratio': Latest;
+	collateral: Latest;
+};
+
+export type TokenDetails = {
+	name: string;
+	symbol: string;
+	identifier: string;
+	issuer: string;
+	reference: string | null;
+	tags: string[];
+	backing: BackingSource | null;
+};
+
+export type TokenSeries = {
+	'market-cap': DailySeries;
+	'collateralization-ratio': DailySeries;
+	collateral: DailySeries;
+	composition?: Record<string, DailySeries>;
+};
+
 export type AssetDetails = {
 	name: string;
 	symbol: string;
@@ -118,6 +154,8 @@ export type AssetDetails = {
 	backing: BackingSource | null;
 	/** Shown as a banner, e.g. for a discontinued token. Older API builds leave it out. */
 	warning?: { text: string; date: string; reference: string | null } | null;
+	/** The token this asset is a chain of. */
+	token?: string | null;
 	listed: string;
 	updated: string;
 };
@@ -192,6 +230,11 @@ export async function getAssets(fetch: Fetch) {
 
 export async function getEntities(fetch: Fetch) {
 	return (await get<{ entities: EntitySummary[] }>(fetch, '/entities/summary')).entities;
+}
+
+/** Tokens across chains. Empty where the API has none yet. */
+export async function getTokens(fetch: Fetch) {
+	return (await getOptional<{ tokens: TokenSummary[] }>(fetch, '/tokens/summary'))?.tokens ?? [];
 }
 
 export async function getSystems(fetch: Fetch) {
