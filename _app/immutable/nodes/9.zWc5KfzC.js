@@ -1,0 +1,1 @@
+import{t as e}from"../chunks/DK3Fl9T5.js";import{n as t}from"../chunks/uA_j_IVI.js";var n=e({load:()=>r}),r=()=>t(308,`/methodology`);export{n as universal};
