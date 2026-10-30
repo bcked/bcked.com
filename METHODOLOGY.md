@@ -5,6 +5,17 @@ collected by the open-source adapters in [bcked-adapters](https://github.com/bck
 stored as plain CSV files on its [`records` branch](https://github.com/bcked/bcked-adapters/tree/records)
 and published through the [bcked API](https://api.bcked.com/docs/).
 
+## Terms
+
+- **Backing** is what an issuer holds so that a token can be redeemed for a fixed amount of something
+  else. Backing reduces risk but is no guarantee: every token has its own risks.
+- **Reserve asset** is an asset at the end of a backing chain, like US dollars, Treasury bills, gold
+  or bitcoin.
+- **Backing chain** is the path from a token through the tokens and reserves behind it, for example
+  a token backed by WBTC, which is backed by bitcoin.
+- **Composition** is the mix of reserve assets behind a token, as shares of the total or in US dollars.
+- **Backing ratio** is the value of the backing divided by the market cap, see below.
+
 ## Backing
 
 Backing is what an issuer holds for a token: cash, government debt, gold, other tokens. It is recorded
@@ -15,8 +26,8 @@ with the price at any time.
   contract.
 - **Reported backing** comes from the issuers' attestation reports or reserve pages. Each report date is
   stored with the time the report states, converted to UTC. Reserve categories are mapped to assets as
-  closely as the report allows. Categories that do not name a specific asset are shown as "Undefined
-  USD denominated asset".
+  closely as the report allows. Categories that do not name a specific asset are shown as "Other
+  reserves (not broken down)", counted at their US dollar value.
 - **Reserves for several chains.** Some issuers report one reserve for a token on all chains (Tether,
   Circle). The token on one chain gets the share of the reserve that matches its share of the
   circulating supply on that day, based on [DefiLlama](https://defillama.com/stablecoins).
