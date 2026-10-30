@@ -177,8 +177,8 @@ export function nodeOrder(snapshots: GraphSnapshot[]): Map<string, number> {
  * colored paper. One hue per kind of reserve: green for cash, blues for US treasuries (darker for
  * longer maturities, lighter when issued), aqua for repos, gold, apricot for bitcoin, lavender for
  * ether, periwinkle for commercial paper, mint for money market funds, sky for non-US bills, slate
- * for corporate bonds, rose for secured loans, sage for equities, warm gray for reserves without a
- * breakdown.
+ * for corporate bonds, rose for secured loans, sage for equities, warm gray for reserves whose
+ * composition is not reported.
  */
 const COLORS: Record<string, string> = {
 	'rwa:USD': 'oklch(0.83 0.08 155)',
@@ -250,7 +250,7 @@ const SHORT: Record<string, string> = {
 	'rwa:CORPBOND': 'Corporate bonds',
 	'rwa:LOAN': 'Secured loans',
 	'rwa:EQUITY': 'Equities',
-	'rwa:undefined': 'Other'
+	'rwa:undefined': 'Not reported'
 };
 
 export function partName(id: string, assets: AssetSummary[]): string {

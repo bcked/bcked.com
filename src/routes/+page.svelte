@@ -93,7 +93,7 @@
 
 <NumberedSection
 	label="03 · History"
-	title="Where all tracked reserves sat, month by month"
+	title="Where all tracked reserves sat, week by week"
 	text="The end of every chain added up: cash, Treasuries, gold, bitcoin. Hover to read a month."
 >
 	<div class="rounded-xl border bg-card p-4">

@@ -40,7 +40,8 @@
 		<h1 class="text-3xl font-light tracking-tight">Issuers</h1>
 		<p class="mt-2 max-w-3xl text-muted-foreground">
 			Companies and protocols issuing the tracked tokens, with the reserves of their tokens and
-			where the numbers come from.
+			where the numbers come from, and the institutions issuing the reserve assets, like the Federal
+			Reserve for US dollars.
 		</p>
 		<div class="mt-8 overflow-x-auto rounded-xl border">
 			<Table.Root>
