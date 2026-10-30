@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { GraphSnapshot } from './api.ts';
-import { partColor, smoothReports } from './backing.ts';
+import { partColor, smoothReports, snapshotLinks } from './backing.ts';
 
 /** Weekly snapshots of one token backed by T-bills, from values per week. */
 function weeks(values: number[]): GraphSnapshot[] {
@@ -39,5 +39,19 @@ describe('partColor', () => {
 	it('uses a deeper shade of the same hue for thin parts', () => {
 		expect(partColor('rwa:USD')).toBe('oklch(0.83 0.08 155)');
 		expect(partColor('rwa:USD', 0, true)).toBe('oklch(0.67 0.128 155)');
+	});
+});
+
+describe('snapshotLinks', () => {
+	it('leaves out links with a recorded zero but keeps unknown values', () => {
+		const links = snapshotLinks({
+			date: '2026-06-30',
+			links: [
+				['token', 'rwa:USTB', 100],
+				['token', 'rwa:CP', 0],
+				['token', 'rwa:XAU', null]
+			]
+		});
+		expect(links.map((l) => l.target)).toEqual(['rwa:USTB', 'rwa:XAU']);
 	});
 });
