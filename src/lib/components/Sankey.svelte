@@ -102,6 +102,10 @@
 		return { graph, height };
 	});
 
+	/**
+	 * A link as a filled band between two curves. A thick stroke along one curve bulges past its
+	 * nodes where a wide link bends, the band keeps its edges where they belong.
+	 */
 	function linkPath(link: SankeyLink<Node, Link>): string {
 		const source = link.source as SankeyNode<Node, Link>;
 		const target = link.target as SankeyNode<Node, Link>;
@@ -109,8 +113,12 @@
 		const y1 = target.x0 ?? 0;
 		const x0 = link.y0 ?? 0;
 		const x1 = link.y1 ?? 0;
+		const half = Math.max(link.width ?? 0, 2) / 2;
 		const mid = (y0 + y1) / 2;
-		return `M${x0},${y0}C${x0},${mid} ${x1},${mid} ${x1},${y1}`;
+		return (
+			`M${x0 - half},${y0}C${x0 - half},${mid} ${x1 - half},${mid} ${x1 - half},${y1}` +
+			`L${x1 + half},${y1}C${x1 + half},${mid} ${x0 + half},${mid} ${x0 + half},${y0}Z`
+		);
 	}
 
 	/** Total recorded backing per backed asset, for the share of a link. */
@@ -162,10 +170,8 @@
 				{@const data = link as unknown as Link}
 				<path
 					d={linkPath(link)}
-					fill="none"
-					stroke={linkColor(data, link.width ?? 0)}
-					stroke-opacity={linkOpacity(i)}
-					stroke-width={Math.max(link.width ?? 0, 2)}
+					fill={linkColor(data, link.width ?? 0)}
+					fill-opacity={linkOpacity(i)}
 					role="presentation"
 					onpointermove={(event) =>
 						(hover = { kind: 'link', index: i, link: data, ...pointer(event) })}
