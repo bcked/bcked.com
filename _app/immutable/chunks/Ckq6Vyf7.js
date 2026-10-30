@@ -1,1 +1,0 @@
-import{Ft as e,It as t,Q as n,St as r,Z as i,f as a,p as o,z as s}from"./BILIwCXQ.js";import{c,l}from"./CZaIGj-A.js";import{O as u}from"./BQgeAQAw.js";var d=new Set([`$$slots`,`$$events`,`$$legacy`]);function f(f,p){t(p,!0);let m=u(),h=a(p,d);var g=n(),_=r(g),v=e=>{l(e,o(()=>h))},y=e=>{c(e,o(()=>h))};s(_,e=>{m===`svg`?e(v):m===`canvas`&&e(y,1)}),i(f,g),e()}export{f as default};
