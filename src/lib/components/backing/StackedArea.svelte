@@ -11,6 +11,7 @@
 	import { AreaChart } from 'layerchart';
 	import type { AssetSummary } from '#lib/api.ts';
 	import * as Chart from '#lib/components/ui/chart/index.ts';
+	import { finePointer, TapTooltip } from '#lib/pointer.svelte.ts';
 	import * as ToggleGroup from '#lib/components/ui/toggle-group/index.ts';
 	import Watermark from '#lib/components/Watermark.svelte';
 	import ColorDot from './ColorDot.svelte';
@@ -87,11 +88,16 @@
 	const total = (payload: { value?: unknown }[]) =>
 		payload.reduce((sum, p) => sum + (Number(p.value) || 0), 0);
 	const latest = $derived(points.at(-1));
+	const tap = new TapTooltip();
 </script>
 
 <div class="w-full">
 	<div class="mb-3 flex flex-wrap items-center justify-between gap-2">
-		<p class="text-xs text-muted-foreground">Hover for the mix at a date. Drag to zoom.</p>
+		<p class="text-xs text-muted-foreground">
+			{finePointer.current
+				? 'Hover for the mix at a date. Drag to zoom.'
+				: 'Tap for the mix at a date.'}
+		</p>
 		<ToggleGroup.Root
 			type="single"
 			bind:value={() => mode, (value) => value && (mode = value as Mode)}
@@ -108,12 +114,13 @@
 		<Chart.Container {config} class="relative aspect-auto h-72 w-full">
 			<Watermark />
 			<AreaChart
+				tooltipContext={tap.context}
 				data={rows}
 				x="date"
 				xScale={scaleUtc()}
 				{series}
 				seriesLayout={share ? 'stackExpand' : 'stack'}
-				brush
+				brush={finePointer.current}
 				props={{
 					area: {
 						curve: curveStepAfter,

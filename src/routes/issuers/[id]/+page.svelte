@@ -5,6 +5,7 @@
 	import HistoryChart from '#lib/components/HistoryChart.svelte';
 	import Watermark from '#lib/components/Watermark.svelte';
 	import * as Chart from '#lib/components/ui/chart/index.ts';
+	import { TapTooltip } from '#lib/pointer.svelte.ts';
 	import { scaleBand } from 'd3-scale';
 	import { BarChart } from 'layerchart';
 	import NumberedSection from '#lib/components/NumberedSection.svelte';
@@ -57,6 +58,7 @@
 		['Reports', reports.length ? reports.length.toString() : '–'],
 		['First report', reports.at(-1)?.report ?? '–']
 	]);
+	const tap = new TapTooltip();
 </script>
 
 <Seo
@@ -141,6 +143,7 @@
 		<Chart.Container config={perYearConfig} class="relative aspect-auto h-48 w-full">
 			<Watermark />
 			<BarChart
+				tooltipContext={tap.context}
 				data={perYearRows}
 				x="year"
 				xScale={scaleBand().padding(0.25)}

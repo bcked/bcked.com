@@ -8,6 +8,7 @@
 	import { AnnotationLine, Area, AreaChart } from 'layerchart';
 	import type { DailySeries } from '#lib/api.ts';
 	import * as Chart from '#lib/components/ui/chart/index.ts';
+	import { finePointer, TapTooltip } from '#lib/pointer.svelte.ts';
 	import Watermark from './Watermark.svelte';
 	import { formatDate, formatNum } from '#lib/format.ts';
 
@@ -38,11 +39,13 @@
 	const config = $derived({ value: { label, color: 'var(--primary)' } });
 	// The tooltip snippet is named formatter too, which hides the prop inside it.
 	const formatValue = (value: number) => formatter(value);
+	const tap = new TapTooltip();
 </script>
 
 <Chart.Container {config} class="relative aspect-auto h-full w-full">
 	<Watermark />
 	<AreaChart
+		tooltipContext={tap.context}
 		data={rows}
 		x="date"
 		y="value"
@@ -52,7 +55,7 @@
 		padding={{ top: 8, right: 8, bottom: 24, left: 56 }}
 		yPadding={[16, 16]}
 		series={[{ key: 'value', label, color: 'var(--color-value)' }]}
-		brush
+		brush={finePointer.current}
 		props={{
 			yAxis: { format: (v: number) => formatter(v) },
 			highlight: { points: { r: 4 } }
