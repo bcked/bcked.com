@@ -14,7 +14,6 @@ export const GET: RequestHandler = async ({ fetch }) => {
 		{ loc: '/assets', changefreq: 'daily' },
 		{ loc: '/issuers', changefreq: 'daily' },
 		{ loc: '/explore', changefreq: 'daily' },
-		{ loc: '/faq', changefreq: 'monthly' },
 		{ loc: '/about', changefreq: 'monthly' },
 		{ loc: '/methodology', changefreq: 'monthly' },
 		{ loc: '/legal-notice', changefreq: 'yearly' },

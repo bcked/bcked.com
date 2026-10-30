@@ -28,7 +28,6 @@
 	];
 
 	const bottomNavigation: NavigationItem[] = [
-		{ name: 'FAQ', path: resolve('/faq') },
 		{ name: 'About', path: resolve('/about') },
 		{ name: 'Methodology', path: resolve('/methodology') },
 		{ name: 'Legal Notice', path: resolve('/legal-notice') },

@@ -1,3 +1,4 @@
-import { faqs } from '#lib/content.ts';
+import { redirect } from '@sveltejs/kit';
 
-export const load = () => ({ faqs: faqs() });
+// The FAQ was folded into the terms on the methodology page.
+export const load = () => redirect(308, '/methodology');
