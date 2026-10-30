@@ -1,10 +1,12 @@
 <!--
   @component
-  Backing chains as a Sankey, with a time slider over every month of the graph series. Without a
+  Backing chains as a Sankey, with a time slider over every week of the graph series. Without a
   focus it shows all tracked tokens and has a side panel to search, filter and focus. With a focus it
   shows the chain through one asset: what it backs above, what backs it below.
-  With `url`, the focus and the month are kept in the query (`?focus=…&month=YYYY-MM`), so a chain at
-  a date can be linked.
+  Moving in time is continuous: values are interpolated between the weekly snapshots and nodes keep
+  a fixed order, so changes can be followed by eye.
+  With `url`, the focus and the date are kept in the query (`?focus=…&date=YYYY-MM-DD`), so a chain
+  at a date can be linked.
 -->
 <script lang="ts">
 	import { replaceState } from '$app/navigation';
@@ -12,39 +14,96 @@
 	import { page } from '$app/state';
 	import { onMount, untrack } from 'svelte';
 	import { ArrowUpRight, Pause, Play, X } from '@lucide/svelte';
-	import type { AssetSummary, GraphSeries } from '#lib/api.ts';
+	import type { AssetSummary, GraphSnapshot } from '#lib/api.ts';
 	import AssetIcon from '#lib/components/AssetIcon.svelte';
 	import Sankey from '#lib/components/Sankey.svelte';
 	import { Button } from '#lib/components/ui/button/index.ts';
 	import { Input } from '#lib/components/ui/input/index.ts';
 	import { Slider } from '#lib/components/ui/slider/index.ts';
 	import * as ToggleGroup from '#lib/components/ui/toggle-group/index.ts';
-	import { assetKind, exploreQuery, KIND_NAMES, monthLinks, type Kind } from '#lib/backing.ts';
+	import {
+		assetKind,
+		exploreQuery,
+		interpolateLinks,
+		KIND_NAMES,
+		nodeOrder,
+		type Kind
+	} from '#lib/backing.ts';
 	import { formatDate } from '#lib/format.ts';
 	import { chain, type GraphLink } from '#lib/graph.ts';
 
 	type Props = {
 		assets: AssetSummary[];
-		months: GraphSeries['months'];
+		snapshots: GraphSnapshot[];
 		/** Asset whose chain is shown, if any. */
 		focus?: string | null;
 		/** Side panel with search, filters and focus. */
 		panel?: boolean;
-		/** Keep the focus and the month in the URL query. Only on the Explore page. */
+		/** Keep the focus and the date in the URL query. Only on the Explore page. */
 		url?: boolean;
 	};
 
-	let { assets, months, focus: initialFocus = null, panel = true, url = false }: Props = $props();
+	let {
+		assets,
+		snapshots,
+		focus: initialFocus = null,
+		panel = true,
+		url = false
+	}: Props = $props();
 
 	// svelte-ignore state_referenced_locally
 	let focus: string | null = $state(initialFocus);
 	let query = $state('');
 	let kinds: Kind[] = $state(['stablecoin', 'rwa', 'wrapped']);
-	// svelte-ignore state_referenced_locally
-	let index = $state(months.length - 1);
-	let playing = $state(false);
 
-	const month = $derived(months[Math.min(index, months.length - 1)]);
+	const last = $derived(snapshots.length - 1);
+	/** Position in time as a fractional snapshot index, so motion between weeks is continuous. */
+	// svelte-ignore state_referenced_locally
+	let position = $state(snapshots.length - 1);
+	const index = $derived(Math.min(Math.round(position), last));
+	const snapshot = $derived(snapshots[index]);
+
+	/** Weeks per second while playing. */
+	let speed = $state('8');
+	let playing = $state(false);
+	let frame = 0;
+
+	function stop() {
+		cancelAnimationFrame(frame);
+		playing = false;
+	}
+
+	/** Glides from the current position to a target, for slider jumps. */
+	function glide(target: number) {
+		cancelAnimationFrame(frame);
+		playing = false;
+		const from = position;
+		const duration = Math.min(600, 150 + Math.abs(target - from) * 20);
+		const begin = performance.now();
+		const step = (now: number) => {
+			const t = Math.min((now - begin) / duration, 1);
+			const eased = 1 - (1 - t) ** 3;
+			position = from + (target - from) * eased;
+			if (t < 1) frame = requestAnimationFrame(step);
+		};
+		frame = requestAnimationFrame(step);
+	}
+
+	function play() {
+		cancelAnimationFrame(frame);
+		if (position >= last) position = 0;
+		playing = true;
+		let previous = performance.now();
+		const step = (now: number) => {
+			position = Math.min(position + ((now - previous) / 1000) * Number(speed), last);
+			previous = now;
+			if (position >= last) playing = false;
+			else frame = requestAnimationFrame(step);
+		};
+		frame = requestAnimationFrame(step);
+	}
+
+	$effect(() => () => cancelAnimationFrame(frame));
 
 	// The page is prerendered, so the query is only read in the browser, once mounted.
 	let mounted = $state(false);
@@ -56,15 +115,17 @@
 			const params = page.url.searchParams;
 			const focusParam = params.get('focus');
 			if (focusParam && assets.some((a) => a.id == focusParam)) focus = focusParam;
-			const monthParam = months.findIndex((m) => m.month == params.get('month'));
-			if (monthParam >= 0) index = monthParam;
+			// Older links name a month, they open on the last snapshot of that month.
+			const date = params.get('date') ?? params.get('month');
+			const found = date ? snapshots.findLastIndex((s) => s.date.startsWith(date)) : -1;
+			if (found >= 0) position = found;
 		}
 		mounted = true;
 	});
 
-	// The focus and the month as a query. The latest month is the default and left out.
+	// The focus and the date as a query. The latest date is the default and left out.
 	const urlQuery = $derived(
-		exploreQuery(focus, month && index < months.length - 1 ? month.month : null)
+		exploreQuery(focus, snapshot && !playing && index < last ? snapshot.date : null)
 	);
 	const exploreHref = $derived(`${resolve('/explore')}${urlQuery}`);
 
@@ -76,18 +137,9 @@
 		// eslint-disable-next-line svelte/no-navigation-without-resolve -- exploreHref is built with resolve()
 		replaceState(exploreHref, state);
 	});
-	const links = $derived(monthLinks(month));
+	const links = $derived(interpolateLinks(snapshots, position));
+	const order = $derived(nodeOrder(snapshots));
 	const byId = $derived(new Map(assets.map((a) => [a.id, a])));
-
-	// Step through the months while playing.
-	$effect(() => {
-		if (!playing) return;
-		const timer = setInterval(() => {
-			if (index >= months.length - 1) playing = false;
-			else index++;
-		}, 800);
-		return () => clearInterval(timer);
-	});
 
 	function dedupe(list: GraphLink[]): GraphLink[] {
 		const seen: Record<string, true> = {};
@@ -112,7 +164,7 @@
 
 	/** Assets in the current graph for the side panel, tokens first. */
 	const listed = $derived.by(() => {
-		const ids = new Set(links.flatMap((l) => [l.source, l.target]));
+		const ids = new Set(snapshot?.links.flatMap(([from, to]) => [from, to]) ?? []);
 		const q = query.trim().toLowerCase();
 		return [...ids]
 			.map((id) => byId.get(id))
@@ -121,15 +173,7 @@
 			.toSorted((a, b) => (b.collateral?.value ?? -1) - (a.collateral?.value ?? -1));
 	});
 
-	const label = $derived(
-		month
-			? new Date(`${month.month}-01T00:00:00Z`).toLocaleDateString('en-US', {
-					month: 'long',
-					year: 'numeric',
-					timeZone: 'UTC'
-				})
-			: ''
-	);
+	const label = $derived(snapshot ? formatDate(snapshot.date) : '');
 </script>
 
 <div class="grid gap-6 {panel ? 'lg:grid-cols-4' : ''}">
@@ -181,15 +225,29 @@
 				size="icon"
 				variant="outline"
 				aria-label={playing ? 'Pause' : 'Play the history'}
-				onclick={() => {
-					if (!playing && index >= months.length - 1) index = 0;
-					playing = !playing;
-				}}
+				onclick={() => (playing ? stop() : play())}
 			>
 				{#if playing}<Pause class="size-4" />{:else}<Play class="size-4" />{/if}
 			</Button>
+			<ToggleGroup.Root
+				type="single"
+				bind:value={() => speed, (value) => value && (speed = value)}
+				variant="outline"
+				size="sm"
+				aria-label="Playback speed"
+			>
+				<ToggleGroup.Item value="4" aria-label="4 weeks per second">1×</ToggleGroup.Item>
+				<ToggleGroup.Item value="8" aria-label="8 weeks per second">2×</ToggleGroup.Item>
+				<ToggleGroup.Item value="16" aria-label="16 weeks per second">4×</ToggleGroup.Item>
+			</ToggleGroup.Root>
 			<div class="min-w-48 grow">
-				<Slider type="single" bind:value={index} min={0} max={months.length - 1} step={1} />
+				<Slider
+					type="single"
+					bind:value={() => index, (value) => glide(value)}
+					min={0}
+					max={last}
+					step={1}
+				/>
 			</div>
 			<span class="w-32 text-right text-sm font-medium tabular-nums">{label}</span>
 			{#if focus && panel}
@@ -216,6 +274,7 @@
 					{assets}
 					href={(id) => resolve('/assets/[id]', { id })}
 					highlight={focus}
+					{order}
 				/>
 			{:else}
 				<p class="py-16 text-center text-sm text-muted-foreground">
@@ -229,8 +288,8 @@
 			{/if}
 		</div>
 		<p class="mt-2 text-xs text-muted-foreground">
-			Backing on {month ? formatDate(month.date) : '–'}, the last recorded day of {label}. Backing
-			from reports counts until the next report, for at most 140 days.
+			Backing on {label || '–'}, the last recorded day of its week. Backing from reports counts
+			until the next report, for at most 140 days.
 		</p>
 	</div>
 </div>

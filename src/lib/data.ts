@@ -13,6 +13,7 @@ import {
 	type AssetSeries,
 	type AssetSummary,
 	type GraphSeries,
+	type GraphWeekly,
 	type GroupSeries
 } from '#lib/api.ts';
 
@@ -30,9 +31,15 @@ export async function fetchSummaries(fetch: Fetch) {
 
 export type Summaries = Awaited<ReturnType<typeof fetchSummaries>>;
 
-/** The backing graph per month, links as [from, to, USD]. */
-export async function fetchGraphSeries(fetch: Fetch) {
-	return get<GraphSeries>(fetch, '/graphs/collateralization/series');
+/** The backing graph per week, links as [from, to, USD]. */
+export async function fetchGraphSeries(fetch: Fetch): Promise<GraphSeries> {
+	const { nodes, weeks } = await get<GraphWeekly>(fetch, '/graphs/collateralization/weekly');
+	return {
+		snapshots: weeks.map(({ date, links }) => ({
+			date,
+			links: links.map(([from, to, usd]) => [nodes[from]!, nodes[to]!, usd])
+		}))
+	};
 }
 
 /** Everything the asset page loads besides the summaries and the graph, or null if unknown. */

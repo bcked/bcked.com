@@ -7,7 +7,7 @@
 	import Sankey from '#lib/components/Sankey.svelte';
 	import Seo from '#lib/components/Seo.svelte';
 	import { Button } from '#lib/components/ui/button/index.ts';
-	import { monthLinks, reserveHistory } from '#lib/backing.ts';
+	import { snapshotLinks, reserveHistory } from '#lib/backing.ts';
 	import { formatCurrency } from '#lib/format.ts';
 	import { graphSeriesQuery, summariesQuery } from '#lib/queries.ts';
 	import type { PageProps } from './$types';
@@ -23,14 +23,14 @@
 			.toSorted((a, b) => (b['market-cap']?.value ?? 0) - (a['market-cap']?.value ?? 0))
 	);
 	const total = $derived(backed.reduce((sum, a) => sum + (a.collateral?.value ?? 0), 0));
-	const months = $derived(graph.data.months);
-	const history = $derived(reserveHistory(months));
+	const snapshots = $derived(graph.data.snapshots);
+	const history = $derived(reserveHistory(snapshots));
 	const reserveTypes = $derived(Object.keys(history.at(-1)?.parts ?? {}).length);
 	const metrics = $derived([
 		['Reserves recorded', formatCurrency(total)],
 		['Backed tokens', backed.length.toString()],
 		['Reserve assets', reserveTypes.toString()],
-		['Months of chain history', months.length.toString()]
+		['Months of chain history', new Set(snapshots.map((s) => s.date.slice(0, 7))).size.toString()]
 	]);
 </script>
 
@@ -80,7 +80,11 @@
 	muted
 >
 	<div class="rounded-xl border bg-card p-4">
-		<Sankey links={monthLinks(months.at(-1))} direction="down" assets={summaries.data.assets} />
+		<Sankey
+			links={snapshotLinks(snapshots.at(-1))}
+			direction="down"
+			assets={summaries.data.assets}
+		/>
 	</div>
 	<Button href={resolve('/explore')} variant="link" class="mt-2">
 		Explore the chains over time <ArrowRight class="size-4" />

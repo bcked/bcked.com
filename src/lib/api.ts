@@ -56,9 +56,17 @@ export type Report = { report: string; file: string; sha256: string; url: string
 export type AssetReports = { source: BackingSource | null; reports: Report[] };
 
 /** The backing graph of the last recorded day of every month, links as [from, to, USD]. */
-export type GraphSeries = {
-	months: { month: string; date: string; links: [string, string, number | null][] }[];
+/** The backing graph on one day, links as [from, to, USD]. */
+export type GraphSnapshot = { date: string; links: [string, string, number | null][] };
+
+/** The weekly graph as the API sends it, links as [from index, to index, USD] into `nodes`. */
+export type GraphWeekly = {
+	nodes: string[];
+	weeks: { date: string; links: [number, number, number | null][] }[];
 };
+
+/** The backing graph on the last recorded day of every week. */
+export type GraphSeries = { snapshots: GraphSnapshot[] };
 
 type GroupSummary = {
 	id: string;
