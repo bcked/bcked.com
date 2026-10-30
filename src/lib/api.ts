@@ -150,11 +150,31 @@ export function refId(ref: Ref): string {
 	return ref.$ref.split('/').at(-1)!;
 }
 
+/** Waits before each retry, in ms. About a minute in total, the time a deploy of the API takes. */
+const RETRY_DELAYS = [2000, 5000, 15000, 30000];
+
+/**
+ * A resource of the API. Network errors and server errors are retried: while the API is being
+ * deployed, GitHub Pages briefly answers without CORS headers, which failed whole site builds.
+ * A 404 is an answer and not retried.
+ */
 export async function get<T>(fetch: Fetch, path: string): Promise<T> {
 	const url = apiUrl(path.endsWith('/') ? path : `${path}/`);
-	const response = await fetch(url);
-	if (!response.ok) throw new Error(`API request failed with ${response.status}: ${url}`);
-	return (await response.json()) as T;
+	for (let attempt = 0; ; attempt++) {
+		let error: Error;
+		try {
+			const response = await fetch(url);
+			if (response.ok) return (await response.json()) as T;
+			error = new Error(`API request failed with ${response.status}: ${url}`);
+			if (response.status < 500) throw error;
+		} catch (caught) {
+			error = caught instanceof Error ? caught : new Error(String(caught));
+			if (error.message.startsWith('API request failed with 4')) throw error;
+		}
+		const delay = RETRY_DELAYS[attempt];
+		if (delay === undefined) throw error;
+		await new Promise((resolve) => setTimeout(resolve, delay));
+	}
 }
 
 /** Same as `get`, but returns `null` for missing resources. */
