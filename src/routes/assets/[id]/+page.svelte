@@ -89,6 +89,15 @@
 				: `Which tokens hold ${details.symbol}`
 	);
 	const explorer = $derived(system?.explorer ?? 'https://etherscan.io/address/');
+	/** A report period like 2026-06 as "Jun 2026". */
+	const reportPeriod = (period: string) =>
+		/^\d{4}-\d{2}$/.test(period)
+			? new Date(`${period}-01T00:00:00Z`).toLocaleDateString('en-US', {
+					month: 'short',
+					year: 'numeric',
+					timeZone: 'UTC'
+				})
+			: period;
 </script>
 
 <Seo
@@ -309,13 +318,21 @@
 	>
 		{#if source.method == 'reports'}
 			<div class="max-h-96 overflow-auto rounded-xl border bg-card">
-				<Table.Root>
+				<Table.Root class="table-fixed">
+					<Table.Header sticky>
+						<Table.Row>
+							<Table.Head class="w-28">Period</Table.Head>
+							<Table.Head>File</Table.Head>
+							<Table.Head class="hidden w-48 md:table-cell">SHA-256</Table.Head>
+							<Table.Head class="w-24 text-right">Source</Table.Head>
+						</Table.Row>
+					</Table.Header>
 					<Table.Body>
 						{#each reports as report (report.file)}
 							<Table.Row>
-								<Table.Cell numeric>{report.report}</Table.Cell>
-								<Table.Cell muted>{report.file}</Table.Cell>
-								<Table.Cell class="hidden md:table-cell" code muted title="SHA-256 of the report"
+								<Table.Cell numeric>{reportPeriod(report.report)}</Table.Cell>
+								<Table.Cell muted truncate title={report.file}>{report.file}</Table.Cell>
+								<Table.Cell class="hidden md:table-cell" code muted title={report.sha256}
 									>{report.sha256.slice(0, 16)}…</Table.Cell
 								>
 								<Table.Cell class="text-right">

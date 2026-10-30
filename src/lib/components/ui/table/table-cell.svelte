@@ -11,7 +11,9 @@
 			/** The headline figure of a row. */
 			emphasis: { true: 'text-lg font-light' },
 			/** Hashes and identifiers. */
-			code: { true: 'font-mono text-xs' }
+			code: { true: 'font-mono text-xs' },
+			/** Cut long text with an ellipsis, in a fixed table layout. */
+			truncate: { true: 'truncate' }
 		}
 	});
 
@@ -29,6 +31,7 @@
 		muted,
 		emphasis,
 		code,
+		truncate,
 		children,
 		...restProps
 	}: WithElementRef<HTMLTdAttributes> & TableCellVariants = $props();
@@ -37,7 +40,7 @@
 <td
 	bind:this={ref}
 	data-slot="table-cell"
-	class={cn(tableCellVariants({ numeric, muted, emphasis, code }), className)}
+	class={cn(tableCellVariants({ numeric, muted, emphasis, code, truncate }), className)}
 	{...restProps}
 >
 	{@render children?.()}

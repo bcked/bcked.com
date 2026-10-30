@@ -32,6 +32,9 @@
 
 	// svelte-ignore state_referenced_locally
 	let mode: Mode = $state(initialMode);
+	/** Stacked areas show the mix, lines compare each reserve asset on its own. */
+	let view = $state<'stacked' | 'lines'>('stacked');
+	const lines = $derived(view == 'lines');
 	const share = $derived(mode == 'share');
 
 	// Keys ordered by their largest value, largest at the bottom.
@@ -84,7 +87,8 @@
 		}
 		return new Set(keys.filter((k) => (peak[k] ?? 0) < THIN_SHARE));
 	});
-	const colorOf = (id: string, i: number) => partColor(id, i, thin.has(id));
+	// Lines use the deeper shade: a thin pastel line is hard to see.
+	const colorOf = (id: string, i: number) => partColor(id, i, lines || thin.has(id));
 
 	/** Reserve assets picked in the legend. Empty shows all. */
 	let picked: string[] = $state([]);
@@ -126,17 +130,31 @@
 				? 'Hover for the mix at a date. Drag to zoom.'
 				: 'Tap for the mix at a date.'}
 		</p>
-		<ToggleGroup.Root
-			type="single"
-			bind:value={() => mode, (value) => value && (mode = value as Mode)}
-			variant="outline"
-			size="sm"
-		>
-			<ToggleGroup.Item value="share" aria-label="Share of each reserve asset"
-				>Share</ToggleGroup.Item
+		<div class="flex flex-wrap gap-2">
+			<ToggleGroup.Root
+				type="single"
+				bind:value={() => view, (value) => value && (view = value as 'stacked' | 'lines')}
+				variant="outline"
+				size="sm"
+				aria-label="Chart type"
 			>
-			<ToggleGroup.Item value="usd" aria-label="Value in USD">USD</ToggleGroup.Item>
-		</ToggleGroup.Root>
+				<ToggleGroup.Item value="stacked" aria-label="Stacked areas">Stacked</ToggleGroup.Item>
+				<ToggleGroup.Item value="lines" aria-label="One line per reserve asset"
+					>Lines</ToggleGroup.Item
+				>
+			</ToggleGroup.Root>
+			<ToggleGroup.Root
+				type="single"
+				bind:value={() => mode, (value) => value && (mode = value as Mode)}
+				variant="outline"
+				size="sm"
+			>
+				<ToggleGroup.Item value="share" aria-label="Share of each reserve asset"
+					>Share</ToggleGroup.Item
+				>
+				<ToggleGroup.Item value="usd" aria-label="Value in USD">USD</ToggleGroup.Item>
+			</ToggleGroup.Root>
+		</div>
 	</div>
 	{#if rows.length}
 		<Chart.Container {config} class="relative aspect-auto h-72 w-full">
@@ -148,16 +166,16 @@
 				xScale={scaleUtc()}
 				{series}
 				bind:context
-				seriesLayout="stack"
-				yDomain={share ? [0, 1] : undefined}
+				seriesLayout={lines ? 'overlap' : 'stack'}
+				yDomain={share && !lines ? [0, 1] : undefined}
 				padding={{ top: 8, right: 8, bottom: 24, left: 56 }}
 				brush={finePointer.current}
 				props={{
 					area: {
 						curve: curveStepAfter,
-						fillOpacity: 1,
-						// A thin paper-colored line keeps neighboring pastels apart.
-						line: { class: 'stroke-background stroke-1' },
+						fillOpacity: lines ? 0 : 1,
+						// Stacked, a thin paper-colored line keeps neighboring pastels apart.
+						line: { class: lines ? 'stroke-2' : 'stroke-background stroke-1' },
 						defined: (d: { data?: Row } & Row) => !(d.data ?? d).gap
 					},
 					yAxis: {
