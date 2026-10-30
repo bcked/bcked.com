@@ -3,6 +3,10 @@
 	import AssetIcon from '#lib/components/AssetIcon.svelte';
 	import CompositionBar from '#lib/components/backing/CompositionBar.svelte';
 	import HistoryChart from '#lib/components/HistoryChart.svelte';
+	import Watermark from '#lib/components/Watermark.svelte';
+	import * as Chart from '#lib/components/ui/chart/index.ts';
+	import { scaleBand } from 'd3-scale';
+	import { BarChart } from 'layerchart';
 	import NumberedSection from '#lib/components/NumberedSection.svelte';
 	import Seo from '#lib/components/Seo.svelte';
 	import { summaryComposition, toComposition } from '#lib/backing.ts';
@@ -45,7 +49,8 @@
 			return [year, years[year] ?? 0] as const;
 		});
 	});
-	const maxPerYear = $derived(Math.max(1, ...perYear.map(([, n]) => n)));
+	const perYearRows = $derived(perYear.map(([year, reports]) => ({ year, reports })));
+	const perYearConfig = { reports: { label: 'Reports', color: 'var(--primary)' } };
 	const metrics = $derived([
 		['Reserves of tracked tokens', combined.total ? formatCurrency(combined.total) : '–'],
 		['Tracked tokens', tokens.length.toString()],
@@ -121,6 +126,7 @@
 	<div class="h-72 rounded-xl border bg-card p-2">
 		<HistoryChart
 			data={seriesQuery.data['total-value-locked']}
+			label="Tracked tokens"
 			formatter={(v) => formatCurrency(v)}
 		/>
 	</div>
@@ -132,17 +138,19 @@
 		title="{reports.length} reports since {perYear[0]?.[0]}"
 		text="How often {group.name} published the reports bcked reads, per year."
 	>
-		<div class="flex h-40 items-end gap-2">
-			{#each perYear as [year, n] (year)}
-				<div class="flex grow flex-col items-center gap-1">
-					<span class="text-xs text-muted-foreground tabular-nums">{n}</span>
-					<div
-						class="h-(--bar-height) w-full rounded-t {n ? 'bg-primary/70' : 'bg-muted'}"
-						style:--bar-height="{n ? (n / maxPerYear) * 120 : 2}px"
-					></div>
-					<span class="text-xs text-muted-foreground">{year}</span>
-				</div>
-			{/each}
-		</div>
+		<Chart.Container config={perYearConfig} class="relative aspect-auto h-48 w-full">
+			<Watermark />
+			<BarChart
+				data={perYearRows}
+				x="year"
+				xScale={scaleBand().padding(0.25)}
+				series={[{ key: 'reports', label: 'Reports', color: 'var(--color-reports)' }]}
+				props={{ bars: { radius: 4, class: 'fill-primary/70 stroke-none' }, yAxis: { ticks: 4 } }}
+			>
+				{#snippet tooltip()}
+					<Chart.Tooltip indicator="line" />
+				{/snippet}
+			</BarChart>
+		</Chart.Container>
 	</NumberedSection>
 {/if}
