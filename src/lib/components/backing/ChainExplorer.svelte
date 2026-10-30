@@ -21,6 +21,7 @@
 		ListFilter,
 		Pause,
 		Play,
+		Settings2,
 		X
 	} from '@lucide/svelte';
 	import type { AssetSummary, GraphSnapshot } from '#lib/api.ts';
@@ -370,6 +371,32 @@
 				Open in Explore <ArrowUpRight class="size-3.5" />
 			</Button>
 		{/if}
+		<Popover.Root>
+			<Popover.Trigger>
+				{#snippet child({ props })}
+					<Button {...props} size="icon-sm" variant="ghost" aria-label="Settings" class="ml-auto">
+						<Settings2 />
+					</Button>
+				{/snippet}
+			</Popover.Trigger>
+			<Popover.Content align="end">
+				<Popover.Header>
+					<Popover.Title>Settings</Popover.Title>
+				</Popover.Header>
+				<div class="flex items-start gap-3">
+					<Switch id="smooth-reports" bind:checked={smooth} />
+					<Label for="smooth-reports">
+						<span class="grid gap-1">
+							<span>Smooth between reports</span>
+							<span class="text-xs font-normal text-muted-foreground">
+								Backing from reports changes gradually from one report to the next, so values
+								between two reports are estimates.
+							</span>
+						</span>
+					</Label>
+				</div>
+			</Popover.Content>
+		</Popover.Root>
 	</div>
 	<div class="mt-4 rounded-xl border bg-card p-4">
 		{#if focus && backs.length}
@@ -398,17 +425,10 @@
 			</p>
 		{/if}
 	</div>
-	<div class="mt-3 flex items-center gap-2">
-		<Switch id="smooth-reports" bind:checked={smooth} />
-		<Label for="smooth-reports">
-			<span class="text-xs font-normal text-muted-foreground">
-				Smooth between reports. Backing from reports changes gradually from one report to the next,
-				so values between two reports are estimates.
-			</span>
-		</Label>
-	</div>
 	<p class="mt-2 text-xs text-muted-foreground">
 		Backing on {label || '–'}, the last recorded day of its week. Backing from reports counts until
-		the next report, for at most 140 days.
+		the next report, for at most 140 days.{smooth
+			? ' Between two reports the values are estimated, see the settings.'
+			: ''}
 	</p>
 </div>
