@@ -8,10 +8,11 @@
 <script lang="ts">
 	import { scaleUtc } from 'd3-scale';
 	import { curveStepAfter } from 'd3-shape';
-	import { AreaChart } from 'layerchart';
+	import { AreaChart, type ChartState } from 'layerchart';
 	import type { AssetSummary } from '#lib/api.ts';
 	import * as Chart from '#lib/components/ui/chart/index.ts';
 	import { finePointer, TapTooltip } from '#lib/pointer.svelte.ts';
+	import { Button } from '#lib/components/ui/button/index.ts';
 	import * as ToggleGroup from '#lib/components/ui/toggle-group/index.ts';
 	import Watermark from '#lib/components/Watermark.svelte';
 	import ColorDot from './ColorDot.svelte';
@@ -19,7 +20,7 @@
 	import { partColor, partName, THIN_SHARE, type CompositionPoint } from '#lib/backing.ts';
 
 	type Mode = 'share' | 'usd';
-	type Row = { date: Date; gap: boolean } & Record<string, number | Date | boolean>;
+	type Row = { date: Date; gap: boolean; total: number } & Record<string, number | Date | boolean>;
 	type Props = {
 		points: CompositionPoint[];
 		assets: AssetSummary[];
@@ -60,6 +61,7 @@
 			const row: Row = {
 				date,
 				gap: false,
+				total: keys.reduce((sum, k) => sum + (p.parts[k] ?? 0), 0),
 				...Object.fromEntries(keys.map((k) => [k, p.parts[k] ?? 0]))
 			};
 			const next = points[i + 1];
@@ -84,21 +86,35 @@
 	});
 	const colorOf = (id: string, i: number) => partColor(id, i, thin.has(id));
 
+	/** Reserve assets picked in the legend. Empty shows all. */
+	let picked: string[] = $state([]);
+	const shown = $derived(picked.length ? keys.filter((k) => picked.includes(k)) : keys);
+	function pick(id: string) {
+		picked = picked.includes(id) ? picked.filter((p) => p != id) : [...picked, id];
+	}
+
 	// Series keys must be valid CSS names for the chart colors, asset ids like rwa:USD are not.
+	// Shares are of all reserves, also when only some are shown, so they read the same either way.
 	const series = $derived(
-		keys.map((id, i) => ({
-			key: `s${i}`,
-			label: partName(id, assets),
-			value: (d: Row) => d[id] as number,
-			color: colorOf(id, i)
-		}))
+		shown.map((id) => {
+			const i = keys.indexOf(id);
+			return {
+				key: `s${i}`,
+				label: partName(id, assets),
+				value: (d: Row) =>
+					share ? (d.total ? (d[id] as number) / d.total : 0) : (d[id] as number),
+				color: colorOf(id, i),
+				id
+			};
+		})
 	);
+	/** The chart state, for the data row under the pointer in the tooltip. */
+	let context: ChartState<Row> | undefined = $state();
+	const idOf = (key: string) => series.find((s) => s.key == key)?.id ?? '';
 	const config = $derived(
 		Object.fromEntries(series.map((s) => [s.key, { label: s.label, color: s.color }]))
 	);
 
-	const total = (payload: { value?: unknown }[]) =>
-		payload.reduce((sum, p) => sum + (Number(p.value) || 0), 0);
 	const latest = $derived(points.at(-1));
 	const tap = new TapTooltip();
 </script>
@@ -131,7 +147,10 @@
 				x="date"
 				xScale={scaleUtc()}
 				{series}
-				seriesLayout={share ? 'stackExpand' : 'stack'}
+				bind:context
+				seriesLayout="stack"
+				yDomain={share ? [0, 1] : undefined}
+				padding={{ top: 8, right: 8, bottom: 24, left: 56 }}
 				brush={finePointer.current}
 				props={{
 					area: {
@@ -149,18 +168,17 @@
 			>
 				{#snippet tooltip()}
 					<Chart.Tooltip hideZero labelFormatter={(d: Date) => formatDate(d.toISOString())}>
-						{#snippet formatter({ item, name, value, payload })}
+						{#snippet formatter({ item, name })}
+							{@const row = context?.tooltip.data as Row | null | undefined}
+							{@const usd = row ? (row[idOf(item.key)] as number) : 0}
+							{@const part = row?.total ? usd / row.total : 0}
 							<ColorDot color={item.color ?? ''} />
 							<span class="text-muted-foreground">{name}</span>
 							<span class="ml-auto pl-4 font-medium tabular-nums">
-								{share
-									? formatPercentage(Number(value) / (total(payload) || 1), 1)
-									: formatCurrency(Number(value))}
+								{share ? formatPercentage(part, 1) : formatCurrency(usd)}
 							</span>
 							<span class="w-16 text-right text-muted-foreground tabular-nums">
-								{share
-									? formatCurrency(Number(value))
-									: formatPercentage(Number(value) / (total(payload) || 1), 1)}
+								{share ? formatCurrency(usd) : formatPercentage(part, 1)}
 							</span>
 						{/snippet}
 					</Chart.Tooltip>
@@ -169,14 +187,31 @@
 		</Chart.Container>
 	{/if}
 	{#if latest}
-		<div class="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-muted-foreground">
-			<span class="font-medium text-foreground">Latest, {formatDate(latest.date)}</span>
-			{#each keys.filter((k) => latest.parts[k]) as key, i (key)}
-				<span class="flex items-center gap-1.5">
-					<ColorDot color={colorOf(key, i)} />
+		<div class="mt-3 flex flex-wrap items-center gap-x-1 gap-y-1 text-xs text-muted-foreground">
+			<span class="mr-2 font-medium text-foreground">Latest, {formatDate(latest.date)}</span>
+			{#each keys.filter((k) => latest.parts[k]) as key (key)}
+				{@const on = !picked.length || picked.includes(key)}
+				<button
+					type="button"
+					aria-pressed={picked.includes(key)}
+					title={picked.includes(key) ? 'Hide' : 'Show only the picked'}
+					class="flex items-center gap-1.5 rounded-md px-1.5 py-0.5 hover:bg-muted {on
+						? ''
+						: 'opacity-40'} {picked.includes(key) ? 'bg-muted text-foreground' : ''}"
+					onclick={() => pick(key)}
+				>
+					<ColorDot color={colorOf(key, keys.indexOf(key))} />
 					{partName(key, assets)}
-				</span>
+				</button>
 			{/each}
+			{#if picked.length}
+				<Button size="xs" variant="ghost" onclick={() => (picked = [])}>Show all</Button>
+			{/if}
 		</div>
+		<p class="mt-1 text-xs text-muted-foreground">
+			{picked.length
+				? `Showing ${picked.length} of ${keys.length}. Shares are of all reserves.`
+				: 'Click reserve assets above to show only those.'}
+		</p>
 	{/if}
 </div>

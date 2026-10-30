@@ -30,6 +30,12 @@
 	const assets = $derived(summaries.data.assets);
 	const tokens = $derived(assets.filter((a) => a.linkedEntities.issuer == group.id));
 	const backed = $derived(tokens.filter((a) => a.backing));
+	/**
+	 * Issuers of backed tokens issue "tokens". Others, like the Federal Reserve or the US Treasury,
+	 * issue reserve assets, which are no tokens.
+	 */
+	const noun = $derived(backed.length ? 'tokens' : 'assets');
+	const Noun = $derived(backed.length ? 'Tokens' : 'Assets');
 	const combined = $derived.by(() => {
 		const parts: Record<string, number> = {};
 		for (const token of backed)
@@ -53,8 +59,10 @@
 	const perYearRows = $derived(perYear.map(([year, reports]) => ({ year, reports })));
 	const perYearConfig = { reports: { label: 'Reports', color: 'var(--primary)' } };
 	const metrics = $derived([
-		['Reserves of tracked tokens', combined.total ? formatCurrency(combined.total) : '–'],
-		['Tracked tokens', tokens.length.toString()],
+		...(backed.length
+			? [['Reserves of tracked tokens', combined.total ? formatCurrency(combined.total) : '–']]
+			: []),
+		[`Tracked ${noun}`, tokens.length.toString()],
 		['Reports', reports.length ? reports.length.toString() : '–'],
 		['First report', reports.at(-1)?.report ?? '–']
 	]);
@@ -62,8 +70,10 @@
 </script>
 
 <Seo
-	title="{group.name}: tokens, reserves and reports | bcked"
-	description="Tokens issued by {group.name}, their combined reserves and the reports behind them."
+	title="{group.name}: {backed.length ? 'tokens, reserves and reports' : 'issued assets'} | bcked"
+	description="{Noun} issued by {group.name}{backed.length
+		? ', their combined reserves and the reports behind them'
+		: ' and how much of them backs tracked tokens'}."
 />
 
 <div class="w-full bg-card">
@@ -84,7 +94,7 @@
 	</section>
 </div>
 
-<NumberedSection label="01 · Tokens" title="Tokens issued by {group.name}" muted>
+<NumberedSection label="01 · {Noun}" title="{Noun} issued by {group.name}" muted>
 	<div class="grid gap-4 sm:grid-cols-2">
 		{#each tokens as token (token.id)}
 			{@const ratio = token['collateralization-ratio']?.value}
@@ -124,11 +134,11 @@
 	</NumberedSection>
 {/if}
 
-<NumberedSection label="03 · Over time" title="Value of its tracked tokens" muted>
+<NumberedSection label="03 · Over time" title="Value of its tracked {noun}" muted>
 	<div class="h-72 rounded-xl border bg-card p-2">
 		<HistoryChart
 			data={seriesQuery.data['total-value-locked']}
-			label="Tracked tokens"
+			label="Tracked {noun}"
 			formatter={(v) => formatCurrency(v)}
 		/>
 	</div>
