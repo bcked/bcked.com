@@ -2,7 +2,7 @@
 	import { asset, resolve } from '$app/paths';
 	import { page } from '$app/state';
 	import { Menu } from '@lucide/svelte';
-	import type { AssetSummary, EntitySummary, SystemSummary } from '#lib/api.ts';
+	import type { AssetSummary, EntitySummary, SystemSummary, TokenSummary } from '#lib/api.ts';
 	import { Button } from '#lib/components/ui/button/index.ts';
 	import * as NavigationMenu from '#lib/components/ui/navigation-menu/index.ts';
 	import * as Sheet from '#lib/components/ui/sheet/index.ts';
@@ -11,12 +11,13 @@
 
 	type Props = {
 		assets: AssetSummary[];
+		tokens: TokenSummary[];
 		entities: EntitySummary[];
 		systems: SystemSummary[];
 		mainNavigation: NavigationItem[];
 	};
 
-	let { assets, entities, systems, mainNavigation }: Props = $props();
+	let { assets, tokens, entities, systems, mainNavigation }: Props = $props();
 
 	let open = $state(false);
 
@@ -49,7 +50,7 @@
 		</NavigationMenu.Root>
 
 		<div class="ml-auto w-full max-w-xs">
-			<Search {assets} {entities} {systems} />
+			<Search {assets} {tokens} {entities} {systems} />
 		</div>
 
 		<Sheet.Root bind:open>

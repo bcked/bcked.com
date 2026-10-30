@@ -17,7 +17,12 @@
 	const queryClient = createQueryClient();
 	setQueryClientContext(queryClient);
 	const summaries = summariesQuery(
-		() => ({ assets: data.assets, entities: data.entities, systems: data.systems }),
+		() => ({
+			assets: data.assets,
+			tokens: data.tokens,
+			entities: data.entities,
+			systems: data.systems
+		}),
 		() => queryClient
 	);
 
@@ -45,6 +50,7 @@
 
 <Header
 	assets={summaries.data.assets}
+	tokens={summaries.data.tokens}
 	entities={summaries.data.entities}
 	systems={summaries.data.systems}
 	{mainNavigation}

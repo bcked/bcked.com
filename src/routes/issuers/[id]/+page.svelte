@@ -10,7 +10,7 @@
 	import { BarChart } from 'layerchart';
 	import NumberedSection from '#lib/components/NumberedSection.svelte';
 	import Seo from '#lib/components/Seo.svelte';
-	import { summaryComposition, toComposition } from '#lib/backing.ts';
+	import { listRows, summaryComposition, toComposition } from '#lib/backing.ts';
 	import { formatCurrency, formatDate, formatPercentage } from '#lib/format.ts';
 	import { groupSeriesQuery, summariesQuery } from '#lib/queries.ts';
 	import type { PageProps } from './$types';
@@ -28,8 +28,26 @@
 		summaries.data.entities.find(({ id }) => id == data.group.id) ?? data.group
 	);
 	const assets = $derived(summaries.data.assets);
-	const tokens = $derived(assets.filter((a) => a.linkedEntities.issuer == group.id));
+	/**
+	 * What the issuer issues, one item per product: tokens across their chains, its backed assets
+	 * on one chain, and reserve assets (like US dollars for the Federal Reserve).
+	 */
+	const tokens = $derived([
+		...listRows(assets, summaries.data.tokens, {
+			token: (id) => resolve('/tokens/[id]', { id }),
+			asset: (id) => resolve('/assets/[id]', { id })
+		}).filter((row) => row.linkedEntities.issuer == group.id),
+		...assets
+			.filter((a) => a.linkedEntities.issuer == group.id && !a.backing)
+			.map((a) => ({
+				...a,
+				chains: [a.system ?? ''],
+				members: [a.id],
+				href: resolve('/assets/[id]', { id: a.id })
+			}))
+	]);
 	const backed = $derived(tokens.filter((a) => a.backing));
+	const chainName = (id: string) => summaries.data.systems.find((s) => s.id == id)?.name ?? id;
 	/**
 	 * Issuers of backed tokens issue "tokens". Others, like the Federal Reserve or the US Treasury,
 	 * issue reserve assets, which are no tokens.
@@ -99,13 +117,17 @@
 		{#each tokens as token (token.id)}
 			{@const ratio = token['collateralization-ratio']?.value}
 			{@const composition = summaryComposition(token)}
-			<a
-				href={resolve('/assets/[id]', { id: token.id })}
-				class="rounded-xl border bg-card p-5 hover:shadow-sm"
-			>
+			<a href={token.href} class="rounded-xl border bg-card p-5 hover:shadow-sm">
 				<div class="flex items-center gap-3">
 					<AssetIcon src={token.icon} name={token.name} class="size-7" />
-					<span class="font-medium">{token.name}</span>
+					<span class="min-w-0">
+						<span class="block font-medium">{token.name}</span>
+						{#if token.system != 'rwa'}
+							<span class="block truncate text-xs text-muted-foreground">
+								{token.symbol} on {token.chains.map(chainName).join(', ')}
+							</span>
+						{/if}
+					</span>
 					<span class="ml-auto text-xl font-light tabular-nums">
 						{ratio == null ? '–' : formatPercentage(ratio, 1)}
 					</span>

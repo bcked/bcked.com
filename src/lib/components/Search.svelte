@@ -7,21 +7,38 @@
 	import { resolve } from '$app/paths';
 	import { Search } from '@lucide/svelte';
 	import * as Command from '#lib/components/ui/command/index.ts';
-	import type { AssetSummary, EntitySummary, SystemSummary } from '#lib/api.ts';
+	import type { AssetSummary, EntitySummary, SystemSummary, TokenSummary } from '#lib/api.ts';
 	import AssetIcon from './AssetIcon.svelte';
 
-	type Props = { assets: AssetSummary[]; entities: EntitySummary[]; systems: SystemSummary[] };
+	type Props = {
+		assets: AssetSummary[];
+		tokens?: TokenSummary[];
+		entities: EntitySummary[];
+		systems: SystemSummary[];
+	};
 
-	let { assets, entities, systems }: Props = $props();
+	let { assets, tokens = [], entities, systems }: Props = $props();
+
+	const chainName = (id: string | null) => systems.find((s) => s.id == id)?.name ?? id ?? '';
 
 	let open = $state(false);
 
 	const groups = $derived([
 		{
+			heading: 'Tokens',
+			items: tokens.map((t) => ({
+				name: t.name ?? t.id,
+				detail: `${t.symbol ?? ''}, all ${t.assets.length} chains`,
+				icon: t.icon,
+				href: resolve('/tokens/[id]', { id: t.id })
+			}))
+		},
+		{
 			heading: 'Assets',
 			items: assets.map((a) => ({
 				name: a.name ?? a.id,
-				detail: a.symbol ?? '',
+				// Chains of a token say which chain, so they do not look like duplicates.
+				detail: a.token ? `${a.symbol} on ${chainName(a.system)}` : (a.symbol ?? ''),
 				icon: a.icon,
 				href: resolve('/assets/[id]', { id: a.id })
 			}))

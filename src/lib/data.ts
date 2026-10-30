@@ -8,25 +8,30 @@ import {
 	getEntities,
 	getOptional,
 	getSystems,
+	getTokens,
 	type AssetDetails,
 	type AssetReports,
 	type AssetSeries,
 	type AssetSummary,
 	type GraphSeries,
 	type GraphWeekly,
-	type GroupSeries
+	type GroupSeries,
+	type TokenDetails,
+	type TokenSeries,
+	type TokenSummary
 } from '#lib/api.ts';
 
 type Fetch = typeof fetch;
 
-/** Summaries of all assets, issuers and chains. */
+/** Summaries of all assets, tokens, issuers and chains. */
 export async function fetchSummaries(fetch: Fetch) {
-	const [assets, entities, systems] = await Promise.all([
+	const [assets, tokens, entities, systems] = await Promise.all([
 		getAssets(fetch),
+		getTokens(fetch),
 		getEntities(fetch),
 		getSystems(fetch)
 	]);
-	return { assets, entities, systems };
+	return { assets, tokens, entities, systems };
 }
 
 export type Summaries = Awaited<ReturnType<typeof fetchSummaries>>;
@@ -61,6 +66,20 @@ export async function fetchAssetPage(fetch: Fetch, assets: AssetSummary[], id: s
 }
 
 export type AssetPage = NonNullable<Awaited<ReturnType<typeof fetchAssetPage>>>;
+
+/** Everything the token page loads besides the summaries, or null if unknown. */
+export async function fetchTokenPage(fetch: Fetch, tokens: TokenSummary[], id: string) {
+	const token = tokens.find((t) => t.id == id);
+	if (!token) return null;
+	const [details, series, reports] = await Promise.all([
+		get<TokenDetails>(fetch, `/tokens/${id}/details`),
+		get<TokenSeries>(fetch, `/tokens/${id}/series`),
+		getOptional<AssetReports>(fetch, `/tokens/${id}/reports`)
+	]);
+	return { token, details, series, reports };
+}
+
+export type TokenPage = NonNullable<Awaited<ReturnType<typeof fetchTokenPage>>>;
 
 /** History of an issuer (entities) or a chain (systems). */
 export function fetchGroupSeries(fetch: Fetch, kind: 'entities' | 'systems', id: string) {
