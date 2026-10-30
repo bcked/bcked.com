@@ -125,6 +125,11 @@ backing for that period were filled with daily values from the sources below. WB
 rebuilt from the bitcoin transactions of its custodian addresses, and matches the recorded holdings
 on both ends of the gap.
 
+Tether published no reserve reports from November 2018 to January 2021. For that time bcked shows
+the monthly total assets from Tether's own transparency page, as archived by the
+[Wayback Machine](https://web.archive.org/web/2020/https://wallet.tether.to/transparency), as
+"Composition not reported". These totals are unaudited.
+
 If a value is wrong, please report it with the
 [correction form](https://github.com/bcked/bcked-adapters/issues/new?template=correction.yml).
 
