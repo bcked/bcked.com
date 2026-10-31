@@ -83,6 +83,13 @@
 	let focusOpen = $state(false);
 
 	const last = $derived(snapshots.length - 1);
+	/** First snapshot with data: of the focus if there is one, else of the whole graph. */
+	const first = $derived.by(() => {
+		const found = snapshots.findIndex((s) =>
+			focus ? s.links.some(([from, to]) => from == focus || to == focus) : s.links.length > 0
+		);
+		return found < 0 ? 0 : Math.min(found, last);
+	});
 	/** Position in time as a fractional snapshot index, so motion between weeks is continuous. */
 	// svelte-ignore state_referenced_locally
 	let position = $state(snapshots.length - 1);
@@ -117,7 +124,7 @@
 
 	function play() {
 		cancelAnimationFrame(frame);
-		if (position >= last) position = 0;
+		if (position >= last || position < first) position = first;
 		playing = true;
 		let previous = performance.now();
 		const step = (now: number) => {
@@ -367,7 +374,7 @@
 			<Slider
 				type="single"
 				bind:value={() => index, (value) => glide(value)}
-				min={0}
+				min={first}
 				max={last}
 				step={1}
 			/>
