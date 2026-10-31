@@ -149,6 +149,11 @@
 		);
 	}
 
+	/** Wide links first, so thin links are drawn on top of them and stay visible. */
+	const linksByWidth = $derived(
+		layout ? layout.graph.links.toSorted((a, b) => (b.width ?? 0) - (a.width ?? 0)) : []
+	);
+
 	/** Total recorded backing per backed asset, for the share of a link. */
 	const backingTotal = $derived.by(() => {
 		const totals: Record<string, number> = {};
@@ -194,7 +199,7 @@
 			aria-label="Backing chain"
 			onpointerleave={() => (hover = null)}
 		>
-			{#each layout.graph.links as link, i (`${(link as unknown as Link).backed}>${(link as unknown as Link).under}`)}
+			{#each linksByWidth as link, i (`${(link as unknown as Link).backed}>${(link as unknown as Link).under}`)}
 				{@const data = link as unknown as Link}
 				<path
 					d={linkPath(link)}
