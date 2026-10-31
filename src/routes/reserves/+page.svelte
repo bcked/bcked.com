@@ -112,7 +112,8 @@
 		</div>
 		<p class="mt-2 text-xs text-muted-foreground">
 			"1 year" compares with the same week a year earlier. "Not reported" holds reserves whose
-			composition the issuer does not report.
+			composition the issuer does not report. "Not traced yet" holds reserves that are disclosed but
+			that bcked does not read yet.
 		</p>
 	</section>
 </div>

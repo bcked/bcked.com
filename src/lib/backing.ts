@@ -198,7 +198,8 @@ const COLORS: Record<string, string> = {
 	'rwa:CORPBOND': 'oklch(0.72 0.05 240)',
 	'rwa:LOAN': 'oklch(0.8 0.08 15)',
 	'rwa:EQUITY': 'oklch(0.84 0.07 125)',
-	'rwa:undefined': 'oklch(0.9 0.01 80)'
+	'rwa:undefined': 'oklch(0.9 0.01 80)',
+	'rwa:UNTRACKED': 'oklch(0.86 0.03 290)'
 };
 const FALLBACK = [
 	'oklch(0.8 0.08 15)',
@@ -250,7 +251,8 @@ const SHORT: Record<string, string> = {
 	'rwa:CORPBOND': 'Corporate bonds',
 	'rwa:LOAN': 'Secured loans',
 	'rwa:EQUITY': 'Equities',
-	'rwa:undefined': 'Not reported'
+	'rwa:undefined': 'Not reported',
+	'rwa:UNTRACKED': 'Not traced yet'
 };
 
 export function partName(id: string, assets: AssetSummary[]): string {
