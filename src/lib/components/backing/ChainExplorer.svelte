@@ -45,7 +45,7 @@
 		type Kind
 	} from '#lib/backing.ts';
 	import { formatCurrency, formatDate } from '#lib/format.ts';
-	import { chain, type GraphLink } from '#lib/graph.ts';
+	import { chain, scaleChain, type GraphLink } from '#lib/graph.ts';
 
 	type Props = {
 		assets: AssetSummary[];
@@ -183,7 +183,7 @@
 	}
 
 	const backs = $derived(focus ? chain(links, focus, 'up') : []);
-	const backedBy = $derived(focus ? chain(links, focus, 'down') : []);
+	const backedBy = $derived(focus ? scaleChain(chain(links, focus, 'down'), links, focus) : []);
 	const visible = $derived.by(() => {
 		if (focus) return dedupe([...backs, ...backedBy]);
 		const roots = [...new Set(links.map((l) => l.source))].filter(

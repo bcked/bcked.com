@@ -41,3 +41,33 @@ export function chain(links: GraphLink[], start: string, direction: 'down' | 'up
 	}
 	return result;
 }
+
+/**
+ * Scales the underlying chain of `start` to what `start` holds. Below the first level, a link of an
+ * asset counts with the share of that asset that flows from `start`: DAI holding 2% of USDC gets 2% of
+ * USDC's reserves, not all of them. `links` is the whole graph, which gives each asset's total.
+ */
+export function scaleChain(downChain: GraphLink[], links: GraphLink[], start: string): GraphLink[] {
+	const total = new Map<string, number>();
+	for (const link of links) total.set(link.source, (total.get(link.source) ?? 0) + (link.usd ?? 0));
+
+	// Value of each asset that comes from `start`, in topological order of the chain (it is a DAG).
+	const inflow = new Map<string, number>([[start, total.get(start) ?? 0]]);
+	const pending = new Map<string, number>();
+	for (const link of downChain) pending.set(link.target, (pending.get(link.target) ?? 0) + 1);
+	const queue = [start];
+	const scaled = new Map<GraphLink, GraphLink>();
+	while (queue.length) {
+		const id = queue.shift()!;
+		const share = id == start ? 1 : (inflow.get(id) ?? 0) / (total.get(id) || Infinity);
+		for (const link of downChain.filter((l) => l.source == id)) {
+			const usd = link.usd === null ? null : link.usd * share;
+			scaled.set(link, { ...link, usd });
+			inflow.set(link.target, (inflow.get(link.target) ?? 0) + (usd ?? 0));
+			const left = pending.get(link.target)! - 1;
+			pending.set(link.target, left);
+			if (left == 0) queue.push(link.target);
+		}
+	}
+	return downChain.map((link) => scaled.get(link) ?? link);
+}
