@@ -100,8 +100,30 @@
 			nodes: ids.map((id) => ({ id })),
 			links: oriented.map((l) => ({ ...l }))
 		});
+		centerLinks(graph.nodes);
 		return { graph, height };
 	});
+
+	/**
+	 * d3-sankey stacks a node's links from its start edge. Where they are narrower than the node,
+	 * e.g. small inflows into a node with a large outflow, they would all leave from its corner.
+	 * Each side's stack is moved to the middle of the node instead.
+	 */
+	function centerLinks(nodes: SankeyNode<Node, Link>[]) {
+		for (const node of nodes) {
+			const size = (node.y1 ?? 0) - (node.y0 ?? 0);
+			const sides = [
+				[(node.sourceLinks ?? []) as SankeyLink<Node, Link>[], 'y0'],
+				[(node.targetLinks ?? []) as SankeyLink<Node, Link>[], 'y1']
+			] as const;
+			for (const [links, end] of sides) {
+				const used = links.reduce((sum, link) => sum + (link.width ?? 0), 0);
+				const shift = (size - used) / 2;
+				if (shift <= 0) continue;
+				for (const link of links) link[end] = (link[end] ?? 0) + shift;
+			}
+		}
+	}
 
 	/** Points along a link, for its band. More points give smoother edges. */
 	const BAND_STEPS = 32;
