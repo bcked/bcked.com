@@ -26,7 +26,7 @@
 		<div class="text-center">
 			<p class="text-base text-muted-foreground">&copy; 2022-2026 bcked.com</p>
 			<p class="mt-1 text-xs text-muted-foreground">
-				Data from DefiLlama, issuer reports and more, powered by Etherscan.io APIs.
+				Data from issuer reports, Chainlink feeds and on-chain sources.
 				<a href="/methodology" class="underline hover:text-foreground">Sources</a>
 			</p>
 		</div>
