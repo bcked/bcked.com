@@ -69,8 +69,7 @@ See the [privacy policy](/privacy).
 `,s=`# Methodology
 
 bcked records three things for every tracked token: its price, its supply and its backing. All data is
-collected by the open-source adapters in [bcked-adapters](https://github.com/bcked/bcked-adapters),
-stored as plain CSV files on its [\`records\` branch](https://github.com/bcked/bcked-adapters/tree/records)
+collected by the open-source adapters in [bcked-adapters](https://github.com/bcked/bcked-adapters)
 and published through the [bcked API](https://api.bcked.com/docs/).
 
 ## Terms
@@ -100,8 +99,8 @@ with the price at any time.
   "Composition not reported": Tether's "other investments", sums of several kinds of assets in one
   line, and periods where a report only states the total.
 - **Reserves for several chains.** Some issuers report one reserve for a token on all chains (Tether,
-  Circle). The token on one chain gets the share of the reserve that matches its share of the
-  circulating supply on that day, based on [DefiLlama](https://defillama.com/stablecoins).
+  Circle, Paxos). The token on one chain gets the share of the reserve that matches its share of the
+  tokens outstanding at the report date: its supply on that chain over the total the issuer reports.
 
 Every backing value is shown with the date it refers to. Reports appear monthly or quarterly, so the
 backing of some tokens is weeks or months older than their price. The asset page says so when the
@@ -135,19 +134,19 @@ If a value is wrong, please report it with the
 
 ## Sources
 
-- Prices and stablecoin supply: [DefiLlama](https://defillama.com/), [DexScreener](https://dexscreener.com/)
-- Ethereum data: Powered by [Etherscan.io APIs](https://etherscan.io/apis), [Alchemy](https://www.alchemy.com/)
-- Bitcoin: [BitGo](https://www.bitgo.com/) (price), [Blockstream](https://blockstream.info/) (block height)
-- WBTC custody: [wbtc.network](https://wbtc.network/)
+- Prices: [Chainlink Data Feeds](https://docs.chain.link/data-feeds), read on-chain on Ethereum
+- Supply: the token contracts on each chain, read on-chain through [Alchemy](https://www.alchemy.com/) and
+  the chains' public RPCs. USDT per chain from [Tether's figures](https://tether.to/en/transparency/).
+  ETH supply from [ultrasound.money](https://ultrasound.money/)
+- Bitcoin: [mempool.space](https://mempool.space/) (price), [Blockstream](https://blockstream.info/) (block height)
+- WBTC custody: [Chainlink WBTC Proof of Reserves](https://data.chain.link/feeds/ethereum/mainnet/wbtc-por)
 - Reserves: [Tether](https://tether.to/en/transparency/), [Circle](https://www.circle.com/transparency),
-  [Paxos](https://paxos.com/), [BlackRock Circle Reserve Fund](https://www.blackrock.com/cash/en-us/products/329365/)
+  [Paxos](https://paxos.com/), and on-chain for DAI, USDS, stETH and wstETH
 - US dollar supply: [Federal Reserve H.6](https://www.federalreserve.gov/releases/h6/). Treasury
   securities: [TreasuryDirect](https://www.treasurydirect.gov/)
-- Gold supply: [USGS](https://www.usgs.gov/) until 2018, above-ground stock of the
-  [World Gold Council](https://www.gold.org/goldhub/data/how-much-gold) from 2019
-- Gold price: [Swissquote](https://www.swissquote.com/)
-- Backfill of the crawler gap: [mempool.space](https://mempool.space/), [ultrasound.money](https://ultrasound.money/),
-  [dRPC](https://drpc.org/), [currency-api](https://github.com/fawazahmed0/exchange-api)
+- Gold supply: [USGS](https://www.usgs.gov/) until 2018
+- Gold price: [Chainlink XAU/USD](https://data.chain.link/feeds/ethereum/mainnet/xau-usd),
+  [currency-api](https://github.com/fawazahmed0/exchange-api) for the history
 `,c=`# Privacy Policy
 
 _Last updated: October 29, 2026_
