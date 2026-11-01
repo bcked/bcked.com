@@ -141,7 +141,8 @@
 			<div>
 				<h2 class="text-lg font-medium">Open data and API</h2>
 				<p class="mt-1 text-muted-foreground">
-					All records are open source on GitHub and available as a free JSON API.
+					The code is open source on GitHub, and all data on the site is available as a free JSON
+					API.
 				</p>
 			</div>
 		</div>

@@ -425,11 +425,7 @@
 			</div>
 		{/if}
 		<p class="mt-4 text-sm">
-			<a
-				href="https://github.com/bcked/bcked-adapters/blob/records/assets/{asset.id}/records/backing.csv"
-				class="text-primary hover:underline">Recorded data</a
-			>
-			· <a href={resolve('/methodology')} class="text-primary hover:underline">Methodology</a>
+			<a href={resolve('/methodology')} class="text-primary hover:underline">Methodology</a>
 		</p>
 	</NumberedSection>
 {/if}
