@@ -129,14 +129,35 @@ the monthly total assets from Tether's own transparency page, as archived by the
 [Wayback Machine](https://web.archive.org/web/2020/https://wallet.tether.to/transparency), as
 "Composition not reported". These totals are unaudited.
 
+Chainlink feeds start at different dates. For report dates before a token's feed existed, and for
+BUSD, which never had one, the price is read on-chain from the [Uniswap](https://uniswap.org/) pool
+with the most liquidity at the block of the report time, if it held at least $1M, and converted to
+US dollars with the Chainlink ETH or USDC feed at the same block. USDG had no such pool on Ethereum
+before August 2025: from March to May 2025 its price is the median of executed swaps in the
+[Orca](https://www.orca.so/) USDG/USDC pool on Solana. PAXG before February 2021 and USDG before
+March 2025 traded on no pool with enough liquidity, so their backing ratio is not shown for those
+dates.
+
+The share of a token's reserves on each chain needs the token's supply on that chain at the report
+date. Where the report lists the tokens per chain (Paxos, since 2025), bcked uses those. Otherwise
+the supply is read from the chain at the report time, or taken from the issuer's own per-chain
+figures as archived by the Wayback Machine: [Tether's](https://app.tether.to/transparency.json) from
+2022, [Circle's](https://api.circle.com/v1/stablecoins) for USDC on Solana from 2024. Report dates
+without such figures have no backing for that chain.
+
 If a value is wrong, please report it with the
 [correction form](https://github.com/bcked/bcked-adapters/issues/new?template=correction.yml).
 
 ## Sources
 
-- Prices: [Chainlink Data Feeds](https://docs.chain.link/data-feeds), read on-chain on Ethereum
+- Prices: [Chainlink Data Feeds](https://docs.chain.link/data-feeds), read on-chain on Ethereum. Before a
+  feed existed: [Uniswap](https://uniswap.org/) pools on Ethereum and the [Orca](https://www.orca.so/)
+  USDG/USDC pool on Solana (see above)
 - Supply: the token contracts on each chain, read on-chain through [Alchemy](https://www.alchemy.com/) and
-  the chains' public RPCs. USDT per chain from [Tether's figures](https://tether.to/en/transparency/).
+  the chains' public RPCs, and past values through archive nodes ([dRPC](https://drpc.org/) and the
+  official Base RPC). USDT per chain from [Tether's figures](https://tether.to/en/transparency/), USDC
+  on Solana in the past from [Circle's figures](https://api.circle.com/v1/stablecoins), USDG and PYUSD
+  per chain from the Paxos reports.
   ETH supply from [ultrasound.money](https://ultrasound.money/)
 - Bitcoin: [mempool.space](https://mempool.space/) (price), [Blockstream](https://blockstream.info/) (block height)
 - WBTC custody: [Chainlink WBTC Proof of Reserves](https://data.chain.link/feeds/ethereum/mainnet/wbtc-por)
