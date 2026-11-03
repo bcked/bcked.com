@@ -95,12 +95,14 @@ with the price at any time.
   stored with the time the report states, converted to UTC. Reserve categories are mapped to assets as
   closely as the report allows. Commercial paper, money market funds, secured loans, equities and
   similar categories are their own reserve assets, counted at the US dollar value the report states.
-  Reserves whose composition the issuer does not report are shown as
-  "Composition not reported": Tether's "other investments", sums of several kinds of assets in one
-  line, and periods where a report only states the total.
-- **Reserves for several chains.** Some issuers report one reserve for a token on all chains (Tether,
-  Circle, Paxos). The token on one chain gets the share of the reserve that matches its share of the
-  tokens outstanding at the report date: its supply on that chain over the total the issuer reports.
+  Reserves whose composition the issuer does not report are shown as "Composition not reported":
+  items like "other investments", sums of several kinds of assets in one line, and periods where a
+  report only states the total.
+- **Reserves for several chains.** Some issuers report one reserve for a token on all its chains. The
+  token on one chain gets the share of the reserve that matches its share of the tokens outstanding at
+  the report date: its supply on that chain over the total the issuer reports. The supply per chain
+  comes from the report where it lists one, otherwise from the chain at the report time, otherwise
+  from the issuer's own published figures for that date.
 
 Every backing value is shown with the date it refers to. Reports appear monthly or quarterly, so the
 backing of some tokens is weeks or months older than their price. The asset page says so when the
@@ -117,57 +119,37 @@ are not circulating and not backed, so including them would understate the ratio
 "UNK" means the backing is unknown, not zero. bcked does not rate tokens or issuers, and a ratio is no
 statement about the safety of a token.
 
-## Gaps and corrections
+## Prices and supply
 
-From November 30, 2025 to October 27, 2026 the crawler did not run. Prices, supplies and on-chain
-backing for that period were filled with daily values from the sources below. WBTC backing was
-rebuilt from the bitcoin transactions of its custodian addresses, and matches the recorded holdings
-on both ends of the gap.
+Prices come from [Chainlink Data Feeds](https://docs.chain.link/data-feeds), read on-chain. For dates
+before a token's feed existed, the price is read on-chain from the decentralized exchange pool with
+the most liquidity at that time, if it held at least $1M, and converted to US dollars with a Chainlink
+feed at the same time. Supply is read from the token contract on each chain.
 
-Tether published no reserve reports from November 2018 to January 2021. For that time bcked shows
-the monthly total assets from Tether's own transparency page, as archived by the
-[Wayback Machine](https://web.archive.org/web/2020/https://wallet.tether.to/transparency), as
-"Composition not reported". These totals are unaudited.
+## Missing data and corrections
 
-Chainlink feeds start at different dates. For report dates before a token's feed existed, and for
-BUSD, which never had one, the price is read on-chain from the [Uniswap](https://uniswap.org/) pool
-with the most liquidity at the block of the report time, if it held at least $1M, and converted to
-US dollars with the Chainlink ETH or USDC feed at the same block. USDG had no such pool on Ethereum
-before August 2025: from March to May 2025 its price is the median of executed swaps in the
-[Orca](https://www.orca.so/) USDG/USDC pool on Solana. PAXG before February 2021 and USDG before
-March 2025 traded on no pool with enough liquidity, so their backing ratio is not shown for those
-dates.
-
-The share of a token's reserves on each chain needs the token's supply on that chain at the report
-date. Where the report lists the tokens per chain (Paxos, since 2025), bcked uses those. Otherwise
-the supply is read from the chain at the report time, or taken from the issuer's own per-chain
-figures as archived by the Wayback Machine: [Tether's](https://app.tether.to/transparency.json) from
-2022, [Circle's](https://api.circle.com/v1/stablecoins) for USDC on Solana from 2024. Report dates
-without such figures have no backing for that chain.
+A value bcked cannot take from a source it may use stays empty. It is never estimated or carried
+over from another date. Where a token's history has such a gap, or rests on figures the issuer did not
+audit, its page says so.
 
 If a value is wrong, please report it with the
 [correction form](https://github.com/bcked/bcked-adapters/issues/new?template=correction.yml).
 
 ## Sources
 
-- Prices: [Chainlink Data Feeds](https://docs.chain.link/data-feeds), read on-chain on Ethereum. Before a
-  feed existed: [Uniswap](https://uniswap.org/) pools on Ethereum and the [Orca](https://www.orca.so/)
-  USDG/USDC pool on Solana (see above)
-- Supply: the token contracts on each chain, read on-chain through [Alchemy](https://www.alchemy.com/) and
-  the chains' public RPCs, and past values through archive nodes ([dRPC](https://drpc.org/) and the
-  official Base RPC). USDT per chain from [Tether's figures](https://tether.to/en/transparency/), USDC
-  on Solana in the past from [Circle's figures](https://api.circle.com/v1/stablecoins), USDG and PYUSD
-  per chain from the Paxos reports.
-  ETH supply from [ultrasound.money](https://ultrasound.money/)
-- Bitcoin: [mempool.space](https://mempool.space/) (price), [Blockstream](https://blockstream.info/) (block height)
-- WBTC custody: [Chainlink WBTC Proof of Reserves](https://data.chain.link/feeds/ethereum/mainnet/wbtc-por)
-- Reserves: [Tether](https://tether.to/en/transparency/), [Circle](https://www.circle.com/transparency),
-  [Paxos](https://paxos.com/), and on-chain for DAI, USDS, stETH and wstETH
-- US dollar supply: [Federal Reserve H.6](https://www.federalreserve.gov/releases/h6/). Treasury
-  securities: [TreasuryDirect](https://www.treasurydirect.gov/)
-- Gold supply: [USGS](https://www.usgs.gov/) until 2018
-- Gold price: [Chainlink XAU/USD](https://data.chain.link/feeds/ethereum/mainnet/xau-usd),
-  [currency-api](https://github.com/fawazahmed0/exchange-api) for the history
+- Prices: [Chainlink Data Feeds](https://docs.chain.link/data-feeds) and, before a feed existed,
+  on-chain exchange pools such as [Uniswap](https://uniswap.org/)
+- Supply: the token contracts on each chain, read through [Alchemy](https://www.alchemy.com/) and the
+  chains' public RPCs, and the issuers' own figures per chain
+- Reserves: the attestation reports of [Tether](https://tether.to/en/transparency/),
+  [Circle](https://www.circle.com/transparency) and [Paxos](https://paxos.com/), the contracts that hold
+  on-chain backing, and [Chainlink Proof of Reserves](https://data.chain.link/feeds/ethereum/mainnet/wbtc-por)
+- Bitcoin: [mempool.space](https://mempool.space/) and [Blockstream](https://blockstream.info/)
+- US dollar and Treasury supply: [Federal Reserve H.6](https://www.federalreserve.gov/releases/h6/),
+  [TreasuryDirect](https://www.treasurydirect.gov/). Gold supply: [USGS](https://www.usgs.gov/)
+
+Every source, with what it is used for, is listed in
+[SOURCES.md](https://github.com/bcked/bcked-adapters/blob/main/SOURCES.md).
 `,c=`# Privacy Policy
 
 _Last updated: October 29, 2026_
