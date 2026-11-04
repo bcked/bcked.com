@@ -1,5 +1,11 @@
 /** Helpers for showing backing: composition, colors, names, kinds and chains. */
-import type { AssetSummary, DailySeries, GraphSnapshot, TokenSummary } from '#lib/api.ts';
+import type {
+	AssetSummary,
+	BackingMethod,
+	DailySeries,
+	GraphSnapshot,
+	TokenSummary
+} from '#lib/api.ts';
 import type { GraphLink } from '#lib/graph.ts';
 import { sankey, sankeyJustify } from 'd3-sankey';
 
@@ -279,8 +285,17 @@ export const KIND_NAMES: Record<Kind, string> = {
 export const METHOD_NAMES = {
 	reports: 'Issuer reports',
 	'on-chain': 'On-chain',
-	custodian: 'Custodian data'
+	custodian: 'Custodian data',
+	'not-tracked': 'Not tracked'
 } as const;
+
+/** Heading of the sources section for a backing source. */
+export function sourceTitle(method: BackingMethod, reports: number): string {
+	if (method == 'reports') return `${reports} reports behind these numbers`;
+	if (method == 'on-chain') return 'Read from the chain';
+	if (method == 'custodian') return 'Published by the custodian';
+	return 'Backing not tracked';
+}
 
 /** Number of levels from an asset down to the end of its backing chain. */
 export function chainDepth(links: GraphLink[], id: string): number {

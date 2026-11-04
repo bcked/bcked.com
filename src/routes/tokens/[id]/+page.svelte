@@ -11,6 +11,7 @@
 	import CompositionBar from '#lib/components/backing/CompositionBar.svelte';
 	import StackedArea from '#lib/components/backing/StackedArea.svelte';
 	import HistoryChart from '#lib/components/HistoryChart.svelte';
+	import NotTracked from '#lib/components/backing/NotTracked.svelte';
 	import NumberedSection from '#lib/components/NumberedSection.svelte';
 	import Seo from '#lib/components/Seo.svelte';
 	import { Badge } from '#lib/components/ui/badge/index.ts';
@@ -20,6 +21,7 @@
 		graphByToken,
 		graphNodes,
 		METHOD_NAMES,
+		sourceTitle,
 		partColor,
 		partName,
 		THIN_SHARE,
@@ -115,10 +117,14 @@
 						{#if reports[0]?.url}
 							· <a href={reports[0].url} class="underline hover:text-foreground">latest report</a>
 						{/if}
-						· <a href="#sources" class="underline hover:text-foreground">sources</a>
+						{#if source && source.method != 'not-tracked'}
+							· <a href="#sources" class="underline hover:text-foreground">sources</a>
+						{/if}
 					</p>
 				</div>
 			</div>
+		{:else if source?.method == 'not-tracked'}
+			<NotTracked {source} marketCap={token['market-cap']?.value ?? null} />
 		{/if}
 	</section>
 </div>
@@ -254,11 +260,11 @@
 	</NumberedSection>
 {/if}
 
-{#if source}
+{#if source && source.method != 'not-tracked'}
 	<NumberedSection
 		id="sources"
 		label="06 · Sources"
-		title="{reports.length} reports behind these numbers"
+		title={sourceTitle(source.method, reports.length)}
 		text={source.description}
 		muted
 	>

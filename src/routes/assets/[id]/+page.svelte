@@ -7,6 +7,7 @@
 	import CompositionBar from '#lib/components/backing/CompositionBar.svelte';
 	import StackedArea from '#lib/components/backing/StackedArea.svelte';
 	import HistoryChart from '#lib/components/HistoryChart.svelte';
+	import NotTracked from '#lib/components/backing/NotTracked.svelte';
 	import NumberedSection from '#lib/components/NumberedSection.svelte';
 	import Seo from '#lib/components/Seo.svelte';
 	import * as Alert from '#lib/components/ui/alert/index.ts';
@@ -18,6 +19,7 @@
 		graphByToken,
 		graphNodes,
 		METHOD_NAMES,
+		sourceTitle,
 		snapshotLinks,
 		partColor,
 		THIN_SHARE,
@@ -95,7 +97,7 @@
 			series['collateralization-ratio'].length > 0 && 'ratio',
 			composition && 'reserves',
 			holders.length > 0 && 'holders',
-			source && 'sources'
+			source && source.method != 'not-tracked' && 'sources'
 		].filter((s): s is string => !!s)
 	);
 	const label = (key: string, name: string) =>
@@ -145,7 +147,7 @@
 				</Alert.Description>
 			</Alert.Root>
 		{/if}
-		{#if !details.backing}
+		{#if !source}
 			<p class="text-sm font-medium text-primary">Reserve asset</p>
 		{/if}
 		<div class="mt-2 flex flex-wrap items-center gap-3">
@@ -200,10 +202,14 @@
 						{#if reports[0]?.url}
 							· <a href={reports[0].url} class="underline hover:text-foreground">latest report</a>
 						{/if}
-						· <a href="#sources" class="underline hover:text-foreground">sources</a>
+						{#if sections.includes('sources')}
+							· <a href="#sources" class="underline hover:text-foreground">sources</a>
+						{/if}
 					</p>
 				</div>
 			</div>
+		{:else if source?.method == 'not-tracked'}
+			<NotTracked {source} marketCap={asset['market-cap']?.value ?? null} />
 		{:else}
 			<dl class="mt-8 grid grid-cols-2 gap-8 sm:grid-cols-3">
 				<div>
@@ -361,11 +367,7 @@
 	<NumberedSection
 		id="sources"
 		label={label('sources', 'Sources')}
-		title={source.method == 'reports'
-			? `${reports.length} reports behind these numbers`
-			: source.method == 'on-chain'
-				? 'Read from the chain'
-				: 'Published by the custodian'}
+		title={sourceTitle(source.method, reports.length)}
 		text={source.description}
 		muted={muted('sources')}
 	>
