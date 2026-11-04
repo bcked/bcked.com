@@ -65,7 +65,8 @@
 							<span class="block font-medium">{asset.name}</span>
 							<span class="block text-xs text-muted-foreground">
 								{asset.symbol}
-								{where(asset)} · {formatCurrency(asset['market-cap']?.value ?? 0)} market cap
+								{where(asset)}
+								{#if asset['market-cap']}· {formatCurrency(asset['market-cap'].value)} market cap{/if}
 							</span>
 						</span>
 					</a>
@@ -74,7 +75,11 @@
 					{ratio == null ? '–' : formatPercentage(ratio, 1)}
 				</Table.Cell>
 				<Table.Cell class="text-right" numeric>
-					{formatCurrency(asset.collateral?.value ?? 0)}
+					{asset.collateral
+						? formatCurrency(asset.collateral.value)
+						: asset.backing == 'not-tracked'
+							? 'Not tracked'
+							: '–'}
 				</Table.Cell>
 				<Table.Cell class="whitespace-normal">
 					{#if composition}<CompositionBar {composition} {assets} legend />{/if}
