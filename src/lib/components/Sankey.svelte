@@ -1,16 +1,18 @@
 <!--
   @component
-  Vertical Sankey diagram of a backing chain, laid out with [d3-sankey](https://github.com/d3/d3-sankey).
+  Vertical Sankey diagram of a backing chain, laid out with [d3-sankey](https://github.com/d3/d3-sankey). Nodes
+  are aligned to the far side, so each token sits right above what it holds.
   The root asset is at the top, links flow downwards to underlying (or derivative) assets. Links
   take the color of the reserve asset they lead to. Hovering a link or a node shows its value.
 -->
 <script lang="ts">
 	import { resolve } from '$app/paths';
-	import { sankey, sankeyJustify, type SankeyLink, type SankeyNode } from 'd3-sankey';
+	import { sankey, sankeyRight, type SankeyLink, type SankeyNode } from 'd3-sankey';
 	import type { AssetSummary } from '#lib/api.ts';
 	import { hasPartColor, partColor, partName } from '#lib/backing.ts';
 	import { formatCurrency, formatPercentage } from '#lib/format.ts';
 	import type { GraphLink } from '#lib/graph.ts';
+	import { bandEdges, nodeValue } from '#lib/sankey.ts';
 	import AssetIcon from './AssetIcon.svelte';
 	import Watermark from './Watermark.svelte';
 
@@ -69,7 +71,7 @@
 
 		const generator = sankey<Node, Link>()
 			.nodeId((d) => d.id)
-			.nodeAlign(sankeyJustify)
+			.nodeAlign(sankeyRight)
 			.nodeWidth(nodeThickness)
 			.nodePadding(24);
 		if (order) {
@@ -125,15 +127,7 @@
 		}
 	}
 
-	/** Points along a link, for its band. More points give smoother edges. */
-	const BAND_STEPS = 32;
-
-	/**
-	 * A link as a filled band of the same width along its whole length. Its edges are the center curve
-	 * moved out to both sides along the curve's normal. Moving them sideways instead thins the band
-	 * where it runs sideways. A thick stroke would keep the width too, but bulges past its nodes where
-	 * a wide link bends. At the nodes the curve runs straight down, so the edges meet the node slots.
-	 */
+	/** A link as a filled band of the same width along its whole length, see bandEdges. */
 	function linkPath(link: SankeyLink<Node, Link>): string {
 		const source = link.source as SankeyNode<Node, Link>;
 		const target = link.target as SankeyNode<Node, Link>;
@@ -142,32 +136,15 @@
 		const x0 = link.y0 ?? 0;
 		const x1 = link.y1 ?? 0;
 		const half = Math.max(link.width ?? 0, 2) / 2;
-		const mid = (y0 + y1) / 2;
-
-		// Center curve: a cubic Bézier from (x0, y0) to (x1, y1) with control points (x0, mid) and (x1, mid).
-		const left: string[] = [];
-		const right: string[] = [];
-		for (let i = 0; i <= BAND_STEPS; i++) {
-			const t = i / BAND_STEPS;
-			const u = 1 - t;
-			const x = (u * u * u + 3 * u * u * t) * x0 + (3 * u * t * t + t * t * t) * x1;
-			const y = u * u * u * y0 + 3 * u * u * t * mid + 3 * u * t * t * mid + t * t * t * y1;
-			// Tangent of the curve, its normal is (dy, -dx).
-			const dx = 6 * u * t * (x1 - x0);
-			const dy = 3 * u * u * (mid - y0) + 3 * t * t * (y1 - mid);
-			const length = Math.hypot(dx, dy) || 1;
-			const nx = (dy / length) * half;
-			const ny = (-dx / length) * half;
-			left.push(`${x - nx},${y - ny}`);
-			right.push(`${x + nx},${y + ny}`);
-		}
+		const { left, right } = bandEdges(x0, y0, x1, y1, half);
+		const points = (edge: [number, number][]) => edge.map(([x, y]) => `${x},${y}`).join('L');
 		// Into the nodes by their corner radius, so no gap shows in the rounded corners. The nodes are
 		// drawn on top and cover the rest.
 		const a = y0 - radius;
 		const b = y1 + radius;
 		return (
-			`M${x0 - half},${a}L${left.join('L')}L${x1 - half},${b}` +
-			`L${x1 + half},${b}L${right.reverse().join('L')}L${x0 + half},${a}Z`
+			`M${x0 - half},${a}L${points(left)}L${x1 - half},${b}` +
+			`L${x1 + half},${b}L${points(right.reverse())}L${x0 + half},${a}Z`
 		);
 	}
 
@@ -201,13 +178,11 @@
 	const linkOpacity = (index: number) =>
 		hover?.kind == 'link' ? (hover.index == index ? 1 : 0.3) : 0.9;
 
-	function nodeValue(node: SankeyNode<Node, Link>): number | null {
-		const incoming = (node.targetLinks ?? []) as SankeyLink<Node, Link>[];
-		const outgoing = (node.sourceLinks ?? []) as SankeyLink<Node, Link>[];
-		const relevant = incoming.length ? incoming : outgoing;
-		const values = relevant.map((l) => (l as unknown as Link).usd);
-		return values.every((v) => v != null) ? values.reduce((a, b) => a! + b!, 0) : null;
-	}
+	const valueOf = (node: SankeyNode<Node, Link>) =>
+		nodeValue(
+			((node.targetLinks ?? []) as unknown as Link[]).map((l) => l.usd),
+			((node.sourceLinks ?? []) as unknown as Link[]).map((l) => l.usd)
+		);
 </script>
 
 <div class="relative w-full" bind:clientWidth={width} bind:this={container}>
@@ -235,7 +210,7 @@
 			{/each}
 			{#each layout.graph.nodes as node (node.id)}
 				{@const asset = byId.get(node.id)}
-				{@const value = nodeValue(node)}
+				{@const value = valueOf(node)}
 				{@const x = node.y0 ?? 0}
 				{@const y = node.x0 ?? 0}
 				{@const w = Math.max((node.y1 ?? 0) - x, 4)}
