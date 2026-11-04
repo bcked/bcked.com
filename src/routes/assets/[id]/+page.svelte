@@ -202,7 +202,9 @@
 						{#if reports[0]?.url}
 							· <a href={reports[0].url} class="underline hover:text-foreground">latest report</a>
 						{/if}
-						· <a href="#sources" class="underline hover:text-foreground">sources</a>
+						{#if sections.includes('sources')}
+							· <a href="#sources" class="underline hover:text-foreground">sources</a>
+						{/if}
 					</p>
 				</div>
 			</div>
