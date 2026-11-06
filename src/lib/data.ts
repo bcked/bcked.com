@@ -6,6 +6,7 @@ import {
 	get,
 	getAssets,
 	getEntities,
+	getIfFound,
 	getOptional,
 	getSystems,
 	getTokens,
@@ -58,10 +59,11 @@ export async function fetchAssetPage(fetch: Fetch, assets: AssetSummary[], id: s
 	const asset = assets.find((a) => a.id == id);
 	if (!asset) return null;
 	const [details, series, reports] = await Promise.all([
-		get<AssetDetails>(fetch, `/assets/${asset.id}/details`),
-		get<AssetSeries>(fetch, `/assets/${asset.id}/series`),
+		getIfFound<AssetDetails>(fetch, `/assets/${asset.id}/details`),
+		getIfFound<AssetSeries>(fetch, `/assets/${asset.id}/series`),
 		asset.backing ? getOptional<AssetReports>(fetch, `/assets/${asset.id}/reports`) : null
 	]);
+	if (!details || !series) return null;
 	return { asset, details, series, reports };
 }
 
@@ -72,10 +74,11 @@ export async function fetchTokenPage(fetch: Fetch, tokens: TokenSummary[], id: s
 	const token = tokens.find((t) => t.id == id);
 	if (!token) return null;
 	const [details, series, reports] = await Promise.all([
-		get<TokenDetails>(fetch, `/tokens/${id}/details`),
-		get<TokenSeries>(fetch, `/tokens/${id}/series`),
+		getIfFound<TokenDetails>(fetch, `/tokens/${id}/details`),
+		getIfFound<TokenSeries>(fetch, `/tokens/${id}/series`),
 		getOptional<AssetReports>(fetch, `/tokens/${id}/reports`)
 	]);
+	if (!details || !series) return null;
 	return { token, details, series, reports };
 }
 

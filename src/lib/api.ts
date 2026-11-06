@@ -224,6 +224,21 @@ export async function getOptional<T>(fetch: Fetch, path: string): Promise<T | nu
 	}
 }
 
+/**
+ * Like `get`, but null if the API answers 404. The asset list can name an asset whose own files are
+ * not deployed yet, and that page is then skipped instead of failing the build. Other errors still
+ * throw.
+ */
+export async function getIfFound<T>(fetch: Fetch, path: string): Promise<T | null> {
+	try {
+		return await get<T>(fetch, path);
+	} catch (error) {
+		if (error instanceof Error && error.message.startsWith('API request failed with 404'))
+			return null;
+		throw error;
+	}
+}
+
 export async function getAssets(fetch: Fetch) {
 	return (await get<{ assets: AssetSummary[] }>(fetch, '/assets/summary')).assets;
 }
