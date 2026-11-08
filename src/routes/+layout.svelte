@@ -29,7 +29,7 @@
 	const mainNavigation: NavigationItem[] = [
 		{ name: 'Explore', path: resolve('/explore') },
 		{ name: 'Tokens', path: resolve('/assets') },
-		{ name: 'Reserves', path: resolve('/reserves') },
+		{ name: 'Backing assets', path: resolve('/reserves') },
 		{ name: 'Issuers', path: resolve('/issuers') }
 	];
 

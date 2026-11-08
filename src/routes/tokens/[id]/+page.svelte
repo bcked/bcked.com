@@ -21,6 +21,7 @@
 		graphByToken,
 		graphNodes,
 		METHOD_NAMES,
+		recordsBacking,
 		sourceTitle,
 		partColor,
 		partName,
@@ -117,13 +118,13 @@
 						{#if reports[0]?.url}
 							· <a href={reports[0].url} class="underline hover:text-foreground">latest report</a>
 						{/if}
-						{#if source && source.method != 'not-tracked'}
+						{#if source && recordsBacking(source.method)}
 							· <a href="#sources" class="underline hover:text-foreground">sources</a>
 						{/if}
 					</p>
 				</div>
 			</div>
-		{:else if source?.method == 'not-tracked'}
+		{:else if source && !recordsBacking(source.method)}
 			<NotTracked {source} marketCap={token['market-cap']?.value ?? null} />
 		{/if}
 	</section>
@@ -260,7 +261,7 @@
 	</NumberedSection>
 {/if}
 
-{#if source && source.method != 'not-tracked'}
+{#if source && recordsBacking(source.method)}
 	<NumberedSection
 		id="sources"
 		label="06 · Sources"

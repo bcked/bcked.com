@@ -77,8 +77,8 @@
 				<Table.Cell class="text-right" numeric>
 					{asset.collateral
 						? formatCurrency(asset.collateral.value)
-						: asset.backing == 'not-tracked'
-							? 'Not tracked'
+						: asset.backing == 'not-tracked' || asset.backing == 'unbacked'
+							? METHOD_NAMES[asset.backing]
 							: '–'}
 				</Table.Cell>
 				<Table.Cell class="whitespace-normal">

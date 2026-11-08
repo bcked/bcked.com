@@ -4,6 +4,7 @@ import {
 	graphByToken,
 	listRows,
 	partColor,
+	reserveEnd,
 	reserveRows,
 	smoothReports,
 	snapshotLinks
@@ -65,21 +66,49 @@ describe('snapshotLinks', () => {
 
 describe('reserveRows', () => {
 	it('counts value passed through a token once, at the reserve asset', () => {
-		const rows = reserveRows([
-			{
-				date: '2026-06-30',
-				links: [
-					['usdt', 'rwa:USTB', 60],
-					['usdt', 'wbtc', 40],
-					['wbtc', 'bitcoin:BTC', 40]
-				]
-			}
-		]);
+		const rows = reserveRows(
+			[
+				{
+					date: '2026-06-30',
+					links: [
+						['usdt', 'rwa:USTB', 60],
+						['usdt', 'wbtc', 40],
+						['wbtc', 'bitcoin:BTC', 40]
+					]
+				}
+			],
+			reserveEnd([{ id: 'bitcoin:BTC', backing: 'unbacked' }])
+		);
 		expect(rows.map((r) => [r.id, r.usd, r.share])).toEqual([
 			['rwa:USTB', 60, 0.6],
 			['bitcoin:BTC', 40, 0.4]
 		]);
 		expect(rows[1]!.holders).toEqual([{ id: 'wbtc', usd: 40 }]);
+	});
+
+	it('counts tokens whose backing is not traced as not traced yet, listing the tokens', () => {
+		const rows = reserveRows(
+			[
+				{
+					date: '2026-06-30',
+					links: [
+						['dai', 'rwa:LOAN', 50],
+						['dai', 'usde', 30],
+						['susde', 'usde', 10],
+						['usdt', 'rwa:UNTRACKED', 10]
+					]
+				}
+			],
+			reserveEnd([{ id: 'usde', backing: 'not-tracked' }])
+		);
+		expect(rows.map((r) => [r.id, r.usd])).toEqual([
+			['rwa:LOAN', 50],
+			['rwa:UNTRACKED', 50]
+		]);
+		expect(rows[1]!.holders).toEqual([
+			{ id: 'usde', usd: 40 },
+			{ id: 'usdt', usd: 10 }
+		]);
 	});
 });
 

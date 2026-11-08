@@ -12,6 +12,7 @@
 		graphNodes,
 		listRows,
 		snapshotLinks,
+		reserveEnd,
 		reserveHistory
 	} from '#lib/backing.ts';
 	import { formatCurrency } from '#lib/format.ts';
@@ -42,7 +43,7 @@
 	const byToken = $derived(graphByToken(graph.data, summaries.data.assets));
 	const nodes = $derived(graphNodes(summaries.data.assets, summaries.data.tokens));
 	const tokenIds = $derived(new Set(summaries.data.tokens.map((t) => t.id)));
-	const history = $derived(reserveHistory(snapshots));
+	const history = $derived(reserveHistory(snapshots, reserveEnd(summaries.data.assets)));
 	const reserveTypes = $derived(Object.keys(history.at(-1)?.parts ?? {}).length);
 	const metrics = $derived([
 		['Reserves recorded', formatCurrency(total)],

@@ -5,7 +5,7 @@
 	import Seo from '#lib/components/Seo.svelte';
 	import Sparkline from '#lib/components/Sparkline.svelte';
 	import * as Table from '#lib/components/ui/table/index.ts';
-	import { partColor, partName, reserveRows } from '#lib/backing.ts';
+	import { partColor, partName, reserveEnd, reserveRows } from '#lib/backing.ts';
 	import { formatCurrency, formatDate, formatPercentage } from '#lib/format.ts';
 	import { graphSeriesQuery, summariesQuery } from '#lib/queries.ts';
 	import type { PageProps } from './$types';
@@ -16,7 +16,7 @@
 	const graph = graphSeriesQuery(() => data.graph);
 	const assets = $derived(summaries.data.assets);
 	const byId = $derived(new Map(assets.map((a) => [a.id, a])));
-	const rows = $derived(reserveRows(graph.data.snapshots));
+	const rows = $derived(reserveRows(graph.data.snapshots, reserveEnd(assets)));
 	const total = $derived(rows.reduce((sum, r) => sum + r.usd, 0));
 	const date = $derived(graph.data.snapshots.at(-1)?.date);
 
@@ -26,24 +26,25 @@
 </script>
 
 <Seo
-	title="Reserve assets behind backed tokens | bcked"
-	description="Every reserve asset behind the tracked tokens: how much of it backs them, its share of all reserves, how it changed over the year and which tokens hold it."
+	title="Backing assets behind tracked tokens | bcked"
+	description="Every asset at the end of the backing chains of the tracked tokens: how much of it backs them, its share of all backing, how it changed over the year and which tokens hold it."
 />
 
 <div class="w-full bg-card">
 	<section class="mx-auto max-w-6xl px-4 pt-12 pb-16 sm:px-6 lg:px-8">
-		<h1 class="text-3xl font-light tracking-tight">Reserves</h1>
+		<h1 class="text-3xl font-light tracking-tight">Backing assets</h1>
 		<p class="mt-2 max-w-3xl text-muted-foreground">
-			What the tracked tokens are backed by in the end: {formatCurrency(total)} of reserve assets{date
+			What the tracked tokens are backed by in the end: {formatCurrency(total)} of backing assets{date
 				? ` on ${formatDate(date)}`
 				: ''}. Value passed through another token, like bitcoin through WBTC, counts once, at the
-			reserve asset.
+			backing asset. These are reserves held by issuers, loans and the collateral that secures them,
+			and coins like bitcoin that are not backed by other assets themselves.
 		</p>
 		<div class="mt-8 overflow-x-auto rounded-xl border">
 			<Table.Root>
 				<Table.Header>
 					<Table.Row>
-						<Table.Head>Reserve asset</Table.Head>
+						<Table.Head>Backing asset</Table.Head>
 						<Table.Head class="text-right">Value</Table.Head>
 						<Table.Head class="text-right">Share</Table.Head>
 						<Table.Head class="hidden text-right sm:table-cell">1 year</Table.Head>
@@ -113,7 +114,8 @@
 		<p class="mt-2 text-xs text-muted-foreground">
 			"1 year" compares with the same week a year earlier. "Not reported" holds reserves whose
 			composition the issuer does not report. "Not traced yet" holds reserves that are disclosed but
-			that bcked does not read yet.
+			that bcked does not read yet, and tokens whose own backing bcked does not trace yet. Those
+			tokens are listed under "Held by" for that row.
 		</p>
 	</section>
 </div>
