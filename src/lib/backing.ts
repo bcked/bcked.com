@@ -286,14 +286,21 @@ export const METHOD_NAMES = {
 	reports: 'Issuer reports',
 	'on-chain': 'On-chain',
 	custodian: 'Custodian data',
+	unbacked: 'Not backed',
 	'not-tracked': 'Not tracked'
 } as const;
+
+/** Whether a backing source records backing, so its sources can be listed. */
+export function recordsBacking(method: BackingMethod): boolean {
+	return method != 'not-tracked' && method != 'unbacked';
+}
 
 /** Heading of the sources section for a backing source. */
 export function sourceTitle(method: BackingMethod, reports: number): string {
 	if (method == 'reports') return `${reports} reports behind these numbers`;
 	if (method == 'on-chain') return 'Read from the chain';
 	if (method == 'custodian') return 'Published by the custodian';
+	if (method == 'unbacked') return 'Not backed';
 	return 'Backing not tracked';
 }
 
@@ -316,16 +323,41 @@ export function chainDepth(links: GraphLink[], id: string): number {
 	return depth;
 }
 
+/** Group of reserves that bcked does not trace to a reserve asset yet. */
+export const UNTRACED = 'rwa:UNTRACKED';
+
+/**
+ * Whether an asset at the end of a backing chain is a reserve asset: a real-world asset or an asset
+ * that is not backed by other assets (bitcoin, ether). A token whose own backing is not recorded is
+ * not one, its value goes to UNTRACED.
+ */
+export function reserveEnd(assets: { id: string; backing: BackingMethod | null }[]) {
+	const unbacked = new Set(assets.filter((a) => a.backing == 'unbacked').map((a) => a.id));
+	return (id: string) => id.startsWith('rwa:') || unbacked.has(id);
+}
+
+/** Reserve asset a link target at the end of a chain counts as. */
+function reserveOf(id: string, isEnd: (id: string) => boolean): string {
+	return isEnd(id) ? id : UNTRACED;
+}
+
 /**
  * All tracked backing by reserve asset per snapshot: the sum of links into assets that have no backing
- * themselves (the end of each chain), so value passed through a chain is counted once.
+ * themselves (the end of each chain), so value passed through a chain is counted once. Ends that are
+ * not reserve assets (see reserveEnd) count as UNTRACED.
  */
-export function reserveHistory(snapshots: GraphSnapshot[]): CompositionPoint[] {
+export function reserveHistory(
+	snapshots: GraphSnapshot[],
+	isEnd: (id: string) => boolean
+): CompositionPoint[] {
 	return snapshots.map((snapshot) => {
 		const sources = new Set(snapshot.links.map(([from]) => from));
 		const parts: Record<string, number> = {};
-		for (const [, to, usd] of snapshot.links)
-			if (!sources.has(to) && usd) parts[to] = (parts[to] ?? 0) + usd;
+		for (const [, to, usd] of snapshot.links) {
+			if (sources.has(to) || !usd) continue;
+			const id = reserveOf(to, isEnd);
+			parts[id] = (parts[id] ?? 0) + usd;
+		}
 		return { date: snapshot.date, parts };
 	});
 }
@@ -347,7 +379,10 @@ export type ReserveRow = {
 	yearAgo: number | null;
 	/** Weekly values over the last year, oldest first. */
 	trend: number[];
-	/** Tokens holding it directly, largest first. */
+	/**
+	 * Tokens holding it directly, largest first. For UNTRACED also the tokens whose own backing is not
+	 * traced.
+	 */
 	holders: { id: string; usd: number }[];
 };
 
@@ -355,8 +390,11 @@ export type ReserveRow = {
  * Reserve assets at the end of the backing chains in the latest snapshot, largest first. Value passed
  * through a chain (a token backed by WBTC, which is backed by bitcoin) counts once, at its end.
  */
-export function reserveRows(snapshots: GraphSnapshot[]): ReserveRow[] {
-	const history = reserveHistory(snapshots);
+export function reserveRows(
+	snapshots: GraphSnapshot[],
+	isEnd: (id: string) => boolean
+): ReserveRow[] {
+	const history = reserveHistory(snapshots, isEnd);
 	const latest = history.at(-1);
 	if (!latest) return [];
 	const total = Object.values(latest.parts).reduce((a, b) => a + b, 0);
@@ -366,12 +404,17 @@ export function reserveRows(snapshots: GraphSnapshot[]): ReserveRow[] {
 	const past = history.findLast((p) => p.date <= yearBefore);
 	const lastYear = history.filter((p) => p.date > yearBefore);
 	const links = snapshotLinks(snapshots.at(-1));
+	const sources = new Set(links.map((l) => l.source));
 	return Object.entries(latest.parts)
 		.filter(([, usd]) => usd > 0)
 		.map(([id, usd]) => {
 			const holders: Record<string, number> = {};
-			for (const l of links)
-				if (l.target == id) holders[l.source] = (holders[l.source] ?? 0) + (l.usd ?? 0);
+			for (const l of links) {
+				if (sources.has(l.target) || reserveOf(l.target, isEnd) != id) continue;
+				// A token at the end of a chain that is not a reserve asset is listed itself.
+				const holder = l.target == id ? l.source : l.target;
+				holders[holder] = (holders[holder] ?? 0) + (l.usd ?? 0);
+			}
 			return {
 				id,
 				usd,

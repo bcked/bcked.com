@@ -37,13 +37,16 @@ export type AssetSummary = {
 	'market-cap': Latest;
 	'collateralization-ratio': Latest;
 	collateral: Latest;
-	/** How the backing is obtained, for tokens. 'not-tracked' when no backing is recorded. */
+	/**
+	 * How the backing is obtained, for tokens. 'unbacked' when the asset is not backed by other assets
+	 * (a native coin), 'not-tracked' when it is backed but no backing is recorded.
+	 */
 	backing: BackingMethod | null;
 	/** USD value per underlying asset on the latest day with a breakdown. */
 	composition: { date: string; parts: Record<string, number> } | null;
 };
 
-export type BackingMethod = 'reports' | 'on-chain' | 'custodian' | 'not-tracked';
+export type BackingMethod = 'reports' | 'on-chain' | 'custodian' | 'unbacked' | 'not-tracked';
 
 export type BackingSource = {
 	method: BackingMethod;

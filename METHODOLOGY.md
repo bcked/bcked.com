@@ -9,7 +9,13 @@ and published through the [bcked API](https://api.bcked.com/docs/).
 - **Backing** is what an issuer holds so that a token can be redeemed for a fixed amount of something
   else. Backing reduces risk but is no guarantee: every token has its own risks.
 - **Reserve asset** is an asset at the end of a backing chain, like US dollars, Treasury bills, gold
-  or bitcoin.
+  or bitcoin. The backing assets page adds them up for all tracked tokens.
+- **Not backed** marks an asset that is not backed by other assets, like bitcoin, ether or a
+  governance token. Its value rests on supply and demand alone, the sense in which the
+  [IMF](https://www.imf.org/en/publications/fintech-notes/issues/2022/09/26/regulating-the-crypto-ecosystem-the-case-of-unbacked-crypto-assets-523715)
+  uses "unbacked crypto assets". It can still back other tokens, like bitcoin behind WBTC.
+- **Not tracked** marks a token that is backed, but whose backing bcked does not record yet. On the
+  backing assets page its value counts as "Not traced yet", not as a reserve asset.
 - **Backing chain** is the path from a token through the tokens and reserves behind it, for example
   a token backed by WBTC, which is backed by bitcoin.
 - **Composition** is the mix of reserve assets behind a token, as shares of the total or in US dollars.

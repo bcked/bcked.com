@@ -19,6 +19,7 @@
 		graphByToken,
 		graphNodes,
 		METHOD_NAMES,
+		recordsBacking,
 		sourceTitle,
 		snapshotLinks,
 		partColor,
@@ -97,7 +98,7 @@
 			series['collateralization-ratio'].length > 0 && 'ratio',
 			composition && 'reserves',
 			holders.length > 0 && 'holders',
-			source && source.method != 'not-tracked' && 'sources'
+			source && recordsBacking(source.method) && 'sources'
 		].filter((s): s is string => !!s)
 	);
 	const label = (key: string, name: string) =>
@@ -211,6 +212,9 @@
 		{:else if source?.method == 'not-tracked'}
 			<NotTracked {source} marketCap={asset['market-cap']?.value ?? null} />
 		{:else}
+			{#if source?.method == 'unbacked'}
+				<p class="mt-4 max-w-2xl text-sm text-muted-foreground">{source.description}</p>
+			{/if}
 			<dl class="mt-8 grid grid-cols-2 gap-8 sm:grid-cols-3">
 				<div>
 					<dd class="text-3xl font-light tabular-nums">{formatCurrency(held)}</dd>
