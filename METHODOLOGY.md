@@ -29,6 +29,10 @@ with the price at any time.
 
 - **On-chain backing** is read from the contracts that hold it, for example the ETH held by the WETH
   contract.
+- **Loans.** Some tokens are minted as loans against collateral, like DAI, USDS and GHO. Where each
+  loan type keeps its collateral in its own contract (the vaults of DAI and USDS), that collateral is
+  counted in full, also above the debt. Where the collateral is pooled with other lending, as on Aave
+  for GHO, or held off-chain, the loans are counted at their debt as "Loans".
 - **Reported backing** comes from the issuers' attestation reports or reserve pages. Each report date is
   stored with the time the report states, converted to UTC. Reserve categories are mapped to assets as
   closely as the report allows. Commercial paper, money market funds, secured loans, equities and
